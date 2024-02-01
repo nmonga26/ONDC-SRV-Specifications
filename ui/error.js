@@ -21,20 +21,17 @@ function addErrorSets(option) {
     const cell2 = document.createElement("td");
     const cell3 = document.createElement("td");
     const cell4 = document.createElement("td");
-    const cell5 = document.createElement("td");
 
     cell1.style.minWidth = "65px";
-    cell1.textContent = key["Code"];
-    cell2.textContent = key["Reason"];
-    cell3.textContent = key["Who can use code?"];
-    cell4.textContent = key["Usage"];
-    cell5.textContent = key["Action"];
+    cell1.textContent = key["code"];
+    cell2.textContent = key["From"];
+    cell3.textContent = key["Event"];
+    cell4.textContent = key["Description"];
 
     newRow.appendChild(cell1);
     newRow.appendChild(cell2);
     newRow.appendChild(cell3);
     newRow.appendChild(cell4);
-    newRow.appendChild(cell5);
     table.appendChild(newRow);
   });
 }
