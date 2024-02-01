@@ -153,9 +153,8 @@ async function loadFlow(flowName) {
         "</p>";
       mermaidDiv.appendChild(mermaidPane);
     }
-
-    flowDescription.appendChild(mermaidDiv);
   }
+  flowDescription.append(mermaidDiv);
   loadSteps(selectedFlow["steps"]);
 }
 
