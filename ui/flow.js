@@ -153,8 +153,14 @@ async function loadFlow(flowName) {
         "</p>";
       mermaidDiv.appendChild(mermaidPane);
     }
+<<<<<<< HEAD
   }
   flowDescription.append(mermaidDiv);
+=======
+
+    flowDescription.appendChild(mermaidDiv);
+  }
+>>>>>>> c7b2f88 (added error ui)
   loadSteps(selectedFlow["steps"]);
 }
 
