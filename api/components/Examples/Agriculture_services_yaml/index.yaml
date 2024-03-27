@@ -3,20 +3,13 @@ search:
     - $ref: "./search/search_by_item.yaml"
 select:
   examples:
-    - $ref: "./select/select_consultation.yaml"
-    - $ref: "./select/select_consultation_reschedule.yaml"
-    - $ref: "./select/select_service.yaml"
-    - $ref: "./select/select_service_customization.yaml"
+    - $ref: "./select/select.yaml"
 init:
   examples:
-    - $ref: "./init/init_consultation.yaml"
-    - $ref: "./init/init_service.yaml"
-    - $ref: "./init/init_service_customization.yaml"
+    - $ref: "./init/init.yaml"
 confirm:
   examples:
-    - $ref: "./confirm/confirm_consultation.yaml"
-    - $ref: "./confirm/confirm_service.yaml"
-    - $ref: "./confirm/confirm_service_customization.yaml"
+    - $ref: "./confirm/confirm.yaml"
 update:
   examples:
     - $ref: "./update/update_requote.yaml"
@@ -26,32 +19,24 @@ status:
 on_search:
   examples:
     - $ref: "./on_search/on_search.yaml"
-    - $ref: "./on_search/on_search_customized.yaml"
 on_select:
   examples:
-    - $ref: "./on_select/on_select_consultation_confirmed.yaml"
-    - $ref: "./on_select/on_select_consultation_rejected.yaml"
-    - $ref: "./on_select/on_select_service_confirmed.yaml"
-    - $ref: "./on_select/on_select_service_customization_confirmed.yaml"
-    - $ref: "./on_select/on_select_service_rejected.yaml"
+    - $ref: "./on_select/on_select.yaml"
 on_init:
   examples:
-    - $ref: "./on_init/on_init_consultation.yaml"
-    - $ref: "./on_init/on_init_service.yaml"
-    - $ref: "./on_init/on_init_service_customization.yaml"
+    - $ref: "./on_init/on_init.yaml"
 on_confirm:
   examples:
-    - $ref: "./on_confirm/on_confirm_consultation.yaml"
-    - $ref: "./on_confirm/on_confirm_service.yaml"
-    - $ref: "./on_confirm/on_confirm_service_customization.yaml"
+    - $ref: "./on_confirm/on_confirm.yaml"
 on_status:
   examples:
-    - $ref: "./on_status/on_status_Completed.yaml"
-    - $ref: "./on_status/on_status_In_Transit.yaml"
-    - $ref: "./on_status/on_status_Reached.yaml"
-    - $ref: "./on_status/on_status_Service_Started_customization.yaml"
-    - $ref: "./on_status/on_status_Service_Started.yaml"
-    - $ref: "./on_status/on_status_Reached_re-otp.yaml"
+    - $ref: "./on_status/on_status_transit.yaml"
+    - $ref: "./on_status/on_status_at_location.yaml"
+    - $ref: "./on_status/on_status_collected_by_agent.yaml"
+    - $ref: "./on_status/on_status_received_at_lab.yaml"
+    - $ref: "./on_status/on_status_test_completed.yaml"
+    - $ref: "./on_status/on_status_report_generated.yaml"
+    - $ref: "./on_status/on_status_completed.yaml"
 on_update:
   examples:
     - $ref: "./on_update/on_update_requote.yaml"

@@ -42,79 +42,98 @@ details:
 
 reference: if any
 steps:
-  - summary: Search based on the service required
+  - summary: Search based on the 
     api: search
-    description: Search intent sent by the buyer based on the service required - e.g. Sofa Cleaning
+    description: Search intent sent by the buyer based on the item required - e.g. Soil Testing
     reference: if any
     example:
       $ref: "../../Examples/Agriculture_services_yaml/search/search_by_item.yaml"
-  - summary: Returns the catalog specific to the search intent + available schedule
+  - summary: 
     api: on_search
-    description: Returns the catalog specific to the search intent + available schedule
+    description: 
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/on_search/on_search.yaml"
-  - summary: Buyer adds the service to cart + selects the schedule for the home service
+      $ref: "../../Examples/Agriculture_services_yaml/on_search/on_search.yaml"
+  - summary: 
     api: select
-    description: Buyer adds the service to cart + selects the schedule for the home service
+    description: 
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/select/select_service.yaml"
-  - summary: Seller confirms the schedule and returns the quote
+      $ref: "../../Examples/Agriculture_services_yaml/select/select.yaml"
+  - summary: 
     api: on_select
-    description: Seller confirms the schedule and returns the quote
+    description: 
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/on_select/on_select_service_confirmed.yaml"
-  - summary: Buyer initialises the order and provides billing details
+      $ref: "../../Examples/Agriculture_services_yaml/on_select/on_select.yaml"
+  - summary: 
     api: init
-    description: Buyer initialises the order and provides billing details
+    description: 
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/init/init_service.yaml"
-  - summary: Seller provides the final quotation and creates the draft contract
+      $ref: "../../Examples/Agriculture_services_yaml/init/init.yaml"
+  - summary:
     api: on_init
-    description: Seller provides the final quotation and creates the draft contract
+    description:
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/on_init/on_init_service.yaml"
-  - summary: Buyer makes the payment and creates the order
+      $ref: "../../Examples/Agriculture_services_yaml/on_init/on_init.yaml"
+  - summary: 
     api: confirm
-    description: Buyer makes the payment and creates the order
+    description: 
     example:
-      $ref: "../../Examples/Services_home_service_yaml/confirm/confirm_service.yaml"
-  - summary: Seller accepts the order
+      $ref: "../../Examples/Agriculture_services_yaml/confirm/confirm.yaml"
+  - summary: 
     api: on_confirm
-    description: Seller app sends an on_confirm call to the buyer app accepting the order
+    description: 
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/on_confirm/on_confirm_service.yaml"
-  - summary: Buyer requests for the status of the order
+      $ref: "../../Examples/Agriculture_services_yaml/on_confirm/on_confirm.yaml"
+  - summary: 
     api: status
-    description: Buyer requests for the status of the order
+    description: 
     example:
-      $ref: "../../Examples/Services_home_service_yaml/status/status.yaml"
-  - summary: Seller app sends order status update when service provider is on the way
-    api: on_status
-    description: Seller app sends order status update when service provider is on the way
+      $ref: "../../Examples/Agriculture_services_yaml/status/status.yaml"
+  - summary: 
+    api: on_status (In Transit)
+    description: 
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/on_status/on_status_In_Transit.yaml"
-  - summary: Seller app sends order status update when service provider has reached the buyer location and seller app generates an OTP.
-    api: on_status
-    description: Seller app sends order status update when service provider has reached the buyer location and seller app generates an OTP.
+      $ref: "../../Examples/Agriculture_services_yaml/on_status/on_status_transit.yaml"
+  - summary: 
+    api: on_status (At Location)
+    description: 
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/on_status/on_status_Reached.yaml"
-  - summary: Buyer shares the OTP with service provider and Seller app sends order status as Service started.
-    api: on_status
-    description: Buyer shares the OTP with service provider and Seller app sends order status as Service started.
+      $ref: "../../Examples/Agriculture_services_yaml/on_status/on_status_at_location.yaml"
+  - summary: 
+    api: on_status (Collected By Agent)
+    description: 
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/on_status/on_status_Service_Started.yaml"
-  - summary: Seller app sends order status update when service is completed
-    api: on_status
-    description: Seller app sends order status update when service is completed
+      $ref: "../../Examples/Agriculture_services_yaml/on_status/on_status_collected_by_agent.yaml"
+  - summary: 
+    api: on_status (Received At Lab)
+    description: 
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/on_status/on_status_Completed.yaml"
+      $ref: "../../Examples/Agriculture_services_yaml/on_status/on_status_received_at_lab.yaml"
+  - summary: 
+    api: on_status (Test Completed)
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/Agriculture_services_yaml/on_status/on_status_test_completed.yaml"
+  - summary: 
+    api: on_status (Report Generated)
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/Agriculture_services_yaml/on_status/on_status_report_generated.yaml"
+  - summary: 
+    api: on_status (Completed)
+    description: 
+    reference: if any
+    example:
+      $ref: "../../Examples/Agriculture_services_yaml/on_status/on_status_completed.yaml"
+
