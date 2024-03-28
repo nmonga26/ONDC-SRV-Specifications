@@ -1,5 +1,5 @@
-summary:
-description:
+summary: Returns the catalog specific to the search intent 
+description: Returns the catalog specific to the search intent 
 value:
   context:
     domain: ONDC:AGR12

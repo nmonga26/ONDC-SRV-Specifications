@@ -1,5 +1,5 @@
-summary:
-description:
+summary: Seller provides the final quotation for the service
+description: Seller provides the final quotation and creates the draft contract for the service
 value:
   context:
     domain: ONDC:AGR12

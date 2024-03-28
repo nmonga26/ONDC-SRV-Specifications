@@ -1,5 +1,5 @@
-summary:
-description:
+summary: Seller app sends the order status (Completed)
+description: Seller app sends the order status update when the test report is shared
 value:
   context:
     domain: ONDC:AGR12

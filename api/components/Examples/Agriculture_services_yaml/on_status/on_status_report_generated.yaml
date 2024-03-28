@@ -1,5 +1,5 @@
-summary:
-description:
+summary: Seller app sends the order status (Report generated)
+description: Seller app sends the order status update when the test report is generated
 value:
   context:
     domain: ONDC:AGR12

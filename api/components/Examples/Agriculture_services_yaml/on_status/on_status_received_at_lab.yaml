@@ -1,5 +1,5 @@
-summary:
-description:
+summary: Seller app sends order status (Received at lab)
+description: Seller app sends the order status update when the sample has been received at the lab
 value:
   context:
     domain: ONDC:AGR12

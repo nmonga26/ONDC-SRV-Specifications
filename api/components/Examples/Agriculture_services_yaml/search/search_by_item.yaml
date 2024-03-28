@@ -1,5 +1,5 @@
-summary: Search based on the 
-description: Search intent sent by the buyer based on the item required - e.g. Soil Testing
+summary: Search based on the intent for buying a particular agri service
+description: Search intent sent by the buyer based on the particular agri service required - e.g. Soil Testing
 value:
   context:
     domain: ONDC:AGR12
