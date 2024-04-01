@@ -1,39 +1,69 @@
-summary: Seller app sends the order status (Completed)
-description: Seller app sends the order status update when the test report is shared
-value:
-  context:
-    domain: ONDC:AGR12
-    location:
-      city:
-        code: std:080
-      country:
-        code: IND
-    action: on_status
-    version: 2.0.0
-    bap_id: buyerapp.com
-    bap_uri: https://buyerapp.com/services
-    bpp_id: sellerapp.com
-    bpp_uri: https://sellerapp.com/services
-    transaction_id: T1
-    message_id: M9
-    timestamp: "2024-04-04T13:00:00.000Z"
-    ttl: PT30S
-  message:
+---
+context:
+  domain: ONDC:AGR12
+  location:
+    city:
+      code: std:080
+    country:
+      code: IND
+  action: on_confirm
+  version: 2.0.0
+  bap_id: buyerapp.com
+  bap_uri: https://buyerapp.com/services
+  bpp_id: sellerapp.com
+  bpp_uri: https://sellerapp.com/services
+  transaction_id: T1
+  message_id: M4
+  timestamp: "2024-04-01T22:00:39.000Z"
+  ttl: PT30S
+message:
   order:
     id: O1
-    status: Completed
+    status: Accepted
     provider:
       id: P1
       locations:
         - id: L1
+      rateable: true
     items:
-      - id: I2
-        parent_item_id: PI2
+      - id: I1
         fulfillment_ids:
-          - F2
+          - F1
         quantity:
           selected:
             count: 1
+        cancellation_terms:
+          - fulfillment_state:
+              descriptor:
+                code: PENDING
+            cancellation_fee:
+              percentage: "0.00"
+          - fulfillment_state:
+              descriptor:
+                code: IN_TRANSIT
+            cancellation_fee:
+              percentage: "10.00"
+        tags:
+          - descriptor:
+              code: RESCHEDULE_TERMS
+            list:
+              - descriptor:
+                  code: FULFILLMENT_STATE
+                value: Pending
+              - descriptor:
+                  code: RESCHEDULE_ELIGIBLE
+                value: "true"
+              - descriptor:
+                  code: RESCHEDULE_FEE
+                value: "0.00"
+              - descriptor:
+                  code: RESCHEDULE_WITHIN
+                value: PT1D
+          - descriptor:
+              code: TNC_LINK
+              name: Terms & Conditions
+              short_desc: Terms and Conditions
+            value: https://abc.com/tnc.html
     billing:
       name: ONDC buyer
       address:
@@ -47,30 +77,29 @@ value:
       email: nobody@nomail.com
       phone: "9886098860"
     fulfillments:
-      - id: F2
+      - id: F1
         state:
           descriptor:
-            code: REPORT_SHARED
-        type: Buyer-Delivered
+            code: Pending
+        type: Seller-Pickup
         tracking: false
         stops:
-          - type: end
+          - type: start
             location:
               id: L1
               descriptor:
-                name: ABC Agri Service Provider
+                name: ABC Agri Assaying Provider
               gps: 12.956399,77.636803
             time:
               range:
                 start: "2024-04-04T22:00:00Z"
                 end: "2024-04-04T23:00:00Z"
-              timestamp: "2024-04-01T22:00:41.000Z"
             contact:
               phone: "9886098860"
               email: nobody@nomail.com
             person:
               name: Kishan
-          - type: start
+          - type: end
             location:
               gps: 12.974002,77.613458
               address: "My House #, My buildin"
@@ -89,21 +118,29 @@ value:
               range:
                 start: "2024-04-04T22:00:00Z"
                 end: "2024-04-04T23:00:00Z"
-              timestamp: "2024-04-04T12:00:46.000Z"
             person:
               name: Ramu
+            instructions:
+              name: Special Instructions
+              short_desc: Customer Special Instructions
+            authorization:
+              type: OTP
+              token: "1234"
+              valid_from: "2024-04-04T22:00:00Z"
+              valid_to: "2024-04-04T23:00:00Z"
+              status: valid
         rateable: true
     quote:
       price:
         currency: INR
-        value: "1499"
+        value: "1549"
       breakup:
-        - title: Soil Testing - Micro Nutrient & Misc
+        - title: Quality testing for Arhar Whole
           price:
             currency: INR
-            value: "1300"
+            value: "1400"
           item:
-            id: I2
+            id: I1
             quantity:
               selected:
                 count: "1"
@@ -120,9 +157,9 @@ value:
         - title: tax
           price:
             currency: INR
-            value: "100"
+            value: "0"
           item:
-            id: I2
+            id: I1
           tags:
             - descriptor:
                 code: title
@@ -135,7 +172,7 @@ value:
             currency: INR
             value: "0"
           item:
-            id: I2
+            id: I1
           tags:
             - descriptor:
                 code: title
@@ -146,9 +183,9 @@ value:
         - title: convenience_fee
           price:
             currency: INR
-            value: "99"
+            value: "149"
           item:
-            id: I2
+            id: I1
           tags:
             - descriptor:
                 code: title
@@ -161,7 +198,7 @@ value:
       - id: P1
         collected_by: BAP
         params:
-          amount: "1499"
+          amount: "1549"
           currency: INR
           bank_account_number: xxxxxxxx
           virtual_payment_address: xxx@xxxx
@@ -198,10 +235,75 @@ value:
               - descriptor:
                   code: Buyer_Finder_Fee_Amount
                 value: "3"
-    documents:
-      - url: https://invoice_url
-        label: INVOICE
-      - url: https://report_url
-        label: REPORT
+    cancellation_terms:
+      - fulfillment_state:
+          descriptor:
+            code: PENDING
+            short_desc: "002"
+        cancellation_fee:
+          percentage: "0.00"
+          amount:
+            currency: INR
+            value: "0.00"
+      - fulfillment_state:
+          descriptor:
+            code: IN_TRANSIT
+            short_desc: "002"
+        cancellation_fee:
+          percentage: "0.00"
+          amount:
+            currency: INR
+            value: "0.00"
+      - fulfillment_state:
+          descriptor:
+            code: AT_LOCATION
+            short_desc: "002"
+        cancellation_fee:
+          percentage: "0.00"
+          amount:
+            currency: INR
+            value: "0.00"
+      - fulfillment_state:
+          descriptor:
+            code: COLLECTED_BY_AGENT
+            short_desc: "002"
+        cancellation_fee:
+          percentage: "0.00"
+          amount:
+            currency: INR
+            value: "0.00"
+      - fulfillment_state:
+          descriptor:
+            code: RECEIVED_AT_LAB
+            short_desc: "002"
+        cancellation_fee:
+          percentage: "0.00"
+          amount:
+            currency: INR
+            value: "0.00"
+      - fulfillment_state:
+          descriptor:
+            code: TEST_COMPLETED
+            short_desc: "009"
+        cancellation_fee:
+          percentage: "0.00"
+          amount:
+            currency: INR
+            value: "0.00"
+      - fulfillment_state:
+          descriptor:
+            code: REPORT_GENERATED
+            short_desc: "010,011,012"
+        cancellation_fee:
+          percentage: "0.00"
+          amount:
+            currency: INR
+            value: "0.00"
     created_at: "2024-04-01T22:00:38.000Z"
-    updated_at: "2024-04-04T13:00:00.000Z"
+    updated_at: "2024-04-01T22:00:39.000Z"
+    xinput:
+      form:
+        url: https//abc.com/checklist
+        mimetype: text/html
+        submission_id: xxxxxxxx
+        status: SUCCESS

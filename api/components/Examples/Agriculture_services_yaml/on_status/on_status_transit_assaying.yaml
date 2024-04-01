@@ -1,5 +1,5 @@
-summary: Seller app sends the order status (Completed)
-description: Seller app sends the order status update when the test report is shared
+summary: Seller app sends order status update (In-Transit)
+description: Seller app sends order status update when service provider is on the way
 value:
   context:
     domain: ONDC:AGR12
@@ -15,22 +15,21 @@ value:
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/services
     transaction_id: T1
-    message_id: M9
-    timestamp: "2024-04-04T13:00:00.000Z"
+    message_id: M5
+    timestamp: "2024-04-01T22:00:41.000Z"
     ttl: PT30S
   message:
   order:
     id: O1
-    status: Completed
+    status: In-progress
     provider:
       id: P1
       locations:
         - id: L1
     items:
-      - id: I2
-        parent_item_id: PI2
+      - id: I1
         fulfillment_ids:
-          - F2
+          - F1
         quantity:
           selected:
             count: 1
@@ -47,18 +46,18 @@ value:
       email: nobody@nomail.com
       phone: "9886098860"
     fulfillments:
-      - id: F2
+      - id: F1
         state:
           descriptor:
-            code: REPORT_SHARED
-        type: Buyer-Delivered
+            code: IN_TRANSIT
+        type: Seller-Pickup
         tracking: false
         stops:
-          - type: end
+          - type: start
             location:
               id: L1
               descriptor:
-                name: ABC Agri Service Provider
+                name: ABC Agri Assaying Provider
               gps: 12.956399,77.636803
             time:
               range:
@@ -70,7 +69,7 @@ value:
               email: nobody@nomail.com
             person:
               name: Kishan
-          - type: start
+          - type: end
             location:
               gps: 12.974002,77.613458
               address: "My House #, My buildin"
@@ -89,21 +88,29 @@ value:
               range:
                 start: "2024-04-04T22:00:00Z"
                 end: "2024-04-04T23:00:00Z"
-              timestamp: "2024-04-04T12:00:46.000Z"
             person:
               name: Ramu
+            instructions:
+              name: Special Instructions
+              short_desc: Customer Special Instructions
+            authorization:
+              type: OTP
+              token: "1234"
+              valid_from: "2024-04-04T22:00:00Z"
+              valid_to: "2024-04-04T23:00:00Z"
+              status: valid
         rateable: true
     quote:
       price:
         currency: INR
-        value: "1499"
+        value: "1549"
       breakup:
-        - title: Soil Testing - Micro Nutrient & Misc
+        - title: Quality testing for Arhar Whole
           price:
             currency: INR
-            value: "1300"
+            value: "1400"
           item:
-            id: I2
+            id: I1
             quantity:
               selected:
                 count: "1"
@@ -120,9 +127,9 @@ value:
         - title: tax
           price:
             currency: INR
-            value: "100"
+            value: "0"
           item:
-            id: I2
+            id: I1
           tags:
             - descriptor:
                 code: title
@@ -135,7 +142,7 @@ value:
             currency: INR
             value: "0"
           item:
-            id: I2
+            id: I1
           tags:
             - descriptor:
                 code: title
@@ -146,9 +153,9 @@ value:
         - title: convenience_fee
           price:
             currency: INR
-            value: "99"
+            value: "149"
           item:
-            id: I2
+            id: I1
           tags:
             - descriptor:
                 code: title
@@ -161,7 +168,7 @@ value:
       - id: P1
         collected_by: BAP
         params:
-          amount: "1499"
+          amount: "1549"
           currency: INR
           bank_account_number: xxxxxxxx
           virtual_payment_address: xxx@xxxx
@@ -201,7 +208,5 @@ value:
     documents:
       - url: https://invoice_url
         label: INVOICE
-      - url: https://report_url
-        label: REPORT
     created_at: "2024-04-01T22:00:38.000Z"
-    updated_at: "2024-04-04T13:00:00.000Z"
+    updated_at: "2024-04-01T22:00:41.000Z"
