@@ -1,7 +1,7 @@
-summary: Agriculture Seller Pickup
+summary: Agriculture Buyer Delivered
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order home services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
 details:
-  - description: Searching for items 
+  - description: Sequence Diagram for Booking Home Service
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer
@@ -9,54 +9,35 @@ details:
         participant G as Gateway
         participant SA1 as SellerApp1
         participant SA2 as SellerApp2
+        
         Note Over B,SA: **SEARCH FLOW**
         B ->> BA: Search by item for a service within a city
-        BA ->> SA: **/search** - Search by item for a service within city
+        BA ->> G: **/search** - Search by item for a service within city
         G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
         G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
-        SA ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+        SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
         SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
         Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
         BA ->> B: Shows all service <br>options from sellers
-  - description: Ordering
-    mermaidGraph: >-
-      sequenceDiagram
-        participant B as Buyer
-        participant BA as BuyerApp
-        participant SA as SellerApp
+
         Note Over B,SA: **SELECT FLOW**
         B ->> BA: Selects one of the <br>providers for service
         BA ->> SA: **/select** - A service is selected with a <br>TTL for receiving response
         SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including logistics charges
         BA ->> B: Shows response with price details
-  - description: Initializing the order
-    mermaidGraph: >-
-      sequenceDiagram
-        participant B as Buyer
-        participant BA as BuyerApp
-        participant SA as SellerApp      
+
         Note Over B,SA: **INITIALIZATION FLOW**
         B ->> BA: Proceeds with the Order
         BA ->> SA: **/init** - Initializes the order and <br>sends billing details
         SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
         BA ->> B: Confirms initialization
-  - description: Order Confirmation
-    mermaidGraph: >-
-      sequenceDiagram
-        participant B as Buyer
-        participant BA as BuyerApp
-        participant SA as SellerApp
+
         Note Over B,SA: **CONFIRMATION FLOW**
         B ->> BA: Confirms the Order
         BA ->> SA: **/confirm** - Creates order to create final digital contract
         SA ->> BA: **/on_confirm** - Accepts the order 
         BA ->> B: Confirms order and delivery 
-  - description: Fulfillment
-    mermaidGraph: >-
-      sequenceDiagram
-        participant B as Buyer
-        participant BA as BuyerApp
-        participant SA as SellerApp      
+        
         Note Over B,SA: **ORDER STATUS FLOW**
         B ->> BA: Checks the order status
         BA ->> SA: **/status** - Enquire order status <br>or tracking information
