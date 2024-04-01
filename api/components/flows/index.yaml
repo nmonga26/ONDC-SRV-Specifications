@@ -9,3 +9,4 @@
 - $ref: "./Reschedule after confirmation/index.yaml"
 - $ref: "./Agriculture_Seller_Pickup/index.yaml"
 - $ref: "./Agriculture_Buyer_Delivered/index.yaml"
+- $ref: "./Agriculture_Assaying_Service/index.yaml"
