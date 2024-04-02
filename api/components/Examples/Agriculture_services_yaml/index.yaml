@@ -6,6 +6,7 @@ search:
 select:
   examples:
     - $ref: "./select/select.yaml"
+    - $ref: "./select_reschedule/select.yaml"
     - $ref: "./select/select_delivered.yaml"
     - $ref: "./select/select_assaying.yaml"
 init:
@@ -24,6 +25,9 @@ update:
 status:
   examples:
     - $ref: "./status/status.yaml"
+cancel:
+  examples:
+    - $ref: "./cancel_buyer/cancel.yaml"
 on_search:
   examples:
     - $ref: "./on_search/on_search.yaml"
@@ -32,6 +36,7 @@ on_search:
 on_select:
   examples:
     - $ref: "./on_select/on_select.yaml"
+    - $ref: "./on_select_reschedule/on_select.yaml"
     - $ref: "./select/on_select_delivered.yaml"
     - $ref: "./select/on_select_assaying.yaml"
 on_init:
@@ -65,3 +70,7 @@ on_status:
     - $ref: "./on_status/on_status_test_completed_assaying.yaml"
     - $ref: "./on_status/on_status_report_generated_assaying.yaml"
     - $ref: "./on_status/on_status_completed_assaying.yaml"
+on_cancel:
+  examples:
+    - $ref: "./on_cancel_buyer/on_cancel.yaml"
+    - $ref: "./on_cancel_merchant/on_cancel.yaml"
