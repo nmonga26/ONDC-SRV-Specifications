@@ -1,0 +1,34 @@
+summary: 
+description: 
+value:
+  context:
+    domain: ONDC:AGR12
+    location:
+      city:
+        code: std:080
+      country:
+        code: IND
+    action: update
+    version: 2.0.0
+    bap_id: buyerapp.com
+    bap_uri: https://buyerapp.com/services
+    bpp_id: sellerapp.com
+    bpp_uri: https://sellerapp.com/services
+    transaction_id: T1
+    message_id: M4
+    timestamp: '2024-04-01T22:00:38.000Z'
+    ttl: PT30S
+  message:
+    update_target: payment
+    order:
+      id: O1
+      fulfillments:
+      - id: C1
+        type: Cancel
+      payment:
+        "@ondc/org/settlement_details":
+        - settlement_counterparty: buyer
+          settlement_phase: refund
+          settlement_type: upi
+          settlement_amount: '1499'
+          settlement_timestamp: '2024-04-04T18:00:00.000Z'

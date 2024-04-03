@@ -117,4 +117,9 @@ steps:
     description: Seller cancels the order
     example:
       $ref: "../../Examples/Agriculture_services_yaml/on_cancel/on_cancel_merchant.yaml"
+  - summary: 
+    api: update
+    description: 
+    example:
+      $ref: "../../Examples/Agriculture_services_yaml/update/update_merchant_cancel.yaml"
   

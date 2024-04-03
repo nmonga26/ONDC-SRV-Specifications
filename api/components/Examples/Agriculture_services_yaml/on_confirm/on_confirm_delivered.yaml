@@ -159,7 +159,7 @@ value:
                 - descriptor:
                     code: type
                   value: discount
-        - title: convenience_fee
+        - title: pickup_charge
           price:
             currency: INR
             value: "99"
