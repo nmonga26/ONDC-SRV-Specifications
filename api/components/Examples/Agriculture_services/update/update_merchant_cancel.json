@@ -16,8 +16,8 @@
         "bpp_id": "sellerapp.com",
         "bpp_uri": "https://sellerapp.com/services",
         "transaction_id": "T1",
-        "message_id": "M4",
-        "timestamp": "2024-04-01T22:00:38.000Z",
+        "message_id": "M6",
+        "timestamp": "2024-04-02T22:00:38.000Z",
         "ttl": "PT30S"
       },
     "message":
@@ -35,14 +35,43 @@
         ],
         "payment":
         {
-          "@ondc/org/settlement_details":
-          [
+          "tags": [
             {
-              "settlement_counterparty":"buyer",
-              "settlement_phase":"refund",
-              "settlement_type":"upi",
-              "settlement_amount":"1499",
-              "settlement_timestamp":"2024-04-04T18:00:00.000Z"
+              "descriptor": {
+                "code": "Refund_Settlement_Details"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Settlement_Counterparty"
+                  },
+                  "value": "Buyer"
+                },
+                {
+                  "descriptor": {
+                    "code": "Settlement_Phase"
+                  },
+                  "value": "Refund"
+                },
+                {
+                  "descriptor": {
+                    "code": "Settlement_Type"
+                  },
+                  "value": "UPI"
+                },
+                {
+                  "descriptor": {
+                    "code": "Settlement_Amount"
+                  },
+                  "value": "1499"
+                },
+                {
+                  "descriptor": {
+                    "code": "Settlement_Timestamp"
+                  },
+                  "value": "2024-04-03T23:00:00.000Z"
+                }
+              ]
             }
           ]
         }
