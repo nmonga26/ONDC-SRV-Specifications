@@ -45,6 +45,10 @@
           }
         ]
       },
+      "payment": {
+        "type": "PRE-FULFILLMENT",
+        "collected_by": "BAP"
+      },
       "tags": [
         {
           "descriptor": {
