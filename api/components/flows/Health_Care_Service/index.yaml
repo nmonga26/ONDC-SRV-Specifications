@@ -1,5 +1,5 @@
 summary: Health Care Services
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for agriculture services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for health care services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
 details:
   - description: Sequence Diagram for Booking Agri Services - Seller Pickup
     mermaidGraph: >-
@@ -65,9 +65,9 @@ details:
 
 reference: if any
 steps:
-  - summary: Search based on the intent for buying a particular agri service
+  - summary: Search based on the intent for buying a particular health care service
     api: search
-    description: Search intent sent by the buyer based on the particular agri service required - e.g. Soil Testing
+    description: Search intent sent by the buyer based on the particular health care service required - e.g. CBC
     reference: if any
     example:
       $ref: "../../Examples/Health_care_services_yaml/search/search.yaml"
@@ -77,9 +77,9 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Health_care_services_yaml/on_search/on_search.yaml"
-  - summary: Buyer selects the required agri service
+  - summary: Buyer selects the required health care service
     api: select
-    description: Buyer selects the required agri service + suitable fulfillment type
+    description: Buyer selects the required health care service + suitable fulfillment type
     reference: if any
     example:
       $ref: "../../Examples/Health_care_services_yaml/select/select.yaml"

@@ -1,5 +1,5 @@
-summary: 
-description: 
+summary: Buyer selects the required health care service
+description: Buyer selects the required health care service + suitable fulfillment type
 value:
   context:
     domain: ONDC:HCS12

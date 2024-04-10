@@ -1,5 +1,5 @@
-summary: 
-description: 
+summary: Seller confirms the schedule and returns the quote for service
+description: Seller confirms the schedule and returns the quote for service
 value:
   context:
     domain: ONDC:HCS12

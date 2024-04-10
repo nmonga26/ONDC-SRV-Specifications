@@ -1,5 +1,5 @@
-summary: 
-description: 
+summary: Seller accepts the order for service
+description: Seller app sends an on_confirm call to the buyer app accepting the order
 value:
   context:
     domain: ONDC:HCS12

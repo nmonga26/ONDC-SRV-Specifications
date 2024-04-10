@@ -1,5 +1,5 @@
-summary: 
-description: 
+summary: Buyer confirm the order for the service
+description: Buyer makes the payment to confirm the order
 value:
   context:
     domain: ONDC:HCS12

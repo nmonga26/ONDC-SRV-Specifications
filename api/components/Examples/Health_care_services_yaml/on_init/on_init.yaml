@@ -1,5 +1,5 @@
-summary: 
-description: 
+summary: Seller provides the final quotation for the service
+description: Seller provides the final quotation
 value:
   context:
     domain: ONDC:HCS12
