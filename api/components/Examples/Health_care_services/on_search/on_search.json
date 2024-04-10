@@ -25,11 +25,11 @@
         "fulfillments": [
           {
             "id": "1",
-            "type": "Buyer-Delivered"
+            "type": "Lab-Location"
           },
           {
             "id": "2",
-            "type": "Seller-Pickup"
+            "type": "Home-Location"
           }
         ],
         "payments": [
@@ -47,179 +47,12 @@
           }
         ],
         "descriptor": {
-          "name": "ABC Health Service",
-          "short_desc": "Health Service",
-          "long_desc": "Health Service",
+          "name": "Health Care Lab",
+          "short_desc": "Health Care Lab",
+          "long_desc": "Health Care Lab",
           "images": [
             {
               "url": "https://abc.com/images/1-shop-img"
-            }
-          ],
-          "tags": [
-            {
-              "descriptor": {
-                "code": "TEST_CRITERIA"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "GENDER"
-                  },
-                  "value": "F"
-                },
-                {
-                  "descriptor": {
-                    "code": "AGE"
-                  },
-                  "value": "40"
-                },
-                {
-                  "descriptor": {
-                    "code": "PRESCRIPTION_REQUIRED"
-                  },
-                  "value": "TRUE"
-                },
-                {
-                  "descriptor": {
-                    "code": "SAMPLE_COLLECTION_REQUIRED"
-                  },
-                  "value": "TRUE"
-                }
-              ]
-            },
-            {
-              "descriptor": {
-                "code": "PRE_TEST_PREPARATION"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "FASTING"
-                  },
-                  "value": ""
-                }
-              ]
-            },
-            {
-              "descriptor": {
-                "code": "TEST_PARAMETERS"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "SGOT"
-                  },
-                  "value": ""
-                },
-                {
-                  "descriptor": {
-                    "code": "SGPT"
-                  },
-                  "value": ""
-                },
-                {
-                  "descriptor": {
-                    "code": "ALKALINE_PHOSPHATASE"
-                  },
-                  "value": ""
-                }
-              ]
-            },
-            {
-              "descriptor": {
-                "code": "FASTING",
-                "short_desc": "Abstaining from food and drink for a specific period",
-                "long_desc": "Abstaining from food and drink for a specific period"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "FASTING_DURATION"
-                  },
-                  "value": "8H"
-                }
-              ]
-            },
-            {
-              "descriptor": {
-                "code": "SGPT",
-                "short_desc": "Serum Glutamic Pyruvic Transaminase",
-                "long_desc": "An enzyme measured to assess liver health and function"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "MIN_RANGE"
-                  },
-                  "value": "7"
-                },
-                {
-                  "descriptor": {
-                    "code": "MAX_RANGE"
-                  },
-                  "value": "56"
-                },
-                {
-                  "descriptor": {
-                    "code": "UNIT"
-                  },
-                  "value": "litre"
-                }
-              ]
-            },
-            {
-              "descriptor": {
-                "code": "SGOT",
-                "short_desc": "Serum Glutamic Oxaloacetic Transaminase",
-                "long_desc": "An enzyme measured to assess liver health and function"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "MIN_RANGE"
-                  },
-                  "value": "8"
-                },
-                {
-                  "descriptor": {
-                    "code": "MAX_RANGE"
-                  },
-                  "value": "45"
-                },
-                {
-                  "descriptor": {
-                    "code": "UNIT"
-                  },
-                  "value": "litre"
-                }
-              ]
-            },
-            {
-              "descriptor": {
-                "code": "ALKALINE_PHOSPHATASE",
-                "short_desc": "Enzyme found in various tissues including liver",
-                "long_desc": "Enzyme found in various tissues including liver"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "MIN_RANGE"
-                  },
-                  "value": "30"
-                },
-                {
-                  "descriptor": {
-                    "code": "MAX_RANGE"
-                  },
-                  "value": "130"
-                },
-                {
-                  "descriptor": {
-                    "code": "UNIT"
-                  },
-                  "value": "litre"
-                }
-              ]
             }
           ]
         },
@@ -373,6 +206,118 @@
                 "tags": [
                   {
                     "descriptor": {
+                      "code": "TEST_CRITERIA"
+                    },
+                    "list": [
+                      {
+                        "descriptor": {
+                          "code": "GENDER"
+                        },
+                        "value": "F"
+                      },
+                      {
+                        "descriptor": {
+                          "code": "AGE_RANGE"
+                        },
+                        "value": "40"
+                      },
+                      {
+                        "descriptor": {
+                          "code": "PRESCRIPTION_REQUIRED"
+                        },
+                        "value": "TRUE"
+                      },
+                      {
+                        "descriptor": {
+                          "code": "SAMPLE_COLLECTION_REQUIRED"
+                        },
+                        "value": "TRUE"
+                      }
+                    ]
+                  },
+                  {
+                    "descriptor": {
+                      "code": "PRE_TEST_PREPARATION"
+                    },
+                    "list": [
+                      {
+                        "descriptor": {
+                          "code": "FASTING"
+                        }
+                      },
+                      {
+                        "descriptor": {
+                          "code": "PRE_INTAKE"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "descriptor": {
+                      "code": "TEST_PARAMETERS"
+                    },
+                    "list": [
+                      {
+                        "descriptor": {
+                          "code": "SGPT",
+                          "short_desc": "Serum Glutamic Pyruvic Transaminase",
+                          "long_desc": "An enzyme measured to assess liver health and function"
+                        }
+                      },
+                      {
+                        "descriptor": {
+                          "code": "SGOT",
+                          "short_desc": "Serum Glutamic Oxaloacetic Transaminase",
+                          "long_desc": "An enzyme measured to assess liver health and function"
+                        }
+                      },
+                      {
+                        "descriptor": {
+                          "code": "ALKALINE_PHOSPHATASE",
+                          "short_desc": "Enzyme found in various tissues including liver",
+                          "long_desc": "Enzyme found in various tissues including liver"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "descriptor": {
+                      "code": "FASTING",
+                      "short_desc": "Abstaining from food and drink for a specific period",
+                      "long_desc": "Abstaining from food and drink for a specific period"
+                    },
+                    "list": [
+                      {
+                        "descriptor": {
+                          "code": "DURATION"
+                        },
+                        "value": "8H"
+                      }
+                    ]
+                  },
+                  {
+                    "descriptor": {
+                      "code": "PRE_INTAKE",
+                      "short_desc": "Consumption of specific medicine or glucose some time prior to the lab test",
+                      "long_desc": "Consumption of specific medicine or glucose some time prior to the lab test"
+                    },
+                    "list": [
+                      {
+                        "descriptor": {
+                          "code": "DURATION_GAP"
+                        },
+                        "value": "1H"
+                      },
+                      {
+                        "descriptor": {
+                          "code": "CONSUMPTION_TYPE"
+                        },
+                        "value": "GLUCOSE"
+                      }
+                    ]
+                  },
+                  {
+                    "descriptor": {
                       "code": "RESCHEDULE_TERMS"
                     },
                     "list": [
@@ -399,6 +344,19 @@
                           "code": "RESCHEDULE_WITHIN"
                         },
                         "value": "PT1D"
+                      }
+                    ]
+                  },
+                  {
+                    "descriptor": {
+                      "code": "RISK_ASSESSMENT"
+                    },
+                    "list": [
+                      {
+                        "descriptor": {
+                          "code": ""
+                        },
+                        "value": ""
                       }
                     ]
                   }

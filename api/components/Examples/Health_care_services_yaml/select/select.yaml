@@ -30,7 +30,7 @@ value:
         location_ids:
         - L1
       fulfillments:
-      - type: Seller-Pickup
+      - type: Home-Location
         stops:
         - type: end
           time:

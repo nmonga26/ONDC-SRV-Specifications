@@ -39,7 +39,7 @@
         ],
         "fulfillments": [
           {
-            "type": "Seller-Pickup",
+            "type": "Home-Location",
             "stops": [
               {
                 "type": "end",

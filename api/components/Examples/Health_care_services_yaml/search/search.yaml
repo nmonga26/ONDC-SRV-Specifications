@@ -20,9 +20,9 @@ value:
     intent:
       item:
         descriptor:
-          name: LFT - Liver Function Profile, Serum
+          name: LFT
       fulfillment:
-        type: Seller-Pickup
+        type: Home-Location
         customer:
           person:
             name: XYZ
@@ -37,7 +37,7 @@ value:
             gps: 12.974002,77.613458
             area_code: '560001'
       payment:
-        type: ON-FULFILLMENT
+        type: PRE-FULFILLMENT
         collected_by: BAP
       tags:
       - descriptor:
@@ -51,26 +51,17 @@ value:
             code: BUYER_FINDER_FEE_AMOUNT
           value: '0'
       - descriptor:
-          code: REQUIRED_TESTS
+          code: BAP_PREFERENCES
         list:
         - descriptor:
-            code: REQUIRED_TEST_1
-          value: RT1
-      - descriptor:
-          code: RT1
-        list:
+            code: TEST_PREFERENCE
+          value: SINGLE_TEST
         - descriptor:
-            code: REQUIRED_TEST_TYPE
-          value: LFT
+            code: TEST_PREFERENCE
+          value: TEST_PACKAGE
         - descriptor:
-            code: REQUIRED_SUB_TYPE
-          value: LIVER FUNCTIONING
-      - descriptor:
-          code: BAP_DETAILS
-        list:
-        - descriptor:
-            code: BAP_TYPE
-          value: PATHOLOGIST
+            code: TEST_PREFERENCE
+          value: SINGLE_TEST+TEST_PACKAGE
       - descriptor:
           code: REPORT_REQUIREMENT
         list:

@@ -22,11 +22,11 @@
       "intent": {
         "item": {
           "descriptor": {
-            "name": "LFT - Liver Function Profile, Serum"
+            "name": "LFT"
           }
         },
         "fulfillment": {
-          "type": "Seller-Pickup",
+          "type": "Home-Location",
           "customer": {
             "person": {
               "name": "XYZ"
@@ -51,7 +51,7 @@
           ]
         },
         "payment": {
-          "type": "ON-FULFILLMENT",
+          "type": "PRE-FULFILLMENT",
           "collected_by": "BAP"
         },
         "tags": [
@@ -77,46 +77,26 @@
           },
           {
             "descriptor": {
-              "code": "REQUIRED_TESTS"
+              "code": "BAP_PREFERENCES"
             },
             "list": [
               {
                 "descriptor": {
-                  "code": "REQUIRED_TEST_1"
+                  "code": "TEST_PREFERENCE"
                 },
-                "value": "RT1"
-              }
-            ]
-          },
-          {
-            "descriptor": {
-              "code": "RT1"
-            },
-            "list": [
-              {
-                "descriptor": {
-                  "code": "REQUIRED_TEST_TYPE"
-                },
-                "value": "LFT"
+                "value": "SINGLE_TEST"
               },
               {
                 "descriptor": {
-                  "code": "REQUIRED_SUB_TYPE"
+                  "code": "TEST_PREFERENCE"
                 },
-                "value": "LIVER FUNCTIONING"
-              }
-            ]
-          },
-          {
-            "descriptor": {
-              "code": "BAP_DETAILS"
-            },
-            "list": [
+                "value": "TEST_PACKAGE"
+              },
               {
                 "descriptor": {
-                  "code": "BAP_TYPE"
+                  "code": "TEST_PREFERENCE"
                 },
-                "value": "PATHOLOGIST"
+                "value": "SINGLE_TEST+TEST_PACKAGE"
               }
             ]
           },
