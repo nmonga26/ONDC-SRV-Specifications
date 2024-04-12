@@ -2,7 +2,7 @@ summary: Search based on the intent for buying a particular health service
 description: Search intent sent by the buyer based on the particular health service required - e.g. CBC
 value:
   context:
-    domain: ONDC:HCS12
+    domain: ONDC:SRV13
     location:
       city:
         code: std:080

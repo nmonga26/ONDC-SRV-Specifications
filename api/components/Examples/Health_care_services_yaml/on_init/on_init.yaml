@@ -2,7 +2,7 @@ summary: Seller provides the final quotation for the service
 description: Seller provides the final quotation
 value:
   context:
-    domain: ONDC:HCS12
+    domain: ONDC:SRV13
     location:
       city:
         code: std:080

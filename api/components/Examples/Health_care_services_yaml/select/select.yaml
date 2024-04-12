@@ -2,7 +2,7 @@ summary: Buyer selects the required health care service
 description: Buyer selects the required health care service + suitable fulfillment type
 value:
   context:
-    domain: ONDC:HCS12
+    domain: ONDC:SRV13
     location:
       city:
         code: std:080

@@ -10,6 +10,9 @@ init:
 confirm:
   examples:
     - $ref: "./confirm/confirm.yaml"
+status:
+  examples:
+    - $ref: "./status/status.yaml"
 on_search:
   examples:
     - $ref: "./on_search/on_search.yaml"
@@ -22,3 +25,12 @@ on_init:
 on_confirm:
   examples:
     - $ref: "./on_confirm/on_confirm.yaml"
+on_status:
+  examples:
+    - $ref: "./on_status/on_status_transit.yaml"
+    - $ref: "./on_status/on_status_at_location.yaml"
+    - $ref: "./on_status/on_status_collected_by_agent.yaml"
+    - $ref: "./on_status/on_status_received_at_lab.yaml"
+    - $ref: "./on_status/on_status_test_completed.yaml"
+    - $ref: "./on_status/on_status_report_generated.yaml"
+    - $ref: "./on_status/on_status_report_shared.yaml"

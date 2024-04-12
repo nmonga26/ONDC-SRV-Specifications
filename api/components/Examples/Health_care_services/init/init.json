@@ -1,6 +1,6 @@
 {
     "context": {
-      "domain": "ONDC:HCS12",
+      "domain": "ONDC:SRV13",
       "location": {
         "city": {
           "code": "std:080"
@@ -78,6 +78,11 @@
                 },
                 "contact": {
                   "phone": "9886098860"
+                },
+                "person": {
+                  "name": "abc",
+                  "age": "40",
+                  "gender": "female"
                 },
                 "time": {
                   "label": "confirmed",

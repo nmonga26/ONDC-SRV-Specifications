@@ -9,29 +9,28 @@
           "code": "IND"
         }
       },
-      "action": "on_confirm",
+      "action": "on_status",
       "version": "2.0.0",
       "bap_id": "buyerapp.com",
       "bap_uri": "https://buyerapp.com/services",
       "bpp_id": "sellerapp.com",
       "bpp_uri": "https://sellerapp.com/services",
       "transaction_id": "T1",
-      "message_id": "M4",
-      "timestamp": "2024-04-01T22:00:39.000Z",
+      "message_id": "M5",
+      "timestamp": "2024-04-01T22:00:41.000Z",
       "ttl": "PT30S"
     },
     "message": {
       "order": {
         "id": "O1",
-        "status": "Accepted",
+        "status": "In-progress",
         "provider": {
           "id": "P1",
           "locations": [
             {
               "id": "L1"
             }
-          ],
-          "rateable": true
+          ]
         },
         "items": [
           {
@@ -42,70 +41,7 @@
               "selected": {
                 "count": 1
               }
-            },
-            "cancellation_terms": [
-              {
-                "fulfillment_state": {
-                  "descriptor": {
-                    "code": "PENDING"
-                  }
-                },
-                "cancellation_fee": {
-                  "percentage": "0.00"
-                }
-              },
-              {
-                "fulfillment_state": {
-                  "descriptor": {
-                    "code": "IN_TRANSIT"
-                  }
-                },
-                "cancellation_fee": {
-                  "percentage": "10.00"
-                }
-              }
-            ],
-            "tags": [
-              {
-                "descriptor": {
-                  "code": "RESCHEDULE_TERMS"
-                },
-                "list": [
-                  {
-                    "descriptor": {
-                      "code": "FULFILLMENT_STATE"
-                    },
-                    "value": "Pending"
-                  },
-                  {
-                    "descriptor": {
-                      "code": "RESCHEDULE_ELIGIBLE"
-                    },
-                    "value": "true"
-                  },
-                  {
-                    "descriptor": {
-                      "code": "RESCHEDULE_FEE"
-                    },
-                    "value": "0.00"
-                  },
-                  {
-                    "descriptor": {
-                      "code": "RESCHEDULE_WITHIN"
-                    },
-                    "value": "PT1D"
-                  }
-                ]
-              },
-              {
-                "descriptor": {
-                  "code": "TNC_LINK",
-                  "name": "Terms & Conditions",
-                  "short_desc": "Terms and Conditions"
-                },
-                "value": "https://abc.com/tnc.html"
-              }
-            ]
+            }
           }
         ],
         "billing": {
@@ -126,10 +62,10 @@
             "id": "F1",
             "state": {
               "descriptor": {
-                "code": "Pending"
+                "code": "IN_TRANSIT"
               }
             },
-            "type": "Seller-Pickup",
+            "type": "Home-Location",
             "tracking": false,
             "stops": [
               {
@@ -137,7 +73,7 @@
                 "location": {
                   "id": "L1",
                   "descriptor": {
-                    "name": "ABC Laboratory"
+                    "name": "Health Care Lab"
                   },
                   "gps": "12.956399,77.636803"
                 },
@@ -145,7 +81,8 @@
                   "range": {
                     "start": "2024-04-04T22:00:00Z",
                     "end": "2024-04-04T23:00:00Z"
-                  }
+                  },
+                  "timestamp": "2024-04-01T22:00:41.000Z"
                 },
                 "contact": {
                   "phone": "9886098860",
@@ -292,7 +229,7 @@
               ]
             },
             {
-              "title": "pickup_charge",
+              "title": "sampling_charge",
               "price": {
                 "currency": "INR",
                 "value": "99"
@@ -397,124 +334,15 @@
             ]
           }
         ],
-        "cancellation_terms": [
+        "documents": [
           {
-            "fulfillment_state": {
-              "descriptor": {
-                "code": "PENDING",
-                "short_desc": "002"
-              }
-            },
-            "cancellation_fee": {
-              "percentage": "0.00",
-              "amount": {
-                "currency": "INR",
-                "value": "0.00"
-              }
-            }
-          },
-          {
-            "fulfillment_state": {
-              "descriptor": {
-                "code": "IN_TRANSIT",
-                "short_desc": "002"
-              }
-            },
-            "cancellation_fee": {
-              "percentage": "0.00",
-              "amount": {
-                "currency": "INR",
-                "value": "0.00"
-              }
-            }
-          },
-          {
-            "fulfillment_state": {
-              "descriptor": {
-                "code": "AT_LOCATION",
-                "short_desc": "002"
-              }
-            },
-            "cancellation_fee": {
-              "percentage": "0.00",
-              "amount": {
-                "currency": "INR",
-                "value": "0.00"
-              }
-            }
-          },
-          {
-            "fulfillment_state": {
-              "descriptor": {
-                "code": "COLLECTED_BY_AGENT",
-                "short_desc": "002"
-              }
-            },
-            "cancellation_fee": {
-              "percentage": "0.00",
-              "amount": {
-                "currency": "INR",
-                "value": "0.00"
-              }
-            }
-          },
-          {
-            "fulfillment_state": {
-              "descriptor": {
-                "code": "RECEIVED_AT_LAB",
-                "short_desc": "002"
-              }
-            },
-            "cancellation_fee": {
-              "percentage": "0.00",
-              "amount": {
-                "currency": "INR",
-                "value": "0.00"
-              }
-            }
-          },
-          {
-            "fulfillment_state": {
-              "descriptor": {
-                "code": "TEST_COMPLETED",
-                "short_desc": "009"
-              }
-            },
-            "cancellation_fee": {
-              "percentage": "0.00",
-              "amount": {
-                "currency": "INR",
-                "value": "0.00"
-              }
-            }
-          },
-          {
-            "fulfillment_state": {
-              "descriptor": {
-                "code": "REPORT_GENERATED",
-                "short_desc": "010,011,012"
-              }
-            },
-            "cancellation_fee": {
-              "percentage": "0.00",
-              "amount": {
-                "currency": "INR",
-                "value": "0.00"
-              }
-            }
+            "url": "https://invoice_url",
+            "label": "INVOICE"
           }
         ],
         "created_at": "2024-04-01T22:00:38.000Z",
-        "updated_at": "2024-04-01T22:00:39.000Z",
-        "xinput": {
-          "form": {
-            "url": "https//abc.com/checklist",
-            "mimetype": "text/html",
-            "submission_id": "xxxxxxxx",
-            "status": "SUCCESS"
-          }
-        }
+        "updated_at": "2024-04-01T22:00:41.000Z"
       }
     }
   }
-  
+   

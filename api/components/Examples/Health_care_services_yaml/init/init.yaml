@@ -2,7 +2,7 @@ summary: Buyer initialises the order for service
 description: Buyer initialises the order and provides billing details
 value:
   context:
-    domain: ONDC:HCS12
+    domain: ONDC:SRV13
     location:
       city:
         code: std:080
@@ -60,6 +60,10 @@ value:
               name: Karnataka
           contact:
             phone: '9886098860'
+          person:
+            name: abc
+            age: '40'
+            gender: female
           time:
             label: confirmed
             range:

@@ -2,7 +2,7 @@ summary: Returns the catalog specific to the search intent
 description: Returns the catalog specific to the search intent
 value:
   context:
-    domain: ONDC:HCS12
+    domain: ONDC:SRV13
     location:
       city:
         code: std:080
@@ -75,7 +75,7 @@ value:
             value: L1
           - descriptor:
               code: category
-            value: HCS12-*
+            value: SRV13-*
           - descriptor:
               code: type
             value: '13'
@@ -116,7 +116,7 @@ value:
             offered_value: '1199.00'
             maximum_value: '1549.00'
           category_ids:
-          - HCS12-xxxx
+          - SRV13-xxxx
           fulfillment_ids:
           - '1'
           location_ids:
@@ -259,7 +259,7 @@ value:
             offered_value: '1499.00'
             maximum_value: '1499.00'
           category_ids:
-          - HCS12-xxxx
+          - SRV13-xxxx
           fulfillment_ids:
           - '1'
           location_ids:
