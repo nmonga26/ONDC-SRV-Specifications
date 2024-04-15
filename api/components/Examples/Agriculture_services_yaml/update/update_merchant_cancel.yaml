@@ -1,5 +1,5 @@
-summary: 
-description: 
+summary: null
+description: null
 value:
   context:
     domain: ONDC:AGR12
@@ -23,25 +23,25 @@ value:
     order:
       id: O1
       fulfillments:
-      - id: C1
-        type: Cancel
+        - id: C1
+          type: Cancel
       payment:
         tags:
-        - descriptor:
-            code: Refund_Settlement_Details
-          list:
           - descriptor:
-              code: Settlement_Counterparty
-            value: Buyer
-          - descriptor:
-              code: Settlement_Phase
-            value: Refund
-          - descriptor:
-              code: Settlement_Type
-            value: UPI
-          - descriptor:
-              code: Settlement_Amount
-            value: '1499'
-          - descriptor:
-              code: Settlement_Timestamp
-            value: '2024-04-03T23:00:00.000Z'
+              code: Refund_Settlement_Details
+            list:
+              - descriptor:
+                  code: Settlement_Counterparty
+                value: Buyer
+              - descriptor:
+                  code: Settlement_Phase
+                value: Refund
+              - descriptor:
+                  code: Settlement_Type
+                value: UPI
+              - descriptor:
+                  code: Settlement_Amount
+                value: '1499'
+              - descriptor:
+                  code: Settlement_Timestamp
+                value: '2024-04-03T23:00:00.000Z'

@@ -1,4 +1,4 @@
-summary: Buyer requests for the order cancellation 
+summary: Buyer requests for the order cancellation
 description: Buyer requests for the order cancellation and provides cancellation reason_id
 value:
   context:

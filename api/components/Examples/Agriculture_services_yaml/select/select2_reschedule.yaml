@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/ondc
     transaction_id: T1
     message_id: M3
-    timestamp: "2024-04-01T22:00:30.000Z"
+    timestamp: '2024-04-01T22:00:30.000Z'
     ttl: PT30S
   message:
     order:
@@ -36,10 +36,10 @@ value:
               time:
                 label: selected
                 range:
-                  start: "2024-04-04T22:00:00.000Z"
-                  end: "2024-04-04T23:00:00.000Z"
+                  start: '2024-04-04T22:00:00.000Z'
+                  end: '2024-04-04T23:00:00.000Z'
               location:
                 gps: 12.974002,77.613458
-                area_code: "560001"
+                area_code: '560001'
       payments:
         - type: PRE-FULFILLMENT

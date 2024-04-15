@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: T1
     message_id: M3
-    timestamp: "2024-04-01T22:00:35.000Z"
+    timestamp: '2024-04-01T22:00:35.000Z'
     ttl: P30S
   message:
     order:
@@ -33,16 +33,16 @@ value:
               count: 1
       billing:
         name: ONDC buyer
-        address:
-          22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka
-          560001
+        address: >-
+          22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru,
+          Karnataka 560001
         state:
           name: Karnataka
         city:
           name: Bengaluru
         tax_id: XXXXXXXXXXXXXXX
         email: nobody@nomail.com
-        phone: "9886098860"
+        phone: '9886098860'
       fulfillments:
         - id: F1
           type: Seller-Pickup
@@ -55,16 +55,16 @@ value:
                   name: Bengaluru
                 country:
                   code: IND
-                area_code: "560001"
+                area_code: '560001'
                 state:
                   name: Karnataka
               contact:
-                phone: "9886098860"
+                phone: '9886098860'
               time:
                 label: confirmed
                 range:
-                  start: "2024-04-04T22:00:00.000Z"
-                  end: "2024-04-04T23:00:00.000Z"
+                  start: '2024-04-04T22:00:00.000Z'
+                  end: '2024-04-04T23:00:00.000Z'
       payments:
         - type: PRE-FULFILLMENT
           collected_by: BAP

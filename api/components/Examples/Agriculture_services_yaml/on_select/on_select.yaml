@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: T1
     message_id: M2
-    timestamp: "2024-04-01T22:00:31.000Z"
+    timestamp: '2024-04-01T22:00:31.000Z'
     ttl: PT30S
   message:
     order:
@@ -40,29 +40,29 @@ value:
             - type: end
               location:
                 gps: 12.974002,77.613458
-                area_code: "560001"
+                area_code: '560001'
               time:
                 label: confirmed
                 range:
-                  start: "2024-04-04T22:00:00.000Z"
-                  end: "2024-04-04T23:00:00.000Z"
+                  start: '2024-04-04T22:00:00.000Z'
+                  end: '2024-04-04T23:00:00.000Z'
       quote:
         price:
           currency: INR
-          value: "1499"
+          value: '1499'
         breakup:
           - title: Soil Testing - Micro Nutrient & Misc
             price:
               currency: INR
-              value: "1300"
+              value: '1300'
             item:
               id: I1
               quantity:
                 selected:
-                  count: "1"
+                  count: '1'
               price:
                 currency: INR
-                value: "1400"
+                value: '1400'
             tags:
               - descriptor:
                   code: title
@@ -73,7 +73,7 @@ value:
           - title: tax
             price:
               currency: INR
-              value: "100"
+              value: '100'
             item:
               id: I2
             tags:
@@ -86,7 +86,7 @@ value:
           - title: discount
             price:
               currency: INR
-              value: "0"
+              value: '0'
             item:
               id: I2
             tags:
@@ -99,7 +99,7 @@ value:
           - title: pickup_charge
             price:
               currency: INR
-              value: "99"
+              value: '99'
             item:
               id: I2
             tags:

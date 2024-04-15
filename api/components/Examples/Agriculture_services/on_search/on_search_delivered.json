@@ -206,6 +206,25 @@
               "tags": [
                 {
                   "descriptor": {
+                    "code": "TEST_INFORMATION"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "TIME_FOR_PICKUP"
+                      },
+                      "value": "PT2D"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "TIME_FOR_COMPLETION"
+                      },
+                      "value": "PT1D"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
                     "code": "RESCHEDULE_TERMS"
                   },
                   "list": [
@@ -323,6 +342,25 @@
                 }
               ],
               "tags": [
+                {
+                  "descriptor": {
+                    "code": "TEST_INFORMATION"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "TIME_FOR_PICKUP"
+                      },
+                      "value": "PT2D"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "TIME_FOR_COMPLETION"
+                      },
+                      "value": "PT1D"
+                    }
+                  ]
+                },
                 {
                   "descriptor": {
                     "code": "RESCHEDULE_TERMS"

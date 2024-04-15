@@ -82,7 +82,76 @@
                 "person": {
                   "name": "abc",
                   "age": "40",
-                  "gender": "female"
+                  "gender": "female",
+                  "tags": [
+                    {
+                      "descriptor": {
+                        "code": "PATIENT_DETAILS"
+                      },
+                      "list": [
+                        {
+                          "descriptor": {
+                            "code": "P1"
+                          } 
+                        },
+                        {
+                          "descriptor": {
+                            "code": "P2"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "descriptor": {
+                        "code": "P1"
+                      },
+                      "list": [
+                        {
+                          "descriptor": {
+                            "code": "NAME"
+                          },
+                          "value": "Abc"
+                        },
+                        {
+                          "descriptor": {
+                            "code": "GENDER"
+                          },
+                          "value": "MALE"
+                        },
+                        {
+                          "descriptor": {
+                            "code": "AGE"
+                          },
+                          "value": "30"
+                        }
+                      ]
+                    },
+                    {
+                      "descriptor": {
+                        "code": "P2"
+                      },
+                      "list": [
+                        {
+                          "descriptor": {
+                            "code": "NAME"
+                          },
+                          "value": "Xyz"
+                        },
+                        {
+                          "descriptor": {
+                            "code": "GENDER"
+                          },
+                          "value": "FEMALE"
+                        },
+                        {
+                          "descriptor": {
+                            "code": "AGE"
+                          },
+                          "value": "35"
+                        }
+                      ]
+                    }
+                  ]
                 },
                 "time": {
                   "label": "confirmed",

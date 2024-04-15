@@ -1,5 +1,7 @@
 summary: Search based on the intent for buying a particular agri service
-description: Search intent sent by the buyer based on the particular agri service required - e.g. Soil Testing
+description: >-
+  Search intent sent by the buyer based on the particular agri service required
+  - e.g. Soil Testing
 value:
   context:
     domain: ONDC:AGR12
@@ -14,7 +16,7 @@ value:
     bap_uri: https://buyerapp.com/ondc
     transaction_id: T1
     message_id: M1
-    timestamp: "2024-04-01T22:00:00.000Z"
+    timestamp: '2024-04-01T22:00:00.000Z'
     ttl: PT30S
   message:
     intent:
@@ -27,15 +29,18 @@ value:
           person:
             name: XYZ
           contact:
-            phone: "9999999999"
+            phone: '9999999999'
         stops:
           - type: end
             time:
               range:
-                start: "2024-04-04T22:00:00.000Z"
+                start: '2024-04-04T22:00:00.000Z'
             location:
               gps: 12.974002,77.613458
-              area_code: "560001"
+              area_code: '560001'
+      payment:
+        type: PRE-FULFILLMENT
+        collected_by: BAP
       tags:
         - descriptor:
             code: BUYER_FINDER_FEES
@@ -46,7 +51,7 @@ value:
               value: percent
             - descriptor:
                 code: BUYER_FINDER_FEE_AMOUNT
-              value: "0"
+              value: '0'
         - descriptor:
             code: REQUIRED_TESTS
           list:
@@ -85,16 +90,16 @@ value:
           list:
             - descriptor:
                 code: REPORT_DEADLINE
-              value: "2024-04-04T22:00:00.000Z"
+              value: '2024-04-04T22:00:00.000Z'
             - descriptor:
                 code: CROP
               value: MAIZE
             - descriptor:
                 code: DATE_OF_SOWING
-              value: "2024-04-04T22:00:00.000Z"
+              value: '2024-04-04T22:00:00.000Z'
             - descriptor:
                 code: FARM_STATUS
               value: RAIN_FED
             - descriptor:
                 code: ACRAGE
-              value: "2"
+              value: '2'

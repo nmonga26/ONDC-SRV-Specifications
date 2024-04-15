@@ -51,7 +51,7 @@
         ]
       },
       "payment": {
-        "type": "ON-FULFILLMENT",
+        "type": "PRE-FULFILLMENT",
         "collected_by": "BAP"
       },
       "tags": [
