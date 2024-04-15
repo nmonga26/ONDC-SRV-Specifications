@@ -47,14 +47,14 @@ traversedPaths.forEach((path, i) => {
       console.log("Yaml doesn't exist");
     }
 
-    const details = { summary: "", description: "" };
+    const details = { summary: "", description: "", value: "" };
 
     if (existingYamlFile) {
       details.summary = existingYamlFile.summary;
       details.description = existingYamlFile.description;
     }
 
-    doc = { ...details, ...doc };
+    doc = { ...details, value: doc };
 
     const yamlDoc = yaml.dump(doc);
 
