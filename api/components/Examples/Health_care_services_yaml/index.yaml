@@ -10,13 +10,13 @@ init:
 confirm:
   examples:
     - $ref: "./confirm/confirm.yaml"
+update:
+  examples:
+    - $ref: "./update/update.yaml"
+    - $ref: "./update/update_test_updated.yaml"
 status:
   examples:
     - $ref: "./status/status.yaml"
-update:
-  examples:
-    - $ref: "./update/update_slot_reschedule.yaml"
-    - $ref: "./update/update_test_updated.yaml"
 cancel:
   examples:
     - $ref: "./cancel/cancel.yaml"
@@ -43,7 +43,7 @@ on_status:
     - $ref: "./on_status/on_status_report_shared.yaml"
 on_update:
   examples:
-    - $ref: "./on_update/on_update_slot_reschedule.yaml"
+    - $ref: "./on_update/on_update.yaml"
     - $ref: "./on_update/on_update_test_updated.yaml"
 on_cancel:
   examples:

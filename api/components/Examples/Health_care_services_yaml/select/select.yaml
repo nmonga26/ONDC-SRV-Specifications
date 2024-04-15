@@ -23,24 +23,24 @@ value:
       provider:
         id: P1
         locations:
-        - id: L1
+          - id: L1
       items:
-      - id: I2
-        parent_item_id: PI2
-        location_ids:
-        - L1
+        - id: I2
+          parent_item_id: PI2
+          location_ids:
+            - L1
       fulfillments:
-      - type: Home-Location
-        stops:
-        - type: end
-          time:
-            label: selected
-            range:
-              start: '2024-04-04T22:00:00.000Z'
-              end: '2024-04-04T23:00:00.000Z'
-            days: '4'
-          location:
-            gps: 12.974002,77.613458
-            area_code: '560001'
+        - type: Home-Location
+          stops:
+            - type: end
+              time:
+                label: selected
+                range:
+                  start: '2024-04-04T22:00:00.000Z'
+                  end: '2024-04-04T23:00:00.000Z'
+                days: '4'
+              location:
+                gps: 12.974002,77.613458
+                area_code: '560001'
       payments:
-      - type: PRE-FULFILLMENT
+        - type: PRE-FULFILLMENT

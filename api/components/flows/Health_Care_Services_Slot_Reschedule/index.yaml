@@ -1,4 +1,4 @@
-summary: Health Care Services
+summary: Health Care Services Slot Reschedule
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for health care services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
 details:
   - description: Sequence Diagram for Booking Agri Services - Seller Pickup
@@ -116,12 +116,12 @@ steps:
     api: update
     description: Buyer requests for the updation of slot schedule
     example:
-      $ref: "../../Examples/Health_care_services_yaml/update/update_slot_reschedule.yaml"
+      $ref: "../../Examples/Health_care_services_yaml/update/update.yaml"
   - summary: Seller confirms the updated schedule
     api: on_update
     description: Seller confirms the updated schedule
     example:
-      $ref: "../../Examples/Health_care_services_yaml/on_update/on_update_slot_reschedule.yaml"
+      $ref: "../../Examples/Health_care_services_yaml/on_update/on_update.yaml"
   - summary: Buyer requests for the status of the order
     api: status
     description: Buyer requests for the status of the order

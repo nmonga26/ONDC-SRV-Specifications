@@ -159,13 +159,4 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Health_care_services_yaml/on_status/on_status_report_shared.yaml"
-  - summary: Buyer requests for the updation of slot schedule
-    api: update
-    description: Buyer requests for the updation of slot schedule
-    example:
-      $ref: "../../Examples/Health_care_services_yaml/update/update.yaml"
-  - summary: Seller confirms the updated schedule
-    api: on_update
-    description: Seller confirms the updated schedule
-    example:
-      $ref: "../../Examples/Health_care_services_yaml/on_update/on_update.yaml"
+

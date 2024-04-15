@@ -23,93 +23,93 @@ value:
       provider:
         id: P1
       items:
-      - fulfillment_ids:
-        - F1
-        id: I2
-        parent_item_id: PI2
-        location_ids:
-        - L1
+        - fulfillment_ids:
+            - F1
+          id: I2
+          parent_item_id: PI2
+          location_ids:
+            - L1
       fulfillments:
-      - id: F1
-        type: Seller-Pickup
-        tracking: false
-        state:
-          descriptor:
-            code: Serviceable
-        stops:
-        - type: end
-          location:
-            gps: 12.974002,77.613458
-            area_code: '560001'
-          time:
-            label: confirmed
-            range:
-              start: '2024-04-04T22:00:00.000Z'
-              end: '2024-04-04T23:00:00.000Z'
+        - id: F1
+          type: Home-Location
+          tracking: false
+          state:
+            descriptor:
+              code: Serviceable
+          stops:
+            - type: end
+              location:
+                gps: 12.974002,77.613458
+                area_code: '560001'
+              time:
+                label: confirmed
+                range:
+                  start: '2024-04-04T22:00:00.000Z'
+                  end: '2024-04-04T23:00:00.000Z'
       quote:
         price:
           currency: INR
           value: '1499'
         breakup:
-        - title: LFT - Liver Function Profile, Serum
-          price:
-            currency: INR
-            value: '1300'
-          item:
-            id: I1
-            quantity:
-              selected:
-                count: '1'
+          - title: LFT - Liver Function Profile, Serum
             price:
               currency: INR
-              value: '1400'
-          tags:
-          - descriptor:
-              code: title
-            list:
-            - descriptor:
-                code: type
-              value: item
-        - title: tax
-          price:
-            currency: INR
-            value: '100'
-          item:
-            id: I2
-          tags:
-          - descriptor:
-              code: title
-            list:
-            - descriptor:
-                code: type
-              value: tax
-        - title: discount
-          price:
-            currency: INR
-            value: '0'
-          item:
-            id: I2
-          tags:
-          - descriptor:
-              code: title
-            list:
-            - descriptor:
-                code: type
-              value: discount
-        - title: pickup_charge
-          price:
-            currency: INR
-            value: '99'
-          item:
-            id: I2
-          tags:
-          - descriptor:
-              code: title
-            list:
-            - descriptor:
-                code: type
-              value: misc
+              value: '1300'
+            item:
+              id: I1
+              quantity:
+                selected:
+                  count: '1'
+              price:
+                currency: INR
+                value: '1400'
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: item
+          - title: tax
+            price:
+              currency: INR
+              value: '100'
+            item:
+              id: I2
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: tax
+          - title: discount
+            price:
+              currency: INR
+              value: '0'
+            item:
+              id: I2
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: discount
+          - title: pickup_charge
+            price:
+              currency: INR
+              value: '99'
+            item:
+              id: I2
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: misc
         ttl: P1D
       payments:
-      - type: PRE-FULFILLMENT
-        collected_by: BAP
+        - type: PRE-FULFILLMENT
+          collected_by: BAP

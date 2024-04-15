@@ -1,5 +1,5 @@
-summary: Buyer requests for the updation of number of tests or patients
-description: Buyer requests for the updation of number of tests or patients
+summary: Seller confirms the updated schedule
+description: Seller confirms the updated schedule
 value:
   context:
     domain: ONDC:SRV13
@@ -8,40 +8,31 @@ value:
         code: std:080
       country:
         code: IND
-    action: update
+    action: on_update
     version: 2.0.0
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/services
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/services
-    transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
-    message_id: ea89883a-57ff-44de-87fa-66b07c8d25d9
+    transaction_id: T1
+    message_id: M5
     timestamp: '2024-04-03T10:20:00.000Z'
     ttl: PT30S
   message:
-    update_target: payments
     order:
       id: O1
       status: Accepted
       provider:
         id: P1
+        locations:
+          - id: L1
       items:
-        - id: I1
-          parent_item_id: PI1
-          quantity:
-            selected:
-              count: 1
+        - id: I2
+          parent_item_id: PI2
           fulfillment_ids:
             - F1
-        - id: PI1
-          parent_item_id: PI1
-          quantity:
-            selected:
-              count: 1
-          fulfillment_ids:
-            - F2
-          payment_ids:
-            - P2
+          location_ids:
+            - L1
       payments:
         - id: P1
           collected_by: BAP
@@ -84,53 +75,11 @@ value:
                 - descriptor:
                     code: Buyer_Finder_Fee_Amount
                   value: '3'
-        - id: P2
-          collected_by: BPP
-          params:
-            amount: '1300'
-            currency: INR
-            transaction_id: T1
-            bank_account_number: xxxxxxxx
-            bank_code: xxxxxxx
-            virtual_payment_address: xxx@xxxx
-          status: PAID
-          type: PRE-FULFILLMENT
-          tags:
-            - descriptor:
-                code: Settlement_Details
-              list:
-                - descriptor:
-                    code: Counterparty
-                  value: BAP
-                - descriptor:
-                    code: Mode
-                  value: UPI
-                - descriptor:
-                    code: Beneficiary_Name
-                  value: xxxxx
-                - descriptor:
-                    code: Bank_Account_No
-                  value: xxxxx
-                - descriptor:
-                    code: Ifsc_Code
-                  value: xxxxxxx
-                - descriptor:
-                    code: UPI_Address
-                  value: xxxxxxx
-            - descriptor:
-                code: Buyer_Finder_Fee
-              list:
-                - descriptor:
-                    code: Buyer_Finder_Fee_Type
-                  value: percentage
-                - descriptor:
-                    code: Buyer_Finder_Fee_Amount
-                  value: '3'
       fulfillments:
         - id: F1
           state:
             descriptor:
-              code: Completed
+              code: Pending
           type: Home-Location
           tracking: false
           stops:
@@ -142,9 +91,11 @@ value:
                 gps: 12.956399,77.636803
               time:
                 range:
-                  start: '2024-04-04T22:00:00Z'
-                  end: '2024-04-04T23:00:00Z'
-                timestamp: '2024-04-04T09:00:00.000Z'
+                  start: '2024-04-05T22:00:00.000Z'
+                  end: '2024-04-05T23:00:00.000Z'
+              instructions:
+                name: Special Instructions
+                short_desc: Customer Special Instructions
               contact:
                 phone: '9886098860'
                 email: nobody@nomail.com
@@ -167,9 +118,8 @@ value:
               time:
                 label: confirmed
                 range:
-                  start: '2024-04-04T22:00:00Z'
-                  end: '2024-04-04T23:00:00Z'
-                timestamp: '2024-04-04T09:00:00.000Z'
+                  start: '2024-04-06T22:00:00.000Z'
+                  end: '2024-04-06T23:00:00.000Z'
               person:
                 name: Ramu
                 tags:
@@ -204,64 +154,6 @@ value:
                       - descriptor:
                           code: AGE
                         value: '35'
-              instructions:
-                name: Special Instructions
-                short_desc: Customer Special Instructions
-              authorization:
-                type: OTP
-                token: '1234'
-                valid_from: '2024-04-04T23:00:00.000Z'
-                valid_to: '2024-04-04T23:10:00.000Z'
-                status: valid
-          rateable: true
-        - id: F2
-          state:
-            descriptor:
-              code: Pending
-          type: Home-Location
-          tracking: false
-          stops:
-            - type: start
-              location:
-                id: L1
-                descriptor:
-                  name: Health Care Lab
-                gps: 12.956399,77.636803
-              time:
-                range:
-                  start: '2024-04-04T22:00:00Z'
-                  end: '2024-04-04T23:00:00Z'
-                timestamp: '2024-04-04T09:00:00.000Z'
-              contact:
-                phone: '9886098860'
-                email: nobody@nomail.com
-              person:
-                name: Kishan
-            - type: end
-              location:
-                gps: 12.974002,77.613458
-                address: 'My House #, My buildin'
-                city:
-                  name: Bengaluru
-                country:
-                  code: IND
-                area_code: '560001'
-                state:
-                  name: Karnataka
-              contact:
-                phone: '9886098860'
-                email: nobody@nomail.com
-              time:
-                label: confirmed
-                range:
-                  start: '2024-04-04T22:00:00Z'
-                  end: '2024-04-04T23:00:00Z'
-                timestamp: '2024-04-04T09:00:00.000Z'
-              person:
-                name: Ramu
-              instructions:
-                name: Special Instructions
-                short_desc: Customer Special Instructions
               authorization:
                 type: OTP
                 token: '1234'
@@ -272,20 +164,20 @@ value:
       quote:
         price:
           currency: INR
-          value: '2799'
+          value: '1499'
         breakup:
           - title: LFT - Liver Function Profile, Serum
             price:
               currency: INR
-              value: '2600'
+              value: '1300'
             item:
               id: I1
               quantity:
                 selected:
-                  count: '2'
+                  count: '1'
               price:
                 currency: INR
-                value: '1300'
+                value: '1400'
             tags:
               - descriptor:
                   code: title
