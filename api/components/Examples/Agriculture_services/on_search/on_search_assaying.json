@@ -228,6 +228,12 @@
                     },
                     {
                       "descriptor": {
+                        "code": "TIME_FOR_PICKUP"
+                      },
+                      "value": "PT2D"
+                    },
+                    {
+                      "descriptor": {
                         "code": "TIME_FOR_COMPLETION"
                       },
                       "value": "PT1D"
@@ -375,6 +381,12 @@
                         "code": "ACCURACY"
                       },
                       "value": "90%"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "TIME_FOR_PICKUP"
+                      },
+                      "value": "PT2D"
                     },
                     {
                       "descriptor": {
@@ -642,6 +654,12 @@
                         "code": "ACCURACY"
                       },
                       "value": "90%"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "TIME_FOR_PICKUP"
+                      },
+                      "value": "PT2D"
                     },
                     {
                       "descriptor": {
