@@ -24,6 +24,7 @@ confirm:
     - $ref: "./confirm/confirm_assaying.yaml"
 update:
   examples:
+    - $ref: "./update/update_merchant_cancel.yaml"
     - $ref: "./update/update_requote.yaml"
 status:
   examples:
@@ -80,6 +81,3 @@ on_cancel:
   examples:
     - $ref: "./on_cancel_buyer/on_cancel.yaml"
     - $ref: "./on_cancel_merchant/on_cancel.yaml"
-update:
-  examples:
-    - $ref: "./update/update_merchant_cancel.yaml"
