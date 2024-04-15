@@ -1,5 +1,5 @@
-summary: Returns the catalog specific to the search intent
-description: Returns the catalog specific to the search intent
+summary: ''
+description: ''
 context:
   domain: ONDC:AGR12
   location:
@@ -50,7 +50,7 @@ message:
         ttl: PT1D
         locations:
           - id: L1
-            gps: 12.956399,77.636803
+            gps: 12.967555,77.749666
             address: Jayanagar 4th Block
             city:
               code: std:080
@@ -119,7 +119,6 @@ message:
               - AGR12-xxxx
             fulfillment_ids:
               - '1'
-              - '2'
             location_ids:
               - L1
             payment_ids:
@@ -136,15 +135,6 @@ message:
                 cancellation_fee:
                   percentage: '10.00'
             tags:
-              - descriptor:
-                  code: TEST_INFORMATION
-                list:
-                  - descriptor:
-                      code: TIME_FOR_PICKUP
-                    value: PT2D
-                  - descriptor:
-                      code: TIME_FOR_COMPLETION
-                    value: PT1D
               - descriptor:
                   code: RESCHEDULE_TERMS
                 list:
@@ -224,15 +214,6 @@ message:
                 cancellation_fee:
                   percentage: '5.00'
             tags:
-              - descriptor:
-                  code: TEST_INFORMATION
-                list:
-                  - descriptor:
-                      code: TIME_FOR_PICKUP
-                    value: PT2D
-                  - descriptor:
-                      code: TIME_FOR_COMPLETION
-                    value: PT1D
               - descriptor:
                   code: RESCHEDULE_TERMS
                 list:

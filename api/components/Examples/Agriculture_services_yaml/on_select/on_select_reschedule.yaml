@@ -1,34 +1,33 @@
 summary: Seller rejects the schedule and returns the available slots
 description: Seller rejects the schedule and returns the available slots + error message
-value:
-  context:
-    domain: ONDC:AGR12
-    location:
-      city:
-        code: std:080
-      country:
-        code: IND
-    action: on_select
-    version: 2.0.0
-    bap_id: buyerapp.com
-    bap_uri: https://buyerapp.com/services
-    bpp_id: sellerapp.com
-    bpp_uri: https://sellerapp.com/services
-    transaction_id: T1
-    message_id: M2
-    timestamp: '2024-04-01T22:00:31.000Z'
-    ttl: PT30S
-  message:
-    order:
-      provider:
-        id: P1
-      items:
+context:
+  domain: ONDC:AGR12
+  location:
+    city:
+      code: std:080
+    country:
+      code: IND
+  action: on_select
+  version: 2.0.0
+  bap_id: buyerapp.com
+  bap_uri: https://buyerapp.com/services
+  bpp_id: sellerapp.com
+  bpp_uri: https://sellerapp.com/services
+  transaction_id: T1
+  message_id: M2
+  timestamp: '2024-04-01T22:00:31.000Z'
+  ttl: PT30S
+message:
+  order:
+    provider:
+      id: P1
+    items:
       - fulfillment_ids:
-        - F1
+          - F1
         id: I2
         parent_item_id: PI2
         location_ids:
-        - L1
+          - L1
         time:
           label: validity
           range:
@@ -38,14 +37,14 @@ value:
           schedule:
             frequency: PT1H
             holidays:
-            - '2024-04-09'
-            - '2024-04-07'
+              - '2024-04-09'
+              - '2024-04-07'
             times:
-            - '2024-04-04T22:00:00.000Z'
-            - '2024-04-06T22:00:00.000Z'
-            - '2024-04-08T22:00:00.000Z'
-            - '2024-04-10T22:00:00.000Z'
-      fulfillments:
+              - '2024-04-04T22:00:00.000Z'
+              - '2024-04-06T22:00:00.000Z'
+              - '2024-04-08T22:00:00.000Z'
+              - '2024-04-10T22:00:00.000Z'
+    fulfillments:
       - id: F1
         type: Seller-Pickup
         tracking: false
@@ -53,21 +52,21 @@ value:
           descriptor:
             code: Serviceable
         stops:
-        - type: end
-          location:
-            gps: 12.974002,77.613458
-            area_code: '560001'
-          time:
-            label: rejected
-            range:
-              start: '2024-04-04T22:00:00.000Z'
-              end: '2024-04-04T23:00:00.000Z'
-            days: '4'
-      quote:
-        price:
-          currency: INR
-          value: '1499'
-        breakup:
+          - type: end
+            location:
+              gps: 12.974002,77.613458
+              area_code: '560001'
+            time:
+              label: rejected
+              range:
+                start: '2024-04-04T22:00:00.000Z'
+                end: '2024-04-04T23:00:00.000Z'
+              days: '4'
+    quote:
+      price:
+        currency: INR
+        value: '1499'
+      breakup:
         - title: Soil Testing - Micro Nutrient & Misc
           price:
             currency: INR
@@ -81,12 +80,12 @@ value:
               currency: INR
               value: '1400'
           tags:
-          - descriptor:
-              code: title
-            list:
             - descriptor:
-                code: type
-              value: item
+                code: title
+              list:
+                - descriptor:
+                    code: type
+                  value: item
         - title: tax
           price:
             currency: INR
@@ -94,12 +93,12 @@ value:
           item:
             id: I2
           tags:
-          - descriptor:
-              code: title
-            list:
             - descriptor:
-                code: type
-              value: tax
+                code: title
+              list:
+                - descriptor:
+                    code: type
+                  value: tax
         - title: discount
           price:
             currency: INR
@@ -107,12 +106,12 @@ value:
           item:
             id: I2
           tags:
-          - descriptor:
-              code: title
-            list:
             - descriptor:
-                code: type
-              value: discount
+                code: title
+              list:
+                - descriptor:
+                    code: type
+                  value: discount
         - title: pickup_charge
           price:
             currency: INR
@@ -120,16 +119,16 @@ value:
           item:
             id: I2
           tags:
-          - descriptor:
-              code: title
-            list:
             - descriptor:
-                code: type
-              value: misc
-        ttl: P1D
-      payments:
+                code: title
+              list:
+                - descriptor:
+                    code: type
+                  value: misc
+      ttl: P1D
+    payments:
       - type: PRE-FULFILLMENT
         collected_by: BAP
-  error:
-    code: 90001
-    message: Schedule not available
+error:
+  code: 90001
+  message: Schedule not available
