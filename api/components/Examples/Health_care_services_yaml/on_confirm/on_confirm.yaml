@@ -84,7 +84,7 @@ value:
           state:
             descriptor:
               code: Pending
-          type: Seller-Pickup
+          type: Home-Location
           tracking: false
           stops:
             - type: start

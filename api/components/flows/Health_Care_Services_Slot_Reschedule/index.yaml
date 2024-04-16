@@ -1,7 +1,7 @@
 summary: Health Care Services Slot Reschedule
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for health care services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for health care services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment. In this flow, buyer updates the schedule after the order confirmation.
 details:
-  - description: Sequence Diagram for Booking Agri Services - Seller Pickup
+  - description: Sequence Diagram for booking health care services and slot rescheduling
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer
@@ -10,8 +10,8 @@ details:
         participant SA1 as SellerApp1
         participant SA2 as SellerApp2
         Note Over B,SA: **SEARCH FLOW**
-        B ->> BA: Search by item for a service within a city
-        BA ->> SA: **/search** - Search by item for a service within city
+        B ->> BA: Search for the Health Service withing the city
+        BA ->> SA: **/search** - Search for the Health Service withing the city
         G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
         G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
         SA ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
@@ -27,7 +27,7 @@ details:
         Note Over B,SA: **SELECT FLOW**
         B ->> BA: Selects one of the <br>providers for service
         BA ->> SA: **/select** - A service is selected with a <br>TTL for receiving response
-        SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including logistics charges
+        SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including sampling charges
         BA ->> B: Shows response with price details
   - description: Initializing the order
     mermaidGraph: >-
@@ -51,6 +51,17 @@ details:
         BA ->> SA: **/confirm** - Creates order to create final digital contract
         SA ->> BA: **/on_confirm** - Accepts the order 
         BA ->> B: Confirms order and delivery
+  - description: Slot Reschedule
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp
+        Note Over B,SA: **UPDATION FLOW**
+        B ->> BA: Update the slot timimg
+        BA ->> SA: **/confirm** - Books the new slot
+        SA ->> BA: **/on_confirm** - Accepts the updated slot timing
+        BA ->> B: Confirms the schedule 
   - description: Fulfillment
     mermaidGraph: >-
       sequenceDiagram

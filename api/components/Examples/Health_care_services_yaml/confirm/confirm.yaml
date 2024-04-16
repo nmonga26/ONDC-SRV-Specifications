@@ -48,7 +48,7 @@ value:
         phone: '9886098860'
       fulfillments:
         - id: F1
-          type: Seller-Pickup
+          type: Home-Location
           tracking: false
           stops:
             - type: end

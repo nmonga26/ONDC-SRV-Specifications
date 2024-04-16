@@ -58,7 +58,7 @@
         "fulfillments": [
           {
             "id": "F1",
-            "type": "Seller-Pickup",
+            "type": "Home-Location",
             "stops": [
               {
                 "type": "end",
