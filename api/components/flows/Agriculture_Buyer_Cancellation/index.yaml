@@ -1,5 +1,5 @@
-summary: Agriculture Buyer Cancellation
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for agriculture services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+summary: Agriculture Service Buyer Cancellation
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to cancel a service request post-confirmation. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
 details:
   - description: Sequence Diagram for Booking Agri Services - Schedule Reschedule
     mermaidGraph: >-
@@ -78,13 +78,13 @@ steps:
     example:
       $ref: "../../Examples/Agriculture_services_yaml/on_search/on_search.yaml"
   - summary: Buyer selects the required agri service
-    api: select 
+    api: select
     description: Buyer selects the required agri service + suitable fulfillment type + suitable schedule
     reference: if any
     example:
       $ref: "../../Examples/Agriculture_services_yaml/select/select.yaml"
   - summary: Seller confirms the schedule and returns the quote for service
-    api: on_select 
+    api: on_select
     description: Seller confirms the schedule and returns the quote for service
     reference: if any
     example:
@@ -123,4 +123,3 @@ steps:
     description: Seller accepts the cancellation request
     example:
       $ref: "../../Examples/Agriculture_services_yaml/on_cancel/on_cancel_buyer.yaml"
-  

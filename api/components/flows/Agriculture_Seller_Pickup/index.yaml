@@ -1,5 +1,5 @@
-summary: Agriculture Seller Pickup
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for agriculture services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+summary: Agriculture Services Collection Pickup by Seller
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for agriculture services and seller will come to pickup the sample. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
 details:
   - description: Sequence Diagram for Booking Agri Services - Seller Pickup
     mermaidGraph: >-

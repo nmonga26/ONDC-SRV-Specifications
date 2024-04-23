@@ -1,5 +1,5 @@
-summary: Agriculture Schedule Reschedule
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for agriculture services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+summary: Agriculture Services - Schedule Reschedule
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for schedule change for his service request. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
 details:
   - description: Sequence Diagram for Booking Agri Services - Schedule Reschedule
 
@@ -84,20 +84,20 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Agriculture_services_yaml/select/select_reschedule.yaml"
-  - summary: Seller rejects the schedule and provide the available slots 
+  - summary: Seller rejects the schedule and provide the available slots
     api: on_select (Reschedule)
-    description: Seller rejects the schedule 
+    description: Seller rejects the schedule
     reference: if any
     example:
       $ref: "../../Examples/Agriculture_services_yaml/on_select/on_select_reschedule.yaml"
   - summary: Buyer selects the required agri service
-    api: select 
+    api: select
     description: Buyer selects the required agri service + suitable fulfillment type + suitable schedule
     reference: if any
     example:
       $ref: "../../Examples/Agriculture_services_yaml/select/select2_reschedule.yaml"
   - summary: Seller confirms the schedule and returns the quote for service
-    api: on_select 
+    api: on_select
     description: Seller confirms the schedule and returns the quote for service
     reference: if any
     example:

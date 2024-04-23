@@ -1,5 +1,5 @@
-summary: Agriculture Buyer Delivered
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for agriculture services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+summary: Agriculture Services Sample Sent by Buyer
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for agriculture services and the sample needs to be sent by the buyer. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
 details:
   - description: Sequence Diagram for Agri Services - Buyer Delivered
     mermaidGraph: >-

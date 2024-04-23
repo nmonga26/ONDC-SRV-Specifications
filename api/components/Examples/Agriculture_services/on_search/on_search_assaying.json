@@ -441,6 +441,65 @@
                 },
                 {
                   "descriptor": {
+                    "code": "ESSENTIAL_PARAMETERS"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "MOISTURE"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "FOREIGN_MATTER"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "OTHER_EDIBLE_GRAINS"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "DAMAGED_GRAINS"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "WEEVILLED_GRAINS"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ADMIXTURE"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "IMMATURE_AND_SHRIVELED"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "OPTIONAL_PARAMETERS"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "URIC_ACID"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ALFATOXIN"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
                     "code": "RESCHEDULE_TERMS"
                   },
                   "list": [
