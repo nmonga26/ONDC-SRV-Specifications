@@ -342,7 +342,7 @@ category_ids:
     description: Bleach and Detan
     reference: <PR/Issue/Discussion Links md format text>
   - code: SRV12-1002
-    description: Facials 
+    description: Facials
     reference: <PR/Issue/Discussion Links md format text>
   - code: SRV12-1003
     description: Face Clean up
@@ -360,7 +360,7 @@ category_ids:
     description: Hair Care
     reference: <PR/Issue/Discussion Links md format text>
   - code: SRV12-1008
-    description: Hair cut 
+    description: Hair cut
     reference: <PR/Issue/Discussion Links md format text>
   - code: SRV12-1009
     description: Threading
@@ -372,7 +372,7 @@ category_ids:
     description: Makeup
     reference: <PR/Issue/Discussion Links md format text>
   - code: SRV12-1012
-    description: Hair Styling 
+    description: Hair Styling
     reference: <PR/Issue/Discussion Links md format text>
   - code: SRV12-1013
     description: Laser hair Treatment
