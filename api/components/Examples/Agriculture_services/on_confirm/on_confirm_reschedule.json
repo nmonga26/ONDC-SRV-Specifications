@@ -36,7 +36,7 @@
       "items": [
         {
           "id": "I2",
-          "parent_item_id": "PI2",
+
           "fulfillment_ids": ["F1"],
           "quantity": {
             "selected": {
@@ -96,14 +96,6 @@
                   "value": "PT1D"
                 }
               ]
-            },
-            {
-              "descriptor": {
-                "code": "TNC_LINK",
-                "name": "Terms & Conditions",
-                "short_desc": "Terms and Conditions"
-              },
-              "value": "https://abc.com/tnc.html"
             }
           ]
         }

@@ -161,7 +161,7 @@
               "parent_item_id": "PI1",
               "descriptor": {
                 "name": "Home Painting - Home consultation",
-                "code": "UPC code",
+
                 "short_desc": "Painting and Waterproofing",
                 "long_desc": "Painting and Waterproofing",
                 "images": [
@@ -283,7 +283,7 @@
               "parent_item_id": "PI2",
               "descriptor": {
                 "name": "Sofa Cleaning",
-                "code": "UPC code",
+
                 "short_desc": "Sofa Cleaning",
                 "long_desc": "Sofa Cleaning",
                 "images": [
@@ -412,7 +412,7 @@
               "parent_item_id": "PI2",
               "descriptor": {
                 "name": "Sofa Cleaning",
-                "code": "UPC code",
+
                 "short_desc": "Sofa Cleaning",
                 "long_desc": "Sofa Cleaning",
                 "images": [
@@ -541,7 +541,7 @@
               "parent_item_id": "PI2",
               "descriptor": {
                 "name": "Sofa Cleaning",
-                "code": "UPC code",
+
                 "short_desc": "Sofa Cleaning",
                 "long_desc": "Sofa Cleaning",
                 "images": [

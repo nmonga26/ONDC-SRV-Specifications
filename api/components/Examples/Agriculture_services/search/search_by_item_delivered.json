@@ -27,14 +27,6 @@
       },
       "fulfillment": {
         "type": "Buyer-Delivered",
-        "customer": {
-          "person": {
-            "name": "XYZ"
-          },
-          "contact": {
-            "phone": "9999999999"
-          }
-        },
         "stops": [
           {
             "type": "start",
@@ -72,63 +64,6 @@
         },
         {
           "descriptor": {
-            "code": "REQUIRED_TESTS"
-          },
-          "list": [
-            {
-              "descriptor": {
-                "code": "REQUIRED_TEST_1"
-              },
-              "value": "RT1"
-            },
-            {
-              "descriptor": {
-                "code": "REQUIRED_TEST_2"
-              },
-              "value": "RT2"
-            }
-          ]
-        },
-        {
-          "descriptor": {
-            "code": "RT1"
-          },
-          "list": [
-            {
-              "descriptor": {
-                "code": "REQUIRED_TEST_TYPE"
-              },
-              "value": "SOIL_TESTING"
-            },
-            {
-              "descriptor": {
-                "code": "REQUIRED_SUB_TYPE"
-              },
-              "value": "PRIMARY_NUTRIENT"
-            }
-          ]
-        },
-        {
-          "descriptor": {
-            "code": "RT2"
-          },
-          "list": [
-            {
-              "descriptor": {
-                "code": "REQUIRED_TEST_TYPE"
-              },
-              "value": "CHEMICAL_TESTING"
-            },
-            {
-              "descriptor": {
-                "code": "REQUIRED_TEST_SUB_TYPE"
-              },
-              "value": "TRACE_CONTAMINATION_DETECTION"
-            }
-          ]
-        },
-        {
-          "descriptor": {
             "code": "BAP_DETAILS"
           },
           "list": [
@@ -137,43 +72,6 @@
                 "code": "BAP_TYPE"
               },
               "value": "FARMER"
-            }
-          ]
-        },
-        {
-          "descriptor": {
-            "code": "REPORT_REQUIREMENT"
-          },
-          "list": [
-            {
-              "descriptor": {
-                "code": "REPORT_DEADLINE"
-              },
-              "value": "2024-04-04T22:00:00.000Z"
-            },
-            {
-              "descriptor": {
-                "code": "CROP"
-              },
-              "value": "MAIZE"
-            },
-            {
-              "descriptor": {
-                "code": "DATE_OF_SOWING"
-              },
-              "value": "2024-04-04T22:00:00.000Z"
-            },
-            {
-              "descriptor": {
-                "code": "FARM_STATUS"
-              },
-              "value": "RAIN_FED"
-            },
-            {
-              "descriptor": {
-                "code": "ACRAGE"
-              },
-              "value": "2"
             }
           ]
         }

@@ -36,7 +36,7 @@
       "items": [
         {
           "id": "I2",
-          "parent_item_id": "PI2",
+
           "fulfillment_ids": ["F2"],
           "quantity": {
             "selected": {
@@ -68,11 +68,34 @@
           "tags": [
             {
               "descriptor": {
-                "code": "TNC_LINK",
-                "name": "Terms & Conditions",
-                "short_desc": "Terms and Conditions"
+                "code": "RESCHEDULE_TERMS"
               },
-              "value": "https://abc.com/tnc.html"
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "FULFILLMENT_STATE"
+                  },
+                  "value": "Pending"
+                },
+                {
+                  "descriptor": {
+                    "code": "RESCHEDULE_ELIGIBLE"
+                  },
+                  "value": "true"
+                },
+                {
+                  "descriptor": {
+                    "code": "RESCHEDULE_FEE"
+                  },
+                  "value": "0.00"
+                },
+                {
+                  "descriptor": {
+                    "code": "RESCHEDULE_WITHIN"
+                  },
+                  "value": "PT1D"
+                }
+              ]
             }
           ]
         }

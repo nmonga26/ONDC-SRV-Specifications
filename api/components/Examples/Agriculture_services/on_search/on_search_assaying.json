@@ -92,9 +92,9 @@
           ],
           "creds": [
             {
-              "id": "ESG-12345678",
+              "id": "GHP-12345678",
               "type": "Certificate",
-              "desc": "Authentic Assaying Provider",
+              "desc": "Good Hygienic Practices (GHP)",
               "url": "https://abcd.cdn.com/images/bage-img"
             }
           ],
@@ -142,7 +142,7 @@
               "id": "I1",
               "descriptor": {
                 "name": "Quality testing for Arhar Whole",
-                "code": "UPC code",
+
                 "short_desc": "Assaying service for Arhar Whole",
                 "long_desc": "Assaying service for Arhar Whole",
                 "images": [
@@ -154,6 +154,10 @@
                   {
                     "mimetype": "video/mp4",
                     "url": "video_url"
+                  },
+                  {
+                    "mimetype": "application/pdf",
+                    "url": "https://abc.com/add-info.pdf"
                   }
                 ]
               },
@@ -210,18 +214,6 @@
                   "list": [
                     {
                       "descriptor": {
-                        "code": "ADDITIONAL_INFORMATION_URL"
-                      },
-                      "value": "https://abc.com/add-info-1.pdf"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "ADDITIONAL_INFORMATION_FILE_FORMAT"
-                      },
-                      "value": "application/pdf"
-                    },
-                    {
-                      "descriptor": {
                         "code": "ACCURACY"
                       },
                       "value": "90%"
@@ -237,6 +229,65 @@
                         "code": "TIME_FOR_COMPLETION"
                       },
                       "value": "PT1D"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "ESSENTIAL_PARAMETERS"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "MOISTURE"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "FOREIGN_MATTER"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "OTHER_EDIBLE_GRAINS"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "DAMAGED_GRAINS"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "WEEVILLED_GRAINS"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ADMIXTURE"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "IMMATURE_AND_SHRIVELED"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "OPTIONAL_PARAMETERS"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "URIC_ACID"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ALFATOXIN"
+                      }
                     }
                   ]
                 },
@@ -298,7 +349,7 @@
               "parent_item_id": "PI1",
               "descriptor": {
                 "name": "Quality testing for Arhar Whole - Chemical Testing",
-                "code": "UPC code",
+
                 "short_desc": "Assaying service for Arhar Whole",
                 "long_desc": "Assaying service for Arhar Whole",
                 "images": [
@@ -310,6 +361,10 @@
                   {
                     "mimetype": "video/mp4",
                     "url": "video_url"
+                  },
+                  {
+                    "mimetype": "application/pdf",
+                    "url": "https://abc.com/add-info.pdf"
                   }
                 ]
               },
@@ -364,18 +419,6 @@
                     "code": "TEST_INFORMATION"
                   },
                   "list": [
-                    {
-                      "descriptor": {
-                        "code": "ADDITIONAL_INFORMATION_URL"
-                      },
-                      "value": "https://abc.com/add-info-1.pdf"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "ADDITIONAL_INFORMATION_FILE_FORMAT"
-                      },
-                      "value": "application/pdf"
-                    },
                     {
                       "descriptor": {
                         "code": "ACCURACY"
@@ -521,9 +564,9 @@
           ],
           "creds": [
             {
-              "id": "ESG-12345678",
+              "id": "GHP-12345678",
               "type": "Certificate",
-              "desc": "Authentic Assaying Provider",
+              "desc": "Good Hygienic Practices (GHP)",
               "url": "https://abcd.cdn.com/images/bage-img"
             }
           ],
@@ -571,7 +614,7 @@
               "id": "I3",
               "descriptor": {
                 "name": "Soil Testing - Primary & Secondary",
-                "code": "UPC code",
+
                 "short_desc": "Soil Testing including Primary and Secondary",
                 "long_desc": "Soil Testing including Primary and Secondary",
                 "images": [
@@ -583,6 +626,10 @@
                   {
                     "mimetype": "video/mp4",
                     "url": "video_url"
+                  },
+                  {
+                    "mimetype": "application/pdf",
+                    "url": "https://abc.com/add-info.pdf"
                   }
                 ]
               },
@@ -637,18 +684,6 @@
                     "code": "TEST_INFORMATION"
                   },
                   "list": [
-                    {
-                      "descriptor": {
-                        "code": "ADDITIONAL_INFORMATION_URL"
-                      },
-                      "value": "https://abc.com/add-info.pdf"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "ADDITIONAL_INFORMATION_FILE_FORMAT"
-                      },
-                      "value": "application/pdf"
-                    },
                     {
                       "descriptor": {
                         "code": "ACCURACY"

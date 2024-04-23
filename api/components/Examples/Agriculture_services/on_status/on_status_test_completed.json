@@ -35,7 +35,7 @@
       "items": [
         {
           "id": "I2",
-          "parent_item_id": "PI2",
+
           "fulfillment_ids": ["F1"],
           "quantity": {
             "selected": {

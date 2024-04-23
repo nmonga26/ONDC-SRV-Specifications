@@ -92,9 +92,9 @@
           ],
           "creds": [
             {
-              "id": "ESG-12345678",
+              "id": "AGR-12345678",
               "type": "Certificate",
-              "desc": "Samsung Authorized Service provider",
+              "desc": "AGRMARK",
               "url": "https://abcd.cdn.com/images/bage-img"
             }
           ],
@@ -140,10 +140,9 @@
           "items": [
             {
               "id": "I1",
-              "parent_item_id": "PI1",
               "descriptor": {
                 "name": "Soil Testing - Primary & Secondary",
-                "code": "UPC code",
+
                 "short_desc": "Soil Testing including Primary and Secondary",
                 "long_desc": "Soil Testing including Primary and Secondary",
                 "images": [
@@ -208,6 +207,7 @@
                   "descriptor": {
                     "code": "TEST_INFORMATION"
                   },
+                  "display": true,
                   "list": [
                     {
                       "descriptor": {
@@ -220,6 +220,47 @@
                         "code": "TIME_FOR_COMPLETION"
                       },
                       "value": "PT1D"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "TEST_CATEGORIES"
+                  },
+                  "display": true,
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "PRIMARY_NUTRIENT"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "SECONDARY_NUTRIENT"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "PRIMARY_NUTRIENT"
+                  },
+                  "display": true,
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "NITROGEN"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "PHOSPHORUS"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "POTASSIUM"
+                      }
                     }
                   ]
                 },
@@ -278,10 +319,10 @@
             },
             {
               "id": "I2",
-              "parent_item_id": "PI2",
+
               "descriptor": {
                 "name": "Soil Testing - Micro Nutrient & Misc",
-                "code": "UPC code",
+
                 "short_desc": "Soil Testing including Micro Nutrient and Misc",
                 "long_desc": "Soil Testing including Micro Nutrient and Misc",
                 "images": [
@@ -346,6 +387,7 @@
                   "descriptor": {
                     "code": "TEST_INFORMATION"
                   },
+                  "display": true,
                   "list": [
                     {
                       "descriptor": {
@@ -358,6 +400,105 @@
                         "code": "TIME_FOR_COMPLETION"
                       },
                       "value": "PT1D"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "TEST_CATEGORIES"
+                  },
+                  "display": true,
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "MICRO_NUTRIENT"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MISCELLANEOUS"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "MICRO_NUTRIENT"
+                  },
+                  "display": true,
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "BORON"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ZINC"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MANGANESE"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "IRON"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MOLYBDENUM"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "MISCELLANEOUS"
+                  },
+                  "display": true,
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "SOIL_PH"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "SALINITY_TEST"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "PESTICIDES_CONTAMINANTS"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "SOIL_MOISTURE"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "SOIL_TEXTURE"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ORGANIC_CARBON"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ELECTRICAL_CONDUCTIVITY"
+                      }
+                    },
+                    {
+                      "descriptor": {
+                        "code": "CEC"
+                      }
                     }
                   ]
                 },
