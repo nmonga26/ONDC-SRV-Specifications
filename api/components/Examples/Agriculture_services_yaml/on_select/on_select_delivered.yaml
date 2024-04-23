@@ -26,7 +26,6 @@ value:
         - fulfillment_ids:
             - F2
           id: I2
-          parent_item_id: PI2
           location_ids:
             - L1
       fulfillments:
@@ -68,7 +67,7 @@ value:
                   count: '1'
               price:
                 currency: INR
-                value: '1400'
+                value: '1300'
             tags:
               - descriptor:
                   code: title
