@@ -35,11 +35,10 @@
       "items": [
         {
           "id": "I2",
-
           "fulfillment_ids": ["F1"],
           "quantity": {
             "selected": {
-              "count": 1
+              "count": 2
             }
           }
         }
@@ -141,14 +140,14 @@
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "1499"
+          "value": "2799"
         },
         "breakup": [
           {
             "title": "LFT - Liver Function Profile, Serum",
             "price": {
               "currency": "INR",
-              "value": "1300"
+              "value": "2600"
             },
             "item": {
               "id": "I1",
@@ -159,7 +158,7 @@
               },
               "price": {
                 "currency": "INR",
-                "value": "1400"
+                "value": "1300"
               }
             },
             "tags": [
@@ -261,7 +260,7 @@
           "id": "P1",
           "collected_by": "BAP",
           "params": {
-            "amount": "1499",
+            "amount": "2799",
             "currency": "INR",
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"

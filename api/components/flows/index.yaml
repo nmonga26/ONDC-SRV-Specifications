@@ -2,3 +2,5 @@
 - $ref: "./Health_Care_Services_Cancellation/index.yaml"
 - $ref: "./Health_Care_Services_Slot_Reschedule/index.yaml"
 - $ref: "./Health_Care_Services_Updation/index.yaml"
+- $ref: "./Health_Care_Services_Merchant_Cancellation/index.yaml"
+- $ref: "./Health_Care_Services_Number_Of_Patients/index.yaml"

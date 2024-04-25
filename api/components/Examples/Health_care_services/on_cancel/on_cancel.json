@@ -260,7 +260,7 @@
                         "descriptor": {
                           "code": "NAME"
                         },
-                        "value": "Abc"
+                        "value": "Person1"
                       },
                       {
                         "descriptor": {
@@ -285,7 +285,7 @@
                         "descriptor": {
                           "code": "NAME"
                         },
-                        "value": "Xyz"
+                        "value": "Person2"
                       },
                       {
                         "descriptor": {

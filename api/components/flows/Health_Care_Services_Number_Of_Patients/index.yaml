@@ -1,4 +1,4 @@
-summary: Health Care Services Buyer Cancellation
+summary: Health Care Modify Number of Tests and Number of Patients
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for health care services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment. In this flow buyer cancels the order after confirmation.
 details:
   - description: Sequence Diagram for booking health care service and cancellation after the order confirmation
@@ -112,14 +112,21 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Health_care_services_yaml/on_confirm/on_confirm.yaml"
-  - summary: Buyer requests for the order cancellation
-    api: cancel
-    description: Buyer requests for order cancellation and provides the cancellation reason_id
+  - summary: Seller accepts the order for service
+    api: update
+    description: Buyer apps makes a request for updating the number of patients and tests to 3
     reference: if any
     example:
-      $ref: "../../Examples/Health_care_services_yaml/cancel/cancel.yaml"
-  - summary: Seller accepts the cancellation request
-    api: on_cancel
-    description: Seller accepts the cancellation request
+      $ref: "../../Examples/Health_care_services_yaml/update/update_number_of_patients.yaml"
+  - summary: Seller accepts the order for service
+    api: on_update
+    description: Seller app sends an on_update updating the payments object for the new payment to be collected and quote
+    reference: if any
     example:
-      $ref: "../../Examples/Health_care_services_yaml/on_cancel/on_cancel.yaml"
+      $ref: "../../Examples/Health_care_services_yaml/on_update/on_update_number_of_patients.yaml"
+  - summary: Seller accepts the order for service
+    api: update
+    description: Buyer app accepts the quotation and have the user pay for additional tests
+    reference: if any
+    example:
+      $ref: "../../Examples/Health_care_services_yaml/update/update_number_of_patients_paid.yaml"

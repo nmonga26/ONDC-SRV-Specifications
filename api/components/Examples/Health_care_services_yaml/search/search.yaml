@@ -52,21 +52,3 @@ value:
             - descriptor:
                 code: BUYER_FINDER_FEE_AMOUNT
               value: '0'
-        - descriptor:
-            code: BAP_PREFERENCES
-          list:
-            - descriptor:
-                code: TEST_PREFERENCE
-              value: SINGLE_TEST
-            - descriptor:
-                code: TEST_PREFERENCE
-              value: TEST_PACKAGE
-            - descriptor:
-                code: TEST_PREFERENCE
-              value: SINGLE_TEST+TEST_PACKAGE
-        - descriptor:
-            code: REPORT_REQUIREMENT
-          list:
-            - descriptor:
-                code: REPORT_DEADLINE
-              value: '2024-04-04T22:00:00.000Z'

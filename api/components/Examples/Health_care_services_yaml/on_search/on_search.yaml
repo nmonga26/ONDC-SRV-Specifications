@@ -30,8 +30,6 @@ value:
           type: PRE-FULFILLMENT
         - id: '2'
           type: ON-FULFILLMENT
-        - id: '3'
-          type: POST-FULFILLMENT
       descriptor:
         name: Health Care Lab
         short_desc: Health Care Lab
@@ -95,7 +93,6 @@ value:
               parent_item_id: PI1
               descriptor:
                 name: LFT - Liver Function Profile, Serum
-                code: UPC code
                 short_desc: LFT - Liver Function Profile, Serum
                 long_desc: LFT - Liver Function Profile, Serum
                 images:
@@ -193,10 +190,10 @@ value:
                   list:
                     - descriptor:
                         code: DURATION_GAP
-                      value: 1H
+                      value: PT1H
                     - descriptor:
-                        code: CONSUMPTION_TYPE
-                      value: GLUCOSE
+                        code: CONSUMPTION_TYPE_INSTRUCTIONS
+                      value: 250ML OF GLUCOSE, 25MG MEDICINE
                 - descriptor:
                     code: RESCHEDULE_TERMS
                   list:
@@ -216,8 +213,7 @@ value:
                     code: RISK_ASSESSMENT
                   list:
                     - descriptor:
-                        code: ''
-                      value: ''
+                        code: LOW
               time:
                 label: validity
                 range:
@@ -237,10 +233,8 @@ value:
               matched: true
               recommended: true
             - id: I2
-              parent_item_id: PI2
               descriptor:
                 name: LFT - Liver Function Profile, Serum
-                code: UPC code
                 short_desc: LFT including SGOT, SGPT
                 long_desc: LFT including SGOT, SGPT
                 images:

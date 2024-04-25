@@ -33,8 +33,25 @@
       "items": [
         {
           "id": "I2",
-
-          "location_ids": ["L1"]
+          "location_ids": ["L1"],
+          "quantity": {
+            "count": 2
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "code": "REPORT_REQUIREMENT"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "REPORT_DEADLINE"
+                  },
+                  "value": "2024-04-04T22:00:00.000Z"
+                }
+              ]
+            }
+          ]
         }
       ],
       "fulfillments": [

@@ -15,29 +15,27 @@
     "bap_uri": "https://buyerapp.com/services",
     "bpp_id": "sellerapp.com",
     "bpp_uri": "https://sellerapp.com/services",
-    "transaction_id": "T1",
-    "message_id": "M5",
-    "timestamp": "2024-04-03T10:20:00.000Z",
-    "ttl": "PT30S"
+    "transaction_id": "65fe13c2-d306-4ef1-8c25-fa126c134b67",
+    "message_id": "ea89883a-57ff-44de-87fa-66b07c8d25d9",
+    "timestamp": "2024-04-02T22:10:38.000Z",
+    "ttl": "PT1D"
   },
   "message": {
     "order": {
-      "id": "O1",
-      "status": "Accepted",
+      "id": "C1",
+      "status": "Pending",
       "provider": {
-        "id": "P1",
-        "locations": [
-          {
-            "id": "L1"
-          }
-        ]
+        "id": "P1"
       },
       "items": [
         {
-          "id": "I2",
-
-          "fulfillment_ids": ["F1"],
-          "location_ids": ["L1"]
+          "id": "I1",
+          "quantity": {
+            "selected": {
+              "count": 3
+            }
+          },
+          "fulfillment_ids": ["F1"]
         }
       ],
       "payments": [
@@ -52,6 +50,83 @@
             "virtual_payment_address": "xxx@xxxx"
           },
           "status": "PAID",
+          "type": "PRE-FULFILLMENT",
+          "tags": [
+            {
+              "descriptor": {
+                "code": "Settlement_Details"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Counterparty"
+                  },
+                  "value": "BPP"
+                },
+                {
+                  "descriptor": {
+                    "code": "Mode"
+                  },
+                  "value": "UPI"
+                },
+                {
+                  "descriptor": {
+                    "code": "Beneficiary_Name"
+                  },
+                  "value": "xxxxx"
+                },
+                {
+                  "descriptor": {
+                    "code": "Bank_Account_No"
+                  },
+                  "value": "xxxxx"
+                },
+                {
+                  "descriptor": {
+                    "code": "Ifsc_Code"
+                  },
+                  "value": "xxxxxxx"
+                },
+                {
+                  "descriptor": {
+                    "code": "UPI_Address"
+                  },
+                  "value": "xxxxxxx"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "Buyer_Finder_Fee"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Buyer_Finder_Fee_Type"
+                  },
+                  "value": "percentage"
+                },
+                {
+                  "descriptor": {
+                    "code": "Buyer_Finder_Fee_Amount"
+                  },
+                  "value": "3"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "P2",
+          "collected_by": "BAP",
+          "params": {
+            "amount": "1300",
+            "currency": "INR",
+            "transaction_id": "T1",
+            "bank_account_number": "xxxxxxxx",
+            "virtual_payment_address": "xxx@xxxx"
+          },
+          "status": "NOT-PAID",
           "type": "PRE-FULFILLMENT",
           "tags": [
             {
@@ -141,13 +216,10 @@
               },
               "time": {
                 "range": {
-                  "start": "2024-04-05T22:00:00.000Z",
-                  "end": "2024-04-05T23:00:00.000Z"
-                }
-              },
-              "instructions": {
-                "name": "Special Instructions",
-                "short_desc": "Customer Special Instructions"
+                  "start": "2024-04-04T22:00:00Z",
+                  "end": "2024-04-04T23:00:00Z"
+                },
+                "timestamp": "2024-04-04T09:00:00.000Z"
               },
               "contact": {
                 "phone": "9886098860",
@@ -180,9 +252,10 @@
               "time": {
                 "label": "confirmed",
                 "range": {
-                  "start": "2024-04-06T22:00:00.000Z",
-                  "end": "2024-04-06T23:00:00.000Z"
-                }
+                  "start": "2024-04-04T22:00:00Z",
+                  "end": "2024-04-04T23:00:00Z"
+                },
+                "timestamp": "2024-04-04T09:00:00.000Z"
               },
               "person": {
                 "name": "Ramu",
@@ -194,19 +267,24 @@
                     "list": [
                       {
                         "descriptor": {
-                          "code": "P1"
+                          "code": "PI1"
                         }
                       },
                       {
                         "descriptor": {
-                          "code": "P2"
+                          "code": "PI2"
+                        }
+                      },
+                      {
+                        "descriptor": {
+                          "code": "PI3"
                         }
                       }
                     ]
                   },
                   {
                     "descriptor": {
-                      "code": "P1"
+                      "code": "PI1"
                     },
                     "list": [
                       {
@@ -231,7 +309,7 @@
                   },
                   {
                     "descriptor": {
-                      "code": "P2"
+                      "code": "PI2"
                     },
                     "list": [
                       {
@@ -253,8 +331,37 @@
                         "value": "35"
                       }
                     ]
+                  },
+                  {
+                    "descriptor": {
+                      "code": "P3"
+                    },
+                    "list": [
+                      {
+                        "descriptor": {
+                          "code": "NAME"
+                        },
+                        "value": "Person3"
+                      },
+                      {
+                        "descriptor": {
+                          "code": "GENDER"
+                        },
+                        "value": "MALE"
+                      },
+                      {
+                        "descriptor": {
+                          "code": "AGE"
+                        },
+                        "value": "40"
+                      }
+                    ]
                   }
                 ]
+              },
+              "instructions": {
+                "name": "Special Instructions",
+                "short_desc": "Customer Special Instructions"
               },
               "authorization": {
                 "type": "OTP",
@@ -271,25 +378,25 @@
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "2799"
+          "value": "4099"
         },
         "breakup": [
           {
             "title": "LFT - Liver Function Profile, Serum",
             "price": {
               "currency": "INR",
-              "value": "2600"
+              "value": "3900"
             },
             "item": {
               "id": "I1",
               "quantity": {
                 "selected": {
-                  "count": "2"
+                  "count": "3"
                 }
               },
               "price": {
                 "currency": "INR",
-                "value": "1400"
+                "value": "1300"
               }
             },
             "tags": [
@@ -359,7 +466,7 @@
             ]
           },
           {
-            "title": "sampling_charge",
+            "title": "pickup_charge",
             "price": {
               "currency": "INR",
               "value": "99"

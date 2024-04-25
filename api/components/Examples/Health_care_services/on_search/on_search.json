@@ -40,10 +40,6 @@
         {
           "id": "2",
           "type": "ON-FULFILLMENT"
-        },
-        {
-          "id": "3",
-          "type": "POST-FULFILLMENT"
         }
       ],
       "descriptor": {
@@ -306,13 +302,13 @@
                       "descriptor": {
                         "code": "DURATION_GAP"
                       },
-                      "value": "1H"
+                      "value": "PT1H"
                     },
                     {
                       "descriptor": {
-                        "code": "CONSUMPTION_TYPE"
+                        "code": "CONSUMPTION_TYPE_INSTRUCTIONS"
                       },
-                      "value": "GLUCOSE"
+                      "value": "250ML OF GLUCOSE, 25MG MEDICINE"
                     }
                   ]
                 },
@@ -354,9 +350,8 @@
                   "list": [
                     {
                       "descriptor": {
-                        "code": ""
-                      },
-                      "value": ""
+                        "code": "LOW"
+                      }
                     }
                   ]
                 }

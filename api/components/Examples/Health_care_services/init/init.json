@@ -33,11 +33,10 @@
       "items": [
         {
           "id": "I2",
-
           "fulfillment_ids": ["F1"],
           "quantity": {
             "selected": {
-              "count": 1
+              "count": 2
             }
           }
         }
@@ -91,26 +90,32 @@
                     "list": [
                       {
                         "descriptor": {
-                          "code": "P1"
+                          "code": "PI1"
                         }
                       },
                       {
                         "descriptor": {
-                          "code": "P2"
+                          "code": "PI2"
                         }
+                      },
+                      {
+                        "descriptor": {
+                          "code": "CONTACT_PREFERENCE"
+                        },
+                        "value": "PI2"
                       }
                     ]
                   },
                   {
                     "descriptor": {
-                      "code": "P1"
+                      "code": "PI1"
                     },
                     "list": [
                       {
                         "descriptor": {
                           "code": "NAME"
                         },
-                        "value": "Abc"
+                        "value": "Person1"
                       },
                       {
                         "descriptor": {
@@ -123,19 +128,25 @@
                           "code": "AGE"
                         },
                         "value": "30"
+                      },
+                      {
+                        "descriptor": {
+                          "code": "MOBILE_NUMBER"
+                        },
+                        "value": "9999999999"
                       }
                     ]
                   },
                   {
                     "descriptor": {
-                      "code": "P2"
+                      "code": "PI2"
                     },
                     "list": [
                       {
                         "descriptor": {
                           "code": "NAME"
                         },
-                        "value": "Xyz"
+                        "value": "Person2"
                       },
                       {
                         "descriptor": {
@@ -148,6 +159,12 @@
                           "code": "AGE"
                         },
                         "value": "35"
+                      },
+                      {
+                        "descriptor": {
+                          "code": "MOBILE_NUMBER"
+                        },
+                        "value": "9999999999"
                       }
                     ]
                   }

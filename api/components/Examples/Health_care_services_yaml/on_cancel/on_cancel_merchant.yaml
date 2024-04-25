@@ -1,5 +1,5 @@
-summary: Seller accepts the cancellation request
-description: Seller accepts the cancellation request
+summary: ''
+description: ''
 value:
   context:
     domain: ONDC:SRV13
@@ -23,7 +23,7 @@ value:
       id: O1
       status: Cancelled
       cancellation:
-        cancelled_by: CONSUMER
+        cancelled_by: PRODUCER
         reason:
           descriptor:
             code: '012'

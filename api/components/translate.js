@@ -18,6 +18,7 @@ const traverse = (source) => {
     const allPaths = [];
     path.forEach((item) => {
       if (item.includes(".json")) {
+        console.log(item);
         allPaths.push(`${source}/${item}`);
         return;
       }
@@ -28,8 +29,8 @@ const traverse = (source) => {
   }
 };
 
-let folderName = "Agriculture_services";
-const traversedPaths = traverse("./Examples/Agriculture_services");
+let folderName = "Health_care_services";
+const traversedPaths = traverse("./Examples/Health_care_services");
 
 traversedPaths.forEach((path, i) => {
   path.forEach((jsonPath, j) => {
@@ -39,7 +40,7 @@ traversedPaths.forEach((path, i) => {
     let replacePath = jsonPath
       .replace(folderName, folderName + "_yaml")
       .replace(".json", ".yaml");
-
+    // console.log(path);
     try {
       existingYamlFile = fs.readFileSync(replacePath).toString();
       existingYamlFile = yaml.load(existingYamlFile);

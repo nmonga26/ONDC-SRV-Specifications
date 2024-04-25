@@ -26,7 +26,6 @@ value:
         - fulfillment_ids:
             - F1
           id: I2
-          parent_item_id: PI2
           location_ids:
             - L1
       fulfillments:
@@ -49,20 +48,20 @@ value:
       quote:
         price:
           currency: INR
-          value: '1499'
+          value: '2799'
         breakup:
           - title: LFT - Liver Function Profile, Serum
             price:
               currency: INR
-              value: '1300'
+              value: '2600'
             item:
               id: I1
               quantity:
                 selected:
-                  count: '1'
+                  count: '2'
               price:
                 currency: INR
-                value: '1400'
+                value: '1300'
             tags:
               - descriptor:
                   code: title
