@@ -27,7 +27,7 @@ status:
     - $ref: "./status/status.yaml"
 cancel:
   examples:
-    - $ref: "./cancel_buyer/cancel.yaml"
+    - $ref: "./cancel/cancel_buyer.yaml"
 on_search:
   examples:
     - $ref: "./on_search/on_search.yaml"
@@ -38,8 +38,8 @@ on_select:
     - $ref: "./on_select/on_select.yaml"
     - $ref: "./on_select/on_select_reschedule.yaml"
     - $ref: "./on_select/on_select2_reschedule.yaml"
-    - $ref: "./select/on_select_delivered.yaml"
-    - $ref: "./select/on_select_assaying.yaml"
+    - $ref: "./on_select/on_select_delivered.yaml"
+    - $ref: "./on_select/on_select_assaying.yaml"
 on_init:
   examples:
     - $ref: "./on_init/on_init.yaml"
@@ -70,14 +70,13 @@ on_status:
     - $ref: "./on_status/on_status_at_location_assaying.yaml"
     - $ref: "./on_status/on_status_collected_by_agent_assaying.yaml"
     - $ref: "./on_status/on_status_received_at_lab_assaying.yaml"
-    - $ref: "./on_status/on_status_test_completed_assaying.yaml"
+    - $ref: "./on_status/on_status_report_shared_assaying.yaml"
     - $ref: "./on_status/on_status_report_generated_assaying.yaml"
-    - $ref: "./on_status/on_status_completed_assaying.yaml"
+    - $ref: "./on_status/on_status_test_completed_assaying.yaml"
 on_cancel:
   examples:
-    - $ref: "./on_cancel_buyer/on_cancel.yaml"
-    - $ref: "./on_cancel_merchant/on_cancel.yaml"
+    - $ref: "./on_cancel/on_cancel_buyer.yaml"
+    - $ref: "./on_cancel/on_cancel_merchant.yaml"
 update:
   examples:
     - $ref: "./update/update_merchant_cancel.yaml"
-    - $ref: "./update/update_requote.yaml"

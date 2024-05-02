@@ -28,6 +28,25 @@ value:
         - id: I1
           location_ids:
             - L1
+          tags:
+            - descriptor:
+                code: REPORT_REQUIREMENT
+              list:
+                - descriptor:
+                    code: REPORT_DEADLINE
+                  value: '2024-04-04T22:00:00.000Z'
+                - descriptor:
+                    code: CROP
+                  value: ARHAR_WHOLE
+                - descriptor:
+                    code: DATE_OF_SOWING
+                  value: '2024-04-04T22:00:00.000Z'
+                - descriptor:
+                    code: FARM_STATUS
+                  value: RAIN_FED
+                - descriptor:
+                    code: ACRAGE
+                  value: '2'
       fulfillments:
         - type: Seller-Pickup
           stops:

@@ -399,9 +399,9 @@ value:
           items:
             - id: I3
               descriptor:
-                name: Soil Testing - Primary & Secondary
-                short_desc: Soil Testing including Primary and Secondary
-                long_desc: Soil Testing including Primary and Secondary
+                name: Quality Testing for Arhar WHole
+                short_desc: Quality Testing for Arhar WHole
+                long_desc: Quality Testing for Arhar WHole
                 images:
                   - url: https://xyz.com/images/207.png
                 media:
@@ -455,6 +455,30 @@ value:
                     - descriptor:
                         code: TIME_FOR_COMPLETION
                       value: PT1D
+                - descriptor:
+                    code: ESSENTIAL_PARAMETERS
+                  list:
+                    - descriptor:
+                        code: MOISTURE
+                    - descriptor:
+                        code: FOREIGN_MATTER
+                    - descriptor:
+                        code: OTHER_EDIBLE_GRAINS
+                    - descriptor:
+                        code: DAMAGED_GRAINS
+                    - descriptor:
+                        code: WEEVILLED_GRAINS
+                    - descriptor:
+                        code: ADMIXTURE
+                    - descriptor:
+                        code: IMMATURE_AND_SHRIVELED
+                - descriptor:
+                    code: OPTIONAL_PARAMETERS
+                  list:
+                    - descriptor:
+                        code: URIC_ACID
+                    - descriptor:
+                        code: ALFATOXIN
                 - descriptor:
                     code: RESCHEDULE_TERMS
                   list:

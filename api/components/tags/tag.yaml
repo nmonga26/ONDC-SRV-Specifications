@@ -53,9 +53,9 @@ attributes:
     description: Hex Code for color
     reference: <PR/Issue/Discussion Links md format text>
 BAP_Terms:
-  - code: finder_fee_type
+  - code: FINDER_FEE_TYPE
     description: Type of the finder fee. eg. "percent"
     reference: <PR/Issue/Discussion Links md format text>
-  - code: finder_fee_amount
+  - code: FINDER_FEE_AMOUNT
     description: Amount for the finder fee
     reference: <PR/Issue/Discussion Links md format text>
