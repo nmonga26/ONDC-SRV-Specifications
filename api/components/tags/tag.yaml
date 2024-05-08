@@ -21,11 +21,11 @@ Settlement_Details:
   - code: UPI_Address
     description: Description of the Tag
     reference: <PR/Issue/Discussion Links md format text>
-Buyer_Finder_Fee:
-  - code: Buyer_Finder_Fee_Type
+BAP_TERMS:
+  - code: FINDER_FEE_TYPE
     description: Description of the Tag
     reference: <PR/Issue/Discussion Links md format text>
-  - code: Buyer_Finder_Fee_Amount
+  - code: FINDER_FEE_AMOUNT
     description: Description of the Tag
     reference: <PR/Issue/Discussion Links md format text>
 schedule:

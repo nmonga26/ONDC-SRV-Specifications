@@ -50,13 +50,13 @@
           "list": [
             {
               "descriptor": {
-                "code": "BUYER_FINDER_FEE_TYPE"
+                "code": "FINDER_FEE_TYPE"
               },
               "value": "percent"
             },
             {
               "descriptor": {
-                "code": "BUYER_FINDER_FEE_AMOUNT"
+                "code": "FINDER_FEE_AMOUNT"
               },
               "value": "0"
             }

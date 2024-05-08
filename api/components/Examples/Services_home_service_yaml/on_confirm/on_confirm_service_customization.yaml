@@ -9,14 +9,14 @@ value:
       country:
         code: IND
     action: on_confirm
-    version: '2.0.0'
+    version: "2.0.0"
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/services
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/services
     transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
     message_id: ea89883a-57ff-44de-87fa-66b07c8d25d9
-    timestamp: '2023-11-08T22:00:39.000Z'
+    timestamp: "2023-11-08T22:00:39.000Z"
     ttl: PT30S
   message:
     order:
@@ -128,7 +128,8 @@ value:
                   value: North_Indian
       billing:
         name: ONDC buyer
-        address: 22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru,
+        address:
+          22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru,
           Karnataka 560001
         state:
           name: Karnataka
@@ -162,8 +163,8 @@ value:
                 gps: 12.956399,77.636803
               time:
                 range:
-                  start: '2024-03-04T09:00:00.000Z'
-                  end: '2024-03-04T10:00:00.000Z'
+                  start: "2024-03-04T09:00:00.000Z"
+                  end: "2024-03-04T10:00:00.000Z"
               contact:
                 phone: "9886098860"
                 email: nobody@nomail.com
@@ -187,8 +188,8 @@ value:
               time:
                 label: confirmed
                 range:
-                  start: '2024-03-04T10:00:00.000Z'
-                  end: '2024-03-04T18:00:00.000Z'
+                  start: "2024-03-04T10:00:00.000Z"
+                  end: "2024-03-04T18:00:00.000Z"
               person:
                 name: Ramu
               instructions:
@@ -197,8 +198,8 @@ value:
               authorization:
                 type: OTP
                 token: "1234"
-                valid_from: '2023-11-16T09:30:00Z'
-                valid_to: '2023-11-16T09:35:00Z'
+                valid_from: "2023-11-16T09:30:00Z"
+                valid_to: "2023-11-16T09:35:00Z"
                 status: valid
           rateable: true
       quote:
@@ -424,16 +425,16 @@ value:
                     code: UPI_Address
                   value: xxxxxxx
             - descriptor:
-                code: Buyer_Finder_Fee
+                code: BAP_TERMS
               list:
                 - descriptor:
-                    code: Buyer_Finder_Fee_Type
+                    code: FINDER_FEE_TYPE
                   value: percentage
                 - descriptor:
-                    code: Buyer_Finder_Fee_Amount
+                    code: FINDER_FEE_AMOUNT
                   value: "3"
-      created_at: '2023-02-03T09:30:00.000Z'
-      updated_at: '2023-02-03T09:31:30.000Z'
+      created_at: "2023-02-03T09:30:00.000Z"
+      updated_at: "2023-02-03T09:31:30.000Z"
       xinput:
         form:
           url: https//abc.com/checklist

@@ -28,15 +28,14 @@
       "items": [
         {
           "fulfillment_ids": ["F1"],
-          "id": "I2",
-
+          "id": "PI1",
           "location_ids": ["L1"]
         }
       ],
       "fulfillments": [
         {
           "id": "F1",
-          "type": "Home-Location",
+          "type": "Seller-Fulfilled",
           "tracking": false,
           "state": {
             "descriptor": {
@@ -64,14 +63,69 @@
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "2799"
+          "value": "5295"
         },
         "breakup": [
+          {
+            "title": "Healthcare Package 1 for LFT",
+            "price": {
+              "currency": "INR",
+              "value": "0"
+            },
+            "item": {
+              "id": "PI1",
+              "quantity": {
+                "selected": {
+                  "count": "2"
+                },
+                "tags": [
+                  {
+                    "descriptor": {
+                      "code": "ATTRIBUTE"
+                    },
+                    "list": [
+                      {
+                        "descriptor": {
+                          "code": "TYPE"
+                        },
+                        "value": "PACKAGE"
+                      },
+                      {
+                        "descriptor": {
+                          "code": "CHILD_TEST_IDS"
+                        },
+                        "value": "I1,I2"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "price": {
+                "currency": "INR",
+                "value": "0"
+              }
+            },
+            "tags": [
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "type"
+                    },
+                    "value": "item"
+                  }
+                ]
+              }
+            ]
+          },
           {
             "title": "LFT - Liver Function Profile, Serum",
             "price": {
               "currency": "INR",
-              "value": "2600"
+              "value": "3098"
             },
             "item": {
               "id": "I1",
@@ -82,7 +136,41 @@
               },
               "price": {
                 "currency": "INR",
-                "value": "1300"
+                "value": "1549"
+              }
+            },
+            "tags": [
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "type"
+                    },
+                    "value": "item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "LFT - Liver Function Profile, Ceratin",
+            "price": {
+              "currency": "INR",
+              "value": "2998"
+            },
+            "item": {
+              "id": "I2",
+              "quantity": {
+                "selected": {
+                  "count": "2"
+                }
+              },
+              "price": {
+                "currency": "INR",
+                "value": "1499"
               }
             },
             "tags": [
@@ -127,25 +215,55 @@
             ]
           },
           {
-            "title": "discount",
+            "title": "offer",
             "price": {
               "currency": "INR",
-              "value": "0"
+              "value": "-1000.00"
             },
             "item": {
-              "id": "I2"
+              "id": "PI1"
             },
             "tags": [
               {
                 "descriptor": {
-                  "code": "title"
+                  "code": "TITLE"
                 },
                 "list": [
                   {
                     "descriptor": {
-                      "code": "type"
+                      "code": "TYPE"
                     },
-                    "value": "discount"
+                    "value": "offer"
+                  }
+                ]
+              },
+              {
+                "code": "BENEFIT",
+                "list": [
+                  {
+                    "code": "VALUE_TYPE",
+                    "value": "percent"
+                  },
+                  {
+                    "code": "VALUE",
+                    "value": "60"
+                  },
+                  {
+                    "code": "VALUE_CAP",
+                    "value": "-1000.00"
+                  }
+                ]
+              },
+              {
+                "code": "META",
+                "list": [
+                  {
+                    "code": "ADDITIVE",
+                    "value": "no"
+                  },
+                  {
+                    "code": "AUTO",
+                    "value": "yes"
                   }
                 ]
               }
@@ -158,7 +276,7 @@
               "value": "99"
             },
             "item": {
-              "id": "I2"
+              "id": "PI1"
             },
             "tags": [
               {

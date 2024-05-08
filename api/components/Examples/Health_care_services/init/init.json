@@ -32,7 +32,7 @@
       },
       "items": [
         {
-          "id": "I2",
+          "id": "PI1",
           "fulfillment_ids": ["F1"],
           "quantity": {
             "selected": {
@@ -57,7 +57,7 @@
       "fulfillments": [
         {
           "id": "F1",
-          "type": "Home-Location",
+          "type": "Seller-Fulfilled",
           "stops": [
             {
               "type": "end",

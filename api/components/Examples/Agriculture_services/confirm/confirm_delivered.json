@@ -297,18 +297,18 @@
             },
             {
               "descriptor": {
-                "code": "Buyer_Finder_Fee"
+                "code": "BAP_TERMS"
               },
               "list": [
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Type"
+                    "code": "FINDER_FEE_TYPE"
                   },
                   "value": "percentage"
                 },
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Amount"
+                    "code": "FINDER_FEE_AMOUNT"
                   },
                   "value": "3"
                 }

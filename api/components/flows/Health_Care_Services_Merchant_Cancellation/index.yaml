@@ -1,7 +1,7 @@
 summary: Health Care Services Merchant Cancellation
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for health care services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment. In this flow buyer cancels the order after confirmation.
 details:
-  - description: Sequence Diagram for booking health care service and cancellation after the order confirmation
+  - description: Sequence Diagram for Booking Agri Services - Seller Pickup
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer
@@ -26,7 +26,7 @@ details:
         participant SA as SellerApp
         Note Over B,SA: **SELECT FLOW**
         B ->> BA: Selects one of the <br>providers for service
-        BA ->> SA: **/select** - A service is selected with a <br>TTL for receiving response
+        BA ->> SA: **/select** - A test/package is selected with a <br>TTL for receiving response
         SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including sampling charges
         BA ->> B: Shows response with price details
   - description: Initializing the order
@@ -37,7 +37,7 @@ details:
         participant SA as SellerApp      
         Note Over B,SA: **INITIALIZATION FLOW**
         B ->> BA: Proceeds with the Order
-        BA ->> SA: **/init** - Initializes the order and <br>sends billing details
+        BA ->> SA: **/init** - Initializes the order and <br>sends billing details, patient details
         SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
         BA ->> B: Confirms initialization
   - description: Order Confirmation
@@ -48,9 +48,20 @@ details:
         participant SA as SellerApp
         Note Over B,SA: **CONFIRMATION FLOW**
         B ->> BA: Confirms the Order
-        BA ->> SA: **/confirm** - Creates order to create final digital contract
+        BA ->> SA: **/confirm** - Confirms the order by paying to create final digital contract
         SA ->> BA: **/on_confirm** - Accepts the order 
-        BA ->> B: Confirms the order
+        BA ->> B: Confirms order
+  - description: Fulfillment
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp      
+        Note Over B,SA: **ORDER STATUS FLOW**
+        B ->> BA: Checks the order status
+        BA ->> SA: **/status** - Enquire order status <br>or tracking information
+        SA ->> BA: **/on_status_in_transit** - Latest order and fulfillment status is sent
+        BA ->> B: Updates the latest order <br>and fulfillment information
   - description: Cancellation
     mermaidGraph: >-
       sequenceDiagram
@@ -58,10 +69,8 @@ details:
         participant BA as BuyerApp
         participant SA as SellerApp      
         Note Over B,SA: **ORDER STATUS FLOW**
-        B ->> BA: Requests for order cancellation
-        BA ->> SA: **/status** - Cancels the order
-        SA ->> BA: **/on_status_in_transit** - Confirms the order cancellation
-        BA ->> B: Confirms the order cancellation
+        SA ->> BA: **/on_cancel** - Cancels the order
+        BA ->> SA: **/on_update** - Information of refund if order was prepaid
 
 reference: if any
 steps:
@@ -112,12 +121,6 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Health_care_services_yaml/on_confirm/on_confirm.yaml"
-  - summary: Buyer requests for the order cancellation
-    api: cancel
-    description: Buyer requests for order cancellation and provides the cancellation reason_id
-    reference: if any
-    example:
-      $ref: "../../Examples/Health_care_services_yaml/cancel/cancel.yaml"
   - summary: Seller accepts the cancellation request
     api: on_cancel
     description: Seller accepts the cancellation request

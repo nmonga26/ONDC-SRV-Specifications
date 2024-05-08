@@ -9,14 +9,14 @@ value:
       country:
         code: IND
     action: on_cancel
-    version: '2.0.0'
+    version: "2.0.0"
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/srv
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/services
     transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-    message_id: '1755281254860'
-    timestamp: '2023-11-08T22:00:57.000Z'
+    message_id: "1755281254860"
+    timestamp: "2023-11-08T22:00:57.000Z"
     ttl: PT30S
   message:
     order:
@@ -26,7 +26,7 @@ value:
         cancelled_by: CONSUMER
         reason:
           descriptor:
-            code: '012'
+            code: "012"
       provider:
         id: P1
         locations:
@@ -41,27 +41,27 @@ value:
               count: 1
             measure:
               unit: seats
-              value: '2'
+              value: "2"
       quote:
         price:
           currency: INR
-          value: '0.00'
+          value: "0.00"
         breakup:
           - title: Sofa Cleaning
             price:
               currency: INR
-              value: '0.00'
+              value: "0.00"
             item:
               id: I1
               quantity:
                 selected:
-                  count: '1'
+                  count: "1"
                 measure:
                   unit: seats
-                  value: '2'
+                  value: "2"
               price:
                 currency: INR
-                value: '0.00'
+                value: "0.00"
             tags:
               - descriptor:
                   code: title
@@ -72,15 +72,15 @@ value:
           - title: tax
             price:
               currency: INR
-              value: '0.00'
+              value: "0.00"
             item:
               id: I1
               quantity:
                 allocated:
-                  count: '1'
+                  count: "1"
               price:
                 currency: INR
-                value: '0.00'
+                value: "0.00"
             tags:
               - descriptor:
                   code: title
@@ -91,15 +91,15 @@ value:
           - title: discount
             price:
               currency: INR
-              value: '0'
+              value: "0"
             item:
               id: I1
               quantity:
                 allocated:
-                  count: '1'
+                  count: "1"
               price:
                 currency: INR
-                value: '0.00'
+                value: "0.00"
             tags:
               - descriptor:
                   code: title
@@ -110,15 +110,15 @@ value:
           - title: convenience_fee
             price:
               currency: INR
-              value: '0'
+              value: "0"
             item:
               id: I1
               quantity:
                 allocated:
-                  count: '1'
+                  count: "1"
               price:
                 currency: INR
-                value: '0.00'
+                value: "0.00"
             tags:
               - descriptor:
                   code: title
@@ -144,10 +144,10 @@ value:
                 gps: 12.956399,77.636803
               time:
                 range:
-                  start: '2023-11-16T09:30:00Z'
-                  end: '2023-11-16T10:30:00Z'
+                  start: "2023-11-16T09:30:00Z"
+                  end: "2023-11-16T10:30:00Z"
               contact:
-                phone: '9886098860'
+                phone: "9886098860"
                 email: nobody@nomail.com
               person:
                 name: Kishan
@@ -155,22 +155,22 @@ value:
               type: end
               location:
                 gps: 12.974002,77.613458
-                address: 'My House #, My buildin'
+                address: "My House #, My buildin"
                 city:
                   name: Bengaluru
                 country:
                   code: IND
-                area_code: '560001'
+                area_code: "560001"
                 state:
                   name: Karnataka
               contact:
-                phone: '9886098860'
+                phone: "9886098860"
                 email: nobody@nomail.com
               time:
                 label: confirmed
                 range:
-                  start: '2023-11-16T09:30:00Z'
-                  end: '2023-11-16T10:30:00Z'
+                  start: "2023-11-16T09:30:00Z"
+                  end: "2023-11-16T10:30:00Z"
 
               person:
                 name: Ramu
@@ -179,9 +179,9 @@ value:
                 short_desc: Customer Special Instructions
               authorization:
                 type: OTP
-                token: '1234'
-                valid_from: '2023-11-16T09:30:00Z'
-                valid_to: '2023-11-16T09:35:00Z'
+                token: "1234"
+                valid_from: "2023-11-16T09:30:00Z"
+                valid_to: "2023-11-16T09:35:00Z"
                 status: valid
       billing:
         name: ONDC buyer
@@ -194,14 +194,14 @@ value:
           name: Bengaluru
         tax_id: XXXXXXXXXXXXXXX
         email: nobody@nomail.com
-        phone: '9886098860'
+        phone: "9886098860"
       payments:
         - id: P1
           collected_by: BAP
           params:
-            amount: '499'
+            amount: "499"
             currency: INR
-            transaction_id: '3937'
+            transaction_id: "3937"
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
           status: PAID
@@ -229,12 +229,12 @@ value:
                     code: UPI_Address
                   value: xxxxxxx
             - descriptor:
-                code: Buyer_Finder_Fee
+                code: BAP_TERMS
               list:
                 - descriptor:
-                    code: Buyer_Finder_Fee_Type
+                    code: FINDER_FEE_TYPE
                   value: percentage
                 - descriptor:
-                    code: Buyer_Finder_Fee_Amount
-                  value: '3'
-      updated_at: '2023-11-08T22:00:57.000Z'
+                    code: FINDER_FEE_AMOUNT
+                  value: "3"
+      updated_at: "2023-11-08T22:00:57.000Z"

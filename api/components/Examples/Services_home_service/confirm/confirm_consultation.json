@@ -36,9 +36,7 @@
         {
           "id": "I1",
           "parent_item_id": "PI1",
-          "fulfillment_ids": [
-            "F1"
-          ]
+          "fulfillment_ids": ["F1"]
         }
       ],
       "billing": {
@@ -170,11 +168,11 @@
           "params": {
             "amount": "99",
             "currency": "INR",
-            "transaction_id":"3937",
+            "transaction_id": "3937",
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
-          "status":"PAID",
+          "status": "PAID",
           "type": "PRE-FULFILLMENT",
           "tags": [
             {
@@ -222,18 +220,18 @@
             },
             {
               "descriptor": {
-                "code": "Buyer_Finder_Fee"
+                "code": "BAP_TERMS"
               },
               "list": [
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Type"
+                    "code": "FINDER_FEE_TYPE"
                   },
                   "value": "percentage"
                 },
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Amount"
+                    "code": "FINDER_FEE_AMOUNT"
                   },
                   "value": "3"
                 }

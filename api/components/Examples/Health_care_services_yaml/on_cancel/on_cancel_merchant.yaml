@@ -107,7 +107,7 @@ value:
           state:
             descriptor:
               code: Cancelled
-          type: Home-Location
+          type: Seller-Fulfilled
           tracking: false
           stops:
             - type: start
@@ -233,12 +233,12 @@ value:
                     code: UPI_Address
                   value: xxxxxxx
             - descriptor:
-                code: Buyer_Finder_Fee
+                code: BAP_TERMS
               list:
                 - descriptor:
-                    code: Buyer_Finder_Fee_Type
+                    code: FINDER_FEE_TYPE
                   value: percentage
                 - descriptor:
-                    code: Buyer_Finder_Fee_Amount
+                    code: FINDER_FEE_AMOUNT
                   value: '3'
       updated_at: '2024-04-05T22:00:57.000Z'

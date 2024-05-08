@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: T1
     message_id: M4
-    timestamp: '2024-04-01T22:00:39.000Z'
+    timestamp: "2024-04-01T22:00:39.000Z"
     ttl: PT30S
   message:
     order:
@@ -39,12 +39,12 @@ value:
                 descriptor:
                   code: PENDING
               cancellation_fee:
-                percentage: '0.00'
+                percentage: "0.00"
             - fulfillment_state:
                 descriptor:
                   code: IN_TRANSIT
               cancellation_fee:
-                percentage: '10.00'
+                percentage: "10.00"
           tags:
             - descriptor:
                 code: RESCHEDULE_TERMS
@@ -54,10 +54,10 @@ value:
                   value: Pending
                 - descriptor:
                     code: RESCHEDULE_ELIGIBLE
-                  value: 'true'
+                  value: "true"
                 - descriptor:
                     code: RESCHEDULE_FEE
-                  value: '0.00'
+                  value: "0.00"
                 - descriptor:
                     code: RESCHEDULE_WITHIN
                   value: PT1D
@@ -72,7 +72,7 @@ value:
           name: Bengaluru
         tax_id: XXXXXXXXXXXXXXX
         email: nobody@nomail.com
-        phone: '9886098860'
+        phone: "9886098860"
       fulfillments:
         - id: F1
           state:
@@ -89,32 +89,32 @@ value:
                 gps: 12.956399,77.636803
               time:
                 range:
-                  start: '2024-04-04T22:00:00Z'
-                  end: '2024-04-04T23:00:00Z'
+                  start: "2024-04-04T22:00:00Z"
+                  end: "2024-04-04T23:00:00Z"
               contact:
-                phone: '9886098860'
+                phone: "9886098860"
                 email: nobody@nomail.com
               person:
                 name: Kishan
             - type: end
               location:
                 gps: 12.974002,77.613458
-                address: 'My House #, My buildin'
+                address: "My House #, My buildin"
                 city:
                   name: Bengaluru
                 country:
                   code: IND
-                area_code: '560001'
+                area_code: "560001"
                 state:
                   name: Karnataka
               contact:
-                phone: '9886098860'
+                phone: "9886098860"
                 email: nobody@nomail.com
               time:
                 label: confirmed
                 range:
-                  start: '2024-04-04T22:00:00Z'
-                  end: '2024-04-04T23:00:00Z'
+                  start: "2024-04-04T22:00:00Z"
+                  end: "2024-04-04T23:00:00Z"
               person:
                 name: Ramu
               instructions:
@@ -122,28 +122,28 @@ value:
                 short_desc: Customer Special Instructions
               authorization:
                 type: OTP
-                token: '1234'
-                valid_from: '2024-04-04T22:00:00Z'
-                valid_to: '2024-04-04T23:00:00Z'
+                token: "1234"
+                valid_from: "2024-04-04T22:00:00Z"
+                valid_to: "2024-04-04T23:00:00Z"
                 status: valid
           rateable: true
       quote:
         price:
           currency: INR
-          value: '1499'
+          value: "1499"
         breakup:
           - title: Soil Testing - Micro Nutrient & Misc
             price:
               currency: INR
-              value: '1300'
+              value: "1300"
             item:
               id: I1
               quantity:
                 selected:
-                  count: '1'
+                  count: "1"
               price:
                 currency: INR
-                value: '1400'
+                value: "1400"
             tags:
               - descriptor:
                   code: title
@@ -154,7 +154,7 @@ value:
           - title: tax
             price:
               currency: INR
-              value: '100'
+              value: "100"
             item:
               id: I2
             tags:
@@ -167,7 +167,7 @@ value:
           - title: discount
             price:
               currency: INR
-              value: '0'
+              value: "0"
             item:
               id: I2
             tags:
@@ -180,7 +180,7 @@ value:
           - title: pickup_charge
             price:
               currency: INR
-              value: '99'
+              value: "99"
             item:
               id: I2
             tags:
@@ -195,7 +195,7 @@ value:
         - id: P1
           collected_by: BAP
           params:
-            amount: '1499'
+            amount: "1499"
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
@@ -224,80 +224,80 @@ value:
                     code: UPI_Address
                   value: xxxxxxx
             - descriptor:
-                code: Buyer_Finder_Fee
+                code: BAP_TERMS
               list:
                 - descriptor:
-                    code: Buyer_Finder_Fee_Type
+                    code: FINDER_FEE_TYPE
                   value: percentage
                 - descriptor:
-                    code: Buyer_Finder_Fee_Amount
-                  value: '3'
+                    code: FINDER_FEE_AMOUNT
+                  value: "3"
       cancellation_terms:
         - fulfillment_state:
             descriptor:
               code: PENDING
-              short_desc: '002'
+              short_desc: "002"
           cancellation_fee:
-            percentage: '0.00'
+            percentage: "0.00"
             amount:
               currency: INR
-              value: '0.00'
+              value: "0.00"
         - fulfillment_state:
             descriptor:
               code: IN_TRANSIT
-              short_desc: '002'
+              short_desc: "002"
           cancellation_fee:
-            percentage: '0.00'
+            percentage: "0.00"
             amount:
               currency: INR
-              value: '0.00'
+              value: "0.00"
         - fulfillment_state:
             descriptor:
               code: AT_LOCATION
-              short_desc: '002'
+              short_desc: "002"
           cancellation_fee:
-            percentage: '0.00'
+            percentage: "0.00"
             amount:
               currency: INR
-              value: '0.00'
+              value: "0.00"
         - fulfillment_state:
             descriptor:
               code: COLLECTED_BY_AGENT
-              short_desc: '002'
+              short_desc: "002"
           cancellation_fee:
-            percentage: '0.00'
+            percentage: "0.00"
             amount:
               currency: INR
-              value: '0.00'
+              value: "0.00"
         - fulfillment_state:
             descriptor:
               code: RECEIVED_AT_LAB
-              short_desc: '002'
+              short_desc: "002"
           cancellation_fee:
-            percentage: '0.00'
+            percentage: "0.00"
             amount:
               currency: INR
-              value: '0.00'
+              value: "0.00"
         - fulfillment_state:
             descriptor:
               code: TEST_COMPLETED
-              short_desc: '009'
+              short_desc: "009"
           cancellation_fee:
-            percentage: '0.00'
+            percentage: "0.00"
             amount:
               currency: INR
-              value: '0.00'
+              value: "0.00"
         - fulfillment_state:
             descriptor:
               code: REPORT_GENERATED
               short_desc: 010,011,012
           cancellation_fee:
-            percentage: '0.00'
+            percentage: "0.00"
             amount:
               currency: INR
-              value: '0.00'
-      created_at: '2024-04-01T22:00:38.000Z'
-      updated_at: '2024-04-01T22:00:39.000Z'
+              value: "0.00"
+      created_at: "2024-04-01T22:00:38.000Z"
+      updated_at: "2024-04-01T22:00:39.000Z"
       xinput:
         form:
           url: https//abc.com/checklist

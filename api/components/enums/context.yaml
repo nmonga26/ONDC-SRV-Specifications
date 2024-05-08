@@ -8,6 +8,9 @@ domain:
   - code: ONDC:SRV12
     description: Home Services - Personal Care Services
     reference: <PR/Issue/Discussion Links md format text>
+  - code: ONDC:SRV13
+    description: Health Care Services
+    reference: <PR/Issue/Discussion Links md format text>
   - code: ONDC:AGR10
     description: Agriculture Inputs
     reference: <PR/Issue/Discussion Links md format text>

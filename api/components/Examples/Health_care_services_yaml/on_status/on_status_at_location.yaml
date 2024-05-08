@@ -29,7 +29,7 @@ value:
         locations:
           - id: L1
       items:
-        - id: I2
+        - id: PI1
           fulfillment_ids:
             - F1
           quantity:
@@ -52,7 +52,7 @@ value:
           state:
             descriptor:
               code: AT_LOCATION
-          type: Home-Location
+          type: Seller-Fulfilled
           tracking: false
           stops:
             - type: start
@@ -105,20 +105,68 @@ value:
       quote:
         price:
           currency: INR
-          value: '2799'
+          value: '5295'
         breakup:
+          - title: Healthcare Package 1 for LFT
+            price:
+              currency: INR
+              value: '0'
+            item:
+              id: PI1
+              quantity:
+                selected:
+                  count: '2'
+                tags:
+                  - descriptor:
+                      code: ATTRIBUTE
+                    list:
+                      - descriptor:
+                          code: TYPE
+                        value: PACKAGE
+                      - descriptor:
+                          code: CHILD_TEST_IDS
+                        value: I1,I2
+              price:
+                currency: INR
+                value: '0'
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: item
           - title: LFT - Liver Function Profile, Serum
             price:
               currency: INR
-              value: '2600'
+              value: '3098'
             item:
               id: I1
               quantity:
                 selected:
-                  count: '1'
+                  count: '2'
               price:
                 currency: INR
-                value: '1300'
+                value: '1549'
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: item
+          - title: LFT - Liver Function Profile, Ceratin
+            price:
+              currency: INR
+              value: '2998'
+            item:
+              id: I2
+              quantity:
+                selected:
+                  count: '2'
+              price:
+                currency: INR
+                value: '1499'
             tags:
               - descriptor:
                   code: title
@@ -139,25 +187,39 @@ value:
                   - descriptor:
                       code: type
                     value: tax
-          - title: discount
+          - title: offer
             price:
               currency: INR
-              value: '0'
+              value: '-1000.00'
             item:
-              id: I2
+              id: PI1
             tags:
               - descriptor:
-                  code: title
+                  code: TITLE
                 list:
                   - descriptor:
-                      code: type
-                    value: discount
-          - title: sampling_charge
+                      code: TYPE
+                    value: offer
+              - code: BENEFIT
+                list:
+                  - code: VALUE_TYPE
+                    value: percent
+                  - code: VALUE
+                    value: '60'
+                  - code: VALUE_CAP
+                    value: '-1000.00'
+              - code: META
+                list:
+                  - code: ADDITIVE
+                    value: 'no'
+                  - code: AUTO
+                    value: 'yes'
+          - title: pickup_charge
             price:
               currency: INR
               value: '99'
             item:
-              id: I2
+              id: PI1
             tags:
               - descriptor:
                   code: title
@@ -170,7 +232,7 @@ value:
         - id: P1
           collected_by: BAP
           params:
-            amount: '2799'
+            amount: '5295'
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
@@ -199,13 +261,13 @@ value:
                     code: UPI_Address
                   value: xxxxxxx
             - descriptor:
-                code: Buyer_Finder_Fee
+                code: BAP_TERMS
               list:
                 - descriptor:
-                    code: Buyer_Finder_Fee_Type
+                    code: FINDER_FEE_TYPE
                   value: percentage
                 - descriptor:
-                    code: Buyer_Finder_Fee_Amount
+                    code: FINDER_FEE_AMOUNT
                   value: '3'
       documents:
         - url: https://invoice_url

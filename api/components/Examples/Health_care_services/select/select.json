@@ -32,7 +32,7 @@
       },
       "items": [
         {
-          "id": "I2",
+          "id": "PI1",
           "location_ids": ["L1"],
           "quantity": {
             "count": 2
@@ -56,15 +56,15 @@
       ],
       "fulfillments": [
         {
-          "type": "Home-Location",
+          "type": "Seller-Fulfilled",
           "stops": [
             {
               "type": "end",
               "time": {
                 "label": "selected",
                 "range": {
-                  "start": "2024-04-04T22:00:00.000Z",
-                  "end": "2024-04-04T23:00:00.000Z"
+                  "start": "2024-04-04T10:00:00.000Z",
+                  "end": "2024-04-04T11:00:00.000Z"
                 },
                 "days": "4"
               },
@@ -72,6 +72,22 @@
                 "gps": "12.974002,77.613458",
                 "area_code": "560001"
               }
+            }
+          ]
+        }
+      ],
+      "offers": [
+        {
+          "id": "PI1CODE",
+          "tags": [
+            {
+              "code": "SELECTION",
+              "list": [
+                {
+                  "code": "APPLY",
+                  "value": "true"
+                }
+              ]
             }
           ]
         }

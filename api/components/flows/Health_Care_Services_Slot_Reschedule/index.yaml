@@ -59,9 +59,9 @@ details:
         participant SA as SellerApp
         Note Over B,SA: **UPDATION FLOW**
         B ->> BA: Update the slot timimg
-        BA ->> SA: **/confirm** - Books the new slot
-        SA ->> BA: **/on_confirm** - Accepts the updated slot timing
-        BA ->> B: Confirms the schedule 
+        BA ->> SA: **/update** - Books the new slot
+        SA ->> BA: **/on_update** - Accepts the updated slot timing
+        BA ->> B: Confirms the schedule
   - description: Fulfillment
     mermaidGraph: >-
       sequenceDiagram
@@ -180,4 +180,3 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Health_care_services_yaml/on_status/on_status_report_shared.yaml"
-  

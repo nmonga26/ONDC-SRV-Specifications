@@ -51,17 +51,17 @@ details:
         BA ->> SA: **/confirm** - Creates order to create final digital contract
         SA ->> BA: **/on_confirm** - Accepts the order 
         BA ->> B: Confirms the order
-  - description: Cancellation
+  - description: Updation
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer
         participant BA as BuyerApp
         participant SA as SellerApp      
         Note Over B,SA: **ORDER STATUS FLOW**
-        B ->> BA: Requests for order cancellation
-        BA ->> SA: **/status** - Cancels the order
-        SA ->> BA: **/on_status_in_transit** - Confirms the order cancellation
-        BA ->> B: Confirms the order cancellation
+        B ->> BA: Requests increased number of patients
+        BA ->> SA: **/update** - Adds new patient details
+        SA ->> BA: **/on_update** - Sends back updated quote and payment information
+        BA ->> SA: **/update** - Pays the additional charge for confirmation
 
 reference: if any
 steps:

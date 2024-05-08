@@ -29,10 +29,8 @@ order:
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./Tag.yaml#/Settlement_Details"
-      - code: Buyer_Finder_Fee
+      - code: BAP_TERMS
         description: Define Finder's Fee for Buyer
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          $ref: "./Tag.yaml#/Buyer_Finder_Fee"
-
-      
+          $ref: "./Tag.yaml#/BAP_TERMS"

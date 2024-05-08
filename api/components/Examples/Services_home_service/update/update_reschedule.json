@@ -29,17 +29,15 @@
         "id": "P1",
         "locations": [
           {
-              "id": "L1"
+            "id": "L1"
           }
-      ]
+        ]
       },
       "items": [
         {
           "id": "I1",
           "parent_item_id": "PI1",
-          "fulfillment_ids": [
-            "F1"
-          ],
+          "fulfillment_ids": ["F1"],
           "location_ids": ["L1"]
         }
       ],
@@ -102,18 +100,18 @@
             },
             {
               "descriptor": {
-                "code": "Buyer_Finder_Fee"
+                "code": "BAP_TERMS"
               },
               "list": [
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Type"
+                    "code": "FINDER_FEE_TYPE"
                   },
                   "value": "percentage"
                 },
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Amount"
+                    "code": "FINDER_FEE_AMOUNT"
                   },
                   "value": "3"
                 }

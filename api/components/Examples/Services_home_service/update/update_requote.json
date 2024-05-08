@@ -32,9 +32,7 @@
         {
           "id": "I1",
           "parent_item_id": "PI1",
-          "fulfillment_ids": [
-            "F1"
-          ]
+          "fulfillment_ids": ["F1"]
         },
         {
           "id": "PI1",
@@ -47,13 +45,8 @@
               }
             }
           },
-          "fulfillment_ids": [
-            "F2"
-          ],
-          "payment_ids": [
-            "P2",
-            "P3"
-          ]
+          "fulfillment_ids": ["F2"],
+          "payment_ids": ["P2", "P3"]
         }
       ],
       "payments": [
@@ -115,18 +108,18 @@
             },
             {
               "descriptor": {
-                "code": "Buyer_Finder_Fee"
+                "code": "BAP_TERMS"
               },
               "list": [
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Type"
+                    "code": "FINDER_FEE_TYPE"
                   },
                   "value": "percentage"
                 },
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Amount"
+                    "code": "FINDER_FEE_AMOUNT"
                   },
                   "value": "3"
                 }
@@ -193,18 +186,18 @@
             },
             {
               "descriptor": {
-                "code": "Buyer_Finder_Fee"
+                "code": "BAP_TERMS"
               },
               "list": [
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Type"
+                    "code": "FINDER_FEE_TYPE"
                   },
                   "value": "percentage"
                 },
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Amount"
+                    "code": "FINDER_FEE_AMOUNT"
                   },
                   "value": "3"
                 }
@@ -270,18 +263,18 @@
             },
             {
               "descriptor": {
-                "code": "Buyer_Finder_Fee"
+                "code": "BAP_TERMS"
               },
               "list": [
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Type"
+                    "code": "FINDER_FEE_TYPE"
                   },
                   "value": "percentage"
                 },
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Amount"
+                    "code": "FINDER_FEE_AMOUNT"
                   },
                   "value": "3"
                 }
