@@ -1,4 +1,4 @@
-summary: Health Care Services Updation
+summary: Health Care Services Multi Collection
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for health care services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment. In this flow, buyer updates the number of tests or patients after order confirmation.
 details:
   - description: Sequence Diagram for Booking Agri Services - Seller Pickup
