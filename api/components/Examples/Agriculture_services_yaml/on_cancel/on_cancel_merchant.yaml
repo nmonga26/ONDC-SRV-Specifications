@@ -2,7 +2,7 @@ summary: Seller cancels the order
 description: Seller cancels the order
 value:
   context:
-    domain: ONDC:AGR12
+    domain: ONDC:SRV14
     location:
       city:
         code: std:080
@@ -32,12 +32,138 @@ value:
         locations:
           - id: L1
       items:
-        - id: I2
+        - id: I1
+          location_ids:
+            - L1
           fulfillment_ids:
-            - F1
+            - '2'
+          tags:
+            - descriptor:
+                code: REPORT_REQUIREMENT
+              list:
+                - descriptor:
+                    code: REPORT_DEADLINE
+                  value: '2024-04-04T22:00:00.000Z'
+                - descriptor:
+                    code: CROP
+                  value: MAIZE
+                - descriptor:
+                    code: DATE_OF_SOWING
+                  value: '2024-04-04T22:00:00.000Z'
+                - descriptor:
+                    code: FARM_STATUS
+                  value: RAIN_FED
+                - descriptor:
+                    code: ACRAGE
+                  value: '2'
+        - id: I1C1
+          parent_item_id: I1
+          fulfillment_ids:
+            - '2'
+          location_ids:
+            - L1
+          category_ids:
+            - C1
           quantity:
             selected:
               count: 1
+          tags:
+            - descriptor:
+                code: ATTRIBUTE
+              list:
+                - descriptor:
+                    code: TYPE
+                  value: customization
+        - id: I1C2
+          parent_item_id: I1
+          fulfillment_ids:
+            - '2'
+          location_ids:
+            - L1
+          category_ids:
+            - C1
+          quantity:
+            selected:
+              count: 1
+          tags:
+            - descriptor:
+                code: ATTRIBUTE
+              list:
+                - descriptor:
+                    code: TYPE
+                  value: customization
+        - id: I1C3
+          parent_item_id: I1
+          fulfillment_ids:
+            - '2'
+          location_ids:
+            - L1
+          category_ids:
+            - C1
+          quantity:
+            selected:
+              count: 1
+          tags:
+            - descriptor:
+                code: ATTRIBUTE
+              list:
+                - descriptor:
+                    code: TYPE
+                  value: customization
+        - id: I1C4
+          parent_item_id: I1
+          fulfillment_ids:
+            - '2'
+          location_ids:
+            - L1
+          category_ids:
+            - C2
+          quantity:
+            selected:
+              count: 1
+          tags:
+            - descriptor:
+                code: ATTRIBUTE
+              list:
+                - descriptor:
+                    code: TYPE
+                  value: customization
+        - id: I1C5
+          parent_item_id: I1
+          fulfillment_ids:
+            - '2'
+          location_ids:
+            - L1
+          category_ids:
+            - C2
+          quantity:
+            selected:
+              count: 1
+          tags:
+            - descriptor:
+                code: ATTRIBUTE
+              list:
+                - descriptor:
+                    code: TYPE
+                  value: customization
+        - id: I1C6
+          parent_item_id: I1
+          fulfillment_ids:
+            - '2'
+          location_ids:
+            - L1
+          category_ids:
+            - C2
+          quantity:
+            selected:
+              count: 1
+          tags:
+            - descriptor:
+                code: ATTRIBUTE
+              list:
+                - descriptor:
+                    code: TYPE
+                  value: customization
       quote:
         price:
           currency: INR
@@ -51,7 +177,7 @@ value:
               id: I1
               quantity:
                 selected:
-                  count: '1'
+                  count: 1
               price:
                 currency: INR
                 value: '1400'
@@ -107,7 +233,7 @@ value:
           state:
             descriptor:
               code: Cancelled
-          type: Seller-Pickup
+          type: Seller-Fulfilled
           tracking: false
           stops:
             - type: start

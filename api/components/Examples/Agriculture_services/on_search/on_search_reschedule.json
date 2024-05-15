@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:AGR12",
+    "domain": "ONDC:SRV14",
     "location": {
       "city": {
         "code": "std:080"
@@ -25,11 +25,11 @@
       "fulfillments": [
         {
           "id": "1",
-          "type": "Buyer-Delivered"
+          "type": "Buyer-Fulfilled"
         },
         {
           "id": "2",
-          "type": "Seller-Pickup"
+          "type": "Seller-Fulfilled"
         }
       ],
       "payments": [
@@ -114,7 +114,7 @@
                   "descriptor": {
                     "code": "category"
                   },
-                  "value": "AGR12-*"
+                  "value": "SRV14-*"
                 },
                 {
                   "descriptor": {
@@ -157,26 +157,13 @@
                   }
                 ]
               },
-              "creator": {
-                "descriptor": {
-                  "name": "nobroker",
-                  "contact": {
-                    "name": "Raj Kumar",
-                    "address": {
-                      "full": "Sector-1, Noida,Uttar Pradesh-201301"
-                    },
-                    "phone": "18001801018",
-                    "email": "consumer.services@nobroker.com"
-                  }
-                }
-              },
               "price": {
                 "currency": "INR",
-                "value": "1549.00",
-                "offered_value": "1199.00",
+                "value": "1449.00",
+                "offered_value": "1499.00",
                 "maximum_value": "1549.00"
               },
-              "category_ids": ["AGR12-xxxx"],
+              "category_ids": ["SRV14-xxxx"],
               "fulfillment_ids": ["1"],
               "location_ids": ["L1"],
               "payment_ids": ["1"],
@@ -210,13 +197,13 @@
                   "list": [
                     {
                       "descriptor": {
-                        "code": "TIME_FOR_PICKUP"
+                        "code": "PICKUP_TAT"
                       },
                       "value": "PT2D"
                     },
                     {
                       "descriptor": {
-                        "code": "TIME_FOR_COMPLETION"
+                        "code": "COMPLETION_TAT"
                       },
                       "value": "PT1D"
                     }
@@ -374,11 +361,11 @@
               },
               "price": {
                 "currency": "INR",
-                "value": "1499.00",
-                "offered_value": "1499.00",
+                "value": "1399.00",
+                "offered_value": "1399.00",
                 "maximum_value": "1499.00"
               },
-              "category_ids": ["AGR12-xxxx"],
+              "category_ids": ["SRV14-xxxx"],
               "fulfillment_ids": ["1"],
               "location_ids": ["L1"],
               "payment_ids": ["1"],
@@ -413,13 +400,13 @@
                   "list": [
                     {
                       "descriptor": {
-                        "code": "TIME_FOR_PICKUP"
+                        "code": "PICKUP_TAT"
                       },
                       "value": "PT2D"
                     },
                     {
                       "descriptor": {
-                        "code": "TIME_FOR_COMPLETION"
+                        "code": "COMPLETION_TAT"
                       },
                       "value": "PT1D"
                     }

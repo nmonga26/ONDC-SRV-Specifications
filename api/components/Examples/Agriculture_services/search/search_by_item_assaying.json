@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:AGR12",
+    "domain": "ONDC:SRV14",
     "location": {
       "city": {
         "code": "std:080"
@@ -26,7 +26,7 @@
         }
       },
       "fulfillment": {
-        "type": "Seller-Pickup",
+        "type": "Seller-Fulfilled",
         "customer": {
           "person": {
             "name": "XYZ"

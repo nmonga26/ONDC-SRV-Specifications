@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:AGR12",
+    "domain": "ONDC:SRV14",
     "location": {
       "city": {
         "code": "std:080"
@@ -36,7 +36,7 @@
       "fulfillments": [
         {
           "id": "F1",
-          "type": "Seller-Pickup",
+          "type": "Seller-Fulfilled",
           "tracking": false,
           "state": {
             "descriptor": {
@@ -77,7 +77,7 @@
               "id": "I1",
               "quantity": {
                 "selected": {
-                  "count": "1"
+                  "count": 1
                 }
               },
               "price": {

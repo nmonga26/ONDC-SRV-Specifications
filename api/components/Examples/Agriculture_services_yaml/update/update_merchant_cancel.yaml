@@ -2,7 +2,7 @@ summary: null
 description: null
 value:
   context:
-    domain: ONDC:AGR12
+    domain: ONDC:SRV14
     location:
       city:
         code: std:080

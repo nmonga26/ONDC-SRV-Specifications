@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:AGR12",
+    "domain": "ONDC:SRV14",
     "location": {
       "city": {
         "code": "std:080"
@@ -29,14 +29,13 @@
         {
           "fulfillment_ids": ["F1"],
           "id": "I2",
-
           "location_ids": ["L1"]
         }
       ],
       "fulfillments": [
         {
           "id": "F1",
-          "type": "Seller-Pickup",
+          "type": "Seller-Fulfilled",
           "tracking": false,
           "state": {
             "descriptor": {
@@ -64,25 +63,25 @@
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "1499"
+          "value": "1298"
         },
         "breakup": [
           {
-            "title": "Soil Testing - Micro Nutrient & Misc",
+            "title": "Soil Testing - Primary & Secondary",
             "price": {
               "currency": "INR",
-              "value": "1300"
+              "value": "100"
             },
             "item": {
               "id": "I1",
               "quantity": {
                 "selected": {
-                  "count": "1"
+                  "count": 1
                 }
               },
               "price": {
                 "currency": "INR",
-                "value": "1300"
+                "value": "100"
               }
             },
             "tags": [
@@ -96,6 +95,176 @@
                       "code": "type"
                     },
                     "value": "item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Nitrogen",
+            "price": {
+              "currency": "INR",
+              "value": "200"
+            },
+            "item": {
+              "id": "I1C1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              },
+              "price": {
+                "currency": "INR",
+                "value": "200"
+              }
+            },
+            "tags": [
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "type"
+                    },
+                    "value": "customization"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Phosphorus",
+            "price": {
+              "currency": "INR",
+              "value": "200"
+            },
+            "item": {
+              "id": "I1C2",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              },
+              "price": {
+                "currency": "INR",
+                "value": "200"
+              }
+            },
+            "tags": [
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "type"
+                    },
+                    "value": "customization"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Calcium",
+            "price": {
+              "currency": "INR",
+              "value": "249"
+            },
+            "item": {
+              "id": "I1C4",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              },
+              "price": {
+                "currency": "INR",
+                "value": "249"
+              }
+            },
+            "tags": [
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "type"
+                    },
+                    "value": "customization"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Magnesium",
+            "price": {
+              "currency": "INR",
+              "value": "250.00"
+            },
+            "item": {
+              "id": "I1C5",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              },
+              "price": {
+                "currency": "INR",
+                "value": "250.00"
+              }
+            },
+            "tags": [
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "type"
+                    },
+                    "value": "customization"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Sulfur",
+            "price": {
+              "currency": "INR",
+              "value": "100.00"
+            },
+            "item": {
+              "id": "I1C6",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              },
+              "price": {
+                "currency": "INR",
+                "value": "100.00"
+              }
+            },
+            "tags": [
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "type"
+                    },
+                    "value": "customization"
                   }
                 ]
               }

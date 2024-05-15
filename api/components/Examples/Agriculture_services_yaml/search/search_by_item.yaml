@@ -4,7 +4,7 @@ description: >-
   - e.g. Soil Testing
 value:
   context:
-    domain: ONDC:AGR12
+    domain: ONDC:SRV14
     location:
       city:
         code: std:080
@@ -24,7 +24,7 @@ value:
         descriptor:
           name: Soil Testing
       fulfillment:
-        type: Seller-Pickup
+        type: Seller-Fulfilled
         stops:
           - type: end
             time:

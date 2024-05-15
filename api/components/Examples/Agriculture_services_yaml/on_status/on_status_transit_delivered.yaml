@@ -2,7 +2,7 @@ summary: Seller app sends order status update (In-Transit)
 description: Seller app sends order status update when service provider is on the way
 value:
   context:
-    domain: ONDC:AGR12
+    domain: ONDC:SRV14
     location:
       city:
         code: std:080
@@ -50,7 +50,7 @@ value:
           state:
             descriptor:
               code: IN_TRANSIT
-          type: Buyer-Delivered
+          type: Buyer-Fulfilled
           tracking: false
           stops:
             - type: end
@@ -104,7 +104,7 @@ value:
               id: I1
               quantity:
                 selected:
-                  count: '1'
+                  count: 1
               price:
                 currency: INR
                 value: '1400'

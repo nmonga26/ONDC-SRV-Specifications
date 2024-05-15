@@ -2,7 +2,7 @@ summary: ''
 description: ''
 value:
   context:
-    domain: ONDC:AGR12
+    domain: ONDC:SRV14
     location:
       city:
         code: std:080
@@ -22,9 +22,9 @@ value:
     catalog:
       fulfillments:
         - id: '1'
-          type: Buyer-Delivered
+          type: Buyer-Fulfilled
         - id: '2'
-          type: Seller-Pickup
+          type: Seller-Fulfilled
       payments:
         - id: '1'
           type: PRE-FULFILLMENT
@@ -75,7 +75,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: AGR12-*
+                  value: SRV14-*
                 - descriptor:
                     code: type
                   value: '13'
@@ -101,22 +101,13 @@ value:
                 media:
                   - mimetype: video/mp4
                     url: video_url
-              creator:
-                descriptor:
-                  name: nobroker
-                  contact:
-                    name: Raj Kumar
-                    address:
-                      full: Sector-1, Noida,Uttar Pradesh-201301
-                    phone: '18001801018'
-                    email: consumer.services@nobroker.com
               price:
                 currency: INR
-                value: '1549.00'
-                offered_value: '1199.00'
+                value: '1449.00'
+                offered_value: '1499.00'
                 maximum_value: '1549.00'
               category_ids:
-                - AGR12-xxxx
+                - SRV14-xxxx
               fulfillment_ids:
                 - '1'
               location_ids:
@@ -139,10 +130,10 @@ value:
                     code: TEST_INFORMATION
                   list:
                     - descriptor:
-                        code: TIME_FOR_PICKUP
+                        code: PICKUP_TAT
                       value: PT2D
                     - descriptor:
-                        code: TIME_FOR_COMPLETION
+                        code: COMPLETION_TAT
                       value: PT1D
                 - descriptor:
                     code: TEST_CATEGORIES
@@ -226,11 +217,11 @@ value:
                     email: consumer.services@abc.com
               price:
                 currency: INR
-                value: '1499.00'
-                offered_value: '1499.00'
+                value: '1399.00'
+                offered_value: '1399.00'
                 maximum_value: '1499.00'
               category_ids:
-                - AGR12-xxxx
+                - SRV14-xxxx
               fulfillment_ids:
                 - '1'
               location_ids:
@@ -254,10 +245,10 @@ value:
                   display: true
                   list:
                     - descriptor:
-                        code: TIME_FOR_PICKUP
+                        code: PICKUP_TAT
                       value: PT2D
                     - descriptor:
-                        code: TIME_FOR_COMPLETION
+                        code: COMPLETION_TAT
                       value: PT1D
                 - descriptor:
                     code: TEST_CATEGORIES

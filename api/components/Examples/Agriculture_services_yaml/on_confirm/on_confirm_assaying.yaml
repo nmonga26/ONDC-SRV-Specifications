@@ -1,6 +1,6 @@
 value:
   context:
-    domain: ONDC:AGR12
+    domain: ONDC:SRV14
     location:
       city:
         code: std:080
@@ -76,7 +76,7 @@ value:
           state:
             descriptor:
               code: Pending
-          type: Seller-Pickup
+          type: Seller-Fulfilled
           tracking: false
           stops:
             - type: start
@@ -138,7 +138,7 @@ value:
               id: I1
               quantity:
                 selected:
-                  count: '1'
+                  count: 1
               price:
                 currency: INR
                 value: '1400'

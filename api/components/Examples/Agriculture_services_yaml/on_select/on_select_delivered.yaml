@@ -2,7 +2,7 @@ summary: Seller confirms the schedule and returns the quote for service
 description: Seller confirms the schedule and returns the quote for service
 value:
   context:
-    domain: ONDC:AGR12
+    domain: ONDC:SRV14
     location:
       city:
         code: std:080
@@ -30,7 +30,7 @@ value:
             - L1
       fulfillments:
         - id: F2
-          type: Buyer-Delivered
+          type: Buyer-Fulfilled
           tracking: false
           state:
             descriptor:
@@ -64,7 +64,7 @@ value:
               id: I2
               quantity:
                 selected:
-                  count: '1'
+                  count: 1
               price:
                 currency: INR
                 value: '1300'

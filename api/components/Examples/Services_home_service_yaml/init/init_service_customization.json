@@ -39,6 +39,7 @@
         {
           "id": "IC1",
           "parent_item_id": "I1",
+          "fulfillment_ids": ["2"],
           "location_ids": ["L1"],
           "category_ids": ["C1"],
           "fulfillment_ids": ["F1"],
@@ -245,10 +246,12 @@
           ]
         }
       ],
-      "payments": [{
-        "type": "PRE-FULFILLMENT",
-        "collected_by": "BAP"
-    }]
+      "payments": [
+        {
+          "type": "PRE-FULFILLMENT",
+          "collected_by": "BAP"
+        }
+      ]
     }
   }
 }

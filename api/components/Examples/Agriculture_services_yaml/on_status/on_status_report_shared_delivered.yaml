@@ -2,7 +2,7 @@ summary: Seller app sends the order status (Completed)
 description: Seller app sends the order status update when the test report is shared
 value:
   context:
-    domain: ONDC:AGR12
+    domain: ONDC:SRV14
     location:
       city:
         code: std:080
@@ -50,7 +50,7 @@ value:
           state:
             descriptor:
               code: REPORT_SHARED
-          type: Buyer-Delivered
+          type: Buyer-Fulfilled
           tracking: false
           stops:
             - type: end
@@ -105,7 +105,7 @@ value:
               id: I2
               quantity:
                 selected:
-                  count: '1'
+                  count: 1
               price:
                 currency: INR
                 value: '1400'

@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:AGR12",
+    "domain": "ONDC:SRV14",
     "location": {
       "city": {
         "code": "std:080"
@@ -33,26 +33,9 @@
       "items": [
         {
           "id": "I2",
-
           "location_ids": ["L1"],
+          "fulfillment_ids": ["2"],
           "tags": [
-            {
-              "descriptor": {
-                "code": "REQUIRED_TESTS"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "PRIMARY_NUTRIENT"
-                  }
-                },
-                {
-                  "descriptor": {
-                    "code": "SECONDARY_NUTRIENT"
-                  }
-                }
-              ]
-            },
             {
               "descriptor": {
                 "code": "REPORT_REQUIREMENT"
@@ -91,11 +74,173 @@
               ]
             }
           ]
+        },
+        {
+          "id": "I1C1",
+          "parent_item_id": "I1",
+          "fulfillment_ids": ["2"],
+          "location_ids": ["L1"],
+          "category_ids": ["C1"],
+          "quantity": {
+            "selected": {
+              "count": 1
+            }
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "code": "ATTRIBUTE"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "TYPE"
+                  },
+                  "value": "customization"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "I1C2",
+          "parent_item_id": "I1",
+          "fulfillment_ids": ["2"],
+          "location_ids": ["L1"],
+          "category_ids": ["C1"],
+          "quantity": {
+            "selected": {
+              "count": 1
+            }
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "code": "ATTRIBUTE"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "TYPE"
+                  },
+                  "value": "customization"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "I1C3",
+          "parent_item_id": "I1",
+          "fulfillment_ids": ["2"],
+          "location_ids": ["L1"],
+          "category_ids": ["C1"],
+          "quantity": {
+            "selected": {
+              "count": 1
+            }
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "code": "ATTRIBUTE"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "TYPE"
+                  },
+                  "value": "customization"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "I1C4",
+          "parent_item_id": "I1",
+          "fulfillment_ids": ["2"],
+          "location_ids": ["L1"],
+          "category_ids": ["C2"],
+          "quantity": {
+            "selected": {
+              "count": 1
+            }
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "code": "ATTRIBUTE"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "TYPE"
+                  },
+                  "value": "customization"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "I1C5",
+          "parent_item_id": "I1",
+          "fulfillment_ids": ["2"],
+          "location_ids": ["L1"],
+          "category_ids": ["C2"],
+          "quantity": {
+            "selected": {
+              "count": 1
+            }
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "code": "ATTRIBUTE"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "TYPE"
+                  },
+                  "value": "customization"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "I1C6",
+          "parent_item_id": "I1",
+          "fulfillment_ids": ["2"],
+          "location_ids": ["L1"],
+          "category_ids": ["C2"],
+          "quantity": {
+            "selected": {
+              "count": 1
+            }
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "code": "ATTRIBUTE"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "TYPE"
+                  },
+                  "value": "customization"
+                }
+              ]
+            }
+          ]
         }
       ],
       "fulfillments": [
         {
-          "type": "Seller-Pickup",
+          "type": "Seller-Fulfilled",
           "stops": [
             {
               "type": "end",

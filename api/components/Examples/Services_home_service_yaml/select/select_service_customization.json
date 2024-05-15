@@ -38,6 +38,7 @@
         {
           "id": "IC1",
           "parent_item_id": "I1",
+          "fulfillment_ids": ["2"],
           "location_ids": ["L1"],
           "category_ids": ["C1"],
           "quantity": {

@@ -36,9 +36,7 @@
         {
           "id": "I2",
           "parent_item_id": "PI2",
-          "fulfillment_ids": [
-            "F1"
-          ],
+          "fulfillment_ids": ["F1"],
           "quantity": {
             "selected": {
               "count": 1
@@ -121,7 +119,7 @@
               "id": "I1",
               "quantity": {
                 "selected": {
-                  "count": "1"
+                  "count": 1
                 },
                 "measure": {
                   "unit": "seats",
@@ -144,7 +142,7 @@
               "id": "I1",
               "quantity": {
                 "allocated": {
-                  "count": "1"
+                  "count": 1
                 }
               },
               "price": {
@@ -163,7 +161,7 @@
               "id": "I1",
               "quantity": {
                 "allocated": {
-                  "count": "1"
+                  "count": 1
                 }
               },
               "price": {
@@ -182,7 +180,7 @@
               "id": "I1",
               "quantity": {
                 "allocated": {
-                  "count": "1"
+                  "count": 1
                 }
               },
               "price": {
@@ -201,11 +199,11 @@
           "params": {
             "amount": "499",
             "currency": "INR",
-            "transaction_id":"3937",
+            "transaction_id": "3937",
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
-          "status":"PAID",
+          "status": "PAID",
           "type": "PRE-FULFILLMENT",
           "tags": [
             {

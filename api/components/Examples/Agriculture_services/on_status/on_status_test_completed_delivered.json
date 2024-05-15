@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:AGR12",
+    "domain": "ONDC:SRV14",
     "location": {
       "city": {
         "code": "std:080"
@@ -65,7 +65,7 @@
               "code": "TEST_COMPLETED"
             }
           },
-          "type": "Buyer-Delivered",
+          "type": "Buyer-Fulfilled",
           "tracking": false,
           "stops": [
             {
@@ -143,7 +143,7 @@
               "id": "I2",
               "quantity": {
                 "selected": {
-                  "count": "1"
+                  "count": 1
                 }
               },
               "price": {

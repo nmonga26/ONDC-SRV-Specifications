@@ -2,7 +2,7 @@ summary: Seller rejects the schedule and returns the available slots
 description: Seller rejects the schedule and returns the available slots + error message
 value:
   context:
-    domain: ONDC:AGR12
+    domain: ONDC:SRV14
     location:
       city:
         code: std:080
@@ -46,7 +46,7 @@ value:
                 - '2024-04-10T22:00:00.000Z'
       fulfillments:
         - id: F1
-          type: Seller-Pickup
+          type: Seller-Fulfilled
           tracking: false
           state:
             descriptor:
@@ -75,7 +75,7 @@ value:
               id: I1
               quantity:
                 selected:
-                  count: '1'
+                  count: 1
               price:
                 currency: INR
                 value: '1300'

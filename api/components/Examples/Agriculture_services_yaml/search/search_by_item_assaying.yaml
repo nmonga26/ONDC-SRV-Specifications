@@ -4,7 +4,7 @@ description: >-
   assaying services
 value:
   context:
-    domain: ONDC:AGR12
+    domain: ONDC:SRV14
     location:
       city:
         code: std:080
@@ -24,7 +24,7 @@ value:
         descriptor:
           name: Arahar Whole Assaying Services
       fulfillment:
-        type: Seller-Pickup
+        type: Seller-Fulfilled
         customer:
           person:
             name: XYZ

@@ -2,7 +2,7 @@ summary: Buyer selects the required agri service
 description: Buyer selects the required agri service + suitable fulfillment type
 value:
   context:
-    domain: ONDC:AGR12
+    domain: ONDC:SRV14
     location:
       city:
         code: std:080
@@ -28,6 +28,8 @@ value:
         - id: I1
           location_ids:
             - L1
+          fulfillment_ids:
+            - '2'
           tags:
             - descriptor:
                 code: REPORT_REQUIREMENT
@@ -48,7 +50,7 @@ value:
                     code: ACRAGE
                   value: '2'
       fulfillments:
-        - type: Seller-Pickup
+        - type: Seller-Fulfilled
           stops:
             - type: end
               time:
