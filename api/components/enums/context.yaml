@@ -11,12 +11,6 @@ domain:
   - code: ONDC:SRV13
     description: Health Care Services
     reference: <PR/Issue/Discussion Links md format text>
-  - code: ONDC:AGR10
-    description: Agriculture Inputs
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: ONDC:AGR11
-    description: Agriculture Outputs
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: ONDC:AGR12
+  - code: ONDC:SRV14
     description: Agriculture Services
     reference: <PR/Issue/Discussion Links md format text>
