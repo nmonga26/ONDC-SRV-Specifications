@@ -3289,7 +3289,7 @@ x-flows:
       available services and service providers based on serviceability, order,
       fulfillment and post-fulfillment.
     details:
-      - description: Sequence Diagram for Booking Agri Services - Seller Pickup
+      - description: Sequence Diagram for Booking Healthcare Service - Seller Fulfilled
         mermaidGraph: |-
           sequenceDiagram
             participant B as Buyer
@@ -7229,7 +7229,7 @@ x-flows:
       fulfillment and post-fulfillment. In this flow buyer cancels the order
       after confirmation.
     details:
-      - description: Sequence Diagram for Booking Agri Services - Seller Pickup
+      - description: Sequence Diagram for Booking Healthcare Services - Buyer Cancellation
         mermaidGraph: |-
           sequenceDiagram
             participant B as Buyer
@@ -9144,7 +9144,9 @@ x-flows:
       fulfillment and post-fulfillment. In this flow buyer cancels the order
       after confirmation.
     details:
-      - description: Sequence Diagram for Booking Agri Services - Seller Pickup
+      - description: >-
+          Sequence Diagram for Booking Healthcare Services - Merchant
+          Cancellation
         mermaidGraph: |-
           sequenceDiagram
             participant B as Buyer
@@ -10457,7 +10459,7 @@ x-flows:
                                 code: type
                               value: misc
                   ttl: P1D
-  - summary: Health Care Services Updation
+  - summary: Health Care Services Multi Collection
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to request for health care services. The booking
@@ -10466,7 +10468,7 @@ x-flows:
       fulfillment and post-fulfillment. In this flow, buyer updates the number
       of tests or patients after order confirmation.
     details:
-      - description: Sequence Diagram for Booking Agri Services - Seller Pickup
+      - description: Sequence Diagram for Booking Healthcare Services - Multi Collection
         mermaidGraph: |-
           sequenceDiagram
             participant B as Buyer
@@ -11832,7 +11834,6 @@ x-flows:
       - description: Recollection
         mermaidGraph: |-
           sequenceDiagram
-            participant B as Buyer
             participant BA as BuyerApp
             participant SA as SellerApp      
             Note Over B,SA: **ORDER STATUS FLOW**
@@ -21921,7 +21922,7 @@ x-examples:
                               value: '3'
                   updated_at: '2024-04-05T22:00:57.000Z'
 x-attributes:
-  Home Services:
+  Healthcare Services:
     attribute_set:
       search:
         parent: true
@@ -21929,11 +21930,10 @@ x-attributes:
           parent: true
           domain:
             description: >-
-              domain code, enums - ONDC:SRV10 ( Home Services - Appliance Repair
-              Services ), ONDC:SRV11 ( Home Services - Infra Services ),
-              ONDC:SRV12 ( Home Services - Personal Care Services )
+              domain code, enums - ONDC:SRV13 ( Home Services - Healthcare
+              Services )
             required: mandatory
-            usage: ONDC:SRV10
+            usage: ONDC:SRV13
             reference: if any
           city:
             code:
@@ -21981,16 +21981,16 @@ x-attributes:
               category:
                 description: Category of the search
                 required: optional
-                usage: SRV10-1000
+                usage: SRV13-1000
                 reference: if any
             fulfillment:
               parent: true
               type:
                 description: >-
-                  fulfillment type for the service, enum - "Home-Service,
-                  Store-Service"
+                  fulfillment type for the service, enum - "Buyer-Fulfilled,
+                  Seller-Fulfilled"
                 required: required
-                usage: Home-Service
+                usage: Buyer-Fulfilled
                 reference: if any
               stops:
                 location:
@@ -22045,10 +22045,10 @@ x-attributes:
                 reference: if any
               type:
                 description: >-
-                  fulfillment type of the service, enum - "Home-Service,
-                  Store-Service"
+                  fulfillment type of the service, enum - "Buyer-Fulfilled,
+                  Seller-Fulfilled"
                 required: required
-                usage: Home-Service
+                usage: Buyer-Fulfilled
                 reference: if any
             payments:
               parent: true
@@ -22096,7 +22096,7 @@ x-attributes:
                   name:
                     description: name of the service provided by the service provider
                     required: required
-                    usage: Home Painting - Home consultation
+                    usage: LFT Test
                     reference: if any
                   price:
                     value:
@@ -22114,7 +22114,7 @@ x-attributes:
                     category id of the service provided by the service provider
                     which was sent in /search call
                   required: required
-                  usage: SRV10-1000
+                  usage: SRV13-1000
                   reference: if any
                 fulfillment_ids:
                   description: >-
@@ -22232,7 +22232,7 @@ x-attributes:
                   unit:
                     description: name of the unit e.g. sofa seats to be cleaned
                     required: required
-                    usage: seats
+                    usage: tests
                     reference: if any
                   value:
                     description: value of the unit e.g. number of sofa seats to be cleaned
@@ -22315,10 +22315,10 @@ x-attributes:
               breakup:
                 title:
                   description: >-
-                    title of the service charges enum - Sofa Cleaning, tax,
-                    discount, convenience_fee
+                    title of the service charges enum - LFT Test, tax, discount,
+                    convenience_fee
                   required: required
-                  usage: Sofa Cleaning
+                  usage: LFT Test
                   reference: if any
                 price:
                   description: price of the quote breakup type
@@ -22375,10 +22375,10 @@ x-attributes:
                   reference: if any
                 title:
                   description: >-
-                    title of the service charges enum - Sofa Cleaning, tax,
-                    discount, convenience_fee
+                    title of the service charges enum - LFT Test, tax, discount,
+                    convenience_fee
                   required: required
-                  usage: Sofa Cleaning
+                  usage: LFT Test
                   reference: if any
             payments:
               parent: true
