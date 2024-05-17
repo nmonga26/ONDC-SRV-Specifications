@@ -1,7 +1,7 @@
 context:
   parent: true
   domain:
-    description: domain code, enums - ONDC:SRV10 ( Home Services - Appliance Repair Services ), ONDC:SRV11 ( Home Services - Infra Services ), ONDC:SRV12 ( Home Services - Personal Care Services ), ONDC:SRV13 ( Home Services - Healthcare Services )
+    description: domain code, enums - ONDC:SRV13 ( Home Services - Healthcare Services )
     required: mandatory
     usage: "ONDC:SRV13"
     reference: if any
@@ -46,14 +46,14 @@ message:
       category:
         description: Category of the search
         required: optional
-        usage: "SRV10-1000"
+        usage: "SRV13-1000"
         reference: if any
     fulfillment:
       parent: true
       type:
-        description: fulfillment type for the service, enum - "Home-Service, Store-Service"
+        description: fulfillment type for the service, enum - "Buyer-Fulfilled, Seller-Fulfilled"
         required: required
-        usage: "Home-Service"
+        usage: "Buyer-Fulfilled"
         reference: if any
       stops:
         location:
