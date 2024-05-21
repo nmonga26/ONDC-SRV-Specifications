@@ -1,4 +1,4 @@
-# PRD: Health Care Services
+# PRD: Agriculture Services
 
 Our efforts are focused on “Soil Testing as a service” and “Assaying as a service” in the MVP phase since
 Digital adoption in the agri space has been a key challenge in the country and as per anecdotal evidence it is understood that the adoption of the smaller services will be faster compared to some of the other use cases like selling of agri produce (output)
