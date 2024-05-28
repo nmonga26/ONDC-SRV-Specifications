@@ -41,46 +41,46 @@
             }
           }
         ]
-      }
-    },
-    "payment": {
-      "type": "PRE-FULFILLMENT",
-      "collected_by": "BAP"
-    },
-    "tags": [
-      {
-        "descriptor": {
-          "code": "BAP_TERMS"
-        },
-        "display": false,
-        "list": [
-          {
-            "descriptor": {
-              "code": "FINDER_FEE_TYPE"
-            },
-            "value": "percent"
-          },
-          {
-            "descriptor": {
-              "code": "FINDER_FEE_AMOUNT"
-            },
-            "value": "0"
-          }
-        ]
       },
-      {
-        "descriptor": {
-          "code": "BAP_DETAILS"
-        },
-        "list": [
-          {
-            "descriptor": {
-              "code": "BAP_TYPE"
+      "payment": {
+        "type": "PRE-FULFILLMENT",
+        "collected_by": "BAP"
+      },
+      "tags": [
+        {
+          "descriptor": {
+            "code": "BAP_TERMS"
+          },
+          "display": false,
+          "list": [
+            {
+              "descriptor": {
+                "code": "FINDER_FEE_TYPE"
+              },
+              "value": "percent"
             },
-            "value": "FARMER"
-          }
-        ]
-      }
-    ]
+            {
+              "descriptor": {
+                "code": "FINDER_FEE_AMOUNT"
+              },
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "descriptor": {
+            "code": "BAP_DETAILS"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "code": "BAP_TYPE"
+              },
+              "value": "FARMER"
+            }
+          ]
+        }
+      ]
+    }
   }
 }
