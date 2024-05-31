@@ -14,9 +14,9 @@ value:
     version: '2.0.0'
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/ondc
-    transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
-    message_id: ea89883a-57ff-44de-87fa-66b07c8d25d9
-    timestamp: '2023-11-06T22:00:00.000Z'
+    transaction_id: T1
+    message_id: M1
+    timestamp: '2024-04-01T22:00:00.000Z'
     ttl: PT30S
   message:
     intent:
