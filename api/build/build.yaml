@@ -37850,3 +37850,8 @@ x-errorcodes:
       Who can use code?: BPP
       Usage: Used in NACK
       Action: NACK on /select
+    - Code: '90004'
+      Reason: Report deadline cannot be matched
+      Who can use code?: BPP
+      Usage: Used in error object
+      Action: /on_select
