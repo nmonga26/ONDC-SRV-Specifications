@@ -236,7 +236,7 @@
               "tags": [
                 {
                   "descriptor": {
-                    "code": "TEST_INFORMATION"
+                    "code": "SERVICE_INFORMATION"
                   },
                   "list": [
                     {
@@ -1125,7 +1125,7 @@
               "tags": [
                 {
                   "descriptor": {
-                    "code": "TEST_INFORMATION"
+                    "code": "SERVICE_INFORMATION"
                   },
                   "list": [
                     {

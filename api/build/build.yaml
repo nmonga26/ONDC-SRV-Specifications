@@ -2587,11 +2587,8 @@ x-enum:
         - code: ONDC:SRV12
           description: Home Services - Personal Care Services
           reference: <PR/Issue/Discussion Links md format text>
-        - code: ONDC:AGR10
-          description: Agriculture Inputs
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: ONDC:AGR11
-          description: Agriculture Outputs
+        - code: ONDC:SRV13
+          description: Healthcare Services
           reference: <PR/Issue/Discussion Links md format text>
         - code: ONDC:SRV14
           description: Agriculture Services
@@ -2985,22 +2982,29 @@ x-enum:
               - code: SRV12-1015
                 description: Personal Care Services Combo
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: ARG12-1001
+              - code: SRV14-1001
                 description: Soil Testing Services
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: ARG12-1002
+              - code: SRV14-1002
                 description: Water Testing Services
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: ARG12-1003
+              - code: SRV14-1003
                 description: Chemical Testing Services
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: ARG12-1004
+              - code: SRV14-1004
                 description: Assaying Services
                 reference: <PR/Issue/Discussion Links md format text>
         fulfillments:
           type: &ref_1
-            - code: Home-Service
-              description: Home Service
+            - code: Seller-Fulfilled
+              description: >-
+                Services for which seller is able to pickup samples from buyer
+                location
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Buyer-Fulfilled
+              description: >-
+                When the buyer sends out the sample/or goes to the seller
+                location for availing a service
               reference: <PR/Issue/Discussion Links md format text>
   on_search:
     context:
@@ -3103,29 +3107,31 @@ x-enum:
           state: &ref_6
             descriptor:
               code:
-                - code: Pending
-                  description: about the enum
+                - code: PENDING
+                  description: When the fulfillment is still in pending state
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: In-Transit
-                  description: about the enum
+                - code: IN_TRANSIT
+                  description: When the agent has left for picking up the sample
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: At-Location
-                  description: about the enum
+                - code: AT_LOCATION
+                  description: When the agent is at the location for pickup
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: Collected-By-Agent
-                  description: about the enum
+                - code: COLLECTED_BY_AGENT
+                  description: When the sample is collected by the agent
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: Received-At-Lab
-                  description: about the enum
+                - code: RECEIVED_AT_LAB
+                  description: When the same is first received at the lab
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: Test-Completed
-                  description: about the enum
+                - code: TEST_COMPLETED
+                  description: When the test has been completed but report is not generated
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: Report-Generated
-                  description: about the enum
+                - code: REPORT_GENERATED
+                  description: When the report is generated
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: Completed
-                  description: about the enum
+                - code: REPORT_SHARED
+                  description: >-
+                    When the fulfillment is marked as completed and report has
+                    been shared
                   reference: <PR/Issue/Discussion Links md format text>
         quote:
           breakup: *ref_4
@@ -3167,7 +3173,7 @@ x-tags:
     message:
       intent:
         tags:
-          - code: BAP_Terms
+          - code: BAP_TERMS
             description: Terms of BAP
             reference: <PR/Issue/Discussion Links md format text>
             list:
@@ -3176,6 +3182,13 @@ x-tags:
                 reference: <PR/Issue/Discussion Links md format text>
               - code: FINDER_FEE_AMOUNT
                 description: Amount for the finder fee
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: BUYER_DETAILS
+            description: Details of the buyer
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: BUYER_TYPE
+                description: Type of buyer - FARMER, TRADER or FPO
                 reference: <PR/Issue/Discussion Links md format text>
   on_search:
     message:
@@ -3201,12 +3214,77 @@ x-tags:
                 - code: unit
                   description: Description of the Tag
                   reference: <PR/Issue/Discussion Links md format text>
+          items:
+            tags:
+              - code: SERVICE_INFORMATION
+                description: Information of the service
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
+                  - code: PICKUP_TAT
+                    description: >-
+                      TAT for picking up the sample, only required if
+                      Seller-Fulfilled
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: COMPLETION_TAT
+                    description: >-
+                      TAT for completing the whole test including pickup TAT, if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+              - code: RESCHEDULE_TERMS
+                description: Reschedule terms for the item
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
+                  - code: FULFILLMENT_STATE
+                    description: >-
+                      Describing the fulfilment state for which reschdule will
+                      be applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: RESCHEDULE_ELIGIBLE
+                    description: Whether reschedule is available at this fulfillment state
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: RESCHEDULE_FEE
+                    description: >-
+                      Fees that will be charged if rescheduled at this
+                      fulfillment state
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: RESCHEDULE_WITHIN
+                    description: >-
+                      Time within which it should be rescheduled after the
+                      fulfilment has been changed
+                    reference: <PR/Issue/Discussion Links md format text>
+              - code: ATTRIBUTE
+                description: Attribute of a particular item
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
+                  - code: TYPE
+                    description: >-
+                      Type of the item, mandatory only when the item is a
+                      customization
+                    reference: <PR/Issue/Discussion Links md format text>
+        categories:
+          tags:
+            - code: SELECTION
+              description: Selection details for category
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: SEQ
+                  description: Sequence of the category
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: MANDATORY_SELECTION
+                  description: Whether it is a mandatory selection
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: MIN_SELECTION
+                  description: Number of minimum selections allowed for this category
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: MAX_SELECTION
+                  description: Number of maximum selections allowed for this category
+                  reference: <PR/Issue/Discussion Links md format text>
   on_select:
     message:
       order:
         quote:
-          breakup: &ref_7
-            tags: &ref_10
+          breakup: &ref_8
+            tags: &ref_11
               - code: title
                 description: title tag
                 reference: <PR/Issue/Discussion Links md format text>
@@ -3216,14 +3294,39 @@ x-tags:
                       Depending upon the context, it can take the value of the
                       discount, tax, misc or item type value.
                     reference: <PR/Issue/Discussion Links md format text>
-  on_init:
-    message: &ref_8
+  init:
+    message:
       order:
-        quote:
-          breakup: *ref_7
-        payments: &ref_9
+        items: &ref_7
           tags:
-            - code: Settlement_Details
+            - code: REPORT_REQUIREMENT
+              description: Attribute of a particular item
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: REPORT_DEADLINE
+                  description: The deadline within which report is required
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: CROP
+                  description: The crop for which the service is required, optional
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: DATE_OF_SOWING
+                  description: The sowing date of the crop, optional
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: FARM_STATUS
+                  description: Status of the farm - Eg. RAIN_FED, optional
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: ACRAGE
+                  description: Acrage of the farm, optional
+                  reference: <PR/Issue/Discussion Links md format text>
+  on_init:
+    message: &ref_9
+      order:
+        items: *ref_7
+        quote:
+          breakup: *ref_8
+        payments: &ref_10
+          tags:
+            - code: SETTLEMENT_DETAILS
               description: Define Payment Settlement Details here
               reference: <PR/Issue/Discussion Links md format text>
               list:
@@ -3249,23 +3352,23 @@ x-tags:
               description: Define Finder's Fee for Buyer
               reference: <PR/Issue/Discussion Links md format text>
               list:
-                - code: Buyer_Finder_Fee_Type
-                  description: Description of the Tag
+                - code: FINDER_FEE_TYPE
+                  description: Type of the finder fee. eg. "percent"
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: Buyer_Finder_Fee_Amount
-                  description: Description of the Tag
+                - code: FINDER_FEE_AMOUNT
+                  description: Amount for the finder fee
                   reference: <PR/Issue/Discussion Links md format text>
   confirm:
-    message: *ref_8
+    message: *ref_9
   on_status:
-    message: *ref_8
+    message: *ref_9
   update:
-    message: &ref_11
+    message: &ref_12
       order:
-        payments: *ref_9
+        payments: *ref_10
         quote:
           breakup:
-            tags: *ref_10
+            tags: *ref_11
           item:
             tags:
               - code: attributes
@@ -3276,7 +3379,7 @@ x-tags:
                     description: Hex Code for color
                     reference: <PR/Issue/Discussion Links md format text>
   on_update:
-    message: *ref_11
+    message: *ref_12
 x-flows:
   - summary: Agriculture Services Collection Pickup by Seller
     description: >-
@@ -3356,7 +3459,7 @@ x-flows:
           Search intent sent by the buyer based on the particular agri service
           required - e.g. Soil Testing
         reference: if any
-        example: &ref_13
+        example: &ref_14
           summary: Search based on the intent for buying a particular agri service
           description: >-
             Search intent sent by the buyer based on the particular agri service
@@ -3416,7 +3519,7 @@ x-flows:
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: &ref_14
+        example: &ref_15
           summary: Returns the catalog specific to the search intent
           description: Returns the catalog specific to the search intent
           value:
@@ -3625,7 +3728,7 @@ x-flows:
                               percentage: '10.00'
                         tags:
                           - descriptor:
-                              code: TEST_INFORMATION
+                              code: SERVICE_INFORMATION
                             display: true
                             list:
                               - descriptor:
@@ -3934,7 +4037,7 @@ x-flows:
         api: select
         description: Buyer selects the required agri service + suitable fulfillment type
         reference: if any
-        example: &ref_15
+        example: &ref_16
           summary: Buyer selects the required agri service
           description: Buyer selects the required agri service + suitable fulfillment type
           value:
@@ -4112,7 +4215,7 @@ x-flows:
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: &ref_16
+        example: &ref_17
           summary: Seller confirms the schedule and returns the quote for service
           description: Seller confirms the schedule and returns the quote for service
           value:
@@ -4326,7 +4429,7 @@ x-flows:
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: &ref_17
+        example: &ref_18
           summary: Buyer initialises the order for service
           description: Buyer initialises the order and provides billing details
           value:
@@ -4527,7 +4630,7 @@ x-flows:
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: &ref_18
+        example: &ref_19
           summary: Seller provides the final quotation for the service
           description: Seller provides the final quotation
           value:
@@ -4929,7 +5032,7 @@ x-flows:
       - summary: Buyer confirm the order for the service
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: &ref_19
+        example: &ref_20
           summary: Buyer confirm the order for the service
           description: Buyer makes the payment to confirm the order
           value:
@@ -5340,7 +5443,7 @@ x-flows:
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: &ref_20
+        example: &ref_21
           summary: Seller accepts the order for service
           description: >-
             Seller app sends an on_confirm call to the buyer app accepting the
@@ -5846,7 +5949,7 @@ x-flows:
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: &ref_12
+        example: &ref_13
           summary: Buyer requests for the status of the order
           description: Buyer requests for the status of the order
           value:
@@ -8483,7 +8586,7 @@ x-flows:
                               percentage: '10.00'
                         tags:
                           - descriptor:
-                              code: TEST_INFORMATION
+                              code: SERVICE_INFORMATION
                             display: true
                             list:
                               - descriptor:
@@ -8588,7 +8691,7 @@ x-flows:
                               percentage: '5.00'
                         tags:
                           - descriptor:
-                              code: TEST_INFORMATION
+                              code: SERVICE_INFORMATION
                             display: true
                             list:
                               - descriptor:
@@ -10263,9 +10366,9 @@ x-flows:
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_12
-      - summary: Seller app sends order status update (In-Transit)
-        api: on_status (In Transit)
+        example: *ref_13
+      - summary: Seller app sends order status update (At location)
+        api: on_status (At location)
         description: >-
           Seller app sends order status update when service provider is on the
           way
@@ -11715,7 +11818,7 @@ x-flows:
                               percentage: '10.00'
                         tags:
                           - descriptor:
-                              code: TEST_INFORMATION
+                              code: SERVICE_INFORMATION
                             list:
                               - descriptor:
                                   code: ACCURACY
@@ -12285,7 +12388,7 @@ x-flows:
                               percentage: '10.00'
                         tags:
                           - descriptor:
-                              code: TEST_INFORMATION
+                              code: SERVICE_INFORMATION
                             list:
                               - descriptor:
                                   code: ACCURACY
@@ -14093,7 +14196,7 @@ x-flows:
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_12
+        example: *ref_13
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: >-
@@ -16603,12 +16706,12 @@ x-flows:
           Search intent sent by the buyer based on the particular agri service
           required - e.g. Soil Testing
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Buyer selects the required agri service
         api: select (Reschedule)
         description: >-
@@ -20835,45 +20938,45 @@ x-flows:
           Search intent sent by the buyer based on the particular agri service
           required - e.g. Soil Testing
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Buyer selects the required agri service
         api: select
         description: >-
           Buyer selects the required agri service + suitable fulfillment type +
           suitable schedule
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Seller confirms the schedule and returns the quote for service
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Buyer initialises the order for service
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Seller provides the final quotation for the service
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Buyer confirm the order for the service
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_19
+        example: *ref_20
       - summary: Seller accepts the order for service
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Buyer requests for the order cancellation
         api: cancel
         description: >-
@@ -21325,45 +21428,45 @@ x-flows:
           Search intent sent by the buyer based on the particular agri service
           required - e.g. Soil Testing
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Buyer selects the required agri service
         api: select
         description: >-
           Buyer selects the required agri service + suitable fulfillment type +
           suitable schedule
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Seller confirms the schedule and returns the quote for service
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Buyer initialises the order for service
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Seller provides the final quotation for the service
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Buyer confirm the order for the service
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_19
+        example: *ref_20
       - summary: Seller accepts the order for service
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the cancellation request
         api: on_cancel
         description: Seller cancels the order
@@ -25008,7 +25111,7 @@ x-examples:
                                 percentage: '10.00'
                           tags:
                             - descriptor:
-                                code: TEST_INFORMATION
+                                code: SERVICE_INFORMATION
                               display: true
                               list:
                                 - descriptor:
@@ -25444,7 +25547,7 @@ x-examples:
                                 percentage: '10.00'
                           tags:
                             - descriptor:
-                                code: TEST_INFORMATION
+                                code: SERVICE_INFORMATION
                               display: true
                               list:
                                 - descriptor:
@@ -25549,7 +25652,7 @@ x-examples:
                                 percentage: '5.00'
                           tags:
                             - descriptor:
-                                code: TEST_INFORMATION
+                                code: SERVICE_INFORMATION
                               display: true
                               list:
                                 - descriptor:
@@ -25808,7 +25911,7 @@ x-examples:
                                 percentage: '10.00'
                           tags:
                             - descriptor:
-                                code: TEST_INFORMATION
+                                code: SERVICE_INFORMATION
                               list:
                                 - descriptor:
                                     code: ACCURACY
@@ -26379,7 +26482,7 @@ x-examples:
                                 percentage: '10.00'
                           tags:
                             - descriptor:
-                                code: TEST_INFORMATION
+                                code: SERVICE_INFORMATION
                               list:
                                 - descriptor:
                                     code: ACCURACY
@@ -37068,12 +37171,9 @@ x-attributes:
         context:
           parent: true
           domain:
-            description: >-
-              domain code, enums - ONDC:SRV10 ( Home Services - Appliance Repair
-              Services ), ONDC:SRV11 ( Home Services - Infra Services ),
-              ONDC:SRV12 ( Home Services - Personal Care Services )
+            description: domain code, enums - ONDC:SRV14 (Agriculuture Services)
             required: mandatory
-            usage: ONDC:SRV10
+            usage: ONDC:SRV14
             reference: if any
           city:
             code:
@@ -37121,16 +37221,16 @@ x-attributes:
               category:
                 description: Category of the search
                 required: optional
-                usage: SRV10-1000
+                usage: SRV14-1001
                 reference: if any
             fulfillment:
               parent: true
               type:
                 description: >-
-                  fulfillment type for the service, enum - "Home-Service,
-                  Store-Service"
+                  fulfillment type for the service, enum - "Buyer-Fulfilled,
+                  Seller-Fulfilled"
                 required: required
-                usage: Home-Service
+                usage: Buyer-Fulfilled
                 reference: if any
               stops:
                 location:
@@ -37185,10 +37285,10 @@ x-attributes:
                 reference: if any
               type:
                 description: >-
-                  fulfillment type of the service, enum - "Home-Service,
-                  Store-Service"
+                  fulfillment type of the service, enum - "Seller-Fulfilled,
+                  Buyer-Fulfilled"
                 required: required
-                usage: Home-Service
+                usage: Selled-Fulfilled
                 reference: if any
             payments:
               parent: true
@@ -37455,10 +37555,10 @@ x-attributes:
               breakup:
                 title:
                   description: >-
-                    title of the service charges enum - Sofa Cleaning, tax,
+                    title of the service charges enum - Soil Testing, tax,
                     discount, convenience_fee
                   required: required
-                  usage: Sofa Cleaning
+                  usage: Soil Testing
                   reference: if any
                 price:
                   description: price of the quote breakup type
@@ -37515,10 +37615,10 @@ x-attributes:
                   reference: if any
                 title:
                   description: >-
-                    title of the service charges enum - Sofa Cleaning, tax,
+                    title of the service charges enum - Soil Testing, tax,
                     discount, convenience_fee
                   required: required
-                  usage: Sofa Cleaning
+                  usage: Soil Testing
                   reference: if any
             payments:
               parent: true
@@ -37721,7 +37821,9 @@ x-attributes:
                   code:
                     description: >-
                       Denotes the state of the fulfillment; Enum; Values can be
-                      - "Pending", "In-Transit", "At-Location", "Completed";
+                      - "PENDING", "IN_TRANSIT", "AT_LOCATION",
+                      "COLLECTED_BY_AGENT", "RECIEIVED_AT_LAB",
+                      "TEST_COMPLETED", "REPORT_GENERATED", "REPORT_SHARED";
                     required: mandatory
                     usage: '-'
                     reference: if any

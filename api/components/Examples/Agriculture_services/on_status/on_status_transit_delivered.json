@@ -62,7 +62,7 @@
           "id": "F2",
           "state": {
             "descriptor": {
-              "code": "IN_TRANSIT"
+              "code": "AT_LOCATION"
             }
           },
           "type": "Buyer-Fulfilled",

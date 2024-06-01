@@ -98,8 +98,8 @@ steps:
     description: Buyer requests for the status of the order
     example:
       $ref: "../../Examples/Agriculture_services_yaml/status/status.yaml"
-  - summary: Seller app sends order status update (In-Transit)
-    api: on_status (In Transit)
+  - summary: Seller app sends order status update (At location)
+    api: on_status (At location)
     description: Seller app sends order status update when service provider is on the way
     reference: if any
     example:

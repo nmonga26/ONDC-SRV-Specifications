@@ -46,7 +46,7 @@ message:
       category:
         description: Category of the search
         required: optional
-        usage: "SRV10-1000"
+        usage: "SRV14-1001"
         reference: if any
     fulfillment:
       parent: true

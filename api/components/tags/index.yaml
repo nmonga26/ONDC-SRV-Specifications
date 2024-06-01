@@ -14,9 +14,15 @@ on_select:
         breakup:
           $ref: "./TagGroup.yaml#/order/quote/breakup"
 
+init:
+  message:
+    order:
+      items:
+        $ref: "./TagGroup.yaml#/order/items"
+
 on_init:
   message: &ref1
-    order: 
+    order:
       $ref: "./TagGroup.yaml#/order"
 
 confirm:
@@ -25,23 +31,21 @@ confirm:
 on_status:
   message: *ref1
 
-
 update:
   message: &ref2
     order:
-      payments: 
+      payments:
         $ref: "./TagGroup.yaml#/order/payments"
       quote:
         breakup:
-          tags: 
+          tags:
             $ref: "./TagGroup.yaml#/order/quote/breakup/tags"
         item:
-          tags: 
+          tags:
             - code: attributes
               description: Update parameter for attributes
               reference: <PR/Issue/Discussion Links md format text>
               list:
-                 $ref: "./Tag.yaml#/attributes"
+                $ref: "./Tag.yaml#/attributes"
 on_update:
   message: *ref2
-

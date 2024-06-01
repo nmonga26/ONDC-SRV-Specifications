@@ -16,21 +16,21 @@ value:
     bpp_uri: https://sellerapp.com/ondc
     transaction_id: T1
     message_id: M1
-    timestamp: '2024-04-01T22:00:30.000Z'
+    timestamp: "2024-04-01T22:00:30.000Z"
     ttl: PT30S
   message:
     catalog:
       fulfillments:
-        - id: '1'
+        - id: "1"
           type: Buyer-Fulfilled
-        - id: '2'
+        - id: "2"
           type: Seller-Fulfilled
       payments:
-        - id: '1'
+        - id: "1"
           type: PRE-FULFILLMENT
-        - id: '2'
+        - id: "2"
           type: ON-FULFILLMENT
-        - id: '3'
+        - id: "3"
           type: POST-FULFILLMENT
       descriptor:
         name: ABC Agri Assaying Provider
@@ -47,7 +47,7 @@ value:
             long_desc: ABC Assaying Provider store
             images:
               - url: https://abc.com/images/1-shop-img
-          rating: '4.2'
+          rating: "4.2"
           ttl: PT1D
           locations:
             - id: L1
@@ -60,7 +60,7 @@ value:
                 code: KA
               country:
                 code: IND
-              area_code: '560076'
+              area_code: "560076"
           creds:
             - id: GHP-12345678
               type: Certificate
@@ -78,7 +78,7 @@ value:
                   value: SRV14-*
                 - descriptor:
                     code: type
-                  value: '13'
+                  value: "13"
                 - descriptor:
                     code: val
                   value: >-
@@ -101,16 +101,16 @@ value:
                   list:
                     - descriptor:
                         code: SEQ
-                      value: '1'
+                      value: "1"
                     - descriptor:
                         code: MANDATORY_SELECTION
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: MIN_SELECTION
-                      value: '1'
+                      value: "1"
                     - descriptor:
                         code: MAX_SELECTION
-                      value: '9'
+                      value: "9"
           items:
             - id: I1
               descriptor:
@@ -126,30 +126,30 @@ value:
                     url: https://abc.com/add-info.pdf
               price:
                 currency: INR
-                value: '100.00'
-                minimum_value: '100.00'
+                value: "100.00"
+                minimum_value: "100.00"
               category_ids:
                 - SRV14-xxxx
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               cancellation_terms:
                 - fulfillment_state:
                     descriptor:
                       code: PENDING
                   cancellation_fee:
-                    percentage: '0.00'
+                    percentage: "0.00"
                 - fulfillment_state:
                     descriptor:
                       code: IN_TRANSIT
                   cancellation_fee:
-                    percentage: '10.00'
+                    percentage: "10.00"
               tags:
                 - descriptor:
-                    code: TEST_INFORMATION
+                    code: SERVICE_INFORMATION
                   list:
                     - descriptor:
                         code: ACCURACY
@@ -168,29 +168,29 @@ value:
                       value: Pending
                     - descriptor:
                         code: RESCHEDULE_ELIGIBLE
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: RESCHEDULE_FEE
-                      value: '0.00'
+                      value: "0.00"
                     - descriptor:
                         code: RESCHEDULE_WITHIN
                       value: PT1D
               time:
                 label: validity
                 range:
-                  start: '2024-04-01T00:00:00.000Z'
-                  end: '2024-04-10T00:00:00.000Z'
+                  start: "2024-04-01T00:00:00.000Z"
+                  end: "2024-04-10T00:00:00.000Z"
                 days: 01,02,03,04,05
                 schedule:
                   frequency: PT1H
                   holidays:
-                    - '2024-04-09'
-                    - '2024-04-07'
+                    - "2024-04-09"
+                    - "2024-04-07"
                   times:
-                    - '2024-04-04T22:00:00.000Z'
-                    - '2024-04-06T22:00:00.000Z'
-                    - '2024-04-08T22:00:00.000Z'
-                    - '2024-04-10T22:00:00.000Z'
+                    - "2024-04-04T22:00:00.000Z"
+                    - "2024-04-06T22:00:00.000Z"
+                    - "2024-04-08T22:00:00.000Z"
+                    - "2024-04-10T22:00:00.000Z"
               matched: true
               recommended: true
             - id: I1C1
@@ -207,25 +207,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -235,10 +235,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C2
               parent_item_id: I1
               descriptor:
@@ -253,25 +253,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -281,10 +281,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C3
               parent_item_id: I1
               descriptor:
@@ -299,25 +299,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -327,10 +327,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C4
               parent_item_id: I1
               descriptor:
@@ -345,25 +345,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -373,10 +373,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C5
               parent_item_id: I1
               descriptor:
@@ -391,25 +391,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -419,10 +419,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C6
               parent_item_id: I1
               descriptor:
@@ -437,25 +437,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -465,10 +465,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C7
               parent_item_id: I1
               descriptor:
@@ -483,25 +483,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -511,10 +511,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C8
               parent_item_id: I1
               descriptor:
@@ -529,25 +529,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -557,10 +557,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'false'
+                      value: "false"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'false'
+                      value: "false"
             - id: I1C9
               parent_item_id: I1
               descriptor:
@@ -575,25 +575,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -603,14 +603,14 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'false'
+                      value: "false"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'false'
+                      value: "false"
           offers:
             - id: offer-1
               descriptor:
-                name: ''
+                name: ""
                 code: FREEBIE
                 short_desc: Additional Tests
                 long_desc: Additional Tests
@@ -623,12 +623,12 @@ value:
               time:
                 label: validity
                 range:
-                  start: '2024-04-01T00:00:00.000Z'
-                  end: '2024-04-10T00:00:00.000Z'
+                  start: "2024-04-01T00:00:00.000Z"
+                  end: "2024-04-10T00:00:00.000Z"
                 days: 04,05
           fulfillments:
             - contact:
-                phone: '9886098860'
+                phone: "9886098860"
                 email: abc@xyz.com
         - id: P2
           descriptor:
@@ -638,7 +638,7 @@ value:
             long_desc: XYZ Assaying Service
             images:
               - url: https://xyz.com/images/1-shop-img
-          rating: '4.2'
+          rating: "4.2"
           ttl: PT1D
           locations:
             - id: L2
@@ -651,7 +651,7 @@ value:
                 code: KA
               country:
                 code: IND
-              area_code: '560076'
+              area_code: "560076"
           creds:
             - id: GHP-12345678
               type: Certificate
@@ -669,7 +669,7 @@ value:
                   value: SRV14-*
                 - descriptor:
                     code: type
-                  value: '13'
+                  value: "13"
                 - descriptor:
                     code: val
                   value: >-
@@ -696,30 +696,30 @@ value:
                     url: https://abc.com/add-info.pdf
               price:
                 currency: INR
-                value: '100.00'
-                minimum_value: '100.00'
+                value: "100.00"
+                minimum_value: "100.00"
               category_ids:
                 - SRV14-xxxx
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               cancellation_terms:
                 - fulfillment_state:
                     descriptor:
                       code: PENDING
                   cancellation_fee:
-                    percentage: '0.00'
+                    percentage: "0.00"
                 - fulfillment_state:
                     descriptor:
                       code: IN_TRANSIT
                   cancellation_fee:
-                    percentage: '10.00'
+                    percentage: "10.00"
               tags:
                 - descriptor:
-                    code: TEST_INFORMATION
+                    code: SERVICE_INFORMATION
                   list:
                     - descriptor:
                         code: ACCURACY
@@ -738,29 +738,29 @@ value:
                       value: Pending
                     - descriptor:
                         code: RESCHEDULE_ELIGIBLE
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: RESCHEDULE_FEE
-                      value: '0.00'
+                      value: "0.00"
                     - descriptor:
                         code: RESCHEDULE_WITHIN
                       value: PT1D
               time:
                 label: validity
                 range:
-                  start: '2024-04-01T00:00:00.000Z'
-                  end: '2024-04-10T00:00:00.000Z'
+                  start: "2024-04-01T00:00:00.000Z"
+                  end: "2024-04-10T00:00:00.000Z"
                 days: 01,02,03,04,05
                 schedule:
                   frequency: PT1H
                   holidays:
-                    - '2024-04-09'
-                    - '2024-04-07'
+                    - "2024-04-09"
+                    - "2024-04-07"
                   times:
-                    - '2024-04-04T22:00:00.000Z'
-                    - '2024-04-06T22:00:00.000Z'
-                    - '2024-04-08T22:00:00.000Z'
-                    - '2024-04-10T22:00:00.000Z'
+                    - "2024-04-04T22:00:00.000Z"
+                    - "2024-04-06T22:00:00.000Z"
+                    - "2024-04-08T22:00:00.000Z"
+                    - "2024-04-10T22:00:00.000Z"
               matched: true
               recommended: true
             - id: I1C1
@@ -777,25 +777,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -805,10 +805,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C2
               parent_item_id: I1
               descriptor:
@@ -823,25 +823,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -851,10 +851,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C3
               parent_item_id: I1
               descriptor:
@@ -869,25 +869,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -897,10 +897,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C4
               parent_item_id: I1
               descriptor:
@@ -915,25 +915,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -943,10 +943,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C5
               parent_item_id: I1
               descriptor:
@@ -961,25 +961,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -989,10 +989,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C6
               parent_item_id: I1
               descriptor:
@@ -1007,25 +1007,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -1035,10 +1035,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C7
               parent_item_id: I1
               descriptor:
@@ -1053,25 +1053,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -1081,10 +1081,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'false'
+                      value: "false"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'true'
+                      value: "true"
             - id: I1C8
               parent_item_id: I1
               descriptor:
@@ -1099,25 +1099,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -1127,10 +1127,10 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'false'
+                      value: "false"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'false'
+                      value: "false"
             - id: I1C9
               parent_item_id: I1
               descriptor:
@@ -1145,25 +1145,25 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '200.00'
-                minimum_value: '200.00'
+                value: "200.00"
+                minimum_value: "200.00"
               quantity:
                 unitized:
                   measure:
                     unit: parameter
-                    value: '1'
+                    value: "1"
                 minimum:
-                  value: '1'
+                  value: "1"
                 maximum:
-                  value: '1'
+                  value: "1"
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               tags:
                 - descriptor:
                     code: ATTRIBUTE
@@ -1173,14 +1173,14 @@ value:
                       value: customization
                     - descriptor:
                         code: MANDATORY
-                      value: 'false'
+                      value: "false"
                     - descriptor:
                         code: AUTO_SELECTED
-                      value: 'false'
+                      value: "false"
           offers:
             - id: offer-1
               descriptor:
-                name: ''
+                name: ""
                 code: FREEBIE
                 short_desc: Additional Tests
                 long_desc: Additional Tests
@@ -1193,10 +1193,10 @@ value:
               time:
                 label: validity
                 range:
-                  start: '2024-04-01T00:00:00.000Z'
-                  end: '2024-04-10T00:00:00.000Z'
+                  start: "2024-04-01T00:00:00.000Z"
+                  end: "2024-04-10T00:00:00.000Z"
                 days: 04,05
           fulfillments:
             - contact:
-                phone: '9886098860'
+                phone: "9886098860"
                 email: abc@xyz.com

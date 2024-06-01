@@ -16,21 +16,21 @@ value:
     bpp_uri: https://sellerapp.com/ondc
     transaction_id: T1
     message_id: M1
-    timestamp: '2024-04-01T22:00:30.000Z'
+    timestamp: "2024-04-01T22:00:30.000Z"
     ttl: PT30S
   message:
     catalog:
       fulfillments:
-        - id: '1'
+        - id: "1"
           type: Buyer-Fulfilled
-        - id: '2'
+        - id: "2"
           type: Seller-Fulfilled
       payments:
-        - id: '1'
+        - id: "1"
           type: PRE-FULFILLMENT
-        - id: '2'
+        - id: "2"
           type: ON-FULFILLMENT
-        - id: '3'
+        - id: "3"
           type: POST-FULFILLMENT
       descriptor:
         name: ABC Agri Service Provider
@@ -47,7 +47,7 @@ value:
             long_desc: ABC service provider store
             images:
               - url: https://abc.com/images/1-shop-img
-          rating: '4.4'
+          rating: "4.4"
           ttl: PT1D
           locations:
             - id: L1
@@ -60,7 +60,7 @@ value:
                 code: KA
               country:
                 code: IND
-              area_code: '560076'
+              area_code: "560076"
           creds:
             - id: AGR-12345678
               type: Certificate
@@ -78,7 +78,7 @@ value:
                   value: SRV14-*
                 - descriptor:
                     code: type
-                  value: '13'
+                  value: "13"
                 - descriptor:
                     code: val
                   value: >-
@@ -103,32 +103,32 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: '1449.00'
-                offered_value: '1449.00'
-                maximum_value: '1549.00'
+                value: "1449.00"
+                offered_value: "1449.00"
+                maximum_value: "1549.00"
               category_ids:
                 - SRV14-xxxx
               fulfillment_ids:
-                - '1'
-                - '2'
+                - "1"
+                - "2"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               cancellation_terms:
                 - fulfillment_state:
                     descriptor:
                       code: PENDING
                   cancellation_fee:
-                    percentage: '0.00'
+                    percentage: "0.00"
                 - fulfillment_state:
                     descriptor:
                       code: IN_TRANSIT
                   cancellation_fee:
-                    percentage: '10.00'
+                    percentage: "10.00"
               tags:
                 - descriptor:
-                    code: TEST_INFORMATION
+                    code: SERVICE_INFORMATION
                   display: true
                   list:
                     - descriptor:
@@ -163,29 +163,29 @@ value:
                       value: Pending
                     - descriptor:
                         code: RESCHEDULE_ELIGIBLE
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: RESCHEDULE_FEE
-                      value: '0.00'
+                      value: "0.00"
                     - descriptor:
                         code: RESCHEDULE_WITHIN
                       value: PT1D
               time:
                 label: validity
                 range:
-                  start: '2024-04-01T00:00:00.000Z'
-                  end: '2024-04-10T00:00:00.000Z'
+                  start: "2024-04-01T00:00:00.000Z"
+                  end: "2024-04-10T00:00:00.000Z"
                 days: 04,05
                 schedule:
                   frequency: PT1H
                   holidays:
-                    - '2024-04-09'
-                    - '2024-04-07'
+                    - "2024-04-09"
+                    - "2024-04-07"
                   times:
-                    - '2024-04-04T22:00:00.000Z'
-                    - '2024-04-06T22:00:00.000Z'
-                    - '2024-04-08T22:00:00.000Z'
-                    - '2024-04-10T22:00:00.000Z'
+                    - "2024-04-04T22:00:00.000Z"
+                    - "2024-04-06T22:00:00.000Z"
+                    - "2024-04-08T22:00:00.000Z"
+                    - "2024-04-10T22:00:00.000Z"
               matched: true
               recommended: true
             - id: I2
@@ -205,35 +205,35 @@ value:
                     name: Raj Kumar
                     address:
                       full: Sector-1, Noida,Uttar Pradesh-201301
-                    phone: '18001801018'
+                    phone: "18001801018"
                     email: consumer.services@abc.com
               price:
                 currency: INR
-                value: '1400.00'
-                offered_value: '1400.00'
-                maximum_value: '1499.00'
+                value: "1400.00"
+                offered_value: "1400.00"
+                maximum_value: "1499.00"
               category_ids:
                 - SRV14-xxxx
               fulfillment_ids:
-                - '1'
+                - "1"
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - "1"
               cancellation_terms:
                 - fulfillment_state:
                     descriptor:
                       code: PENDING
                   cancellation_fee:
-                    percentage: '0.00'
+                    percentage: "0.00"
                 - fulfillment_state:
                     descriptor:
                       code: IN_TRANSIT
                   cancellation_fee:
-                    percentage: '5.00'
+                    percentage: "5.00"
               tags:
                 - descriptor:
-                    code: TEST_INFORMATION
+                    code: SERVICE_INFORMATION
                   display: true
                   list:
                     - descriptor:
@@ -292,35 +292,35 @@ value:
                       value: Pending
                     - descriptor:
                         code: RESCHEDULE_ELIGIBLE
-                      value: 'true'
+                      value: "true"
                     - descriptor:
                         code: RESCHEDULE_FEE
-                      value: '0.00'
+                      value: "0.00"
                     - descriptor:
                         code: RESCHEDULE_WITHIN
                       value: PT1D
               time:
                 label: validity
                 range:
-                  start: '2024-04-01T00:00:00.000Z'
-                  end: '2024-04-10T00:00:00.000Z'
+                  start: "2024-04-01T00:00:00.000Z"
+                  end: "2024-04-10T00:00:00.000Z"
                 days: 04,05
                 schedule:
                   frequency: PT1H
                   holidays:
-                    - '2024-04-09'
-                    - '2024-04-07'
+                    - "2024-04-09"
+                    - "2024-04-07"
                   times:
-                    - '2024-04-04T22:00:00.000Z'
-                    - '2024-04-06T22:00:00.000Z'
-                    - '2024-04-08T22:00:00.000Z'
-                    - '2024-04-10T22:00:00.000Z'
+                    - "2024-04-04T22:00:00.000Z"
+                    - "2024-04-06T22:00:00.000Z"
+                    - "2024-04-08T22:00:00.000Z"
+                    - "2024-04-10T22:00:00.000Z"
               matched: true
               recommended: true
           offers:
             - id: offer-1
               descriptor:
-                name: ''
+                name: ""
                 code: FREEBIE
                 short_desc: Additional Tests
                 long_desc: Additional Tests
@@ -333,10 +333,10 @@ value:
               time:
                 label: validity
                 range:
-                  start: '2024-04-01T00:00:00.000Z'
-                  end: '2024-04-10T00:00:00.000Z'
+                  start: "2024-04-01T00:00:00.000Z"
+                  end: "2024-04-10T00:00:00.000Z"
                 days: 04,05
           fulfillments:
             - contact:
-                phone: '9886098860'
+                phone: "9886098860"
                 email: abc@xyz.com
