@@ -383,15 +383,15 @@ category_ids:
   - code: SRV12-1015
     description: Personal Care Services Combo
     reference: <PR/Issue/Discussion Links md format text>
-  - code: ARG12-1001
+  - code: SRV14-1001
     description: Soil Testing Services
     reference: <PR/Issue/Discussion Links md format text>
-  - code: ARG12-1002
+  - code: SRV14-1002
     description: Water Testing Services
     reference: <PR/Issue/Discussion Links md format text>
-  - code: ARG12-1003
+  - code: SRV14-1003
     description: Chemical Testing Services
     reference: <PR/Issue/Discussion Links md format text>
-  - code: ARG12-1004
+  - code: SRV14-1004
     description: Assaying Services
     reference: <PR/Issue/Discussion Links md format text>
