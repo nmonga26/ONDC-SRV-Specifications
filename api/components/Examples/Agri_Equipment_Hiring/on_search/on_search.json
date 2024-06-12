@@ -1,0 +1,523 @@
+{
+  "context": {
+    "domain": "ONDC:SRV14",
+    "location": {
+      "city": {
+        "code": "std:080"
+      },
+      "country": {
+        "code": "IND"
+      }
+    },
+    "action": "on_search",
+    "version": "2.0.0",
+    "bap_id": "buyerapp.com",
+    "bap_uri": "https://buyerapp.com/ondc",
+    "bpp_id": "sellerapp.com",
+    "bpp_uri": "https://sellerapp.com/ondc",
+    "transaction_id": "T1",
+    "message_id": "M1",
+    "timestamp": "2024-06-10T22:00:20.000Z",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalog": {
+      "fulfillments": [
+        {
+          "id": "1",
+          "type": "Buyer-Fulfilled"
+        },
+        {
+          "id": "2",
+          "type": "Seller-Fulfilled"
+        }
+      ],
+      "payments": [
+        {
+          "id": "1",
+          "type": "PRE-FULFILLMENT"
+        },
+        {
+          "id": "2",
+          "type": "ON-FULFILLMENT"
+        }
+      ],
+      "descriptor": {
+        "name": "Agri Equipment Provider",
+        "short_desc": "Agri Equipment Provider",
+        "long_desc": "Agri Equipment Provider",
+        "images": [
+          {
+            "url": "https://abc.com/images/1-shop-img"
+          }
+        ]
+      },
+      "providers": [
+        {
+          "id": "P1",
+          "descriptor": {
+            "name": "Equipment Provider store",
+            "code": "P001",
+            "short_desc": "Equipment Provider store",
+            "long_desc": "Equipment Provider store",
+            "images": [
+              {
+                "url": "https://abc.com/images/1-shop-img"
+              }
+            ]
+          },
+          "rating": "4.4",
+          "ttl": "PT1D",
+          "locations": [
+            {
+              "id": "L1",
+              "gps": "12.967555,77.749666",
+              "address": "Jayanagar 4th Block",
+              "city": {
+                "code": "std:080",
+                "name": "Bengaluru"
+              },
+              "state": {
+                "code": "KA"
+              },
+              "country": {
+                "code": "IND"
+              },
+              "area_code": "560076"
+            }
+          ],
+          "creds": [
+            {
+              "id": "EQP-12345678",
+              "type": "Certificate",
+              "desc": "Certified Provider",
+              "url": "https://abcd.cdn.com/images/bage-img"
+            }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "serviceability"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "location"
+                  },
+                  "value": "L1"
+                },
+                {
+                  "descriptor": {
+                    "code": "category"
+                  },
+                  "value": "SRV14-*"
+                },
+                {
+                  "descriptor": {
+                    "code": "type"
+                  },
+                  "value": "13"
+                },
+                {
+                  "descriptor": {
+                    "code": "val"
+                  },
+                  "value": "{\"type\": \"FeatureCollection\", \"features\": [{\"type\": \"Feature\", \"properties\": {}, \"geometry\": {\"coordinates\": [[[77.175571, 28.675927], [77.128737, 28.600972], [77.446934, 28.545325], [77.175571, 28.675927]]], \"type\": \"Polygon\"}}]}"
+                },
+                {
+                  "descriptor": {
+                    "code": "unit"
+                  },
+                  "value": "geojson"
+                }
+              ]
+            }
+          ],
+          "categories": [
+            {
+              "id": "C1",
+              "descriptor": {
+                "name": "Hi Tech based Tractor",
+                "code": "MISC"
+              },
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "SELECTION"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "SEQ"
+                      },
+                      "value": "1"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MANDATORY_SELECTION"
+                      },
+                      "value": "true"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MIN_SELECTION"
+                      },
+                      "value": "1"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MAX_SELECTION"
+                      },
+                      "value": "3"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "C2",
+              "descriptor": {
+                "name": "Thresher",
+                "code": "MISC"
+              },
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "SELECTION"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "SEQ"
+                      },
+                      "value": "2"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MANDATORY_SELECTION"
+                      },
+                      "value": "true"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MIN_SELECTION"
+                      },
+                      "value": "1"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MAX_SELECTION"
+                      },
+                      "value": "3"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "C3",
+              "descriptor": {
+                "name": "Rotovator",
+                "code": "MISC"
+              },
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "SELECTION"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "SEQ"
+                      },
+                      "value": "3"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MANDATORY_SELECTION"
+                      },
+                      "value": "true"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MIN_SELECTION"
+                      },
+                      "value": "1"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MAX_SELECTION"
+                      },
+                      "value": "3"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "id": "I1",
+              "parent_item_id": "",
+              "descriptor": {
+                "name": "Tractor",
+                "code": "EQUIPMENT",
+                "short_desc": "Mahindra YUVRAJ 215 NXT NT Tractor",
+                "long_desc": "The Mahindra YUVRAJ 215 NXT NT Tractor is a powerful and efficient tractor that is ideal for intercultural operations",
+                "images": [
+                  {
+                    "url": "https://abc.com/images/207.png"
+                  }
+                ],
+                "media": [
+                  {
+                    "mimetype": "video/mp4",
+                    "url": "video_url"
+                  }
+                ]
+              },
+              "price": {
+                "currency": "INR",
+                "value": "500.00",
+                "refundable_security": {
+                  "currency": "INR",
+                  "value": "5000.00"
+                },
+                "surcharges": {
+                  "currency": "INR",
+                  "value": "5000.00",
+                  "time": "P1D"
+                }
+              },
+              "quantity": {
+                "unitized": {
+                  "measure": {
+                    "unit": "unit",
+                    "value": "1"
+                  }
+                },
+                "minimum": {
+                  "value": "1"
+                },
+                "maximum": {
+                  "value": "1"
+                }
+              },
+              "category_ids": [
+                "C1"
+              ],
+              "fulfillment_ids": [
+                "1",
+                "2"
+              ],
+              "location_ids": [
+                "L1"
+              ],
+              "payment_ids": [
+                "1"
+              ],
+              "add_ons": [
+                {
+                  "id": "A1",
+                  "descriptor": {
+                    "name": "Driver",
+                    "short_desc": "Driver knows about farming",
+                    "long_desc": "Driver knows about farming",
+                    "images": [
+                      {
+                        "url": "https://abc.com/images/207.png"
+                      }
+                    ]
+                  },
+                  "price": {
+                    "currency": "INR",
+                    "value": "200.00"
+                  }
+                }
+              ],
+              "cancellation_terms": [
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "PENDING"
+                    }
+                  },
+                  "cancellation_fee": {
+                    "percentage": "0.00"
+                  }
+                },
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "IN_TRANSIT"
+                    }
+                  },
+                  "cancellation_fee": {
+                    "percentage": "10.00"
+                  }
+                }
+              ],
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "SERVICE_INFORMATION"
+                  },
+                  "display": true,
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "PICKUP_TAT"
+                      },
+                      "value": "PT2D"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "COMPLETION_TAT"
+                      },
+                      "value": "PT1D"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "RESCHEDULE_TERMS"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "FULFILLMENT_STATE"
+                      },
+                      "value": "Pending"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_ELIGIBLE"
+                      },
+                      "value": "true"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_FEE"
+                      },
+                      "value": "0.00"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_WITHIN"
+                      },
+                      "value": "PT1D"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "ATTRIBUTE"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "ITEM_CONDITION"
+                      },
+                      "value": "5"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "OWNERSHIP"
+                      },
+                      "value": "1st Owner"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RUNNING_HOURS"
+                      },
+                      "value": "500"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MODEL_YEAR"
+                      },
+                      "value": "2024"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "BRAND"
+                      },
+                      "value": "Mahindra"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MODEL"
+                      },
+                      "value": "YUVRAJ"
+                    }
+                  ]
+                }
+              ],
+              "time": {
+                "label": "validity",
+                "range": {
+                  "start": "2024-04-01T00:00:00.000Z",
+                  "end": "2024-08-10T00:00:00.000Z"
+                },
+                "days": "04,05",
+                "hours": "5",
+                "schedule": {
+                  "frequency": "PT1H",
+                  "holidays": [
+                    "2024-04-09",
+                    "2024-04-07"
+                  ],
+                  "times": [
+                    "2024-06-04T22:00:00.000Z",
+                    "2024-06-06T22:00:00.000Z",
+                    "2024-06-08T22:00:00.000Z",
+                    "2024-06-10T22:00:00.000Z"
+                  ]
+                }
+              },
+              "matched": true,
+              "recommended": true
+            }
+          ],
+          "offers": [
+            {
+              "id": "offer-1",
+              "descriptor": {
+                "name": "",
+                "code": "FREEBIE",
+                "short_desc": "Additional Equipment (cage wheel)",
+                "long_desc": "Additional Equipment (cage wheel)",
+                "images": [
+                  {
+                    "url": "https://abc.com/images/207.png"
+                  }
+                ]
+              },
+              "location_ids": [],
+              "category_ids": [],
+              "item_ids": [
+                "PI2"
+              ],
+              "time": {
+                "label": "validity",
+                "range": {
+                  "start": "2024-04-01T00:00:00.000Z",
+                  "end": "2024-12-10T00:00:00.000Z"
+                },
+                "days": "04,05"
+              }
+            }
+          ],
+          "fulfillments": [
+            {
+              "contact": {
+                "phone": "9886098860",
+                "email": "abc@xyz.com"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
