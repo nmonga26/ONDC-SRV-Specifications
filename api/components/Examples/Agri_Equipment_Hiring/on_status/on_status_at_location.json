@@ -9,27 +9,29 @@
         "code": "IND"
       }
     },
-    "action": "on_init",
+    "action": "on_status",
     "version": "2.0.0",
     "bap_id": "buyerapp.com",
     "bap_uri": "https://buyerapp.com/services",
     "bpp_id": "sellerapp.com",
     "bpp_uri": "https://sellerapp.com/services",
     "transaction_id": "T1",
-    "message_id": "M3",
-    "timestamp": "2024-06-10T22:00:41.000Z",
+    "message_id": "M5",
+    "timestamp": "2024-06-10T22:00:52.000Z",
     "ttl": "PT30S"
   },
   "message": {
     "order": {
+      "id": "O1",
+      "status": "In-progress",
       "provider": {
-        "id": "P1"
+        "id": "P1",
+        "locations": [
+          {
+            "id": "L1"
+          }
+        ]
       },
-      "locations": [
-        {
-          "id": "L1"
-        }
-      ],
       "items": [
         {
           "id": "I1",
@@ -80,39 +82,17 @@
       },
       "fulfillments": [
         {
-          "id": "F2",
-          "type": "Buyer-Fulfilled",
+          "id": "F1",
+          "state": {
+            "descriptor": {
+              "code": "IN_TRANSIT"
+            }
+          },
+          "type": "Seller-Fulfilled",
           "tracking": false,
           "stops": [
             {
               "type": "start",
-              "location": {
-                "gps": "12.974002,77.613458",
-                "address": "Farm 14 Near Village",
-                "city": {
-                  "name": "Bengaluru"
-                },
-                "country": {
-                  "code": "IND"
-                },
-                "area_code": "560001",
-                "state": {
-                  "name": "Karnataka"
-                }
-              },
-              "contact": {
-                "phone": "9886098860"
-              },
-              "time": {
-                "label": "confirmed",
-                "range": {
-                  "start": "2024-06-10T22:00:00.000Z",
-                  "end": "2024-06-10T23:00:00.000Z"
-                }
-              }
-            },
-            {
-              "type": "end",
               "location": {
                 "id": "L1",
                 "descriptor": {
@@ -133,48 +113,51 @@
               "person": {
                 "name": "Kishan"
               }
-            }
-          ],
-          "tags": [
-            {
-              "descriptor": {
-                "code": "SHAREABLE_FORMAT"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "SHAREABLE_FILE_FORMAT"
-                  },
-                  "value": "PDF"
-                },
-                {
-                  "descriptor": {
-                    "code": "SHAREABLE_FILE_URL"
-                  },
-                  "value": "https://abc.com/agri/format.pdf"
-                }
-              ]
             },
             {
-              "descriptor": {
-                "code": "COLLECTION_INSTRUCTIONS"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "COLLECTIONS_FILE_URL"
-                  },
-                  "value": "https://abc.com/agri/format.pdf"
+              "type": "end",
+              "location": {
+                "gps": "12.974002,77.613458",
+                "address": "My House #, My buildin",
+                "city": {
+                  "name": "Bengaluru"
                 },
-                {
-                  "descriptor": {
-                    "code": "COLLECTIONS_FILE_VIDEO_URL"
-                  },
-                  "value": "https://abc.com/agri/video.mp4"
+                "country": {
+                  "code": "IND"
+                },
+                "area_code": "560001",
+                "state": {
+                  "name": "Karnataka"
                 }
-              ]
+              },
+              "contact": {
+                "phone": "9886098860",
+                "email": "nobody@nomail.com"
+              },
+              "time": {
+                "label": "confirmed",
+                "range": {
+                  "start": "2024-06-10T22:00:00Z",
+                  "end": "2024-06-10T23:00:00Z"
+                }
+              },
+              "person": {
+                "name": "Ramu"
+              },
+              "instructions": {
+                "name": "Special Instructions",
+                "short_desc": "Customer Special Instructions"
+              },
+              "authorization": {
+                "type": "OTP",
+                "token": "1234",
+                "valid_from": "2024-06-10T22:00:00Z",
+                "valid_to": "2024-06-10T23:00:00Z",
+                "status": "valid"
+              }
             }
-          ]
+          ],
+          "rateable": true
         }
       ],
       "quote": {
@@ -330,6 +313,7 @@
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
+          "status": "PAID",
           "type": "PRE-FULFILLMENT",
           "tags": [
             {
@@ -378,13 +362,14 @@
           ]
         }
       ],
-      "xinput": {
-        "form": {
-          "url": "https//abc.com/checklist",
-          "mimetype": "text/html"
-        },
-        "required": false
-      }
+      "documents": [
+        {
+          "url": "https://invoice_url",
+          "label": "INVOICE"
+        }
+      ],
+      "created_at": "2024-06-10T22:00:52.000Z",
+      "updated_at": "2024-06-10T22:00:52.000Z"
     }
   }
 }

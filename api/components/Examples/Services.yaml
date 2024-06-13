@@ -1,7 +1,7 @@
-Services - Agri Service:
-  summary: Agriculture Services
+Services - Equipment Hiring:
+  summary: Agriculture Equipment Hiring
   description: >-
-    This elaborates the model implementations for booking agriculture services over the network.
-    The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+    This elaborates the model implementations for booking agriculture equipment over the network.
+    The booking majorly happens in four phases of order processing flow, i.e. Discovery of available equipments and service providers based on serviceability, order, fulfillment and post-fulfillment.
   example_set:
-    $ref: "./Agriculture_services_yaml/index.yaml"
+    $ref: "./Agri_Equipment_Hiring_yaml/index.yaml"

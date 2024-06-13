@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:SRV11",
+    "domain": "ONDC:SRV15",
     "location": {
       "city": {
         "code": "std:080"
@@ -262,7 +262,7 @@
           "id": "P1",
           "collected_by": "BAP",
           "params": {
-            "amount": "640",
+            "amount": "5640",
             "currency": "INR",
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"

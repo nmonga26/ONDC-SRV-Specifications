@@ -14,3 +14,6 @@ domain:
   - code: ONDC:SRV14
     description: Agriculture Services
     reference: <PR/Issue/Discussion Links md format text>
+  - code: ONDC:SRV15
+    description: Agriculture Equipment Hiring
+    reference: <PR/Issue/Discussion Links md format text>
