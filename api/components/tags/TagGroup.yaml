@@ -45,11 +45,11 @@ catalog:
 order:
   items:
     tags:
-      - code: REPORT_REQUIREMENT
+      - code: ATTRIBUTE
         description: Attribute of a particular item
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          $ref: "./Tag.yaml#/REPORT_REQUIREMENT"
+          $ref: "./Tag.yaml#/ATTRIBUTE"
   quote:
     breakup:
       tags: &ref2

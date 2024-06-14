@@ -171,7 +171,7 @@ value:
                 surcharges:
                   currency: INR
                   value: '5000.00'
-                  time: P1D
+                  duration: P1D
               quantity:
                 unitized:
                   measure:

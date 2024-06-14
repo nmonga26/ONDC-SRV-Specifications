@@ -22,7 +22,7 @@
         "intent": {
             "item": {
                 "category": {
-                    "id": "SRV14-*"
+                    "id": "SRV15-*"
                 }
             },
             "fulfillment": {

@@ -3203,19 +3203,23 @@ x-tags:
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 - code: location
-                  description: Description of the Tag
+                  description: Location id
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: category
-                  description: Description of the Tag
+                  description: Category id for equipment
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: type
-                  description: Description of the Tag
+                  description: >-
+                    Serviceability type id (10 - hyperlocal, 11 - intercity, 12
+                    - pan india, 13 - polygon)
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: val
-                  description: Description of the Tag
+                  description: >-
+                    Serviceability type values like radius, pincode or poligon
+                    co-ordinates
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: unit
-                  description: Description of the Tag
+                  description: Unit of serviceability type values like KM, geojson
                   reference: <PR/Issue/Discussion Links md format text>
           items:
             tags:
@@ -3258,11 +3262,40 @@ x-tags:
               - code: ATTRIBUTE
                 description: Attribute of a particular item
                 reference: <PR/Issue/Discussion Links md format text>
-                list:
+                list: &ref_7
                   - code: TYPE
                     description: >-
                       Type of the item, mandatory only when the item is a
                       customization
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: ITEM_CONDITION
+                    description: >-
+                      Equipment condition (it can be rating like 5) if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: OWNERSHIP
+                    description: >-
+                      Ownership status for the equipment (1st owner, 2nd owner)
+                      if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: RUNNING_HOURS
+                    description: >-
+                      Running hours status for the equipment (Ex - 500) if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: RUNNING_HOURS
+                    description: >-
+                      Running hours status for the equipment (500 hours) if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MODEL_YEAR
+                    description: Equipment model year if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MODEL
+                    description: Equipment model if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: BRAND
+                    description: Equipment brand name if applicable
                     reference: <PR/Issue/Discussion Links md format text>
         categories:
           tags:
@@ -3286,8 +3319,8 @@ x-tags:
     message:
       order:
         quote:
-          breakup: &ref_8
-            tags: &ref_11
+          breakup: &ref_9
+            tags: &ref_12
               - code: title
                 description: title tag
                 reference: <PR/Issue/Discussion Links md format text>
@@ -3295,39 +3328,25 @@ x-tags:
                   - code: type
                     description: >-
                       Depending upon the context, it can take the value of the
-                      discount, tax, misc or item type value.
+                      discount, tax, misc, refundable security or item type
+                      value.
                     reference: <PR/Issue/Discussion Links md format text>
   init:
     message:
       order:
-        items: &ref_7
+        items: &ref_8
           tags:
-            - code: REPORT_REQUIREMENT
+            - code: ATTRIBUTE
               description: Attribute of a particular item
               reference: <PR/Issue/Discussion Links md format text>
-              list:
-                - code: REPORT_DEADLINE
-                  description: The deadline within which report is required
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: CROP
-                  description: The crop for which the service is required, optional
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: DATE_OF_SOWING
-                  description: The sowing date of the crop, optional
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: FARM_STATUS
-                  description: Status of the farm - Eg. RAIN_FED, optional
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: ACRAGE
-                  description: Acrage of the farm, optional
-                  reference: <PR/Issue/Discussion Links md format text>
+              list: *ref_7
   on_init:
-    message: &ref_9
+    message: &ref_10
       order:
-        items: *ref_7
+        items: *ref_8
         quote:
-          breakup: *ref_8
-        payments: &ref_10
+          breakup: *ref_9
+        payments: &ref_11
           tags:
             - code: SETTLEMENT_DETAILS
               description: Define Payment Settlement Details here
@@ -3362,16 +3381,16 @@ x-tags:
                   description: Amount for the finder fee
                   reference: <PR/Issue/Discussion Links md format text>
   confirm:
-    message: *ref_9
+    message: *ref_10
   on_status:
-    message: *ref_9
+    message: *ref_10
   update:
-    message: &ref_12
+    message: &ref_13
       order:
-        payments: *ref_10
+        payments: *ref_11
         quote:
           breakup:
-            tags: *ref_11
+            tags: *ref_12
           item:
             tags:
               - code: attributes
@@ -3382,7 +3401,7 @@ x-tags:
                     description: Hex Code for color
                     reference: <PR/Issue/Discussion Links md format text>
   on_update:
-    message: *ref_12
+    message: *ref_13
 x-flows:
   - summary: Agriculture Equipment Hiring of a Commodity
     description: >-
@@ -3696,7 +3715,7 @@ x-flows:
                           surcharges:
                             currency: INR
                             value: '5000.00'
-                            time: P1D
+                            duration: P1D
                         quantity:
                           unitized:
                             measure:
@@ -6274,7 +6293,7 @@ x-examples:
                             surcharges:
                               currency: INR
                               value: '5000.00'
-                              time: P1D
+                              duration: P1D
                           quantity:
                             unitized:
                               measure:
@@ -8087,16 +8106,16 @@ x-examples:
                               code: Settlement_Timestamp
                             value: '2024-06-10T23:00:00.000Z'
 x-attributes:
-  Home Services:
+  Equipment Hiring Services:
     attribute_set:
       search:
         parent: true
         context:
           parent: true
           domain:
-            description: domain code, enums - ONDC:SRV14 (Agriculuture Services)
+            description: domain code, enums - ONDC:SRV15 (Equipment Hiring)
             required: mandatory
-            usage: ONDC:SRV14
+            usage: ONDC:SRV15
             reference: if any
           city:
             code:
@@ -8144,7 +8163,7 @@ x-attributes:
               category:
                 description: Category of the search
                 required: optional
-                usage: SRV14-1001
+                usage: SRV15-1001
                 reference: if any
             fulfillment:
               parent: true
@@ -8193,6 +8212,18 @@ x-attributes:
                 required: optional
                 usage: BPP
                 reference: if any
+            tags:
+              parent: true
+              descriptor:
+                description: Terms and condition for Buyer App
+                required: optional
+                usage: BAP_TERMS
+                reference: if any
+              list:
+                description: Buyer App Terms list
+                required: optional
+                usage: FINDER_FEE_AMOUNT
+                reference: if any
       on_search:
         parent: true
         message:
@@ -8235,7 +8266,17 @@ x-attributes:
               short_desc:
                 description: description of service provider
                 required: required
-                usage: At home Service Providers
+                usage: At Equipment Service Providers
+                reference: if any
+              long_desc:
+                description: long description of service provider
+                required: optional
+                usage: At Equipment Service Providers
+                reference: if any
+              images:
+                description: images of service provider
+                required: optional
+                usage: '[]'
                 reference: if any
             providers:
               parent: true
@@ -8247,37 +8288,158 @@ x-attributes:
               descriptor:
                 description: details of the service provider
                 required: required
-                usage: ABC store
+                usage: Equipment Provider store
+                reference: if any
+              rating:
+                description: rating of the service provider
+                required: optional
+                usage: '4.4'
                 reference: if any
               locations:
                 description: service provider locations
                 required: optional
                 usage: '-'
                 reference: if any
+              creds:
+                description: Any certification details
+                required: optional
+                usage: '-'
+                reference: if any
+              categories:
+                description: All the categories list
+                required: optional
+                usage: '-'
+                reference: if any
+              offers:
+                id:
+                  description: offer id
+                  required: optional
+                  usage: '[{}]'
+                  reference: if any
+                descriptor:
+                  code:
+                    description: code of the offer being provided by the service provider
+                    required: optional
+                    usage: FREEBIE
+                    reference: if any
+                  short_desc:
+                    description: >-
+                      description of the offer being provided by the service
+                      provider
+                    required: optional
+                    usage: Cushion Cleaning
+                    reference: if any
+                item_ids:
+                  description: item ids on which this offer is applicable
+                  required: optional
+                  usage: '[PI2]'
+                  reference: if any
+                time:
+                  range:
+                    start:
+                      description: start date of the period for which offer is available
+                      required: optional
+                      usage: '2023-11-12T00:00:00.000Z'
+                      reference: if any
+                    end:
+                      description: end date of the offer
+                      required: optional
+                      usage: '2023-11-16T00:00:00.000Z'
+                      reference: if any
+              fulfillments:
+                contact:
+                  phone:
+                    description: contact number of the service provider
+                    required: optional
+                    usage: '9886098860'
+                    reference: if any
               items:
+                id:
+                  description: Item id
+                  required: required
+                  usage: I1
+                  reference: if any
+                parent_item_id:
+                  description: Parent item id
+                  required: optional
+                  usage: PI1
+                  reference: if any
                 descriptor:
                   name:
-                    description: name of the service provided by the service provider
+                    description: name of the equipment provided by the service provider
                     required: required
-                    usage: Home Painting - Home consultation
+                    usage: Tractor
+                    reference: if any
+                  short_desc:
+                    description: >-
+                      short description of the equipment provided by the service
+                      provider
+                    required: required
+                    usage: Mahindra YUVRAJ 215 NXT NT Tractor
+                    reference: if any
+                  long_desc:
+                    description: >-
+                      long description of the equipment provided by the service
+                      provider
+                    required: required
+                    usage: >-
+                      The Mahindra YUVRAJ 215 NXT NT Tractor is a powerful and
+                      efficient tractor
+                    reference: if any
+                  images:
+                    description: images of the equipment provided by the service provider
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                  media:
+                    description: video of the equipment provided by the service provider
+                    required: optional
+                    usage: '-'
                     reference: if any
                   price:
                     value:
                       description: price of the service
                       required: required
-                      usage: '149'
+                      usage: '500'
                       reference: if any
                     currency:
                       description: currency of the price value
                       required: required
                       usage: INR
                       reference: if any
+                    refundable_security:
+                      value:
+                        description: refundable price of the service
+                        required: required
+                        usage: '500'
+                        reference: if any
+                      currency:
+                        description: currency of the refundable price value
+                        required: required
+                        usage: INR
+                        reference: if any
+                    surcharges:
+                      value:
+                        description: extra price of the service if hired duration pass
+                        required: required
+                        usage: '500'
+                        reference: if any
+                      currency:
+                        description: currency of the price value if hired duration pass
+                        required: required
+                        usage: INR
+                        reference: if any
+                      duration:
+                        description: time duration
+                        required: required
+                        usage: P1D
+                        reference: if any
                 category_ids:
                   description: >-
                     category id of the service provided by the service provider
                     which was sent in /search call
                   required: required
-                  usage: SRV10-1000
+                  usage: SRV15-1000
                   reference: if any
                 fulfillment_ids:
                   description: >-
@@ -8291,6 +8453,50 @@ x-attributes:
                   required: required
                   usage: L1
                   reference: if any
+                add_ons:
+                  id:
+                    description: Add-on item id
+                    required: required
+                    usage: A1
+                    reference: if any
+                  descriptor:
+                    name:
+                      description: >-
+                        name of the add-on equipment provided by the service
+                        provider
+                      required: required
+                      usage: Driver
+                      reference: if any
+                    short_desc:
+                      description: >-
+                        short description of the equipment provided by the
+                        service provider
+                      required: required
+                      usage: Driver knows about farming
+                      reference: if any
+                    long_desc:
+                      description: >-
+                        long description of the equipment provided by the
+                        service provider
+                      required: required
+                      usage: Driver knows about farming
+                      reference: if any
+                    images:
+                      description: images of the equipment provided by the service provider
+                      required: optional
+                      usage: '-'
+                      reference: if any
+                    price:
+                      value:
+                        description: price of the service
+                        required: required
+                        usage: '500'
+                        reference: if any
+                      currency:
+                        description: currency of the price value
+                        required: required
+                        usage: INR
+                        reference: if any
                 time:
                   range:
                     start:
@@ -8319,48 +8525,40 @@ x-attributes:
                       required: required
                       usage: '[2022-11-20T00:00:00.000Z]'
                       reference: if any
-                offers:
-                  id:
-                    description: offer id
-                    required: optional
-                    usage: offer-1
-                    reference: if any
-                  descriptor:
-                    code:
-                      description: code of the offer being provided by the service provider
-                      required: optional
-                      usage: FREEBIE
-                      reference: if any
-                    short_desc:
-                      description: >-
-                        description of the offer being provided by the service
-                        provider
-                      required: optional
-                      usage: Cushion Cleaning
-                      reference: if any
-                  item_ids:
-                    description: item ids on which this offer is applicable
-                    required: optional
-                    usage: '[PI2]'
-                    reference: if any
-                  time:
-                    range:
-                      start:
-                        description: start date of the period for which offer is available
-                        required: optional
-                        usage: '2023-11-12T00:00:00.000Z'
+                cancellation_terms:
+                  fulfillment_state:
+                    descriptor:
+                      code:
+                        description: fulfilment state code for cancellation terms
+                        required: required
+                        usage: optional
                         reference: if any
-                      end:
-                        description: end date of the offer
-                        required: optional
-                        usage: '2023-11-16T00:00:00.000Z'
-                        reference: if any
-                fulfillments:
-                  contact:
-                    phone:
-                      description: contact number of the service provider
+                  cancellation_fee:
+                    percentage:
+                      description: value that need to pay in case of cancelation
                       required: optional
-                      usage: '9886098860'
+                      usage: '0'
+                      reference: if any
+                    end:
+                      description: availability end date of the service provider
+                      required: required
+                      usage: '2022-11-20T00:00:00.000Z'
+                      reference: if any
+                  schedule:
+                    frequency:
+                      description: service slot frequency
+                      required: required
+                      usage: PT1H
+                      reference: if any
+                    holidays:
+                      description: days on which service provide is not available
+                      required: required
+                      usage: '[2023-11-13, 2023-11-15]'
+                      reference: if any
+                    times:
+                      description: time slots in which service provide is available
+                      required: required
+                      usage: '[2022-11-20T00:00:00.000Z]'
                       reference: if any
       select:
         parent: true
@@ -8375,12 +8573,38 @@ x-attributes:
                 required: required
                 usage: P1
                 reference: if any
+              locations:
+                - id:
+                    description: location id of the provider
+                    required: required
+                    usage: L1
+                    reference: if any
             items:
               parent: true
               id:
                 description: item id i.e. the id of the service
                 required: required
-                usage: I2
+                usage: I1
+                reference: if any
+              parent_item_id:
+                description: parent item id if any
+                required: optional
+                usage: ''
+                reference: if any
+              fulfillment_ids:
+                description: fulfillment ids related to the item
+                required: required
+                usage: '[2]'
+                reference: if any
+              location_ids:
+                description: location ids related to the item
+                required: required
+                usage: '[L1]'
+                reference: if any
+              category_ids:
+                description: category ids related to the item
+                required: required
+                usage: '[C1]'
                 reference: if any
               quantity:
                 selected:
@@ -8391,23 +8615,23 @@ x-attributes:
                     required: required
                     usage: '1'
                     reference: if any
-                measure:
-                  unit:
-                    description: name of the unit e.g. sofa seats to be cleaned
-                    required: required
-                    usage: seats
-                    reference: if any
-                  value:
-                    description: value of the unit e.g. number of sofa seats to be cleaned
-                    required: required
-                    usage: '2'
-                    reference: if any
+              tags:
+                description: tags associated with the item
+                required: optional
+                usage: >-
+                  [{"descriptor":{"code":"ATTRIBUTE"},"list":[{"descriptor":{"code":"TYPE"},"value":"item"}]}]
+                reference: if any
             fulfillments:
               parent: true
-              fulfillemnts:
+              fulfillments:
                 description: contains the fulfillment details
                 required: required
                 usage: '-'
+                reference: if any
+              type:
+                description: type of fulfillment
+                required: required
+                usage: Seller-Fulfilled
                 reference: if any
               stops:
                 time:
@@ -8427,6 +8651,22 @@ x-attributes:
                       required: required
                       usage: '2023-11-16T10:30:00Z'
                       reference: if any
+                location:
+                  gps:
+                    description: GPS coordinates of the location
+                    required: required
+                    usage: 12.974002,77.613458
+                    reference: if any
+                  area_code:
+                    description: area code of the location
+                    required: required
+                    usage: '560001'
+                    reference: if any
+            payments:
+              description: payment details
+              required: required
+              usage: '[{"type":"PRE-FULFILLMENT"}]'
+              reference: if any
       on_select:
         parent: true
         message:
@@ -8436,86 +8676,477 @@ x-attributes:
             provider:
               parent: true
               id:
-                description: service provider id
+                description: id of the provider chosen for the service
                 required: required
                 usage: P1
                 reference: if any
             items:
               parent: true
               id:
-                description: item id sent in /select call
+                description: item id i.e. the id of the service
                 required: required
-                usage: I2
+                usage: I1
                 reference: if any
               fulfillment_ids:
-                description: fulfillment id of the service
+                description: fulfillment ids related to the item
+                required: required
+                usage: '[F1]'
+                reference: if any
+              location_ids:
+                description: location ids related to the item
+                required: required
+                usage: '[L1]'
+                reference: if any
+              quantity:
+                selected:
+                  count:
+                    description: >-
+                      number of items selected e.g. number of sofas to be
+                      cleaned
+                    required: required
+                    usage: '1'
+                    reference: if any
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
+              id:
+                description: id of the fulfillment
                 required: required
                 usage: F1
                 reference: if any
-            fulfillments:
-              parent: true
-              id:
-                description: fulfillment id of the service
+              type:
+                description: type of fulfillment
                 required: required
-                usage: F1
+                usage: Seller-Fulfilled
+                reference: if any
+              tracking:
+                description: indicates if tracking is enabled
+                required: required
+                usage: false
                 reference: if any
               state:
                 descriptor:
                   code:
-                    description: >-
-                      provide the servicability status of the service i.e. if
-                      the service can be provided or not
+                    description: state code of the fulfillment
                     required: required
                     usage: Serviceable
                     reference: if any
+              stops:
+                type:
+                  description: type of stop
+                  required: required
+                  usage: end
+                  reference: if any
+                location:
+                  gps:
+                    description: GPS coordinates of the location
+                    required: required
+                    usage: 12.974002,77.613458
+                    reference: if any
+                  area_code:
+                    description: area code of the location
+                    required: required
+                    usage: '560001'
+                    reference: if any
+                time:
+                  label:
+                    description: time label of the stop
+                    required: required
+                    usage: confirmed
+                    reference: if any
+                  range:
+                    start:
+                      description: start time of the time slot chosen for the service
+                      required: required
+                      usage: '2024-04-04T22:00:00.000Z'
+                      reference: if any
+                    end:
+                      description: end time of the time slot chosen for the service
+                      required: required
+                      usage: '2024-04-04T23:00:00.000Z'
+                      reference: if any
             quote:
-              parent: true
               price:
-                description: total price of the service
-                required: required
-                usage: '499'
-                reference: if any
+                currency:
+                  description: currency of the price
+                  required: required
+                  usage: INR
+                  reference: if any
+                value:
+                  description: value of the price
+                  required: required
+                  usage: '5640'
+                  reference: if any
               breakup:
-                title:
-                  description: >-
-                    title of the service charges enum - Soil Testing, tax,
-                    discount, convenience_fee
-                  required: required
-                  usage: Soil Testing
-                  reference: if any
-                price:
-                  description: price of the quote breakup type
-                  required: required
-                  usage: '474'
-                  reference: if any
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: Tractor
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '500'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                    quantity:
+                      selected:
+                        count:
+                          description: number of items selected
+                          required: required
+                          usage: '1'
+                          reference: if any
+                    price:
+                      currency:
+                        description: currency of the item price
+                        required: required
+                        usage: INR
+                        reference: if any
+                      value:
+                        description: value of the item price
+                        required: required
+                        usage: '500'
+                        reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"item"}]}]
+                    reference: if any
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: refundable_security
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '5000'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"refundable_security"}]}]
+                    reference: if any
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: tax
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '50'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"tax"}]}]
+                    reference: if any
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: discount
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '10'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"discount"}]}]
+                    reference: if any
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: pickup_charge
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '100'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"misc"}]}]
+                    reference: if any
+              ttl:
+                description: time-to-live for the quote
+                required: required
+                usage: P1D
+                reference: if any
+            payments:
+              type:
+                description: type of payment
+                required: required
+                usage: PRE-FULFILLMENT
+                reference: if any
+              collected_by:
+                description: who collects the payment
+                required: required
+                usage: BAP
+                reference: if any
       init:
         parent: true
         message:
           parent: true
           order:
             parent: true
-            billing:
-              description: >-
-                billing details of the marketplace ( service provider ) for
-                invoicing;
-              required: required
-              usage: '-'
-              reference: if any
             provider:
+              parent: true
+              id:
+                description: id of the provider chosen for the service
+                required: required
+                usage: P1
+                reference: if any
               locations:
-                description: >-
-                  mandatory only if provider.locations was returned in
-                  /on_search
+                - id:
+                    description: location id of the provider
+                    required: required
+                    usage: L1
+                    reference: if any
+            items:
+              parent: true
+              id:
+                description: item id i.e. the id of the service
+                required: required
+                usage: I1
+                reference: if any
+              parent_item_id:
+                description: parent item id if any
                 required: optional
-                usage: '-'
+                usage: ''
+                reference: if any
+              fulfillment_ids:
+                description: fulfillment ids related to the item
+                required: required
+                usage: '[2]'
+                reference: if any
+              location_ids:
+                description: location ids related to the item
+                required: required
+                usage: '[L1]'
+                reference: if any
+              category_ids:
+                description: category ids related to the item
+                required: required
+                usage: '[C1]'
+                reference: if any
+              quantity:
+                selected:
+                  count:
+                    description: >-
+                      number of items selected e.g. number of sofas to be
+                      cleaned
+                    required: required
+                    usage: '1'
+                    reference: if any
+              tags:
+                description: tags associated with the item
+                required: optional
+                usage: >-
+                  [{"descriptor":{"code":"ATTRIBUTE"},"list":[{"descriptor":{"code":"TYPE"},"value":"item"}]}]
+                reference: if any
+            billing:
+              name:
+                description: name of the billing person or entity
+                required: required
+                usage: ONDC buyer
+                reference: if any
+              address:
+                description: billing address
+                required: required
+                usage: >-
+                  22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                  Bengaluru, Karnataka 560001
+                reference: if any
+              state:
+                name:
+                  description: state name in the billing address
+                  required: required
+                  usage: Karnataka
+                  reference: if any
+              city:
+                name:
+                  description: city name in the billing address
+                  required: required
+                  usage: Bengaluru
+                  reference: if any
+              tax_id:
+                description: tax identification number
+                required: required
+                usage: XXXXXXXXXXXXXXX
+                reference: if any
+              email:
+                description: email address for billing
+                required: required
+                usage: nobody@nomail.com
+                reference: if any
+              phone:
+                description: phone number for billing
+                required: required
+                usage: '9886098860'
                 reference: if any
             fulfillments:
+              parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
               id:
-                description: >-
-                  fulfillment_id from /on_search corresponding to appropriate
-                  type
+                description: id of the fulfillment
                 required: required
                 usage: F1
+                reference: if any
+              type:
+                description: type of fulfillment
+                required: required
+                usage: Seller-Fulfilled
+                reference: if any
+              stops:
+                type:
+                  description: type of stop
+                  required: required
+                  usage: end
+                  reference: if any
+                location:
+                  gps:
+                    description: GPS coordinates of the location
+                    required: required
+                    usage: 12.974002,77.613458
+                    reference: if any
+                  address:
+                    description: address of the location
+                    required: required
+                    usage: Farm 14 Near Village
+                    reference: if any
+                  city:
+                    name:
+                      description: city name of the location
+                      required: required
+                      usage: Bengaluru
+                      reference: if any
+                  country:
+                    code:
+                      description: country code of the location
+                      required: required
+                      usage: IND
+                      reference: if any
+                  area_code:
+                    description: area code of the location
+                    required: required
+                    usage: '560001'
+                    reference: if any
+                  state:
+                    name:
+                      description: state name of the location
+                      required: required
+                      usage: Karnataka
+                      reference: if any
+                contact:
+                  phone:
+                    description: phone number for the contact person
+                    required: required
+                    usage: '9886098860'
+                    reference: if any
+                time:
+                  label:
+                    description: time label of the stop
+                    required: required
+                    usage: confirmed
+                    reference: if any
+                  range:
+                    start:
+                      description: start time of the time slot chosen for the service
+                      required: required
+                      usage: '2024-04-04T22:00:00.000Z'
+                      reference: if any
+                    end:
+                      description: end time of the time slot chosen for the service
+                      required: required
+                      usage: '2024-04-04T23:00:00.000Z'
+                      reference: if any
+            payments:
+              type:
+                description: type of payment
+                required: required
+                usage: PRE-FULFILLMENT
+                reference: if any
+              collected_by:
+                description: who collects the payment
+                required: required
+                usage: BAP
                 reference: if any
       on_init:
         parent: true
@@ -8523,56 +9154,335 @@ x-attributes:
           parent: true
           order:
             parent: true
-            quote:
+            provider:
               parent: true
-              quote:
-                description: quote to be sent by service provider
+              id:
+                description: id of the provider chosen for the service
+                required: required
+                usage: P1
+                reference: if any
+            locations:
+              - id:
+                  description: location id of the provider
+                  required: required
+                  usage: L1
+                  reference: if any
+            items:
+              parent: true
+              id:
+                description: item id i.e. the id of the service
+                required: required
+                usage: I1
+                reference: if any
+              parent_item_id:
+                description: parent item id if any
+                required: optional
+                usage: ''
+                reference: if any
+              fulfillment_ids:
+                description: fulfillment ids related to the item
+                required: required
+                usage: '[2]'
+                reference: if any
+              location_ids:
+                description: location ids related to the item
+                required: required
+                usage: '[L1]'
+                reference: if any
+              category_ids:
+                description: category ids related to the item
+                required: required
+                usage: '[C1]'
+                reference: if any
+              quantity:
+                selected:
+                  count:
+                    description: >-
+                      number of items selected e.g. number of sofas to be
+                      cleaned
+                    required: required
+                    usage: '1'
+                    reference: if any
+              tags:
+                description: tags associated with the item
+                required: optional
+                usage: >-
+                  [{"descriptor":{"code":"ATTRIBUTE"},"list":[{"descriptor":{"code":"TYPE"},"value":"item"}]}]
+                reference: if any
+            billing:
+              name:
+                description: name of the billing person or entity
+                required: required
+                usage: ONDC buyer
+                reference: if any
+              address:
+                description: billing address
+                required: required
+                usage: >-
+                  22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                  Bengaluru, Karnataka 560001
+                reference: if any
+              state:
+                name:
+                  description: state name in the billing address
+                  required: required
+                  usage: Karnataka
+                  reference: if any
+              city:
+                name:
+                  description: city name in the billing address
+                  required: required
+                  usage: Bengaluru
+                  reference: if any
+              tax_id:
+                description: tax identification number
+                required: required
+                usage: XXXXXXXXXXXXXXX
+                reference: if any
+              email:
+                description: email address for billing
+                required: required
+                usage: nobody@nomail.com
+                reference: if any
+              phone:
+                description: phone number for billing
+                required: required
+                usage: '9886098860'
+                reference: if any
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: contains the fulfillment details
                 required: required
                 usage: '-'
                 reference: if any
-              breakup:
-                breakup:
-                  description: service provider provides the the breakup of the quote
-                  required: required
-                  usage: '-'
-                  reference: if any
-                title:
-                  description: >-
-                    title of the service charges enum - Soil Testing, tax,
-                    discount, convenience_fee
-                  required: required
-                  usage: Soil Testing
-                  reference: if any
-            payments:
-              parent: true
-              type:
-                description: >-
-                  stage when fulfillment will be done by service provider, enum
-                  - "PRE-FULFILLMENT", "ON-FULFILLMENT", "POST-FULFILLMENT"
+              id:
+                description: id of the fulfillment
                 required: required
-                usage: PRE-FULFILLMENT
+                usage: F1
                 reference: if any
-              params:
-                amount:
-                  description: amount as per the quote total value
+              type:
+                description: type of fulfillment
+                required: required
+                usage: Seller-Fulfilled
+                reference: if any
+              tracking:
+                description: tracking status of the fulfillment
+                required: required
+                usage: 'false'
+                reference: if any
+              stops:
+                type:
+                  description: type of stop
                   required: required
-                  usage: '6000'
+                  usage: end
                   reference: if any
+                location:
+                  gps:
+                    description: GPS coordinates of the location
+                    required: required
+                    usage: 12.974002,77.613458
+                    reference: if any
+                  address:
+                    description: address of the location
+                    required: required
+                    usage: Farm 14 Near Village
+                    reference: if any
+                  city:
+                    name:
+                      description: city name of the location
+                      required: required
+                      usage: Bengaluru
+                      reference: if any
+                  country:
+                    code:
+                      description: country code of the location
+                      required: required
+                      usage: IND
+                      reference: if any
+                  area_code:
+                    description: area code of the location
+                    required: required
+                    usage: '560001'
+                    reference: if any
+                  state:
+                    name:
+                      description: state name of the location
+                      required: required
+                      usage: Karnataka
+                      reference: if any
+                contact:
+                  phone:
+                    description: phone number for the contact person
+                    required: required
+                    usage: '9886098860'
+                    reference: if any
+                time:
+                  label:
+                    description: time label of the stop
+                    required: required
+                    usage: confirmed
+                    reference: if any
+                  range:
+                    start:
+                      description: start time of the time slot chosen for the service
+                      required: required
+                      usage: '2024-06-10T22:00:00.000Z'
+                      reference: if any
+                    end:
+                      description: end time of the time slot chosen for the service
+                      required: required
+                      usage: '2024-06-10T23:00:00.000Z'
+                      reference: if any
+            quote:
+              price:
                 currency:
-                  description: currency in which to receive the amount
+                  description: currency of the price
                   required: required
                   usage: INR
                   reference: if any
-                bank_account_number:
-                  description: service provider bank account number
+                value:
+                  description: value of the price
                   required: required
-                  usage: '001404845678'
+                  usage: '5640'
                   reference: if any
-                virtual_payment_address:
-                  description: service provider payment link address
-                  required: required
-                  usage: '-'
-                  reference: if any
+              breakup:
+                description: detailed price breakup
+                required: required
+                usage:
+                  - title:
+                      description: title of the price component
+                      required: required
+                      usage: Tractor
+                      reference: if any
+                    price:
+                      currency:
+                        description: currency of the price
+                        required: required
+                        usage: INR
+                        reference: if any
+                      value:
+                        description: value of the price
+                        required: required
+                        usage: '500'
+                        reference: if any
+                    item:
+                      id:
+                        description: item id
+                        required: required
+                        usage: I1
+                        reference: if any
+                      quantity:
+                        selected:
+                          count:
+                            description: selected quantity
+                            required: required
+                            usage: '1'
+                            reference: if any
+                      price:
+                        currency:
+                          description: currency of the item price
+                          required: required
+                          usage: INR
+                          reference: if any
+                        value:
+                          description: value of the item price
+                          required: required
+                          usage: '500'
+                          reference: if any
+                    tags:
+                      description: tags associated with the price component
+                      required: optional
+                      usage: >-
+                        [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"item"}]}]
+                      reference: if any
+                  - title:
+                      description: title of the price component
+                      required: required
+                      usage: refundable_security
+                      reference: if any
+                    price:
+                      currency:
+                        description: currency of the price
+                        required: required
+                        usage: INR
+                        reference: if any
+                      value:
+                        description: value of the price
+                        required: required
+                        usage: '5000'
+                        reference: if any
+                    item:
+                      id:
+                        description: item id
+                        required: required
+                        usage: I1
+                        reference: if any
+                    tags:
+                      description: tags associated with the price component
+                      required: optional
+                      usage: >-
+                        [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"refundable_security"}]}]
+                      reference: if any
+                  - title:
+                      description: title of the price component
+                      required: required
+                      usage: tax
+                      reference: if any
+                    price:
+                      currency:
+                        description: currency of the price
+                        required: required
+                        usage: INR
+                        reference: if any
+                      value:
+                        description: value of the price
+                        required: required
+                        usage: '50'
+                        reference: if any
+                    item:
+                      id:
+                        description: item id
+                        required: required
+                        usage: I1
+                        reference: if any
+                    tags:
+                      description: tags associated with the price component
+                      required: optional
+                      usage: >-
+                        [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"tax"}]}]
+                      reference: if any
+                  - title:
+                      description: title of the price component
+                      required: required
+                      usage: discount
+                      reference: if any
+                    price:
+                      currency:
+                        description: currency of the price
+                        required: required
+                        usage: INR
+                        reference: if any
+                      value:
+                        description: value of the price
+                        required: required
+                        usage: '10'
+                        reference: if any
+                    item:
+                      id:
+                        description: item id
+                        required: required
+                        usage: I1
+                        reference: if any
+                    tags:
+                      description: tags associated with the price component
+                      required: optional
+                      usage: >-
+                        [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"discount"}]}]
+                      reference: if any
+                  - title:
+                      description: title of the price component
+                      required: required
       confirm:
         parent: true
         message:
@@ -8598,6 +9508,71 @@ x-attributes:
                       description: end time of the service
                       required: required
                       usage: '2023-11-16T10:30:00Z'
+                      reference: if any
+            payments:
+              parent: true
+              id:
+                description: Payment ID
+                required: required
+                usage: P1
+                reference: if any
+              collected_by:
+                description: Entity that collected the payment
+                required: required
+                usage: BAP
+                reference: if any
+              params:
+                parent: true
+                amount:
+                  description: Amount of the payment
+                  required: required
+                  usage: '640'
+                  reference: if any
+                currency:
+                  description: Currency of the payment
+                  required: required
+                  usage: INR
+                  reference: if any
+                bank_account_number:
+                  description: Bank account number for the payment
+                  required: required
+                  usage: xxxxxxxx
+                  reference: if any
+                virtual_payment_address:
+                  description: Virtual payment address
+                  required: required
+                  usage: xxx@xxxx
+                  reference: if any
+              status:
+                description: Payment status
+                required: required
+                usage: PAID
+                reference: if any
+              type:
+                description: Type of payment
+                required: required
+                usage: PRE-FULFILLMENT
+                reference: if any
+              tags:
+                parent: true
+                descriptor:
+                  parent: true
+                  code:
+                    description: Settlement Details
+                    required: optional
+                    usage: Settlement_Details
+                    reference: if any
+                  list:
+                    descriptor:
+                      code:
+                        description: Counterparty Details
+                        required: optional
+                        usage: Counterparty
+                        reference: if any
+                    value:
+                      description: Counterparty associated with the settlement
+                      required: optional
+                      usage: BPP
                       reference: if any
       on_confirm:
         parent: true
@@ -8632,6 +9607,95 @@ x-attributes:
                       required: required
                       usage: '2023-11-16T10:30:00Z'
                       reference: if any
+            payments:
+              parent: true
+              id:
+                description: Payment ID
+                required: required
+                usage: P1
+                reference: if any
+              collected_by:
+                description: Entity that collected the payment
+                required: required
+                usage: BAP
+                reference: if any
+              params:
+                parent: true
+                amount:
+                  description: Amount of the payment
+                  required: required
+                  usage: '640'
+                  reference: if any
+                currency:
+                  description: Currency of the payment
+                  required: required
+                  usage: INR
+                  reference: if any
+                bank_account_number:
+                  description: Bank account number for the payment
+                  required: required
+                  usage: xxxxxxxx
+                  reference: if any
+                virtual_payment_address:
+                  description: Virtual payment address
+                  required: required
+                  usage: xxx@xxxx
+                  reference: if any
+              status:
+                description: Payment status
+                required: required
+                usage: PAID
+                reference: if any
+              type:
+                description: Type of payment
+                required: required
+                usage: PRE-FULFILLMENT
+                reference: if any
+              tags:
+                parent: true
+                descriptor:
+                  parent: true
+                  code:
+                    description: Settlement Details
+                    required: optional
+                    usage: Settlement_Details
+                    reference: if any
+                  list:
+                    descriptor:
+                      code:
+                        description: Counterparty Details
+                        required: optional
+                        usage: Counterparty
+                        reference: if any
+                    value:
+                      description: Counterparty associated with the settlement
+                      required: optional
+                      usage: BPP
+                      reference: if any
+            xinput:
+              parent: true
+              form:
+                parent: true
+                url:
+                  description: checklist status for equipment
+                  required: required
+                  usage: https//abc.com/checklist
+                  reference: if any
+                mimetype:
+                  description: checklist url mimetype for equipment
+                  required: required
+                  usage: text/html
+                  reference: if any
+                submission_id:
+                  description: checklist submission id for equipment
+                  required: required
+                  usage: xxxxxxxx
+                  reference: if any
+                status:
+                  description: checklist status for equipment
+                  required: required
+                  usage: SUCCESS
+                  reference: if any
       update:
         parent: true
         message:
@@ -8662,6 +9726,28 @@ x-attributes:
                       description: end time of the service
                       required: required
                       usage: '2023-11-16T10:30:00Z'
+                      reference: if any
+            payment:
+              parent: true
+              tags:
+                parent: true
+                descriptor:
+                  code:
+                    description: Refund Settlement Details
+                    required: optional
+                    usage: Refund_Settlement_Details
+                    reference: if any
+                list:
+                  descriptor:
+                    code:
+                      description: Settlement Counterparty
+                      required: optional
+                      usage: Settlement_Counterparty
+                      reference: if any
+                    value:
+                      description: Counterparty associated with the settlement
+                      required: optional
+                      usage: Buyer
                       reference: if any
       on_update:
         parent: true
