@@ -18,7 +18,7 @@ value:
     intent:
       item:
         category:
-          id: SRV14-*
+          code: SRV15-*
       fulfillment:
         type: Seller-Fulfilled
         stops:
@@ -43,9 +43,3 @@ value:
             - descriptor:
                 code: FINDER_FEE_AMOUNT
               value: '3'
-        - descriptor:
-            code: BAP_DETAILS
-          list:
-            - descriptor:
-                code: BAP_TYPE
-              value: FARMER

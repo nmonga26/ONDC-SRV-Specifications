@@ -19,7 +19,7 @@ message:
       id:
         description: Payment id for the available payment methods
         required: required
-        usage: "1"
+        usage: "PY1"
         reference: if any
       type:
         description: Type of payment methods available
@@ -233,11 +233,6 @@ message:
               required: required
               usage: "Driver knows about farming"
               reference: if any
-            images:
-              description: images of the equipment provided by the service provider
-              required: optional
-              usage: "-"
-              reference: if any
             price:
               value:
                 description: price of the service
@@ -260,22 +255,6 @@ message:
               description: availability end date of the service provider
               required: required
               usage: "2022-11-20T00:00:00.000Z"
-              reference: if any
-          schedule:
-            frequency:
-              description: service slot frequency
-              required: required
-              usage: "PT1H"
-              reference: if any
-            holidays:
-              description: days on which service provide is not available
-              required: required
-              usage: "[2023-11-13, 2023-11-15]"
-              reference: if any
-            times:
-              description: time slots in which service provide is available
-              required: required
-              usage: "[2022-11-20T00:00:00.000Z]"
               reference: if any
         cancellation_terms:
           fulfillment_state:

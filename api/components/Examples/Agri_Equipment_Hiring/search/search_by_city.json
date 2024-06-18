@@ -61,19 +61,6 @@
                             "value": "3"
                         }
                     ]
-                },
-                {
-                    "descriptor": {
-                        "code": "BAP_DETAILS"
-                    },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "BAP_TYPE"
-                            },
-                            "value": "FARMER"
-                        }
-                    ]
                 }
             ]
         }

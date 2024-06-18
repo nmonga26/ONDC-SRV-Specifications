@@ -37,7 +37,7 @@
           "id": "I1",
           "parent_item_id": "",
           "fulfillment_ids": [
-            "2"
+            "F2"
           ],
           "location_ids": [
             "L1"
@@ -289,10 +289,10 @@
       },
       "payments": [
         {
-          "id": "P1",
+          "id": "PY1",
           "collected_by": "BAP",
           "params": {
-            "amount": "640",
+            "amount": "5640",
             "currency": "INR",
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"

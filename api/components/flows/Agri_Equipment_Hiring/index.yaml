@@ -138,4 +138,10 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_status/on_status_at_location.yaml"
+  - summary: Seller app sends the order status (Completed)
+    api: on_status (Completed)
+    description: Seller app sends order status update when service provider has completed
+    reference: if any
+    example:
+      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_status/on_status_completed.yaml"
 

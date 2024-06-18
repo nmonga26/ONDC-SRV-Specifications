@@ -59,10 +59,6 @@ BAP_TERMS:
   - code: FINDER_FEE_AMOUNT
     description: Amount for the finder fee
     reference: <PR/Issue/Discussion Links md format text>
-BAP_DETAILS:
-  - code: BUYER_TYPE
-    description: Type of buyer - FARMER, TRADER or FPO
-    reference: <PR/Issue/Discussion Links md format text>
 SELECTION:
   - code: SEQ
     description: Sequence of the category
@@ -100,7 +96,11 @@ ATTRIBUTE:
   - code: TYPE
     description: Type of the item, mandatory only when the item is a customization
     reference: <PR/Issue/Discussion Links md format text>
-  - code: ITEM_CONDITION
+EQUIPMENT_ATTRIBUTES:
+  - code: TYPE
+    description: Type of the item, mandatory only when the item is a customization
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CONDITION
     description: Equipment condition (it can be rating like 5) if applicable 
     reference: <PR/Issue/Discussion Links md format text>
   - code: OWNERSHIP

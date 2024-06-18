@@ -24,7 +24,7 @@ message:
       state:
         descriptor:
           code:
-            description: Denotes the state of the fulfillment; Enum; Values can be - "PENDING", "IN_TRANSIT", "AT_LOCATION", "COLLECTED_BY_AGENT", "RECIEIVED_AT_LAB", "TEST_COMPLETED", "REPORT_GENERATED", "REPORT_SHARED";
+            description: Denotes the state of the fulfillment; Enum; Values can be - "PENDING", "IN_TRANSIT", "AT_LOCATION", "COMPLETED";
             required: mandatory
             usage: "-"
             reference: if any

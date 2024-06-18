@@ -27,7 +27,7 @@ message:
       id:
         description: Payment ID
         required: required
-        usage: P1
+        usage: PY1
         reference: if any
       collected_by:
         description: Entity that collected the payment

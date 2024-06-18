@@ -19,14 +19,14 @@ value:
   message:
     catalog:
       fulfillments:
-        - id: '1'
+        - id: F1
           type: Buyer-Fulfilled
-        - id: '2'
+        - id: F2
           type: Seller-Fulfilled
       payments:
-        - id: '1'
+        - id: PY1
           type: PRE-FULFILLMENT
-        - id: '2'
+        - id: PY2
           type: ON-FULFILLMENT
       descriptor:
         name: Agri Equipment Provider
@@ -165,39 +165,29 @@ value:
               price:
                 currency: INR
                 value: '500.00'
-                refundable_security:
-                  currency: INR
-                  value: '5000.00'
-                surcharges:
-                  currency: INR
-                  value: '5000.00'
-                  duration: P1D
+              price_frequency:
+                unit: hours
+                value: '1'
               quantity:
                 unitized:
                   measure:
                     unit: unit
                     value: '1'
-                minimum:
-                  value: '1'
-                maximum:
-                  value: '1'
               category_ids:
                 - C1
               fulfillment_ids:
-                - '1'
-                - '2'
+                - F1
+                - F2
               location_ids:
                 - L1
               payment_ids:
-                - '1'
+                - PY1
               add_ons:
                 - id: A1
                   descriptor:
                     name: Driver
                     short_desc: Driver knows about farming
                     long_desc: Driver knows about farming
-                    images:
-                      - url: https://abc.com/images/207.png
                   price:
                     currency: INR
                     value: '200.00'
@@ -220,9 +210,19 @@ value:
                     - descriptor:
                         code: PICKUP_TAT
                       value: PT2D
+                - descriptor:
+                    code: ADITIONAL_CHARGES
+                  display: true
+                  list:
                     - descriptor:
-                        code: COMPLETION_TAT
-                      value: PT1D
+                        code: REFUNDABLE_SECURITY
+                      value: '5000.00'
+                    - descriptor:
+                        code: SURCHARGES
+                      value: '500.00'
+                    - descriptor:
+                        code: SURCHARGES_FREQUENCY
+                      value: hourly
                 - descriptor:
                     code: RESCHEDULE_TERMS
                   list:
@@ -239,10 +239,13 @@ value:
                         code: RESCHEDULE_WITHIN
                       value: PT1D
                 - descriptor:
-                    code: ATTRIBUTE
+                    code: EQUIPMENT_ATTRIBUTES
                   list:
                     - descriptor:
-                        code: ITEM_CONDITION
+                        code: TYPE
+                      value: item
+                    - descriptor:
+                        code: CONDITION
                       value: '5'
                     - descriptor:
                         code: OWNERSHIP
@@ -264,18 +267,6 @@ value:
                 range:
                   start: '2024-04-01T00:00:00.000Z'
                   end: '2024-08-10T00:00:00.000Z'
-                days: 04,05
-                hours: '5'
-                schedule:
-                  frequency: PT1H
-                  holidays:
-                    - '2024-04-09'
-                    - '2024-04-07'
-                  times:
-                    - '2024-06-04T22:00:00.000Z'
-                    - '2024-06-06T22:00:00.000Z'
-                    - '2024-06-08T22:00:00.000Z'
-                    - '2024-06-10T22:00:00.000Z'
               matched: true
               recommended: true
           offers:
@@ -287,8 +278,10 @@ value:
                 long_desc: Additional Equipment (cage wheel)
                 images:
                   - url: https://abc.com/images/207.png
-              location_ids: []
-              category_ids: []
+              location_ids:
+                - L1
+              category_ids:
+                - C1
               item_ids:
                 - PI2
               time:

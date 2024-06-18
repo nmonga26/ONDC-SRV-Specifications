@@ -29,7 +29,7 @@ value:
         - id: I1
           parent_item_id: ''
           fulfillment_ids:
-            - '2'
+            - F2
           location_ids:
             - L1
           category_ids:
@@ -179,7 +179,7 @@ value:
                     value: misc
         ttl: P1D
       payments:
-        - id: P1
+        - id: PY1
           collected_by: BAP
           params:
             amount: '5640'
@@ -240,9 +240,3 @@ value:
               value: '0.00'
       created_at: '2024-06-10T22:00:46.000Z'
       updated_at: '2024-06-10T22:00:48.000Z'
-      xinput:
-        form:
-          url: https//abc.com/checklist
-          mimetype: text/html
-          submission_id: xxxxxxxx
-          status: SUCCESS

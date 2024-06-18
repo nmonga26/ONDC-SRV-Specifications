@@ -38,7 +38,7 @@
           "id": "I1",
           "parent_item_id": "",
           "fulfillment_ids": [
-            "2"
+            "F2"
           ],
           "location_ids": [
             "L1"
@@ -62,6 +62,38 @@
                     "code": "TYPE"
                   },
                   "value": "item"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "CHECKLIST_DOCUMENTS"
+              },
+              "display": true,
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "TERMS_AND_CONDITION"
+                  },
+                  "value": "https://abc.com/tandc"
+                },
+                {
+                  "descriptor": {
+                    "code": "EQUIPMENT_LICENCE"
+                  },
+                  "value": "https://abc.com/equi_lacence"
+                },
+                {
+                  "descriptor": {
+                    "code": "OPERATOR_LICENCE"
+                  },
+                  "value": "https://abc.com/operator_lacence"
+                },
+                {
+                  "descriptor": {
+                    "code": "DOCUMENTS_VERIFICATION_STATE"
+                  },
+                  "value": "SUCCESS"
                 }
               ]
             }
@@ -306,7 +338,7 @@
       },
       "payments": [
         {
-          "id": "P1",
+          "id": "PY1",
           "collected_by": "BAP",
           "params": {
             "amount": "5640",
@@ -411,15 +443,7 @@
         }
       ],
       "created_at": "2024-06-10T22:00:46.000Z",
-      "updated_at": "2024-06-10T22:00:48.000Z",
-      "xinput": {
-        "form": {
-          "url": "https//abc.com/checklist",
-          "mimetype": "text/html",
-          "submission_id": "xxxxxxxx",
-          "status": "SUCCESS"
-        }
-      }
+      "updated_at": "2024-06-10T22:00:48.000Z"
     }
   }
 }

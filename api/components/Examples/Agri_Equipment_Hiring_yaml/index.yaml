@@ -39,6 +39,7 @@ on_status:
   examples:
     - $ref: "./on_status/on_status_transit.yaml"
     - $ref: "./on_status/on_status_at_location.yaml"
+    - $ref: "./on_status/on_status_completed.yaml"
 # on_cancel:
 #   examples:
 #     - $ref: "./on_cancel/on_cancel_buyer.yaml"

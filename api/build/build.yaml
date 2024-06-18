@@ -3186,13 +3186,6 @@ x-tags:
               - code: FINDER_FEE_AMOUNT
                 description: Amount for the finder fee
                 reference: <PR/Issue/Discussion Links md format text>
-          - code: BUYER_DETAILS
-            description: Details of the buyer
-            reference: <PR/Issue/Discussion Links md format text>
-            list:
-              - code: BUYER_TYPE
-                description: Type of buyer - FARMER, TRADER or FPO
-                reference: <PR/Issue/Discussion Links md format text>
   on_search:
     message:
       catalog:
@@ -3262,40 +3255,11 @@ x-tags:
               - code: ATTRIBUTE
                 description: Attribute of a particular item
                 reference: <PR/Issue/Discussion Links md format text>
-                list: &ref_7
+                list:
                   - code: TYPE
                     description: >-
                       Type of the item, mandatory only when the item is a
                       customization
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: ITEM_CONDITION
-                    description: >-
-                      Equipment condition (it can be rating like 5) if
-                      applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: OWNERSHIP
-                    description: >-
-                      Ownership status for the equipment (1st owner, 2nd owner)
-                      if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: RUNNING_HOURS
-                    description: >-
-                      Running hours status for the equipment (Ex - 500) if
-                      applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: RUNNING_HOURS
-                    description: >-
-                      Running hours status for the equipment (500 hours) if
-                      applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: MODEL_YEAR
-                    description: Equipment model year if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: MODEL
-                    description: Equipment model if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: BRAND
-                    description: Equipment brand name if applicable
                     reference: <PR/Issue/Discussion Links md format text>
         categories:
           tags:
@@ -3319,8 +3283,8 @@ x-tags:
     message:
       order:
         quote:
-          breakup: &ref_9
-            tags: &ref_12
+          breakup: &ref_8
+            tags: &ref_11
               - code: title
                 description: title tag
                 reference: <PR/Issue/Discussion Links md format text>
@@ -3334,19 +3298,51 @@ x-tags:
   init:
     message:
       order:
-        items: &ref_8
+        items: &ref_7
           tags:
-            - code: ATTRIBUTE
-              description: Attribute of a particular item
+            - code: EQUIPMENT_ATTRIBUTES
+              description: Attribute of a particular equipment item
               reference: <PR/Issue/Discussion Links md format text>
-              list: *ref_7
+              list:
+                - code: TYPE
+                  description: >-
+                    Type of the item, mandatory only when the item is a
+                    customization
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: CONDITION
+                  description: Equipment condition (it can be rating like 5) if applicable
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: OWNERSHIP
+                  description: >-
+                    Ownership status for the equipment (1st owner, 2nd owner) if
+                    applicable
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: RUNNING_HOURS
+                  description: >-
+                    Running hours status for the equipment (Ex - 500) if
+                    applicable
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: RUNNING_HOURS
+                  description: >-
+                    Running hours status for the equipment (500 hours) if
+                    applicable
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: MODEL_YEAR
+                  description: Equipment model year if applicable
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: MODEL
+                  description: Equipment model if applicable
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: BRAND
+                  description: Equipment brand name if applicable
+                  reference: <PR/Issue/Discussion Links md format text>
   on_init:
-    message: &ref_10
+    message: &ref_9
       order:
-        items: *ref_8
+        items: *ref_7
         quote:
-          breakup: *ref_9
-        payments: &ref_11
+          breakup: *ref_8
+        payments: &ref_10
           tags:
             - code: SETTLEMENT_DETAILS
               description: Define Payment Settlement Details here
@@ -3381,16 +3377,16 @@ x-tags:
                   description: Amount for the finder fee
                   reference: <PR/Issue/Discussion Links md format text>
   confirm:
-    message: *ref_10
+    message: *ref_9
   on_status:
-    message: *ref_10
+    message: *ref_9
   update:
-    message: &ref_13
+    message: &ref_12
       order:
-        payments: *ref_11
+        payments: *ref_10
         quote:
           breakup:
-            tags: *ref_12
+            tags: *ref_11
           item:
             tags:
               - code: attributes
@@ -3401,7 +3397,7 @@ x-tags:
                     description: Hex Code for color
                     reference: <PR/Issue/Discussion Links md format text>
   on_update:
-    message: *ref_13
+    message: *ref_12
 x-flows:
   - summary: Agriculture Equipment Hiring of a Commodity
     description: >-
@@ -3505,7 +3501,7 @@ x-flows:
               intent:
                 item:
                   category:
-                    id: SRV14-*
+                    code: SRV15-*
                 fulfillment:
                   type: Seller-Fulfilled
                   stops:
@@ -3530,12 +3526,6 @@ x-flows:
                       - descriptor:
                           code: FINDER_FEE_AMOUNT
                         value: '3'
-                  - descriptor:
-                      code: BAP_DETAILS
-                    list:
-                      - descriptor:
-                          code: BAP_TYPE
-                        value: FARMER
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
@@ -3562,14 +3552,14 @@ x-flows:
             message:
               catalog:
                 fulfillments:
-                  - id: '1'
+                  - id: F1
                     type: Buyer-Fulfilled
-                  - id: '2'
+                  - id: F2
                     type: Seller-Fulfilled
                 payments:
-                  - id: '1'
+                  - id: PY1
                     type: PRE-FULFILLMENT
-                  - id: '2'
+                  - id: PY2
                     type: ON-FULFILLMENT
                 descriptor:
                   name: Agri Equipment Provider
@@ -3709,39 +3699,29 @@ x-flows:
                         price:
                           currency: INR
                           value: '500.00'
-                          refundable_security:
-                            currency: INR
-                            value: '5000.00'
-                          surcharges:
-                            currency: INR
-                            value: '5000.00'
-                            duration: P1D
+                        price_frequency:
+                          unit: hours
+                          value: '1'
                         quantity:
                           unitized:
                             measure:
                               unit: unit
                               value: '1'
-                          minimum:
-                            value: '1'
-                          maximum:
-                            value: '1'
                         category_ids:
                           - C1
                         fulfillment_ids:
-                          - '1'
-                          - '2'
+                          - F1
+                          - F2
                         location_ids:
                           - L1
                         payment_ids:
-                          - '1'
+                          - PY1
                         add_ons:
                           - id: A1
                             descriptor:
                               name: Driver
                               short_desc: Driver knows about farming
                               long_desc: Driver knows about farming
-                              images:
-                                - url: https://abc.com/images/207.png
                             price:
                               currency: INR
                               value: '200.00'
@@ -3764,9 +3744,19 @@ x-flows:
                               - descriptor:
                                   code: PICKUP_TAT
                                 value: PT2D
+                          - descriptor:
+                              code: ADITIONAL_CHARGES
+                            display: true
+                            list:
                               - descriptor:
-                                  code: COMPLETION_TAT
-                                value: PT1D
+                                  code: REFUNDABLE_SECURITY
+                                value: '5000.00'
+                              - descriptor:
+                                  code: SURCHARGES
+                                value: '500.00'
+                              - descriptor:
+                                  code: SURCHARGES_FREQUENCY
+                                value: hourly
                           - descriptor:
                               code: RESCHEDULE_TERMS
                             list:
@@ -3783,10 +3773,13 @@ x-flows:
                                   code: RESCHEDULE_WITHIN
                                 value: PT1D
                           - descriptor:
-                              code: ATTRIBUTE
+                              code: EQUIPMENT_ATTRIBUTES
                             list:
                               - descriptor:
-                                  code: ITEM_CONDITION
+                                  code: TYPE
+                                value: item
+                              - descriptor:
+                                  code: CONDITION
                                 value: '5'
                               - descriptor:
                                   code: OWNERSHIP
@@ -3808,18 +3801,6 @@ x-flows:
                           range:
                             start: '2024-04-01T00:00:00.000Z'
                             end: '2024-08-10T00:00:00.000Z'
-                          days: 04,05
-                          hours: '5'
-                          schedule:
-                            frequency: PT1H
-                            holidays:
-                              - '2024-04-09'
-                              - '2024-04-07'
-                            times:
-                              - '2024-06-04T22:00:00.000Z'
-                              - '2024-06-06T22:00:00.000Z'
-                              - '2024-06-08T22:00:00.000Z'
-                              - '2024-06-10T22:00:00.000Z'
                         matched: true
                         recommended: true
                     offers:
@@ -3831,8 +3812,10 @@ x-flows:
                           long_desc: Additional Equipment (cage wheel)
                           images:
                             - url: https://abc.com/images/207.png
-                        location_ids: []
-                        category_ids: []
+                        location_ids:
+                          - L1
+                        category_ids:
+                          - C1
                         item_ids:
                           - PI2
                         time:
@@ -3876,9 +3859,8 @@ x-flows:
                     - id: L1
                 items:
                   - id: I1
-                    parent_item_id: ''
                     fulfillment_ids:
-                      - '2'
+                      - F2
                     location_ids:
                       - L1
                     category_ids:
@@ -4070,7 +4052,7 @@ x-flows:
                   - id: I1
                     parent_item_id: ''
                     fulfillment_ids:
-                      - '2'
+                      - F2
                     location_ids:
                       - L1
                     category_ids:
@@ -4155,7 +4137,7 @@ x-flows:
                   - id: I1
                     parent_item_id: ''
                     fulfillment_ids:
-                      - '2'
+                      - F2
                     location_ids:
                       - L1
                     category_ids:
@@ -4170,6 +4152,19 @@ x-flows:
                           - descriptor:
                               code: TYPE
                             value: item
+                      - descriptor:
+                          code: CHECKLIST_DOCUMENTS
+                        display: true
+                        list:
+                          - descriptor:
+                              code: TERMS_AND_CONDITION
+                            value: https://abc.com/tandc
+                          - descriptor:
+                              code: EQUIPMENT_LICENCE
+                            value: https://abc.com/equi_lacence
+                          - descriptor:
+                              code: OPERATOR_LICENCE
+                            value: https://abc.com/operator_lacence
                 billing:
                   name: ONDC buyer
                   address: >-
@@ -4283,7 +4278,7 @@ x-flows:
                               value: misc
                   ttl: P1D
                 payments:
-                  - id: P1
+                  - id: PY1
                     collected_by: BAP
                     params:
                       amount: '5640'
@@ -4313,11 +4308,6 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
-                xinput:
-                  form:
-                    url: https//abc.com/checklist
-                    mimetype: text/html
-                  required: false
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
@@ -4352,7 +4342,7 @@ x-flows:
                   - id: I1
                     parent_item_id: ''
                     fulfillment_ids:
-                      - '2'
+                      - F2
                     location_ids:
                       - L1
                     category_ids:
@@ -4486,10 +4476,10 @@ x-flows:
                               value: misc
                   ttl: P1D
                 payments:
-                  - id: P1
+                  - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '640'
+                      amount: '5640'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -4557,7 +4547,7 @@ x-flows:
                   - id: I1
                     parent_item_id: ''
                     fulfillment_ids:
-                      - '2'
+                      - F2
                     location_ids:
                       - L1
                     category_ids:
@@ -4572,6 +4562,22 @@ x-flows:
                           - descriptor:
                               code: TYPE
                             value: item
+                      - descriptor:
+                          code: CHECKLIST_DOCUMENTS
+                        display: true
+                        list:
+                          - descriptor:
+                              code: TERMS_AND_CONDITION
+                            value: https://abc.com/tandc
+                          - descriptor:
+                              code: EQUIPMENT_LICENCE
+                            value: https://abc.com/equi_lacence
+                          - descriptor:
+                              code: OPERATOR_LICENCE
+                            value: https://abc.com/operator_lacence
+                          - descriptor:
+                              code: DOCUMENTS_VERIFICATION_STATE
+                            value: SUCCESS
                 billing:
                   name: ONDC buyer
                   address: >-
@@ -4716,7 +4722,7 @@ x-flows:
                               value: misc
                   ttl: P1D
                 payments:
-                  - id: P1
+                  - id: PY1
                     collected_by: BAP
                     params:
                       amount: '5640'
@@ -4777,12 +4783,6 @@ x-flows:
                         value: '0.00'
                 created_at: '2024-06-10T22:00:46.000Z'
                 updated_at: '2024-06-10T22:00:48.000Z'
-                xinput:
-                  form:
-                    url: https//abc.com/checklist
-                    mimetype: text/html
-                    submission_id: xxxxxxxx
-                    status: SUCCESS
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
@@ -4842,7 +4842,7 @@ x-flows:
                   - id: I1
                     parent_item_id: ''
                     fulfillment_ids:
-                      - '2'
+                      - F2
                     location_ids:
                       - L1
                     category_ids:
@@ -5001,7 +5001,7 @@ x-flows:
                               value: misc
                   ttl: P1D
                 payments:
-                  - id: P1
+                  - id: PY1
                     collected_by: BAP
                     params:
                       amount: '5640'
@@ -5074,7 +5074,7 @@ x-flows:
                   - id: I1
                     parent_item_id: ''
                     fulfillment_ids:
-                      - '2'
+                      - F2
                     location_ids:
                       - L1
                     category_ids:
@@ -5105,7 +5105,7 @@ x-flows:
                   - id: F1
                     state:
                       descriptor:
-                        code: IN_TRANSIT
+                        code: AT_LOCATION
                     type: Seller-Fulfilled
                     tracking: false
                     stops:
@@ -5233,7 +5233,239 @@ x-flows:
                               value: misc
                   ttl: P1D
                 payments:
-                  - id: P1
+                  - id: PY1
+                    collected_by: BAP
+                    params:
+                      amount: '5640'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                documents:
+                  - url: https://invoice_url
+                    label: INVOICE
+                created_at: '2024-06-10T22:00:52.000Z'
+                updated_at: '2024-06-10T22:00:52.000Z'
+      - summary: Seller app sends the order status (Completed)
+        api: on_status (Completed)
+        description: >-
+          Seller app sends order status update when service provider has
+          completed
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:SRV15
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_status
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M5
+              timestamp: '2024-06-10T22:00:52.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: In-progress
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    parent_item_id: ''
+                    fulfillment_ids:
+                      - F2
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                    quantity:
+                      selected:
+                        count: 1
+                    tags:
+                      - descriptor:
+                          code: ATTRIBUTE
+                        list:
+                          - descriptor:
+                              code: TYPE
+                            value: item
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: Seller-Fulfilled
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: ABC Agri Service Provider
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2024-06-10T22:00:00Z'
+                            end: '2024-06-10T23:00:00Z'
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        person:
+                          name: Kishan
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-06-10T22:00:00Z'
+                            end: '2024-06-10T23:00:00Z'
+                        person:
+                          name: Ramu
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                        authorization:
+                          type: OTP
+                          token: '1234'
+                          valid_from: '2024-06-10T22:00:00Z'
+                          valid_to: '2024-06-10T23:00:00Z'
+                          status: valid
+                    rateable: true
+                quote:
+                  price:
+                    currency: INR
+                    value: '5640'
+                  breakup:
+                    - title: Tractor
+                      price:
+                        currency: INR
+                        value: '500'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '500'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: refundable_security
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: refundable_security
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '50'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '10'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: pickup_charge
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
+                  ttl: P1D
+                payments:
+                  - id: PY1
                     collected_by: BAP
                     params:
                       amount: '5640'
@@ -5323,12 +5555,6 @@ x-examples:
                         - descriptor:
                             code: FINDER_FEE_AMOUNT
                           value: '3'
-                    - descriptor:
-                        code: BAP_DETAILS
-                      list:
-                        - descriptor:
-                            code: BAP_TYPE
-                          value: FARMER
           - value:
               context:
                 domain: ONDC:SRV15
@@ -5349,7 +5575,7 @@ x-examples:
                 intent:
                   item:
                     category:
-                      id: SRV14-*
+                      code: SRV15-*
                   fulfillment:
                     type: Seller-Fulfilled
                     stops:
@@ -5374,12 +5600,6 @@ x-examples:
                         - descriptor:
                             code: FINDER_FEE_AMOUNT
                           value: '3'
-                    - descriptor:
-                        code: BAP_DETAILS
-                      list:
-                        - descriptor:
-                            code: BAP_TYPE
-                          value: FARMER
       select:
         examples:
           - value:
@@ -5408,9 +5628,8 @@ x-examples:
                       - id: L1
                   items:
                     - id: I1
-                      parent_item_id: ''
                       fulfillment_ids:
-                        - '2'
+                        - F2
                       location_ids:
                         - L1
                       category_ids:
@@ -5465,9 +5684,8 @@ x-examples:
                       - id: L1
                   items:
                     - id: I1
-                      parent_item_id: ''
                       fulfillment_ids:
-                        - '2'
+                        - F2
                       location_ids:
                         - L1
                       category_ids:
@@ -5525,7 +5743,7 @@ x-examples:
                     - id: I1
                       parent_item_id: ''
                       fulfillment_ids:
-                        - '2'
+                        - F2
                       location_ids:
                         - L1
                       category_ids:
@@ -5605,7 +5823,7 @@ x-examples:
                     - id: I1
                       parent_item_id: ''
                       fulfillment_ids:
-                        - '2'
+                        - F2
                       location_ids:
                         - L1
                       category_ids:
@@ -5695,7 +5913,7 @@ x-examples:
                     - id: I1
                       parent_item_id: ''
                       fulfillment_ids:
-                        - '2'
+                        - F2
                       location_ids:
                         - L1
                       category_ids:
@@ -5829,10 +6047,10 @@ x-examples:
                                 value: misc
                     ttl: P1D
                   payments:
-                    - id: P1
+                    - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '640'
+                        amount: '5640'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -5892,7 +6110,7 @@ x-examples:
                     - id: I1
                       parent_item_id: ''
                       fulfillment_ids:
-                        - '2'
+                        - F2
                       location_ids:
                         - L1
                       category_ids:
@@ -6038,10 +6256,10 @@ x-examples:
                                 value: misc
                     ttl: P1D
                   payments:
-                    - id: P1
+                    - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '640'
+                        amount: '5640'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -6139,14 +6357,14 @@ x-examples:
               message:
                 catalog:
                   fulfillments:
-                    - id: '1'
+                    - id: F1
                       type: Buyer-Fulfilled
-                    - id: '2'
+                    - id: F2
                       type: Seller-Fulfilled
                   payments:
-                    - id: '1'
+                    - id: PY1
                       type: PRE-FULFILLMENT
-                    - id: '2'
+                    - id: PY2
                       type: ON-FULFILLMENT
                   descriptor:
                     name: Agri Equipment Provider
@@ -6287,39 +6505,29 @@ x-examples:
                           price:
                             currency: INR
                             value: '500.00'
-                            refundable_security:
-                              currency: INR
-                              value: '5000.00'
-                            surcharges:
-                              currency: INR
-                              value: '5000.00'
-                              duration: P1D
+                          price_frequency:
+                            unit: hours
+                            value: '1'
                           quantity:
                             unitized:
                               measure:
                                 unit: unit
                                 value: '1'
-                            minimum:
-                              value: '1'
-                            maximum:
-                              value: '1'
                           category_ids:
                             - C1
                           fulfillment_ids:
-                            - '1'
-                            - '2'
+                            - F1
+                            - F2
                           location_ids:
                             - L1
                           payment_ids:
-                            - '1'
+                            - PY1
                           add_ons:
                             - id: A1
                               descriptor:
                                 name: Driver
                                 short_desc: Driver knows about farming
                                 long_desc: Driver knows about farming
-                                images:
-                                  - url: https://abc.com/images/207.png
                               price:
                                 currency: INR
                                 value: '200.00'
@@ -6342,9 +6550,19 @@ x-examples:
                                 - descriptor:
                                     code: PICKUP_TAT
                                   value: PT2D
+                            - descriptor:
+                                code: ADITIONAL_CHARGES
+                              display: true
+                              list:
                                 - descriptor:
-                                    code: COMPLETION_TAT
-                                  value: PT1D
+                                    code: REFUNDABLE_SECURITY
+                                  value: '5000.00'
+                                - descriptor:
+                                    code: SURCHARGES
+                                  value: '500.00'
+                                - descriptor:
+                                    code: SURCHARGES_FREQUENCY
+                                  value: hourly
                             - descriptor:
                                 code: RESCHEDULE_TERMS
                               list:
@@ -6361,10 +6579,13 @@ x-examples:
                                     code: RESCHEDULE_WITHIN
                                   value: PT1D
                             - descriptor:
-                                code: ATTRIBUTE
+                                code: EQUIPMENT_ATTRIBUTES
                               list:
                                 - descriptor:
-                                    code: ITEM_CONDITION
+                                    code: TYPE
+                                  value: item
+                                - descriptor:
+                                    code: CONDITION
                                   value: '5'
                                 - descriptor:
                                     code: OWNERSHIP
@@ -6386,18 +6607,6 @@ x-examples:
                             range:
                               start: '2024-04-01T00:00:00.000Z'
                               end: '2024-08-10T00:00:00.000Z'
-                            days: 04,05
-                            hours: '5'
-                            schedule:
-                              frequency: PT1H
-                              holidays:
-                                - '2024-04-09'
-                                - '2024-04-07'
-                              times:
-                                - '2024-06-04T22:00:00.000Z'
-                                - '2024-06-06T22:00:00.000Z'
-                                - '2024-06-08T22:00:00.000Z'
-                                - '2024-06-10T22:00:00.000Z'
                           matched: true
                           recommended: true
                       offers:
@@ -6409,8 +6618,10 @@ x-examples:
                             long_desc: Additional Equipment (cage wheel)
                             images:
                               - url: https://abc.com/images/207.png
-                          location_ids: []
-                          category_ids: []
+                          location_ids:
+                            - L1
+                          category_ids:
+                            - C1
                           item_ids:
                             - PI2
                           time:
@@ -6711,7 +6922,7 @@ x-examples:
                     - id: I1
                       parent_item_id: ''
                       fulfillment_ids:
-                        - '2'
+                        - F2
                       location_ids:
                         - L1
                       category_ids:
@@ -6726,6 +6937,19 @@ x-examples:
                             - descriptor:
                                 code: TYPE
                               value: item
+                        - descriptor:
+                            code: CHECKLIST_DOCUMENTS
+                          display: true
+                          list:
+                            - descriptor:
+                                code: TERMS_AND_CONDITION
+                              value: https://abc.com/tandc
+                            - descriptor:
+                                code: EQUIPMENT_LICENCE
+                              value: https://abc.com/equi_lacence
+                            - descriptor:
+                                code: OPERATOR_LICENCE
+                              value: https://abc.com/operator_lacence
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -6839,7 +7063,7 @@ x-examples:
                                 value: misc
                     ttl: P1D
                   payments:
-                    - id: P1
+                    - id: PY1
                       collected_by: BAP
                       params:
                         amount: '5640'
@@ -6869,11 +7093,6 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
-                  xinput:
-                    form:
-                      url: https//abc.com/checklist
-                      mimetype: text/html
-                    required: false
           - value:
               context:
                 domain: ONDC:SRV15
@@ -6902,7 +7121,7 @@ x-examples:
                     - id: I1
                       parent_item_id: ''
                       fulfillment_ids:
-                        - '2'
+                        - F2
                       location_ids:
                         - L1
                       category_ids:
@@ -6917,6 +7136,19 @@ x-examples:
                             - descriptor:
                                 code: TYPE
                               value: item
+                        - descriptor:
+                            code: CHECKLIST_DOCUMENTS
+                          display: true
+                          list:
+                            - descriptor:
+                                code: TERMS_AND_CONDITION
+                              value: https://abc.com/tandc
+                            - descriptor:
+                                code: EQUIPMENT_LICENCE
+                              value: https://abc.com/equi_lacence
+                            - descriptor:
+                                code: OPERATOR_LICENCE
+                              value: https://abc.com/operator_lacence
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -7064,7 +7296,7 @@ x-examples:
                                 value: misc
                     ttl: P1D
                   payments:
-                    - id: P1
+                    - id: PY1
                       collected_by: BAP
                       params:
                         amount: '5640'
@@ -7094,11 +7326,6 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
-                  xinput:
-                    form:
-                      url: https//abc.com/checklist
-                      mimetype: text/html
-                    required: false
       on_confirm:
         examples:
           - value:
@@ -7132,7 +7359,7 @@ x-examples:
                     - id: I1
                       parent_item_id: ''
                       fulfillment_ids:
-                        - '2'
+                        - F2
                       location_ids:
                         - L1
                       category_ids:
@@ -7147,6 +7374,22 @@ x-examples:
                             - descriptor:
                                 code: TYPE
                               value: item
+                        - descriptor:
+                            code: CHECKLIST_DOCUMENTS
+                          display: true
+                          list:
+                            - descriptor:
+                                code: TERMS_AND_CONDITION
+                              value: https://abc.com/tandc
+                            - descriptor:
+                                code: EQUIPMENT_LICENCE
+                              value: https://abc.com/equi_lacence
+                            - descriptor:
+                                code: OPERATOR_LICENCE
+                              value: https://abc.com/operator_lacence
+                            - descriptor:
+                                code: DOCUMENTS_VERIFICATION_STATE
+                              value: SUCCESS
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -7291,7 +7534,7 @@ x-examples:
                                 value: misc
                     ttl: P1D
                   payments:
-                    - id: P1
+                    - id: PY1
                       collected_by: BAP
                       params:
                         amount: '5640'
@@ -7352,12 +7595,6 @@ x-examples:
                           value: '0.00'
                   created_at: '2024-06-10T22:00:46.000Z'
                   updated_at: '2024-06-10T22:00:48.000Z'
-                  xinput:
-                    form:
-                      url: https//abc.com/checklist
-                      mimetype: text/html
-                      submission_id: xxxxxxxx
-                      status: SUCCESS
           - value:
               context:
                 domain: ONDC:SRV15
@@ -7389,7 +7626,7 @@ x-examples:
                     - id: I1
                       parent_item_id: ''
                       fulfillment_ids:
-                        - '2'
+                        - F2
                       location_ids:
                         - L1
                       category_ids:
@@ -7539,7 +7776,7 @@ x-examples:
                                 value: misc
                     ttl: P1D
                   payments:
-                    - id: P1
+                    - id: PY1
                       collected_by: BAP
                       params:
                         amount: '5640'
@@ -7600,12 +7837,6 @@ x-examples:
                           value: '0.00'
                   created_at: '2024-06-10T22:00:46.000Z'
                   updated_at: '2024-06-10T22:00:48.000Z'
-                  xinput:
-                    form:
-                      url: https//abc.com/checklist
-                      mimetype: text/html
-                      submission_id: xxxxxxxx
-                      status: SUCCESS
       on_status:
         examples:
           - value:
@@ -7638,7 +7869,7 @@ x-examples:
                     - id: I1
                       parent_item_id: ''
                       fulfillment_ids:
-                        - '2'
+                        - F2
                       location_ids:
                         - L1
                       category_ids:
@@ -7797,7 +8028,7 @@ x-examples:
                                 value: misc
                     ttl: P1D
                   payments:
-                    - id: P1
+                    - id: PY1
                       collected_by: BAP
                       params:
                         amount: '5640'
@@ -7863,7 +8094,7 @@ x-examples:
                     - id: I1
                       parent_item_id: ''
                       fulfillment_ids:
-                        - '2'
+                        - F2
                       location_ids:
                         - L1
                       category_ids:
@@ -7894,7 +8125,7 @@ x-examples:
                     - id: F1
                       state:
                         descriptor:
-                          code: IN_TRANSIT
+                          code: AT_LOCATION
                       type: Seller-Fulfilled
                       tracking: false
                       stops:
@@ -8022,7 +8253,232 @@ x-examples:
                                 value: misc
                     ttl: P1D
                   payments:
-                    - id: P1
+                    - id: PY1
+                      collected_by: BAP
+                      params:
+                        amount: '5640'
+                        currency: INR
+                        bank_account_number: xxxxxxxx
+                        virtual_payment_address: xxx@xxxx
+                      status: PAID
+                      type: PRE-FULFILLMENT
+                      tags:
+                        - descriptor:
+                            code: Settlement_Details
+                          list:
+                            - descriptor:
+                                code: Counterparty
+                              value: BPP
+                            - descriptor:
+                                code: Mode
+                              value: UPI
+                            - descriptor:
+                                code: Beneficiary_Name
+                              value: xxxxx
+                            - descriptor:
+                                code: Bank_Account_No
+                              value: xxxxx
+                            - descriptor:
+                                code: Ifsc_Code
+                              value: xxxxxxx
+                            - descriptor:
+                                code: UPI_Address
+                              value: xxxxxxx
+                  documents:
+                    - url: https://invoice_url
+                      label: INVOICE
+                  created_at: '2024-06-10T22:00:52.000Z'
+                  updated_at: '2024-06-10T22:00:52.000Z'
+          - value:
+              context:
+                domain: ONDC:SRV15
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: on_status
+                version: 2.0.0
+                bap_id: buyerapp.com
+                bap_uri: https://buyerapp.com/services
+                bpp_id: sellerapp.com
+                bpp_uri: https://sellerapp.com/services
+                transaction_id: T1
+                message_id: M5
+                timestamp: '2024-06-10T22:00:52.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  id: O1
+                  status: In-progress
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                  items:
+                    - id: I1
+                      parent_item_id: ''
+                      fulfillment_ids:
+                        - F2
+                      location_ids:
+                        - L1
+                      category_ids:
+                        - C1
+                      quantity:
+                        selected:
+                          count: 1
+                      tags:
+                        - descriptor:
+                            code: ATTRIBUTE
+                          list:
+                            - descriptor:
+                                code: TYPE
+                              value: item
+                  billing:
+                    name: ONDC buyer
+                    address: >-
+                      22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                      Bengaluru, Karnataka 560001
+                    state:
+                      name: Karnataka
+                    city:
+                      name: Bengaluru
+                    tax_id: XXXXXXXXXXXXXXX
+                    email: nobody@nomail.com
+                    phone: '9886098860'
+                  fulfillments:
+                    - id: F1
+                      state:
+                        descriptor:
+                          code: COMPLETED
+                      type: Seller-Fulfilled
+                      tracking: false
+                      stops:
+                        - type: start
+                          location:
+                            id: L1
+                            descriptor:
+                              name: ABC Agri Service Provider
+                            gps: 12.956399,77.636803
+                          time:
+                            range:
+                              start: '2024-06-10T22:00:00Z'
+                              end: '2024-06-10T23:00:00Z'
+                          contact:
+                            phone: '9886098860'
+                            email: nobody@nomail.com
+                          person:
+                            name: Kishan
+                        - type: end
+                          location:
+                            gps: 12.974002,77.613458
+                            address: 'My House #, My buildin'
+                            city:
+                              name: Bengaluru
+                            country:
+                              code: IND
+                            area_code: '560001'
+                            state:
+                              name: Karnataka
+                          contact:
+                            phone: '9886098860'
+                            email: nobody@nomail.com
+                          time:
+                            label: confirmed
+                            range:
+                              start: '2024-06-10T22:00:00Z'
+                              end: '2024-06-10T23:00:00Z'
+                          person:
+                            name: Ramu
+                          instructions:
+                            name: Special Instructions
+                            short_desc: Customer Special Instructions
+                          authorization:
+                            type: OTP
+                            token: '1234'
+                            valid_from: '2024-06-10T22:00:00Z'
+                            valid_to: '2024-06-10T23:00:00Z'
+                            status: valid
+                      rateable: true
+                  quote:
+                    price:
+                      currency: INR
+                      value: '5640'
+                    breakup:
+                      - title: Tractor
+                        price:
+                          currency: INR
+                          value: '500'
+                        item:
+                          id: I1
+                          quantity:
+                            selected:
+                              count: 1
+                          price:
+                            currency: INR
+                            value: '500'
+                        tags:
+                          - descriptor:
+                              code: title
+                            list:
+                              - descriptor:
+                                  code: type
+                                value: item
+                      - title: refundable_security
+                        price:
+                          currency: INR
+                          value: '5000'
+                        item:
+                          id: I1
+                        tags:
+                          - descriptor:
+                              code: title
+                            list:
+                              - descriptor:
+                                  code: type
+                                value: refundable_security
+                      - title: tax
+                        price:
+                          currency: INR
+                          value: '50'
+                        item:
+                          id: I1
+                        tags:
+                          - descriptor:
+                              code: title
+                            list:
+                              - descriptor:
+                                  code: type
+                                value: tax
+                      - title: discount
+                        price:
+                          currency: INR
+                          value: '10'
+                        item:
+                          id: I1
+                        tags:
+                          - descriptor:
+                              code: title
+                            list:
+                              - descriptor:
+                                  code: type
+                                value: discount
+                      - title: pickup_charge
+                        price:
+                          currency: INR
+                          value: '100'
+                        item:
+                          id: I1
+                        tags:
+                          - descriptor:
+                              code: title
+                            list:
+                              - descriptor:
+                                  code: type
+                                value: misc
+                    ttl: P1D
+                  payments:
+                    - id: PY1
                       collected_by: BAP
                       params:
                         amount: '5640'
@@ -8083,7 +8539,7 @@ x-examples:
                 order:
                   id: O1
                   fulfillments:
-                    - id: C1
+                    - id: F3
                       type: Cancel
                   payment:
                     tags:
@@ -8249,7 +8705,7 @@ x-attributes:
               id:
                 description: Payment id for the available payment methods
                 required: required
-                usage: '1'
+                usage: PY1
                 reference: if any
               type:
                 description: Type of payment methods available
@@ -8481,11 +8937,6 @@ x-attributes:
                       required: required
                       usage: Driver knows about farming
                       reference: if any
-                    images:
-                      description: images of the equipment provided by the service provider
-                      required: optional
-                      usage: '-'
-                      reference: if any
                     price:
                       value:
                         description: price of the service
@@ -8508,22 +8959,6 @@ x-attributes:
                       description: availability end date of the service provider
                       required: required
                       usage: '2022-11-20T00:00:00.000Z'
-                      reference: if any
-                  schedule:
-                    frequency:
-                      description: service slot frequency
-                      required: required
-                      usage: PT1H
-                      reference: if any
-                    holidays:
-                      description: days on which service provide is not available
-                      required: required
-                      usage: '[2023-11-13, 2023-11-15]'
-                      reference: if any
-                    times:
-                      description: time slots in which service provide is available
-                      required: required
-                      usage: '[2022-11-20T00:00:00.000Z]'
                       reference: if any
                 cancellation_terms:
                   fulfillment_state:
@@ -8585,11 +9020,6 @@ x-attributes:
                 description: item id i.e. the id of the service
                 required: required
                 usage: I1
-                reference: if any
-              parent_item_id:
-                description: parent item id if any
-                required: optional
-                usage: ''
                 reference: if any
               fulfillment_ids:
                 description: fulfillment ids related to the item
@@ -9514,7 +9944,7 @@ x-attributes:
               id:
                 description: Payment ID
                 required: required
-                usage: P1
+                usage: PY1
                 reference: if any
               collected_by:
                 description: Entity that collected the payment
@@ -9612,7 +10042,7 @@ x-attributes:
               id:
                 description: Payment ID
                 required: required
-                usage: P1
+                usage: PY1
                 reference: if any
               collected_by:
                 description: Entity that collected the payment
@@ -9830,9 +10260,7 @@ x-attributes:
                   code:
                     description: >-
                       Denotes the state of the fulfillment; Enum; Values can be
-                      - "PENDING", "IN_TRANSIT", "AT_LOCATION",
-                      "COLLECTED_BY_AGENT", "RECIEIVED_AT_LAB",
-                      "TEST_COMPLETED", "REPORT_GENERATED", "REPORT_SHARED";
+                      - "PENDING", "IN_TRANSIT", "AT_LOCATION", "COMPLETED";
                     required: mandatory
                     usage: '-'
                     reference: if any

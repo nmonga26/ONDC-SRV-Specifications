@@ -22,7 +22,7 @@
         "intent": {
             "item": {
                 "category": {
-                    "id": "SRV15-*"
+                    "code": "SRV15-*"
                 }
             },
             "fulfillment": {
@@ -64,19 +64,6 @@
                                 "code": "FINDER_FEE_AMOUNT"
                             },
                             "value": "3"
-                        }
-                    ]
-                },
-                {
-                    "descriptor": {
-                        "code": "BAP_DETAILS"
-                    },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "BAP_TYPE"
-                            },
-                            "value": "FARMER"
                         }
                     ]
                 }

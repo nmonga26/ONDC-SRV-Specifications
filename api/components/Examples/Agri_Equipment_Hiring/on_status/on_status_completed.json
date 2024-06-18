@@ -85,7 +85,7 @@
           "id": "F1",
           "state": {
             "descriptor": {
-              "code": "IN_TRANSIT"
+              "code": "COMPLETED"
             }
           },
           "type": "Seller-Fulfilled",

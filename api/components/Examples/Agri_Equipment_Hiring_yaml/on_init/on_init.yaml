@@ -26,7 +26,7 @@ value:
         - id: I1
           parent_item_id: ''
           fulfillment_ids:
-            - '2'
+            - F2
           location_ids:
             - L1
           category_ids:
@@ -41,6 +41,19 @@ value:
                 - descriptor:
                     code: TYPE
                   value: item
+            - descriptor:
+                code: CHECKLIST_DOCUMENTS
+              display: true
+              list:
+                - descriptor:
+                    code: TERMS_AND_CONDITION
+                  value: https://abc.com/tandc
+                - descriptor:
+                    code: EQUIPMENT_LICENCE
+                  value: https://abc.com/equi_lacence
+                - descriptor:
+                    code: OPERATOR_LICENCE
+                  value: https://abc.com/operator_lacence
       billing:
         name: ONDC buyer
         address: >-
@@ -154,7 +167,7 @@ value:
                     value: misc
         ttl: P1D
       payments:
-        - id: P1
+        - id: PY1
           collected_by: BAP
           params:
             amount: '5640'
@@ -184,8 +197,3 @@ value:
                 - descriptor:
                     code: UPI_Address
                   value: xxxxxxx
-      xinput:
-        form:
-          url: https//abc.com/checklist
-          mimetype: text/html
-        required: false

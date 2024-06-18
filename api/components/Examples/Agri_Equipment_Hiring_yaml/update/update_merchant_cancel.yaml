@@ -21,7 +21,7 @@ value:
     order:
       id: O1
       fulfillments:
-        - id: C1
+        - id: F3
           type: Cancel
       payment:
         tags:

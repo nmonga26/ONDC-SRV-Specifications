@@ -5,11 +5,6 @@ intent:
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./Tag.yaml#/BAP_TERMS"
-    - code: BUYER_DETAILS
-      description: Details of the buyer
-      reference: <PR/Issue/Discussion Links md format text>
-      list:
-        $ref: "./Tag.yaml#/BAP_DETAILS"
 catalog:
   providers:
     tags:
@@ -45,11 +40,11 @@ catalog:
 order:
   items:
     tags:
-      - code: ATTRIBUTE
-        description: Attribute of a particular item
+      - code: EQUIPMENT_ATTRIBUTES
+        description: Attribute of a particular equipment item
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          $ref: "./Tag.yaml#/ATTRIBUTE"
+          $ref: "./Tag.yaml#/EQUIPMENT_ATTRIBUTES"
   quote:
     breakup:
       tags: &ref2
