@@ -1,8 +1,9 @@
-summary: Agriculture Equipment Hiring of a Commodity
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+summary: Agriculture Equipment Hiring (Requisite documents not available during equipment delivery/ pickup)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and seller finds some discrepancies with the documents presented and the equipment is not handed over to the buyer 
+    then seller updates the status and same is communicated to the buyer with corresponding cancellation charges as per the cancellation policy and refund, if any, takes place accordingly.
 details:
 
-  - description: Sequence Diagram for Agriculture Equipment Hiring
+  - description: Sequence Diagram for Agriculture Equipment Hiring (Requisite documents not available during equipment delivery/ pickup)
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer
@@ -121,33 +122,21 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_confirm/on_confirm.yaml"
-  - summary: Buyer requests for the status of the order
-    api: status
-    description: Buyer requests for the status of the order
+  - summary: Seller cancel the order when finds some discrepancies with the documents presented
+    api: on_cancel
+    description: Seller cancel the order when finds some discrepancies with the documents presented and not handed over to buyer
     example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/status/status.yaml"
-  - summary: Seller app sends order status update (In-Transit)
-    api: on_status (In Transit)
-    description: Seller app sends order status update when equipment is on the way
+      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_cancel/on_cancel.yaml"
+  - summary: Seller app may request for cancellation charges if applicable
+    api: on_update
+    description: Seller app shares discrepancies with the documents presented with cancellation charges 
     reference: if any
     example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_status/on_status_transit.yaml"
-  - summary: Seller app sends the order status (At location)
-    api: on_status (At Location)
-    description: Seller app sends order status update when service provider has reached the buyer location with equipment
+      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_update/on_update_requote.yaml"
+  - summary: Buyer app sends the acknowledgement of payment
+    api: update
+    description: Buyer app sends the acknowledgement of payment for raised cancellation charge
     reference: if any
     example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_status/on_status_at_location.yaml"
-  - summary: Seller app sends the order status (Completed)
-    api: on_status (Completed)
-    description: Seller app sends order status update when service provider has completed
-    reference: if any
-    example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_status/on_status_completed.yaml"
-  - summary: Buyer app shares the ratings to seller app
-    api: rating
-    description: Buyer leaves a detailed review on the buyer, sharing both positive and negative aspects. Buyer app shares the same with the seller app following the rating framework
-    reference: if any
-    example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/rating/rating.yaml"
-
+      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/update/update_requote.yaml"
+  

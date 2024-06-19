@@ -1,8 +1,9 @@
-summary: Agriculture Equipment Hiring of a Commodity
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+summary: Agriculture Equipment Hiring (Availability changes during the transaction journey)
+description: The following is an illustrative flow to perform a transaction of a nature where a Buyer creates an intent for booking an equipment for hire and selects a particular equipment (of a particular provider) and Seller responds to the initiation of the booking by mentioning that the requested equipment is no longer available
+    Buyer goes back to the listing page and looks for other available equipments
 details:
 
-  - description: Sequence Diagram for Agriculture Equipment Hiring
+  - description: Sequence Diagram for Agriculture Equipment Hiring (Availability changes during the transaction journey)
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer
@@ -22,7 +23,20 @@ details:
         Note Over BA,SA1: Buyer now has the option to choose the <br>Equipment from either Seller 1 or Seller 2 or both
         BA ->> B: Shows all the equipments <br>options from sellers
 
-  - description: Ordering
+  - description: Ordering (Select - not available equipment)
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant G as Gateway
+        participant SA as SellerApp
+        Note Over B,SA: **SELECT FLOW**
+        B ->> BA: Selects one of the <br>providers for equipment
+        BA ->> SA: **/select** - A equipment is selected with a <br>TTL for receiving response
+        SA ->> BA: **/on_select** - Responds with requested equipment is no longer available
+        BA ->> B: Shows response as equipment not available
+
+  - description: Ordering (Select - re-select with available equipment)
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer

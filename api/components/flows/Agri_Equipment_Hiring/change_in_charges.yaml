@@ -1,8 +1,8 @@
-summary: Agriculture Equipment Hiring of a Commodity
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+summary: Agriculture Equipment Hiring (Change in charges because of inspection on journey completion)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment and At the time of journey completion, the seller inspects the equipment and finds discrepancies in the state of the equipment and makes an update of the order object with respective to the discrepancies.
 details:
 
-  - description: Sequence Diagram for Agriculture Equipment Hiring
+  - description: Sequence Diagram for Agriculture Equipment Hiring (Change in charges because of inspection on journey completion)
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer
@@ -71,6 +71,19 @@ details:
         BA ->> SA: **/status** - Enquire order status <br>or tracking information
         SA ->> BA: **/on_status_in_transit** - Latest order and fulfillment status is sent
         BA ->> B: Updates the latest order <br>and fulfillment information
+
+  - description: Discrepancies in order
+    mermaidGraph: >-
+      sequenceDiagram
+        participant S as Seller
+        participant SA as SellerApp 
+        participant BA as BuyerApp
+        participant B as Buyer
+        Note Over S,B: **POST ORDER FLOW (Discrepancies in order)**
+        S ->> SA: Raise request when found discrepancies <br> in the state of the equipment
+        SA ->> BA: **/on_update** - Send state of the equipment <br> with updated quote to collect
+        BA ->> B: collect the payment if applicable
+        BA ->> SA: **/update** - Latest state on requested discrepancies
 
 reference: if any
 steps:
@@ -144,6 +157,18 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_status/on_status_completed.yaml"
+  - summary: Seller app shares state of the equipment for discrepancies
+    api: on_update
+    description: Seller app shares state of the equipment for discrepancies
+    reference: if any
+    example:
+      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_update/on_update_requote.yaml"
+  - summary: Buyer app sends the acknowledgement of payment
+    api: update
+    description: Buyer app sends the acknowledgement of payment for raised discrepancies into the equipment
+    reference: if any
+    example:
+      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/update/update_requote.yaml"
   - summary: Buyer app shares the ratings to seller app
     api: rating
     description: Buyer leaves a detailed review on the buyer, sharing both positive and negative aspects. Buyer app shares the same with the seller app following the rating framework

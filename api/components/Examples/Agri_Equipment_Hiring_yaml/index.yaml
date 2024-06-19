@@ -20,6 +20,12 @@ status:
 cancel:
   examples:
     - $ref: "./cancel/cancel_buyer.yaml"
+update:
+  examples:
+    - $ref: "./update/update_requote.yaml"
+rating:
+  examples:
+    - $ref: "./rating/rating.yaml"
 on_search:
   examples:
     - $ref: "./on_search/on_search.yaml"
@@ -40,10 +46,9 @@ on_status:
     - $ref: "./on_status/on_status_transit.yaml"
     - $ref: "./on_status/on_status_at_location.yaml"
     - $ref: "./on_status/on_status_completed.yaml"
-# on_cancel:
-#   examples:
-#     - $ref: "./on_cancel/on_cancel_buyer.yaml"
-#     - $ref: "./on_cancel/on_cancel_merchant.yaml"
-update:
+on_cancel:
   examples:
-    - $ref: "./update/update_merchant_cancel.yaml"
+    - $ref: "./on_cancel/on_cancel.yaml"
+on_update:
+  examples:
+    - $ref: "./on_update/on_update_requote.yaml"

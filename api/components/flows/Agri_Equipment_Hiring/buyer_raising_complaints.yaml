@@ -1,8 +1,9 @@
-summary: Agriculture Equipment Hiring of a Commodity
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+summary: Agriculture Equipment Hiring (Buyer raising complaints)
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment after that
+  if the buyer faces any issues, the buyer may raise a complaint on the buyer app and the buyer app tries to analyse the complaints.
 details:
 
-  - description: Sequence Diagram for Agriculture Equipment Hiring
+  - description: Sequence Diagram for Agriculture Equipment Hiring (Buyer raising complaints)
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer
@@ -71,6 +72,18 @@ details:
         BA ->> SA: **/status** - Enquire order status <br>or tracking information
         SA ->> BA: **/on_status_in_transit** - Latest order and fulfillment status is sent
         BA ->> B: Updates the latest order <br>and fulfillment information
+
+  - description: IGM - Buyer have issues
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp 
+        Note Over B,SA: **IGM FLOW**
+        B ->> BA: Raise the complaints
+        BA ->> SA: **/issue** - Raise the issue request
+        SA ->> BA: **/on_issue** - Acknowledge the requested issue
+        BA ->> B: Updates the latest status on issue 
 
 reference: if any
 steps:
