@@ -27,15 +27,19 @@
       },
       "items": [
         {
-          "fulfillment_ids": ["F1"],
+          "fulfillment_ids": [
+            "F1"
+          ],
           "id": "I1",
-          "location_ids": ["L1"]
+          "location_ids": [
+            "L1"
+          ]
         }
       ],
       "fulfillments": [
         {
           "id": "F1",
-          "type": "Seller-Fulfilled",
+          "type": "Buyer-Fulfilled",
           "tracking": false,
           "state": {
             "descriptor": {
@@ -44,7 +48,7 @@
           },
           "stops": [
             {
-              "type": "end",
+              "type": "start",
               "location": {
                 "gps": "12.974002,77.613458",
                 "area_code": "560001"
@@ -52,9 +56,19 @@
               "time": {
                 "label": "confirmed",
                 "range": {
-                  "start": "2024-04-04T22:00:00.000Z",
-                  "end": "2024-04-04T23:00:00.000Z"
+                  "start": "2024-06-09T22:00:00.000Z",
+                  "end": "2024-06-10T02:00:00.000Z"
                 }
+              }
+            },
+            {
+              "type": "end",
+              "location": {
+                "gps": "12.956399,77.636803"
+              },
+              "range": {
+                "start": "2024-06-09T22:00:00.000Z",
+                "end": "2024-06-10T02:00:00.000Z"
               }
             }
           ]
@@ -63,20 +77,20 @@
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "5640"
+          "value": "7140"
         },
         "breakup": [
           {
             "title": "Tractor",
             "price": {
               "currency": "INR",
-              "value": "500"
+              "value": "2000"
             },
             "item": {
               "id": "I1",
               "quantity": {
                 "selected": {
-                  "count": 1
+                  "count": 4
                 }
               },
               "price": {

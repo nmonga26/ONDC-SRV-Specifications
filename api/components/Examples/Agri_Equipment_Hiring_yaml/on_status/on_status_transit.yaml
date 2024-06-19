@@ -26,7 +26,6 @@ value:
           - id: L1
       items:
         - id: I1
-          parent_item_id: ''
           fulfillment_ids:
             - F2
           location_ids:
@@ -35,7 +34,7 @@ value:
             - C1
           quantity:
             selected:
-              count: 1
+              count: 4
           tags:
             - descriptor:
                 code: ATTRIBUTE
@@ -56,7 +55,7 @@ value:
         email: nobody@nomail.com
         phone: '9886098860'
       fulfillments:
-        - id: F1
+        - id: F2
           state:
             descriptor:
               code: IN_TRANSIT
@@ -71,8 +70,8 @@ value:
                 gps: 12.956399,77.636803
               time:
                 range:
-                  start: '2024-06-10T22:00:00Z'
-                  end: '2024-06-10T23:00:00Z'
+                  start: '2024-06-09T22:00:00.000Z'
+                  end: '2024-06-10T02:00:00.000Z'
               contact:
                 phone: '9886098860'
                 email: nobody@nomail.com
@@ -95,8 +94,8 @@ value:
               time:
                 label: confirmed
                 range:
-                  start: '2024-06-10T22:00:00Z'
-                  end: '2024-06-10T23:00:00Z'
+                  start: '2024-06-09T22:00:00.000Z'
+                  end: '2024-06-10T02:00:00.000Z'
               person:
                 name: Ramu
               instructions:
@@ -112,17 +111,17 @@ value:
       quote:
         price:
           currency: INR
-          value: '5640'
+          value: '7140'
         breakup:
           - title: Tractor
             price:
               currency: INR
-              value: '500'
+              value: '2000'
             item:
               id: I1
               quantity:
                 selected:
-                  count: 1
+                  count: 4
               price:
                 currency: INR
                 value: '500'
@@ -172,7 +171,7 @@ value:
                   - descriptor:
                       code: type
                     value: discount
-          - title: pickup_charge
+          - title: delivery_charge
             price:
               currency: INR
               value: '100'
@@ -190,7 +189,7 @@ value:
         - id: PY1
           collected_by: BAP
           params:
-            amount: '5640'
+            amount: '7140'
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx

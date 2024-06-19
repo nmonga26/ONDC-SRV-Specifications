@@ -106,7 +106,7 @@ message:
         value:
           description: value of the price
           required: required
-          usage: "5640"
+          usage: "7140"
           reference: if any
       breakup:
         - title:

@@ -32,7 +32,7 @@ value:
             - C1
           quantity:
             selected:
-              count: 1
+              count: 4
           tags:
             - descriptor:
                 code: ATTRIBUTE
@@ -47,7 +47,7 @@ value:
               time:
                 label: selected
                 range:
-                  start: '2024-04-04T22:00:00.000Z'
+                  start: '2024-06-09T22:00:00.000Z'
               location:
                 gps: 12.974002,77.613458
                 area_code: '560001'

@@ -3745,7 +3745,7 @@ x-flows:
                                   code: PICKUP_TAT
                                 value: PT2D
                           - descriptor:
-                              code: ADITIONAL_CHARGES
+                              code: ADDITIONAL_CHARGES
                             display: true
                             list:
                               - descriptor:
@@ -3942,7 +3942,7 @@ x-flows:
                 quote:
                   price:
                     currency: INR
-                    value: '5640'
+                    value: '7140'
                   breakup:
                     - title: Tractor
                       price:
@@ -4203,7 +4203,7 @@ x-flows:
                 quote:
                   price:
                     currency: INR
-                    value: '5640'
+                    value: '7140'
                   breakup:
                     - title: Tractor
                       price:
@@ -4281,7 +4281,7 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '5640'
+                      amount: '7140'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -4401,7 +4401,7 @@ x-flows:
                 quote:
                   price:
                     currency: INR
-                    value: '5640'
+                    value: '7140'
                   breakup:
                     - title: Tractor
                       price:
@@ -4479,7 +4479,7 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '5640'
+                      amount: '7140'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -4647,7 +4647,7 @@ x-flows:
                 quote:
                   price:
                     currency: INR
-                    value: '5640'
+                    value: '7140'
                   breakup:
                     - title: Tractor
                       price:
@@ -4725,7 +4725,7 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '5640'
+                      amount: '7140'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -4926,7 +4926,7 @@ x-flows:
                 quote:
                   price:
                     currency: INR
-                    value: '5640'
+                    value: '7140'
                   breakup:
                     - title: Tractor
                       price:
@@ -5004,7 +5004,7 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '5640'
+                      amount: '7140'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -5158,7 +5158,7 @@ x-flows:
                 quote:
                   price:
                     currency: INR
-                    value: '5640'
+                    value: '7140'
                   breakup:
                     - title: Tractor
                       price:
@@ -5236,7 +5236,7 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '5640'
+                      amount: '7140'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -5390,7 +5390,7 @@ x-flows:
                 quote:
                   price:
                     currency: INR
-                    value: '5640'
+                    value: '7140'
                   breakup:
                     - title: Tractor
                       price:
@@ -5468,7 +5468,7 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '5640'
+                      amount: '7140'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -5972,7 +5972,7 @@ x-examples:
                   quote:
                     price:
                       currency: INR
-                      value: '5640'
+                      value: '7140'
                     breakup:
                       - title: Tractor
                         price:
@@ -6050,7 +6050,7 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '5640'
+                        amount: '7140'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -6181,7 +6181,7 @@ x-examples:
                   quote:
                     price:
                       currency: INR
-                      value: '5640'
+                      value: '7140'
                     breakup:
                       - title: Tractor
                         price:
@@ -6259,7 +6259,7 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '5640'
+                        amount: '7140'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -6551,7 +6551,7 @@ x-examples:
                                     code: PICKUP_TAT
                                   value: PT2D
                             - descriptor:
-                                code: ADITIONAL_CHARGES
+                                code: ADDITIONAL_CHARGES
                               display: true
                               list:
                                 - descriptor:
@@ -6684,7 +6684,7 @@ x-examples:
                   quote:
                     price:
                       currency: INR
-                      value: '5640'
+                      value: '7140'
                     breakup:
                       - title: Tractor
                         price:
@@ -6815,7 +6815,7 @@ x-examples:
                   quote:
                     price:
                       currency: INR
-                      value: '5640'
+                      value: '7140'
                     breakup:
                       - title: Tractor
                         price:
@@ -6988,7 +6988,7 @@ x-examples:
                   quote:
                     price:
                       currency: INR
-                      value: '5640'
+                      value: '7140'
                     breakup:
                       - title: Tractor
                         price:
@@ -7066,7 +7066,7 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '5640'
+                        amount: '7140'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -7221,7 +7221,7 @@ x-examples:
                   quote:
                     price:
                       currency: INR
-                      value: '5640'
+                      value: '7140'
                     breakup:
                       - title: Tractor
                         price:
@@ -7299,7 +7299,7 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '5640'
+                        amount: '7140'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -7459,7 +7459,7 @@ x-examples:
                   quote:
                     price:
                       currency: INR
-                      value: '5640'
+                      value: '7140'
                     breakup:
                       - title: Tractor
                         price:
@@ -7537,7 +7537,7 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '5640'
+                        amount: '7140'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -7701,7 +7701,7 @@ x-examples:
                   quote:
                     price:
                       currency: INR
-                      value: '5640'
+                      value: '7140'
                     breakup:
                       - title: Tractor
                         price:
@@ -7779,7 +7779,7 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '5640'
+                        amount: '7140'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -7953,7 +7953,7 @@ x-examples:
                   quote:
                     price:
                       currency: INR
-                      value: '5640'
+                      value: '7140'
                     breakup:
                       - title: Tractor
                         price:
@@ -8031,7 +8031,7 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '5640'
+                        amount: '7140'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -8178,7 +8178,7 @@ x-examples:
                   quote:
                     price:
                       currency: INR
-                      value: '5640'
+                      value: '7140'
                     breakup:
                       - title: Tractor
                         price:
@@ -8256,7 +8256,7 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '5640'
+                        amount: '7140'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -8403,7 +8403,7 @@ x-examples:
                   quote:
                     price:
                       currency: INR
-                      value: '5640'
+                      value: '7140'
                     breakup:
                       - title: Tractor
                         price:
@@ -8481,7 +8481,7 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '5640'
+                        amount: '7140'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -9209,7 +9209,7 @@ x-attributes:
                 value:
                   description: value of the price
                   required: required
-                  usage: '5640'
+                  usage: '7140'
                   reference: if any
               breakup:
                 - title:
@@ -9774,7 +9774,7 @@ x-attributes:
                 value:
                   description: value of the price
                   required: required
-                  usage: '5640'
+                  usage: '7140'
                   reference: if any
               breakup:
                 description: detailed price breakup
