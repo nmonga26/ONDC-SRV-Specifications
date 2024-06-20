@@ -2,7 +2,7 @@
 
 # Open Network for Digital Commerce (ONDC) Protocol Open API Specifications
 
-This repository contains the model implementations for Services - Home Services and Consultation Services.
+This repository contains the model implementations for Services - Home, Agriculture, Health And Wellness, Equipment Hiring and Consultation Services.
 
 ## Domains:
 | Category                                                | ONDC Domain|
@@ -10,6 +10,9 @@ This repository contains the model implementations for Services - Home Services 
 | Home Services - Appliance Repair Services               | ONDC:SRV10 |
 | Home Services - Infra Services                          | ONDC:SRV11 |
 | Home Services - Personal Care Services                  | ONDC:SRV12 |
+| Agriculture Services                                    | ONDC:SRV13 |
+| Health And Wellness Services                            | ONDC:SRV14 |
+| Agriculture Equipment Hiring Services                   | ONDC:SRV15 |
 
 ## Latest Release
 draft-2.0.0 | Nov 30 2023

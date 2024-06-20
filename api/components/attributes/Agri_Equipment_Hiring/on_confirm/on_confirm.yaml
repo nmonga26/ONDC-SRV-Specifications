@@ -92,27 +92,3 @@ message:
               required: optional
               usage: "BPP"
               reference: if any
-    xinput:
-      parent: true
-      form:
-        parent: true
-        url: 
-          description: checklist status for equipment
-          required: required
-          usage: "https//abc.com/checklist"
-          reference: if any
-        mimetype: 
-          description: checklist url mimetype for equipment
-          required: required
-          usage: "text/html"
-          reference: if any
-        submission_id: 
-          description: checklist submission id for equipment
-          required: required
-          usage: "xxxxxxxx"
-          reference: if any
-        status: 
-          description: checklist status for equipment
-          required: required
-          usage: "SUCCESS"
-          reference: if any

@@ -3000,14 +3000,10 @@ x-enum:
         fulfillments:
           type: &ref_1
             - code: Seller-Fulfilled
-              description: >-
-                Services for which seller is able to pickup samples from buyer
-                location
+              description: Seller will deliver the equipement
               reference: <PR/Issue/Discussion Links md format text>
             - code: Buyer-Fulfilled
-              description: >-
-                When the buyer sends out the sample/or goes to the seller
-                location for availing a service
+              description: Buyer will pickup the equipement
               reference: <PR/Issue/Discussion Links md format text>
   on_search:
     context:
@@ -3031,8 +3027,14 @@ x-enum:
         quote:
           breakup:
             title: &ref_2
-              - code: Sofa Cleaning
-                description: Sofa Cleaning
+              - code: Equipment
+                description: Equipment
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Refundable Security
+                description: Refundable Security
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Surcharges
+                description: Surcharges
                 reference: <PR/Issue/Discussion Links md format text>
               - code: tax
                 description: tax
@@ -3040,17 +3042,14 @@ x-enum:
               - code: discount
                 description: discount
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: convenience_fee
-                description: convenience_fee
+              - code: Convenience Fee
+                description: Convenience Fee
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: Soil Testing
-                description: Soil Testing
+              - code: Pickup Charges
+                description: Pickup Charges
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: Water Testing
-                description: Water Testing
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Chemical Testing
-                description: Chemical Testing
+              - code: Delivery Fee
+                description: Delivery Fee
                 reference: <PR/Issue/Discussion Links md format text>
         payments: &ref_3
           type:
@@ -3114,27 +3113,13 @@ x-enum:
                   description: When the fulfillment is still in pending state
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: IN_TRANSIT
-                  description: When the agent has left for picking up the sample
+                  description: When the agent has left for picking up
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: AT_LOCATION
-                  description: When the agent is at the location for pickup
+                  description: When the agent is at the location with equipment
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: COLLECTED_BY_AGENT
-                  description: When the sample is collected by the agent
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RECEIVED_AT_LAB
-                  description: When the same is first received at the lab
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: TEST_COMPLETED
-                  description: When the test has been completed but report is not generated
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: REPORT_GENERATED
-                  description: When the report is generated
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: REPORT_SHARED
-                  description: >-
-                    When the fulfillment is marked as completed and report has
-                    been shared
+                - code: COMPLETED
+                  description: When equipement task is completed
                   reference: <PR/Issue/Discussion Links md format text>
         quote:
           breakup: *ref_4
@@ -3225,10 +3210,25 @@ x-tags:
                       TAT for picking up the sample, only required if
                       Seller-Fulfilled
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: COMPLETION_TAT
+              - code: ADDITIONAL_CHARGES
+                description: Information of the additional charges
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
+                  - code: CURRENCY_UNIT
+                    description: Currency of the aditional charges that may apply on item
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: REFUNDABLE_SECURITY
+                    description: Refundable security amount that may applicable on item
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SURCHARGES
                     description: >-
-                      TAT for completing the whole test including pickup TAT, if
-                      applicable
+                      Applicable charges if buyer use the equipment for extra
+                      time
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SURCHARGES_FREQUENCY
+                    description: >-
+                      Frequency how the surcharges going to apply on item like
+                      hourly, daily or weekly
                     reference: <PR/Issue/Discussion Links md format text>
               - code: RESCHEDULE_TERMS
                 description: Reschedule terms for the item
@@ -3252,14 +3252,80 @@ x-tags:
                       Time within which it should be rescheduled after the
                       fulfilment has been changed
                     reference: <PR/Issue/Discussion Links md format text>
-              - code: ATTRIBUTE
-                description: Attribute of a particular item
+              - code: EQUIPMENT_ATTRIBUTES
+                description: Equipment attribute of a particular item
                 reference: <PR/Issue/Discussion Links md format text>
-                list:
+                list: &ref_7
                   - code: TYPE
                     description: >-
                       Type of the item, mandatory only when the item is a
                       customization
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: CONDITION
+                    description: >-
+                      Equipment condition (it can be rating like 5) if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: OWNERSHIP
+                    description: >-
+                      Ownership status for the equipment (1st owner, 2nd owner)
+                      if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: RUNNING_HOURS
+                    description: >-
+                      Running hours status for the equipment (Ex - 500) if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: RUNNING_HOURS
+                    description: >-
+                      Running hours status for the equipment (500 hours) if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MODEL_YEAR
+                    description: Equipment model year if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MODEL
+                    description: Equipment model if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: BRAND
+                    description: Equipment brand name if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MISCELLANEOUS_INFO
+                    description: >-
+                      Equipment miscellaneous value like airbag, bluetooth if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+              - code: CHECKLIST_DOCUMENTS
+                description: Checklist documents that need to verify for equipement hiring
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
+                  - code: TERMS_AND_CONDITION
+                    description: Terms and condition for equipment uses if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: LEASE_POLICY
+                    description: Lease policy for equipment hiring if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: AGREEMENT_POLICY
+                    description: Agreement policy for equipment hiring if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: ID_VERIFICATION_POLICY
+                    description: Id verification policy for equipment hiring if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: INSPECTION_REQUIREMENTS
+                    description: Inspection requirements for equipment hiring if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: OBLIGATIONS
+                    description: Obligations for equipment hiring if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: TERMS_OF_USAGE
+                    description: Terms of uses for equipment hiring if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+              - code: INSURANCE
+                description: Insurance that need to verify for equipement hiring
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
+                  - code: EQUIPMENT_INSURANCE
+                    description: Insurance for equipment uses if applicable
                     reference: <PR/Issue/Discussion Links md format text>
         categories:
           tags:
@@ -3283,8 +3349,8 @@ x-tags:
     message:
       order:
         quote:
-          breakup: &ref_8
-            tags: &ref_11
+          breakup: &ref_9
+            tags: &ref_12
               - code: title
                 description: title tag
                 reference: <PR/Issue/Discussion Links md format text>
@@ -3298,51 +3364,19 @@ x-tags:
   init:
     message:
       order:
-        items: &ref_7
+        items: &ref_8
           tags:
             - code: EQUIPMENT_ATTRIBUTES
               description: Attribute of a particular equipment item
               reference: <PR/Issue/Discussion Links md format text>
-              list:
-                - code: TYPE
-                  description: >-
-                    Type of the item, mandatory only when the item is a
-                    customization
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: CONDITION
-                  description: Equipment condition (it can be rating like 5) if applicable
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: OWNERSHIP
-                  description: >-
-                    Ownership status for the equipment (1st owner, 2nd owner) if
-                    applicable
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RUNNING_HOURS
-                  description: >-
-                    Running hours status for the equipment (Ex - 500) if
-                    applicable
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RUNNING_HOURS
-                  description: >-
-                    Running hours status for the equipment (500 hours) if
-                    applicable
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: MODEL_YEAR
-                  description: Equipment model year if applicable
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: MODEL
-                  description: Equipment model if applicable
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: BRAND
-                  description: Equipment brand name if applicable
-                  reference: <PR/Issue/Discussion Links md format text>
+              list: *ref_7
   on_init:
-    message: &ref_9
+    message: &ref_10
       order:
-        items: *ref_7
+        items: *ref_8
         quote:
-          breakup: *ref_8
-        payments: &ref_10
+          breakup: *ref_9
+        payments: &ref_11
           tags:
             - code: SETTLEMENT_DETAILS
               description: Define Payment Settlement Details here
@@ -3377,27 +3411,24 @@ x-tags:
                   description: Amount for the finder fee
                   reference: <PR/Issue/Discussion Links md format text>
   confirm:
-    message: *ref_9
+    message: *ref_10
   on_status:
-    message: *ref_9
+    message: *ref_10
   update:
-    message: &ref_12
+    message: &ref_13
       order:
-        payments: *ref_10
+        payments: *ref_11
         quote:
           breakup:
-            tags: *ref_11
+            tags: *ref_12
           item:
             tags:
-              - code: attributes
+              - code: EQUIPMENT_ATTRIBUTES
                 description: Update parameter for attributes
                 reference: <PR/Issue/Discussion Links md format text>
-                list:
-                  - code: color
-                    description: Hex Code for color
-                    reference: <PR/Issue/Discussion Links md format text>
+                list: *ref_7
   on_update:
-    message: *ref_12
+    message: *ref_13
 x-flows:
   - summary: Agriculture Equipment Hiring of a Commodity
     description: >-
@@ -3480,7 +3511,7 @@ x-flows:
           Search intent sent by the buyer based on the particular agri equipment
           required - e.g. Irrigation Equipment
         reference: if any
-        example: &ref_13
+        example: &ref_14
           value:
             context:
               domain: ONDC:SRV15
@@ -3530,7 +3561,7 @@ x-flows:
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: &ref_14
+        example: &ref_15
           value:
             context:
               domain: ONDC:SRV15
@@ -3876,7 +3907,7 @@ x-flows:
         api: select
         description: Buyer selects the required agri equipment + suitable fulfillment type
         reference: if any
-        example: &ref_15
+        example: &ref_16
           value:
             context:
               domain: ONDC:SRV15
@@ -3936,7 +3967,7 @@ x-flows:
         api: on_select
         description: Seller confirms the equipment item and returns the quote for equipment
         reference: if any
-        example: &ref_16
+        example: &ref_17
           value:
             context:
               domain: ONDC:SRV15
@@ -4072,7 +4103,7 @@ x-flows:
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: &ref_17
+        example: &ref_18
           value:
             context:
               domain: ONDC:SRV15
@@ -4156,7 +4187,7 @@ x-flows:
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: &ref_18
+        example: &ref_19
           value:
             context:
               domain: ONDC:SRV15
@@ -4207,11 +4238,30 @@ x-flows:
                               code: TERMS_AND_CONDITION
                             value: https://abc.com/tandc
                           - descriptor:
-                              code: EQUIPMENT_LICENCE
-                            value: https://abc.com/equi_lacence
+                              code: LEASE_POLICY
+                            value: https://abc.com/lease_policy
                           - descriptor:
-                              code: OPERATOR_LICENCE
-                            value: https://abc.com/operator_lacence
+                              code: AGREEMENT_POLICY
+                            value: https://abc.com/agreement_policy
+                          - descriptor:
+                              code: ID_VERIFICATION_POLICY
+                            value: https://abc.com/id_policy
+                          - descriptor:
+                              code: INSPECTION_REQUIREMENTS
+                            value: https://abc.com/inspection_requirement
+                          - descriptor:
+                              code: OBLIGATIONS
+                            value: https://abc.com/obligation
+                          - descriptor:
+                              code: TERMS_OF_USAGE
+                            value: https://abc.com/terms_of_uses
+                      - descriptor:
+                          code: INSURANCE
+                        display: true
+                        list:
+                          - descriptor:
+                              code: EQUIPMENT_INSURANCE
+                            value: https://abc.com/insurance
                 billing:
                   name: ONDC buyer
                   address: >-
@@ -4376,7 +4426,7 @@ x-flows:
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: &ref_19
+        example: &ref_20
           value:
             context:
               domain: ONDC:SRV15
@@ -4579,7 +4629,7 @@ x-flows:
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: &ref_20
+        example: &ref_21
           value:
             context:
               domain: ONDC:SRV15
@@ -4633,14 +4683,30 @@ x-flows:
                               code: TERMS_AND_CONDITION
                             value: https://abc.com/tandc
                           - descriptor:
-                              code: EQUIPMENT_LICENCE
-                            value: https://abc.com/equi_lacence
+                              code: LEASE_POLICY
+                            value: https://abc.com/lease_policy
                           - descriptor:
-                              code: OPERATOR_LICENCE
-                            value: https://abc.com/operator_lacence
+                              code: AGREEMENT_POLICY
+                            value: https://abc.com/agreement_policy
                           - descriptor:
-                              code: DOCUMENTS_VERIFICATION_STATE
-                            value: SUCCESS
+                              code: ID_VERIFICATION_POLICY
+                            value: https://abc.com/id_policy
+                          - descriptor:
+                              code: INSPECTION_REQUIREMENTS
+                            value: https://abc.com/inspection_requirement
+                          - descriptor:
+                              code: OBLIGATIONS
+                            value: https://abc.com/obligation
+                          - descriptor:
+                              code: TERMS_OF_USAGE
+                            value: https://abc.com/terms_of_uses
+                      - descriptor:
+                          code: INSURANCE
+                        display: true
+                        list:
+                          - descriptor:
+                              code: EQUIPMENT_INSURANCE
+                            value: https://abc.com/insurance
                 billing:
                   name: ONDC buyer
                   address: >-
@@ -4849,7 +4915,7 @@ x-flows:
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: &ref_21
+        example: &ref_22
           value:
             context:
               domain: ONDC:SRV15
@@ -4874,7 +4940,7 @@ x-flows:
         api: on_status (In Transit)
         description: Seller app sends order status update when equipment is on the way
         reference: if any
-        example: &ref_22
+        example: &ref_23
           value:
             context:
               domain: ONDC:SRV15
@@ -5105,7 +5171,7 @@ x-flows:
           Seller app sends order status update when service provider has reached
           the buyer location with equipment
         reference: if any
-        example: &ref_23
+        example: &ref_24
           value:
             context:
               domain: ONDC:SRV15
@@ -5336,7 +5402,7 @@ x-flows:
           Seller app sends order status update when service provider has
           completed
         reference: if any
-        example: &ref_24
+        example: &ref_25
           value:
             context:
               domain: ONDC:SRV15
@@ -5568,7 +5634,7 @@ x-flows:
           negative aspects. Buyer app shares the same with the seller app
           following the rating framework
         reference: if any
-        example: &ref_25
+        example: &ref_26
           value:
             context:
               domain: ONDC:SRV15
@@ -5637,22 +5703,22 @@ x-flows:
           Search intent sent by the buyer based on the particular agri equipment
           required - e.g. Irrigation Equipment
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Buyer selects the required agri equipment
         api: select
         description: Buyer selects the required agri equipment + suitable fulfillment type
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
         description: Seller confirms the equipment item and returns the quote for equipment
         reference: if any
-        example: *ref_16
+        example: *ref_17
   - summary: >-
       Agriculture Equipment Hiring (Availability changes during the transaction
       journey)
@@ -5751,66 +5817,66 @@ x-flows:
           Search intent sent by the buyer based on the particular agri equipment
           required - e.g. Irrigation Equipment
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Buyer selects the required agri equipment
         api: select
         description: Buyer selects the required agri equipment + suitable fulfillment type
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
         description: Seller confirms the equipment item and returns the quote for equipment
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Buyer initialises the order for equipment
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_19
+        example: *ref_20
       - summary: Seller accepts the order for equipment
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_21
+        example: *ref_22
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: Seller app sends order status update when equipment is on the way
         reference: if any
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location with equipment
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends the order status (Completed)
         api: on_status (Completed)
         description: >-
           Seller app sends order status update when service provider has
           completed
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Buyer app shares the ratings to seller app
         api: rating
         description: >-
@@ -5818,7 +5884,7 @@ x-flows:
           negative aspects. Buyer app shares the same with the seller app
           following the rating framework
         reference: if any
-        example: *ref_25
+        example: *ref_26
   - summary: >-
       Agriculture Equipment Hiring (Requisite documents not available during
       equipment delivery/ pickup)
@@ -5908,43 +5974,43 @@ x-flows:
           Search intent sent by the buyer based on the particular agri equipment
           required - e.g. Irrigation Equipment
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Buyer selects the required agri equipment
         api: select
         description: Buyer selects the required agri equipment + suitable fulfillment type
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
         description: Seller confirms the equipment item and returns the quote for equipment
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Buyer initialises the order for equipment
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_19
+        example: *ref_20
       - summary: Seller accepts the order for equipment
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: >-
           Seller cancel the order when finds some discrepancies with the
           documents presented
@@ -6173,7 +6239,7 @@ x-flows:
           Seller app shares discrepancies with the documents presented with
           cancellation charges
         reference: if any
-        example: &ref_26
+        example: &ref_27
           value:
             context:
               domain: ONDC:SRV15
@@ -6462,7 +6528,7 @@ x-flows:
           Buyer app sends the acknowledgement of payment for raised cancellation
           charge
         reference: if any
-        example: &ref_27
+        example: &ref_28
           value:
             context:
               domain: ONDC:SRV15
@@ -6846,78 +6912,78 @@ x-flows:
           Search intent sent by the buyer based on the particular agri equipment
           required - e.g. Irrigation Equipment
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Buyer selects the required agri equipment
         api: select
         description: Buyer selects the required agri equipment + suitable fulfillment type
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
         description: Seller confirms the equipment item and returns the quote for equipment
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Buyer initialises the order for equipment
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_19
+        example: *ref_20
       - summary: Seller accepts the order for equipment
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_21
+        example: *ref_22
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: Seller app sends order status update when equipment is on the way
         reference: if any
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location with equipment
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends the order status (Completed)
         api: on_status (Completed)
         description: >-
           Seller app sends order status update when service provider has
           completed
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app shares state of the equipment for discrepancies
         api: on_update
         description: Seller app shares state of the equipment for discrepancies
         reference: if any
-        example: *ref_26
+        example: *ref_27
       - summary: Buyer app sends the acknowledgement of payment
         api: update
         description: >-
           Buyer app sends the acknowledgement of payment for raised
           discrepancies into the equipment
         reference: if any
-        example: *ref_27
+        example: *ref_28
       - summary: Buyer app shares the ratings to seller app
         api: rating
         description: >-
@@ -6925,7 +6991,7 @@ x-flows:
           negative aspects. Buyer app shares the same with the seller app
           following the rating framework
         reference: if any
-        example: *ref_25
+        example: *ref_26
   - summary: Agriculture Equipment Hiring (Buyer raising complaints)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -7022,66 +7088,66 @@ x-flows:
           Search intent sent by the buyer based on the particular agri equipment
           required - e.g. Irrigation Equipment
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Buyer selects the required agri equipment
         api: select
         description: Buyer selects the required agri equipment + suitable fulfillment type
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
         description: Seller confirms the equipment item and returns the quote for equipment
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Buyer initialises the order for equipment
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_19
+        example: *ref_20
       - summary: Seller accepts the order for equipment
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_21
+        example: *ref_22
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: Seller app sends order status update when equipment is on the way
         reference: if any
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location with equipment
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends the order status (Completed)
         api: on_status (Completed)
         description: >-
           Seller app sends order status update when service provider has
           completed
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Buyer app shares the ratings to seller app
         api: rating
         description: >-
@@ -7089,7 +7155,7 @@ x-flows:
           negative aspects. Buyer app shares the same with the seller app
           following the rating framework
         reference: if any
-        example: *ref_25
+        example: *ref_26
   - summary: >-
       Agriculture Equipment Hiring (Violation of Terms and conditions by the
       Buyer)
@@ -7188,78 +7254,78 @@ x-flows:
           Search intent sent by the buyer based on the particular agri equipment
           required - e.g. Irrigation Equipment
         reference: if any
-        example: *ref_13
+        example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Buyer selects the required agri equipment
         api: select
         description: Buyer selects the required agri equipment + suitable fulfillment type
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
         description: Seller confirms the equipment item and returns the quote for equipment
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Buyer initialises the order for equipment
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_19
+        example: *ref_20
       - summary: Seller accepts the order for equipment
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_21
+        example: *ref_22
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: Seller app sends order status update when equipment is on the way
         reference: if any
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location with equipment
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends the order status (Completed)
         api: on_status (Completed)
         description: >-
           Seller app sends order status update when service provider has
           completed
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app shares state of the equipment for discrepancies
         api: on_update
         description: Seller app shares state of the equipment for discrepancies
         reference: if any
-        example: *ref_26
+        example: *ref_27
       - summary: Buyer app sends the acknowledgement of payment
         api: update
         description: >-
           Buyer app sends the acknowledgement of payment for raised
           discrepancies into the equipment
         reference: if any
-        example: *ref_27
+        example: *ref_28
       - summary: Buyer app shares the ratings to seller app
         api: rating
         description: >-
@@ -7267,7 +7333,7 @@ x-flows:
           negative aspects. Buyer app shares the same with the seller app
           following the rating framework
         reference: if any
-        example: *ref_25
+        example: *ref_26
 x-examples:
   Services - Equipment Hiring:
     summary: Agriculture Equipment Hiring
@@ -7277,7 +7343,7 @@ x-examples:
       order processing flow, i.e. Discovery of available equipments and service
       providers based on serviceability, order, fulfillment and
       post-fulfillment.
-    example_set: &ref_28
+    example_set: &ref_29
       search:
         examples:
           - value:
@@ -9066,11 +9132,30 @@ x-examples:
                                 code: TERMS_AND_CONDITION
                               value: https://abc.com/tandc
                             - descriptor:
-                                code: EQUIPMENT_LICENCE
-                              value: https://abc.com/equi_lacence
+                                code: LEASE_POLICY
+                              value: https://abc.com/lease_policy
                             - descriptor:
-                                code: OPERATOR_LICENCE
-                              value: https://abc.com/operator_lacence
+                                code: AGREEMENT_POLICY
+                              value: https://abc.com/agreement_policy
+                            - descriptor:
+                                code: ID_VERIFICATION_POLICY
+                              value: https://abc.com/id_policy
+                            - descriptor:
+                                code: INSPECTION_REQUIREMENTS
+                              value: https://abc.com/inspection_requirement
+                            - descriptor:
+                                code: OBLIGATIONS
+                              value: https://abc.com/obligation
+                            - descriptor:
+                                code: TERMS_OF_USAGE
+                              value: https://abc.com/terms_of_uses
+                        - descriptor:
+                            code: INSURANCE
+                          display: true
+                          list:
+                            - descriptor:
+                                code: EQUIPMENT_INSURANCE
+                              value: https://abc.com/insurance
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -9282,11 +9367,30 @@ x-examples:
                                 code: TERMS_AND_CONDITION
                               value: https://abc.com/tandc
                             - descriptor:
-                                code: EQUIPMENT_LICENCE
-                              value: https://abc.com/equi_lacence
+                                code: LEASE_POLICY
+                              value: https://abc.com/lease_policy
                             - descriptor:
-                                code: OPERATOR_LICENCE
-                              value: https://abc.com/operator_lacence
+                                code: AGREEMENT_POLICY
+                              value: https://abc.com/agreement_policy
+                            - descriptor:
+                                code: ID_VERIFICATION_POLICY
+                              value: https://abc.com/id_policy
+                            - descriptor:
+                                code: INSPECTION_REQUIREMENTS
+                              value: https://abc.com/inspection_requirement
+                            - descriptor:
+                                code: OBLIGATIONS
+                              value: https://abc.com/obligation
+                            - descriptor:
+                                code: TERMS_OF_USAGE
+                              value: https://abc.com/terms_of_uses
+                        - descriptor:
+                            code: INSURANCE
+                          display: true
+                          list:
+                            - descriptor:
+                                code: EQUIPMENT_INSURANCE
+                              value: https://abc.com/insurance
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -9519,14 +9623,30 @@ x-examples:
                                 code: TERMS_AND_CONDITION
                               value: https://abc.com/tandc
                             - descriptor:
-                                code: EQUIPMENT_LICENCE
-                              value: https://abc.com/equi_lacence
+                                code: LEASE_POLICY
+                              value: https://abc.com/lease_policy
                             - descriptor:
-                                code: OPERATOR_LICENCE
-                              value: https://abc.com/operator_lacence
+                                code: AGREEMENT_POLICY
+                              value: https://abc.com/agreement_policy
                             - descriptor:
-                                code: DOCUMENTS_VERIFICATION_STATE
-                              value: SUCCESS
+                                code: ID_VERIFICATION_POLICY
+                              value: https://abc.com/id_policy
+                            - descriptor:
+                                code: INSPECTION_REQUIREMENTS
+                              value: https://abc.com/inspection_requirement
+                            - descriptor:
+                                code: OBLIGATIONS
+                              value: https://abc.com/obligation
+                            - descriptor:
+                                code: TERMS_OF_USAGE
+                              value: https://abc.com/terms_of_uses
+                        - descriptor:
+                            code: INSURANCE
+                          display: true
+                          list:
+                            - descriptor:
+                                code: EQUIPMENT_INSURANCE
+                              value: https://abc.com/insurance
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -11152,7 +11272,7 @@ x-examples:
     description: >-
       Buyer creates an intent for booking an equipment to hire but Seller
       responds with no equipments available for the requested duration
-    example_set: *ref_28
+    example_set: *ref_29
   Services - Equipment Hiring (Availability changes during the transaction journey):
     summary: >-
       Agriculture Equipment Hiring (Availability changes during the transaction
@@ -11163,7 +11283,7 @@ x-examples:
       initiation of the booking by mentioning that the requested equipment is no
       longer available Buyer goes back to the listing page and looks for other
       available equipments
-    example_set: *ref_28
+    example_set: *ref_29
   Services - Equipment Hiring (Requisite documents not available during equipment delivery/ pickup):
     summary: >-
       Agriculture Equipment Hiring (Requisite documents not available during
@@ -11177,7 +11297,7 @@ x-examples:
       then seller updates the status and same is communicated to the buyer with
       corresponding cancellation charges as per the cancellation policy and
       refund, if any, takes place accordingly
-    example_set: *ref_28
+    example_set: *ref_29
   Services - Equipment Hiring (Change in charges because of inspection on journey completion):
     summary: >-
       Agriculture Equipment Hiring (Change in charges because of inspection on
@@ -11186,20 +11306,20 @@ x-examples:
       At the time of journey completion, the seller inspects the equipment and
       finds discrepancies in the state of the equipment and makes an update of
       the order object with respective to the discrepancies 
-    example_set: *ref_28
+    example_set: *ref_29
   Services - Equipment Hiring (Buyer raising complaints):
     summary: Agriculture Equipment Hiring (Buyer raising complaints)
     description: >-
       During the journey if the buyer faces any issues, the buyer may raise a
       complaint on the buyer app and the buyer app tries to analyse the
       complaints
-    example_set: *ref_28
+    example_set: *ref_29
   Services - Equipment Hiring (Violation of Terms and conditions by the Buyer):
     summary: >-
       Agriculture Equipment Hiring (Violation of Terms and conditions by the
       Buyer)
     description: Like Equipment not used for stated usage or Not returned
-    example_set: *ref_28
+    example_set: *ref_29
 x-attributes:
   Equipment Hiring Services:
     attribute_set:
@@ -11427,7 +11547,7 @@ x-attributes:
                 item_ids:
                   description: item ids on which this offer is applicable
                   required: optional
-                  usage: '[PI2]'
+                  usage: '[I2]'
                   reference: if any
                 time:
                   range:
@@ -11453,11 +11573,6 @@ x-attributes:
                   description: Item id
                   required: required
                   usage: I1
-                  reference: if any
-                parent_item_id:
-                  description: Parent item id
-                  required: optional
-                  usage: PI1
                   reference: if any
                 descriptor:
                   name:
@@ -11502,33 +11617,6 @@ x-attributes:
                       required: required
                       usage: INR
                       reference: if any
-                    refundable_security:
-                      value:
-                        description: refundable price of the service
-                        required: required
-                        usage: '500'
-                        reference: if any
-                      currency:
-                        description: currency of the refundable price value
-                        required: required
-                        usage: INR
-                        reference: if any
-                    surcharges:
-                      value:
-                        description: extra price of the service if hired duration pass
-                        required: required
-                        usage: '500'
-                        reference: if any
-                      currency:
-                        description: currency of the price value if hired duration pass
-                        required: required
-                        usage: INR
-                        reference: if any
-                      duration:
-                        description: time duration
-                        required: required
-                        usage: P1D
-                        reference: if any
                 category_ids:
                   description: >-
                     category id of the service provided by the service provider
@@ -11541,7 +11629,7 @@ x-attributes:
                     fulfillment id of the service provided by the service
                     provider
                   required: required
-                  usage: '1'
+                  usage: F1
                   reference: if any
                 location_ids:
                   description: location ids of the service provider
@@ -11599,6 +11687,22 @@ x-attributes:
                       required: required
                       usage: '2022-11-20T00:00:00.000Z'
                       reference: if any
+                  schedule:
+                    frequency:
+                      description: service slot frequency
+                      required: required
+                      usage: PT1H
+                      reference: if any
+                    holidays:
+                      description: days on which service provide is not available
+                      required: required
+                      usage: '[2023-11-13, 2023-11-15]'
+                      reference: if any
+                    times:
+                      description: time slots in which service provide is available
+                      required: required
+                      usage: '[2022-11-20T00:00:00.000Z]'
+                      reference: if any
                 cancellation_terms:
                   fulfillment_state:
                     descriptor:
@@ -11617,22 +11721,6 @@ x-attributes:
                       description: availability end date of the service provider
                       required: required
                       usage: '2022-11-20T00:00:00.000Z'
-                      reference: if any
-                  schedule:
-                    frequency:
-                      description: service slot frequency
-                      required: required
-                      usage: PT1H
-                      reference: if any
-                    holidays:
-                      description: days on which service provide is not available
-                      required: required
-                      usage: '[2023-11-13, 2023-11-15]'
-                      reference: if any
-                    times:
-                      description: time slots in which service provide is available
-                      required: required
-                      usage: '[2022-11-20T00:00:00.000Z]'
                       reference: if any
       select:
         parent: true
@@ -11714,11 +11802,6 @@ x-attributes:
                       description: start time of the time slot chosen for the service
                       required: required
                       usage: '2023-11-16T09:30:00Z'
-                      reference: if any
-                    end:
-                      description: end time of the time slot chosen for the service
-                      required: required
-                      usage: '2023-11-16T10:30:00Z'
                       reference: if any
                 location:
                   gps:
@@ -12051,11 +12134,6 @@ x-attributes:
                 required: required
                 usage: I1
                 reference: if any
-              parent_item_id:
-                description: parent item id if any
-                required: optional
-                usage: ''
-                reference: if any
               fulfillment_ids:
                 description: fulfillment ids related to the item
                 required: required
@@ -12242,11 +12320,6 @@ x-attributes:
                 description: item id i.e. the id of the service
                 required: required
                 usage: I1
-                reference: if any
-              parent_item_id:
-                description: parent item id if any
-                required: optional
-                usage: ''
                 reference: if any
               fulfillment_ids:
                 description: fulfillment ids related to the item
@@ -12741,30 +12814,6 @@ x-attributes:
                       required: optional
                       usage: BPP
                       reference: if any
-            xinput:
-              parent: true
-              form:
-                parent: true
-                url:
-                  description: checklist status for equipment
-                  required: required
-                  usage: https//abc.com/checklist
-                  reference: if any
-                mimetype:
-                  description: checklist url mimetype for equipment
-                  required: required
-                  usage: text/html
-                  reference: if any
-                submission_id:
-                  description: checklist submission id for equipment
-                  required: required
-                  usage: xxxxxxxx
-                  reference: if any
-                status:
-                  description: checklist status for equipment
-                  required: required
-                  usage: SUCCESS
-                  reference: if any
       update:
         parent: true
         message:
@@ -12824,48 +12873,196 @@ x-attributes:
           parent: true
           order:
             parent: true
+            id:
+              description: Order ID
+              required: mandatory
+              usage: O1
+              reference: if any
+            status:
+              description: Status of the order
+              required: mandatory
+              usage: Pending
+              reference: if any
             provider:
               parent: true
-              locations:
-                description: locations as listed
-                required: mandatory only if in /confirm
-                usage: '-'
+              id:
+                description: Provider ID
+                required: mandatory
+                usage: P1
                 reference: if any
+            items:
+              parent: true
+              id:
+                description: Item ID
+                required: mandatory
+                usage: I1
+                reference: if any
+              quantity:
+                unitized:
+                  measure:
+                    unit:
+                      description: Unit of measure
+                      required: mandatory
+                      usage: hours
+                      reference: if any
+                    value:
+                      description: Value of measure
+                      required: mandatory
+                      usage: '4'
+                      reference: if any
+              fulfillment_ids:
+                description: Fulfillment IDs
+                required: mandatory
+                usage: F1
+                reference: if any
+              payment_ids:
+                description: Payment IDs
+                required: mandatory
+                usage: PY2
+                reference: if any
+            payments:
+              parent: true
+              id:
+                description: Payment ID
+                required: mandatory
+                usage: PY1
+                reference: if any
+              collected_by:
+                description: Collected by
+                required: mandatory
+                usage: BAP
+                reference: if any
+              params:
+                amount:
+                  description: Payment amount
+                  required: mandatory
+                  usage: '7140'
+                  reference: if any
+                currency:
+                  description: Payment currency
+                  required: mandatory
+                  usage: INR
+                  reference: if any
+                bank_account_number:
+                  description: Bank account number
+                  required: mandatory
+                  usage: xxxxxxxx
+                  reference: if any
+                virtual_payment_address:
+                  description: Virtual payment address
+                  required: mandatory
+                  usage: xxx@xxxx
+                  reference: if any
+              status:
+                description: Payment status
+                required: mandatory
+                usage: PAID
+                reference: if any
+              type:
+                description: Payment type
+                required: mandatory
+                usage: PRE-FULFILLMENT
+                reference: if any
+              tags:
+                descriptor:
+                  code:
+                    description: Tag descriptor code
+                    required: mandatory
+                    usage: Settlement_Details
+                    reference: if any
+                list:
+                  descriptor:
+                    code:
+                      description: List descriptor code
+                      required: mandatory
+                      usage: Counterparty
+                      reference: if any
+                    value:
+                      description: List descriptor value
+                      required: mandatory
+                      usage: BPP
+                      reference: if any
             fulfillments:
               parent: true
               fulfillments:
-                description: contains the fulfillment details
-                required: required
-                usage: '-'
-                reference: if any
-              stops:
-                type:
-                  description: Type of the fulfillment; (start or end)
+                id:
+                  description: Fulfillment ID
                   required: mandatory
-                  usage: start
+                  usage: F1
                   reference: if any
-                instructions:
-                  name:
-                    description: name of the instruction
-                    required: optional
-                    usage: special instructions
-                    reference: if any
-                  short_desc:
-                    description: description of the instruction
-                    required: optional
-                    usage: customer special instructions
-                    reference: if any
-              person:
-                name:
-                  description: name of the person providing the service
-                  required: optional
-                  usage: Ramu
+                state:
+                  descriptor:
+                    code:
+                      description: State descriptor code
+                      required: mandatory
+                      usage: Completed
+                      reference: if any
+                type:
+                  description: Fulfillment type
+                  required: mandatory
+                  usage: Buyer-Fulfilled
                   reference: if any
-              contact:
-                phone:
-                  description: phone number of the person providing the service
-                  required: optional
-                  usage: '9886098860'
+                tracking:
+                  description: Tracking enabled
+                  required: mandatory
+                  usage: false
+                  reference: if any
+                stops:
+                  type:
+                    description: Type of the fulfillment stop
+                    required: mandatory
+                    usage: start
+                    reference: if any
+                  location:
+                    id:
+                      description: Location ID
+                      required: mandatory
+                      usage: L1
+                      reference: if any
+                    descriptor:
+                      name:
+                        description: Location name
+                        required: mandatory
+                        usage: Equipment Provider store
+                        reference: if any
+                    gps:
+                      description: GPS coordinates
+                      required: mandatory
+                      usage: 12.956399,77.636803
+                      reference: if any
+                  time:
+                    range:
+                      start:
+                        description: Start time
+                        required: mandatory
+                        usage: '2024-06-09T22:00:00.000Z'
+                        reference: if any
+                      end:
+                        description: End time
+                        required: mandatory
+                        usage: '2024-06-10T02:00:00.000Z'
+                        reference: if any
+                  contact:
+                    phone:
+                      description: Contact phone number
+                      required: optional
+                      usage: '9886098860'
+                      reference: if any
+                    email:
+                      description: Contact email
+                      required: optional
+                      usage: nobody@nomail.com
+                      reference: if any
+                  person:
+                    name:
+                      description: Contact person name
+                      required: optional
+                      usage: Kishan
+                      reference: if any
+                rateable:
+                  description: Is rateable
+                  required: mandatory
+                  usage: true
                   reference: if any
       on_status:
         parent: true

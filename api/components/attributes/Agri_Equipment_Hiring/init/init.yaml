@@ -22,11 +22,6 @@ message:
         required: required
         usage: "I1"
         reference: if any
-      parent_item_id:
-        description: parent item id if any
-        required: optional
-        usage: ""
-        reference: if any
       fulfillment_ids:
         description: fulfillment ids related to the item
         required: required

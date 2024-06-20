@@ -75,15 +75,53 @@
                 },
                 {
                   "descriptor": {
-                    "code": "EQUIPMENT_LICENCE"
+                    "code": "LEASE_POLICY"
                   },
-                  "value": "https://abc.com/equi_lacence"
+                  "value": "https://abc.com/lease_policy"
                 },
                 {
                   "descriptor": {
-                    "code": "OPERATOR_LICENCE"
+                    "code": "AGREEMENT_POLICY"
                   },
-                  "value": "https://abc.com/operator_lacence"
+                  "value": "https://abc.com/agreement_policy"
+                },
+                {
+                  "descriptor": {
+                    "code": "ID_VERIFICATION_POLICY"
+                  },
+                  "value": "https://abc.com/id_policy"
+                },
+                {
+                  "descriptor": {
+                    "code": "INSPECTION_REQUIREMENTS"
+                  },
+                  "value": "https://abc.com/inspection_requirement"
+                },
+                {
+                  "descriptor": {
+                    "code": "OBLIGATIONS"
+                  },
+                  "value": "https://abc.com/obligation"
+                },
+                {
+                  "descriptor": {
+                    "code": "TERMS_OF_USAGE"
+                  },
+                  "value": "https://abc.com/terms_of_uses"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "INSURANCE"
+              },
+              "display": true,
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "EQUIPMENT_INSURANCE"
+                  },
+                  "value": "https://abc.com/insurance"
                 }
               ]
             }

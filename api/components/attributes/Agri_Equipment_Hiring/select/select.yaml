@@ -74,11 +74,6 @@ message:
               required: required
               usage: "2023-11-16T09:30:00Z"
               reference: if any
-            end:
-              description: end time of the time slot chosen for the service
-              required: required
-              usage: "2023-11-16T10:30:00Z"
-              reference: if any
         location:
           gps:
             description: GPS coordinates of the location

@@ -76,8 +76,18 @@ SERVICE_INFORMATION:
   - code: PICKUP_TAT
     description: TAT for picking up the sample, only required if Seller-Fulfilled
     reference: <PR/Issue/Discussion Links md format text>
-  - code: COMPLETION_TAT
-    description: TAT for completing the whole test including pickup TAT, if applicable
+ADDITIONAL_CHARGES:
+  - code: CURRENCY_UNIT
+    description: Currency of the aditional charges that may apply on item
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: REFUNDABLE_SECURITY
+    description: Refundable security amount that may applicable on item
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SURCHARGES
+    description: Applicable charges if buyer use the equipment for extra time
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SURCHARGES_FREQUENCY
+    description: Frequency how the surcharges going to apply on item like hourly, daily or weekly
     reference: <PR/Issue/Discussion Links md format text>
 RESCHEDULE_TERMS:
   - code: FULFILLMENT_STATE
@@ -92,9 +102,31 @@ RESCHEDULE_TERMS:
   - code: RESCHEDULE_WITHIN
     description: Time within which it should be rescheduled after the fulfilment has been changed
     reference: <PR/Issue/Discussion Links md format text>
-ATTRIBUTE:
-  - code: TYPE
-    description: Type of the item, mandatory only when the item is a customization
+INSURANCE:
+  - code: EQUIPMENT_INSURANCE
+    description: Insurance for equipment uses if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+CHECKLIST_DOCUMENTS:
+  - code: TERMS_AND_CONDITION
+    description: Terms and condition for equipment uses if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: LEASE_POLICY
+    description: Lease policy for equipment hiring if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: AGREEMENT_POLICY
+    description: Agreement policy for equipment hiring if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: ID_VERIFICATION_POLICY
+    description: Id verification policy for equipment hiring if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: INSPECTION_REQUIREMENTS
+    description: Inspection requirements for equipment hiring if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: OBLIGATIONS
+    description: Obligations for equipment hiring if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: TERMS_OF_USAGE
+    description: Terms of uses for equipment hiring if applicable
     reference: <PR/Issue/Discussion Links md format text>
 EQUIPMENT_ATTRIBUTES:
   - code: TYPE
@@ -120,6 +152,9 @@ EQUIPMENT_ATTRIBUTES:
     reference: <PR/Issue/Discussion Links md format text>
   - code: BRAND
     description: Equipment brand name if applicable 
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MISCELLANEOUS_INFO
+    description: Equipment miscellaneous value like airbag, bluetooth if applicable 
     reference: <PR/Issue/Discussion Links md format text>
 SETTLEMENT_DETAILS:
   - code: COUNTERPARTY

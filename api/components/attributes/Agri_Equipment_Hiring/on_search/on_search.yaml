@@ -100,7 +100,7 @@ message:
         item_ids:
           description: item ids on which this offer is applicable
           required: optional
-          usage: "[PI2]"
+          usage: "[I2]"
           reference: if any
         time:
           range:
@@ -126,11 +126,6 @@ message:
           description: Item id
           required: required
           usage: "I1"
-          reference: if any
-        parent_item_id:
-          description: Parent item id
-          required: optional
-          usage: "PI1"
           reference: if any
         descriptor:
           name:
@@ -169,33 +164,6 @@ message:
               required: required
               usage: "INR"
               reference: if any
-            refundable_security:
-              value:
-                description: refundable price of the service
-                required: required
-                usage: "500"
-                reference: if any
-              currency:
-                description: currency of the refundable price value
-                required: required
-                usage: "INR"
-                reference: if any
-            surcharges:
-              value:
-                description: extra price of the service if hired duration pass
-                required: required
-                usage: "500"
-                reference: if any
-              currency:
-                description: currency of the price value if hired duration pass
-                required: required
-                usage: "INR"
-                reference: if any
-              duration:
-                description: time duration
-                required: required
-                usage: "P1D"
-                reference: if any
         category_ids:
           description: category id of the service provided by the service provider which was sent in /search call
           required: required
@@ -204,7 +172,7 @@ message:
         fulfillment_ids:
           description: fulfillment id of the service provided by the service provider
           required: required
-          usage: "1"
+          usage: "F1"
           reference: if any
         location_ids:
           description: location ids of the service provider
@@ -256,6 +224,22 @@ message:
               required: required
               usage: "2022-11-20T00:00:00.000Z"
               reference: if any
+          schedule:
+            frequency:
+              description: service slot frequency
+              required: required
+              usage: "PT1H"
+              reference: if any
+            holidays:
+              description: days on which service provide is not available
+              required: required
+              usage: "[2023-11-13, 2023-11-15]"
+              reference: if any
+            times:
+              description: time slots in which service provide is available
+              required: required
+              usage: "[2022-11-20T00:00:00.000Z]"
+              reference: if any
         cancellation_terms:
           fulfillment_state:
             descriptor:
@@ -275,20 +259,3 @@ message:
               required: required
               usage: "2022-11-20T00:00:00.000Z"
               reference: if any
-          schedule:
-            frequency:
-              description: service slot frequency
-              required: required
-              usage: "PT1H"
-              reference: if any
-            holidays:
-              description: days on which service provide is not available
-              required: required
-              usage: "[2023-11-13, 2023-11-15]"
-              reference: if any
-            times:
-              description: time slots in which service provide is available
-              required: required
-              usage: "[2022-11-20T00:00:00.000Z]"
-              reference: if any
-        

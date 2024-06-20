@@ -1,7 +1,13 @@
 breakup:
   title:
-    - code: Sofa Cleaning
-      description: Sofa Cleaning
+    - code: Equipment
+      description: Equipment
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Refundable Security
+      description: Refundable Security
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Surcharges
+      description: Surcharges
       reference: <PR/Issue/Discussion Links md format text>
     - code: tax
       description: tax
@@ -9,15 +15,13 @@ breakup:
     - code: discount
       description: discount
       reference: <PR/Issue/Discussion Links md format text>
-    - code: convenience_fee
-      description: convenience_fee
+    - code: Convenience Fee
+      description: Convenience Fee
       reference: <PR/Issue/Discussion Links md format text>
-    - code: Soil Testing
-      description: Soil Testing
+    - code: Pickup Charges
+      description: Pickup Charges
       reference: <PR/Issue/Discussion Links md format text>
-    - code: Water Testing
-      description: Water Testing
+    - code: Delivery Fee
+      description: Delivery Fee
       reference: <PR/Issue/Discussion Links md format text>
-    - code: Chemical Testing
-      description: Chemical Testing
-      reference: <PR/Issue/Discussion Links md format text>
+
