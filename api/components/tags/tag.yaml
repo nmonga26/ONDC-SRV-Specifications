@@ -1,6 +1,6 @@
 title:
   - code: type
-    description: Depending upon the context, it can take the value of the discount, tax, misc or item type value.
+    description: Depending upon the context, it can take the value of the discount, tax, misc, refundable security or item type value.
     reference: <PR/Issue/Discussion Links md format text>
 Settlement_Details:
   - code: Counterparty
@@ -34,19 +34,19 @@ schedule:
     reference: <PR/Issue/Discussion Links md format text>
 serviceability:
   - code: location
-    description: Description of the Tag
+    description: Location id
     reference: <PR/Issue/Discussion Links md format text>
   - code: category
-    description: Description of the Tag
+    description: Category id for equipment
     reference: <PR/Issue/Discussion Links md format text>
   - code: type
-    description: Description of the Tag
+    description: Serviceability type id (10 - hyperlocal, 11 - intercity, 12 - pan india, 13 - polygon)
     reference: <PR/Issue/Discussion Links md format text>
   - code: val
-    description: Description of the Tag
+    description: Serviceability type values like radius, pincode or poligon co-ordinates
     reference: <PR/Issue/Discussion Links md format text>
   - code: unit
-    description: Description of the Tag
+    description: Unit of serviceability type values like KM, geojson
     reference: <PR/Issue/Discussion Links md format text>
 attributes:
   - code: color
@@ -58,10 +58,6 @@ BAP_TERMS:
     reference: <PR/Issue/Discussion Links md format text>
   - code: FINDER_FEE_AMOUNT
     description: Amount for the finder fee
-    reference: <PR/Issue/Discussion Links md format text>
-BAP_DETAILS:
-  - code: BUYER_TYPE
-    description: Type of buyer - FARMER, TRADER or FPO
     reference: <PR/Issue/Discussion Links md format text>
 SELECTION:
   - code: SEQ
@@ -80,8 +76,18 @@ SERVICE_INFORMATION:
   - code: PICKUP_TAT
     description: TAT for picking up the sample, only required if Seller-Fulfilled
     reference: <PR/Issue/Discussion Links md format text>
-  - code: COMPLETION_TAT
-    description: TAT for completing the whole test including pickup TAT, if applicable
+ADDITIONAL_CHARGES:
+  - code: CURRENCY_UNIT
+    description: Currency of the aditional charges that may apply on item
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: REFUNDABLE_SECURITY
+    description: Refundable security amount that may applicable on item
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SURCHARGES
+    description: Applicable charges if buyer use the equipment for extra time
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SURCHARGES_FREQUENCY
+    description: Frequency how the surcharges going to apply on item like hourly, daily or weekly
     reference: <PR/Issue/Discussion Links md format text>
 RESCHEDULE_TERMS:
   - code: FULFILLMENT_STATE
@@ -96,9 +102,59 @@ RESCHEDULE_TERMS:
   - code: RESCHEDULE_WITHIN
     description: Time within which it should be rescheduled after the fulfilment has been changed
     reference: <PR/Issue/Discussion Links md format text>
-ATTRIBUTE:
+INSURANCE:
+  - code: EQUIPMENT_INSURANCE
+    description: Insurance for equipment uses if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+CHECKLIST_DOCUMENTS:
+  - code: TERMS_AND_CONDITION
+    description: Terms and condition for equipment uses if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: LEASE_POLICY
+    description: Lease policy for equipment hiring if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: AGREEMENT_POLICY
+    description: Agreement policy for equipment hiring if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: ID_VERIFICATION_POLICY
+    description: Id verification policy for equipment hiring if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: INSPECTION_REQUIREMENTS
+    description: Inspection requirements for equipment hiring if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: OBLIGATIONS
+    description: Obligations for equipment hiring if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: TERMS_OF_USAGE
+    description: Terms of uses for equipment hiring if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+EQUIPMENT_ATTRIBUTES:
   - code: TYPE
     description: Type of the item, mandatory only when the item is a customization
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CONDITION
+    description: Equipment condition (it can be rating like 5) if applicable 
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: OWNERSHIP
+    description: Ownership status for the equipment (1st owner, 2nd owner) if applicable 
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: RUNNING_HOURS
+    description: Running hours status for the equipment (Ex - 500) if applicable 
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: RUNNING_HOURS
+    description: Running hours status for the equipment (500 hours) if applicable 
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MODEL_YEAR
+    description: Equipment model year if applicable 
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MODEL
+    description: Equipment model if applicable 
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: BRAND
+    description: Equipment brand name if applicable 
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MISCELLANEOUS_INFO
+    description: Equipment miscellaneous value like airbag, bluetooth if applicable 
     reference: <PR/Issue/Discussion Links md format text>
 SETTLEMENT_DETAILS:
   - code: COUNTERPARTY
@@ -119,19 +175,4 @@ SETTLEMENT_DETAILS:
   - code: UPI_ADDRESS
     description: UPI address where the settlement needs to be done
     reference: <PR/Issue/Discussion Links md format text>
-REPORT_REQUIREMENT:
-  - code: REPORT_DEADLINE
-    description: The deadline within which report is required
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: CROP
-    description: The crop for which the service is required, optional
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: DATE_OF_SOWING
-    description: The sowing date of the crop, optional
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: FARM_STATUS
-    description: Status of the farm - Eg. RAIN_FED, optional
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: ACRAGE
-    description: Acrage of the farm, optional
-    reference: <PR/Issue/Discussion Links md format text>
+

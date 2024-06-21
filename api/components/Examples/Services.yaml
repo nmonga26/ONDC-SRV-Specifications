@@ -1,7 +1,46 @@
-Services - Agri Service:
-  summary: Agriculture Services
+Services - Equipment Hiring:
+  summary: Agriculture Equipment Hiring
   description: >-
-    This elaborates the model implementations for booking agriculture services over the network.
-    The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+    This elaborates the model implementations for booking agriculture equipment over the network.
+    The booking majorly happens in four phases of order processing flow, i.e. Discovery of available equipments and service providers based on serviceability, order, fulfillment and post-fulfillment.
   example_set:
-    $ref: "./Agriculture_services_yaml/index.yaml"
+    $ref: "./Agri_Equipment_Hiring_yaml/index.yaml"
+Services - Equipment Hiring (No equipments available):
+  summary: Agriculture Equipment Hiring (No equipments available)
+  description: >-
+    Buyer creates an intent for booking an equipment to hire but Seller responds with no equipments available for the requested duration
+  example_set:
+    $ref: "./Agri_Equipment_Hiring_yaml/index.yaml"
+Services - Equipment Hiring (Availability changes during the transaction journey):
+  summary: Agriculture Equipment Hiring (Availability changes during the transaction journey)
+  description: >-
+    Buyer creates an intent for booking an equipment for hire and selects a particular equipment (of a particular provider) and Seller responds to the initiation of the booking by mentioning that the requested equipment is no longer available
+    Buyer goes back to the listing page and looks for other available equipments
+  example_set:
+    $ref: "./Agri_Equipment_Hiring_yaml/index.yaml"
+Services - Equipment Hiring (Requisite documents not available during equipment delivery/ pickup):
+  summary: Agriculture Equipment Hiring (Requisite documents not available during equipment delivery/ pickup)
+  description: >-
+    Buyer creates an intent for booking an equipment for hire and confirmed the order by seller but when confirmed equipment details are shared with the buyer and the buyer initiates the journey, 
+    the seller verifies requisite details of the buyer and finds some discrepancies with the documents presented and the equipment is not handed over to the buyer 
+    then seller updates the status and same is communicated to the buyer with corresponding cancellation charges as per the cancellation policy and refund, if any, takes place accordingly
+  example_set:
+    $ref: "./Agri_Equipment_Hiring_yaml/index.yaml"
+Services - Equipment Hiring (Change in charges because of inspection on journey completion):
+  summary: Agriculture Equipment Hiring (Change in charges because of inspection on journey completion)
+  description: >-
+    At the time of journey completion, the seller inspects the equipment and finds discrepancies in the state of the equipment and makes an update of the order object with respective to the discrepancies 
+  example_set:
+    $ref: "./Agri_Equipment_Hiring_yaml/index.yaml"
+Services - Equipment Hiring (Buyer raising complaints):
+  summary: Agriculture Equipment Hiring (Buyer raising complaints)
+  description: >-
+    During the journey if the buyer faces any issues, the buyer may raise a complaint on the buyer app and the buyer app tries to analyse the complaints
+  example_set:
+    $ref: "./Agri_Equipment_Hiring_yaml/index.yaml"
+Services - Equipment Hiring (Violation of Terms and conditions by the Buyer):
+  summary: Agriculture Equipment Hiring (Violation of Terms and conditions by the Buyer)
+  description: >-
+    Like Equipment not used for stated usage or Not returned
+  example_set:
+    $ref: "./Agri_Equipment_Hiring_yaml/index.yaml"

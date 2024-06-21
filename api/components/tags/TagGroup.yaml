@@ -5,11 +5,6 @@ intent:
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./Tag.yaml#/BAP_TERMS"
-    - code: BUYER_DETAILS
-      description: Details of the buyer
-      reference: <PR/Issue/Discussion Links md format text>
-      list:
-        $ref: "./Tag.yaml#/BAP_DETAILS"
 catalog:
   providers:
     tags:
@@ -25,16 +20,31 @@ catalog:
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./Tag.yaml#/SERVICE_INFORMATION"
+        - code: ADDITIONAL_CHARGES
+          description: Information of the additional charges
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            $ref: "./Tag.yaml#/ADDITIONAL_CHARGES"
         - code: RESCHEDULE_TERMS
           description: Reschedule terms for the item
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./Tag.yaml#/RESCHEDULE_TERMS"
-        - code: ATTRIBUTE
-          description: Attribute of a particular item
+        - code: EQUIPMENT_ATTRIBUTES
+          description: Equipment attribute of a particular item
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/ATTRIBUTE"
+            $ref: "./Tag.yaml#/EQUIPMENT_ATTRIBUTES"
+        - code: CHECKLIST_DOCUMENTS
+          description: Checklist documents that need to verify for equipement hiring
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            $ref: "./Tag.yaml#/CHECKLIST_DOCUMENTS"
+        - code: INSURANCE
+          description: Insurance that need to verify for equipement hiring
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            $ref: "./Tag.yaml#/INSURANCE"
   categories:
     tags:
       - code: SELECTION
@@ -45,11 +55,11 @@ catalog:
 order:
   items:
     tags:
-      - code: REPORT_REQUIREMENT
-        description: Attribute of a particular item
+      - code: EQUIPMENT_ATTRIBUTES
+        description: Attribute of a particular equipment item
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          $ref: "./Tag.yaml#/REPORT_REQUIREMENT"
+          $ref: "./Tag.yaml#/EQUIPMENT_ATTRIBUTES"
   quote:
     breakup:
       tags: &ref2

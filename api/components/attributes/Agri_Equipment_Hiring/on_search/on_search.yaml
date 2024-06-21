@@ -1,0 +1,261 @@
+message:
+  parent: true
+  catalog:
+    parent: true
+    fulfillments:
+      parent: true
+      id:
+        description: fulfillment id
+        required: required
+        usage: "1"
+        reference: if any
+      type:
+        description: fulfillment type of the service, enum - "Seller-Fulfilled, Buyer-Fulfilled"
+        required: required
+        usage: "Selled-Fulfilled"
+        reference: if any
+    payments:
+      parent: true
+      id:
+        description: Payment id for the available payment methods
+        required: required
+        usage: "PY1"
+        reference: if any
+      type:
+        description: Type of payment methods available
+        required: required
+        usage: "PRE-FULFILLMENT"
+        reference: if any
+    descriptor:
+      parent: true
+      name:
+        description: name of service provider, as applicable
+        required: required
+        usage: "ABC store"
+        reference: if any
+      short_desc:
+        description: description of service provider
+        required: required
+        usage: "At Equipment Service Providers"
+        reference: if any
+      long_desc:
+        description: long description of service provider
+        required: optional
+        usage: "At Equipment Service Providers"
+        reference: if any
+      images:
+        description: images of service provider
+        required: optional
+        usage: "[]"
+        reference: if any
+    providers:
+      parent: true
+      id:
+        description: service provider id
+        required: required
+        usage: "P1"
+        reference: if any
+      descriptor:
+        description: details of the service provider
+        required: required
+        usage: "Equipment Provider store"
+        reference: if any
+      rating:
+        description: rating of the service provider
+        required: optional
+        usage: "4.4"
+        reference: if any
+      locations:
+        description: service provider locations
+        required: optional
+        usage: "-"
+        reference: if any
+      creds:
+        description: Any certification details
+        required: optional
+        usage: "-"
+        reference: if any
+      categories:
+        description: All the categories list
+        required: optional
+        usage: "-"
+        reference: if any
+      offers:
+        id:
+          description: offer id
+          required: optional
+          usage: "[{}]"
+          reference: if any
+        descriptor:
+          code:
+            description: code of the offer being provided by the service provider
+            required: optional
+            usage: "FREEBIE"
+            reference: if any
+          short_desc:
+            description: description of the offer being provided by the service provider
+            required: optional
+            usage: "Cushion Cleaning"
+            reference: if any
+        item_ids:
+          description: item ids on which this offer is applicable
+          required: optional
+          usage: "[I2]"
+          reference: if any
+        time:
+          range:
+            start:
+              description: start date of the period for which offer is available
+              required: optional
+              usage: "2023-11-12T00:00:00.000Z"
+              reference: if any
+            end:
+              description: end date of the offer
+              required: optional
+              usage: "2023-11-16T00:00:00.000Z"
+              reference: if any
+      fulfillments:
+        contact:
+          phone:
+            description: contact number of the service provider
+            required: optional
+            usage: "9886098860"
+            reference: if any
+      items:
+        id:
+          description: Item id
+          required: required
+          usage: "I1"
+          reference: if any
+        descriptor:
+          name:
+            description: name of the equipment provided by the service provider
+            required: required
+            usage: "Tractor"
+            reference: if any
+          short_desc:
+            description: short description of the equipment provided by the service provider
+            required: required
+            usage: "Mahindra YUVRAJ 215 NXT NT Tractor"
+            reference: if any
+          long_desc:
+            description: long description of the equipment provided by the service provider
+            required: required
+            usage: "The Mahindra YUVRAJ 215 NXT NT Tractor is a powerful and efficient tractor"
+            reference: if any
+          images:
+            description: images of the equipment provided by the service provider
+            required: optional
+            usage: "-"
+            reference: if any
+          media:
+            description: video of the equipment provided by the service provider
+            required: optional
+            usage: "-"
+            reference: if any
+          price:
+            value:
+              description: price of the service
+              required: required
+              usage: "500"
+              reference: if any
+            currency:
+              description: currency of the price value
+              required: required
+              usage: "INR"
+              reference: if any
+        category_ids:
+          description: category id of the service provided by the service provider which was sent in /search call
+          required: required
+          usage: "SRV15-1000"
+          reference: if any
+        fulfillment_ids:
+          description: fulfillment id of the service provided by the service provider
+          required: required
+          usage: "F1"
+          reference: if any
+        location_ids:
+          description: location ids of the service provider
+          required: required
+          usage: "L1"
+          reference: if any
+        add_ons:
+          id:
+            description: Add-on item id
+            required: required
+            usage: "A1"
+            reference: if any
+          descriptor:
+            name:
+              description: name of the add-on equipment provided by the service provider
+              required: required
+              usage: "Driver"
+              reference: if any
+            short_desc:
+              description: short description of the equipment provided by the service provider
+              required: required
+              usage: "Driver knows about farming"
+              reference: if any
+            long_desc:
+              description: long description of the equipment provided by the service provider
+              required: required
+              usage: "Driver knows about farming"
+              reference: if any
+            price:
+              value:
+                description: price of the service
+                required: required
+                usage: "500"
+                reference: if any
+              currency:
+                description: currency of the price value
+                required: required
+                usage: "INR"
+                reference: if any
+        time:
+          range:
+            start:
+              description: availability start date of the service provider
+              required: required
+              usage: "2022-11-10T00:00:00.000Z"
+              reference: if any
+            end:
+              description: availability end date of the service provider
+              required: required
+              usage: "2022-11-20T00:00:00.000Z"
+              reference: if any
+          schedule:
+            frequency:
+              description: service slot frequency
+              required: required
+              usage: "PT1H"
+              reference: if any
+            holidays:
+              description: days on which service provide is not available
+              required: required
+              usage: "[2023-11-13, 2023-11-15]"
+              reference: if any
+            times:
+              description: time slots in which service provide is available
+              required: required
+              usage: "[2022-11-20T00:00:00.000Z]"
+              reference: if any
+        cancellation_terms:
+          fulfillment_state:
+            descriptor:
+              code: 
+                description: fulfilment state code for cancellation terms
+                required: required
+                usage: "optional"
+                reference: if any
+          cancellation_fee:
+            percentage:
+              description: value that need to pay in case of cancelation 
+              required: optional
+              usage: "0"
+              reference: if any
+            end:
+              description: availability end date of the service provider
+              required: required
+              usage: "2022-11-20T00:00:00.000Z"
+              reference: if any

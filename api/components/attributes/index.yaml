@@ -1,3 +1,4 @@
-Home Services:
+Equipment Hiring Services:
   attribute_set:
-    $ref: "./Agriculture_Services/index.yaml"
+    $ref: "./Agri_Equipment_Hiring/index.yaml"
+
