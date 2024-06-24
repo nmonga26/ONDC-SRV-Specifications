@@ -1,7 +1,7 @@
 context:
   parent: true
   domain:
-    description: domain code, enums - ONDC:SRV13 ( Home Services - Healthcare Services )
+    description: domain code, enums - ONDC:SRV13 ( Services - Healthcare Services )
     required: mandatory
     usage: "ONDC:SRV13"
     reference: if any

@@ -1,7 +1,10 @@
 fulfillments:
   type:
-    - code: Home-Service
-      description: Home Service
+    - code: Seller-Fulfilled
+      description: When the fulfillment is done by Seller
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Buyer-Fulfilled
+      description: When the fulfillment is done by Buyer
       reference: <PR/Issue/Discussion Links md format text>
   state:
     descriptor:

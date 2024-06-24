@@ -2982,22 +2982,49 @@ x-enum:
               - code: SRV12-1015
                 description: Personal Care Services Combo
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: ARG12-1001
+              - code: SRV13-1001
+                description: Path Labs
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: SRV13-1002
+                description: Imaging
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: SRV13-1003
+                description: Genetic and Genomic Testing
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: SRV13-1004
+                description: Doctor Consultation
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: SRV13-1005
+                description: Physiotheraphy & Consultation
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: SRV13-1006
+                description: Dental
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: SRV13-1007
+                description: Gym
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: SRV13-1008
+                description: Spa
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: SRV14-1001
                 description: Soil Testing Services
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: ARG12-1002
+              - code: SRV14-1002
                 description: Water Testing Services
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: ARG12-1003
+              - code: SRV14-1003
                 description: Chemical Testing Services
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: ARG12-1004
+              - code: SRV14-1004
                 description: Assaying Services
                 reference: <PR/Issue/Discussion Links md format text>
         fulfillments:
           type: &ref_1
-            - code: Home-Service
-              description: Home Service
+            - code: Seller-Fulfilled
+              description: When the fulfillment is done by Seller
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Buyer-Fulfilled
+              description: When the fulfillment is done by Buyer
               reference: <PR/Issue/Discussion Links md format text>
   on_search:
     context:
@@ -4983,11 +5010,6 @@ x-flows:
                             value: '3'
                 created_at: '2024-04-01T22:00:38.000Z'
                 updated_at: '2024-04-01T22:00:38.000Z'
-                xinput:
-                  form:
-                    url: https//abc.com/checklist
-                    mimetype: text/html
-                    submission_id: xxxxxxxx
       - summary: Seller accepts the order for service
         api: on_confirm
         description: >-
@@ -11522,11 +11544,6 @@ x-flows:
                             value: '3'
                 created_at: '2024-04-01T22:00:38.000Z'
                 updated_at: '2024-04-01T22:00:38.000Z'
-                xinput:
-                  form:
-                    url: https//abc.com/checklist
-                    mimetype: text/html
-                    submission_id: xxxxxxxx
       - summary: Seller accepts the order for service
         api: on_confirm
         description: >-
@@ -14035,11 +14052,6 @@ x-examples:
                               value: '3'
                   created_at: '2024-04-01T22:00:38.000Z'
                   updated_at: '2024-04-01T22:00:38.000Z'
-                  xinput:
-                    form:
-                      url: https//abc.com/checklist
-                      mimetype: text/html
-                      submission_id: xxxxxxxx
           - summary: ''
             description: ''
             value:
@@ -14280,11 +14292,6 @@ x-examples:
                               value: '3'
                   created_at: '2024-04-01T22:00:38.000Z'
                   updated_at: '2024-04-01T22:00:38.000Z'
-                  xinput:
-                    form:
-                      url: https//abc.com/checklist
-                      mimetype: text/html
-                      submission_id: xxxxxxxx
       update:
         examples:
           - summary: Buyer requests for the updation of slot schedule
@@ -22128,9 +22135,7 @@ x-attributes:
         context:
           parent: true
           domain:
-            description: >-
-              domain code, enums - ONDC:SRV13 ( Home Services - Healthcare
-              Services )
+            description: domain code, enums - ONDC:SRV13 ( Services - Healthcare Services )
             required: mandatory
             usage: ONDC:SRV13
             reference: if any
