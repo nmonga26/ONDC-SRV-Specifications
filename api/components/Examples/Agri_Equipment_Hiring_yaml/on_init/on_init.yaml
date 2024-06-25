@@ -70,7 +70,13 @@ value:
               display: true
               list:
                 - descriptor:
-                    code: EQUIPMENT_INSURANCE
+                    code: INSURANCE_ID
+                  value: INC001
+                - descriptor:
+                    code: INSURANCE_MIME_TYPE
+                  value: application/pdf
+                - descriptor:
+                    code: INSURANCE_COPY
                   value: https://abc.com/insurance
       billing:
         name: ONDC buyer

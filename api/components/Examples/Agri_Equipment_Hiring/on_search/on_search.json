@@ -283,7 +283,7 @@
                 "unitized": {
                   "measure": {
                     "unit": "hours",
-                    "value": "10"
+                    "value": "1"
                   }
                 },
                 "minimum": {
@@ -534,7 +534,19 @@
                   "list": [
                     {
                       "descriptor": {
-                        "code": "EQUIPMENT_INSURANCE"
+                        "code": "INSURANCE_ID"
+                      },
+                      "value": "INC001"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "INSURANCE_MIME_TYPE"
+                      },
+                      "value": "application/pdf"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "INSURANCE_COPY"
                       },
                       "value": "https://abc.com/insurance"
                     }
