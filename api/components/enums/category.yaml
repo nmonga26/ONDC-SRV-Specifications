@@ -1,397 +1,185 @@
 category_ids:
-  - code: SRV10-1000
-    description: Air Conditioner Cleaning
+  - code: SRV15-1000
+    description: Seed Drill
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1001
-    description: Air conditioner Repair
+  - code: SRV15-1001
+    description: Tractor Operated Zero-Till Seed-Cum-Fertilizer Drill
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1002
-    description: Air conditioner Installation
+  - code: SRV15-1002
+    description: Seed cum fertilizer drill
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1003
-    description: Air conditioner Uninstallation
+  - code: SRV15-1003
+    description: Tractor mounted ridger seeder
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1004
-    description: Other Air conditioning Services
+  - code: SRV15-1004
+    description: Tractor drawn cultivator seeder
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1005
-    description: Air Conditioner Packages
+  - code: SRV15-1005
+    description: Tractor mounted Raised Bed Planter
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1006
-    description: Laptop/Desktop Service
+  - code: SRV15-1006
+    description: Tractor Operated Inclined Plate Planter
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1007
-    description: Laptop/Desktop Inspection
+  - code: SRV15-1007
+    description: Pneumatic Planter
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1008
-    description: Laptop/Desktop Repair
+  - code: SRV15-1008
+    description: Rice Transplanter
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1009
-    description: Laptop/Desktop Upgrade
+  - code: SRV15-1009
+    description: Mat Type Rice Planter
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1010
-    description: Laptop/ Desktop Software Clean-up
+  - code: SRV15-1010
+    description: Rice Cum Daincha Seeder
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1011
-    description: Other Laptop/Desktop Services
+  - code: SRV15-1011
+    description: Direct Paddy Seeder
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1012
-    description: Laptop Packages
+  - code: SRV15-1012
+    description: Power operated sugarcane sett cutting machine
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1013
-    description: Microwave repair
+  - code: SRV15-1013
+    description: Sugarcane cutter planter
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1014
-    description: Other Microwave Service
+  - code: SRV15-1014
+    description: Tractor operated Post Hole Digger
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1015
-    description: Microwave packages
+  - code: SRV15-1015
+    description: Power Tiller Operated Auger Digger
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1016
-    description: Refrigerator Check up
+  - code: SRV15-1016
+    description: Manually Operated Rice Transplanter
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1017
-    description: Other Refrigerator Service
+  - code: SRV15-1017
+    description: Rotary Dibbler
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1018
-    description: Refrigerator packages
+  - code: SRV15-1018
+    description: Automated protray sowing machine
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1019
-    description: Washing Machine repair
+  - code: SRV15-1019
+    description: Tractor drawn pulse seeder
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1020
-    description: Other Washing Machine service
+  - code: SRV15-1020
+    description: Manually Operated Line Marker
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1021
-    description: Washing machine packages
+  - code: SRV15-1021
+    description: Basin Lister cum Seeder
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1022
-    description: Water Purifier Service
+  - code: SRV15-1022
+    description: Any Other - please specify
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1023
-    description: Water Purifier Repair
+  - code: SRV15-1023
+    description: Travellers/Reels
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1024
-    description: Water Purifier Installation
+  - code: SRV15-1024
+    description: Irrigation booms
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1025
-    description: Water Purifier Uninstallation
+  - code: SRV15-1025
+    description: Irrigation guns
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1026
-    description: Water purifier packages
+  - code: SRV15-1026
+    description: Drone based
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1027
-    description: Chimney Repair
+  - code: SRV15-1027
+    description: Any Other - please specify
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1028
-    description: Chimney Cleaning
+  - code: SRV15-1028
+    description: Pressure sprayer
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1029
-    description: Chimney Installation
+  - code: SRV15-1029
+    description: Knapsack manual sprayer
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1030
-    description: Chimney Uninstallation
+  - code: SRV15-1030
+    description: Spray gun
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1031
-    description: Other Chimney service
+  - code: SRV15-1031
+    description: Drone based
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1032
-    description: Chimney packages
+  - code: SRV15-1032
+    description: Any Other - please specify
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1033
-    description: Geyser Checkup
+  - code: SRV15-1033
+    description: Power Weeder
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1034
-    description: Geyser Services
+  - code: SRV15-1034
+    description: Hi Tech weeding machine / smart weeder
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1035
-    description: Geyser Installation
+  - code: SRV15-1035
+    description: Steel rotor harrow machines
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1036
-    description: Geyser Uninstallation
+  - code: SRV15-1036
+    description: Hoeing Machine
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1037
-    description: Geyser packages
+  - code: SRV15-1037
+    description: Any Other - please specify
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1038
-    description: Television Repair
+  - code: SRV15-1038
+    description: Combine Harvester
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1039
-    description: Television Installation
+  - code: SRV15-1039
+    description: Potato harvester
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1040
-    description: Television Uninstallation
+  - code: SRV15-1040
+    description: Mower
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1041
-    description: Other Television service
+  - code: SRV15-1041
+    description: Baler
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1042
-    description: Television packages
+  - code: SRV15-1042
+    description: Cotton Picker
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1043
-    description: Air Purifier Services
+  - code: SRV15-1043
+    description: Cassava grating machine
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1044
-    description: Air Purifier Filter Replacement
+  - code: SRV15-1044
+    description: Groundnut digger
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1045
-    description: Air Purifier Repair
+  - code: SRV15-1045
+    description: Banana harvester
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV10-1046
-    description: Air Purifier packages
+  - code: SRV15-1046
+    description: Coconut tree climber
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1000
-    description: Wall Painting
+  - code: SRV15-1047
+    description: Tea plucking machine
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1001
-    description: Wallpaper application
+  - code: SRV15-1048
+    description: Turmeric harvester
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1002
-    description: Wallpaper removal
+  - code: SRV15-1049
+    description: Sugarcane harvester
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1003
-    description: Waterproofing
+  - code: SRV15-1050
+    description: Any Other - please specify
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1004
-    description: Wall Cleaning
+  - code: SRV15-1051
+    description: Mini Tractor
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1005
-    description: Door Painting
+  - code: SRV15-1052
+    description: Hi Tech based Tractor
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1006
-    description: Window Painting
+  - code: SRV15-1053
+    description: Winnower
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1007
-    description: Tile Grouting
+  - code: SRV15-1054
+    description: Thresher
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1008
-    description: Wall and Floor packages
+  - code: SRV15-1055
+    description: Grain Dryer
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1009
-    description: Bathroom Cleaning
+  - code: SRV15-1056
+    description: Multi Crop Thresher
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1010
-    description: Home Cleaning
+  - code: SRV15-1057
+    description: Rotovator
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1011
-    description: Bedroom Cleaning
+  - code: SRV15-1058
+    description: Laser guided Land leveler
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1012
-    description: Balcony Cleaning
+  - code: SRV15-1059
+    description: Medium Power Tractor
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1013
-    description: Sofa and cushion Cleaning
+  - code: SRV15-1060
+    description: High Power Tractor
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1014
-    description: Carpet Cleaning
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1015
-    description: Ceiling fan cleaning
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1016
-    description: Exhaust cleaning
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1017
-    description: Kitchen Cleaning
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1018
-    description: Cupboards cleaning
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1019
-    description: Wet Wiping
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1020
-    description: Househelp room cleaning
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1021
-    description: Cleaning Packages
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1022
-    description: Home Disinfection
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1023
-    description: Car Disinfection
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1024
-    description: Disinfection packages
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1025
-    description: Switch and Socket Repair
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1026
-    description: MCB and Fuse Repair
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1027
-    description: Wiring Repair
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1028
-    description: Car Electric Repair
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1029
-    description: Decorative Lights Installation
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1030
-    description: Fan Repair
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1031
-    description: Light Repair
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1032
-    description: Inverter & Stabilizer Repair
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1033
-    description: Door Bell Repair
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1034
-    description: Electrician packages
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1035
-    description: New Furniture building
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1036
-    description: Old Furniture Repair
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1037
-    description: Furniture Assembly
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1038
-    description: Upholstery
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1039
-    description: Furniture Repolish
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1040
-    description: Furniture drill and Hang
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1041
-    description: Carpentry packages
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1042
-    description: Basin and Sink repair
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1043
-    description: Grouting
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1044
-    description: Drainage Pipes Repair
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1045
-    description: Bath Fitting Installation
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1046
-    description: Toilet fixing
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1047
-    description: Tap & Mixer Repair
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1048
-    description: Water Tank Installation
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1049
-    description: Motor fixing
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1050
-    description: Water Pipe Connections
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1051
-    description: Water Filter Repair
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1052
-    description: Plumbing packages
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1053
-    description: Wall Hangings Installation
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1054
-    description: Lights installation
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1055
-    description: Storage
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1056
-    description: Key holder Installation
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1057
-    description: Bulbs Installation
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1058
-    description: Smart Lights Installation
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1059
-    description: Fan Installation
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1060
-    description: Decoration Installation
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1061
-    description: Assembly and Installation packages
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1062
-    description: Home packing
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1063
-    description: Unpacking
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV11-1064
-    description: Packaging packages
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1000
-    description: Waxing
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1001
-    description: Bleach and Detan
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1002
-    description: Facials
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1003
-    description: Face Clean up
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1004
-    description: Manicure
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1005
-    description: Pedicure
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1006
-    description: Nail care
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1007
-    description: Hair Care
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1008
-    description: Hair cut
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1009
-    description: Threading
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1010
-    description: Spa and Massage
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1011
-    description: Makeup
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1012
-    description: Hair Styling
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1013
-    description: Laser hair Treatment
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1014
-    description: Shave and Beard
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV12-1015
-    description: Personal Care Services Combo
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV14-1001
-    description: Soil Testing Services
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV14-1002
-    description: Water Testing Services
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV14-1003
-    description: Chemical Testing Services
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV14-1004
-    description: Assaying Services
-    reference: <PR/Issue/Discussion Links md format text>
+

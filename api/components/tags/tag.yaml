@@ -103,8 +103,14 @@ RESCHEDULE_TERMS:
     description: Time within which it should be rescheduled after the fulfilment has been changed
     reference: <PR/Issue/Discussion Links md format text>
 INSURANCE:
-  - code: EQUIPMENT_INSURANCE
-    description: Insurance for equipment uses if applicable
+  - code: INSURANCE_ID
+    description: Insurance  Id for equipment uses if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: INSURANCE_MIME_TYPE
+    description: Insurance  mime type for equipment uses if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: INSURANCE_COPY
+    description: Insurance  copy for equipment uses if applicable
     reference: <PR/Issue/Discussion Links md format text>
 CHECKLIST_DOCUMENTS:
   - code: TERMS_AND_CONDITION
