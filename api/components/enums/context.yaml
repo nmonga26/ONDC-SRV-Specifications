@@ -17,3 +17,6 @@ domain:
   - code: ONDC:SRV15
     description: Agriculture Equipment Hiring
     reference: <PR/Issue/Discussion Links md format text>
+  - code: ONDC:SRV16
+    description: Agriculture Bids and Auction
+    reference: <PR/Issue/Discussion Links md format text>
