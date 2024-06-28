@@ -21,7 +21,7 @@
     "message1": {
         "intent": {
             "fulfillment": {
-                "type": "Self-Pickup",
+                "type": "Buyer-Fulfilled",
                 "stops": [
                     {
                         "type": "end",

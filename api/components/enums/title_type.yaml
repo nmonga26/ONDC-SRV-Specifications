@@ -1,13 +1,10 @@
 breakup:
   title:
-    - code: Equipment
-      description: Equipment
+    - code: Item
+      description: Commodity
       reference: <PR/Issue/Discussion Links md format text>
-    - code: Refundable Security
-      description: Refundable Security
-      reference: <PR/Issue/Discussion Links md format text>
-    - code: Surcharges
-      description: Surcharges
+    - code: Earnest Money Deposit
+      description: Earnest Money Deposit (Refundable Security)
       reference: <PR/Issue/Discussion Links md format text>
     - code: tax
       description: tax
@@ -20,8 +17,5 @@ breakup:
       reference: <PR/Issue/Discussion Links md format text>
     - code: Pickup Charges
       description: Pickup Charges
-      reference: <PR/Issue/Discussion Links md format text>
-    - code: Delivery Fee
-      description: Delivery Fee
       reference: <PR/Issue/Discussion Links md format text>
 

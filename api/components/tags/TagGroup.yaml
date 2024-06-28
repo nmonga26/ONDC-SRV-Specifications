@@ -5,6 +5,11 @@ intent:
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./Tag.yaml#/BAP_TERMS"
+    - code: BUYER_ID
+      description: Buyer Id
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./Tag.yaml#/BUYER_ID"
 catalog:
   providers:
     tags:
@@ -13,6 +18,21 @@ catalog:
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./Tag.yaml#/serviceability"
+      - code: seller_terms
+        description: Seller Terms
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./Tag.yaml#/seller_terms"
+      - code: seller_id
+        description: Seller Id
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./Tag.yaml#/seller_id"
+      - code: FSSAI_LICENSE_NO
+        description: FSSAI License if applicable
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./Tag.yaml#/FSSAI_LICENSE_NO"
     items:
       tags:
         - code: SERVICE_INFORMATION
@@ -20,46 +40,30 @@ catalog:
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./Tag.yaml#/SERVICE_INFORMATION"
-        - code: ADDITIONAL_CHARGES
-          description: Information of the additional charges
+        - code: AUCTION_SPECIFICATION
+          description: Auction specification for the commodity bid
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/ADDITIONAL_CHARGES"
-        - code: RESCHEDULE_TERMS
-          description: Reschedule terms for the item
+            $ref: "./Tag.yaml#/AUCTION_SPECIFICATION"
+        - code: ATTRIBUTES
+          description: Bids and auction attribute of a particular commodity
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/RESCHEDULE_TERMS"
-        - code: EQUIPMENT_ATTRIBUTES
-          description: Equipment attribute of a particular item
+            $ref: "./Tag.yaml#/ATTRIBUTES"
+        - code: CERTIFICATES
+          description: Certificates that need to verify for bids if applicable
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/EQUIPMENT_ATTRIBUTES"
-        - code: CHECKLIST_DOCUMENTS
-          description: Checklist documents that need to verify for equipement hiring
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            $ref: "./Tag.yaml#/CHECKLIST_DOCUMENTS"
-        - code: INSURANCE
-          description: Insurance that need to verify for equipement hiring
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            $ref: "./Tag.yaml#/INSURANCE"
-  categories:
-    tags:
-      - code: SELECTION
-        description: Selection details for category
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          $ref: "./Tag.yaml#/SELECTION"
+            $ref: "./Tag.yaml#/CERTIFICATES"
+
 order:
   items:
     tags:
-      - code: EQUIPMENT_ATTRIBUTES
-        description: Attribute of a particular equipment item
+      - code: ATTRIBUTES
+        description: Attribute of a particular bids item
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          $ref: "./Tag.yaml#/EQUIPMENT_ATTRIBUTES"
+          $ref: "./Tag.yaml#/ATTRIBUTES"
   quote:
     breakup:
       tags: &ref2
@@ -72,6 +76,11 @@ order:
     tags:
       - code: SETTLEMENT_DETAILS
         description: Define Payment Settlement Details here
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./Tag.yaml#/Settlement_Details"
+      - code: REFUNDABLE_PARTICIPATION_FEE
+        description: Define refundable Payment Details here
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./Tag.yaml#/Settlement_Details"

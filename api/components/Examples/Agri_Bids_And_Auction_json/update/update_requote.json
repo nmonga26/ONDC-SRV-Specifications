@@ -24,7 +24,7 @@
     "update_target": "payments",
     "order": {
       "id": "O1",
-      "status": "Placed",
+      "status": "In-Progress",
       "provider": {
         "id": "P1"
       },
@@ -308,10 +308,10 @@
           "id": "F1",
           "state": {
             "descriptor": {
-              "code": "Pending"
+              "code": "Placed"
             }
           },
-          "type": "Self-Pickup",
+          "type": "Buyer-Fulfilled",
           "tracking": false,
           "stops": [
             {

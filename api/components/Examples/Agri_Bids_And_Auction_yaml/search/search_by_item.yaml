@@ -20,7 +20,7 @@ value:
         descriptor:
           name: Wheat
       fulfillment:
-        type: Self-Pickup
+        type: Buyer-Fulfilled
         stops:
           - type: end
             location:

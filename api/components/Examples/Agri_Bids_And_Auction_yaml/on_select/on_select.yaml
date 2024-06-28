@@ -28,7 +28,7 @@ value:
             - L1
       fulfillments:
         - id: F1
-          type: Self-Pickup
+          type: Buyer-Fulfilled
           tracking: false
           state:
             descriptor:

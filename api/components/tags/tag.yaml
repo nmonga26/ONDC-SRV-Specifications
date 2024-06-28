@@ -37,7 +37,7 @@ serviceability:
     description: Location id
     reference: <PR/Issue/Discussion Links md format text>
   - code: category
-    description: Category id for equipment
+    description: Category id for commodity
     reference: <PR/Issue/Discussion Links md format text>
   - code: type
     description: Serviceability type id (10 - hyperlocal, 11 - intercity, 12 - pan india, 13 - polygon)
@@ -48,9 +48,26 @@ serviceability:
   - code: unit
     description: Unit of serviceability type values like KM, geojson
     reference: <PR/Issue/Discussion Links md format text>
-attributes:
-  - code: color
-    description: Hex Code for color
+seller_terms:
+  - code: gst_credit_invoice
+    description: gst invoice if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+seller_id:
+  - code: seller_id_code
+    description: Seller id code i.e. GST
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: seller_id_no
+    description: Seller unique gst number
+    reference: <PR/Issue/Discussion Links md format text>
+FSSAI_LICENSE_NO:
+  - code: BRAND_OWNER
+    description: Brand owner name
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: OTHER
+    description: Brand owner other details
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: IMPORTER
+    description: Brand owner importer details
     reference: <PR/Issue/Discussion Links md format text>
 BAP_TERMS:
   - code: FINDER_FEE_TYPE
@@ -58,6 +75,13 @@ BAP_TERMS:
     reference: <PR/Issue/Discussion Links md format text>
   - code: FINDER_FEE_AMOUNT
     description: Amount for the finder fee
+    reference: <PR/Issue/Discussion Links md format text>
+BUYER_ID:
+  - code: BUYER_ID_CODE
+    description: Buyer id code. eg. "gst"
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: BUYER_ID_NO
+    description: Buyer id 
     reference: <PR/Issue/Discussion Links md format text>
 SELECTION:
   - code: SEQ
@@ -76,18 +100,42 @@ SERVICE_INFORMATION:
   - code: PICKUP_TAT
     description: TAT for picking up the sample, only required if Seller-Fulfilled
     reference: <PR/Issue/Discussion Links md format text>
-ADDITIONAL_CHARGES:
+  - code: CANCELLABLE
+    description: Allow that commodity bid is cancellable or not
+    reference: <PR/Issue/Discussion Links md format text>
+AUCTION_SPECIFICATION:
   - code: CURRENCY_UNIT
-    description: Currency of the aditional charges that may apply on item
+    description: Currency of the applied charges on bids
     reference: <PR/Issue/Discussion Links md format text>
-  - code: REFUNDABLE_SECURITY
-    description: Refundable security amount that may applicable on item
+  - code: FLOOR_PRICE
+    description: Bids floor (Minimum) price for commodity 
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SURCHARGES
-    description: Applicable charges if buyer use the equipment for extra time
+  - code: MIN_BID_QTY
+    description: Minimum bid commodity lot quantity
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SURCHARGES_FREQUENCY
-    description: Frequency how the surcharges going to apply on item like hourly, daily or weekly
+  - code: LOT_SIZE
+    description: Lot size for the bid
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: BID_QTY_INCREMENT
+    description: Increment in bid quantity
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MIN_BIDDER_REQ
+    description: Minimum number of Bidders required
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: TYPE_OF_BIDS
+    description: Type of Bids - Open Bid, Close Bid
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: REFUNDABLE_PARTICIPATION_FEE
+    description: Earnest Money Deposit (Participation Fee refundable)
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: TICK_SIZE
+    description: Minimum amount by which a bid can be increased
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MAXIMUM_TARGET_PRICE
+    description: Maximum Target Price for the bids (may or may not be defined by the Seller)
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: BIDS_LIMITATION
+    description: Limitation on Number of Bids - A seller may only accept 5 Bids 
     reference: <PR/Issue/Discussion Links md format text>
 RESCHEDULE_TERMS:
   - code: FULFILLMENT_STATE
@@ -102,15 +150,15 @@ RESCHEDULE_TERMS:
   - code: RESCHEDULE_WITHIN
     description: Time within which it should be rescheduled after the fulfilment has been changed
     reference: <PR/Issue/Discussion Links md format text>
-INSURANCE:
-  - code: INSURANCE_ID
-    description: Insurance  Id for equipment uses if applicable
+CERTIFICATES:
+  - code: NAME
+    description: Certificate name if applicable
     reference: <PR/Issue/Discussion Links md format text>
-  - code: INSURANCE_MIME_TYPE
-    description: Insurance  mime type for equipment uses if applicable
+  - code: MIME_TYPE
+    description:  mime type of certificates if applicable
     reference: <PR/Issue/Discussion Links md format text>
-  - code: INSURANCE_COPY
-    description: Insurance  copy for equipment uses if applicable
+  - code: COPY
+    description: Copy of the certificates if applicable
     reference: <PR/Issue/Discussion Links md format text>
 CHECKLIST_DOCUMENTS:
   - code: TERMS_AND_CONDITION
@@ -134,33 +182,30 @@ CHECKLIST_DOCUMENTS:
   - code: TERMS_OF_USAGE
     description: Terms of uses for equipment hiring if applicable
     reference: <PR/Issue/Discussion Links md format text>
-EQUIPMENT_ATTRIBUTES:
+ATTRIBUTES:
   - code: TYPE
     description: Type of the item, mandatory only when the item is a customization
     reference: <PR/Issue/Discussion Links md format text>
-  - code: CONDITION
-    description: Equipment condition (it can be rating like 5) if applicable 
+  - code: PACK_SIZE
+    description: Lot size of the commodity if applicable 
     reference: <PR/Issue/Discussion Links md format text>
-  - code: OWNERSHIP
-    description: Ownership status for the equipment (1st owner, 2nd owner) if applicable 
+  - code: NUM_PACK_SIZE
+    description: Number of Lot of the commodity if applicable 
     reference: <PR/Issue/Discussion Links md format text>
-  - code: RUNNING_HOURS
-    description: Running hours status for the equipment (Ex - 500) if applicable 
+  - code: SELF_LIFE
+    description: Self life of the commodity if applicable 
     reference: <PR/Issue/Discussion Links md format text>
-  - code: RUNNING_HOURS
-    description: Running hours status for the equipment (500 hours) if applicable 
+  - code: MOISTURE
+    description: Moisture of the commodity if applicable 
     reference: <PR/Issue/Discussion Links md format text>
-  - code: MODEL_YEAR
-    description: Equipment model year if applicable 
+  - code: OIL_CONTENT
+    description: Oil Content in the commodity if applicable 
     reference: <PR/Issue/Discussion Links md format text>
-  - code: MODEL
-    description: Equipment model if applicable 
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: BRAND
-    description: Equipment brand name if applicable 
+  - code: DEFECTIVES
+    description: Defectives into the commodity if applicable 
     reference: <PR/Issue/Discussion Links md format text>
   - code: MISCELLANEOUS_INFO
-    description: Equipment miscellaneous value like airbag, bluetooth if applicable 
+    description: Additional info that can apply on the commodity if applicable 
     reference: <PR/Issue/Discussion Links md format text>
 SETTLEMENT_DETAILS:
   - code: COUNTERPARTY

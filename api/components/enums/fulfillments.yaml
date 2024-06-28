@@ -1,23 +1,20 @@
 fulfillments:
   type:
-    - code: Seller-Fulfilled
-      description: Seller will deliver the equipement
-      reference: <PR/Issue/Discussion Links md format text>
     - code: Buyer-Fulfilled
-      description: Buyer will pickup the equipement
+      description: Buyer will pickup the commodity
       reference: <PR/Issue/Discussion Links md format text>
   state:
     descriptor:
       code:
-        - code: PENDING
-          description: When the fulfillment is still in pending state
+        - code: Placed
+          description: When the bids fulfillment is Placed
           reference: <PR/Issue/Discussion Links md format text>
-        - code: IN_TRANSIT
-          description: When the agent has left for picking up
+        - code: Awarded
+          description: When the bids is awarded to winner
           reference: <PR/Issue/Discussion Links md format text>
-        - code: AT_LOCATION
-          description: When the agent is at the location with equipment
+        - code: Not-Awarded
+          description: When buyer is not the highest winner
           reference: <PR/Issue/Discussion Links md format text>
-        - code: COMPLETED
-          description: When equipement task is completed
+        - code: Cancelled
+          description: When bids is cancelled
           reference: <PR/Issue/Discussion Links md format text>

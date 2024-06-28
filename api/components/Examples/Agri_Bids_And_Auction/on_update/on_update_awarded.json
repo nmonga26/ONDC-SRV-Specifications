@@ -23,7 +23,7 @@
     "message": {
         "order": {
             "id": "O1",
-            "status": "Placed",
+            "status": "In-Progress",
             "provider": {
                 "id": "P1"
             },
@@ -167,7 +167,7 @@
                             "code": "Awarded"
                         }
                     },
-                    "type": "Self-Pickup",
+                    "type": "Buyer-Fulfilled",
                     "tracking": false,
                     "stops": [
                         {

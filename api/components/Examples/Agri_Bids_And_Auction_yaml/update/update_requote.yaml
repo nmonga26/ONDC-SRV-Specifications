@@ -20,7 +20,7 @@ value:
     update_target: payments
     order:
       id: O1
-      status: Placed
+      status: In-Progress
       provider:
         id: P1
       items:
@@ -176,8 +176,8 @@ value:
         - id: F1
           state:
             descriptor:
-              code: Pending
-          type: Self-Pickup
+              code: Placed
+          type: Buyer-Fulfilled
           tracking: false
           stops:
             - type: end

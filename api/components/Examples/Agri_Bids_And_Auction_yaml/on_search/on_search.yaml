@@ -20,7 +20,7 @@ value:
     catalog:
       fulfillments:
         - id: F1
-          type: Self-Pickup
+          type: Buyer-Fulfilled
       payments:
         - id: PY1
           type: PRE-FULFILLMENT

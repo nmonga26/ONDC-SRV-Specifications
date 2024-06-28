@@ -20,7 +20,7 @@ value:
         category:
           code: SRV16-*
       fulfillment:
-        type: Self-Pickup
+        type: Buyer-Fulfilled
         stops:
           - type: end
             location:
