@@ -61,7 +61,7 @@
               "code": "Cancelled"
             }
           },
-          "type": "Self-Pickup",
+          "type": "Buyer-Fulfilled",
           "tracking": false,
           "stops": [
             {

@@ -2578,6 +2578,9 @@ x-enum:
   search:
     context:
       domain: &ref_0
+        - code: ONDC:SRV16
+          description: Agriculture Bids and Auction
+          reference: <PR/Issue/Discussion Links md format text>
         - code: ONDC:SRV10
           description: Home Services - Appliance Repair Services
           reference: <PR/Issue/Discussion Links md format text>
@@ -2595,9 +2598,6 @@ x-enum:
           reference: <PR/Issue/Discussion Links md format text>
         - code: ONDC:SRV15
           description: Agriculture Equipment Hiring
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: ONDC:SRV16
-          description: Agriculture Bids and Auction
           reference: <PR/Issue/Discussion Links md format text>
     message:
       intent:
@@ -2639,11 +2639,8 @@ x-enum:
                 reference: <PR/Issue/Discussion Links md format text>
         fulfillments:
           type: &ref_1
-            - code: Seller-Fulfilled
-              description: Seller will deliver the equipement
-              reference: <PR/Issue/Discussion Links md format text>
             - code: Buyer-Fulfilled
-              description: Buyer will pickup the equipement
+              description: Buyer will pickup the commodity
               reference: <PR/Issue/Discussion Links md format text>
   on_search:
     context:
@@ -2667,14 +2664,11 @@ x-enum:
         quote:
           breakup:
             title: &ref_2
-              - code: Equipment
-                description: Equipment
+              - code: Item
+                description: Commodity
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: Refundable Security
-                description: Refundable Security
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Surcharges
-                description: Surcharges
+              - code: Earnest Money Deposit
+                description: Earnest Money Deposit (Refundable Security)
                 reference: <PR/Issue/Discussion Links md format text>
               - code: tax
                 description: tax
@@ -2687,9 +2681,6 @@ x-enum:
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Pickup Charges
                 description: Pickup Charges
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Delivery Fee
-                description: Delivery Fee
                 reference: <PR/Issue/Discussion Links md format text>
         payments: &ref_3
           type:
@@ -2724,19 +2715,7 @@ x-enum:
             title: *ref_2
         payments: *ref_3
         status: &ref_5
-          - code: Created
-            description: about the enum
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Accepted
-            description: about the enum
-            reference: <PR/Issue/Discussion Links md format text>
           - code: In-progress
-            description: about the enum
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Completed
-            description: about the enum
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Cancelled
             description: about the enum
             reference: <PR/Issue/Discussion Links md format text>
   on_confirm:
@@ -2749,17 +2728,17 @@ x-enum:
           state: &ref_6
             descriptor:
               code:
-                - code: PENDING
-                  description: When the fulfillment is still in pending state
+                - code: Placed
+                  description: When the bids fulfillment is Placed
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: IN_TRANSIT
-                  description: When the agent has left for picking up
+                - code: Awarded
+                  description: When the bids is awarded to winner
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: AT_LOCATION
-                  description: When the agent is at the location with equipment
+                - code: Not-Awarded
+                  description: When buyer is not the highest winner
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: COMPLETED
-                  description: When equipement task is completed
+                - code: Cancelled
+                  description: When bids is cancelled
                   reference: <PR/Issue/Discussion Links md format text>
         quote:
           breakup: *ref_4
@@ -2811,6 +2790,16 @@ x-tags:
               - code: FINDER_FEE_AMOUNT
                 description: Amount for the finder fee
                 reference: <PR/Issue/Discussion Links md format text>
+          - code: BUYER_ID
+            description: Buyer Id
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: BUYER_ID_CODE
+                description: Buyer id code. eg. "gst"
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: BUYER_ID_NO
+                description: Buyer id
+                reference: <PR/Issue/Discussion Links md format text>
   on_search:
     message:
       catalog:
@@ -2824,7 +2813,7 @@ x-tags:
                   description: Location id
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: category
-                  description: Category id for equipment
+                  description: Category id for commodity
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: type
                   description: >-
@@ -2839,6 +2828,36 @@ x-tags:
                 - code: unit
                   description: Unit of serviceability type values like KM, geojson
                   reference: <PR/Issue/Discussion Links md format text>
+            - code: seller_terms
+              description: Seller Terms
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: gst_credit_invoice
+                  description: gst invoice if applicable
+                  reference: <PR/Issue/Discussion Links md format text>
+            - code: seller_id
+              description: Seller Id
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: seller_id_code
+                  description: Seller id code i.e. GST
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: seller_id_no
+                  description: Seller unique gst number
+                  reference: <PR/Issue/Discussion Links md format text>
+            - code: FSSAI_LICENSE_NO
+              description: FSSAI License if applicable
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: BRAND_OWNER
+                  description: Brand owner name
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: OTHER
+                  description: Brand owner other details
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: IMPORTER
+                  description: Brand owner importer details
+                  reference: <PR/Issue/Discussion Links md format text>
           items:
             tags:
               - code: SERVICE_INFORMATION
@@ -2850,50 +2869,52 @@ x-tags:
                       TAT for picking up the sample, only required if
                       Seller-Fulfilled
                     reference: <PR/Issue/Discussion Links md format text>
-              - code: ADDITIONAL_CHARGES
-                description: Information of the additional charges
+                  - code: CANCELLABLE
+                    description: Allow that commodity bid is cancellable or not
+                    reference: <PR/Issue/Discussion Links md format text>
+              - code: AUCTION_SPECIFICATION
+                description: Auction specification for the commodity bid
                 reference: <PR/Issue/Discussion Links md format text>
                 list:
                   - code: CURRENCY_UNIT
-                    description: Currency of the aditional charges that may apply on item
+                    description: Currency of the applied charges on bids
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: REFUNDABLE_SECURITY
-                    description: Refundable security amount that may applicable on item
+                  - code: FLOOR_PRICE
+                    description: Bids floor (Minimum) price for commodity
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: SURCHARGES
+                  - code: MIN_BID_QTY
+                    description: Minimum bid commodity lot quantity
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: LOT_SIZE
+                    description: Lot size for the bid
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: BID_QTY_INCREMENT
+                    description: Increment in bid quantity
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MIN_BIDDER_REQ
+                    description: Minimum number of Bidders required
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: TYPE_OF_BIDS
+                    description: Type of Bids - Open Bid, Close Bid
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: REFUNDABLE_PARTICIPATION_FEE
+                    description: Earnest Money Deposit (Participation Fee refundable)
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: TICK_SIZE
+                    description: Minimum amount by which a bid can be increased
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MAXIMUM_TARGET_PRICE
                     description: >-
-                      Applicable charges if buyer use the equipment for extra
-                      time
+                      Maximum Target Price for the bids (may or may not be
+                      defined by the Seller)
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: SURCHARGES_FREQUENCY
+                  - code: BIDS_LIMITATION
                     description: >-
-                      Frequency how the surcharges going to apply on item like
-                      hourly, daily or weekly
+                      Limitation on Number of Bids - A seller may only accept 5
+                      Bids
                     reference: <PR/Issue/Discussion Links md format text>
-              - code: RESCHEDULE_TERMS
-                description: Reschedule terms for the item
-                reference: <PR/Issue/Discussion Links md format text>
-                list:
-                  - code: FULFILLMENT_STATE
-                    description: >-
-                      Describing the fulfilment state for which reschdule will
-                      be applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: RESCHEDULE_ELIGIBLE
-                    description: Whether reschedule is available at this fulfillment state
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: RESCHEDULE_FEE
-                    description: >-
-                      Fees that will be charged if rescheduled at this
-                      fulfillment state
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: RESCHEDULE_WITHIN
-                    description: >-
-                      Time within which it should be rescheduled after the
-                      fulfilment has been changed
-                    reference: <PR/Issue/Discussion Links md format text>
-              - code: EQUIPMENT_ATTRIBUTES
-                description: Equipment attribute of a particular item
+              - code: ATTRIBUTES
+                description: Bids and auction attribute of a particular commodity
                 reference: <PR/Issue/Discussion Links md format text>
                 list: &ref_7
                   - code: TYPE
@@ -2901,102 +2922,48 @@ x-tags:
                       Type of the item, mandatory only when the item is a
                       customization
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: CONDITION
-                    description: >-
-                      Equipment condition (it can be rating like 5) if
-                      applicable
+                  - code: PACK_SIZE
+                    description: Lot size of the commodity if applicable
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: OWNERSHIP
-                    description: >-
-                      Ownership status for the equipment (1st owner, 2nd owner)
-                      if applicable
+                  - code: NUM_PACK_SIZE
+                    description: Number of Lot of the commodity if applicable
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: RUNNING_HOURS
-                    description: >-
-                      Running hours status for the equipment (Ex - 500) if
-                      applicable
+                  - code: SELF_LIFE
+                    description: Self life of the commodity if applicable
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: RUNNING_HOURS
-                    description: >-
-                      Running hours status for the equipment (500 hours) if
-                      applicable
+                  - code: MOISTURE
+                    description: Moisture of the commodity if applicable
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: MODEL_YEAR
-                    description: Equipment model year if applicable
+                  - code: OIL_CONTENT
+                    description: Oil Content in the commodity if applicable
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: MODEL
-                    description: Equipment model if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: BRAND
-                    description: Equipment brand name if applicable
+                  - code: DEFECTIVES
+                    description: Defectives into the commodity if applicable
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: MISCELLANEOUS_INFO
                     description: >-
-                      Equipment miscellaneous value like airbag, bluetooth if
+                      Additional info that can apply on the commodity if
                       applicable
                     reference: <PR/Issue/Discussion Links md format text>
-              - code: CHECKLIST_DOCUMENTS
-                description: Checklist documents that need to verify for equipement hiring
+              - code: CERTIFICATES
+                description: Certificates that need to verify for bids if applicable
                 reference: <PR/Issue/Discussion Links md format text>
                 list:
-                  - code: TERMS_AND_CONDITION
-                    description: Terms and condition for equipment uses if applicable
+                  - code: NAME
+                    description: Certificate name if applicable
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: LEASE_POLICY
-                    description: Lease policy for equipment hiring if applicable
+                  - code: MIME_TYPE
+                    description: mime type of certificates if applicable
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: AGREEMENT_POLICY
-                    description: Agreement policy for equipment hiring if applicable
+                  - code: COPY
+                    description: Copy of the certificates if applicable
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: ID_VERIFICATION_POLICY
-                    description: Id verification policy for equipment hiring if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: INSPECTION_REQUIREMENTS
-                    description: Inspection requirements for equipment hiring if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: OBLIGATIONS
-                    description: Obligations for equipment hiring if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: TERMS_OF_USAGE
-                    description: Terms of uses for equipment hiring if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-              - code: INSURANCE
-                description: Insurance that need to verify for equipement hiring
-                reference: <PR/Issue/Discussion Links md format text>
-                list:
-                  - code: INSURANCE_ID
-                    description: Insurance  Id for equipment uses if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: INSURANCE_MIME_TYPE
-                    description: Insurance  mime type for equipment uses if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: INSURANCE_COPY
-                    description: Insurance  copy for equipment uses if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-        categories:
-          tags:
-            - code: SELECTION
-              description: Selection details for category
-              reference: <PR/Issue/Discussion Links md format text>
-              list:
-                - code: SEQ
-                  description: Sequence of the category
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: MANDATORY_SELECTION
-                  description: Whether it is a mandatory selection
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: MIN_SELECTION
-                  description: Number of minimum selections allowed for this category
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: MAX_SELECTION
-                  description: Number of maximum selections allowed for this category
-                  reference: <PR/Issue/Discussion Links md format text>
   on_select:
     message:
       order:
         quote:
           breakup: &ref_9
-            tags: &ref_12
+            tags: &ref_13
               - code: title
                 description: title tag
                 reference: <PR/Issue/Discussion Links md format text>
@@ -3012,22 +2979,22 @@ x-tags:
       order:
         items: &ref_8
           tags:
-            - code: EQUIPMENT_ATTRIBUTES
-              description: Attribute of a particular equipment item
+            - code: ATTRIBUTES
+              description: Attribute of a particular bids item
               reference: <PR/Issue/Discussion Links md format text>
               list: *ref_7
   on_init:
-    message: &ref_10
+    message: &ref_11
       order:
         items: *ref_8
         quote:
           breakup: *ref_9
-        payments: &ref_11
+        payments: &ref_12
           tags:
             - code: SETTLEMENT_DETAILS
               description: Define Payment Settlement Details here
               reference: <PR/Issue/Discussion Links md format text>
-              list:
+              list: &ref_10
                 - code: Counterparty
                   description: Counterparty involved; Can be BAP/BPP
                   reference: <PR/Issue/Discussion Links md format text>
@@ -3046,6 +3013,10 @@ x-tags:
                 - code: UPI_Address
                   description: Description of the Tag
                   reference: <PR/Issue/Discussion Links md format text>
+            - code: REFUNDABLE_PARTICIPATION_FEE
+              description: Define refundable Payment Details here
+              reference: <PR/Issue/Discussion Links md format text>
+              list: *ref_10
             - code: Buyer_Finder_Fee
               description: Define Finder's Fee for Buyer
               reference: <PR/Issue/Discussion Links md format text>
@@ -3057,24 +3028,24 @@ x-tags:
                   description: Amount for the finder fee
                   reference: <PR/Issue/Discussion Links md format text>
   confirm:
-    message: *ref_10
+    message: *ref_11
   on_status:
-    message: *ref_10
+    message: *ref_11
   update:
-    message: &ref_13
+    message: &ref_14
       order:
-        payments: *ref_11
+        payments: *ref_12
         quote:
           breakup:
-            tags: *ref_12
+            tags: *ref_13
           item:
             tags:
-              - code: EQUIPMENT_ATTRIBUTES
+              - code: ATTRIBUTES
                 description: Update parameter for attributes
                 reference: <PR/Issue/Discussion Links md format text>
                 list: *ref_7
   on_update:
-    message: *ref_13
+    message: *ref_14
 x-flows:
   - summary: Agricultural product - Bids and Auction for a Commodity
     description: >-
@@ -3169,7 +3140,7 @@ x-flows:
           Search intent sent by the buyer based on the particular agri product
           required - e.g. Wheat
         reference: if any
-        example: &ref_14
+        example: &ref_15
           value:
             context:
               domain: ONDC:SRV16
@@ -3192,7 +3163,7 @@ x-flows:
                   category:
                     code: SRV16-*
                 fulfillment:
-                  type: Self-Pickup
+                  type: Buyer-Fulfilled
                   stops:
                     - type: end
                       location:
@@ -3225,7 +3196,7 @@ x-flows:
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: &ref_15
+        example: &ref_16
           value:
             context:
               domain: ONDC:SRV16
@@ -3248,7 +3219,7 @@ x-flows:
               catalog:
                 fulfillments:
                   - id: F1
-                    type: Self-Pickup
+                    type: Buyer-Fulfilled
                 payments:
                   - id: PY1
                     type: PRE-FULFILLMENT
@@ -3542,7 +3513,7 @@ x-flows:
         api: select
         description: Buyer selects the required agri commodity + suitable fulfillment type
         reference: if any
-        example: &ref_16
+        example: &ref_17
           value:
             context:
               domain: ONDC:SRV16
@@ -3586,7 +3557,7 @@ x-flows:
                               code: TYPE
                             value: item
                 fulfillments:
-                  - type: Self-Pickup
+                  - type: Buyer-Fulfilled
                     stops:
                       - type: end
                         time:
@@ -3612,7 +3583,7 @@ x-flows:
         api: on_select
         description: Seller confirms the bids for commodity and returns the quote
         reference: if any
-        example: &ref_17
+        example: &ref_18
           value:
             context:
               domain: ONDC:SRV16
@@ -3643,7 +3614,7 @@ x-flows:
                       - L1
                 fulfillments:
                   - id: F1
-                    type: Self-Pickup
+                    type: Buyer-Fulfilled
                     tracking: false
                     state:
                       descriptor:
@@ -3744,7 +3715,7 @@ x-flows:
           Buyer initialises the bids order for commodity and provides billing
           details
         reference: if any
-        example: &ref_18
+        example: &ref_19
           value:
             context:
               domain: ONDC:SRV16
@@ -3801,7 +3772,7 @@ x-flows:
                   phone: '9886098860'
                 fulfillments:
                   - id: F1
-                    type: Self-Pickup
+                    type: Buyer-Fulfilled
                     stops:
                       - type: end
                         location:
@@ -3838,7 +3809,7 @@ x-flows:
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: &ref_19
+        example: &ref_20
           value:
             context:
               domain: ONDC:SRV16
@@ -3929,7 +3900,7 @@ x-flows:
                   phone: '9886098860'
                 fulfillments:
                   - id: F1
-                    type: Self-Pickup
+                    type: Buyer-Fulfilled
                     tracking: false
                     stops:
                       - type: end
@@ -4112,7 +4083,7 @@ x-flows:
       - summary: Buyer confirm the bids order for the commodity
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: &ref_20
+        example: &ref_21
           value:
             context:
               domain: ONDC:SRV16
@@ -4134,7 +4105,7 @@ x-flows:
             message:
               order:
                 id: O1
-                status: Placed
+                status: In-Progress
                 provider:
                   id: P1
                   locations:
@@ -4171,7 +4142,7 @@ x-flows:
                   phone: '9886098860'
                 fulfillments:
                   - id: F1
-                    type: Self-Pickup
+                    type: Buyer-Fulfilled
                     tracking: false
                     stops:
                       - type: end
@@ -4346,7 +4317,7 @@ x-flows:
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: &ref_21
+        example: &ref_22
           value:
             context:
               domain: ONDC:SRV16
@@ -4368,7 +4339,7 @@ x-flows:
             message:
               order:
                 id: O1
-                status: Placed
+                status: In-Progress
                 provider:
                   id: P1
                   locations:
@@ -4442,8 +4413,8 @@ x-flows:
                   - id: F1
                     state:
                       descriptor:
-                        code: Pending
-                    type: Self-Pickup
+                        code: Placed
+                    type: Buyer-Fulfilled
                     tracking: false
                     stops:
                       - type: end
@@ -4641,7 +4612,7 @@ x-flows:
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: &ref_22
+        example: &ref_23
           value:
             context:
               domain: ONDC:SRV16
@@ -4665,7 +4636,7 @@ x-flows:
       - summary: Seller app sends order status update
         api: on_status
         description: Seller app sends bids order status
-        example: &ref_23
+        example: &ref_24
           value:
             context:
               domain: ONDC:SRV16
@@ -4687,7 +4658,7 @@ x-flows:
             message:
               order:
                 id: O1
-                status: Placed
+                status: In-Progress
                 provider:
                   id: P1
                   locations:
@@ -4760,8 +4731,8 @@ x-flows:
                   - id: F1
                     state:
                       descriptor:
-                        code: Pending
-                    type: Self-Pickup
+                        code: Placed
+                    type: Buyer-Fulfilled
                     tracking: false
                     stops:
                       - type: end
@@ -4943,7 +4914,7 @@ x-flows:
       - summary: Seller app sends bids status if Awarded
         api: on_update (Awarded)
         description: Seller app sends bids status if Awarded
-        example: &ref_24
+        example: &ref_25
           value:
             context:
               domain: ONDC:SRV16
@@ -4965,7 +4936,7 @@ x-flows:
             message:
               order:
                 id: O1
-                status: Placed
+                status: In-Progress
                 provider:
                   id: P1
                 items:
@@ -5045,7 +5016,7 @@ x-flows:
                     state:
                       descriptor:
                         code: Awarded
-                    type: Self-Pickup
+                    type: Buyer-Fulfilled
                     tracking: false
                     stops:
                       - type: end
@@ -5159,7 +5130,7 @@ x-flows:
       - summary: Seller app sends bids status as cancel if Not Awarded
         api: on_cancel (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
-        example: &ref_25
+        example: &ref_26
           value:
             context:
               domain: ONDC:SRV15
@@ -5203,7 +5174,7 @@ x-flows:
                     state:
                       descriptor:
                         code: Cancelled
-                    type: Self-Pickup
+                    type: Buyer-Fulfilled
                     tracking: false
                     stops:
                       - type: end
@@ -5397,7 +5368,7 @@ x-flows:
           negative aspects. Buyer app shares the same with the seller app
           following the rating framework
         reference: if any
-        example: &ref_26
+        example: &ref_27
           value:
             context:
               domain: ONDC:SRV16
@@ -5516,61 +5487,61 @@ x-flows:
           Search intent sent by the buyer based on the particular agri product
           required - e.g. Wheat
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required agri commodity
         api: select
         description: Buyer selects the required agri commodity + suitable fulfillment type
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the bids for commodity and returns the quote
         api: on_select
         description: Seller confirms the bids for commodity and returns the quote
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the bids order for commodity
         api: init
         description: >-
           Buyer initialises the bids order for commodity and provides billing
           details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the commodity bids
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the bids order for the commodity
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for commodity bids
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends order status update
         api: on_status
         description: Seller app sends bids order status
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends bids status if Awarded
         api: on_update (Awarded)
         description: Seller app sends bids status if Awarded
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app sends bids status as cancel if Not Awarded
         api: on_cancel (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
-        example: *ref_25
+        example: *ref_26
       - summary: Buyer app shares the ratings to seller app
         api: rating
         description: >-
@@ -5578,7 +5549,7 @@ x-flows:
           negative aspects. Buyer app shares the same with the seller app
           following the rating framework
         reference: if any
-        example: *ref_26
+        example: *ref_27
   - summary: >-
       Agricultural product - Bids and Auction for a Commodity (Buyer not
       satisfied with the quality)
@@ -5679,61 +5650,61 @@ x-flows:
           Search intent sent by the buyer based on the particular agri product
           required - e.g. Wheat
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required agri commodity
         api: select
         description: Buyer selects the required agri commodity + suitable fulfillment type
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the bids for commodity and returns the quote
         api: on_select
         description: Seller confirms the bids for commodity and returns the quote
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the bids order for commodity
         api: init
         description: >-
           Buyer initialises the bids order for commodity and provides billing
           details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the commodity bids
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the bids order for the commodity
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for commodity bids
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends order status update
         api: on_status
         description: Seller app sends bids order status
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends bids status if Awarded
         api: on_update (Awarded)
         description: Seller app sends bids status if Awarded
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app sends bids status as on cancel if Not Awarded
         api: on_cancel (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
-        example: *ref_25
+        example: *ref_26
       - summary: Buyer not satisfied with the quality
         api: cancel (Not stisfied)
         description: Buyer not satisfied with the quality
@@ -5762,7 +5733,7 @@ x-flows:
       - summary: Seller app sends bids status as cancel if Not Awarded
         api: on_cancel (Not stisfied)
         description: Seller app sends bids status as cancel on buyer request
-        example: *ref_25
+        example: *ref_26
       - summary: Buyer re-negotiate if they found quality issue
         api: update (Re-Negotiate)
         description: Buyer re-negotiate if they found quality issue
@@ -5789,7 +5760,7 @@ x-flows:
               update_target: payments
               order:
                 id: O1
-                status: Placed
+                status: In-Progress
                 provider:
                   id: P1
                 items:
@@ -5945,8 +5916,8 @@ x-flows:
                   - id: F1
                     state:
                       descriptor:
-                        code: Pending
-                    type: Self-Pickup
+                        code: Placed
+                    type: Buyer-Fulfilled
                     tracking: false
                     stops:
                       - type: end
@@ -6005,7 +5976,7 @@ x-flows:
             message:
               order:
                 id: O1
-                status: Placed
+                status: In-Progress
                 provider:
                   id: P1
                 items:
@@ -6084,8 +6055,8 @@ x-flows:
                   - id: F1
                     state:
                       descriptor:
-                        code: Pending
-                    type: Self-Pickup
+                        code: Placed
+                    type: Buyer-Fulfilled
                     tracking: false
                     stops:
                       - type: end
@@ -6203,7 +6174,7 @@ x-flows:
           negative aspects. Buyer app shares the same with the seller app
           following the rating framework
         reference: if any
-        example: *ref_26
+        example: *ref_27
   - summary: >-
       Agricultural product - Bids and Auction for a Commodity (Buyer fails to
       make payment)
@@ -6301,57 +6272,57 @@ x-flows:
           Search intent sent by the buyer based on the particular agri product
           required - e.g. Wheat
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required agri commodity
         api: select
         description: Buyer selects the required agri commodity + suitable fulfillment type
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the bids for commodity and returns the quote
         api: on_select
         description: Seller confirms the bids for commodity and returns the quote
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the bids order for commodity
         api: init
         description: >-
           Buyer initialises the bids order for commodity and provides billing
           details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the commodity bids
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the bids order for the commodity
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for commodity bids
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends order status update
         api: on_status
         description: Seller app sends bids order status
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends bids status as cancel if Not Awarded
         api: on_cancel (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
-        example: *ref_25
+        example: *ref_26
       - summary: Buyer app shares the ratings to seller app
         api: rating
         description: >-
@@ -6359,7 +6330,7 @@ x-flows:
           negative aspects. Buyer app shares the same with the seller app
           following the rating framework
         reference: if any
-        example: *ref_26
+        example: *ref_27
 x-examples:
   Agricultural product - Bids and Auction:
     summary: Bids and Auction
@@ -6369,7 +6340,7 @@ x-examples:
       phases of order processing flow, i.e. Discovery of available commodity for
       bids and auction, and service providers based on serviceability, order,
       fulfillment and post-fulfillment.
-    example_set: &ref_27
+    example_set: &ref_28
       search:
         examples:
           - value:
@@ -6394,7 +6365,7 @@ x-examples:
                     descriptor:
                       name: Wheat
                   fulfillment:
-                    type: Self-Pickup
+                    type: Buyer-Fulfilled
                     stops:
                       - type: end
                         location:
@@ -6442,7 +6413,7 @@ x-examples:
               message1:
                 intent:
                   fulfillment:
-                    type: Self-Pickup
+                    type: Buyer-Fulfilled
                     stops:
                       - type: end
                         location:
@@ -6493,7 +6464,7 @@ x-examples:
                     category:
                       code: SRV16-*
                   fulfillment:
-                    type: Self-Pickup
+                    type: Buyer-Fulfilled
                     stops:
                       - type: end
                         location:
@@ -6567,7 +6538,7 @@ x-examples:
                                 code: TYPE
                               value: item
                   fulfillments:
-                    - type: Self-Pickup
+                    - type: Buyer-Fulfilled
                       stops:
                         - type: end
                           time:
@@ -6647,7 +6618,7 @@ x-examples:
                     phone: '9886098860'
                   fulfillments:
                     - id: F1
-                      type: Self-Pickup
+                      type: Buyer-Fulfilled
                       stops:
                         - type: end
                           location:
@@ -6703,7 +6674,7 @@ x-examples:
               message:
                 order:
                   id: O1
-                  status: Placed
+                  status: In-Progress
                   provider:
                     id: P1
                     locations:
@@ -6740,7 +6711,7 @@ x-examples:
                     phone: '9886098860'
                   fulfillments:
                     - id: F1
-                      type: Self-Pickup
+                      type: Buyer-Fulfilled
                       tracking: false
                       stops:
                         - type: end
@@ -6978,7 +6949,7 @@ x-examples:
                 update_target: payments
                 order:
                   id: O1
-                  status: Placed
+                  status: In-Progress
                   provider:
                     id: P1
                   items:
@@ -7134,8 +7105,8 @@ x-examples:
                     - id: F1
                       state:
                         descriptor:
-                          code: Pending
-                      type: Self-Pickup
+                          code: Placed
+                      type: Buyer-Fulfilled
                       tracking: false
                       stops:
                         - type: end
@@ -7218,7 +7189,7 @@ x-examples:
                 catalog:
                   fulfillments:
                     - id: F1
-                      type: Self-Pickup
+                      type: Buyer-Fulfilled
                   payments:
                     - id: PY1
                       type: PRE-FULFILLMENT
@@ -7540,7 +7511,7 @@ x-examples:
                         - L1
                   fulfillments:
                     - id: F1
-                      type: Self-Pickup
+                      type: Buyer-Fulfilled
                       tracking: false
                       state:
                         descriptor:
@@ -7727,7 +7698,7 @@ x-examples:
                     phone: '9886098860'
                   fulfillments:
                     - id: F1
-                      type: Self-Pickup
+                      type: Buyer-Fulfilled
                       tracking: false
                       stops:
                         - type: end
@@ -7930,7 +7901,7 @@ x-examples:
               message:
                 order:
                   id: O1
-                  status: Placed
+                  status: In-Progress
                   provider:
                     id: P1
                     locations:
@@ -8004,8 +7975,8 @@ x-examples:
                     - id: F1
                       state:
                         descriptor:
-                          code: Pending
-                      type: Self-Pickup
+                          code: Placed
+                      type: Buyer-Fulfilled
                       tracking: false
                       stops:
                         - type: end
@@ -8223,7 +8194,7 @@ x-examples:
               message:
                 order:
                   id: O1
-                  status: Placed
+                  status: In-Progress
                   provider:
                     id: P1
                     locations:
@@ -8296,8 +8267,8 @@ x-examples:
                     - id: F1
                       state:
                         descriptor:
-                          code: Pending
-                      type: Self-Pickup
+                          code: Placed
+                      type: Buyer-Fulfilled
                       tracking: false
                       stops:
                         - type: end
@@ -8521,7 +8492,7 @@ x-examples:
                       state:
                         descriptor:
                           code: Cancelled
-                      type: Self-Pickup
+                      type: Buyer-Fulfilled
                       tracking: false
                       stops:
                         - type: end
@@ -8751,7 +8722,7 @@ x-examples:
                       state:
                         descriptor:
                           code: Not-Awarded
-                      type: Self-Pickup
+                      type: Buyer-Fulfilled
                       tracking: false
                       stops:
                         - type: end
@@ -8961,7 +8932,7 @@ x-examples:
               message:
                 order:
                   id: O1
-                  status: Placed
+                  status: In-Progress
                   provider:
                     id: P1
                   items:
@@ -9040,8 +9011,8 @@ x-examples:
                     - id: F1
                       state:
                         descriptor:
-                          code: Pending
-                      type: Self-Pickup
+                          code: Placed
+                      type: Buyer-Fulfilled
                       tracking: false
                       stops:
                         - type: end
@@ -9161,7 +9132,7 @@ x-examples:
       bids and auction, and service providers based on serviceability, order,
       fulfillment and post-fulfillment but in Close Bid, the buyers places their
       bid which is encrypted (not made visible) for other buyers.
-    example_set: *ref_27
+    example_set: *ref_28
   Agricultural product - Bids and Auction (Buyer fails to make payment):
     summary: Bids and Auction (Buyer fails to make payment)
     description: >-
@@ -9172,7 +9143,7 @@ x-examples:
       fulfillment and post-fulfillment but winning bidder fails to make payment
       within the specified timeframe, leading to a dispute resolution process
       involving the platform's customer support.
-    example_set: *ref_27
+    example_set: *ref_28
   Agricultural product - Bids and Auction (Buyer not satisfied with the quality):
     summary: Bids and Auction (Buyer not satisfied with the quality)
     description: >-
@@ -9184,7 +9155,7 @@ x-examples:
       buyer does not match the description provided by the seller, the buyer may
       raise a complaint on the buyer app and the buyer app tries to analyse the
       complaints.
-    example_set: *ref_27
+    example_set: *ref_28
 x-attributes:
   Agricultural product - Bids and Auction:
     attribute_set:
@@ -10860,7 +10831,7 @@ x-attributes:
                     code:
                       description: State descriptor code
                       required: mandatory
-                      usage: Completed
+                      usage: Placed
                       reference: if any
                 type:
                   description: Fulfillment type
@@ -10961,7 +10932,7 @@ x-attributes:
                   code:
                     description: >-
                       Denotes the state of the fulfillment; Enum; Values can be
-                      - "PENDING", "IN_TRANSIT", "AT_LOCATION", "COMPLETED";
+                      - "PLACED", "AWARDED", "NOT_AWARDED";
                     required: mandatory
                     usage: '-'
                     reference: if any

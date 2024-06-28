@@ -25,7 +25,7 @@
       "fulfillments": [
         {
           "id": "F1",
-          "type": "Self-Pickup"
+          "type": "Buyer-Fulfilled"
         }
       ],
       "payments": [

@@ -19,7 +19,7 @@ value:
   message:
     order:
       id: O1
-      status: Placed
+      status: In-Progress
       provider:
         id: P1
         locations:
@@ -92,8 +92,8 @@ value:
         - id: F1
           state:
             descriptor:
-              code: Pending
-          type: Self-Pickup
+              code: Placed
+          type: Buyer-Fulfilled
           tracking: false
           stops:
             - type: end

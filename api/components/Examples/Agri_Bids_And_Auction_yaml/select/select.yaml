@@ -41,7 +41,7 @@ value:
                     code: TYPE
                   value: item
       fulfillments:
-        - type: Self-Pickup
+        - type: Buyer-Fulfilled
           stops:
             - type: end
               time:

@@ -124,7 +124,7 @@ message:
             code:
               description: State descriptor code
               required: mandatory
-              usage: "Completed"
+              usage: "Placed"
               reference: if any
         type:
           description: Fulfillment type

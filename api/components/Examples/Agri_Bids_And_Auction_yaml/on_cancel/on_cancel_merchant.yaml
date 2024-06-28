@@ -41,7 +41,7 @@ value:
           state:
             descriptor:
               code: Not-Awarded
-          type: Self-Pickup
+          type: Buyer-Fulfilled
           tracking: false
           stops:
             - type: end
