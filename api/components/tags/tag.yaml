@@ -53,14 +53,14 @@ qualifier:
     description: Minimum value which offer can apply
     reference: <PR/Issue/Discussion Links md format text>
 benefit:
-  - code: value_type
-    description: Benefit Value type (i.e percent, flat) which can avail
+  - code: item_count
+    description: Benefit equipment count which offer can avail
     reference: <PR/Issue/Discussion Links md format text>
-  - code: value
-    description: Benefit Value which can avail
+  - code: item_id
+    description: Equipment id which offer can avail
     reference: <PR/Issue/Discussion Links md format text>
-  - code: value_cap
-    description: Maximum Benefit Value which can avail
+  - code: item_value
+    description: Equipment Value which can avail
     reference: <PR/Issue/Discussion Links md format text>
 meta:
   - code: additive
@@ -118,7 +118,7 @@ RESCHEDULE_TERMS:
     description: Whether reschedule is available at this fulfillment state
     reference: <PR/Issue/Discussion Links md format text>
   - code: RESCHEDULE_FEE_TYPE
-    description: Fees type (i.e. percent, flat) that will be charged if rescheduled at this fulfillment state
+    description: Fees type (i.e. percent, amount) that will be charged if rescheduled at this fulfillment state
     reference: <PR/Issue/Discussion Links md format text>
   - code: RESCHEDULE_FEE
     description: Fees that will be charged if rescheduled at this fulfillment state

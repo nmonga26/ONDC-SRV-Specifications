@@ -82,7 +82,8 @@ steps:
       $ref: "../../Examples/Agri_Equipment_Hiring_yaml/search/search_by_category.yaml"
   - summary: Returns the catalog specific to the search intent
     api: on_search
-    description: Returns the catalog specific to the search intent where quantity measure - hours and days
+    description: >
+     Returns the catalog specific to the search intent where quantity measure - hours and days and also serviceability and time can be reffered from <a href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this document]</a>
     reference: if any
     example:
       $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_search/on_search.yaml"

@@ -241,7 +241,7 @@ value:
                       value: percent
                     - descriptor:
                         code: RESCHEDULE_FEE
-                      value: '0'
+                      value: '10'
                     - descriptor:
                         code: RESCHEDULE_WITHIN
                       value: PT1D
@@ -359,14 +359,14 @@ value:
                 - code: benefit
                   list:
                     - descriptor:
-                        code: value_type
-                      value: percent
+                        code: item_count
+                      value: 5
                     - descriptor:
-                        code: value
-                      value: '10'
+                        code: item_id
+                      value: 'I1'
                     - descriptor:
-                        code: value_cap
-                      value: '-200.00'
+                        code: item_value
+                      value: '200.00'
                 - code: meta
                   list:
                     - descriptor:

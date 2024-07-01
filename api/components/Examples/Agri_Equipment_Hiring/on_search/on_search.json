@@ -418,7 +418,7 @@
                       "descriptor": {
                         "code": "RESCHEDULE_FEE"
                       },
-                      "value": "0"
+                      "value": "10"
                     },
                     {
                       "descriptor": {
@@ -631,21 +631,21 @@
                   "list": [
                     {
                       "descriptor": {
-                        "code": "value_type"
+                        "code": "item_count"
                       },
-                      "value": "percent"
+                      "value": "5"
                     },
                     {
                       "descriptor": {
-                        "code": "value"
+                        "code": "item_id"
                       },
-                      "value": "10"
+                      "value": "I2"
                     },
                     {
                       "descriptor": {
-                        "code": "value_cap"
+                        "code": "item_value"
                       },
-                      "value": "-200.00"
+                      "value": "200.00"
                     }
                   ]
                 },
