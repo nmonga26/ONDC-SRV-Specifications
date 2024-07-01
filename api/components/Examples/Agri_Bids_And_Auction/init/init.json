@@ -40,7 +40,7 @@
             "L1"
           ],
           "category_ids": [
-            "C1"
+            "SRV16-1001"
           ],
           "quantity": {
             "selected": {
@@ -128,7 +128,7 @@
               "descriptor": {
                 "code": "BUYER_ID_CODE"
               },
-              "value": "gst"
+              "value": "mandi_licence"
             },
             {
               "descriptor": {

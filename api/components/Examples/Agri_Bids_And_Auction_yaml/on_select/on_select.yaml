@@ -48,7 +48,7 @@ value:
           currency: INR
           value: '30050.00'
         breakup:
-          - title: Wheat
+          - title: Wheat (Auction)
             price:
               currency: INR
               value: '25000.00'
@@ -67,7 +67,7 @@ value:
                   - descriptor:
                       code: type
                     value: item
-          - title: REFUNDABLE_PARTICIPATION_FEE
+          - title: earnest_money_deposit
             price:
               currency: INR
               value: '5000.00'
@@ -79,7 +79,7 @@ value:
                 list:
                   - descriptor:
                       code: type
-                    value: REFUNDABLE_PARTICIPATION_FEE
+                    value: earnest_money_deposit
           - title: tax
             price:
               currency: INR

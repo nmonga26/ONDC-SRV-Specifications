@@ -95,7 +95,7 @@ value:
               list:
                 - descriptor:
                     code: seller_id_code
-                  value: gst
+                  value: mandi_licence
                 - descriptor:
                     code: seller_id_no
                   value: xxxxxxxxxxxxxxx
@@ -111,15 +111,10 @@ value:
                 - descriptor:
                     code: IMPORTER
                   value: '12345678901234'
-          categories:
-            - id: C1
-              descriptor:
-                name: Cereals
-                code: SRV16-1001
           items:
             - id: I1
               descriptor:
-                name: Wheat
+                name: Wheat (Auction)
                 short_desc: High-quality grain
                 long_desc: High-quality grain
                 images:
@@ -142,7 +137,6 @@ value:
                 currency: INR
                 value: '300.00'
                 minimum_value: '250.00'
-                maximum_value: '350.00'
               quantity:
                 unitized:
                   measure:
@@ -152,12 +146,7 @@ value:
                   measure:
                     unit: kg
                     value: '50'
-                  count: 1000
-                maximum:
-                  measure:
-                    unit: kg
-                    value: '50'
-                  count: 1000
+                  count: 100
                 minimum:
                   measure:
                     unit: kg
@@ -222,32 +211,126 @@ value:
                         code: COPY
                       value: https://abc.com/certificates
                 - descriptor:
-                    code: ATTRIBUTES
+                    code: COMMODITY_SPECIFICATION
                   list:
                     - descriptor:
-                        code: TYPE
-                      value: item
+                        code: REFERENCE_DOCS_MIME_TYPE
+                      value: 'application/pdf'
                     - descriptor:
-                        code: PACK_SIZE
-                      value: '50'
-                    - descriptor:
-                        code: NUM_PACK_SIZE
-                      value: '1000'
+                        code: REFERENCE_DOCS_COPY
+                      value: 'https://abc.com/commodity_specification.pdf'
                     - descriptor:
                         code: SELF_LIFE
-                      value: 'Y'
+                      value: 'P10M'
                     - descriptor:
                         code: MOISTURE
-                      value: 'Y'
+                      value: '10%'
+                    - descriptor:
+                        code: FOREIGN_MATTER
+                      value: '3%'
                     - descriptor:
                         code: OIL_CONTENT
-                      value: 'Y'
+                      value: '2%'
                     - descriptor:
                         code: DEFECTIVES
-                      value: 'Y'
+                      value: '7%'
                     - descriptor:
-                        code: MISCELLANEOUS_INFO
-                      value: abc,xyz
+                        code: OTHER_EDIBLE_GRAINS
+                      value: '1%'
+                    - descriptor:
+                        code: URIC_ACID
+                      value: '101'
+                    - descriptor:
+                        code: AFLATOXIN
+                      value: '15'
+                    - descriptor:
+                        code: ARGEMONE_SEEDS
+                      value: 'Yes'
+                    - descriptor:
+                        code: SIZE_RANGE_MEASURE
+                      value: 'Diameter'
+                    - descriptor:
+                        code: SIZE_RANGE
+                      value: '15-18'
+                    - descriptor:
+                        code: PERCENTAGE_OF_DEFECTS
+                      value: '1.5%'
+                    - descriptor:
+                        code: PERCENTAGE_OF_WASTAGE
+                      value: '3%'
+                    - descriptor:
+                        code: BUNCH_SIZE
+                      value: '50'
+                    - descriptor:
+                        code: BUNCH_SIZE_UNIT
+                      value: 'gm'
+                    - descriptor:
+                        code: VISIBLE_COLOUR
+                      value: 'Brown'
+                    - descriptor:
+                        code: COLOUR_PERCENTAGE
+                      value: 'More than 70'
+                    - descriptor:
+                        code: TOTAL_SOLUBLE_SOLIDS
+                      value: '16 degree Brix'
+                    - descriptor:
+                        code: TRACES_OF_SOIL
+                      value: 'Sight traces'
+                    - descriptor:
+                        code: VOLATILE_OIL_PERCENTAGE
+                      value: 'Up to 2.5'
+                    - descriptor:
+                        code: TOTAL_ASH_PERCENTAGE
+                      value: 'Not more than 7.0'
+                    - descriptor:
+                        code: CORIANDER_SPLIT_SEEDS_PERCENTAGE
+                      value: '5%'
+                    - descriptor:
+                        code: MIN_FLOWER_PER_STEM
+                      value: '1'
+                    - descriptor:
+                        code: GIRTH_AT_THIN_END
+                      value: 'less than 6 cm'
+                    - descriptor:
+                        code: BLOOMING_AND_SHAPE
+                      value: 'Reasonable bloomed and conical shape More than 85 %'
+                    - descriptor:
+                        code: FLOWER_DIAMETER_IN_CM
+                      value: '3.45 cm'
+                    - descriptor:
+                        code: STAPLE_LENGTH_OF_COTTON_IN_MM
+                      value: '28 ‑ 30 mm'
+                    - descriptor:
+                        code: TRASH_PERCENTAGE
+                      value: '3%'
+                    - descriptor:
+                        code: BUNDLE_STRENGTH
+                      value: '24.0 and above'
+                    - descriptor:
+                        code: MICRONAIRE
+                      value: '2.8 to 3.0'
+                    - descriptor:
+                        code: PERCENTAGE_OF_MATURED_FIBERS
+                      value: 'Above 70.0-75.0 mm'
+                    - descriptor:
+                        code: SIEVE_ANALYSIS
+                      value: '98'
+                    - descriptor:
+                        code: NUMBER_OF_NUTS_PER_KG
+                      value: '210'
+                    - descriptor:
+                        code: VOID_NUTS_PERCENTAGE
+                      value: '1'
+                    - descriptor:
+                        code: IMMATURE_NUTS_PERCENTAGE
+                      value: '2'
+                    - descriptor:
+                        code: STRENGTH
+                      value: 'Need strength to break the fiber and sharp audible sound at thetime of breakage (Excellent 30)'
+                    - descriptor:
+                        code: FINENESS
+                      value: 'Fine (10)'
+                    
                 - descriptor:
                     code: AUCTION_SPECIFICATION
                   display: true
@@ -259,9 +342,6 @@ value:
                         code: FLOOR_PRICE
                       value: '250.00'
                     - descriptor:
-                        code: MIN_BID_QTY
-                      value: '100'
-                    - descriptor:
                         code: LOT_SIZE
                       value: '100'
                     - descriptor:
@@ -271,10 +351,10 @@ value:
                         code: MIN_BIDDER_REQ
                       value: '5'
                     - descriptor:
-                        code: TYPE_OF_BIDS
-                      value: open_bids
+                        code: TYPE_OF_AUCTION
+                      value: OPEN
                     - descriptor:
-                        code: REFUNDABLE_PARTICIPATION_FEE
+                        code: EARNEST_MONEY_DEPOSIT
                       value: '5000.00'
                     - descriptor:
                         code: TICK_SIZE
@@ -297,7 +377,7 @@ value:
               location_ids:
                 - L1
               category_ids:
-                - C1
+                - SRV16-1001
               item_ids:
                 - I2
               time:
@@ -306,6 +386,31 @@ value:
                   start: '2024-04-01T00:00:00.000Z'
                   end: '2024-12-10T00:00:00.000Z'
                 days: 04,05
+              tags:
+                - code: qualifier
+                  list:
+                    - descriptor:
+                        code: min_value
+                      value: '5000'
+                - code: benefit
+                  list:
+                    - descriptor:
+                        code: item_count
+                      value: 5
+                    - descriptor:
+                        code: item_id
+                      value: 'I1'
+                    - descriptor:
+                        code: item_value
+                      value: '200.00'
+                - code: meta
+                  list:
+                    - descriptor:
+                        code: additive
+                      value: 'no'
+                    - descriptor:
+                        code: auto
+                      value: 'yes'
           fulfillments:
             - contact:
                 phone: '9886098860'

@@ -10,4 +10,4 @@ I want to list my equipments along with the detailed specifications and requirem
 So that buyers across various locations can browse, book and avail equipments
 When the buyer requires based on the respective equipment availability
 Why as the network allows me access to varied set of buyers across buyer apps 
-
+also serviceability and time can be reffered from <a href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this document]</a> and for polygon geoJSON check <a href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>

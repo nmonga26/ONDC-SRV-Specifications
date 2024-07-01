@@ -35,7 +35,7 @@ message:
       category_ids:
         description: category ids related to the item
         required: required
-        usage: "[C1]"
+        usage: "[SRV16-1001]"
         reference: if any
       quantity:
         selected:

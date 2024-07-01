@@ -29,7 +29,7 @@ value:
           location_ids:
             - L1
           category_ids:
-            - C1
+            - SRV16-1001
           quantity:
             selected:
               count: 100
@@ -59,7 +59,7 @@ value:
           list:
             - descriptor:
                 code: BUYER_ID_CODE
-              value: gst
+              value: mandi_licence
             - descriptor:
                 code: BUYER_ID_NO
               value: xxxxxxxxxxxxxxx

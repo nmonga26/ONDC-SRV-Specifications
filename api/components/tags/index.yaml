@@ -42,10 +42,10 @@ update:
             $ref: "./TagGroup.yaml#/order/quote/breakup/tags"
         item:
           tags:
-            - code: ATTRIBUTES
-              description: Update parameter for attributes
+            - code: COMMODITY_SPECIFICATION
+              description: Update parameter for commodity specifications
               reference: <PR/Issue/Discussion Links md format text>
               list:
-                $ref: "./Tag.yaml#/ATTRIBUTES"
+                $ref: "./Tag.yaml#/COMMODITY_SPECIFICATION"
 on_update:
   message: *ref2

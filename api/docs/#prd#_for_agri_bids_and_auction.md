@@ -33,6 +33,9 @@ Case 2: Seller app collects payment, seller app provides its payment collection 
 - If Buyer loses the Bid, the refund for EMD will be initiated.
 - Buyer leaves a detailed review on the buyer, sharing both positive and negative aspects. Buyer app shares the same with the seller app following the rating framework
 
+## Serviciability and Polygon
+serviceability details and how its work and also time selection can be reffered from <a href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this document]</a> and for polygon geoJSON check <a href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
+
 
 
 

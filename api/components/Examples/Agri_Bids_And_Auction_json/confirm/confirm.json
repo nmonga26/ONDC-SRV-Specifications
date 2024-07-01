@@ -42,7 +42,7 @@
             "L1"
           ],
           "category_ids": [
-            "C1"
+            "SRV16-1001"
           ],
           "quantity": {
             "selected": {
@@ -131,7 +131,7 @@
         },
         "breakup": [
           {
-            "title": "Wheat",
+            "title": "Wheat (Auction)",
             "price": {
               "currency": "INR",
               "value": "25000.00"
@@ -165,7 +165,7 @@
             ]
           },
           {
-            "title": "REFUNDABLE_PARTICIPATION_FEE",
+            "title": "earnest_money_deposit",
             "price": {
               "currency": "INR",
               "value": "5000.00"
@@ -183,7 +183,7 @@
                     "descriptor": {
                       "code": "type"
                     },
-                    "value": "REFUNDABLE_PARTICIPATION_FEE"
+                    "value": "earnest_money_deposit"
                   }
                 ]
               }
@@ -282,7 +282,7 @@
           "tags": [
             {
               "descriptor": {
-                "code": "REFUNDABLE_PARTICIPATION_FEE"
+                "code": "Settlement_Details"
               },
               "list": [
                 {

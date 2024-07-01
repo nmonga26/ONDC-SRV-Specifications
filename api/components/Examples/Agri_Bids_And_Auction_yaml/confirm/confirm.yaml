@@ -31,7 +31,7 @@ value:
           location_ids:
             - L1
           category_ids:
-            - C1
+            - SRV16-1001
           quantity:
             selected:
               count: 100
@@ -88,7 +88,7 @@ value:
           currency: INR
           value: '30050.00'
         breakup:
-          - title: Wheat
+          - title: Wheat (Auction)
             price:
               currency: INR
               value: '25000.00'
@@ -107,7 +107,7 @@ value:
                   - descriptor:
                       code: type
                     value: item
-          - title: REFUNDABLE_PARTICIPATION_FEE
+          - title: earnest_money_deposit
             price:
               currency: INR
               value: '5000.00'
@@ -119,7 +119,7 @@ value:
                 list:
                   - descriptor:
                       code: type
-                    value: REFUNDABLE_PARTICIPATION_FEE
+                    value: earnest_money_deposit
           - title: tax
             price:
               currency: INR
@@ -172,7 +172,7 @@ value:
           type: PRE-FULFILLMENT
           tags:
             - descriptor:
-                code: REFUNDABLE_PARTICIPATION_FEE
+                code: Settlement_Details
               list:
                 - descriptor:
                     code: Counterparty

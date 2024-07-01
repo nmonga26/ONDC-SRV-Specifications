@@ -20,6 +20,12 @@ on_search:
       fulfillments: &fulfillments
         type: 
           $ref: "./fulfillments.yaml#/fulfillments/type"
+      providers:
+        items:
+          tags:
+            AUCTION_SPECIFICATION:
+              TYPE_OF_AUCTION:
+                $ref: "./tags.yaml#/AUCTION_SPECIFICATION/TYPE_OF_AUCTION"
 init:
   context: &context
     domain: 
