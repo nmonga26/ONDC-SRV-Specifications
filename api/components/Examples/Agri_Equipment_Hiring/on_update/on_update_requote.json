@@ -51,7 +51,7 @@
                     "id": "PY1",
                     "collected_by": "BAP",
                     "params": {
-                        "amount": "7140",
+                        "amount": "5000",
                         "currency": "INR",
                         "bank_account_number": "xxxxxxxx",
                         "virtual_payment_address": "xxx@xxxx"
@@ -106,9 +106,9 @@
                 },
                 {
                     "id": "PY2",
-                    "collected_by": "BPP",
+                    "collected_by": "BAP",
                     "params": {
-                        "amount": "100",
+                        "amount": "2140",
                         "currency": "INR",
                         "bank_account_number": "xxxxxxxx",
                         "virtual_payment_address": "xxx@xxxx"

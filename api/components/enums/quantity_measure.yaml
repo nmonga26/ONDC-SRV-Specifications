@@ -1,0 +1,7 @@
+unit:
+  - code: hours
+    description: Quantity measure to hire the equipment
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: days
+    description: Quantity measure to hire the equipment
+    reference: <PR/Issue/Discussion Links md format text>

@@ -31,7 +31,7 @@ value:
           location_ids:
             - L1
           category_ids:
-            - C1
+            - SRV15-****
           quantity:
             selected:
               count: 4
@@ -189,12 +189,43 @@ value:
         - id: PY1
           collected_by: BAP
           params:
-            amount: '7140'
+            amount: '5000'
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
           status: PAID
           type: PRE-FULFILLMENT
+          tags:
+            - descriptor:
+                code: Settlement_Details
+              list:
+                - descriptor:
+                    code: Counterparty
+                  value: BPP
+                - descriptor:
+                    code: Mode
+                  value: UPI
+                - descriptor:
+                    code: Beneficiary_Name
+                  value: xxxxx
+                - descriptor:
+                    code: Bank_Account_No
+                  value: xxxxx
+                - descriptor:
+                    code: Ifsc_Code
+                  value: xxxxxxx
+                - descriptor:
+                    code: UPI_Address
+                  value: xxxxxxx
+        - id: PY2
+          collected_by: BAP
+          params:
+            amount: '2140'
+            currency: INR
+            bank_account_number: xxxxxxxx
+            virtual_payment_address: xxx@xxxx
+          status: NOT-PAID
+          type: ON-FULFILLMENT
           tags:
             - descriptor:
                 code: Settlement_Details

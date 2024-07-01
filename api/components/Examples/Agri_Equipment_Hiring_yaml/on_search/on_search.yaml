@@ -28,6 +28,8 @@ value:
           type: PRE-FULFILLMENT
         - id: PY2
           type: ON-FULFILLMENT
+        - id: PY3
+          type: POST-FULFILLMENT
       descriptor:
         name: Agri Equipment Provider
         short_desc: Agri Equipment Provider
@@ -71,7 +73,61 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: SRV15-*
+                  value: SRV15-****
+                - descriptor:
+                    code: type
+                  value: '10'
+                - descriptor:
+                    code: val
+                  value: '5'
+                - descriptor:
+                    code: unit
+                  value: km
+            - descriptor:
+                code: serviceability
+              list:
+                - descriptor:
+                    code: location
+                  value: L1
+                - descriptor:
+                    code: category
+                  value: SRV15-****
+                - descriptor:
+                    code: type
+                  value: '11'
+                - descriptor:
+                    code: val
+                  value: 560001-560076,560083
+                - descriptor:
+                    code: unit
+                  value: pincode
+            - descriptor:
+                code: serviceability
+              list:
+                - descriptor:
+                    code: location
+                  value: L1
+                - descriptor:
+                    code: category
+                  value: SRV15-****
+                - descriptor:
+                    code: type
+                  value: '12'
+                - descriptor:
+                    code: val
+                  value: IND
+                - descriptor:
+                    code: unit
+                  value: country
+            - descriptor:
+                code: serviceability
+              list:
+                - descriptor:
+                    code: location
+                  value: L1
+                - descriptor:
+                    code: category
+                  value: SRV15-****
                 - descriptor:
                     code: type
                   value: '13'
@@ -86,67 +142,6 @@ value:
                 - descriptor:
                     code: unit
                   value: geojson
-          categories:
-            - id: C1
-              descriptor:
-                name: Hi Tech based Tractor
-                code: MISC
-              tags:
-                - descriptor:
-                    code: SELECTION
-                  list:
-                    - descriptor:
-                        code: SEQ
-                      value: '1'
-                    - descriptor:
-                        code: MANDATORY_SELECTION
-                      value: 'true'
-                    - descriptor:
-                        code: MIN_SELECTION
-                      value: '1'
-                    - descriptor:
-                        code: MAX_SELECTION
-                      value: '3'
-            - id: C2
-              descriptor:
-                name: Thresher
-                code: MISC
-              tags:
-                - descriptor:
-                    code: SELECTION
-                  list:
-                    - descriptor:
-                        code: SEQ
-                      value: '2'
-                    - descriptor:
-                        code: MANDATORY_SELECTION
-                      value: 'true'
-                    - descriptor:
-                        code: MIN_SELECTION
-                      value: '1'
-                    - descriptor:
-                        code: MAX_SELECTION
-                      value: '3'
-            - id: C3
-              descriptor:
-                name: Rotovator
-                code: MISC
-              tags:
-                - descriptor:
-                    code: SELECTION
-                  list:
-                    - descriptor:
-                        code: SEQ
-                      value: '3'
-                    - descriptor:
-                        code: MANDATORY_SELECTION
-                      value: 'true'
-                    - descriptor:
-                        code: MIN_SELECTION
-                      value: '1'
-                    - descriptor:
-                        code: MAX_SELECTION
-                      value: '3'
           items:
             - id: I1
               descriptor:
@@ -174,7 +169,6 @@ value:
                 maximum:
                   value: '4'
               category_ids:
-                - C1
                 - SRV15-1001
               fulfillment_ids:
                 - F1
@@ -183,6 +177,7 @@ value:
                 - L1
               payment_ids:
                 - PY1
+                - PY2
               add_ons:
                 - id: A1
                   descriptor:
@@ -192,6 +187,11 @@ value:
                   price:
                     currency: INR
                     value: '200.00'
+                  quantity:
+                    unitized:
+                      measure:
+                        unit: hours
+                        value: '1'
               cancellation_terms:
                 - fulfillment_state:
                     descriptor:
@@ -237,8 +237,11 @@ value:
                         code: RESCHEDULE_ELIGIBLE
                       value: 'true'
                     - descriptor:
+                        code: RESCHEDULE_FEE_TYPE
+                      value: percent
+                    - descriptor:
                         code: RESCHEDULE_FEE
-                      value: '0.00'
+                      value: '0'
                     - descriptor:
                         code: RESCHEDULE_WITHIN
                       value: PT1D
@@ -309,8 +312,15 @@ value:
                       value: https://abc.com/insurance
               time:
                 label: validity
+                range:
+                  start: '2024-06-09T00:00:00.000Z'
+                  end: '2024-06-19T00:00:00.000Z'
+                days: 01,04,05
                 schedule:
                   frequency: PT1H
+                  holidays:
+                    - '2024-06-11'
+                    - '2024-06-18'
                   times:
                     - '2024-06-09T22:00:00.000Z'
                     - '2024-06-09T23:00:00.000Z'
@@ -331,7 +341,7 @@ value:
               location_ids:
                 - L1
               category_ids:
-                - C1
+                - SRV15-1001
               item_ids:
                 - PI2
               time:
@@ -340,6 +350,31 @@ value:
                   start: '2024-04-01T00:00:00.000Z'
                   end: '2024-12-10T00:00:00.000Z'
                 days: 04,05
+              tags:
+                - code: qualifier
+                  list:
+                    - descriptor:
+                        code: min_value
+                      value: '5000'
+                - code: benefit
+                  list:
+                    - descriptor:
+                        code: value_type
+                      value: percent
+                    - descriptor:
+                        code: value
+                      value: '10'
+                    - descriptor:
+                        code: value_cap
+                      value: '-200.00'
+                - code: meta
+                  list:
+                    - descriptor:
+                        code: additive
+                      value: 'no'
+                    - descriptor:
+                        code: auto
+                      value: 'yes'
           fulfillments:
             - contact:
                 phone: '9886098860'

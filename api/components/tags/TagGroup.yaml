@@ -52,6 +52,23 @@ catalog:
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./Tag.yaml#/SELECTION"
+  offers:
+    tags:
+      - code: qualifier
+        description: Qualifier which offer can apply
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./Tag.yaml#/qualifier"
+      - code: benefit
+        description: Benefit which offer can avail
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./Tag.yaml#/benefit"
+      - code: meta
+        description: meta value for offer
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./Tag.yaml#/meta"
 order:
   items:
     tags:

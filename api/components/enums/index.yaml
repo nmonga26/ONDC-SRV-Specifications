@@ -20,6 +20,13 @@ on_search:
       fulfillments: &fulfillments
         type: 
           $ref: "./fulfillments.yaml#/fulfillments/type"
+      providers:
+        items:
+          quantity:
+            unitized:
+              measure:
+                unit:
+                  $ref: "./quantity_measure.yaml#/unit"
 init:
   context: &context
     domain: 

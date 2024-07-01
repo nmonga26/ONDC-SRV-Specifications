@@ -32,7 +32,7 @@ value:
           location_ids:
             - L1
           category_ids:
-            - C1
+            - SRV15-****
           quantity:
             selected:
               count: 4
