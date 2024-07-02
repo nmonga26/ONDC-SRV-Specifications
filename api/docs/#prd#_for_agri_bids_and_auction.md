@@ -25,8 +25,8 @@
 - Seller notifies the current Highest Bid and if the Buyer wants to update the Bid he can (before the End Date)
 - Buyer updates the Bid and the same is reflected at both ends. Back to step 1 until the End date arrives.
 - Once the auction ends, Buyer requests for the final update
-If Buyer wins, Bid State will be defined as “Awarded”
-If Buyer loses, a Cancel call will be made. The buyer will be made aware of the winning Bid and Bid State will be “Not Awarded”
+    If Buyer wins, Bid State will be defined as “Awarded”
+    If Buyer loses, a Cancel call will be made. The buyer will be made aware of the winning Bid and Bid State will be “Not Awarded”
 - If Buyer is awarded the Bid, payment (Security Deposit) will be collected for order confirmation initiation
 Case 1: Buyer app collects payment and initiates the confirmation call
 Case 2: Seller app collects payment, seller app provides its payment collection details and shares confirmation on the payment successful post confirmation initiation received form the buyer app
