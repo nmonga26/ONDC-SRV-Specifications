@@ -35,11 +35,20 @@ value:
               count: 100
           tags:
             - descriptor:
-                code: ATTRIBUTE
+                code: COMMODITY_SPECIFICATION
               list:
                 - descriptor:
-                    code: TYPE
-                  value: item
+                    code: SELF_LIFE
+                  value: P10M
+                - descriptor:
+                    code: MOISTURE
+                  value: 10%
+                - descriptor:
+                    code: OIL_CONTENT
+                  value: 2%
+                - descriptor:
+                    code: DEFECTIVES
+                  value: 7%
       fulfillments:
         - type: Buyer-Fulfilled
           stops:
@@ -52,6 +61,7 @@ value:
                 gps: 12.974002,77.613458
                 area_code: '560001'
       payments:
+        - type: PRE-FULFILLMENT
         - type: ON-FULFILLMENT
       tags:
         - descriptor:

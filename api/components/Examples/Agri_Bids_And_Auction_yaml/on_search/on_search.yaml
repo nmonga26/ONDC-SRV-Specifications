@@ -74,7 +74,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: RET10-1042
+                  value: SRV16-1001
                 - descriptor:
                     code: type
                   value: '12'
@@ -211,32 +211,41 @@ value:
                         code: COPY
                       value: https://abc.com/certificates
                 - descriptor:
+                    code: LOT_INFORMATION
+                  list:
+                    - descriptor:
+                        code: PACK_SIZE
+                      value: '50'
+                    - descriptor:
+                        code: NUM_PACK_SIZE
+                      value: '100'
+                - descriptor:
                     code: COMMODITY_SPECIFICATION
                   list:
                     - descriptor:
                         code: REFERENCE_DOCS_MIME_TYPE
-                      value: 'application/pdf'
+                      value: application/pdf
                     - descriptor:
                         code: REFERENCE_DOCS_COPY
-                      value: 'https://abc.com/commodity_specification.pdf'
+                      value: https://abc.com/commodity_specification.pdf
                     - descriptor:
                         code: SELF_LIFE
-                      value: 'P10M'
+                      value: P10M
                     - descriptor:
                         code: MOISTURE
-                      value: '10%'
+                      value: 10%
                     - descriptor:
                         code: FOREIGN_MATTER
-                      value: '3%'
+                      value: 3%
                     - descriptor:
                         code: OIL_CONTENT
-                      value: '2%'
+                      value: 2%
                     - descriptor:
                         code: DEFECTIVES
-                      value: '7%'
+                      value: 7%
                     - descriptor:
                         code: OTHER_EDIBLE_GRAINS
-                      value: '1%'
+                      value: 1%
                     - descriptor:
                         code: URIC_ACID
                       value: '101'
@@ -248,70 +257,70 @@ value:
                       value: 'Yes'
                     - descriptor:
                         code: SIZE_RANGE_MEASURE
-                      value: 'Diameter'
+                      value: Diameter
                     - descriptor:
                         code: SIZE_RANGE
-                      value: '15-18'
+                      value: 15-18
                     - descriptor:
                         code: PERCENTAGE_OF_DEFECTS
-                      value: '1.5%'
+                      value: 1.5%
                     - descriptor:
                         code: PERCENTAGE_OF_WASTAGE
-                      value: '3%'
+                      value: 3%
                     - descriptor:
                         code: BUNCH_SIZE
                       value: '50'
                     - descriptor:
                         code: BUNCH_SIZE_UNIT
-                      value: 'gm'
+                      value: gm
                     - descriptor:
                         code: VISIBLE_COLOUR
-                      value: 'Brown'
+                      value: Brown
                     - descriptor:
                         code: COLOUR_PERCENTAGE
-                      value: 'More than 70'
+                      value: More than 70
                     - descriptor:
                         code: TOTAL_SOLUBLE_SOLIDS
-                      value: '16 degree Brix'
+                      value: 16 degree Brix
                     - descriptor:
                         code: TRACES_OF_SOIL
-                      value: 'Sight traces'
+                      value: Sight traces
                     - descriptor:
                         code: VOLATILE_OIL_PERCENTAGE
-                      value: 'Up to 2.5'
+                      value: Up to 2.5
                     - descriptor:
                         code: TOTAL_ASH_PERCENTAGE
-                      value: 'Not more than 7.0'
+                      value: Not more than 7.0
                     - descriptor:
                         code: CORIANDER_SPLIT_SEEDS_PERCENTAGE
-                      value: '5%'
+                      value: 5%
                     - descriptor:
                         code: MIN_FLOWER_PER_STEM
                       value: '1'
                     - descriptor:
                         code: GIRTH_AT_THIN_END
-                      value: 'less than 6 cm'
+                      value: less than 6 cm
                     - descriptor:
                         code: BLOOMING_AND_SHAPE
-                      value: 'Reasonable bloomed and conical shape More than 85 %'
+                      value: Reasonable bloomed and conical shape More than 85 %
                     - descriptor:
                         code: FLOWER_DIAMETER_IN_CM
-                      value: '3.45 cm'
+                      value: 3.45 cm
                     - descriptor:
                         code: STAPLE_LENGTH_OF_COTTON_IN_MM
-                      value: '28 ‑ 30 mm'
+                      value: 28 ‑ 30 mm
                     - descriptor:
                         code: TRASH_PERCENTAGE
-                      value: '3%'
+                      value: 3%
                     - descriptor:
                         code: BUNDLE_STRENGTH
-                      value: '24.0 and above'
+                      value: 24.0 and above
                     - descriptor:
                         code: MICRONAIRE
-                      value: '2.8 to 3.0'
+                      value: 2.8 to 3.0
                     - descriptor:
                         code: PERCENTAGE_OF_MATURED_FIBERS
-                      value: 'Above 70.0-75.0 mm'
+                      value: Above 70.0-75.0 mm
                     - descriptor:
                         code: SIEVE_ANALYSIS
                       value: '98'
@@ -326,11 +335,12 @@ value:
                       value: '2'
                     - descriptor:
                         code: STRENGTH
-                      value: 'Need strength to break the fiber and sharp audible sound at thetime of breakage (Excellent 30)'
+                      value: >-
+                        Need strength to break the fiber and sharp audible sound
+                        at thetime of breakage (Excellent 30)
                     - descriptor:
                         code: FINENESS
-                      value: 'Fine (10)'
-                    
+                      value: Fine (10)
                 - descriptor:
                     code: AUCTION_SPECIFICATION
                   display: true
@@ -396,10 +406,10 @@ value:
                   list:
                     - descriptor:
                         code: item_count
-                      value: 5
+                      value: '5'
                     - descriptor:
                         code: item_id
-                      value: 'I1'
+                      value: I2
                     - descriptor:
                         code: item_value
                       value: '200.00'

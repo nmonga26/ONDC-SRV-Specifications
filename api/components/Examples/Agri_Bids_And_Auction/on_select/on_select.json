@@ -33,6 +33,46 @@
           "id": "I1",
           "location_ids": [
             "L1"
+          ],"category_ids": [
+            "SRV16-1001"
+          ],
+          "quantity": {
+            "selected": {
+              "count": 100
+            }
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "code": "COMMODITY_SPECIFICATION"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "SELF_LIFE"
+                  },
+                  "value": "P10M"
+                },
+                {
+                  "descriptor": {
+                    "code": "MOISTURE"
+                  },
+                  "value": "10%"
+                },
+                {
+                  "descriptor": {
+                    "code": "OIL_CONTENT"
+                  },
+                  "value": "2%"
+                },
+                {
+                  "descriptor": {
+                    "code": "DEFECTIVES"
+                  },
+                  "value": "7%"
+                }
+              ]
+            }
           ]
         }
       ],
@@ -208,6 +248,10 @@
         "ttl": "P1D"
       },
       "payments": [
+        {
+          "type": "PRE-FULFILLMENT",
+          "collected_by": "BAP"
+        },
         {
           "type": "ON-FULFILLMENT",
           "collected_by": "BAP"
