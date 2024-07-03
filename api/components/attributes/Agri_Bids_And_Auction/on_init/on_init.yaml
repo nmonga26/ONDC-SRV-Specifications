@@ -35,7 +35,7 @@ message:
       category_ids:
         description: category ids related to the item
         required: required
-        usage: "[C1]"
+        usage: "[SRV16-1001]"
         reference: if any
       quantity:
         selected:
@@ -47,7 +47,7 @@ message:
       tags:
         description: tags associated with the item
         required: optional
-        usage: "[{\"descriptor\":{\"code\":\"ATTRIBUTE\"},\"list\":[{\"descriptor\":{\"code\":\"TYPE\"},\"value\":\"item\"}]}]"
+        usage: "[{\"descriptor\":{\"code\":\"COMMODITY_SPECIFICATION\"},\"list\":[{\"descriptor\":{\"code\":\"SELF_LIFE\"},\"value\":\"P10M\"},{\"descriptor\":{\"code\":\"MOISTURE\"},\"value\":\"10%\"},{\"descriptor\":{\"code\":\"OIL_CONTENT\"},\"value\":\"2%\"},{\"descriptor\":{\"code\":\"DEFECTIVES\"},\"value\":\"7%\"}]}]"
         reference: if any
     billing:
       name:

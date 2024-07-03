@@ -75,11 +75,6 @@ message:
         required: optional
         usage: "-"
         reference: if any
-      categories:
-        description: All the categories list
-        required: optional
-        usage: "-"
-        reference: if any
       offers:
         id:
           description: offer id
@@ -167,7 +162,7 @@ message:
         category_ids:
           description: category id of the service provided by the service provider which was sent in /search call
           required: required
-          usage: "SRV15-1000"
+          usage: "SRV16-1000"
           reference: if any
         fulfillment_ids:
           description: fulfillment id of the service provided by the service provider

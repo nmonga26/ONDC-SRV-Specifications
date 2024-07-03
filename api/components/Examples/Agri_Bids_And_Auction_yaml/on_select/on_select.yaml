@@ -26,6 +26,27 @@ value:
           id: I1
           location_ids:
             - L1
+          category_ids:
+            - SRV16-1001
+          quantity:
+            selected:
+              count: 100
+          tags:
+            - descriptor:
+                code: COMMODITY_SPECIFICATION
+              list:
+                - descriptor:
+                    code: SELF_LIFE
+                  value: P10M
+                - descriptor:
+                    code: MOISTURE
+                  value: 10%
+                - descriptor:
+                    code: OIL_CONTENT
+                  value: 2%
+                - descriptor:
+                    code: DEFECTIVES
+                  value: 7%
       fulfillments:
         - id: F1
           type: Buyer-Fulfilled
@@ -48,7 +69,7 @@ value:
           currency: INR
           value: '30050.00'
         breakup:
-          - title: Wheat
+          - title: Wheat (Auction)
             price:
               currency: INR
               value: '25000.00'
@@ -67,7 +88,7 @@ value:
                   - descriptor:
                       code: type
                     value: item
-          - title: REFUNDABLE_PARTICIPATION_FEE
+          - title: earnest_money_deposit
             price:
               currency: INR
               value: '5000.00'
@@ -79,7 +100,7 @@ value:
                 list:
                   - descriptor:
                       code: type
-                    value: REFUNDABLE_PARTICIPATION_FEE
+                    value: earnest_money_deposit
           - title: tax
             price:
               currency: INR
@@ -121,5 +142,7 @@ value:
                     value: misc
         ttl: P1D
       payments:
+        - type: PRE-FULFILLMENT
+          collected_by: BAP
         - type: ON-FULFILLMENT
           collected_by: BAP

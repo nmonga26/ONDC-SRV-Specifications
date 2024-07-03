@@ -42,7 +42,7 @@
             "L1"
           ],
           "category_ids": [
-            "C1"
+            "SRV16-1001"
           ],
           "quantity": {
             "selected": {
@@ -52,14 +52,58 @@
           "tags": [
             {
               "descriptor": {
-                "code": "ATTRIBUTE"
+                "code": "COMMODITY_SPECIFICATION"
               },
               "list": [
                 {
                   "descriptor": {
-                    "code": "TYPE"
+                    "code": "SELF_LIFE"
                   },
-                  "value": "item"
+                  "value": "P10M"
+                },
+                {
+                  "descriptor": {
+                    "code": "MOISTURE"
+                  },
+                  "value": "10%"
+                },
+                {
+                  "descriptor": {
+                    "code": "OIL_CONTENT"
+                  },
+                  "value": "2%"
+                },
+                {
+                  "descriptor": {
+                    "code": "DEFECTIVES"
+                  },
+                  "value": "7%"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "CERTIFICATES"
+              },
+              "display": true,
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "NAME"
+                  },
+                  "value": "CER-001"
+                },
+                {
+                  "descriptor": {
+                    "code": "MIME_TYPE"
+                  },
+                  "value": "application/pdf"
+                },
+                {
+                  "descriptor": {
+                    "code": "COPY"
+                  },
+                  "value": "https://abc.com/certificates"
                 }
               ]
             }
@@ -131,7 +175,7 @@
         },
         "breakup": [
           {
-            "title": "Wheat",
+            "title": "Wheat (Auction)",
             "price": {
               "currency": "INR",
               "value": "25000.00"
@@ -165,7 +209,7 @@
             ]
           },
           {
-            "title": "REFUNDABLE_PARTICIPATION_FEE",
+            "title": "earnest_money_deposit",
             "price": {
               "currency": "INR",
               "value": "5000.00"
@@ -183,7 +227,7 @@
                     "descriptor": {
                       "code": "type"
                     },
-                    "value": "REFUNDABLE_PARTICIPATION_FEE"
+                    "value": "earnest_money_deposit"
                   }
                 ]
               }
@@ -282,7 +326,7 @@
           "tags": [
             {
               "descriptor": {
-                "code": "REFUNDABLE_PARTICIPATION_FEE"
+                "code": "Settlement_Details"
               },
               "list": [
                 {

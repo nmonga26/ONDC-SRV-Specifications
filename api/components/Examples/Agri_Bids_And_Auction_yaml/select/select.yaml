@@ -29,17 +29,26 @@ value:
           location_ids:
             - L1
           category_ids:
-            - C1
+            - SRV16-1001
           quantity:
             selected:
               count: 100
           tags:
             - descriptor:
-                code: ATTRIBUTE
+                code: COMMODITY_SPECIFICATION
               list:
                 - descriptor:
-                    code: TYPE
-                  value: item
+                    code: SELF_LIFE
+                  value: P10M
+                - descriptor:
+                    code: MOISTURE
+                  value: 10%
+                - descriptor:
+                    code: OIL_CONTENT
+                  value: 2%
+                - descriptor:
+                    code: DEFECTIVES
+                  value: 7%
       fulfillments:
         - type: Buyer-Fulfilled
           stops:
@@ -52,6 +61,7 @@ value:
                 gps: 12.974002,77.613458
                 area_code: '560001'
       payments:
+        - type: PRE-FULFILLMENT
         - type: ON-FULFILLMENT
       tags:
         - descriptor:
@@ -59,7 +69,7 @@ value:
           list:
             - descriptor:
                 code: BUYER_ID_CODE
-              value: gst
+              value: mandi_licence
             - descriptor:
                 code: BUYER_ID_NO
               value: xxxxxxxxxxxxxxx

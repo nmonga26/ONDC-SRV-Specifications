@@ -45,11 +45,16 @@ catalog:
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./Tag.yaml#/AUCTION_SPECIFICATION"
-        - code: ATTRIBUTES
-          description: Bids and auction attribute of a particular commodity
+        - code: COMMODITY_SPECIFICATION
+          description: Bids and auction specifications of a particular commodity
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/ATTRIBUTES"
+            $ref: "./Tag.yaml#/COMMODITY_SPECIFICATION"
+        - code: LOT_INFORMATION
+          description: Bids and auction lot information for a particular commodity
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            $ref: "./Tag.yaml#/LOT_INFORMATION"
         - code: CERTIFICATES
           description: Certificates that need to verify for bids if applicable
           reference: <PR/Issue/Discussion Links md format text>
@@ -59,11 +64,11 @@ catalog:
 order:
   items:
     tags:
-      - code: ATTRIBUTES
-        description: Attribute of a particular bids item
+      - code: COMMODITY_SPECIFICATION
+        description: Commodity specification of a particular bids item
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          $ref: "./Tag.yaml#/ATTRIBUTES"
+          $ref: "./Tag.yaml#/COMMODITY_SPECIFICATION"
   quote:
     breakup:
       tags: &ref2
@@ -76,11 +81,6 @@ order:
     tags:
       - code: SETTLEMENT_DETAILS
         description: Define Payment Settlement Details here
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          $ref: "./Tag.yaml#/Settlement_Details"
-      - code: REFUNDABLE_PARTICIPATION_FEE
-        description: Define refundable Payment Details here
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./Tag.yaml#/Settlement_Details"

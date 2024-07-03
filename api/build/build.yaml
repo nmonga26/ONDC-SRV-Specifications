@@ -2649,6 +2649,17 @@ x-enum:
       catalog:
         fulfillments:
           type: *ref_1
+        providers:
+          items:
+            tags:
+              AUCTION_SPECIFICATION:
+                TYPE_OF_AUCTION:
+                  - code: OPEN
+                    description: Open Bid - Where the Bids are disclosed to everyone
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: CLOSE
+                    description: Close Bid - Bids are in the sealed envelope
+                    reference: <PR/Issue/Discussion Links md format text>
   init:
     context:
       domain: *ref_0
@@ -2795,7 +2806,7 @@ x-tags:
             reference: <PR/Issue/Discussion Links md format text>
             list:
               - code: BUYER_ID_CODE
-                description: Buyer id code. eg. "gst"
+                description: Buyer id code. eg. "mandi_licence"
                 reference: <PR/Issue/Discussion Links md format text>
               - code: BUYER_ID_NO
                 description: Buyer id
@@ -2840,10 +2851,10 @@ x-tags:
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 - code: seller_id_code
-                  description: Seller id code i.e. GST
+                  description: Seller id code i.e. mandi_licence
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: seller_id_no
-                  description: Seller unique gst number
+                  description: Seller unique mandi licence number
                   reference: <PR/Issue/Discussion Links md format text>
             - code: FSSAI_LICENSE_NO
               description: FSSAI License if applicable
@@ -2882,9 +2893,6 @@ x-tags:
                   - code: FLOOR_PRICE
                     description: Bids floor (Minimum) price for commodity
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: MIN_BID_QTY
-                    description: Minimum bid commodity lot quantity
-                    reference: <PR/Issue/Discussion Links md format text>
                   - code: LOT_SIZE
                     description: Lot size for the bid
                     reference: <PR/Issue/Discussion Links md format text>
@@ -2894,10 +2902,10 @@ x-tags:
                   - code: MIN_BIDDER_REQ
                     description: Minimum number of Bidders required
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: TYPE_OF_BIDS
-                    description: Type of Bids - Open Bid, Close Bid
+                  - code: TYPE_OF_AUCTION
+                    description: Type of Bids - OPEN, CLOSE
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: REFUNDABLE_PARTICIPATION_FEE
+                  - code: EARNEST_MONEY_DEPOSIT
                     description: Earnest Money Deposit (Participation Fee refundable)
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: TICK_SIZE
@@ -2913,10 +2921,176 @@ x-tags:
                       Limitation on Number of Bids - A seller may only accept 5
                       Bids
                     reference: <PR/Issue/Discussion Links md format text>
-              - code: ATTRIBUTES
-                description: Bids and auction attribute of a particular commodity
+              - code: COMMODITY_SPECIFICATION
+                description: Bids and auction specifications of a particular commodity
                 reference: <PR/Issue/Discussion Links md format text>
                 list: &ref_7
+                  - code: REFERENCE_DOCS_MIME_TYPE
+                    description: >-
+                      Reference docs mime type of the commodity specification if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: REFERENCE_DOCS_COPY
+                    description: >-
+                      Reference docs link of the commodity specification if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SELF_LIFE
+                    description: Self life of the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MOISTURE
+                    description: Moisture of the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: FOREIGN_MATTER
+                    description: foreign matter in the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: OIL_CONTENT
+                    description: Oil Content in the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: DEFECTIVES
+                    description: Defectives into the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: OTHER_EDIBLE_GRAINS
+                    description: Other edible grains into the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: URIC_ACID
+                    description: Uric Acid into the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: AFLATOXIN
+                    description: Aflatoxin into the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: ARGEMONE_SEEDS
+                    description: Is Argemone seeds if applicable - Yes, No
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SIZE_RANGE_MEASURE
+                    description: >-
+                      Size and Range measure for the commodity if applicable
+                      i.e. Diameter, Length
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SIZE_RANGE
+                    description: >-
+                      Size (Diameter, Length) Range (mm) for the commodity if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: PERCENTAGE_OF_DEFECTS
+                    description: >-
+                      % of Defects (Cuts, Cracks, Discoloured,
+                      mis-shape,Bruising Marks, Black/Brown Spots, Soft patches,
+                      mech. Damage, insect eaten, bird eaten, immature, dry/old
+                      look, shriveleld, under/over ripe, twins, fresh
+                      rooting,hail damage, latex marks/burns  sprouted,holes,
+                      wilting, chipped, puffy, without stem/calyx, slanky, nodes
+                      on surace, loose jacket, improper colour, Ricenous, long
+                      stem,Chitty, smut, sun burn, hard seed stem, open neck,
+                      yellow diseased leaves, foreign matter, watery berries etc
+                      for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: PERCENTAGE_OF_WASTAGE
+                    description: >-
+                      % of Wastage Not fit for Human Consumption (Rotten, Fungal
+                      infected, Diseased, Totally Damaged) for the commodity if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: BUNCH_SIZE
+                    description: >-
+                      Bunch size for leafy vegetables weight (gm) for the
+                      commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: BUNCH_SIZE_UNIT
+                    description: >-
+                      Bunch size unit for leafy vegetables weight (gm) for the
+                      commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: VISIBLE_COLOUR
+                    description: Visible Colour for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: COLOUR_PERCENTAGE
+                    description: >-
+                      Colour % (Characteristic true to the variety) Scale (1 to
+                      100*) for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: TOTAL_SOLUBLE_SOLIDS
+                    description: >-
+                      Total soluble solids (TSS) % (MInimum) for the commodity
+                      if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: TRACES_OF_SOIL
+                    description: Traces of Soil for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: VOLATILE_OIL_PERCENTAGE
+                    description: Volatile oil % for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: TOTAL_ASH_PERCENTAGE
+                    description: Total Ash, % (m/m) for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: CORIANDER_SPLIT_SEEDS_PERCENTAGE
+                    description: >-
+                      Damaged /Coriander Split seeds(% by weight) Max for the
+                      commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MIN_FLOWER_PER_STEM
+                    description: Min. flower per stem for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: GIRTH_AT_THIN_END
+                    description: Girth at thin end for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: BLOOMING_AND_SHAPE
+                    description: >-
+                      Blooming and Shape for the commodity if applicable like -
+                      Reasonable bloomed and conical shape More than 85 %,
+                      Slightly bloomed and conical shape More than 90 %, Perfect
+                      bloomed and conical shape More than 95 %
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: FLOWER_DIAMETER_IN_CM
+                    description: Flower Diameter in cm for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: STAPLE_LENGTH_OF_COTTON_IN_MM
+                    description: >-
+                      Staple Length of cotton (in mm) for the commodity if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: TRASH_PERCENTAGE
+                    description: Trash (% by wt) for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: BUNDLE_STRENGTH
+                    description: Bundle Strength for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MICRONAIRE
+                    description: Micronaire for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: PERCENTAGE_OF_MATURED_FIBERS
+                    description: >-
+                      Percentage of Matured fibers (mm) for the commodity if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SIEVE_ANALYSIS
+                    description: >-
+                      Sieve analysis (% passing through 75 µm IS Sieve) for the
+                      commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: NUMBER_OF_NUTS_PER_KG
+                    description: Number of nuts per kg for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: VOID_NUTS_PERCENTAGE
+                    description: Void nuts (% by Weight) for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: IMMATURE_NUTS_PERCENTAGE
+                    description: >-
+                      Immature nuts (% by Weight) for the commodity if
+                      applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: STRENGTH
+                    description: Strength for the commodity if applicable
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: FINENESS
+                    description: >-
+                      Fineness for the commodity if applicable like Fine (10),
+                      Very Fine (15), Coarse (05),
+                    reference: <PR/Issue/Discussion Links md format text>
+              - code: LOT_INFORMATION
+                description: Bids and auction lot information for a particular commodity
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
                   - code: TYPE
                     description: >-
                       Type of the item, mandatory only when the item is a
@@ -2927,23 +3101,6 @@ x-tags:
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: NUM_PACK_SIZE
                     description: Number of Lot of the commodity if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: SELF_LIFE
-                    description: Self life of the commodity if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: MOISTURE
-                    description: Moisture of the commodity if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: OIL_CONTENT
-                    description: Oil Content in the commodity if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: DEFECTIVES
-                    description: Defectives into the commodity if applicable
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: MISCELLANEOUS_INFO
-                    description: >-
-                      Additional info that can apply on the commodity if
-                      applicable
                     reference: <PR/Issue/Discussion Links md format text>
               - code: CERTIFICATES
                 description: Certificates that need to verify for bids if applicable
@@ -2963,7 +3120,7 @@ x-tags:
       order:
         quote:
           breakup: &ref_9
-            tags: &ref_13
+            tags: &ref_12
               - code: title
                 description: title tag
                 reference: <PR/Issue/Discussion Links md format text>
@@ -2979,22 +3136,22 @@ x-tags:
       order:
         items: &ref_8
           tags:
-            - code: ATTRIBUTES
-              description: Attribute of a particular bids item
+            - code: COMMODITY_SPECIFICATION
+              description: Commodity specification of a particular bids item
               reference: <PR/Issue/Discussion Links md format text>
               list: *ref_7
   on_init:
-    message: &ref_11
+    message: &ref_10
       order:
         items: *ref_8
         quote:
           breakup: *ref_9
-        payments: &ref_12
+        payments: &ref_11
           tags:
             - code: SETTLEMENT_DETAILS
               description: Define Payment Settlement Details here
               reference: <PR/Issue/Discussion Links md format text>
-              list: &ref_10
+              list:
                 - code: Counterparty
                   description: Counterparty involved; Can be BAP/BPP
                   reference: <PR/Issue/Discussion Links md format text>
@@ -3013,10 +3170,6 @@ x-tags:
                 - code: UPI_Address
                   description: Description of the Tag
                   reference: <PR/Issue/Discussion Links md format text>
-            - code: REFUNDABLE_PARTICIPATION_FEE
-              description: Define refundable Payment Details here
-              reference: <PR/Issue/Discussion Links md format text>
-              list: *ref_10
             - code: Buyer_Finder_Fee
               description: Define Finder's Fee for Buyer
               reference: <PR/Issue/Discussion Links md format text>
@@ -3028,24 +3181,24 @@ x-tags:
                   description: Amount for the finder fee
                   reference: <PR/Issue/Discussion Links md format text>
   confirm:
-    message: *ref_11
+    message: *ref_10
   on_status:
-    message: *ref_11
+    message: *ref_10
   update:
-    message: &ref_14
+    message: &ref_13
       order:
-        payments: *ref_12
+        payments: *ref_11
         quote:
           breakup:
-            tags: *ref_13
+            tags: *ref_12
           item:
             tags:
-              - code: ATTRIBUTES
-                description: Update parameter for attributes
+              - code: COMMODITY_SPECIFICATION
+                description: Update parameter for commodity specifications
                 reference: <PR/Issue/Discussion Links md format text>
                 list: *ref_7
   on_update:
-    message: *ref_14
+    message: *ref_13
 x-flows:
   - summary: Agricultural product - Bids and Auction for a Commodity
     description: >-
@@ -3140,7 +3293,7 @@ x-flows:
           Search intent sent by the buyer based on the particular agri product
           required - e.g. Wheat
         reference: if any
-        example: &ref_15
+        example: &ref_14
           value:
             context:
               domain: ONDC:SRV16
@@ -3188,15 +3341,20 @@ x-flows:
                     list:
                       - descriptor:
                           code: BUYER_ID_CODE
-                        value: gst
+                        value: mandi_licence
                       - descriptor:
                           code: BUYER_ID_NO
                         value: xxxxxxxxxxxxxxx
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: Returns the catalog specific to the search intent
+        description: >-
+          Returns the catalog specific to the search intent and also
+          serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and for polygon geoJSON check <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
         reference: if any
-        example: &ref_16
+        example: &ref_15
           value:
             context:
               domain: ONDC:SRV16
@@ -3273,7 +3431,7 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: RET10-1042
+                            value: SRV16-1001
                           - descriptor:
                               code: type
                             value: '12'
@@ -3294,7 +3452,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: seller_id_code
-                            value: gst
+                            value: mandi_licence
                           - descriptor:
                               code: seller_id_no
                             value: xxxxxxxxxxxxxxx
@@ -3310,15 +3468,10 @@ x-flows:
                           - descriptor:
                               code: IMPORTER
                             value: '12345678901234'
-                    categories:
-                      - id: C1
-                        descriptor:
-                          name: Cereals
-                          code: SRV16-1001
                     items:
                       - id: I1
                         descriptor:
-                          name: Wheat
+                          name: Wheat (Auction)
                           short_desc: High-quality grain
                           long_desc: High-quality grain
                           images:
@@ -3341,7 +3494,6 @@ x-flows:
                           currency: INR
                           value: '300.00'
                           minimum_value: '250.00'
-                          maximum_value: '350.00'
                         quantity:
                           unitized:
                             measure:
@@ -3351,12 +3503,7 @@ x-flows:
                             measure:
                               unit: kg
                               value: '50'
-                            count: 1000
-                          maximum:
-                            measure:
-                              unit: kg
-                              value: '50'
-                            count: 1000
+                            count: 100
                           minimum:
                             measure:
                               unit: kg
@@ -3421,32 +3568,139 @@ x-flows:
                                   code: COPY
                                 value: https://abc.com/certificates
                           - descriptor:
-                              code: ATTRIBUTES
+                              code: LOT_INFORMATION
                             list:
-                              - descriptor:
-                                  code: TYPE
-                                value: item
                               - descriptor:
                                   code: PACK_SIZE
                                 value: '50'
                               - descriptor:
                                   code: NUM_PACK_SIZE
-                                value: '1000'
+                                value: '100'
+                          - descriptor:
+                              code: COMMODITY_SPECIFICATION
+                            list:
+                              - descriptor:
+                                  code: REFERENCE_DOCS_MIME_TYPE
+                                value: application/pdf
+                              - descriptor:
+                                  code: REFERENCE_DOCS_COPY
+                                value: https://abc.com/commodity_specification.pdf
                               - descriptor:
                                   code: SELF_LIFE
-                                value: 'Y'
+                                value: P10M
                               - descriptor:
                                   code: MOISTURE
-                                value: 'Y'
+                                value: 10%
+                              - descriptor:
+                                  code: FOREIGN_MATTER
+                                value: 3%
                               - descriptor:
                                   code: OIL_CONTENT
-                                value: 'Y'
+                                value: 2%
                               - descriptor:
                                   code: DEFECTIVES
-                                value: 'Y'
+                                value: 7%
                               - descriptor:
-                                  code: MISCELLANEOUS_INFO
-                                value: abc,xyz
+                                  code: OTHER_EDIBLE_GRAINS
+                                value: 1%
+                              - descriptor:
+                                  code: URIC_ACID
+                                value: '101'
+                              - descriptor:
+                                  code: AFLATOXIN
+                                value: '15'
+                              - descriptor:
+                                  code: ARGEMONE_SEEDS
+                                value: 'Yes'
+                              - descriptor:
+                                  code: SIZE_RANGE_MEASURE
+                                value: Diameter
+                              - descriptor:
+                                  code: SIZE_RANGE
+                                value: 15-18
+                              - descriptor:
+                                  code: PERCENTAGE_OF_DEFECTS
+                                value: 1.5%
+                              - descriptor:
+                                  code: PERCENTAGE_OF_WASTAGE
+                                value: 3%
+                              - descriptor:
+                                  code: BUNCH_SIZE
+                                value: '50'
+                              - descriptor:
+                                  code: BUNCH_SIZE_UNIT
+                                value: gm
+                              - descriptor:
+                                  code: VISIBLE_COLOUR
+                                value: Brown
+                              - descriptor:
+                                  code: COLOUR_PERCENTAGE
+                                value: More than 70
+                              - descriptor:
+                                  code: TOTAL_SOLUBLE_SOLIDS
+                                value: 16 degree Brix
+                              - descriptor:
+                                  code: TRACES_OF_SOIL
+                                value: Sight traces
+                              - descriptor:
+                                  code: VOLATILE_OIL_PERCENTAGE
+                                value: Up to 2.5
+                              - descriptor:
+                                  code: TOTAL_ASH_PERCENTAGE
+                                value: Not more than 7.0
+                              - descriptor:
+                                  code: CORIANDER_SPLIT_SEEDS_PERCENTAGE
+                                value: 5%
+                              - descriptor:
+                                  code: MIN_FLOWER_PER_STEM
+                                value: '1'
+                              - descriptor:
+                                  code: GIRTH_AT_THIN_END
+                                value: less than 6 cm
+                              - descriptor:
+                                  code: BLOOMING_AND_SHAPE
+                                value: >-
+                                  Reasonable bloomed and conical shape More than
+                                  85 %
+                              - descriptor:
+                                  code: FLOWER_DIAMETER_IN_CM
+                                value: 3.45 cm
+                              - descriptor:
+                                  code: STAPLE_LENGTH_OF_COTTON_IN_MM
+                                value: 28 ‑ 30 mm
+                              - descriptor:
+                                  code: TRASH_PERCENTAGE
+                                value: 3%
+                              - descriptor:
+                                  code: BUNDLE_STRENGTH
+                                value: 24.0 and above
+                              - descriptor:
+                                  code: MICRONAIRE
+                                value: 2.8 to 3.0
+                              - descriptor:
+                                  code: PERCENTAGE_OF_MATURED_FIBERS
+                                value: Above 70.0-75.0 mm
+                              - descriptor:
+                                  code: SIEVE_ANALYSIS
+                                value: '98'
+                              - descriptor:
+                                  code: NUMBER_OF_NUTS_PER_KG
+                                value: '210'
+                              - descriptor:
+                                  code: VOID_NUTS_PERCENTAGE
+                                value: '1'
+                              - descriptor:
+                                  code: IMMATURE_NUTS_PERCENTAGE
+                                value: '2'
+                              - descriptor:
+                                  code: STRENGTH
+                                value: >-
+                                  Need strength to break the fiber and sharp
+                                  audible sound at thetime of breakage
+                                  (Excellent 30)
+                              - descriptor:
+                                  code: FINENESS
+                                value: Fine (10)
                           - descriptor:
                               code: AUCTION_SPECIFICATION
                             display: true
@@ -3458,9 +3712,6 @@ x-flows:
                                   code: FLOOR_PRICE
                                 value: '250.00'
                               - descriptor:
-                                  code: MIN_BID_QTY
-                                value: '100'
-                              - descriptor:
                                   code: LOT_SIZE
                                 value: '100'
                               - descriptor:
@@ -3470,10 +3721,10 @@ x-flows:
                                   code: MIN_BIDDER_REQ
                                 value: '5'
                               - descriptor:
-                                  code: TYPE_OF_BIDS
-                                value: open_bids
+                                  code: TYPE_OF_AUCTION
+                                value: OPEN
                               - descriptor:
-                                  code: REFUNDABLE_PARTICIPATION_FEE
+                                  code: EARNEST_MONEY_DEPOSIT
                                 value: '5000.00'
                               - descriptor:
                                   code: TICK_SIZE
@@ -3496,7 +3747,7 @@ x-flows:
                         location_ids:
                           - L1
                         category_ids:
-                          - C1
+                          - SRV16-1001
                         item_ids:
                           - I2
                         time:
@@ -3505,6 +3756,31 @@ x-flows:
                             start: '2024-04-01T00:00:00.000Z'
                             end: '2024-12-10T00:00:00.000Z'
                           days: 04,05
+                        tags:
+                          - code: qualifier
+                            list:
+                              - descriptor:
+                                  code: min_value
+                                value: '5000'
+                          - code: benefit
+                            list:
+                              - descriptor:
+                                  code: item_count
+                                value: '5'
+                              - descriptor:
+                                  code: item_id
+                                value: I2
+                              - descriptor:
+                                  code: item_value
+                                value: '200.00'
+                          - code: meta
+                            list:
+                              - descriptor:
+                                  code: additive
+                                value: 'no'
+                              - descriptor:
+                                  code: auto
+                                value: 'yes'
                     fulfillments:
                       - contact:
                           phone: '9886098860'
@@ -3513,7 +3789,7 @@ x-flows:
         api: select
         description: Buyer selects the required agri commodity + suitable fulfillment type
         reference: if any
-        example: &ref_17
+        example: &ref_16
           value:
             context:
               domain: ONDC:SRV16
@@ -3545,17 +3821,26 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV16-1001
                     quantity:
                       selected:
                         count: 100
                     tags:
                       - descriptor:
-                          code: ATTRIBUTE
+                          code: COMMODITY_SPECIFICATION
                         list:
                           - descriptor:
-                              code: TYPE
-                            value: item
+                              code: SELF_LIFE
+                            value: P10M
+                          - descriptor:
+                              code: MOISTURE
+                            value: 10%
+                          - descriptor:
+                              code: OIL_CONTENT
+                            value: 2%
+                          - descriptor:
+                              code: DEFECTIVES
+                            value: 7%
                 fulfillments:
                   - type: Buyer-Fulfilled
                     stops:
@@ -3568,6 +3853,7 @@ x-flows:
                           gps: 12.974002,77.613458
                           area_code: '560001'
                 payments:
+                  - type: PRE-FULFILLMENT
                   - type: ON-FULFILLMENT
                 tags:
                   - descriptor:
@@ -3575,7 +3861,7 @@ x-flows:
                     list:
                       - descriptor:
                           code: BUYER_ID_CODE
-                        value: gst
+                        value: mandi_licence
                       - descriptor:
                           code: BUYER_ID_NO
                         value: xxxxxxxxxxxxxxx
@@ -3583,7 +3869,7 @@ x-flows:
         api: on_select
         description: Seller confirms the bids for commodity and returns the quote
         reference: if any
-        example: &ref_18
+        example: &ref_17
           value:
             context:
               domain: ONDC:SRV16
@@ -3612,6 +3898,27 @@ x-flows:
                     id: I1
                     location_ids:
                       - L1
+                    category_ids:
+                      - SRV16-1001
+                    quantity:
+                      selected:
+                        count: 100
+                    tags:
+                      - descriptor:
+                          code: COMMODITY_SPECIFICATION
+                        list:
+                          - descriptor:
+                              code: SELF_LIFE
+                            value: P10M
+                          - descriptor:
+                              code: MOISTURE
+                            value: 10%
+                          - descriptor:
+                              code: OIL_CONTENT
+                            value: 2%
+                          - descriptor:
+                              code: DEFECTIVES
+                            value: 7%
                 fulfillments:
                   - id: F1
                     type: Buyer-Fulfilled
@@ -3634,7 +3941,7 @@ x-flows:
                     currency: INR
                     value: '30050.00'
                   breakup:
-                    - title: Wheat
+                    - title: Wheat (Auction)
                       price:
                         currency: INR
                         value: '25000.00'
@@ -3653,7 +3960,7 @@ x-flows:
                             - descriptor:
                                 code: type
                               value: item
-                    - title: REFUNDABLE_PARTICIPATION_FEE
+                    - title: earnest_money_deposit
                       price:
                         currency: INR
                         value: '5000.00'
@@ -3665,7 +3972,7 @@ x-flows:
                           list:
                             - descriptor:
                                 code: type
-                              value: REFUNDABLE_PARTICIPATION_FEE
+                              value: earnest_money_deposit
                     - title: tax
                       price:
                         currency: INR
@@ -3707,6 +4014,8 @@ x-flows:
                               value: misc
                   ttl: P1D
                 payments:
+                  - type: PRE-FULFILLMENT
+                    collected_by: BAP
                   - type: ON-FULFILLMENT
                     collected_by: BAP
       - summary: Buyer initialises the bids order for commodity
@@ -3715,7 +4024,7 @@ x-flows:
           Buyer initialises the bids order for commodity and provides billing
           details
         reference: if any
-        example: &ref_19
+        example: &ref_18
           value:
             context:
               domain: ONDC:SRV16
@@ -3747,17 +4056,26 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV16-1001
                     quantity:
                       selected:
                         count: 100
                     tags:
                       - descriptor:
-                          code: ATTRIBUTE
+                          code: COMMODITY_SPECIFICATION
                         list:
                           - descriptor:
-                              code: TYPE
-                            value: item
+                              code: SELF_LIFE
+                            value: P10M
+                          - descriptor:
+                              code: MOISTURE
+                            value: 10%
+                          - descriptor:
+                              code: OIL_CONTENT
+                            value: 2%
+                          - descriptor:
+                              code: DEFECTIVES
+                            value: 7%
                 billing:
                   name: ONDC buyer
                   address: >-
@@ -3793,6 +4111,8 @@ x-flows:
                             start: '2024-06-09T22:00:00.000Z'
                             end: '2024-06-10T02:00:00.000Z'
                 payments:
+                  - type: PRE-FULFILLMENT
+                    collected_by: BAP
                   - type: ON-FULFILLMENT
                     collected_by: BAP
                 tags:
@@ -3801,7 +4121,7 @@ x-flows:
                     list:
                       - descriptor:
                           code: BUYER_ID_CODE
-                        value: gst
+                        value: mandi_licence
                       - descriptor:
                           code: BUYER_ID_NO
                         value: xxxxxxxxxxxxxxx
@@ -3809,7 +4129,7 @@ x-flows:
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: &ref_20
+        example: &ref_19
           value:
             context:
               domain: ONDC:SRV16
@@ -3841,38 +4161,26 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV16-1001
                     quantity:
                       selected:
                         count: 4
                     tags:
                       - descriptor:
-                          code: ATTRIBUTES
+                          code: COMMODITY_SPECIFICATION
                         list:
                           - descriptor:
-                              code: TYPE
-                            value: item
-                          - descriptor:
-                              code: PACK_SIZE
-                            value: '50'
-                          - descriptor:
-                              code: NUM_PACK_SIZE
-                            value: '1000'
-                          - descriptor:
                               code: SELF_LIFE
-                            value: 'Y'
+                            value: P10M
                           - descriptor:
                               code: MOISTURE
-                            value: 'Y'
+                            value: 10%
                           - descriptor:
                               code: OIL_CONTENT
-                            value: 'Y'
+                            value: 2%
                           - descriptor:
                               code: DEFECTIVES
-                            value: 'Y'
-                          - descriptor:
-                              code: MISCELLANEOUS_INFO
-                            value: abc,xyz
+                            value: 7%
                       - descriptor:
                           code: CERTIFICATES
                         display: true
@@ -3926,7 +4234,7 @@ x-flows:
                     currency: INR
                     value: '30050.00'
                   breakup:
-                    - title: Wheat
+                    - title: Wheat (Auction)
                       price:
                         currency: INR
                         value: '25000.00'
@@ -3945,7 +4253,7 @@ x-flows:
                             - descriptor:
                                 code: type
                               value: item
-                    - title: REFUNDABLE_PARTICIPATION_FEE
+                    - title: earnest_money_deposit
                       price:
                         currency: INR
                         value: '5000.00'
@@ -3957,7 +4265,7 @@ x-flows:
                           list:
                             - descriptor:
                                 code: type
-                              value: REFUNDABLE_PARTICIPATION_FEE
+                              value: earnest_money_deposit
                     - title: tax
                       price:
                         currency: INR
@@ -4010,7 +4318,7 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: REFUNDABLE_PARTICIPATION_FEE
+                          code: Settlement_Details
                         list:
                           - descriptor:
                               code: Counterparty
@@ -4083,7 +4391,7 @@ x-flows:
       - summary: Buyer confirm the bids order for the commodity
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: &ref_21
+        example: &ref_20
           value:
             context:
               domain: ONDC:SRV16
@@ -4117,17 +4425,39 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV16-1001
                     quantity:
                       selected:
                         count: 100
                     tags:
                       - descriptor:
-                          code: ATTRIBUTE
+                          code: COMMODITY_SPECIFICATION
                         list:
                           - descriptor:
-                              code: TYPE
-                            value: item
+                              code: SELF_LIFE
+                            value: P10M
+                          - descriptor:
+                              code: MOISTURE
+                            value: 10%
+                          - descriptor:
+                              code: OIL_CONTENT
+                            value: 2%
+                          - descriptor:
+                              code: DEFECTIVES
+                            value: 7%
+                      - descriptor:
+                          code: CERTIFICATES
+                        display: true
+                        list:
+                          - descriptor:
+                              code: NAME
+                            value: CER-001
+                          - descriptor:
+                              code: MIME_TYPE
+                            value: application/pdf
+                          - descriptor:
+                              code: COPY
+                            value: https://abc.com/certificates
                 billing:
                   name: ONDC buyer
                   address: >-
@@ -4174,7 +4504,7 @@ x-flows:
                     currency: INR
                     value: '30050.00'
                   breakup:
-                    - title: Wheat
+                    - title: Wheat (Auction)
                       price:
                         currency: INR
                         value: '25000.00'
@@ -4193,7 +4523,7 @@ x-flows:
                             - descriptor:
                                 code: type
                               value: item
-                    - title: REFUNDABLE_PARTICIPATION_FEE
+                    - title: earnest_money_deposit
                       price:
                         currency: INR
                         value: '5000.00'
@@ -4205,7 +4535,7 @@ x-flows:
                           list:
                             - descriptor:
                                 code: type
-                              value: REFUNDABLE_PARTICIPATION_FEE
+                              value: earnest_money_deposit
                     - title: tax
                       price:
                         currency: INR
@@ -4258,7 +4588,7 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: REFUNDABLE_PARTICIPATION_FEE
+                          code: Settlement_Details
                         list:
                           - descriptor:
                               code: Counterparty
@@ -4317,7 +4647,7 @@ x-flows:
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: &ref_22
+        example: &ref_21
           value:
             context:
               domain: ONDC:SRV16
@@ -4352,38 +4682,26 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV16-1001
                     quantity:
                       selected:
                         count: 100
                     tags:
                       - descriptor:
-                          code: ATTRIBUTES
+                          code: COMMODITY_SPECIFICATION
                         list:
                           - descriptor:
-                              code: TYPE
-                            value: item
-                          - descriptor:
-                              code: PACK_SIZE
-                            value: '50'
-                          - descriptor:
-                              code: NUM_PACK_SIZE
-                            value: '1000'
-                          - descriptor:
                               code: SELF_LIFE
-                            value: 'Y'
+                            value: P10M
                           - descriptor:
                               code: MOISTURE
-                            value: 'Y'
+                            value: 10%
                           - descriptor:
                               code: OIL_CONTENT
-                            value: 'Y'
+                            value: 2%
                           - descriptor:
                               code: DEFECTIVES
-                            value: 'Y'
-                          - descriptor:
-                              code: MISCELLANEOUS_INFO
-                            value: abc,xyz
+                            value: 7%
                       - descriptor:
                           code: CERTIFICATES
                         display: true
@@ -4453,7 +4771,7 @@ x-flows:
                     currency: INR
                     value: '30050.00'
                   breakup:
-                    - title: Wheat
+                    - title: Wheat (Auction)
                       price:
                         currency: INR
                         value: '25000.00'
@@ -4472,7 +4790,7 @@ x-flows:
                             - descriptor:
                                 code: type
                               value: item
-                    - title: REFUNDABLE_PARTICIPATION_FEE
+                    - title: earnest_money_deposit
                       price:
                         currency: INR
                         value: '5000.00'
@@ -4484,7 +4802,7 @@ x-flows:
                           list:
                             - descriptor:
                                 code: type
-                              value: REFUNDABLE_PARTICIPATION_FEE
+                              value: earnest_money_deposit
                     - title: tax
                       price:
                         currency: INR
@@ -4537,7 +4855,7 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: REFUNDABLE_PARTICIPATION_FEE
+                          code: Settlement_Details
                         list:
                           - descriptor:
                               code: Counterparty
@@ -4612,7 +4930,7 @@ x-flows:
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: &ref_23
+        example: &ref_22
           value:
             context:
               domain: ONDC:SRV16
@@ -4636,7 +4954,7 @@ x-flows:
       - summary: Seller app sends order status update
         api: on_status
         description: Seller app sends bids order status
-        example: &ref_24
+        example: &ref_23
           value:
             context:
               domain: ONDC:SRV16
@@ -4670,38 +4988,26 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV16-1001
                     quantity:
                       selected:
                         count: 100
                     tags:
                       - descriptor:
-                          code: ATTRIBUTES
+                          code: COMMODITY_SPECIFICATION
                         list:
                           - descriptor:
-                              code: TYPE
-                            value: item
-                          - descriptor:
-                              code: PACK_SIZE
-                            value: '50'
-                          - descriptor:
-                              code: NUM_PACK_SIZE
-                            value: '1000'
-                          - descriptor:
                               code: SELF_LIFE
-                            value: 'Y'
+                            value: P10M
                           - descriptor:
                               code: MOISTURE
-                            value: 'Y'
+                            value: 10%
                           - descriptor:
                               code: OIL_CONTENT
-                            value: 'Y'
+                            value: 2%
                           - descriptor:
                               code: DEFECTIVES
-                            value: 'Y'
-                          - descriptor:
-                              code: MISCELLANEOUS_INFO
-                            value: abc,xyz
+                            value: 7%
                       - descriptor:
                           code: CERTIFICATES
                         display: true
@@ -4771,7 +5077,7 @@ x-flows:
                     currency: INR
                     value: '30050.00'
                   breakup:
-                    - title: Wheat
+                    - title: Wheat (Auction)
                       price:
                         currency: INR
                         value: '25000.00'
@@ -4790,7 +5096,7 @@ x-flows:
                             - descriptor:
                                 code: type
                               value: item
-                    - title: REFUNDABLE_PARTICIPATION_FEE
+                    - title: earnest_money_deposit
                       price:
                         currency: INR
                         value: '5000.00'
@@ -4802,7 +5108,7 @@ x-flows:
                           list:
                             - descriptor:
                                 code: type
-                              value: REFUNDABLE_PARTICIPATION_FEE
+                              value: earnest_money_deposit
                     - title: tax
                       price:
                         currency: INR
@@ -4855,7 +5161,7 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: REFUNDABLE_PARTICIPATION_FEE
+                          code: Settlement_Details
                         list:
                           - descriptor:
                               code: Counterparty
@@ -4914,7 +5220,7 @@ x-flows:
       - summary: Seller app sends bids status if Awarded
         api: on_update (Awarded)
         description: Seller app sends bids status if Awarded
-        example: &ref_25
+        example: &ref_24
           value:
             context:
               domain: ONDC:SRV16
@@ -4960,7 +5266,7 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: REFUNDABLE_PARTICIPATION_FEE
+                          code: Settlement_Details
                         list:
                           - descriptor:
                               code: Counterparty
@@ -5055,7 +5361,7 @@ x-flows:
                     currency: INR
                     value: '30050.00'
                   breakup:
-                    - title: Wheat
+                    - title: Wheat (Auction)
                       price:
                         currency: INR
                         value: '25000.00'
@@ -5074,7 +5380,7 @@ x-flows:
                             - descriptor:
                                 code: type
                               value: item
-                    - title: REFUNDABLE_PARTICIPATION_FEE
+                    - title: earnest_money_deposit
                       price:
                         currency: INR
                         value: '5000.00'
@@ -5086,7 +5392,7 @@ x-flows:
                           list:
                             - descriptor:
                                 code: type
-                              value: REFUNDABLE_PARTICIPATION_FEE
+                              value: earnest_money_deposit
                     - title: tax
                       price:
                         currency: INR
@@ -5130,7 +5436,7 @@ x-flows:
       - summary: Seller app sends bids status as cancel if Not Awarded
         api: on_cancel (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
-        example: &ref_26
+        example: &ref_25
           value:
             context:
               domain: ONDC:SRV15
@@ -5225,7 +5531,7 @@ x-flows:
                     currency: INR
                     value: '30050.00'
                   breakup:
-                    - title: Wheat
+                    - title: Wheat (Auction)
                       price:
                         currency: INR
                         value: '25000.00'
@@ -5244,7 +5550,7 @@ x-flows:
                             - descriptor:
                                 code: type
                               value: item
-                    - title: REFUNDABLE_PARTICIPATION_FEE
+                    - title: earnest_money_deposit
                       price:
                         currency: INR
                         value: '5000.00'
@@ -5256,7 +5562,7 @@ x-flows:
                           list:
                             - descriptor:
                                 code: type
-                              value: REFUNDABLE_PARTICIPATION_FEE
+                              value: earnest_money_deposit
                     - title: tax
                       price:
                         currency: INR
@@ -5309,7 +5615,7 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: REFUNDABLE_PARTICIPATION_FEE
+                          code: Settlement_Details
                         list:
                           - descriptor:
                               code: Counterparty
@@ -5368,7 +5674,7 @@ x-flows:
           negative aspects. Buyer app shares the same with the seller app
           following the rating framework
         reference: if any
-        example: &ref_27
+        example: &ref_26
           value:
             context:
               domain: ONDC:SRV16
@@ -5487,61 +5793,66 @@ x-flows:
           Search intent sent by the buyer based on the particular agri product
           required - e.g. Wheat
         reference: if any
-        example: *ref_15
+        example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: Returns the catalog specific to the search intent
+        description: >-
+          Returns the catalog specific to the search intent and also
+          serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and for polygon geoJSON check <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
         reference: if any
-        example: *ref_16
+        example: *ref_15
       - summary: Buyer selects the required agri commodity
         api: select
         description: Buyer selects the required agri commodity + suitable fulfillment type
         reference: if any
-        example: *ref_17
+        example: *ref_16
       - summary: Seller confirms the bids for commodity and returns the quote
         api: on_select
         description: Seller confirms the bids for commodity and returns the quote
         reference: if any
-        example: *ref_18
+        example: *ref_17
       - summary: Buyer initialises the bids order for commodity
         api: init
         description: >-
           Buyer initialises the bids order for commodity and provides billing
           details
         reference: if any
-        example: *ref_19
+        example: *ref_18
       - summary: Seller provides the final quotation for the commodity bids
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_20
+        example: *ref_19
       - summary: Buyer confirm the bids order for the commodity
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_21
+        example: *ref_20
       - summary: Seller accepts the order for commodity bids
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_22
+        example: *ref_21
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_23
+        example: *ref_22
       - summary: Seller app sends order status update
         api: on_status
         description: Seller app sends bids order status
-        example: *ref_24
+        example: *ref_23
       - summary: Seller app sends bids status if Awarded
         api: on_update (Awarded)
         description: Seller app sends bids status if Awarded
-        example: *ref_25
+        example: *ref_24
       - summary: Seller app sends bids status as cancel if Not Awarded
         api: on_cancel (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
-        example: *ref_26
+        example: *ref_25
       - summary: Buyer app shares the ratings to seller app
         api: rating
         description: >-
@@ -5549,7 +5860,7 @@ x-flows:
           negative aspects. Buyer app shares the same with the seller app
           following the rating framework
         reference: if any
-        example: *ref_27
+        example: *ref_26
   - summary: >-
       Agricultural product - Bids and Auction for a Commodity (Buyer not
       satisfied with the quality)
@@ -5650,61 +5961,66 @@ x-flows:
           Search intent sent by the buyer based on the particular agri product
           required - e.g. Wheat
         reference: if any
-        example: *ref_15
+        example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: Returns the catalog specific to the search intent
+        description: >-
+          Returns the catalog specific to the search intent and also
+          serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and for polygon geoJSON check <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
         reference: if any
-        example: *ref_16
+        example: *ref_15
       - summary: Buyer selects the required agri commodity
         api: select
         description: Buyer selects the required agri commodity + suitable fulfillment type
         reference: if any
-        example: *ref_17
+        example: *ref_16
       - summary: Seller confirms the bids for commodity and returns the quote
         api: on_select
         description: Seller confirms the bids for commodity and returns the quote
         reference: if any
-        example: *ref_18
+        example: *ref_17
       - summary: Buyer initialises the bids order for commodity
         api: init
         description: >-
           Buyer initialises the bids order for commodity and provides billing
           details
         reference: if any
-        example: *ref_19
+        example: *ref_18
       - summary: Seller provides the final quotation for the commodity bids
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_20
+        example: *ref_19
       - summary: Buyer confirm the bids order for the commodity
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_21
+        example: *ref_20
       - summary: Seller accepts the order for commodity bids
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_22
+        example: *ref_21
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_23
+        example: *ref_22
       - summary: Seller app sends order status update
         api: on_status
         description: Seller app sends bids order status
-        example: *ref_24
+        example: *ref_23
       - summary: Seller app sends bids status if Awarded
         api: on_update (Awarded)
         description: Seller app sends bids status if Awarded
-        example: *ref_25
+        example: *ref_24
       - summary: Seller app sends bids status as on cancel if Not Awarded
         api: on_cancel (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
-        example: *ref_26
+        example: *ref_25
       - summary: Buyer not satisfied with the quality
         api: cancel (Not stisfied)
         description: Buyer not satisfied with the quality
@@ -5733,7 +6049,7 @@ x-flows:
       - summary: Seller app sends bids status as cancel if Not Awarded
         api: on_cancel (Not stisfied)
         description: Seller app sends bids status as cancel on buyer request
-        example: *ref_26
+        example: *ref_25
       - summary: Buyer re-negotiate if they found quality issue
         api: update (Re-Negotiate)
         description: Buyer re-negotiate if they found quality issue
@@ -5777,7 +6093,7 @@ x-flows:
                     currency: INR
                     value: '35050.00'
                   breakup:
-                    - title: Wheat
+                    - title: Wheat (Auction)
                       price:
                         currency: INR
                         value: '35000.00'
@@ -5796,7 +6112,7 @@ x-flows:
                             - descriptor:
                                 code: type
                               value: item
-                    - title: REFUNDABLE_PARTICIPATION_FEE
+                    - title: earnest_money_deposit
                       price:
                         currency: INR
                         value: '5000.00'
@@ -5808,7 +6124,7 @@ x-flows:
                           list:
                             - descriptor:
                                 code: type
-                              value: REFUNDABLE_PARTICIPATION_FEE
+                              value: earnest_money_deposit
                     - title: tax
                       price:
                         currency: INR
@@ -5861,7 +6177,7 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: REFUNDABLE_PARTICIPATION_FEE
+                          code: Settlement_Details
                         list:
                           - descriptor:
                               code: Counterparty
@@ -6000,7 +6316,7 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: REFUNDABLE_PARTICIPATION_FEE
+                          code: Settlement_Details
                         list:
                           - descriptor:
                               code: Counterparty
@@ -6095,7 +6411,7 @@ x-flows:
                     currency: INR
                     value: '35050.00'
                   breakup:
-                    - title: Wheat
+                    - title: Wheat (Auction)
                       price:
                         currency: INR
                         value: '35000.00'
@@ -6114,7 +6430,7 @@ x-flows:
                             - descriptor:
                                 code: type
                               value: item
-                    - title: REFUNDABLE_PARTICIPATION_FEE
+                    - title: earnest_money_deposit
                       price:
                         currency: INR
                         value: '5000.00'
@@ -6126,7 +6442,7 @@ x-flows:
                           list:
                             - descriptor:
                                 code: type
-                              value: REFUNDABLE_PARTICIPATION_FEE
+                              value: earnest_money_deposit
                     - title: tax
                       price:
                         currency: INR
@@ -6174,7 +6490,7 @@ x-flows:
           negative aspects. Buyer app shares the same with the seller app
           following the rating framework
         reference: if any
-        example: *ref_27
+        example: *ref_26
   - summary: >-
       Agricultural product - Bids and Auction for a Commodity (Buyer fails to
       make payment)
@@ -6272,57 +6588,62 @@ x-flows:
           Search intent sent by the buyer based on the particular agri product
           required - e.g. Wheat
         reference: if any
-        example: *ref_15
+        example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: Returns the catalog specific to the search intent
+        description: >-
+          Returns the catalog specific to the search intent and also
+          serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and for polygon geoJSON check <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
         reference: if any
-        example: *ref_16
+        example: *ref_15
       - summary: Buyer selects the required agri commodity
         api: select
         description: Buyer selects the required agri commodity + suitable fulfillment type
         reference: if any
-        example: *ref_17
+        example: *ref_16
       - summary: Seller confirms the bids for commodity and returns the quote
         api: on_select
         description: Seller confirms the bids for commodity and returns the quote
         reference: if any
-        example: *ref_18
+        example: *ref_17
       - summary: Buyer initialises the bids order for commodity
         api: init
         description: >-
           Buyer initialises the bids order for commodity and provides billing
           details
         reference: if any
-        example: *ref_19
+        example: *ref_18
       - summary: Seller provides the final quotation for the commodity bids
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_20
+        example: *ref_19
       - summary: Buyer confirm the bids order for the commodity
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_21
+        example: *ref_20
       - summary: Seller accepts the order for commodity bids
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_22
+        example: *ref_21
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_23
+        example: *ref_22
       - summary: Seller app sends order status update
         api: on_status
         description: Seller app sends bids order status
-        example: *ref_24
+        example: *ref_23
       - summary: Seller app sends bids status as cancel if Not Awarded
         api: on_cancel (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
-        example: *ref_26
+        example: *ref_25
       - summary: Buyer app shares the ratings to seller app
         api: rating
         description: >-
@@ -6330,7 +6651,7 @@ x-flows:
           negative aspects. Buyer app shares the same with the seller app
           following the rating framework
         reference: if any
-        example: *ref_27
+        example: *ref_26
 x-examples:
   Agricultural product - Bids and Auction:
     summary: Bids and Auction
@@ -6340,7 +6661,7 @@ x-examples:
       phases of order processing flow, i.e. Discovery of available commodity for
       bids and auction, and service providers based on serviceability, order,
       fulfillment and post-fulfillment.
-    example_set: &ref_28
+    example_set: &ref_27
       search:
         examples:
           - value:
@@ -6363,7 +6684,7 @@ x-examples:
                 intent:
                   item:
                     descriptor:
-                      name: Wheat
+                      name: Wheat (Auction)
                   fulfillment:
                     type: Buyer-Fulfilled
                     stops:
@@ -6390,7 +6711,7 @@ x-examples:
                       list:
                         - descriptor:
                             code: BUYER_ID_CODE
-                          value: gst
+                          value: mandi_licence
                         - descriptor:
                             code: BUYER_ID_NO
                           value: xxxxxxxxxxxxxxx
@@ -6438,7 +6759,7 @@ x-examples:
                       list:
                         - descriptor:
                             code: BUYER_ID_CODE
-                          value: gst
+                          value: mandi_licence
                         - descriptor:
                             code: BUYER_ID_NO
                           value: xxxxxxxxxxxxxxx
@@ -6489,7 +6810,7 @@ x-examples:
                       list:
                         - descriptor:
                             code: BUYER_ID_CODE
-                          value: gst
+                          value: mandi_licence
                         - descriptor:
                             code: BUYER_ID_NO
                           value: xxxxxxxxxxxxxxx
@@ -6526,17 +6847,26 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV16-1001
                       quantity:
                         selected:
                           count: 100
                       tags:
                         - descriptor:
-                            code: ATTRIBUTE
+                            code: COMMODITY_SPECIFICATION
                           list:
                             - descriptor:
-                                code: TYPE
-                              value: item
+                                code: SELF_LIFE
+                              value: P10M
+                            - descriptor:
+                                code: MOISTURE
+                              value: 10%
+                            - descriptor:
+                                code: OIL_CONTENT
+                              value: 2%
+                            - descriptor:
+                                code: DEFECTIVES
+                              value: 7%
                   fulfillments:
                     - type: Buyer-Fulfilled
                       stops:
@@ -6549,6 +6879,7 @@ x-examples:
                             gps: 12.974002,77.613458
                             area_code: '560001'
                   payments:
+                    - type: PRE-FULFILLMENT
                     - type: ON-FULFILLMENT
                   tags:
                     - descriptor:
@@ -6556,7 +6887,7 @@ x-examples:
                       list:
                         - descriptor:
                             code: BUYER_ID_CODE
-                          value: gst
+                          value: mandi_licence
                         - descriptor:
                             code: BUYER_ID_NO
                           value: xxxxxxxxxxxxxxx
@@ -6593,17 +6924,26 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV16-1001
                       quantity:
                         selected:
                           count: 100
                       tags:
                         - descriptor:
-                            code: ATTRIBUTE
+                            code: COMMODITY_SPECIFICATION
                           list:
                             - descriptor:
-                                code: TYPE
-                              value: item
+                                code: SELF_LIFE
+                              value: P10M
+                            - descriptor:
+                                code: MOISTURE
+                              value: 10%
+                            - descriptor:
+                                code: OIL_CONTENT
+                              value: 2%
+                            - descriptor:
+                                code: DEFECTIVES
+                              value: 7%
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -6639,6 +6979,8 @@ x-examples:
                               start: '2024-06-09T22:00:00.000Z'
                               end: '2024-06-10T02:00:00.000Z'
                   payments:
+                    - type: PRE-FULFILLMENT
+                      collected_by: BAP
                     - type: ON-FULFILLMENT
                       collected_by: BAP
                   tags:
@@ -6647,7 +6989,7 @@ x-examples:
                       list:
                         - descriptor:
                             code: BUYER_ID_CODE
-                          value: gst
+                          value: mandi_licence
                         - descriptor:
                             code: BUYER_ID_NO
                           value: xxxxxxxxxxxxxxx
@@ -6686,17 +7028,39 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV16-1001
                       quantity:
                         selected:
                           count: 100
                       tags:
                         - descriptor:
-                            code: ATTRIBUTE
+                            code: COMMODITY_SPECIFICATION
                           list:
                             - descriptor:
-                                code: TYPE
-                              value: item
+                                code: SELF_LIFE
+                              value: P10M
+                            - descriptor:
+                                code: MOISTURE
+                              value: 10%
+                            - descriptor:
+                                code: OIL_CONTENT
+                              value: 2%
+                            - descriptor:
+                                code: DEFECTIVES
+                              value: 7%
+                        - descriptor:
+                            code: CERTIFICATES
+                          display: true
+                          list:
+                            - descriptor:
+                                code: NAME
+                              value: CER-001
+                            - descriptor:
+                                code: MIME_TYPE
+                              value: application/pdf
+                            - descriptor:
+                                code: COPY
+                              value: https://abc.com/certificates
                   billing:
                     name: ONDC buyer
                     address: >-
@@ -6743,7 +7107,7 @@ x-examples:
                       currency: INR
                       value: '30050.00'
                     breakup:
-                      - title: Wheat
+                      - title: Wheat (Auction)
                         price:
                           currency: INR
                           value: '25000.00'
@@ -6762,7 +7126,7 @@ x-examples:
                               - descriptor:
                                   code: type
                                 value: item
-                      - title: REFUNDABLE_PARTICIPATION_FEE
+                      - title: earnest_money_deposit
                         price:
                           currency: INR
                           value: '5000.00'
@@ -6774,7 +7138,7 @@ x-examples:
                             list:
                               - descriptor:
                                   code: type
-                                value: REFUNDABLE_PARTICIPATION_FEE
+                                value: earnest_money_deposit
                       - title: tax
                         price:
                           currency: INR
@@ -6827,7 +7191,7 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: REFUNDABLE_PARTICIPATION_FEE
+                            code: Settlement_Details
                           list:
                             - descriptor:
                                 code: Counterparty
@@ -6966,7 +7330,7 @@ x-examples:
                       currency: INR
                       value: '35050.00'
                     breakup:
-                      - title: Wheat
+                      - title: Wheat (Auction)
                         price:
                           currency: INR
                           value: '35000.00'
@@ -6985,7 +7349,7 @@ x-examples:
                               - descriptor:
                                   code: type
                                 value: item
-                      - title: REFUNDABLE_PARTICIPATION_FEE
+                      - title: earnest_money_deposit
                         price:
                           currency: INR
                           value: '5000.00'
@@ -6997,7 +7361,7 @@ x-examples:
                             list:
                               - descriptor:
                                   code: type
-                                value: REFUNDABLE_PARTICIPATION_FEE
+                                value: earnest_money_deposit
                       - title: tax
                         price:
                           currency: INR
@@ -7050,7 +7414,7 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: REFUNDABLE_PARTICIPATION_FEE
+                            code: Settlement_Details
                           list:
                             - descriptor:
                                 code: Counterparty
@@ -7243,7 +7607,7 @@ x-examples:
                               value: L1
                             - descriptor:
                                 code: category
-                              value: RET10-1042
+                              value: SRV16-1001
                             - descriptor:
                                 code: type
                               value: '12'
@@ -7264,7 +7628,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: seller_id_code
-                              value: gst
+                              value: mandi_licence
                             - descriptor:
                                 code: seller_id_no
                               value: xxxxxxxxxxxxxxx
@@ -7280,15 +7644,10 @@ x-examples:
                             - descriptor:
                                 code: IMPORTER
                               value: '12345678901234'
-                      categories:
-                        - id: C1
-                          descriptor:
-                            name: Cereals
-                            code: SRV16-1001
                       items:
                         - id: I1
                           descriptor:
-                            name: Wheat
+                            name: Wheat (Auction)
                             short_desc: High-quality grain
                             long_desc: High-quality grain
                             images:
@@ -7311,7 +7670,6 @@ x-examples:
                             currency: INR
                             value: '300.00'
                             minimum_value: '250.00'
-                            maximum_value: '350.00'
                           quantity:
                             unitized:
                               measure:
@@ -7321,12 +7679,7 @@ x-examples:
                               measure:
                                 unit: kg
                                 value: '50'
-                              count: 1000
-                            maximum:
-                              measure:
-                                unit: kg
-                                value: '50'
-                              count: 1000
+                              count: 100
                             minimum:
                               measure:
                                 unit: kg
@@ -7391,32 +7744,139 @@ x-examples:
                                     code: COPY
                                   value: https://abc.com/certificates
                             - descriptor:
-                                code: ATTRIBUTES
+                                code: LOT_INFORMATION
                               list:
-                                - descriptor:
-                                    code: TYPE
-                                  value: item
                                 - descriptor:
                                     code: PACK_SIZE
                                   value: '50'
                                 - descriptor:
                                     code: NUM_PACK_SIZE
-                                  value: '1000'
+                                  value: '100'
+                            - descriptor:
+                                code: COMMODITY_SPECIFICATION
+                              list:
+                                - descriptor:
+                                    code: REFERENCE_DOCS_MIME_TYPE
+                                  value: application/pdf
+                                - descriptor:
+                                    code: REFERENCE_DOCS_COPY
+                                  value: https://abc.com/commodity_specification.pdf
                                 - descriptor:
                                     code: SELF_LIFE
-                                  value: 'Y'
+                                  value: P10M
                                 - descriptor:
                                     code: MOISTURE
-                                  value: 'Y'
+                                  value: 10%
+                                - descriptor:
+                                    code: FOREIGN_MATTER
+                                  value: 3%
                                 - descriptor:
                                     code: OIL_CONTENT
-                                  value: 'Y'
+                                  value: 2%
                                 - descriptor:
                                     code: DEFECTIVES
-                                  value: 'Y'
+                                  value: 7%
                                 - descriptor:
-                                    code: MISCELLANEOUS_INFO
-                                  value: abc,xyz
+                                    code: OTHER_EDIBLE_GRAINS
+                                  value: 1%
+                                - descriptor:
+                                    code: URIC_ACID
+                                  value: '101'
+                                - descriptor:
+                                    code: AFLATOXIN
+                                  value: '15'
+                                - descriptor:
+                                    code: ARGEMONE_SEEDS
+                                  value: 'Yes'
+                                - descriptor:
+                                    code: SIZE_RANGE_MEASURE
+                                  value: Diameter
+                                - descriptor:
+                                    code: SIZE_RANGE
+                                  value: 15-18
+                                - descriptor:
+                                    code: PERCENTAGE_OF_DEFECTS
+                                  value: 1.5%
+                                - descriptor:
+                                    code: PERCENTAGE_OF_WASTAGE
+                                  value: 3%
+                                - descriptor:
+                                    code: BUNCH_SIZE
+                                  value: '50'
+                                - descriptor:
+                                    code: BUNCH_SIZE_UNIT
+                                  value: gm
+                                - descriptor:
+                                    code: VISIBLE_COLOUR
+                                  value: Brown
+                                - descriptor:
+                                    code: COLOUR_PERCENTAGE
+                                  value: More than 70
+                                - descriptor:
+                                    code: TOTAL_SOLUBLE_SOLIDS
+                                  value: 16 degree Brix
+                                - descriptor:
+                                    code: TRACES_OF_SOIL
+                                  value: Sight traces
+                                - descriptor:
+                                    code: VOLATILE_OIL_PERCENTAGE
+                                  value: Up to 2.5
+                                - descriptor:
+                                    code: TOTAL_ASH_PERCENTAGE
+                                  value: Not more than 7.0
+                                - descriptor:
+                                    code: CORIANDER_SPLIT_SEEDS_PERCENTAGE
+                                  value: 5%
+                                - descriptor:
+                                    code: MIN_FLOWER_PER_STEM
+                                  value: '1'
+                                - descriptor:
+                                    code: GIRTH_AT_THIN_END
+                                  value: less than 6 cm
+                                - descriptor:
+                                    code: BLOOMING_AND_SHAPE
+                                  value: >-
+                                    Reasonable bloomed and conical shape More
+                                    than 85 %
+                                - descriptor:
+                                    code: FLOWER_DIAMETER_IN_CM
+                                  value: 3.45 cm
+                                - descriptor:
+                                    code: STAPLE_LENGTH_OF_COTTON_IN_MM
+                                  value: 28 ‑ 30 mm
+                                - descriptor:
+                                    code: TRASH_PERCENTAGE
+                                  value: 3%
+                                - descriptor:
+                                    code: BUNDLE_STRENGTH
+                                  value: 24.0 and above
+                                - descriptor:
+                                    code: MICRONAIRE
+                                  value: 2.8 to 3.0
+                                - descriptor:
+                                    code: PERCENTAGE_OF_MATURED_FIBERS
+                                  value: Above 70.0-75.0 mm
+                                - descriptor:
+                                    code: SIEVE_ANALYSIS
+                                  value: '98'
+                                - descriptor:
+                                    code: NUMBER_OF_NUTS_PER_KG
+                                  value: '210'
+                                - descriptor:
+                                    code: VOID_NUTS_PERCENTAGE
+                                  value: '1'
+                                - descriptor:
+                                    code: IMMATURE_NUTS_PERCENTAGE
+                                  value: '2'
+                                - descriptor:
+                                    code: STRENGTH
+                                  value: >-
+                                    Need strength to break the fiber and sharp
+                                    audible sound at thetime of breakage
+                                    (Excellent 30)
+                                - descriptor:
+                                    code: FINENESS
+                                  value: Fine (10)
                             - descriptor:
                                 code: AUCTION_SPECIFICATION
                               display: true
@@ -7428,9 +7888,6 @@ x-examples:
                                     code: FLOOR_PRICE
                                   value: '250.00'
                                 - descriptor:
-                                    code: MIN_BID_QTY
-                                  value: '100'
-                                - descriptor:
                                     code: LOT_SIZE
                                   value: '100'
                                 - descriptor:
@@ -7440,10 +7897,10 @@ x-examples:
                                     code: MIN_BIDDER_REQ
                                   value: '5'
                                 - descriptor:
-                                    code: TYPE_OF_BIDS
-                                  value: open_bids
+                                    code: TYPE_OF_AUCTION
+                                  value: OPEN
                                 - descriptor:
-                                    code: REFUNDABLE_PARTICIPATION_FEE
+                                    code: EARNEST_MONEY_DEPOSIT
                                   value: '5000.00'
                                 - descriptor:
                                     code: TICK_SIZE
@@ -7466,7 +7923,7 @@ x-examples:
                           location_ids:
                             - L1
                           category_ids:
-                            - C1
+                            - SRV16-1001
                           item_ids:
                             - I2
                           time:
@@ -7475,6 +7932,31 @@ x-examples:
                               start: '2024-04-01T00:00:00.000Z'
                               end: '2024-12-10T00:00:00.000Z'
                             days: 04,05
+                          tags:
+                            - code: qualifier
+                              list:
+                                - descriptor:
+                                    code: min_value
+                                  value: '5000'
+                            - code: benefit
+                              list:
+                                - descriptor:
+                                    code: item_count
+                                  value: '5'
+                                - descriptor:
+                                    code: item_id
+                                  value: I2
+                                - descriptor:
+                                    code: item_value
+                                  value: '200.00'
+                            - code: meta
+                              list:
+                                - descriptor:
+                                    code: additive
+                                  value: 'no'
+                                - descriptor:
+                                    code: auto
+                                  value: 'yes'
                       fulfillments:
                         - contact:
                             phone: '9886098860'
@@ -7509,6 +7991,27 @@ x-examples:
                       id: I1
                       location_ids:
                         - L1
+                      category_ids:
+                        - SRV16-1001
+                      quantity:
+                        selected:
+                          count: 100
+                      tags:
+                        - descriptor:
+                            code: COMMODITY_SPECIFICATION
+                          list:
+                            - descriptor:
+                                code: SELF_LIFE
+                              value: P10M
+                            - descriptor:
+                                code: MOISTURE
+                              value: 10%
+                            - descriptor:
+                                code: OIL_CONTENT
+                              value: 2%
+                            - descriptor:
+                                code: DEFECTIVES
+                              value: 7%
                   fulfillments:
                     - id: F1
                       type: Buyer-Fulfilled
@@ -7531,7 +8034,7 @@ x-examples:
                       currency: INR
                       value: '30050.00'
                     breakup:
-                      - title: Wheat
+                      - title: Wheat (Auction)
                         price:
                           currency: INR
                           value: '25000.00'
@@ -7550,7 +8053,7 @@ x-examples:
                               - descriptor:
                                   code: type
                                 value: item
-                      - title: REFUNDABLE_PARTICIPATION_FEE
+                      - title: earnest_money_deposit
                         price:
                           currency: INR
                           value: '5000.00'
@@ -7562,7 +8065,7 @@ x-examples:
                             list:
                               - descriptor:
                                   code: type
-                                value: REFUNDABLE_PARTICIPATION_FEE
+                                value: earnest_money_deposit
                       - title: tax
                         price:
                           currency: INR
@@ -7604,6 +8107,8 @@ x-examples:
                                 value: misc
                     ttl: P1D
                   payments:
+                    - type: PRE-FULFILLMENT
+                      collected_by: BAP
                     - type: ON-FULFILLMENT
                       collected_by: BAP
       on_init:
@@ -7639,38 +8144,26 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV16-1001
                       quantity:
                         selected:
                           count: 4
                       tags:
                         - descriptor:
-                            code: ATTRIBUTES
+                            code: COMMODITY_SPECIFICATION
                           list:
                             - descriptor:
-                                code: TYPE
-                              value: item
-                            - descriptor:
-                                code: PACK_SIZE
-                              value: '50'
-                            - descriptor:
-                                code: NUM_PACK_SIZE
-                              value: '1000'
-                            - descriptor:
                                 code: SELF_LIFE
-                              value: 'Y'
+                              value: P10M
                             - descriptor:
                                 code: MOISTURE
-                              value: 'Y'
+                              value: 10%
                             - descriptor:
                                 code: OIL_CONTENT
-                              value: 'Y'
+                              value: 2%
                             - descriptor:
                                 code: DEFECTIVES
-                              value: 'Y'
-                            - descriptor:
-                                code: MISCELLANEOUS_INFO
-                              value: abc,xyz
+                              value: 7%
                         - descriptor:
                             code: CERTIFICATES
                           display: true
@@ -7724,7 +8217,7 @@ x-examples:
                       currency: INR
                       value: '30050.00'
                     breakup:
-                      - title: Wheat
+                      - title: Wheat (Auction)
                         price:
                           currency: INR
                           value: '25000.00'
@@ -7743,7 +8236,7 @@ x-examples:
                               - descriptor:
                                   code: type
                                 value: item
-                      - title: REFUNDABLE_PARTICIPATION_FEE
+                      - title: earnest_money_deposit
                         price:
                           currency: INR
                           value: '5000.00'
@@ -7755,7 +8248,7 @@ x-examples:
                             list:
                               - descriptor:
                                   code: type
-                                value: REFUNDABLE_PARTICIPATION_FEE
+                                value: earnest_money_deposit
                       - title: tax
                         price:
                           currency: INR
@@ -7808,7 +8301,7 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: REFUNDABLE_PARTICIPATION_FEE
+                            code: Settlement_Details
                           list:
                             - descriptor:
                                 code: Counterparty
@@ -7914,38 +8407,26 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV16-1001
                       quantity:
                         selected:
                           count: 100
                       tags:
                         - descriptor:
-                            code: ATTRIBUTES
+                            code: COMMODITY_SPECIFICATION
                           list:
                             - descriptor:
-                                code: TYPE
-                              value: item
-                            - descriptor:
-                                code: PACK_SIZE
-                              value: '50'
-                            - descriptor:
-                                code: NUM_PACK_SIZE
-                              value: '1000'
-                            - descriptor:
                                 code: SELF_LIFE
-                              value: 'Y'
+                              value: P10M
                             - descriptor:
                                 code: MOISTURE
-                              value: 'Y'
+                              value: 10%
                             - descriptor:
                                 code: OIL_CONTENT
-                              value: 'Y'
+                              value: 2%
                             - descriptor:
                                 code: DEFECTIVES
-                              value: 'Y'
-                            - descriptor:
-                                code: MISCELLANEOUS_INFO
-                              value: abc,xyz
+                              value: 7%
                         - descriptor:
                             code: CERTIFICATES
                           display: true
@@ -8015,7 +8496,7 @@ x-examples:
                       currency: INR
                       value: '30050.00'
                     breakup:
-                      - title: Wheat
+                      - title: Wheat (Auction)
                         price:
                           currency: INR
                           value: '25000.00'
@@ -8034,7 +8515,7 @@ x-examples:
                               - descriptor:
                                   code: type
                                 value: item
-                      - title: REFUNDABLE_PARTICIPATION_FEE
+                      - title: earnest_money_deposit
                         price:
                           currency: INR
                           value: '5000.00'
@@ -8046,7 +8527,7 @@ x-examples:
                             list:
                               - descriptor:
                                   code: type
-                                value: REFUNDABLE_PARTICIPATION_FEE
+                                value: earnest_money_deposit
                       - title: tax
                         price:
                           currency: INR
@@ -8099,7 +8580,7 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: REFUNDABLE_PARTICIPATION_FEE
+                            code: Settlement_Details
                           list:
                             - descriptor:
                                 code: Counterparty
@@ -8206,38 +8687,26 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV16-1001
                       quantity:
                         selected:
                           count: 100
                       tags:
                         - descriptor:
-                            code: ATTRIBUTES
+                            code: COMMODITY_SPECIFICATION
                           list:
                             - descriptor:
-                                code: TYPE
-                              value: item
-                            - descriptor:
-                                code: PACK_SIZE
-                              value: '50'
-                            - descriptor:
-                                code: NUM_PACK_SIZE
-                              value: '1000'
-                            - descriptor:
                                 code: SELF_LIFE
-                              value: 'Y'
+                              value: P10M
                             - descriptor:
                                 code: MOISTURE
-                              value: 'Y'
+                              value: 10%
                             - descriptor:
                                 code: OIL_CONTENT
-                              value: 'Y'
+                              value: 2%
                             - descriptor:
                                 code: DEFECTIVES
-                              value: 'Y'
-                            - descriptor:
-                                code: MISCELLANEOUS_INFO
-                              value: abc,xyz
+                              value: 7%
                         - descriptor:
                             code: CERTIFICATES
                           display: true
@@ -8307,7 +8776,7 @@ x-examples:
                       currency: INR
                       value: '30050.00'
                     breakup:
-                      - title: Wheat
+                      - title: Wheat (Auction)
                         price:
                           currency: INR
                           value: '25000.00'
@@ -8326,7 +8795,7 @@ x-examples:
                               - descriptor:
                                   code: type
                                 value: item
-                      - title: REFUNDABLE_PARTICIPATION_FEE
+                      - title: earnest_money_deposit
                         price:
                           currency: INR
                           value: '5000.00'
@@ -8338,7 +8807,7 @@ x-examples:
                             list:
                               - descriptor:
                                   code: type
-                                value: REFUNDABLE_PARTICIPATION_FEE
+                                value: earnest_money_deposit
                       - title: tax
                         price:
                           currency: INR
@@ -8391,7 +8860,7 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: REFUNDABLE_PARTICIPATION_FEE
+                            code: Settlement_Details
                           list:
                             - descriptor:
                                 code: Counterparty
@@ -8543,7 +9012,7 @@ x-examples:
                       currency: INR
                       value: '30050.00'
                     breakup:
-                      - title: Wheat
+                      - title: Wheat (Auction)
                         price:
                           currency: INR
                           value: '25000.00'
@@ -8562,7 +9031,7 @@ x-examples:
                               - descriptor:
                                   code: type
                                 value: item
-                      - title: REFUNDABLE_PARTICIPATION_FEE
+                      - title: earnest_money_deposit
                         price:
                           currency: INR
                           value: '5000.00'
@@ -8574,7 +9043,7 @@ x-examples:
                             list:
                               - descriptor:
                                   code: type
-                                value: REFUNDABLE_PARTICIPATION_FEE
+                                value: earnest_money_deposit
                       - title: tax
                         price:
                           currency: INR
@@ -8627,7 +9096,7 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: REFUNDABLE_PARTICIPATION_FEE
+                            code: Settlement_Details
                           list:
                             - descriptor:
                                 code: Counterparty
@@ -8773,7 +9242,7 @@ x-examples:
                       currency: INR
                       value: '30050.00'
                     breakup:
-                      - title: Wheat
+                      - title: Wheat (Auction)
                         price:
                           currency: INR
                           value: '25000.00'
@@ -8792,7 +9261,7 @@ x-examples:
                               - descriptor:
                                   code: type
                                 value: item
-                      - title: REFUNDABLE_PARTICIPATION_FEE
+                      - title: earnest_money_deposit
                         price:
                           currency: INR
                           value: '5000.00'
@@ -8804,7 +9273,7 @@ x-examples:
                             list:
                               - descriptor:
                                   code: type
-                                value: REFUNDABLE_PARTICIPATION_FEE
+                                value: earnest_money_deposit
                       - title: tax
                         price:
                           currency: INR
@@ -8857,7 +9326,7 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: REFUNDABLE_PARTICIPATION_FEE
+                            code: Settlement_Details
                           list:
                             - descriptor:
                                 code: Counterparty
@@ -8956,7 +9425,7 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: REFUNDABLE_PARTICIPATION_FEE
+                            code: Settlement_Details
                           list:
                             - descriptor:
                                 code: Counterparty
@@ -9051,7 +9520,7 @@ x-examples:
                       currency: INR
                       value: '35050.00'
                     breakup:
-                      - title: Wheat
+                      - title: Wheat (Auction)
                         price:
                           currency: INR
                           value: '35000.00'
@@ -9070,7 +9539,7 @@ x-examples:
                               - descriptor:
                                   code: type
                                 value: item
-                      - title: REFUNDABLE_PARTICIPATION_FEE
+                      - title: earnest_money_deposit
                         price:
                           currency: INR
                           value: '5000.00'
@@ -9082,7 +9551,7 @@ x-examples:
                             list:
                               - descriptor:
                                   code: type
-                                value: REFUNDABLE_PARTICIPATION_FEE
+                                value: earnest_money_deposit
                       - title: tax
                         price:
                           currency: INR
@@ -9132,7 +9601,7 @@ x-examples:
       bids and auction, and service providers based on serviceability, order,
       fulfillment and post-fulfillment but in Close Bid, the buyers places their
       bid which is encrypted (not made visible) for other buyers.
-    example_set: *ref_28
+    example_set: *ref_27
   Agricultural product - Bids and Auction (Buyer fails to make payment):
     summary: Bids and Auction (Buyer fails to make payment)
     description: >-
@@ -9143,7 +9612,7 @@ x-examples:
       fulfillment and post-fulfillment but winning bidder fails to make payment
       within the specified timeframe, leading to a dispute resolution process
       involving the platform's customer support.
-    example_set: *ref_28
+    example_set: *ref_27
   Agricultural product - Bids and Auction (Buyer not satisfied with the quality):
     summary: Bids and Auction (Buyer not satisfied with the quality)
     description: >-
@@ -9155,7 +9624,7 @@ x-examples:
       buyer does not match the description provided by the seller, the buyer may
       raise a complaint on the buyer app and the buyer app tries to analyse the
       complaints.
-    example_set: *ref_28
+    example_set: *ref_27
 x-attributes:
   Agricultural product - Bids and Auction:
     attribute_set:
@@ -9356,11 +9825,6 @@ x-attributes:
                 required: optional
                 usage: '-'
                 reference: if any
-              categories:
-                description: All the categories list
-                required: optional
-                usage: '-'
-                reference: if any
               offers:
                 id:
                   description: offer id
@@ -9458,7 +9922,7 @@ x-attributes:
                     category id of the service provided by the service provider
                     which was sent in /search call
                   required: required
-                  usage: SRV15-1000
+                  usage: SRV16-1000
                   reference: if any
                 fulfillment_ids:
                   description: >-
@@ -9597,7 +10061,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[C1]'
+                usage: '[SRV16-1001]'
                 reference: if any
               quantity:
                 selected:
@@ -9612,7 +10076,7 @@ x-attributes:
                 description: tags associated with the item
                 required: optional
                 usage: >-
-                  [{"descriptor":{"code":"ATTRIBUTE"},"list":[{"descriptor":{"code":"TYPE"},"value":"item"}]}]
+                  [{"descriptor":{"code":"COMMODITY_SPECIFICATION"},"list":[{"descriptor":{"code":"SELF_LIFE"},"value":"P10M"},{"descriptor":{"code":"MOISTURE"},"value":"10%"},{"descriptor":{"code":"OIL_CONTENT"},"value":"2%"},{"descriptor":{"code":"DEFECTIVES"},"value":"7%"}]}]
                 reference: if any
             fulfillments:
               parent: true
@@ -9983,7 +10447,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[C1]'
+                usage: '[SRV16-1001]'
                 reference: if any
               quantity:
                 selected:
@@ -9998,7 +10462,7 @@ x-attributes:
                 description: tags associated with the item
                 required: optional
                 usage: >-
-                  [{"descriptor":{"code":"ATTRIBUTE"},"list":[{"descriptor":{"code":"TYPE"},"value":"item"}]}]
+                  [{"descriptor":{"code":"COMMODITY_SPECIFICATION"},"list":[{"descriptor":{"code":"SELF_LIFE"},"value":"P10M"},{"descriptor":{"code":"MOISTURE"},"value":"10%"},{"descriptor":{"code":"OIL_CONTENT"},"value":"2%"},{"descriptor":{"code":"DEFECTIVES"},"value":"7%"}]}]
                 reference: if any
             billing:
               name:
@@ -10170,7 +10634,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[C1]'
+                usage: '[SRV16-1001]'
                 reference: if any
               quantity:
                 selected:
@@ -10185,7 +10649,7 @@ x-attributes:
                 description: tags associated with the item
                 required: optional
                 usage: >-
-                  [{"descriptor":{"code":"ATTRIBUTE"},"list":[{"descriptor":{"code":"TYPE"},"value":"item"}]}]
+                  [{"descriptor":{"code":"COMMODITY_SPECIFICATION"},"list":[{"descriptor":{"code":"SELF_LIFE"},"value":"P10M"},{"descriptor":{"code":"MOISTURE"},"value":"10%"},{"descriptor":{"code":"OIL_CONTENT"},"value":"2%"},{"descriptor":{"code":"DEFECTIVES"},"value":"7%"}]}]
                 reference: if any
             billing:
               name:
