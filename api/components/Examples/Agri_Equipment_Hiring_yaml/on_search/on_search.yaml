@@ -73,7 +73,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: SRV15-****
+                  value: SRV15-1001
                 - descriptor:
                     code: type
                   value: '10'
@@ -91,7 +91,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: SRV15-****
+                  value: SRV15-1001
                 - descriptor:
                     code: type
                   value: '11'
@@ -109,7 +109,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: SRV15-****
+                  value: SRV15-1001
                 - descriptor:
                     code: type
                   value: '12'
@@ -127,7 +127,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: SRV15-****
+                  value: SRV15-1001
                 - descriptor:
                     code: type
                   value: '13'
@@ -319,7 +319,7 @@ value:
                 schedule:
                   frequency: PT1H
                   holidays:
-                    - '2024-06-11'
+                    - '2024-06-14'
                     - '2024-06-18'
                   times:
                     - '2024-06-09T22:00:00.000Z'
@@ -360,10 +360,10 @@ value:
                   list:
                     - descriptor:
                         code: item_count
-                      value: 5
+                      value: '5'
                     - descriptor:
                         code: item_id
-                      value: 'I1'
+                      value: I2
                     - descriptor:
                         code: item_value
                       value: '200.00'

@@ -29,7 +29,7 @@ value:
           location_ids:
             - L1
           category_ids:
-            - SRV15-****
+            - SRV15-1001
           quantity:
             selected:
               count: 4
@@ -48,6 +48,7 @@ value:
                 label: selected
                 range:
                   start: '2024-06-09T22:00:00.000Z'
+                  end: '2024-06-10T02:00:00.000Z'
               location:
                 gps: 12.974002,77.613458
                 area_code: '560001'

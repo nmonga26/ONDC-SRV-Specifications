@@ -26,6 +26,13 @@ value:
           id: I1
           location_ids:
             - L1
+          tags:
+            - descriptor:
+                code: ATTRIBUTE
+              list:
+                - descriptor:
+                    code: TYPE
+                  value: item
       fulfillments:
         - id: F1
           type: Buyer-Fulfilled

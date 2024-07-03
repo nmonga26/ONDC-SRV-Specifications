@@ -28,7 +28,7 @@
         "cancelled_by": "CONSUMER",
         "reason": {
           "descriptor": {
-            "code": "012"
+            "code": "01"
           }
         }
       },

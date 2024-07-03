@@ -23,7 +23,7 @@
   "message": {
     "order": {
       "id": "O1",
-      "status": "In-progress",
+      "status": "Completed",
       "provider": {
         "id": "P1",
         "locations": [
@@ -42,7 +42,7 @@
             "L1"
           ],
           "category_ids": [
-            "SRV15-****"
+            "SRV15-1001"
           ],
           "quantity": {
             "selected": {

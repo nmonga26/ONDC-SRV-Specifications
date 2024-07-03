@@ -19,7 +19,7 @@ value:
   message:
     order:
       id: O1
-      status: Pending
+      status: Completed
       provider:
         id: P1
       items:
@@ -96,6 +96,43 @@ value:
                 - descriptor:
                     code: UPI_Address
                   value: xxxxxxx
+        - id: PY2
+          collected_by: BAP
+          params:
+            amount: '214.00'
+            currency: INR
+            bank_account_number: xxxxxxxx
+            virtual_payment_address: xxx@xxxx
+          status: NOT-PAID
+          type: ON-FULFILLMENT
+          tags:
+            - descriptor:
+                code: Settlement_Details
+              list:
+                - descriptor:
+                    code: Counterparty
+                  value: BPP
+                - descriptor:
+                    code: Mode
+                  value: UPI
+                - descriptor:
+                    code: Beneficiary_Name
+                  value: xxxxx
+                - descriptor:
+                    code: Bank_Account_No
+                  value: xxxxx
+                - descriptor:
+                    code: Ifsc_Code
+                  value: xxxxxxx
+                - descriptor:
+                    code: UPI_Address
+                  value: xxxxxxx
+            - descriptor:
+                code: Payment_Details
+              list:
+                - descriptor:
+                    code: Reason
+                  value: tandc_violation_charge
       fulfillments:
         - id: F1
           state:

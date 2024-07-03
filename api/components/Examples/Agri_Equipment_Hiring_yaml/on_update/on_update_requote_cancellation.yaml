@@ -6,7 +6,7 @@ value:
         code: std:080
       country:
         code: IND
-    action: update
+    action: on_update
     version: 2.0.0
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/services
@@ -17,10 +17,9 @@ value:
     timestamp: '2024-06-10T22:01:20.000Z'
     ttl: PT30S
   message:
-    update_target: payments
     order:
       id: O1
-      status: Accepted
+      status: Cancelled
       provider:
         id: P1
       items:
@@ -97,11 +96,48 @@ value:
                 - descriptor:
                     code: UPI_Address
                   value: xxxxxxx
+        - id: PY2
+          collected_by: BAP
+          params:
+            amount: '214.00'
+            currency: INR
+            bank_account_number: xxxxxxxx
+            virtual_payment_address: xxx@xxxx
+          status: NOT-PAID
+          type: ON-FULFILLMENT
+          tags:
+            - descriptor:
+                code: Settlement_Details
+              list:
+                - descriptor:
+                    code: Counterparty
+                  value: BPP
+                - descriptor:
+                    code: Mode
+                  value: UPI
+                - descriptor:
+                    code: Beneficiary_Name
+                  value: xxxxx
+                - descriptor:
+                    code: Bank_Account_No
+                  value: xxxxx
+                - descriptor:
+                    code: Ifsc_Code
+                  value: xxxxxxx
+                - descriptor:
+                    code: UPI_Address
+                  value: xxxxxxx
+            - descriptor:
+                code: Payment_Details
+              list:
+                - descriptor:
+                    code: Reason
+                  value: cancellation_charge
       fulfillments:
         - id: F1
           state:
             descriptor:
-              code: Completed
+              code: Cancelled
           type: Buyer-Fulfilled
           tracking: false
           stops:

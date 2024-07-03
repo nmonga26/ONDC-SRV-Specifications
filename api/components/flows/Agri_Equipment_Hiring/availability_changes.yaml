@@ -59,32 +59,8 @@ details:
         Note Over B,SA: **INITIALIZATION FLOW**
         B ->> BA: Proceeds with the Order
         BA ->> SA: **/init** - Initializes the order and <br>sends billing details
-        SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
-        BA ->> B: Confirms initialization
+        SA ->> BA: **/on_init** - Order initialization fails <br>due to selected equipment is no longer available
 
-  - description: Order Confirmation
-    mermaidGraph: >-
-      sequenceDiagram
-        participant B as Buyer
-        participant BA as BuyerApp
-        participant SA as SellerApp
-        Note Over B,SA: **CONFIRMATION FLOW**
-        B ->> BA: Confirms the Order
-        BA ->> SA: **/confirm** - Creates order to create final digital contract
-        SA ->> BA: **/on_confirm** - Accepts the order 
-        BA ->> B: Confirms order and delivery 
-
-  - description: Fulfillment
-    mermaidGraph: >-
-      sequenceDiagram
-        participant B as Buyer
-        participant BA as BuyerApp
-        participant SA as SellerApp 
-        Note Over B,SA: **ORDER STATUS FLOW**
-        B ->> BA: Checks the order status
-        BA ->> SA: **/status** - Enquire order status <br>or tracking information
-        SA ->> BA: **/on_status_in_transit** - Latest order and fulfillment status is sent
-        BA ->> B: Updates the latest order <br>and fulfillment information
 
 reference: if any
 steps:
@@ -105,63 +81,23 @@ steps:
     description: Buyer selects the required agri equipment + suitable fulfillment type
     reference: if any
     example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/select/select.yaml"
+      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/select/select_availability.yaml"
   - summary: Seller confirms the equipment item and returns the quote for equipment
     api: on_select
     description: Seller confirms the equipment item and returns the quote for equipment
     reference: if any
     example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_select/on_select.yaml"
+      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_select/on_select_availability.yaml"
   - summary: Buyer initialises the order for equipment
     api: init
     description: Buyer initialises the order and provides billing details
     reference: if any
     example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/init/init.yaml"
-  - summary: Seller provides the final quotation for the equipment
+      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/init/init_availability.yaml"
+  - summary: Order initialization fails due to selected equipment is no longer available
     api: on_init
-    description: Seller provides the final quotation
+    description: Seller responds to the initiation of the booking by mentioning that the requested equipment is no longer available
     reference: if any
     example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_init/on_init.yaml"
-  - summary: Buyer confirm the order for the equipment
-    api: confirm
-    description: Buyer makes the payment to confirm the order
-    example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/confirm/confirm.yaml"
-  - summary: Seller accepts the order for equipment
-    api: on_confirm
-    description: Seller app sends an on_confirm call to the buyer app accepting the order
-    reference: if any
-    example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_confirm/on_confirm.yaml"
-  - summary: Buyer requests for the status of the order
-    api: status
-    description: Buyer requests for the status of the order
-    example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/status/status.yaml"
-  - summary: Seller app sends order status update (In-Transit)
-    api: on_status (In Transit)
-    description: Seller app sends order status update when equipment is on the way
-    reference: if any
-    example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_status/on_status_transit.yaml"
-  - summary: Seller app sends the order status (At location)
-    api: on_status (At Location)
-    description: Seller app sends order status update when service provider has reached the buyer location with equipment
-    reference: if any
-    example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_status/on_status_at_location.yaml"
-  - summary: Seller app sends the order status (Completed)
-    api: on_status (Completed)
-    description: Seller app sends order status update when service provider has completed
-    reference: if any
-    example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_status/on_status_completed.yaml"
-  - summary: Buyer app shares the ratings to seller app
-    api: rating
-    description: Buyer leaves a detailed review on the buyer, sharing both positive and negative aspects. Buyer app shares the same with the seller app following the rating framework
-    reference: if any
-    example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/rating/rating.yaml"
-
+      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_init/on_init_availability.yaml"
+  

@@ -43,7 +43,7 @@ update:
         item:
           tags:
             - code: EQUIPMENT_ATTRIBUTES
-              description: Update parameter for attributes
+              description: Update parameter for attributes (Required)
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 $ref: "./Tag.yaml#/EQUIPMENT_ATTRIBUTES"
