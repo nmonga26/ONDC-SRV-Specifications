@@ -48,6 +48,27 @@ serviceability:
   - code: unit
     description: Unit of serviceability type values like KM, geojson
     reference: <PR/Issue/Discussion Links md format text>
+qualifier:
+  - code: min_value
+    description: Minimum value which offer can apply
+    reference: <PR/Issue/Discussion Links md format text>
+benefit:
+  - code: item_count
+    description: Benefit equipment count which offer can avail
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: item_id
+    description: Equipment id which offer can avail
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: item_value
+    description: Equipment Value which can avail
+    reference: <PR/Issue/Discussion Links md format text>
+meta:
+  - code: additive
+    description: Offer additive (i.e yes, no)
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: auto
+    description: Offer auto applied
+    reference: <PR/Issue/Discussion Links md format text>
 attributes:
   - code: color
     description: Hex Code for color
@@ -95,6 +116,9 @@ RESCHEDULE_TERMS:
     reference: <PR/Issue/Discussion Links md format text>
   - code: RESCHEDULE_ELIGIBLE
     description: Whether reschedule is available at this fulfillment state
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: RESCHEDULE_FEE_TYPE
+    description: Fees type (i.e. percent, amount) that will be charged if rescheduled at this fulfillment state
     reference: <PR/Issue/Discussion Links md format text>
   - code: RESCHEDULE_FEE
     description: Fees that will be charged if rescheduled at this fulfillment state

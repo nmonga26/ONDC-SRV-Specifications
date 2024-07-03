@@ -40,7 +40,7 @@
             "L1"
           ],
           "category_ids": [
-            "C1"
+            "SRV15-****"
           ],
           "quantity": {
             "selected": {
@@ -87,6 +87,9 @@
       "payments": [
         {
           "type": "PRE-FULFILLMENT"
+        },
+        {
+          "type": "ON-FULFILLMENT"
         }
       ]
     }

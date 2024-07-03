@@ -29,7 +29,7 @@ value:
           location_ids:
             - L1
           category_ids:
-            - C1
+            - SRV15-****
           quantity:
             selected:
               count: 4
@@ -53,3 +53,4 @@ value:
                 area_code: '560001'
       payments:
         - type: PRE-FULFILLMENT
+        - type: ON-FULFILLMENT

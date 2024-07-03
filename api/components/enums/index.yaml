@@ -20,6 +20,20 @@ on_search:
       fulfillments: &fulfillments
         type: 
           $ref: "./fulfillments.yaml#/fulfillments/type"
+      tags:
+        serviceability: 
+          $ref: "./tags.yaml#/serviceability/type"
+      providers:
+        items:
+          quantity:
+            unitized:
+              measure:
+                unit:
+                  $ref: "./quantity_measure.yaml#/unit"
+          tags:
+            RESCHEDULE_TERMS:
+              RESCHEDULE_FEE_TYPE:
+                $ref: "./tags.yaml#/reschedule_fee_type"
 init:
   context: &context
     domain: 

@@ -2799,6 +2799,41 @@ x-enum:
       catalog:
         fulfillments:
           type: *ref_1
+        tags:
+          serviceability:
+            - code: 10
+              description: Hyperlocal (radius)
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: 11
+              description: Intercity (pincodes)
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: 12
+              description: Pan-India
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: 13
+              description: Polygon (Selected co-ordinates)
+              reference: <PR/Issue/Discussion Links md format text>
+        providers:
+          items:
+            quantity:
+              unitized:
+                measure:
+                  unit:
+                    - code: hours
+                      description: Quantity measure to hire the equipment
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: days
+                      description: Quantity measure to hire the equipment
+                      reference: <PR/Issue/Discussion Links md format text>
+            tags:
+              RESCHEDULE_TERMS:
+                RESCHEDULE_FEE_TYPE:
+                  - code: percent
+                    description: Fee type value applied as percent
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: amount
+                    description: Fee type value applied as percent
+                    reference: <PR/Issue/Discussion Links md format text>
   init:
     context:
       domain: *ref_0
@@ -3029,6 +3064,11 @@ x-tags:
                   - code: RESCHEDULE_ELIGIBLE
                     description: Whether reschedule is available at this fulfillment state
                     reference: <PR/Issue/Discussion Links md format text>
+                  - code: RESCHEDULE_FEE_TYPE
+                    description: >-
+                      Fees type (i.e. percent, amount) that will be charged if
+                      rescheduled at this fulfillment state
+                    reference: <PR/Issue/Discussion Links md format text>
                   - code: RESCHEDULE_FEE
                     description: >-
                       Fees that will be charged if rescheduled at this
@@ -3137,6 +3177,38 @@ x-tags:
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: MAX_SELECTION
                   description: Number of maximum selections allowed for this category
+                  reference: <PR/Issue/Discussion Links md format text>
+        offers:
+          tags:
+            - code: qualifier
+              description: Qualifier which offer can apply
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: min_value
+                  description: Minimum value which offer can apply
+                  reference: <PR/Issue/Discussion Links md format text>
+            - code: benefit
+              description: Benefit which offer can avail
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: item_count
+                  description: Benefit equipment count which offer can avail
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: item_id
+                  description: Equipment id which offer can avail
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: item_value
+                  description: Equipment Value which can avail
+                  reference: <PR/Issue/Discussion Links md format text>
+            - code: meta
+              description: meta value for offer
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: additive
+                  description: Offer additive (i.e yes, no)
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: auto
+                  description: Offer auto applied
                   reference: <PR/Issue/Discussion Links md format text>
   on_select:
     message:
@@ -3302,7 +3374,8 @@ x-flows:
         api: search
         description: >-
           Search intent sent by the buyer based on the particular agri equipment
-          required - e.g. Irrigation Equipment
+          required - e.g. Irrigation Equipment and category code like SRV15-1001
+          (which is for Tractor Operated Zero-Till Seed-Cum-Fertilizer Drill)
         reference: if any
         example: &ref_14
           value:
@@ -3325,7 +3398,7 @@ x-flows:
               intent:
                 item:
                   category:
-                    code: SRV15-*
+                    code: SRV15-****
                 fulfillment:
                   type: Seller-Fulfilled
                   stops:
@@ -3352,7 +3425,12 @@ x-flows:
                         value: '3'
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: Returns the catalog specific to the search intent
+        description: >
+          Returns the catalog specific to the search intent where quantity
+          measure - hours and days and also serviceability and time can be
+          reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a>
         reference: if any
         example: &ref_15
           value:
@@ -3385,6 +3463,8 @@ x-flows:
                     type: PRE-FULFILLMENT
                   - id: PY2
                     type: ON-FULFILLMENT
+                  - id: PY3
+                    type: POST-FULFILLMENT
                 descriptor:
                   name: Agri Equipment Provider
                   short_desc: Agri Equipment Provider
@@ -3428,7 +3508,61 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: SRV15-*
+                            value: SRV15-****
+                          - descriptor:
+                              code: type
+                            value: '10'
+                          - descriptor:
+                              code: val
+                            value: '5'
+                          - descriptor:
+                              code: unit
+                            value: km
+                      - descriptor:
+                          code: serviceability
+                        list:
+                          - descriptor:
+                              code: location
+                            value: L1
+                          - descriptor:
+                              code: category
+                            value: SRV15-****
+                          - descriptor:
+                              code: type
+                            value: '11'
+                          - descriptor:
+                              code: val
+                            value: 560001-560076,560083
+                          - descriptor:
+                              code: unit
+                            value: pincode
+                      - descriptor:
+                          code: serviceability
+                        list:
+                          - descriptor:
+                              code: location
+                            value: L1
+                          - descriptor:
+                              code: category
+                            value: SRV15-****
+                          - descriptor:
+                              code: type
+                            value: '12'
+                          - descriptor:
+                              code: val
+                            value: IND
+                          - descriptor:
+                              code: unit
+                            value: country
+                      - descriptor:
+                          code: serviceability
+                        list:
+                          - descriptor:
+                              code: location
+                            value: L1
+                          - descriptor:
+                              code: category
+                            value: SRV15-****
                           - descriptor:
                               code: type
                             value: '13'
@@ -3443,67 +3577,6 @@ x-flows:
                           - descriptor:
                               code: unit
                             value: geojson
-                    categories:
-                      - id: C1
-                        descriptor:
-                          name: Hi Tech based Tractor
-                          code: MISC
-                        tags:
-                          - descriptor:
-                              code: SELECTION
-                            list:
-                              - descriptor:
-                                  code: SEQ
-                                value: '1'
-                              - descriptor:
-                                  code: MANDATORY_SELECTION
-                                value: 'true'
-                              - descriptor:
-                                  code: MIN_SELECTION
-                                value: '1'
-                              - descriptor:
-                                  code: MAX_SELECTION
-                                value: '3'
-                      - id: C2
-                        descriptor:
-                          name: Thresher
-                          code: MISC
-                        tags:
-                          - descriptor:
-                              code: SELECTION
-                            list:
-                              - descriptor:
-                                  code: SEQ
-                                value: '2'
-                              - descriptor:
-                                  code: MANDATORY_SELECTION
-                                value: 'true'
-                              - descriptor:
-                                  code: MIN_SELECTION
-                                value: '1'
-                              - descriptor:
-                                  code: MAX_SELECTION
-                                value: '3'
-                      - id: C3
-                        descriptor:
-                          name: Rotovator
-                          code: MISC
-                        tags:
-                          - descriptor:
-                              code: SELECTION
-                            list:
-                              - descriptor:
-                                  code: SEQ
-                                value: '3'
-                              - descriptor:
-                                  code: MANDATORY_SELECTION
-                                value: 'true'
-                              - descriptor:
-                                  code: MIN_SELECTION
-                                value: '1'
-                              - descriptor:
-                                  code: MAX_SELECTION
-                                value: '3'
                     items:
                       - id: I1
                         descriptor:
@@ -3532,7 +3605,6 @@ x-flows:
                           maximum:
                             value: '4'
                         category_ids:
-                          - C1
                           - SRV15-1001
                         fulfillment_ids:
                           - F1
@@ -3541,6 +3613,7 @@ x-flows:
                           - L1
                         payment_ids:
                           - PY1
+                          - PY2
                         add_ons:
                           - id: A1
                             descriptor:
@@ -3550,6 +3623,11 @@ x-flows:
                             price:
                               currency: INR
                               value: '200.00'
+                            quantity:
+                              unitized:
+                                measure:
+                                  unit: hours
+                                  value: '1'
                         cancellation_terms:
                           - fulfillment_state:
                               descriptor:
@@ -3595,8 +3673,11 @@ x-flows:
                                   code: RESCHEDULE_ELIGIBLE
                                 value: 'true'
                               - descriptor:
+                                  code: RESCHEDULE_FEE_TYPE
+                                value: percent
+                              - descriptor:
                                   code: RESCHEDULE_FEE
-                                value: '0.00'
+                                value: '10'
                               - descriptor:
                                   code: RESCHEDULE_WITHIN
                                 value: PT1D
@@ -3667,8 +3748,15 @@ x-flows:
                                 value: https://abc.com/insurance
                         time:
                           label: validity
+                          range:
+                            start: '2024-06-09T00:00:00.000Z'
+                            end: '2024-06-19T00:00:00.000Z'
+                          days: 01,04,05
                           schedule:
                             frequency: PT1H
+                            holidays:
+                              - '2024-06-11'
+                              - '2024-06-18'
                             times:
                               - '2024-06-09T22:00:00.000Z'
                               - '2024-06-09T23:00:00.000Z'
@@ -3689,7 +3777,7 @@ x-flows:
                         location_ids:
                           - L1
                         category_ids:
-                          - C1
+                          - SRV15-1001
                         item_ids:
                           - PI2
                         time:
@@ -3698,6 +3786,31 @@ x-flows:
                             start: '2024-04-01T00:00:00.000Z'
                             end: '2024-12-10T00:00:00.000Z'
                           days: 04,05
+                        tags:
+                          - code: qualifier
+                            list:
+                              - descriptor:
+                                  code: min_value
+                                value: '5000'
+                          - code: benefit
+                            list:
+                              - descriptor:
+                                  code: item_count
+                                value: 5
+                              - descriptor:
+                                  code: item_id
+                                value: I1
+                              - descriptor:
+                                  code: item_value
+                                value: '200.00'
+                          - code: meta
+                            list:
+                              - descriptor:
+                                  code: additive
+                                value: 'no'
+                              - descriptor:
+                                  code: auto
+                                value: 'yes'
                     fulfillments:
                       - contact:
                           phone: '9886098860'
@@ -3738,7 +3851,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV15-****
                     quantity:
                       selected:
                         count: 4
@@ -3762,6 +3875,7 @@ x-flows:
                           area_code: '560001'
                 payments:
                   - type: PRE-FULFILLMENT
+                  - type: ON-FULFILLMENT
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
         description: Seller confirms the equipment item and returns the quote for equipment
@@ -3898,6 +4012,8 @@ x-flows:
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BAP
+                  - type: ON-FULFILLMENT
+                    collected_by: BAP
       - summary: Buyer initialises the order for equipment
         api: init
         description: Buyer initialises the order and provides billing details
@@ -3934,7 +4050,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV15-****
                     quantity:
                       selected:
                         count: 4
@@ -3982,6 +4098,8 @@ x-flows:
                 payments:
                   - type: PRE-FULFILLMENT
                     collected_by: BAP
+                  - type: ON-FULFILLMENT
+                    collected_by: BAP
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
@@ -4018,7 +4136,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV15-****
                     quantity:
                       selected:
                         count: 4
@@ -4201,11 +4319,41 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '7140'
+                      amount: '5000'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
                     type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '2140'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -4265,7 +4413,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV15-****
                     quantity:
                       selected:
                         count: 4
@@ -4398,12 +4546,43 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '7140'
+                      amount: '5000'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
                     status: PAID
                     type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '2140'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -4469,7 +4648,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV15-****
                     quantity:
                       selected:
                         count: 4
@@ -4785,7 +4964,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV15-****
                     quantity:
                       selected:
                         count: 4
@@ -4943,12 +5122,43 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '7140'
+                      amount: '5000'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
                     status: PAID
                     type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '2140'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -5016,7 +5226,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV15-****
                     quantity:
                       selected:
                         count: 4
@@ -5174,12 +5384,43 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '7140'
+                      amount: '5000'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
                     status: PAID
                     type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '2140'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -5247,7 +5488,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - C1
+                      - SRV15-****
                     quantity:
                       selected:
                         count: 4
@@ -5405,12 +5646,43 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '7140'
+                      amount: '5000'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
                     status: PAID
                     type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '2140'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -6015,12 +6287,43 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '7140'
+                      amount: '5000'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
                     status: PAID
                     type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '2140'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -6090,7 +6393,7 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '7140'
+                      amount: '5000'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -6119,9 +6422,9 @@ x-flows:
                               code: UPI_Address
                             value: xxxxxxx
                   - id: PY2
-                    collected_by: BPP
+                    collected_by: BAP
                     params:
-                      amount: '100'
+                      amount: '2140'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -6380,7 +6683,7 @@ x-flows:
                   - id: PY1
                     collected_by: BAP
                     params:
-                      amount: '7140'
+                      amount: '5000'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -6409,9 +6712,9 @@ x-flows:
                               code: UPI_Address
                             value: xxxxxxx
                   - id: PY2
-                    collected_by: BPP
+                    collected_by: BAP
                     params:
-                      amount: '100'
+                      amount: '2140'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -7219,7 +7522,7 @@ x-examples:
                 intent:
                   item:
                     category:
-                      code: SRV15-*
+                      code: SRV15-****
                   fulfillment:
                     type: Seller-Fulfilled
                     stops:
@@ -7277,7 +7580,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV15-****
                       quantity:
                         selected:
                           count: 4
@@ -7301,6 +7604,7 @@ x-examples:
                             area_code: '560001'
                   payments:
                     - type: PRE-FULFILLMENT
+                    - type: ON-FULFILLMENT
           - value:
               context:
                 domain: ONDC:SRV15
@@ -7332,7 +7636,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV15-****
                       quantity:
                         selected:
                           count: 4
@@ -7356,6 +7660,7 @@ x-examples:
                             area_code: '560001'
                   payments:
                     - type: PRE-FULFILLMENT
+                    - type: ON-FULFILLMENT
       init:
         examples:
           - value:
@@ -7389,7 +7694,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV15-****
                       quantity:
                         selected:
                           count: 4
@@ -7437,6 +7742,8 @@ x-examples:
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BAP
+                    - type: ON-FULFILLMENT
+                      collected_by: BAP
           - value:
               context:
                 domain: ONDC:SRV15
@@ -7468,7 +7775,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV15-****
                       quantity:
                         selected:
                           count: 4
@@ -7522,6 +7829,8 @@ x-examples:
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BAP
+                    - type: ON-FULFILLMENT
+                      collected_by: BAP
       confirm:
         examples:
           - value:
@@ -7557,7 +7866,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV15-****
                       quantity:
                         selected:
                           count: 4
@@ -7690,12 +7999,43 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '7140'
+                        amount: '5000'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
                       status: PAID
                       type: PRE-FULFILLMENT
+                      tags:
+                        - descriptor:
+                            code: Settlement_Details
+                          list:
+                            - descriptor:
+                                code: Counterparty
+                              value: BPP
+                            - descriptor:
+                                code: Mode
+                              value: UPI
+                            - descriptor:
+                                code: Beneficiary_Name
+                              value: xxxxx
+                            - descriptor:
+                                code: Bank_Account_No
+                              value: xxxxx
+                            - descriptor:
+                                code: Ifsc_Code
+                              value: xxxxxxx
+                            - descriptor:
+                                code: UPI_Address
+                              value: xxxxxxx
+                    - id: PY2
+                      collected_by: BAP
+                      params:
+                        amount: '2140'
+                        currency: INR
+                        bank_account_number: xxxxxxxx
+                        virtual_payment_address: xxx@xxxx
+                      status: NOT-PAID
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -7753,7 +8093,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV15-****
                       quantity:
                         selected:
                           count: 4
@@ -7898,12 +8238,43 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '7140'
+                        amount: '5000'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
                       status: PAID
                       type: PRE-FULFILLMENT
+                      tags:
+                        - descriptor:
+                            code: Settlement_Details
+                          list:
+                            - descriptor:
+                                code: Counterparty
+                              value: BPP
+                            - descriptor:
+                                code: Mode
+                              value: UPI
+                            - descriptor:
+                                code: Beneficiary_Name
+                              value: xxxxx
+                            - descriptor:
+                                code: Bank_Account_No
+                              value: xxxxx
+                            - descriptor:
+                                code: Ifsc_Code
+                              value: xxxxxxx
+                            - descriptor:
+                                code: UPI_Address
+                              value: xxxxxxx
+                    - id: PY2
+                      collected_by: BAP
+                      params:
+                        amount: '2140'
+                        currency: INR
+                        bank_account_number: xxxxxxxx
+                        virtual_payment_address: xxx@xxxx
+                      status: NOT-PAID
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -8015,7 +8386,7 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '7140'
+                        amount: '5000'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -8044,9 +8415,9 @@ x-examples:
                                 code: UPI_Address
                               value: xxxxxxx
                     - id: PY2
-                      collected_by: BPP
+                      collected_by: BAP
                       params:
-                        amount: '100'
+                        amount: '2140'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -8315,6 +8686,8 @@ x-examples:
                       type: PRE-FULFILLMENT
                     - id: PY2
                       type: ON-FULFILLMENT
+                    - id: PY3
+                      type: POST-FULFILLMENT
                   descriptor:
                     name: Agri Equipment Provider
                     short_desc: Agri Equipment Provider
@@ -8358,7 +8731,61 @@ x-examples:
                               value: L1
                             - descriptor:
                                 code: category
-                              value: SRV15-*
+                              value: SRV15-****
+                            - descriptor:
+                                code: type
+                              value: '10'
+                            - descriptor:
+                                code: val
+                              value: '5'
+                            - descriptor:
+                                code: unit
+                              value: km
+                        - descriptor:
+                            code: serviceability
+                          list:
+                            - descriptor:
+                                code: location
+                              value: L1
+                            - descriptor:
+                                code: category
+                              value: SRV15-****
+                            - descriptor:
+                                code: type
+                              value: '11'
+                            - descriptor:
+                                code: val
+                              value: 560001-560076,560083
+                            - descriptor:
+                                code: unit
+                              value: pincode
+                        - descriptor:
+                            code: serviceability
+                          list:
+                            - descriptor:
+                                code: location
+                              value: L1
+                            - descriptor:
+                                code: category
+                              value: SRV15-****
+                            - descriptor:
+                                code: type
+                              value: '12'
+                            - descriptor:
+                                code: val
+                              value: IND
+                            - descriptor:
+                                code: unit
+                              value: country
+                        - descriptor:
+                            code: serviceability
+                          list:
+                            - descriptor:
+                                code: location
+                              value: L1
+                            - descriptor:
+                                code: category
+                              value: SRV15-****
                             - descriptor:
                                 code: type
                               value: '13'
@@ -8374,67 +8801,6 @@ x-examples:
                             - descriptor:
                                 code: unit
                               value: geojson
-                      categories:
-                        - id: C1
-                          descriptor:
-                            name: Hi Tech based Tractor
-                            code: MISC
-                          tags:
-                            - descriptor:
-                                code: SELECTION
-                              list:
-                                - descriptor:
-                                    code: SEQ
-                                  value: '1'
-                                - descriptor:
-                                    code: MANDATORY_SELECTION
-                                  value: 'true'
-                                - descriptor:
-                                    code: MIN_SELECTION
-                                  value: '1'
-                                - descriptor:
-                                    code: MAX_SELECTION
-                                  value: '3'
-                        - id: C2
-                          descriptor:
-                            name: Thresher
-                            code: MISC
-                          tags:
-                            - descriptor:
-                                code: SELECTION
-                              list:
-                                - descriptor:
-                                    code: SEQ
-                                  value: '2'
-                                - descriptor:
-                                    code: MANDATORY_SELECTION
-                                  value: 'true'
-                                - descriptor:
-                                    code: MIN_SELECTION
-                                  value: '1'
-                                - descriptor:
-                                    code: MAX_SELECTION
-                                  value: '3'
-                        - id: C3
-                          descriptor:
-                            name: Rotovator
-                            code: MISC
-                          tags:
-                            - descriptor:
-                                code: SELECTION
-                              list:
-                                - descriptor:
-                                    code: SEQ
-                                  value: '3'
-                                - descriptor:
-                                    code: MANDATORY_SELECTION
-                                  value: 'true'
-                                - descriptor:
-                                    code: MIN_SELECTION
-                                  value: '1'
-                                - descriptor:
-                                    code: MAX_SELECTION
-                                  value: '3'
                       items:
                         - id: I1
                           descriptor:
@@ -8463,7 +8829,6 @@ x-examples:
                             maximum:
                               value: '4'
                           category_ids:
-                            - C1
                             - SRV15-1001
                           fulfillment_ids:
                             - F1
@@ -8472,6 +8837,7 @@ x-examples:
                             - L1
                           payment_ids:
                             - PY1
+                            - PY2
                           add_ons:
                             - id: A1
                               descriptor:
@@ -8481,6 +8847,11 @@ x-examples:
                               price:
                                 currency: INR
                                 value: '200.00'
+                              quantity:
+                                unitized:
+                                  measure:
+                                    unit: hours
+                                    value: '1'
                           cancellation_terms:
                             - fulfillment_state:
                                 descriptor:
@@ -8526,8 +8897,11 @@ x-examples:
                                     code: RESCHEDULE_ELIGIBLE
                                   value: 'true'
                                 - descriptor:
+                                    code: RESCHEDULE_FEE_TYPE
+                                  value: percent
+                                - descriptor:
                                     code: RESCHEDULE_FEE
-                                  value: '0.00'
+                                  value: '10'
                                 - descriptor:
                                     code: RESCHEDULE_WITHIN
                                   value: PT1D
@@ -8598,8 +8972,15 @@ x-examples:
                                   value: https://abc.com/insurance
                           time:
                             label: validity
+                            range:
+                              start: '2024-06-09T00:00:00.000Z'
+                              end: '2024-06-19T00:00:00.000Z'
+                            days: 01,04,05
                             schedule:
                               frequency: PT1H
+                              holidays:
+                                - '2024-06-11'
+                                - '2024-06-18'
                               times:
                                 - '2024-06-09T22:00:00.000Z'
                                 - '2024-06-09T23:00:00.000Z'
@@ -8620,7 +9001,7 @@ x-examples:
                           location_ids:
                             - L1
                           category_ids:
-                            - C1
+                            - SRV15-1001
                           item_ids:
                             - PI2
                           time:
@@ -8629,6 +9010,31 @@ x-examples:
                               start: '2024-04-01T00:00:00.000Z'
                               end: '2024-12-10T00:00:00.000Z'
                             days: 04,05
+                          tags:
+                            - code: qualifier
+                              list:
+                                - descriptor:
+                                    code: min_value
+                                  value: '5000'
+                            - code: benefit
+                              list:
+                                - descriptor:
+                                    code: item_count
+                                  value: 5
+                                - descriptor:
+                                    code: item_id
+                                  value: I1
+                                - descriptor:
+                                    code: item_value
+                                  value: '200.00'
+                            - code: meta
+                              list:
+                                - descriptor:
+                                    code: additive
+                                  value: 'no'
+                                - descriptor:
+                                    code: auto
+                                  value: 'yes'
                       fulfillments:
                         - contact:
                             phone: '9886098860'
@@ -8766,6 +9172,8 @@ x-examples:
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BAP
+                    - type: ON-FULFILLMENT
+                      collected_by: BAP
           - value:
               context:
                 domain: ONDC:SRV15
@@ -8897,6 +9305,8 @@ x-examples:
                   payments:
                     - type: PRE-FULFILLMENT
                       collected_by: BAP
+                    - type: ON-FULFILLMENT
+                      collected_by: BAP
       on_init:
         examples:
           - value:
@@ -8930,7 +9340,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV15-****
                       quantity:
                         selected:
                           count: 4
@@ -9113,11 +9523,41 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '7140'
+                        amount: '5000'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
                       type: PRE-FULFILLMENT
+                      tags:
+                        - descriptor:
+                            code: Settlement_Details
+                          list:
+                            - descriptor:
+                                code: Counterparty
+                              value: BPP
+                            - descriptor:
+                                code: Mode
+                              value: UPI
+                            - descriptor:
+                                code: Beneficiary_Name
+                              value: xxxxx
+                            - descriptor:
+                                code: Bank_Account_No
+                              value: xxxxx
+                            - descriptor:
+                                code: Ifsc_Code
+                              value: xxxxxxx
+                            - descriptor:
+                                code: UPI_Address
+                              value: xxxxxxx
+                    - id: PY2
+                      collected_by: BAP
+                      params:
+                        amount: '2140'
+                        currency: INR
+                        bank_account_number: xxxxxxxx
+                        virtual_payment_address: xxx@xxxx
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -9171,7 +9611,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV15-****
                       quantity:
                         selected:
                           count: 4
@@ -9370,11 +9810,41 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '7140'
+                        amount: '5000'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
                       type: PRE-FULFILLMENT
+                      tags:
+                        - descriptor:
+                            code: Settlement_Details
+                          list:
+                            - descriptor:
+                                code: Counterparty
+                              value: BPP
+                            - descriptor:
+                                code: Mode
+                              value: UPI
+                            - descriptor:
+                                code: Beneficiary_Name
+                              value: xxxxx
+                            - descriptor:
+                                code: Bank_Account_No
+                              value: xxxxx
+                            - descriptor:
+                                code: Ifsc_Code
+                              value: xxxxxxx
+                            - descriptor:
+                                code: UPI_Address
+                              value: xxxxxxx
+                    - id: PY2
+                      collected_by: BAP
+                      params:
+                        amount: '2140'
+                        currency: INR
+                        bank_account_number: xxxxxxxx
+                        virtual_payment_address: xxx@xxxx
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -9433,7 +9903,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV15-****
                       quantity:
                         selected:
                           count: 4
@@ -9721,7 +10191,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV15-****
                       quantity:
                         selected:
                           count: 4
@@ -9963,7 +10433,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV15-****
                       quantity:
                         selected:
                           count: 4
@@ -10121,12 +10591,43 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '7140'
+                        amount: '5000'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
                       status: PAID
                       type: PRE-FULFILLMENT
+                      tags:
+                        - descriptor:
+                            code: Settlement_Details
+                          list:
+                            - descriptor:
+                                code: Counterparty
+                              value: BPP
+                            - descriptor:
+                                code: Mode
+                              value: UPI
+                            - descriptor:
+                                code: Beneficiary_Name
+                              value: xxxxx
+                            - descriptor:
+                                code: Bank_Account_No
+                              value: xxxxx
+                            - descriptor:
+                                code: Ifsc_Code
+                              value: xxxxxxx
+                            - descriptor:
+                                code: UPI_Address
+                              value: xxxxxxx
+                    - id: PY2
+                      collected_by: BAP
+                      params:
+                        amount: '2140'
+                        currency: INR
+                        bank_account_number: xxxxxxxx
+                        virtual_payment_address: xxx@xxxx
+                      status: NOT-PAID
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -10187,7 +10688,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV15-****
                       quantity:
                         selected:
                           count: 4
@@ -10345,12 +10846,43 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '7140'
+                        amount: '5000'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
                       status: PAID
                       type: PRE-FULFILLMENT
+                      tags:
+                        - descriptor:
+                            code: Settlement_Details
+                          list:
+                            - descriptor:
+                                code: Counterparty
+                              value: BPP
+                            - descriptor:
+                                code: Mode
+                              value: UPI
+                            - descriptor:
+                                code: Beneficiary_Name
+                              value: xxxxx
+                            - descriptor:
+                                code: Bank_Account_No
+                              value: xxxxx
+                            - descriptor:
+                                code: Ifsc_Code
+                              value: xxxxxxx
+                            - descriptor:
+                                code: UPI_Address
+                              value: xxxxxxx
+                    - id: PY2
+                      collected_by: BAP
+                      params:
+                        amount: '2140'
+                        currency: INR
+                        bank_account_number: xxxxxxxx
+                        virtual_payment_address: xxx@xxxx
+                      status: NOT-PAID
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -10411,7 +10943,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - C1
+                        - SRV15-****
                       quantity:
                         selected:
                           count: 4
@@ -10569,12 +11101,43 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '7140'
+                        amount: '5000'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
                       status: PAID
                       type: PRE-FULFILLMENT
+                      tags:
+                        - descriptor:
+                            code: Settlement_Details
+                          list:
+                            - descriptor:
+                                code: Counterparty
+                              value: BPP
+                            - descriptor:
+                                code: Mode
+                              value: UPI
+                            - descriptor:
+                                code: Beneficiary_Name
+                              value: xxxxx
+                            - descriptor:
+                                code: Bank_Account_No
+                              value: xxxxx
+                            - descriptor:
+                                code: Ifsc_Code
+                              value: xxxxxxx
+                            - descriptor:
+                                code: UPI_Address
+                              value: xxxxxxx
+                    - id: PY2
+                      collected_by: BAP
+                      params:
+                        amount: '2140'
+                        currency: INR
+                        bank_account_number: xxxxxxxx
+                        virtual_payment_address: xxx@xxxx
+                      status: NOT-PAID
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -10789,12 +11352,43 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '7140'
+                        amount: '5000'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
                       status: PAID
                       type: PRE-FULFILLMENT
+                      tags:
+                        - descriptor:
+                            code: Settlement_Details
+                          list:
+                            - descriptor:
+                                code: Counterparty
+                              value: BPP
+                            - descriptor:
+                                code: Mode
+                              value: UPI
+                            - descriptor:
+                                code: Beneficiary_Name
+                              value: xxxxx
+                            - descriptor:
+                                code: Bank_Account_No
+                              value: xxxxx
+                            - descriptor:
+                                code: Ifsc_Code
+                              value: xxxxxxx
+                            - descriptor:
+                                code: UPI_Address
+                              value: xxxxxxx
+                    - id: PY2
+                      collected_by: BAP
+                      params:
+                        amount: '2140'
+                        currency: INR
+                        bank_account_number: xxxxxxxx
+                        virtual_payment_address: xxx@xxxx
+                      status: NOT-PAID
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -10859,7 +11453,7 @@ x-examples:
                     - id: PY1
                       collected_by: BAP
                       params:
-                        amount: '7140'
+                        amount: '5000'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -10888,9 +11482,9 @@ x-examples:
                                 code: UPI_Address
                               value: xxxxxxx
                     - id: PY2
-                      collected_by: BPP
+                      collected_by: BAP
                       params:
-                        amount: '100'
+                        amount: '2140'
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
@@ -11596,7 +12190,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[C1]'
+                usage: '[SRV15-****]'
                 reference: if any
               quantity:
                 selected:
@@ -11982,7 +12576,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[C1]'
+                usage: '[SRV15-****]'
                 reference: if any
               quantity:
                 selected:
@@ -12169,7 +12763,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[C1]'
+                usage: '[SRV15-****]'
                 reference: if any
               quantity:
                 selected:
