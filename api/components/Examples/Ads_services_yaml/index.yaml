@@ -1,0 +1,19 @@
+search:
+  examples:
+    - $ref: ./search/search.yaml
+    - $ref: ./search/search_by_category.yaml
+on_search:
+  examples:
+    - $ref: ./on_search/on_search.yaml
+select:
+  examples:
+    - $ref: ./select/select.yaml
+on_select:
+  examples:
+    - $ref: ./on_select/on_select.yaml
+init:
+  examples:
+    - $ref: ./init/init.yaml
+on_init:
+  examples:
+    - $ref: ./on_init/on_init.yaml
