@@ -162,13 +162,13 @@ steps:
     description: Seller app shares state of the equipment for discrepancies
     reference: if any
     example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_update/on_update_requote.yaml"
+      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/on_update/on_update_requote_damage.yaml"
   - summary: Buyer app sends the acknowledgement of payment
     api: update
     description: Buyer app sends the acknowledgement of payment for raised discrepancies into the equipment
     reference: if any
     example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/update/update_requote.yaml"
+      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/update/update_requote_damage.yaml"
   - summary: Buyer app shares the ratings to seller app
     api: rating
     description: Buyer leaves a detailed review on the buyer, sharing both positive and negative aspects. Buyer app shares the same with the seller app following the rating framework

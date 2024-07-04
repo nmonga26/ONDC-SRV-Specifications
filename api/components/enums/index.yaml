@@ -129,3 +129,14 @@ on_status:
           $ref: "./title_type.yaml#/breakup"
       payments:
         $ref: "./payment.yaml#/payment"
+on_cancel:
+  context: &context
+    domain: 
+      $ref: "./context.yaml#/domain"
+  message:
+    order:
+      cancellation:
+        reason:
+          descriptor:
+            code:
+              $ref: "./cancel_reason.yaml#/reason"
