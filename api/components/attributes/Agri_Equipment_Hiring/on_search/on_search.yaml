@@ -75,11 +75,6 @@ message:
         required: optional
         usage: "-"
         reference: if any
-      categories:
-        description: All the categories list
-        required: optional
-        usage: "-"
-        reference: if any
       offers:
         id:
           description: offer id
@@ -179,6 +174,11 @@ message:
           required: required
           usage: "L1"
           reference: if any
+        quantity:
+          description: quantity of the item
+          required: required
+          usage: "-"
+          reference: if any
         add_ons:
           id:
             description: Add-on item id
@@ -200,6 +200,11 @@ message:
               description: long description of the equipment provided by the service provider
               required: required
               usage: "Driver knows about farming"
+              reference: if any
+            quantity:
+              description: quantity of the item
+              required: required
+              usage: "-"
               reference: if any
             price:
               value:
