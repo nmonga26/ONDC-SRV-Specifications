@@ -8026,6 +8026,603 @@ x-flows:
           when ever seller detact change in catalog
         reference: if any
         example: *ref_26
+  - summary: >-
+      Agricultural product - Bids and Auction for a Commodity (Minimum Bid
+      Quantity)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to bids for agricultural commodity. The bids and
+      auction majorly happens in four phases of order processing flow, i.e.
+      Discovery of available commodity and service providers based on
+      serviceability, order, fulfillment and post-fulfillmentand bids can be
+      done with minimum quantity (If a Seller has 3 MT, and MBQ is (or can be) 1
+      MT).
+    details:
+      - description: Sequence Diagram for Bids and Auction
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA1 as SellerApp1
+            participant SA2 as SellerApp2
+            
+            Note Over B,SA: **SEARCH FLOW**
+            B ->> BA: Search by city for a commodity
+            BA ->> G: **/search** - Search by city for a commodity and <br>additional parameters
+            Note left of BA: Additional params include: <br><br>
+            G ->> SA1: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
+            G ->> SA2: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
+            SA1 ->> BA: **/on_search** - Commodity bids catalog returned <br>with pricing, seller statutory details, pricing
+            SA2 ->> BA: **/on_search** - Commodity bids catalog returned <br>with pricing, seller statutory details, pricing
+            Note Over BA,SA1: Buyer now has the option to choose the <br>Commodity bids from either Seller 1 or Seller 2 or both
+            BA ->> B: Shows all the avilable bids <br>options from sellers
+      - description: Ordering
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA as SellerApp
+            Note Over B,SA: **SELECT FLOW**
+            B ->> BA: Selects one of the <br>providers for avilable bids commodity
+            BA ->> SA: **/select** - A commodity is selected with a <br>TTL for receiving response
+            SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including logistics charges
+            BA ->> B: Shows response with price details
+      - description: Initializing the order
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA as SellerApp
+            Note Over B,SA: **INITIALIZATION FLOW**
+            B ->> BA: Proceeds with the Order
+            BA ->> SA: **/init** - Initializes the order and <br>sends billing details
+            SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
+            BA ->> B: Confirms initialization
+      - description: Order Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **CONFIRMATION FLOW**
+            B ->> BA: Confirms the Order
+            BA ->> SA: **/confirm** - Creates order to create final digital contract
+            SA ->> BA: **/on_confirm** - Accepts the order 
+            BA ->> B: Confirms order and delivery 
+      - description: Fulfillment
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp 
+            Note Over B,SA: **BIDS STATUS FLOW**
+            B ->> BA: Checks the order status
+            BA ->> SA: **/status** - Enquire order status <br>or tracking information
+            SA ->> BA: **/on_status_in_transit** - Latest order and fulfillment status is sent
+            BA ->> B: Updates the latest order <br>and fulfillment information
+      - description: Post Fulfillment
+        mermaidGraph: |-
+          sequenceDiagram
+            participant SA as SellerApp 
+            participant BA as BuyerApp
+            participant B as Buyer
+            Note Over SA,B: **BIDS CONFIRM FLOW**
+            SA ->> BA: **/on_update** - Send status as bids awarded
+            BA ->> SA: **/update** - Buyer app ack the update
+            BA ->> B: Updates the latest order <br>and fulfillment information
+    reference: if any
+    steps:
+      - summary: >-
+          Search based on the intent for bids and auction for a particular
+          agricultural commodity
+        api: search
+        description: >-
+          Search intent sent by the buyer based on the particular agri product
+          required - e.g. Wheat
+        reference: if any
+        example: *ref_14
+      - summary: Returns the catalog specific to the search intent
+        api: on_search
+        description: >-
+          Returns the catalog specific to the search intent and also
+          serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and for polygon geoJSON check <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
+          <br><br> Buyer will select Minimum Bid Quantity (Buyer Side) /Lot Size
+          (Seller Side) (If a Seller has 3 MT, and MBQ is (or can be) 1 MT)
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:SRV16
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_search
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2024-06-10T22:00:20.000Z'
+              ttl: PT30S
+            message:
+              catalog:
+                fulfillments:
+                  - id: F1
+                    type: Buyer-Fulfilled
+                payments:
+                  - id: PY1
+                    type: PRE-FULFILLMENT
+                  - id: PY2
+                    type: ON-FULFILLMENT
+                  - id: PY3
+                    type: POST-FULFILLMENT
+                descriptor:
+                  name: Wheat Farm Store
+                  short_desc: Wheat Farm Store
+                  long_desc: Wheat Farm Store
+                  images:
+                    - url: https://abc.com/images/1-shop-img
+                providers:
+                  - id: P1
+                    descriptor:
+                      name: Wheat Farm Store
+                      code: P001
+                      short_desc: Wheat Farm Store
+                      long_desc: Wheat Farm Store
+                      additional_desc:
+                        url: chat link
+                        content_type: text/html
+                      images:
+                        - url: https://abc.com/images/1-shop-img
+                    rating: '4.4'
+                    ttl: P1D
+                    locations:
+                      - id: L1
+                        gps: 12.967555,77.749666
+                        address: Jayanagar 4th Block
+                        city:
+                          code: std:080
+                          name: Bengaluru
+                        state:
+                          code: KA
+                        country:
+                          code: IND
+                        area_code: '560076'
+                    creds:
+                      - id: EQP-12345678
+                        type: Certificate
+                        desc: Certified Provider
+                        url: https://abcd.cdn.com/images/bage-img
+                    tags:
+                      - descriptor:
+                          code: serviceability
+                        list:
+                          - descriptor:
+                              code: location
+                            value: L1
+                          - descriptor:
+                              code: category
+                            value: SRV16-1001
+                          - descriptor:
+                              code: type
+                            value: '12'
+                          - descriptor:
+                              code: val
+                            value: IND
+                          - descriptor:
+                              code: unit
+                            value: country
+                      - descriptor:
+                          code: seller_terms
+                        list:
+                          - descriptor:
+                              code: gst_credit_invoice
+                            value: 'Y'
+                      - descriptor:
+                          code: seller_id
+                        list:
+                          - descriptor:
+                              code: seller_id_code
+                            value: mandi_licence
+                          - descriptor:
+                              code: seller_id_no
+                            value: xxxxxxxxxxxxxxx
+                      - descriptor:
+                          code: FSSAI_LICENSE_NO
+                        list:
+                          - descriptor:
+                              code: BRAND_OWNER
+                            value: '12345678901234'
+                          - descriptor:
+                              code: OTHER
+                            value: '12345678901234'
+                          - descriptor:
+                              code: IMPORTER
+                            value: '12345678901234'
+                    items:
+                      - id: I1
+                        descriptor:
+                          name: Wheat (Auction)
+                          short_desc: High-quality grain
+                          long_desc: High-quality grain
+                          images:
+                            - url: https://abc.com/images/207.png
+                          media:
+                            - mimetype: video/mp4
+                              url: https://abc.com/images/207.mp4
+                        creator:
+                          descriptor:
+                            name: Any Marketer if (applicable)
+                            contact:
+                              name: Any Marketer
+                              address:
+                                full: >-
+                                  Wheat Pvt Ltd, A-3, NDDB House, Sector-1,
+                                  Chandigarh, 140301
+                              phone: '18000000000'
+                              email: abc@xyz.com
+                        price:
+                          currency: INR
+                          value: '300.00'
+                          minimum_value: '250.00'
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: kg
+                              value: '50'
+                          available:
+                            measure:
+                              unit: kg
+                              value: '50'
+                            count: 1000
+                          minimum:
+                            measure:
+                              unit: kg
+                              value: '50'
+                            count: 100
+                        category_ids:
+                          - SRV16-1001
+                        fulfillment_ids:
+                          - F1
+                        location_ids:
+                          - L1
+                        payment_ids:
+                          - PY2
+                        cancellation_terms:
+                          - fulfillment_state:
+                              descriptor:
+                                code: Pending
+                            reason_required: false
+                            cancellation_fee:
+                              percentage: '0'
+                              amount:
+                                currency: IND
+                                value: '0'
+                          - fulfillment_state:
+                              descriptor:
+                                code: Awarded
+                            reason_required: false
+                            cancellation_fee:
+                              percentage: '10'
+                              amount:
+                                currency: IND
+                                value: '100'
+                        time:
+                          label: validity
+                          range:
+                            start: '2024-06-10T00:00:00.000Z'
+                            end: '2024-06-30T00:00:00.000Z'
+                        matched: true
+                        recommended: true
+                        tags:
+                          - descriptor:
+                              code: SERVICE_INFORMATION
+                            display: true
+                            list:
+                              - descriptor:
+                                  code: PICKUP_TAT
+                                value: PT2D
+                              - descriptor:
+                                  code: CANCELLABLE
+                                value: 'true'
+                          - descriptor:
+                              code: CERTIFICATES
+                            display: true
+                            list:
+                              - descriptor:
+                                  code: NAME
+                                value: CER-001
+                              - descriptor:
+                                  code: MIME_TYPE
+                                value: application/pdf
+                              - descriptor:
+                                  code: COPY
+                                value: https://abc.com/certificates
+                          - descriptor:
+                              code: LOT_INFORMATION
+                            list:
+                              - descriptor:
+                                  code: PACK_SIZE
+                                value: '50'
+                              - descriptor:
+                                  code: NUM_PACK_SIZE
+                                value: '100'
+                          - descriptor:
+                              code: COMMODITY_SPECIFICATION
+                            list:
+                              - descriptor:
+                                  code: REFERENCE_DOCS_MIME_TYPE
+                                value: application/pdf
+                              - descriptor:
+                                  code: REFERENCE_DOCS_COPY
+                                value: https://abc.com/commodity_specification.pdf
+                              - descriptor:
+                                  code: SELF_LIFE
+                                value: P10M
+                              - descriptor:
+                                  code: MOISTURE
+                                value: 10%
+                              - descriptor:
+                                  code: FOREIGN_MATTER
+                                value: 3%
+                              - descriptor:
+                                  code: OIL_CONTENT
+                                value: 2%
+                              - descriptor:
+                                  code: DEFECTIVES
+                                value: 7%
+                              - descriptor:
+                                  code: OTHER_EDIBLE_GRAINS
+                                value: 1%
+                              - descriptor:
+                                  code: URIC_ACID
+                                value: '101'
+                              - descriptor:
+                                  code: AFLATOXIN
+                                value: '15'
+                              - descriptor:
+                                  code: ARGEMONE_SEEDS
+                                value: 'Yes'
+                              - descriptor:
+                                  code: SIZE_RANGE_MEASURE
+                                value: Diameter
+                              - descriptor:
+                                  code: SIZE_RANGE
+                                value: 15-18
+                              - descriptor:
+                                  code: PERCENTAGE_OF_DEFECTS
+                                value: 1.5%
+                              - descriptor:
+                                  code: PERCENTAGE_OF_WASTAGE
+                                value: 3%
+                              - descriptor:
+                                  code: BUNCH_SIZE
+                                value: '50'
+                              - descriptor:
+                                  code: BUNCH_SIZE_UNIT
+                                value: gm
+                              - descriptor:
+                                  code: VISIBLE_COLOUR
+                                value: Brown
+                              - descriptor:
+                                  code: COLOUR_PERCENTAGE
+                                value: More than 70
+                              - descriptor:
+                                  code: TOTAL_SOLUBLE_SOLIDS
+                                value: 16 degree Brix
+                              - descriptor:
+                                  code: TRACES_OF_SOIL
+                                value: Sight traces
+                              - descriptor:
+                                  code: VOLATILE_OIL_PERCENTAGE
+                                value: Up to 2.5
+                              - descriptor:
+                                  code: TOTAL_ASH_PERCENTAGE
+                                value: Not more than 7.0
+                              - descriptor:
+                                  code: CORIANDER_SPLIT_SEEDS_PERCENTAGE
+                                value: 5%
+                              - descriptor:
+                                  code: MIN_FLOWER_PER_STEM
+                                value: '1'
+                              - descriptor:
+                                  code: GIRTH_AT_THIN_END
+                                value: less than 6 cm
+                              - descriptor:
+                                  code: BLOOMING_AND_SHAPE
+                                value: >-
+                                  Reasonable bloomed and conical shape More than
+                                  85 %
+                              - descriptor:
+                                  code: FLOWER_DIAMETER_IN_CM
+                                value: 3.45 cm
+                              - descriptor:
+                                  code: STAPLE_LENGTH_OF_COTTON_IN_MM
+                                value: 28 ‑ 30 mm
+                              - descriptor:
+                                  code: TRASH_PERCENTAGE
+                                value: 3%
+                              - descriptor:
+                                  code: BUNDLE_STRENGTH
+                                value: 24.0 and above
+                              - descriptor:
+                                  code: MICRONAIRE
+                                value: 2.8 to 3.0
+                              - descriptor:
+                                  code: PERCENTAGE_OF_MATURED_FIBERS
+                                value: Above 70.0-75.0 mm
+                              - descriptor:
+                                  code: SIEVE_ANALYSIS
+                                value: '98'
+                              - descriptor:
+                                  code: NUMBER_OF_NUTS_PER_KG
+                                value: '210'
+                              - descriptor:
+                                  code: VOID_NUTS_PERCENTAGE
+                                value: '1'
+                              - descriptor:
+                                  code: IMMATURE_NUTS_PERCENTAGE
+                                value: '2'
+                              - descriptor:
+                                  code: STRENGTH
+                                value: >-
+                                  Need strength to break the fiber and sharp
+                                  audible sound at thetime of breakage
+                                  (Excellent 30)
+                              - descriptor:
+                                  code: FINENESS
+                                value: Fine (10)
+                          - descriptor:
+                              code: AUCTION_SPECIFICATION
+                            display: true
+                            list:
+                              - descriptor:
+                                  code: CURRENCY_UNIT
+                                value: INR
+                              - descriptor:
+                                  code: FLOOR_PRICE
+                                value: '250.00'
+                              - descriptor:
+                                  code: LOT_SIZE
+                                value: '100'
+                              - descriptor:
+                                  code: BID_QTY_INCREMENT
+                                value: '1'
+                              - descriptor:
+                                  code: MIN_BIDDER_REQ
+                                value: '5'
+                              - descriptor:
+                                  code: TYPE_OF_AUCTION
+                                value: OPEN
+                              - descriptor:
+                                  code: EARNEST_MONEY_DEPOSIT
+                                value: '5000.00'
+                              - descriptor:
+                                  code: TICK_SIZE
+                                value: '50.00'
+                              - descriptor:
+                                  code: MAXIMUM_TARGET_PRICE
+                                value: '350.00'
+                              - descriptor:
+                                  code: BIDS_LIMITATION
+                                value: '5'
+                    offers:
+                      - id: offer-1
+                        descriptor:
+                          name: ''
+                          code: FREEBIE
+                          short_desc: Containers
+                          long_desc: Containers
+                          images:
+                            - url: https://abc.com/images/207.png
+                        location_ids:
+                          - L1
+                        category_ids:
+                          - SRV16-1001
+                        item_ids:
+                          - I2
+                        time:
+                          label: validity
+                          range:
+                            start: '2024-04-01T00:00:00.000Z'
+                            end: '2024-12-10T00:00:00.000Z'
+                          days: 04,05
+                        tags:
+                          - code: qualifier
+                            list:
+                              - descriptor:
+                                  code: min_value
+                                value: '5000'
+                          - code: benefit
+                            list:
+                              - descriptor:
+                                  code: item_count
+                                value: '5'
+                              - descriptor:
+                                  code: item_id
+                                value: I2
+                              - descriptor:
+                                  code: item_value
+                                value: '200.00'
+                          - code: meta
+                            list:
+                              - descriptor:
+                                  code: additive
+                                value: 'no'
+                              - descriptor:
+                                  code: auto
+                                value: 'yes'
+                    fulfillments:
+                      - contact:
+                          phone: '9886098860'
+                          email: abc@xyz.com
+      - summary: Buyer selects the required agri commodity
+        api: select
+        description: Buyer selects the required agri commodity + suitable fulfillment type
+        reference: if any
+        example: *ref_15
+      - summary: Seller confirms the bids for commodity and returns the quote
+        api: on_select
+        description: Seller confirms the bids for commodity and returns the quote
+        reference: if any
+        example: *ref_16
+      - summary: Buyer initialises the bids order for commodity
+        api: init
+        description: >-
+          Buyer initialises the bids order for commodity and provides billing
+          details
+        reference: if any
+        example: *ref_17
+      - summary: Seller provides the final quotation for the commodity bids
+        api: on_init
+        description: Seller provides the final quotation
+        reference: if any
+        example: *ref_18
+      - summary: Buyer confirm the bids order for the commodity
+        api: confirm
+        description: Buyer makes the payment to confirm the order
+        example: *ref_19
+      - summary: Seller accepts the order for commodity bids
+        api: on_confirm
+        description: >-
+          Seller app sends an on_confirm call to the buyer app accepting the
+          order
+        reference: if any
+        example: *ref_20
+      - summary: Buyer requests for the status of the order
+        api: status
+        description: Buyer requests for the status of the order
+        example: *ref_21
+      - summary: Seller app sends order status update
+        api: on_status
+        description: Seller app sends bids order status
+        example: *ref_22
+      - summary: Seller app sends bids status if Awarded
+        api: on_update (Awarded)
+        description: Seller app sends bids status if Awarded
+        example: *ref_23
+      - summary: Seller app sends bids status as cancel if Not Awarded
+        api: on_cancel (Not Awarded)
+        description: Seller app sends bids status as cancel if Not Awarded
+        example: *ref_24
+      - summary: Buyer app shares the ratings to seller app
+        api: rating
+        description: >-
+          Buyer leaves a detailed review on the buyer, sharing both positive and
+          negative aspects. Buyer app shares the same with the seller app
+          following the rating framework
+        reference: if any
+        example: *ref_25
 x-examples:
   Agricultural product - Bids and Auction:
     summary: Bids and Auction
@@ -11874,7 +12471,7 @@ x-examples:
       raise a complaint on the buyer app and the buyer app tries to analyse the
       complaints.
     example_set: *ref_27
-  Agricultural product - Pull and Push catalogs:
+  Agricultural product - Bids and Auction (Pull and Push catalogs):
     summary: >-
       Bids and Auction - Buyer can pull the current bids state for the changed
       catalog and seller can push (send) all the catalog which bids prices are
@@ -11884,6 +12481,16 @@ x-examples:
       and auction over the network. Buyer can pull the current bids state for
       the changed catalog and seller can push (send) all the catalog which bids
       prices are modified
+    example_set: *ref_27
+  Agricultural product - Bids and Auction (Minimum Bid Quantity):
+    summary: Bids and Auction (Minimum Bid Quantity)
+    description: >-
+      This elaborates the model implementations for agricultural product bids
+      and auction over the network. The bids and auction majorly happens in four
+      phases of order processing flow, i.e. Discovery of available commodity for
+      bids and auction, and service providers based on serviceability, order,
+      fulfillment and post-fulfillment and bids can be done with minimum
+      quantity (If a Seller has 3 MT, and MBQ is (or can be) 1 MT).
     example_set: *ref_27
 x-attributes:
   Agricultural product - Bids and Auction:
