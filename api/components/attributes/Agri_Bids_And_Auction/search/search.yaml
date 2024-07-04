@@ -7,13 +7,13 @@ context:
     reference: if any
   city:
     code:
-      description: city code for search where service needs to be provided. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+      description: city code for search where auction needs to be provided. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
       required: mandatory
       usage: std:080
       reference: if any
   country:
     code:
-      description: ISO standard 3 digit country code where service needs to be provided
+      description: ISO standard 3 digit country code where auction needs to be provided
       required: mandatory
       usage: IND
       reference: if any
@@ -51,31 +51,31 @@ message:
     fulfillment:
       parent: true
       type:
-        description: fulfillment type for the service, enum - "Buyer-Fulfilled, Seller-Fulfilled"
+        description: fulfillment type for the auction, enum - "Buyer-Fulfilled, Seller-Fulfilled"
         required: required
         usage: "Buyer-Fulfilled"
         reference: if any
       stops:
         location:
           gps:
-            description: service location gps coordinates where service needs to be provided, should be atleast 6 digit decimal precision
+            description: auction location gps coordinates where auction needs to be provided, should be atleast 6 digit decimal precision
             required: required
             usage: "12.4535445,77.9283792"
             reference: if any
         time:
           range:
             start:
-              description: start time of the time slot desired for the service
+              description: start time of the time slot desired for the auction
               required: required
               usage: "2023-11-16T09:30:00Z"
               reference: if any
             end:
-              description: end time of the time slot desired for the service
+              description: end time of the time slot desired for the auction
               required: required
               usage: "2023-11-16T10:30:00Z"
               reference: if any
           days:
-            description: string comma separated values representing days of the week on which the service is required ("1" - Monday, "7" - Sunday)
+            description: string comma separated values representing days of the week on which the auction is required ("1" - Monday, "7" - Sunday)
             required: required
             usage: "1,2,3,4,5,6,7"
             reference: if any

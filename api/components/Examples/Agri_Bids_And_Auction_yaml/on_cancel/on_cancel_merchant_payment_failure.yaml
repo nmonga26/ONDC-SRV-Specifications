@@ -24,7 +24,7 @@ value:
         cancelled_by: BPP
         reason:
           descriptor:
-            code: '02'
+            code: '03'
       provider:
         id: P1
         locations:

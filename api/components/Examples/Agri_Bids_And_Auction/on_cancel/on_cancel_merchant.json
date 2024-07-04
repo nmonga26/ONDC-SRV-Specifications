@@ -28,7 +28,7 @@
         "cancelled_by": "BPP",
         "reason": {
           "descriptor": {
-            "code": "012"
+            "code": "02"
           }
         }
       },

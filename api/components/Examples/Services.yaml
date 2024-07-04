@@ -29,4 +29,11 @@ Agricultural product - Bids and Auction (Buyer not satisfied with the quality):
     but gricultural produce received by the buyer does not match the description provided by the seller, the buyer may raise a complaint on the buyer app and the buyer app tries to analyse the complaints.
   example_set:
     $ref: "./Agri_Bids_And_Auction_yaml/index.yaml"
+Agricultural product - Pull and Push catalogs:
+  summary: Bids and Auction - Buyer can pull the current bids state for the changed catalog and seller can push (send) all the catalog which bids prices are modified
+  description: >-
+    This elaborates the model implementations for agricultural product bids and auction over the network.
+    Buyer can pull the current bids state for the changed catalog and seller can push (send) all the catalog which bids prices are modified
+  example_set:
+    $ref: "./Agri_Bids_And_Auction_yaml/index.yaml"
 

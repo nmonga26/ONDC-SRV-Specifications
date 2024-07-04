@@ -144,9 +144,9 @@ steps:
       $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_status/on_status.yaml"
   - summary: Seller app sends bids status as cancel if Not Awarded
     api: on_cancel (Not Awarded)
-    description: Seller app sends bids status as cancel if Not Awarded
+    description: Seller app sends bids status as cancel if Not Awarded due to payment failure on time
     example:
-      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_cancel/on_cancel.yaml"
+      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_cancel/on_cancel_merchant_payment_failure.yaml"
   - summary: Buyer app shares the ratings to seller app
     api: rating
     description: Buyer leaves a detailed review on the buyer, sharing both positive and negative aspects. Buyer app shares the same with the seller app following the rating framework

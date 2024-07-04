@@ -10,7 +10,7 @@ message:
         usage: "1"
         reference: if any
       type:
-        description: fulfillment type of the service, enum - "Seller-Fulfilled, Buyer-Fulfilled"
+        description: fulfillment type of the bids, enum - "Seller-Fulfilled, Buyer-Fulfilled"
         required: required
         usage: "Selled-Fulfilled"
         reference: if any
@@ -29,44 +29,44 @@ message:
     descriptor:
       parent: true
       name:
-        description: name of service provider, as applicable
+        description: name of auction commodity provider, as applicable
         required: required
         usage: "ABC store"
         reference: if any
       short_desc:
-        description: description of service provider
+        description: description of auction commodity provider
         required: required
-        usage: "At Equipment Service Providers"
+        usage: "bids and auction Providers"
         reference: if any
       long_desc:
-        description: long description of service provider
+        description: long description of auction commodity provider
         required: optional
-        usage: "At Equipment Service Providers"
+        usage: "bids and auction Providers"
         reference: if any
       images:
-        description: images of service provider
+        description: images of auction commodity provider
         required: optional
         usage: "[]"
         reference: if any
     providers:
       parent: true
       id:
-        description: service provider id
+        description: auction provider id
         required: required
         usage: "P1"
         reference: if any
       descriptor:
-        description: details of the service provider
+        description: details of the auction provider
         required: required
         usage: "Equipment Provider store"
         reference: if any
       rating:
-        description: rating of the service provider
+        description: rating of the auction provider
         required: optional
         usage: "4.4"
         reference: if any
       locations:
-        description: service provider locations
+        description: auction provider locations
         required: optional
         usage: "-"
         reference: if any
@@ -83,12 +83,12 @@ message:
           reference: if any
         descriptor:
           code:
-            description: code of the offer being provided by the service provider
+            description: code of the offer being provided by the auction provider
             required: optional
             usage: "FREEBIE"
             reference: if any
           short_desc:
-            description: description of the offer being provided by the service provider
+            description: description of the offer being provided by the auction provider
             required: optional
             usage: "Cushion Cleaning"
             reference: if any
@@ -112,7 +112,7 @@ message:
       fulfillments:
         contact:
           phone:
-            description: contact number of the service provider
+            description: contact number of the auction provider
             required: optional
             usage: "9886098860"
             reference: if any
@@ -124,33 +124,33 @@ message:
           reference: if any
         descriptor:
           name:
-            description: name of the equipment provided by the service provider
+            description: name of the equipment provided by the auction provider
             required: required
             usage: "Tractor"
             reference: if any
           short_desc:
-            description: short description of the equipment provided by the service provider
+            description: short description of the equipment provided by the auction provider
             required: required
             usage: "Mahindra YUVRAJ 215 NXT NT Tractor"
             reference: if any
           long_desc:
-            description: long description of the equipment provided by the service provider
+            description: long description of the equipment provided by the auction provider
             required: required
             usage: "The Mahindra YUVRAJ 215 NXT NT Tractor is a powerful and efficient tractor"
             reference: if any
           images:
-            description: images of the equipment provided by the service provider
+            description: images of the equipment provided by the auction provider
             required: optional
             usage: "-"
             reference: if any
           media:
-            description: video of the equipment provided by the service provider
+            description: video of the equipment provided by the auction provider
             required: optional
             usage: "-"
             reference: if any
           price:
             value:
-              description: price of the service
+              description: price of the auction
               required: required
               usage: "500"
               reference: if any
@@ -160,17 +160,17 @@ message:
               usage: "INR"
               reference: if any
         category_ids:
-          description: category id of the service provided by the service provider which was sent in /search call
+          description: category id of the auction provided by the auction provider which was sent in /search call
           required: required
           usage: "SRV16-1000"
           reference: if any
         fulfillment_ids:
-          description: fulfillment id of the service provided by the service provider
+          description: fulfillment id of the auction provided by the auction provider
           required: required
           usage: "F1"
           reference: if any
         location_ids:
-          description: location ids of the service provider
+          description: location ids of the auction provider
           required: required
           usage: "L1"
           reference: if any
@@ -182,23 +182,23 @@ message:
             reference: if any
           descriptor:
             name:
-              description: name of the add-on equipment provided by the service provider
+              description: name of the add-on equipment provided by the auction provider
               required: required
               usage: "Driver"
               reference: if any
             short_desc:
-              description: short description of the equipment provided by the service provider
+              description: short description of the equipment provided by the auction provider
               required: required
               usage: "Driver knows about farming"
               reference: if any
             long_desc:
-              description: long description of the equipment provided by the service provider
+              description: long description of the equipment provided by the auction provider
               required: required
               usage: "Driver knows about farming"
               reference: if any
             price:
               value:
-                description: price of the service
+                description: price of the auction
                 required: required
                 usage: "500"
                 reference: if any
@@ -210,28 +210,28 @@ message:
         time:
           range:
             start:
-              description: availability start date of the service provider
+              description: availability start date of the auction provider
               required: required
               usage: "2022-11-10T00:00:00.000Z"
               reference: if any
             end:
-              description: availability end date of the service provider
+              description: availability end date of the auction provider
               required: required
               usage: "2022-11-20T00:00:00.000Z"
               reference: if any
           schedule:
             frequency:
-              description: service slot frequency
+              description: auction slot frequency
               required: required
               usage: "PT1H"
               reference: if any
             holidays:
-              description: days on which service provide is not available
+              description: days on which auction provide is not available
               required: required
               usage: "[2023-11-13, 2023-11-15]"
               reference: if any
             times:
-              description: time slots in which service provide is available
+              description: time slots in which auction provide is available
               required: required
               usage: "[2022-11-20T00:00:00.000Z]"
               reference: if any
@@ -250,7 +250,7 @@ message:
               usage: "0"
               reference: if any
             end:
-              description: availability end date of the service provider
+              description: availability end date of the auction provider
               required: required
               usage: "2022-11-20T00:00:00.000Z"
               reference: if any

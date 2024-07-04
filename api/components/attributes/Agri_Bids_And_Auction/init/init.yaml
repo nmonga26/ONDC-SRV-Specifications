@@ -5,7 +5,7 @@ message:
     provider:
       parent: true
       id:
-        description: id of the provider chosen for the service
+        description: id of the provider chosen for the bid
         required: required
         usage: "P1"
         reference: if any
@@ -18,7 +18,7 @@ message:
     items:
       parent: true
       id:
-        description: item id i.e. the id of the service
+        description: commodity id i.e. the id of the bid
         required: required
         usage: "I1"
         reference: if any
@@ -158,12 +158,12 @@ message:
             reference: if any
           range:
             start:
-              description: start time of the time slot chosen for the service
+              description: start time of the time slot chosen for the bid
               required: required
               usage: "2024-04-04T22:00:00.000Z"
               reference: if any
             end:
-              description: end time of the time slot chosen for the service
+              description: end time of the time slot chosen for the bid
               required: required
               usage: "2024-04-04T23:00:00.000Z"
               reference: if any

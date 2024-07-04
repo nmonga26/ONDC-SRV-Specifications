@@ -151,7 +151,7 @@ steps:
     api: on_cancel (Not Awarded)
     description: Seller app sends bids status as cancel if Not Awarded
     example:
-      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_cancel/on_cancel.yaml"
+      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_cancel/on_cancel_merchant.yaml"
   - summary: Buyer not satisfied with the quality
     api: cancel (Not stisfied)
     description: Buyer not satisfied with the quality

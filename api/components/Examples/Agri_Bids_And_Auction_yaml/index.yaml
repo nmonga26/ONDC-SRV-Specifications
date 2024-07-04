@@ -3,6 +3,9 @@ search:
     - $ref: "./search/search_by_item.yaml"
     - $ref: "./search/search_by_city.yaml"
     - $ref: "./search/search_by_category.yaml"
+    - $ref: "./search/search_interval_pull.yaml"
+    - $ref: "./search/search_regular_push_start.yaml"
+    - $ref: "./search/search_regular_push_stop.yaml"
 select:
   examples:
     - $ref: "./select/select.yaml"
@@ -27,6 +30,7 @@ rating:
 on_search:
   examples:
     - $ref: "./on_search/on_search.yaml"
+    - $ref: "./on_search/on_search_close_bid.yaml"
 on_select:
   examples:
     - $ref: "./on_select/on_select.yaml"
@@ -43,6 +47,7 @@ on_cancel:
   examples:
     - $ref: "./on_cancel/on_cancel.yaml"
     - $ref: "./on_cancel/on_cancel_merchant.yaml"
+    - $ref: "./on_cancel/on_cancel_merchant_payment_failure.yaml"
 on_update:
   examples:
     - $ref: "./on_update/on_update_requote.yaml"

@@ -96,7 +96,7 @@ steps:
     description: Returns the catalog specific to the search intent and also serviceability and time can be reffered from <a href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this document]</a> and for polygon geoJSON check <a href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
     reference: if any
     example:
-      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_search/on_search.yaml"
+      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_search/on_search_close_bid.yaml"
   - summary: Buyer selects the required agri commodity
     api: select
     description: Buyer selects the required agri commodity + suitable fulfillment type
@@ -151,7 +151,7 @@ steps:
     api: on_cancel (Not Awarded)
     description: Seller app sends bids status as cancel if Not Awarded
     example:
-      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_cancel/on_cancel.yaml"
+      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_cancel/on_cancel_merchant.yaml"
   - summary: Buyer app shares the ratings to seller app
     api: rating
     description: Buyer leaves a detailed review on the buyer, sharing both positive and negative aspects. Buyer app shares the same with the seller app following the rating framework

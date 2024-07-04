@@ -144,11 +144,11 @@ value:
         - id: PY2
           collected_by: BAP
           params:
-            amount: '30050.00'
+            amount: '27045.00'
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
-          status: NOT-PAID
+          status: PAID
           type: ON-FULFILLMENT
           tags:
             - descriptor:
