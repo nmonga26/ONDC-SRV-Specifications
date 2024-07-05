@@ -25,7 +25,7 @@ The intent is broadcasted from the buyer app to all the relevant seller apps on 
 
 - Based on the intent, the request is broadcasted to all the relevant sellers on the network through the gateway
 - In response, the Seller has shared the catalog detailing all specifications and features of the equipment as per the search intent. Quantity is measured in hours and days, and one can find comprehensive information regarding serviceability and operational time within the catalog. 
-Note:- serviceability and time can be reffered from <a href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this document]</a> and to generate/about the GeoJSON (if required) need to flow <a href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this document]</a>
+Note:- serviceability and time can be reffered from <a href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this document]</a> and to generate/about the GeoJSON (if required) need to refer <a href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this document]</a>
 - Seller apps with relevant offerings send their responses to the buyer app and the buyer app renders the offerings for the buyer to go through the provided details
 
 #### Booking order placement
