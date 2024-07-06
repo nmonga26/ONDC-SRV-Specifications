@@ -3446,9 +3446,10 @@ x-flows:
       - summary: Search based on the intent for hiring a particular agri equipment
         api: search
         description: >-
-          Search intent sent by the buyer based on the particular agri equipment
-          required - e.g. Irrigation Equipment and category code like SRV15-1001
-          (which is for Tractor Operated Zero-Till Seed-Cum-Fertilizer Drill)
+          The search intent from the buyer focuses on specific agricultural
+          equipment needs, such as irrigation equipment (defined by category
+          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: &ref_14
           value:
@@ -3498,11 +3499,16 @@ x-flows:
                         value: '3'
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: >
-          Returns the catalog specific to the search intent where quantity
-          measure - hours and days and also serviceability and time can be
-          reffered from <a
+        description: >-
+          In response, the Seller has shared the catalog detailing all
+          specifications and features of the equipment as per the search intent.
+          Quantity is measured in hours and days, and one can find comprehensive
+          information regarding serviceability and operational time within the
+          catalog. <br> Note:- serviceability and time can be reffered from <a
           href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and to generate/about the GeoJSON (if required) need to
+          refer <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
           document]</a>
         reference: if any
         example: &ref_15
@@ -3890,7 +3896,9 @@ x-flows:
                           email: abc@xyz.com
       - summary: Buyer selects the required agri equipment
         api: select
-        description: Buyer selects the required agri equipment + suitable fulfillment type
+        description: >-
+          Once all options are visible, the Buyer selects the desired
+          agricultural equipment along with a suitable fulfillment type.
         reference: if any
         example: &ref_16
           value:
@@ -3952,7 +3960,9 @@ x-flows:
                   - type: ON-FULFILLMENT
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
-        description: Seller confirms the equipment item and returns the quote for equipment
+        description: >-
+          The Seller confirms the selected equipment item and provides a quote
+          for the equipment.
         reference: if any
         example: &ref_17
           value:
@@ -5910,20 +5920,34 @@ x-flows:
       - summary: Search based on the intent for hiring a particular agri equipment
         api: search
         description: >-
-          Search intent sent by the buyer based on the particular agri equipment
-          required - e.g. Irrigation Equipment
+          The search intent from the buyer focuses on specific agricultural
+          equipment needs, such as irrigation equipment (defined by category
+          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: Returns the catalog specific to the search intent
+        description: >-
+          In response, the Seller has shared the catalog detailing all
+          specifications and features of the equipment as per the search intent.
+          Quantity is measured in hours and days, and one can find comprehensive
+          information regarding serviceability and operational time within the
+          catalog. <br> Note:- serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and to generate/about the GeoJSON (if required) need to
+          refer <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
+          document]</a>
         reference: if any
         example: *ref_15
       - summary: >-
           Buyer selects the required agri equipment with a particular schedule
           slot
         api: select
-        description: Buyer selects the required agri equipment + suitable fulfillment type
+        description: >-
+          Once all options are visible, the Buyer selects the desired
+          agricultural equipment along with a suitable fulfillment type.
         reference: if any
         example:
           value:
@@ -6083,12 +6107,12 @@ x-flows:
         reference: if any
         example: *ref_16
       - summary: >-
-          Seller confirms the equipment item and returns the quote for equipment
-          with new selected schedule slot
+          The Seller confirms the selected equipment item and provides a quote
+          for the equipment with new selected schedule slot
         api: on_select
         description: >-
-          Seller confirms the equipment item and returns the quote for equipment
-          with new selected schedule slot
+          The Seller confirms the selected equipment item and provides a quote
+          for the equipment with new selected schedule slot
         reference: if any
         example: *ref_17
       - summary: Buyer initialises the order for equipment with new schedule fulfilment
@@ -6215,18 +6239,32 @@ x-flows:
       - summary: Search based on the intent for hiring a particular agri equipment
         api: search
         description: >-
-          Search intent sent by the buyer based on the particular agri equipment
-          required - e.g. Irrigation Equipment
+          The search intent from the buyer focuses on specific agricultural
+          equipment needs, such as irrigation equipment (defined by category
+          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: Returns the catalog specific to the search intent
+        description: >-
+          In response, the Seller has shared the catalog detailing all
+          specifications and features of the equipment as per the search intent.
+          Quantity is measured in hours and days, and one can find comprehensive
+          information regarding serviceability and operational time within the
+          catalog. <br> Note:- serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and to generate/about the GeoJSON (if required) need to
+          refer <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
+          document]</a>
         reference: if any
         example: *ref_15
       - summary: Buyer selects the required agri equipment
         api: select
-        description: Buyer selects the required agri equipment + suitable fulfillment type
+        description: >-
+          Once all options are visible, the Buyer selects the desired
+          agricultural equipment along with a suitable fulfillment type.
         reference: if any
         example:
           value:
@@ -6288,7 +6326,9 @@ x-flows:
                   - type: ON-FULFILLMENT
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
-        description: Seller confirms the equipment item and returns the quote for equipment
+        description: >-
+          The Seller confirms the selected equipment item and provides a quote
+          for the equipment.
         reference: if any
         example:
           value:
@@ -6760,28 +6800,57 @@ x-flows:
             BA ->> SA: **/status** - Enquire order status <br>or tracking information
             SA ->> BA: **/on_status_in_transit** - Latest order and fulfillment status is sent
             BA ->> B: Updates the latest order <br>and fulfillment information
+      - description: Discrepancies in order
+        mermaidGraph: |-
+          sequenceDiagram
+            participant S as Seller
+            participant SA as SellerApp 
+            participant BA as BuyerApp
+            participant B as Buyer
+            Note Over S,B: **POST ORDER FLOW (Discrepancies in order)**
+            S ->> SA: Raise request when found discrepancies <br> in the state of the equipment
+            SA ->> BA: **/on_cancel** - Send to cancel the order
+            SA ->> BA: **/on_update** - Send state of the equipment <br> with updated quote to collect
+            BA ->> B: collect the payment if applicable
+            BA ->> SA: **/update** - Latest state on requested discrepancies
     reference: if any
     steps:
       - summary: Search based on the intent for hiring a particular agri equipment
         api: search
         description: >-
-          Search intent sent by the buyer based on the particular agri equipment
-          required - e.g. Irrigation Equipment
+          The search intent from the buyer focuses on specific agricultural
+          equipment needs, such as irrigation equipment (defined by category
+          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: Returns the catalog specific to the search intent
+        description: >-
+          In response, the Seller has shared the catalog detailing all
+          specifications and features of the equipment as per the search intent.
+          Quantity is measured in hours and days, and one can find comprehensive
+          information regarding serviceability and operational time within the
+          catalog. <br> Note:- serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and to generate/about the GeoJSON (if required) need to
+          refer <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
+          document]</a>
         reference: if any
         example: *ref_15
       - summary: Buyer selects the required agri equipment
         api: select
-        description: Buyer selects the required agri equipment + suitable fulfillment type
+        description: >-
+          Once all options are visible, the Buyer selects the desired
+          agricultural equipment along with a suitable fulfillment type.
         reference: if any
         example: *ref_16
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
-        description: Seller confirms the equipment item and returns the quote for equipment
+        description: >-
+          The Seller confirms the selected equipment item and provides a quote
+          for the equipment.
         reference: if any
         example: *ref_17
       - summary: Buyer initialises the order for equipment
@@ -7808,23 +7877,39 @@ x-flows:
       - summary: Search based on the intent for hiring a particular agri equipment
         api: search
         description: >-
-          Search intent sent by the buyer based on the particular agri equipment
-          required - e.g. Irrigation Equipment
+          The search intent from the buyer focuses on specific agricultural
+          equipment needs, such as irrigation equipment (defined by category
+          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: Returns the catalog specific to the search intent
+        description: >-
+          In response, the Seller has shared the catalog detailing all
+          specifications and features of the equipment as per the search intent.
+          Quantity is measured in hours and days, and one can find comprehensive
+          information regarding serviceability and operational time within the
+          catalog. <br> Note:- serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and to generate/about the GeoJSON (if required) need to
+          refer <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
+          document]</a>
         reference: if any
         example: *ref_15
       - summary: Buyer selects the required agri equipment
         api: select
-        description: Buyer selects the required agri equipment + suitable fulfillment type
+        description: >-
+          Once all options are visible, the Buyer selects the desired
+          agricultural equipment along with a suitable fulfillment type.
         reference: if any
         example: *ref_16
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
-        description: Seller confirms the equipment item and returns the quote for equipment
+        description: >-
+          The Seller confirms the selected equipment item and provides a quote
+          for the equipment.
         reference: if any
         example: *ref_17
       - summary: Buyer initialises the order for equipment
@@ -8623,23 +8708,39 @@ x-flows:
       - summary: Search based on the intent for hiring a particular agri equipment
         api: search
         description: >-
-          Search intent sent by the buyer based on the particular agri equipment
-          required - e.g. Irrigation Equipment
+          The search intent from the buyer focuses on specific agricultural
+          equipment needs, such as irrigation equipment (defined by category
+          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: Returns the catalog specific to the search intent
+        description: >-
+          In response, the Seller has shared the catalog detailing all
+          specifications and features of the equipment as per the search intent.
+          Quantity is measured in hours and days, and one can find comprehensive
+          information regarding serviceability and operational time within the
+          catalog. <br> Note:- serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and to generate/about the GeoJSON (if required) need to
+          refer <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
+          document]</a>
         reference: if any
         example: *ref_15
       - summary: Buyer selects the required agri equipment
         api: select
-        description: Buyer selects the required agri equipment + suitable fulfillment type
+        description: >-
+          Once all options are visible, the Buyer selects the desired
+          agricultural equipment along with a suitable fulfillment type.
         reference: if any
         example: *ref_16
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
-        description: Seller confirms the equipment item and returns the quote for equipment
+        description: >-
+          The Seller confirms the selected equipment item and provides a quote
+          for the equipment.
         reference: if any
         example: *ref_17
       - summary: Buyer initialises the order for equipment
@@ -8789,23 +8890,39 @@ x-flows:
       - summary: Search based on the intent for hiring a particular agri equipment
         api: search
         description: >-
-          Search intent sent by the buyer based on the particular agri equipment
-          required - e.g. Irrigation Equipment
+          The search intent from the buyer focuses on specific agricultural
+          equipment needs, such as irrigation equipment (defined by category
+          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: Returns the catalog specific to the search intent
+        description: >-
+          In response, the Seller has shared the catalog detailing all
+          specifications and features of the equipment as per the search intent.
+          Quantity is measured in hours and days, and one can find comprehensive
+          information regarding serviceability and operational time within the
+          catalog. <br> Note:- serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and to generate/about the GeoJSON (if required) need to
+          refer <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
+          document]</a>
         reference: if any
         example: *ref_15
       - summary: Buyer selects the required agri equipment
         api: select
-        description: Buyer selects the required agri equipment + suitable fulfillment type
+        description: >-
+          Once all options are visible, the Buyer selects the desired
+          agricultural equipment along with a suitable fulfillment type.
         reference: if any
         example: *ref_16
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
-        description: Seller confirms the equipment item and returns the quote for equipment
+        description: >-
+          The Seller confirms the selected equipment item and provides a quote
+          for the equipment.
         reference: if any
         example: *ref_17
       - summary: Buyer initialises the order for equipment
@@ -16196,11 +16313,6 @@ x-attributes:
                 required: optional
                 usage: '-'
                 reference: if any
-              categories:
-                description: All the categories list
-                required: optional
-                usage: '-'
-                reference: if any
               offers:
                 id:
                   description: offer id
@@ -16312,6 +16424,11 @@ x-attributes:
                   required: required
                   usage: L1
                   reference: if any
+                quantity:
+                  description: quantity of the item
+                  required: required
+                  usage: '-'
+                  reference: if any
                 add_ons:
                   id:
                     description: Add-on item id
@@ -16339,6 +16456,11 @@ x-attributes:
                         service provider
                       required: required
                       usage: Driver knows about farming
+                      reference: if any
+                    quantity:
+                      description: quantity of the item
+                      required: required
+                      usage: '-'
                       reference: if any
                     price:
                       value:
