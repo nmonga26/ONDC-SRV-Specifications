@@ -1,5 +1,5 @@
-summary: ""
-description: ""
+summary: ''
+description: ''
 value:
   summary: Return the catalog
   description: Return the catalog
@@ -14,29 +14,29 @@ value:
       action: on_search
       version: 2.0.0
       bap_id: buyerapp.com
-      bap_uri: https://buyerapp.com/grocery
+      bap_uri: https://buyerapp.com/services
       bpp_id: sellerapp.com
-      bpp_uri: https://sellerapp.com/grocery
-      transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
-      message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
-      timestamp: "2023-01-08T22:00:30.000Z"
+      bpp_uri: https://sellerapp.com/services
+      transaction_id: T1
+      message_id: M1
+      timestamp: '2023-01-08T22:00:30.000Z'
       ttl: PT30S
     message:
       catalog:
         fulfillments:
-          - id: "1"
+          - id: '1'
             type: ONLINE
-          - id: "2"
+          - id: '2'
             type: OFFLINE
         payments:
-          - id: "1"
+          - id: '1'
             type: PRE-FULFILLMENT
-          - id: "2"
+          - id: '2'
             type: ON-FULFILLMENT
-          - id: "3"
+          - id: '3'
             type: POST-FULFILLMENT
         descriptor:
-          name: ABC app
+          name: Ads Pvt. Limited
           short_desc: Online eCommerce app
           long_desc: Online eCommerce app
           images:
@@ -53,7 +53,7 @@ value:
                 content_type: text/html
               images:
                 - url: https://abc.com/images/1-shop-img
-            rating: "4.4"
+            rating: '4.4'
             ttl: P1D
             locations:
               - id: L1
@@ -67,9 +67,9 @@ value:
                 country:
                   code: IND
             creds:
-              - id: ESG-12345678
+              - id: ADS-12345678
                 type: License
-                desc: Export License No. ESG-12345678
+                desc: License No. ADS-12345678
                 url: https://abcd.cdn.com/images/license-img
             tags:
               - descriptor:
@@ -100,7 +100,7 @@ value:
                 list:
                   - descriptor:
                       code: gst_credit_invoice
-                    value: "Y"
+                    value: 'Y'
               - descriptor:
                   code: seller_details
                 list:
@@ -115,23 +115,24 @@ value:
                 list:
                   - descriptor:
                       code: BRAND_OWNER
-                    value: "12345678901234"
+                    value: '12345678901234'
                   - descriptor:
                       code: OTHER
-                    value: "12345678901234"
+                    value: '12345678901234'
                   - descriptor:
                       code: IMPORTER
-                    value: "12345678901234"
+                    value: '12345678901234'
               - code: target_audience
                 list:
-                  - code: age_range
+                  - descriptor:
+                      code: age_range
                     value: 18-30
-                  - code: gender
+                  - descriptor:
+                      code: gender
                     value: Male
-              - descriptor:
-                  code: allowed_domains
-                list:
-                  - value: Retail
+                  - descriptor:
+                      code: allowed_domains
+                    value: Retail
             items:
               - id: I1
                 descriptor:
@@ -144,57 +145,65 @@ value:
                       url: video_url
                 price:
                   currency: INR
-                  value: "500.00"
-                  offered_value: "500.00"
-                  maximum_value: "500.00"
+                  value: '500.00'
+                  offered_value: '500.00'
+                  maximum_value: '500.00'
                 quantity:
                   unitized:
                     measure:
                       unit: CPM
-                      value: "1"
+                      value: '1'
                   available:
                     measure:
                       unit: CPM
-                      value: "10"
+                      value: '10'
                 time:
                   range:
-                    start: "2024-07-01T00:00:00.000Z"
-                    end: "2024-07-31T00:00:00.000Z"
+                    start: '2024-07-01T00:00:00.000Z'
+                    end: '2024-07-31T00:00:00.000Z'
                 tags:
                   - code: ad_specifications
                     list:
-                      - code: size
+                      - descriptor:
+                          code: size
                         value: 970x250
-                      - code: max_k_weight
+                      - descriptor:
+                          code: max_k_weight
                         value: 250
-                      - code: sub_load
+                      - descriptor:
+                          code: sub_load
                         value: 200
-                      - code: file_size_unit
+                      - descriptor:
+                          code: file_size_unit
                         value: KB
-                      - code: format
-                        list:
-                          - code: mimetype
-                            value: image/jpeg
+                      - descriptor:
+                          code: format
+                        value: image/jpeg
                   - code: ad_placement
                     list:
-                      - code: position
+                      - descriptor:
+                          code: position
                         value: Homepage
-                      - code: location
+                      - descriptor:
+                          code: location
                         value: <<city |area>>
-                      - code: location_url
+                      - descriptor:
+                          code: location_url
                         value: <<location url>>
-                  - code: ad_type
+                  - descriptor:
+                      code: ad_type
                     value: Display-ADS
-                  - code: availability
+                  - descriptor:
+                      code: availability
                     value: Static
                 category_ids:
                   - ADS-10-01-01
                 fulfillment_ids:
-                  - "1"
+                  - '1'
                 location_ids:
                   - L1
                 payment_ids:
-                  - "2"
+                  - '2'
                 add-ons:
                   - id: ADDON01
                     descriptor:
@@ -205,6 +214,6 @@ value:
                         - url: https://abc.com/images/208.png
                     price:
                       currency: INR
-                      value: "1000.0"
-                      offered_value: "1000.0"
-                      maximum_value: "1000.0"
+                      value: '1000.0'
+                      offered_value: '1000.0'
+                      maximum_value: '1000.0'

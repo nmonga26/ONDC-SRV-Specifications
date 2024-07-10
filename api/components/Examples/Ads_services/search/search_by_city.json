@@ -1,6 +1,4 @@
 {
-  "summary": "Search by City",
-  "description": "Search By City",
   "value": {
     "context": {
       "domain": "ONDC:SRV17",
@@ -15,9 +13,9 @@
       "action": "search",
       "version": "2.0.0",
       "bap_id": "buyerapp.com",
-      "bap_uri": "https://buyerapp.com",
-      "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
-      "message_id": "86fb6231-ea67-42d1-b1ef-e43f1719a44f",
+      "bap_uri": "https://buyerapp.com/services",
+      "transaction_id": "T1",
+      "message_id": "M1",
       "timestamp": "2023-01-08T22:00:00.000Z",
       "ttl": "PT30S"
     },

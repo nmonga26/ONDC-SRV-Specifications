@@ -1,8 +1,6 @@
-summary: ""
-description: ""
+summary: ''
+description: ''
 value:
-  summary: Send quote and breakup
-  description: Send quote and breakup for items selected in select call.
   value:
     context:
       domain: ONDC:SRV17
@@ -17,9 +15,9 @@ value:
       bap_uri: https://buyerapp.com/grocery
       bpp_id: sellerapp.com
       bpp_uri: https://sellerapp.com/grocery
-      transaction_id: T1
-      message_id: M1
-      timestamp: "2023-01-08T22:00:30.000Z"
+      transaction_id: T2
+      message_id: M2
+      timestamp: '2023-01-08T22:00:30.000Z'
       ttl: PT30S
     message:
       order:
@@ -42,29 +40,29 @@ value:
         quote:
           price:
             currency: INR
-            value: "6500"
+            value: '6500'
           breakup:
             - title: Display ads
               price:
                 currency: INR
-                value: "5000"
+                value: '5000'
               item:
                 id: I1
                 quantity:
                   selected:
-                    count: "10"
+                    count: '10'
                 price:
                   currency: INR
-                  value: "500"
+                  value: '500'
             - title: tax
               price:
                 currency: INR
-                value: "500"
+                value: '500'
               item:
                 id: I1
             - title: creative generation
               id: ADDON01
               price:
                 currency: INR
-                value: "1000"
+                value: '1000'
           ttl: P1D

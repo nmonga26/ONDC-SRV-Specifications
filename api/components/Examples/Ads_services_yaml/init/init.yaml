@@ -1,8 +1,6 @@
-summary: ""
-description: ""
+summary: ''
+description: ''
 value:
-  summary: Send buyer and delivery terms for RFQ
-  description: Send buyer and delivery terms for RFQ
   value:
     context:
       domain: ONDC:SRV17
@@ -14,12 +12,12 @@ value:
       action: init
       version: 2.0.0
       bap_id: buyerapp.com
-      bap_uri: https://buyerapp.com/grocery
+      bap_uri: https://buyerapp.com/services
       bpp_id: sellerapp.com
-      bpp_uri: https://sellerapp.com/grocery
-      transaction_id: T1
-      message_id: M1
-      timestamp: "2023-01-08T22:00:30.000Z"
+      bpp_uri: https://sellerapp.com/services
+      transaction_id: T2
+      message_id: M3
+      timestamp: '2023-01-08T22:00:30.000Z'
       ttl: PT30S
     message:
       order:
@@ -55,7 +53,7 @@ value:
             name: Bengaluru
           tax_id: XXXXXXXXXXXXXXX
           email: nobody@nomail.com
-          phone: "9886098860"
+          phone: '9886098860'
         fulfillments:
           - id: F1
             type: ONLINE

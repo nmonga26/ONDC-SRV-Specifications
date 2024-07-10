@@ -3603,11 +3603,11 @@ x-flows:
                 action: on_search
                 version: 2.0.0
                 bap_id: buyerapp.com
-                bap_uri: https://buyerapp.com/grocery
+                bap_uri: https://buyerapp.com/services
                 bpp_id: sellerapp.com
-                bpp_uri: https://sellerapp.com/grocery
-                transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
-                message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
+                bpp_uri: https://sellerapp.com/services
+                transaction_id: T1
+                message_id: M1
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -3625,7 +3625,7 @@ x-flows:
                     - id: '3'
                       type: POST-FULFILLMENT
                   descriptor:
-                    name: ABC app
+                    name: Ads Pvt. Limited
                     short_desc: Online eCommerce app
                     long_desc: Online eCommerce app
                     images:
@@ -3656,9 +3656,9 @@ x-flows:
                           country:
                             code: IND
                       creds:
-                        - id: ESG-12345678
+                        - id: ADS-12345678
                           type: License
-                          desc: Export License No. ESG-12345678
+                          desc: License No. ADS-12345678
                           url: https://abcd.cdn.com/images/license-img
                       tags:
                         - descriptor:
@@ -3714,14 +3714,15 @@ x-flows:
                               value: '12345678901234'
                         - code: target_audience
                           list:
-                            - code: age_range
+                            - descriptor:
+                                code: age_range
                               value: 18-30
-                            - code: gender
+                            - descriptor:
+                                code: gender
                               value: Male
-                        - descriptor:
-                            code: allowed_domains
-                          list:
-                            - value: Retail
+                            - descriptor:
+                                code: allowed_domains
+                              value: Retail
                       items:
                         - id: I1
                           descriptor:
@@ -3753,29 +3754,37 @@ x-flows:
                           tags:
                             - code: ad_specifications
                               list:
-                                - code: size
+                                - descriptor:
+                                    code: size
                                   value: 970x250
-                                - code: max_k_weight
+                                - descriptor:
+                                    code: max_k_weight
                                   value: 250
-                                - code: sub_load
+                                - descriptor:
+                                    code: sub_load
                                   value: 200
-                                - code: file_size_unit
+                                - descriptor:
+                                    code: file_size_unit
                                   value: KB
-                                - code: format
-                                  list:
-                                    - code: mimetype
-                                      value: image/jpeg
+                                - descriptor:
+                                    code: format
+                                  value: image/jpeg
                             - code: ad_placement
                               list:
-                                - code: position
+                                - descriptor:
+                                    code: position
                                   value: Homepage
-                                - code: location
+                                - descriptor:
+                                    code: location
                                   value: <<city |area>>
-                                - code: location_url
+                                - descriptor:
+                                    code: location_url
                                   value: <<location url>>
-                            - code: ad_type
+                            - descriptor:
+                                code: ad_type
                               value: Display-ADS
-                            - code: availability
+                            - descriptor:
+                                code: availability
                               value: Static
                           category_ids:
                             - ADS-10-01-01
@@ -3806,8 +3815,6 @@ x-flows:
           summary: ''
           description: ''
           value:
-            summary: Get quote for specific ad Product
-            description: Get quote for specific item with Buyer and Delivery terms
             value:
               context:
                 domain: ONDC:SRV17
@@ -3823,7 +3830,7 @@ x-flows:
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
                 transaction_id: T1
-                message_id: M1
+                message_id: M2
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -3863,8 +3870,6 @@ x-flows:
           summary: ''
           description: ''
           value:
-            summary: Send quote and breakup
-            description: Send quote and breakup for items selected in select call.
             value:
               context:
                 domain: ONDC:SRV17
@@ -3879,8 +3884,8 @@ x-flows:
                 bap_uri: https://buyerapp.com/grocery
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                transaction_id: T2
+                message_id: M2
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -3938,8 +3943,6 @@ x-flows:
           summary: ''
           description: ''
           value:
-            summary: Send buyer and delivery terms for RFQ
-            description: Send buyer and delivery terms for RFQ
             value:
               context:
                 domain: ONDC:SRV17
@@ -3951,11 +3954,11 @@ x-flows:
                 action: init
                 version: 2.0.0
                 bap_id: buyerapp.com
-                bap_uri: https://buyerapp.com/grocery
+                bap_uri: https://buyerapp.com/services
                 bpp_id: sellerapp.com
-                bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                bpp_uri: https://sellerapp.com/services
+                transaction_id: T2
+                message_id: M3
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
@@ -4016,8 +4019,6 @@ x-flows:
           summary: ''
           description: ''
           value:
-            summary: Respond to RFQ
-            description: Respond to RFQ
             value:
               context:
                 domain: ONDC:RET10
@@ -4029,19 +4030,19 @@ x-flows:
                 action: on_init
                 version: 2.0.0
                 bap_id: buyerapp.com
-                bap_uri: https://buyerapp.com/grocery
+                bap_uri: https://buyerapp.com/services
                 bpp_id: sellerapp.com
-                bpp_uri: https://sellerapp.com/grocery
-                transaction_id: T1
-                message_id: M1
+                bpp_uri: https://sellerapp.com/services
+                transaction_id: T2
+                message_id: M3
                 timestamp: '2023-01-08T22:00:30.000Z'
                 ttl: PT30S
               message:
                 order:
                   provider:
                     id: P1
-                  provider_location:
-                    id: L1
+                  locations:
+                    - id: L1
                   items:
                     - id: I1
                       fulfillment_ids:
@@ -4108,7 +4109,8 @@ x-flows:
                     ttl: P1D
                   payments:
                     - id: P1
-                      collected_by: BAP
+                      collected_by: BPP
+                      url: https://payment-gateway-url/payment-link
                       params:
                         amount: '6500'
                         currency: INR
@@ -4156,6 +4158,858 @@ x-flows:
                         - descriptor:
                             code: buyer_id_no
                           value: xxxxxxxxxxxxxxx
+      - summary: Buyer confirms the order
+        api: confirm
+        description: Buyer confirms the order
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV17
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: confirm
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T2
+              message_id: M4
+              timestamp: '2024-04-01T22:00:38.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: Created
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 10
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    type: ONLINE
+                    tracking: false
+                quote:
+                  price:
+                    currency: INR
+                    value: '6500'
+                  breakup:
+                    - title: Display ads
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: '10'
+                        price:
+                          currency: INR
+                          value: '500'
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '500'
+                      item:
+                        id: I1
+                    - title: creative generation
+                      id: ADDON01
+                      price:
+                        currency: INR
+                        value: '1000'
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    url: https://payment-gateway-url/payment-link
+                    params:
+                      amount: '6500'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Type
+                            value: percentage
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Amount
+                            value: '3'
+                created_at: '2024-04-01T22:00:38.000Z'
+                updated_at: '2024-04-01T22:00:38.000Z'
+      - summary: Seller accepts the order
+        api: on_confirm
+        description: Seller accepts the order
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV17
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_confirm
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T2
+              message_id: M4
+              timestamp: '2024-04-01T22:00:39.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: Accepted
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                  rateable: true
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 10
+                    cancellation_terms:
+                      - fulfillment_state:
+                          descriptor:
+                            code: PENDING
+                        cancellation_fee:
+                          percentage: '0.00'
+                    tags:
+                      - descriptor:
+                          code: RESCHEDULE_TERMS
+                        list:
+                          - descriptor:
+                              code: FULFILLMENT_STATE
+                            value: Pending
+                          - descriptor:
+                              code: RESCHEDULE_ELIGIBLE
+                            value: 'true'
+                          - descriptor:
+                              code: RESCHEDULE_FEE
+                            value: '0.00'
+                          - descriptor:
+                              code: RESCHEDULE_WITHIN
+                            value: PT1D
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Online
+                    tracking: false
+                quote:
+                  price:
+                    currency: INR
+                    value: '6500'
+                  breakup:
+                    - title: Display ads
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: '10'
+                        price:
+                          currency: INR
+                          value: '500'
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '500'
+                      item:
+                        id: I1
+                    - title: creative generation
+                      id: ADDON01
+                      price:
+                        currency: INR
+                        value: '1000'
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    url: https://payment-gateway-url/payment-link
+                    params:
+                      amount: '6500'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Type
+                            value: percentage
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Amount
+                            value: '3'
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: PENDING
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: IN_TRANSIT
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                created_at: '2024-04-01T22:00:38.000Z'
+                updated_at: '2024-04-01T22:00:39.000Z'
+      - summary: Buyer requests for the status
+        api: status
+        description: Seller provides accepts the order
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV17
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: status
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T2
+              message_id: M5
+              timestamp: '2024-04-01T22:00:40.000Z'
+              ttl: PT30S
+            message:
+              order_id: O1
+      - summary: Seller sends back the update of order
+        api: on_status (Pending)
+        description: Seller sends back the update of order
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV17
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_status
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T2
+              message_id: M4
+              timestamp: '2024-04-01T22:00:39.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: In-Progress
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                  rateable: true
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 10
+                    cancellation_terms:
+                      - fulfillment_state:
+                          descriptor:
+                            code: PENDING
+                        cancellation_fee:
+                          percentage: '0.00'
+                    tags:
+                      - descriptor:
+                          code: RESCHEDULE_TERMS
+                        list:
+                          - descriptor:
+                              code: FULFILLMENT_STATE
+                            value: Pending
+                          - descriptor:
+                              code: RESCHEDULE_ELIGIBLE
+                            value: 'true'
+                          - descriptor:
+                              code: RESCHEDULE_FEE
+                            value: '0.00'
+                          - descriptor:
+                              code: RESCHEDULE_WITHIN
+                            value: PT1D
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Online
+                    tracking: false
+                quote:
+                  price:
+                    currency: INR
+                    value: '6500'
+                  breakup:
+                    - title: Display ads
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: '10'
+                        price:
+                          currency: INR
+                          value: '500'
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '500'
+                      item:
+                        id: I1
+                    - title: creative generation
+                      id: ADDON01
+                      price:
+                        currency: INR
+                        value: '1000'
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    url: https://payment-gateway-url/payment-link
+                    params:
+                      amount: '6500'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Type
+                            value: percentage
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Amount
+                            value: '3'
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: PENDING
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: IN_TRANSIT
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                created_at: '2024-04-01T22:00:38.000Z'
+                updated_at: '2024-04-01T22:00:39.000Z'
+      - summary: Seller sends back the update of order on completion
+        api: on_status (Completed)
+        description: Seller sends back the update of order on completion
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV17
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_status
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T2
+              message_id: M4
+              timestamp: '2024-04-01T22:00:39.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: Completed
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                  rateable: true
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 10
+                    cancellation_terms:
+                      - fulfillment_state:
+                          descriptor:
+                            code: PENDING
+                        cancellation_fee:
+                          percentage: '0.00'
+                    tags:
+                      - descriptor:
+                          code: RESCHEDULE_TERMS
+                        list:
+                          - descriptor:
+                              code: FULFILLMENT_STATE
+                            value: Pending
+                          - descriptor:
+                              code: RESCHEDULE_ELIGIBLE
+                            value: 'true'
+                          - descriptor:
+                              code: RESCHEDULE_FEE
+                            value: '0.00'
+                          - descriptor:
+                              code: RESCHEDULE_WITHIN
+                            value: PT1D
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Completed
+                    type: Online
+                    tracking: false
+                quote:
+                  price:
+                    currency: INR
+                    value: '6500'
+                  breakup:
+                    - title: Display ads
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: '10'
+                        price:
+                          currency: INR
+                          value: '500'
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '500'
+                      item:
+                        id: I1
+                    - title: creative generation
+                      id: ADDON01
+                      price:
+                        currency: INR
+                        value: '1000'
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    url: https://payment-gateway-url/payment-link
+                    params:
+                      amount: '6500'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Type
+                            value: percentage
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Amount
+                            value: '3'
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: PENDING
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: IN_TRANSIT
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                created_at: '2024-04-01T22:00:38.000Z'
+                updated_at: '2024-04-01T22:00:39.000Z'
+      - summary: Seller gives confirmation of payment
+        api: on_update (Confirms payment)
+        description: Seller gives confirmation of payment
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV17
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_status
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T2
+              message_id: M4
+              timestamp: '2024-04-01T22:00:39.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: Completed
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                  rateable: true
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 10
+                    cancellation_terms:
+                      - fulfillment_state:
+                          descriptor:
+                            code: PENDING
+                        cancellation_fee:
+                          percentage: '0.00'
+                    tags:
+                      - descriptor:
+                          code: RESCHEDULE_TERMS
+                        list:
+                          - descriptor:
+                              code: FULFILLMENT_STATE
+                            value: Pending
+                          - descriptor:
+                              code: RESCHEDULE_ELIGIBLE
+                            value: 'true'
+                          - descriptor:
+                              code: RESCHEDULE_FEE
+                            value: '0.00'
+                          - descriptor:
+                              code: RESCHEDULE_WITHIN
+                            value: PT1D
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Completed
+                    type: Online
+                    tracking: false
+                quote:
+                  price:
+                    currency: INR
+                    value: '6500'
+                  breakup:
+                    - title: Display ads
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: '10'
+                        price:
+                          currency: INR
+                          value: '500'
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '500'
+                      item:
+                        id: I1
+                    - title: creative generation
+                      id: ADDON01
+                      price:
+                        currency: INR
+                        value: '1000'
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    url: https://payment-gateway-url/payment-link
+                    params:
+                      amount: '6500'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Type
+                            value: percentage
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Amount
+                            value: '3'
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: PENDING
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: IN_TRANSIT
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                created_at: '2024-04-01T22:00:38.000Z'
+                updated_at: '2024-04-01T22:00:39.000Z'
 x-examples:
   Services - Ads Services:
     summary: Ads Services
@@ -4213,10 +5067,6 @@ x-examples:
           - summary: ''
             description: ''
             value:
-              summary: Search by Category.
-              description: >-
-                Search By Category. Category can be an L2 from taxonomy examples
-                include OOH,Digital,Print,Broadcast.
               value:
                 context:
                   domain: ONDC:SRV17
@@ -4228,10 +5078,10 @@ x-examples:
                   action: search
                   version: 2.0.0
                   bap_id: buyerapp.com
-                  bap_uri: https://buyerapp.com
+                  bap_uri: https://buyerapp.com/services
                   transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
-                  message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
-                  timestamp: '2023-01-08T22:00:00.000Z'
+                  message_id: T1
+                  timestamp: M1
                   ttl: PT30S
                 message:
                   intent:
@@ -4274,11 +5124,11 @@ x-examples:
                   action: on_search
                   version: 2.0.0
                   bap_id: buyerapp.com
-                  bap_uri: https://buyerapp.com/grocery
+                  bap_uri: https://buyerapp.com/services
                   bpp_id: sellerapp.com
-                  bpp_uri: https://sellerapp.com/grocery
-                  transaction_id: 9568beb3-265a-4730-be4e-c00ba2e5e30a
-                  message_id: 86fb6231-ea67-42d1-b1ef-e43f1719a44f
+                  bpp_uri: https://sellerapp.com/services
+                  transaction_id: T1
+                  message_id: M1
                   timestamp: '2023-01-08T22:00:30.000Z'
                   ttl: PT30S
                 message:
@@ -4296,7 +5146,7 @@ x-examples:
                       - id: '3'
                         type: POST-FULFILLMENT
                     descriptor:
-                      name: ABC app
+                      name: Ads Pvt. Limited
                       short_desc: Online eCommerce app
                       long_desc: Online eCommerce app
                       images:
@@ -4327,9 +5177,9 @@ x-examples:
                             country:
                               code: IND
                         creds:
-                          - id: ESG-12345678
+                          - id: ADS-12345678
                             type: License
-                            desc: Export License No. ESG-12345678
+                            desc: License No. ADS-12345678
                             url: https://abcd.cdn.com/images/license-img
                         tags:
                           - descriptor:
@@ -4385,14 +5235,15 @@ x-examples:
                                 value: '12345678901234'
                           - code: target_audience
                             list:
-                              - code: age_range
+                              - descriptor:
+                                  code: age_range
                                 value: 18-30
-                              - code: gender
+                              - descriptor:
+                                  code: gender
                                 value: Male
-                          - descriptor:
-                              code: allowed_domains
-                            list:
-                              - value: Retail
+                              - descriptor:
+                                  code: allowed_domains
+                                value: Retail
                         items:
                           - id: I1
                             descriptor:
@@ -4424,29 +5275,37 @@ x-examples:
                             tags:
                               - code: ad_specifications
                                 list:
-                                  - code: size
+                                  - descriptor:
+                                      code: size
                                     value: 970x250
-                                  - code: max_k_weight
+                                  - descriptor:
+                                      code: max_k_weight
                                     value: 250
-                                  - code: sub_load
+                                  - descriptor:
+                                      code: sub_load
                                     value: 200
-                                  - code: file_size_unit
+                                  - descriptor:
+                                      code: file_size_unit
                                     value: KB
-                                  - code: format
-                                    list:
-                                      - code: mimetype
-                                        value: image/jpeg
+                                  - descriptor:
+                                      code: format
+                                    value: image/jpeg
                               - code: ad_placement
                                 list:
-                                  - code: position
+                                  - descriptor:
+                                      code: position
                                     value: Homepage
-                                  - code: location
+                                  - descriptor:
+                                      code: location
                                     value: <<city |area>>
-                                  - code: location_url
+                                  - descriptor:
+                                      code: location_url
                                     value: <<location url>>
-                              - code: ad_type
+                              - descriptor:
+                                  code: ad_type
                                 value: Display-ADS
-                              - code: availability
+                              - descriptor:
+                                  code: availability
                                 value: Static
                             category_ids:
                               - ADS-10-01-01
@@ -4474,8 +5333,6 @@ x-examples:
           - summary: ''
             description: ''
             value:
-              summary: Get quote for specific ad Product
-              description: Get quote for specific item with Buyer and Delivery terms
               value:
                 context:
                   domain: ONDC:SRV17
@@ -4491,7 +5348,7 @@ x-examples:
                   bpp_id: sellerapp.com
                   bpp_uri: https://sellerapp.com/grocery
                   transaction_id: T1
-                  message_id: M1
+                  message_id: M2
                   timestamp: '2023-01-08T22:00:30.000Z'
                   ttl: PT30S
                 message:
@@ -4528,8 +5385,6 @@ x-examples:
           - summary: ''
             description: ''
             value:
-              summary: Send quote and breakup
-              description: Send quote and breakup for items selected in select call.
               value:
                 context:
                   domain: ONDC:SRV17
@@ -4544,8 +5399,8 @@ x-examples:
                   bap_uri: https://buyerapp.com/grocery
                   bpp_id: sellerapp.com
                   bpp_uri: https://sellerapp.com/grocery
-                  transaction_id: T1
-                  message_id: M1
+                  transaction_id: T2
+                  message_id: M2
                   timestamp: '2023-01-08T22:00:30.000Z'
                   ttl: PT30S
                 message:
@@ -4600,8 +5455,6 @@ x-examples:
           - summary: ''
             description: ''
             value:
-              summary: Send buyer and delivery terms for RFQ
-              description: Send buyer and delivery terms for RFQ
               value:
                 context:
                   domain: ONDC:SRV17
@@ -4613,11 +5466,11 @@ x-examples:
                   action: init
                   version: 2.0.0
                   bap_id: buyerapp.com
-                  bap_uri: https://buyerapp.com/grocery
+                  bap_uri: https://buyerapp.com/services
                   bpp_id: sellerapp.com
-                  bpp_uri: https://sellerapp.com/grocery
-                  transaction_id: T1
-                  message_id: M1
+                  bpp_uri: https://sellerapp.com/services
+                  transaction_id: T2
+                  message_id: M3
                   timestamp: '2023-01-08T22:00:30.000Z'
                   ttl: PT30S
                 message:
@@ -4675,8 +5528,6 @@ x-examples:
           - summary: ''
             description: ''
             value:
-              summary: Respond to RFQ
-              description: Respond to RFQ
               value:
                 context:
                   domain: ONDC:RET10
@@ -4688,19 +5539,19 @@ x-examples:
                   action: on_init
                   version: 2.0.0
                   bap_id: buyerapp.com
-                  bap_uri: https://buyerapp.com/grocery
+                  bap_uri: https://buyerapp.com/services
                   bpp_id: sellerapp.com
-                  bpp_uri: https://sellerapp.com/grocery
-                  transaction_id: T1
-                  message_id: M1
+                  bpp_uri: https://sellerapp.com/services
+                  transaction_id: T2
+                  message_id: M3
                   timestamp: '2023-01-08T22:00:30.000Z'
                   ttl: PT30S
                 message:
                   order:
                     provider:
                       id: P1
-                    provider_location:
-                      id: L1
+                    locations:
+                      - id: L1
                     items:
                       - id: I1
                         fulfillment_ids:
@@ -4767,7 +5618,8 @@ x-examples:
                       ttl: P1D
                     payments:
                       - id: P1
-                        collected_by: BAP
+                        collected_by: BPP
+                        url: https://payment-gateway-url/payment-link
                         params:
                           amount: '6500'
                           currency: INR

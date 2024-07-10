@@ -1,6 +1,4 @@
 {
-  "summary": "Respond to RFQ",
-  "description": "Respond to RFQ",
   "value": {
     "context": {
       "domain": "ONDC:RET10",
@@ -15,11 +13,11 @@
       "action": "on_init",
       "version": "2.0.0",
       "bap_id": "buyerapp.com",
-      "bap_uri": "https://buyerapp.com/grocery",
+      "bap_uri": "https://buyerapp.com/services",
       "bpp_id": "sellerapp.com",
-      "bpp_uri": "https://sellerapp.com/grocery",
-      "transaction_id": "T1",
-      "message_id": "M1",
+      "bpp_uri": "https://sellerapp.com/services",
+      "transaction_id": "T2",
+      "message_id": "M3",
       "timestamp": "2023-01-08T22:00:30.000Z",
       "ttl": "PT30S"
     },
@@ -28,15 +26,15 @@
         "provider": {
           "id": "P1"
         },
-        "provider_location": {
-          "id": "L1"
-        },
+        "locations": [
+          {
+            "id": "L1"
+          }
+        ],
         "items": [
           {
             "id": "I1",
-            "fulfillment_ids": [
-              "F1"
-            ],
+            "fulfillment_ids": ["F1"],
             "quantity": {
               "selected": {
                 "count": 10
@@ -139,7 +137,8 @@
         "payments": [
           {
             "id": "P1",
-            "collected_by": "BAP",
+            "collected_by": "BPP",
+            "url": "https://payment-gateway-url/payment-link",
             "params": {
               "amount": "6500",
               "currency": "INR",

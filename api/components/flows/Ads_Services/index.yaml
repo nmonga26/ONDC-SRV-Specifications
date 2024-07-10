@@ -101,3 +101,39 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Ads_services_yaml/on_init/on_init.yaml"
+  - summary: Buyer confirms the order
+    api: confirm
+    description: Buyer confirms the order
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/confirm/confirm.yaml"
+  - summary: Seller accepts the order
+    api: on_confirm
+    description: Seller accepts the order
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_confirm/on_confirm.yaml"
+  - summary: Buyer requests for the status
+    api: status
+    description: Seller provides accepts the order
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/status/status.yaml"
+  - summary: Seller sends back the update of order
+    api: on_status (Pending)
+    description: Seller sends back the update of order
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_status/on_status.yaml"
+  - summary: Seller sends back the update of order on completion
+    api: on_status (Completed)
+    description: Seller sends back the update of order on completion
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_status/on_status_completed.yaml"
+  - summary: Seller gives confirmation of payment
+    api: on_update (Confirms payment)
+    description: Seller gives confirmation of payment
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_update/on_update.yaml"

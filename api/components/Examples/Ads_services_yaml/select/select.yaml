@@ -1,8 +1,6 @@
-summary: ""
-description: ""
+summary: ''
+description: ''
 value:
-  summary: Get quote for specific ad Product
-  description: Get quote for specific item with Buyer and Delivery terms
   value:
     context:
       domain: ONDC:SRV17
@@ -18,8 +16,8 @@ value:
       bpp_id: sellerapp.com
       bpp_uri: https://sellerapp.com/grocery
       transaction_id: T1
-      message_id: M1
-      timestamp: "2023-01-08T22:00:30.000Z"
+      message_id: M2
+      timestamp: '2023-01-08T22:00:30.000Z'
       ttl: PT30S
     message:
       order:

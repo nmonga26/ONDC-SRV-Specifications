@@ -1,0 +1,278 @@
+{
+  "context": {
+    "domain": "ONDC:SRV17",
+    "location": {
+      "city": {
+        "code": "std:080"
+      },
+      "country": {
+        "code": "IND"
+      }
+    },
+    "action": "on_status",
+    "version": "2.0.0",
+    "bap_id": "buyerapp.com",
+    "bap_uri": "https://buyerapp.com/services",
+    "bpp_id": "sellerapp.com",
+    "bpp_uri": "https://sellerapp.com/services",
+    "transaction_id": "T2",
+    "message_id": "M4",
+    "timestamp": "2024-04-01T22:00:39.000Z",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "order": {
+      "id": "O1",
+      "status": "Completed",
+      "provider": {
+        "id": "P1",
+        "locations": [
+          {
+            "id": "L1"
+          }
+        ],
+        "rateable": true
+      },
+      "items": [
+        {
+          "id": "I1",
+          "fulfillment_ids": ["F1"],
+          "quantity": {
+            "selected": {
+              "count": 10
+            }
+          },
+          "cancellation_terms": [
+            {
+              "fulfillment_state": {
+                "descriptor": {
+                  "code": "PENDING"
+                }
+              },
+              "cancellation_fee": {
+                "percentage": "0.00"
+              }
+            }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "RESCHEDULE_TERMS"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "FULFILLMENT_STATE"
+                  },
+                  "value": "Pending"
+                },
+                {
+                  "descriptor": {
+                    "code": "RESCHEDULE_ELIGIBLE"
+                  },
+                  "value": "true"
+                },
+                {
+                  "descriptor": {
+                    "code": "RESCHEDULE_FEE"
+                  },
+                  "value": "0.00"
+                },
+                {
+                  "descriptor": {
+                    "code": "RESCHEDULE_WITHIN"
+                  },
+                  "value": "PT1D"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "billing": {
+        "name": "ONDC buyer",
+        "address": "22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001",
+        "state": {
+          "name": "Karnataka"
+        },
+        "city": {
+          "name": "Bengaluru"
+        },
+        "tax_id": "XXXXXXXXXXXXXXX",
+        "email": "nobody@nomail.com",
+        "phone": "9886098860"
+      },
+      "fulfillments": [
+        {
+          "id": "F1",
+          "state": {
+            "descriptor": {
+              "code": "Completed"
+            }
+          },
+          "type": "Online",
+          "tracking": false
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "6500"
+        },
+        "breakup": [
+          {
+            "title": "Display ads",
+            "price": {
+              "currency": "INR",
+              "value": "5000"
+            },
+            "item": {
+              "id": "I1",
+              "quantity": {
+                "selected": {
+                  "count": "10"
+                }
+              },
+              "price": {
+                "currency": "INR",
+                "value": "500"
+              }
+            }
+          },
+          {
+            "title": "tax",
+            "price": {
+              "currency": "INR",
+              "value": "500"
+            },
+            "item": {
+              "id": "I1"
+            }
+          },
+          {
+            "title": "creative generation",
+            "id": "ADDON01",
+            "price": {
+              "currency": "INR",
+              "value": "1000"
+            }
+          }
+        ],
+        "ttl": "P1D"
+      },
+      "payments": [
+        {
+          "id": "P1",
+          "collected_by": "BPP",
+          "url": "https://payment-gateway-url/payment-link",
+          "params": {
+            "amount": "6500",
+            "currency": "INR",
+            "bank_account_number": "xxxxxxxx",
+            "virtual_payment_address": "xxx@xxxx"
+          },
+          "status": "PAID",
+          "type": "ON-FULFILLMENT",
+          "tags": [
+            {
+              "descriptor": {
+                "code": "Settlement_Details"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Counterparty"
+                  },
+                  "value": "BAP"
+                },
+                {
+                  "descriptor": {
+                    "code": "Mode"
+                  },
+                  "value": "UPI"
+                },
+                {
+                  "descriptor": {
+                    "code": "Beneficiary_Name"
+                  },
+                  "value": "xxxxx"
+                },
+                {
+                  "descriptor": {
+                    "code": "Bank_Account_No"
+                  },
+                  "value": "xxxxx"
+                },
+                {
+                  "descriptor": {
+                    "code": "Ifsc_Code"
+                  },
+                  "value": "xxxxxxx"
+                },
+                {
+                  "descriptor": {
+                    "code": "UPI_Address"
+                  },
+                  "value": "xxxxxxx"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "Buyer_Finder_Fee"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Buyer_Finder_Fee_Type"
+                  },
+                  "value": "percentage"
+                },
+                {
+                  "descriptor": {
+                    "code": "Buyer_Finder_Fee_Amount"
+                  },
+                  "value": "3"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "PENDING",
+              "short_desc": "002"
+            }
+          },
+          "cancellation_fee": {
+            "percentage": "0.00",
+            "amount": {
+              "currency": "INR",
+              "value": "0.00"
+            }
+          }
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "IN_TRANSIT",
+              "short_desc": "002"
+            }
+          },
+          "cancellation_fee": {
+            "percentage": "0.00",
+            "amount": {
+              "currency": "INR",
+              "value": "0.00"
+            }
+          }
+        }
+      ],
+      "created_at": "2024-04-01T22:00:38.000Z",
+      "updated_at": "2024-04-01T22:00:39.000Z"
+    }
+  }
+}
