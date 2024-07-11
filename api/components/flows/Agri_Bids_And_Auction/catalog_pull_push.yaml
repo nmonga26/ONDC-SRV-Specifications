@@ -66,19 +66,19 @@ reference: if any
 steps:
   - summary: Search based on the intent for bids and auction for a particular agricultural commodity
     api: search
-    description: Search intent sent by the buyer based on the particular agri product required - e.g. Wheat
+    description: The buyer expresses interest in purchasing a commodity (such as wheat) from all currently available auctions
     reference: if any
     example:
       $ref: "../../Examples/Agri_Bids_And_Auction_yaml/search/search_by_category.yaml"
   - summary: Returns the catalog specific to the search intent
     api: on_search
-    description: Returns the catalog specific to the search intent and also serviceability and time can be reffered from <a href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this document]</a> and for polygon geoJSON check <a href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
+    description: Returns the catalog specific to the search intent
     reference: if any
     example:
       $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_search/on_search.yaml"
   - summary: Pull intent into interval for bids and auction for a particular agricultural commodity 
     api: search (interval pull)
-    description: Search intent sent by the buyer based on the particular agri product required - e.g. Wheat, with the incremental pull option with the provided range so seller will send the on search based on selected range
+    description: The buyer expresses interest in purchasing a commodity (such as wheat) from all currently available auctions, with the incremental pull option with the provided range so seller will send the on search based on selected range
     reference: if any
     example:
       $ref: "../../Examples/Agri_Bids_And_Auction_yaml/search/search_interval_pull.yaml"
@@ -90,13 +90,13 @@ steps:
       $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_search/on_search.yaml"
   - summary: Start the mode to pull intent for bids and auction for a particular agricultural commodity
     api: search (start)
-    description: Search intent sent by the buyer based on the particular agri product required - e.g. Wheat, with the incremental mode start option so seller will send the catalogs until stop it
+    description: The buyer expresses interest in purchasing a commodity (such as wheat) from all currently available auctions, with the incremental mode start option so seller will send the catalogs until stop it
     reference: if any
     example:
       $ref: "../../Examples/Agri_Bids_And_Auction_yaml/search/search_regular_push_start.yaml"
   - summary: Start the mode to pull intent for bids and auction for a particular agricultural commodity
     api: search (stop)
-    description: Search intent sent by the buyer based on the particular agri product required - e.g. Wheat, with the incremental mode stop option so seller will stop senidng catalogs
+    description: The buyer expresses interest in purchasing a commodity (such as wheat) from all currently available auctions, with the incremental mode stop option so seller will stop senidng catalogs
     reference: if any
     example:
       $ref: "../../Examples/Agri_Bids_And_Auction_yaml/search/search_regular_push_stop.yaml"

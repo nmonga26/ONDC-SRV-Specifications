@@ -27,8 +27,6 @@ value:
           quantity:
             selected:
               count: 100
-          fulfillment_ids:
-            - F1
           payment_ids:
             - PY2
           tags:
@@ -152,8 +150,6 @@ value:
           state:
             descriptor:
               code: Placed
-          type: Buyer-Fulfilled
-          tracking: false
           stops:
             - type: end
               location:

@@ -27,8 +27,6 @@ value:
         rateable: true
       items:
         - id: I1
-          fulfillment_ids:
-            - F1
           location_ids:
             - L1
           category_ids:
@@ -53,7 +51,7 @@ value:
                     code: DEFECTIVES
                   value: 7%
             - descriptor:
-                code: CERTIFICATES
+                code: QUALITY_ASSESSMENT_REPORT
               display: true
               list:
                 - descriptor:
@@ -82,8 +80,6 @@ value:
           state:
             descriptor:
               code: Placed
-          type: Buyer-Fulfilled
-          tracking: false
           stops:
             - type: end
               location:

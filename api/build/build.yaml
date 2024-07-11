@@ -2650,6 +2650,33 @@ x-enum:
         fulfillments:
           type: *ref_1
         providers:
+          tags:
+            FSSAI_LICENSE_NO:
+              TYPE_OF_BUSINESS:
+                - code: Manufacturer
+                  description: Manufacturer of commodity
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Importer
+                  description: Importer of commodity
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Wholesaler
+                  description: Wholesaler of commodity
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Distributor
+                  description: Distributor of commodity
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Supplier
+                  description: Supplier of commodity
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Transporter
+                  description: Transporter of commodity
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Storage
+                  description: Storage/Warehouse of commodity
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Online Food Business Operator
+                  description: Online Food Business Operator of commodity
+                  reference: <PR/Issue/Discussion Links md format text>
           items:
             tags:
               AUCTION_SPECIFICATION:
@@ -2920,11 +2947,11 @@ x-tags:
                 - code: BRAND_OWNER
                   description: Brand owner name (Required)
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: OTHER
-                  description: Brand owner other details (Required)
+                - code: LICENSE_NUMBER
+                  description: Brand license number details (Required)
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: IMPORTER
-                  description: Brand owner importer details (Optional)
+                - code: TYPE_OF_BUSINESS
+                  description: Type of business of commodity (Optional)
                   reference: <PR/Issue/Discussion Links md format text>
           items:
             tags:
@@ -2950,13 +2977,10 @@ x-tags:
                   - code: FLOOR_PRICE
                     description: Bids floor (Minimum) price for commodity (Required)
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: LOT_SIZE
-                    description: Lot size for the bid (Required)
-                    reference: <PR/Issue/Discussion Links md format text>
                   - code: BID_QTY_INCREMENT
                     description: Increment in bid quantity (Required)
                     reference: <PR/Issue/Discussion Links md format text>
-                  - code: MIN_BIDDER_REQ
+                  - code: MIN_BIDDER_REQUIRED
                     description: Minimum number of Bidders required (Required)
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: TYPE_OF_AUCTION
@@ -3196,27 +3220,10 @@ x-tags:
                       Very Fine (15), Coarse (05) (Optional - depends on
                       commodity)
                     reference: <PR/Issue/Discussion Links md format text>
-              - code: LOT_INFORMATION
+              - code: QUALITY_ASSESSMENT_REPORT
                 description: >-
-                  Bids and auction lot information for a particular commodity
-                  (Required)
-                reference: <PR/Issue/Discussion Links md format text>
-                list:
-                  - code: TYPE
-                    description: >-
-                      Type of the item, mandatory only when the item is a
-                      customization (Required)
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: PACK_SIZE
-                    description: Lot size of the commodity if applicable (Required)
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: NUM_PACK_SIZE
-                    description: Number of Lot of the commodity if applicable (Required)
-                    reference: <PR/Issue/Discussion Links md format text>
-              - code: CERTIFICATES
-                description: >-
-                  Certificates that need to verify for bids if applicable
-                  (Optional)
+                  Quality assessment report that need to verify for bids if
+                  applicable (Optional)
                 reference: <PR/Issue/Discussion Links md format text>
                 list:
                   - code: NAME
@@ -3322,8 +3329,8 @@ x-flows:
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to bids for agricultural commodity. The bids and
       auction majorly happens in four phases of order processing flow, i.e.
-      Discovery of available commodity and service providers based on
-      serviceability, order, fulfillment and post-fulfillment.
+      Discovery of available commodity and service providers, order, fulfillment
+      and post-fulfillment.
     details:
       - description: Sequence Diagram for Bids and Auction
         mermaidGraph: |-
@@ -3407,8 +3414,8 @@ x-flows:
           agricultural commodity
         api: search
         description: >-
-          Search intent sent by the buyer based on the particular agri product
-          required - e.g. Wheat
+          The buyer expresses interest in purchasing a commodity (such as wheat)
+          from all currently available auctions, serviceable to him
         reference: if any
         example: &ref_14
           value:
@@ -3427,18 +3434,11 @@ x-flows:
               message_id: M1
               timestamp: '2024-06-10T22:00:00.000Z'
               ttl: PT30S
-            message1:
+            message:
               intent:
                 item:
                   category:
                     code: SRV16-*
-                fulfillment:
-                  type: Buyer-Fulfilled
-                  stops:
-                    - type: end
-                      location:
-                        gps: 12.974002,77.613458
-                        area_code: '560001'
                 payment:
                   type: ON-FULFILLMENT
                   collected_by: BAP
@@ -3464,12 +3464,7 @@ x-flows:
                         value: xxxxxxxxxxxxxxx
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: >-
-          Returns the catalog specific to the search intent and also
-          serviceability and time can be reffered from <a
-          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
-          document]</a> and for polygon geoJSON check <a
-          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
+        description: Returns the catalog specific to the search intent
         reference: if any
         example: &ref_26
           value:
@@ -3492,9 +3487,6 @@ x-flows:
               ttl: PT30S
             message:
               catalog:
-                fulfillments:
-                  - id: F1
-                    type: Buyer-Fulfilled
                 payments:
                   - id: PY1
                     type: PRE-FULFILLMENT
@@ -3541,24 +3533,6 @@ x-flows:
                         url: https://abcd.cdn.com/images/bage-img
                     tags:
                       - descriptor:
-                          code: serviceability
-                        list:
-                          - descriptor:
-                              code: location
-                            value: L1
-                          - descriptor:
-                              code: category
-                            value: SRV16-1001
-                          - descriptor:
-                              code: type
-                            value: '12'
-                          - descriptor:
-                              code: val
-                            value: IND
-                          - descriptor:
-                              code: unit
-                            value: country
-                      - descriptor:
                           code: seller_terms
                         list:
                           - descriptor:
@@ -3578,13 +3552,13 @@ x-flows:
                         list:
                           - descriptor:
                               code: BRAND_OWNER
-                            value: '12345678901234'
+                            value: ABC Foods Pvt. Ltd.
                           - descriptor:
-                              code: OTHER
-                            value: '12345678901234'
+                              code: LICENSE_NUMBER
+                            value: '10012345000001'
                           - descriptor:
-                              code: IMPORTER
-                            value: '12345678901234'
+                              code: TYPE_OF_BUSINESS
+                            value: Importer
                     items:
                       - id: I1
                         descriptor:
@@ -3610,12 +3584,11 @@ x-flows:
                         price:
                           currency: INR
                           value: '300.00'
-                          minimum_value: '250.00'
                         quantity:
                           unitized:
                             measure:
                               unit: kg
-                              value: '50'
+                              value: '5000'
                           available:
                             measure:
                               unit: kg
@@ -3628,8 +3601,6 @@ x-flows:
                             count: 100
                         category_ids:
                           - SRV16-1001
-                        fulfillment_ids:
-                          - F1
                         location_ids:
                           - L1
                         payment_ids:
@@ -3672,7 +3643,7 @@ x-flows:
                                   code: CANCELLABLE
                                 value: 'true'
                           - descriptor:
-                              code: CERTIFICATES
+                              code: QUALITY_ASSESSMENT_REPORT
                             display: true
                             list:
                               - descriptor:
@@ -3684,15 +3655,6 @@ x-flows:
                               - descriptor:
                                   code: COPY
                                 value: https://abc.com/certificates
-                          - descriptor:
-                              code: LOT_INFORMATION
-                            list:
-                              - descriptor:
-                                  code: PACK_SIZE
-                                value: '50'
-                              - descriptor:
-                                  code: NUM_PACK_SIZE
-                                value: '100'
                           - descriptor:
                               code: COMMODITY_SPECIFICATION
                             list:
@@ -3829,13 +3791,10 @@ x-flows:
                                   code: FLOOR_PRICE
                                 value: '250.00'
                               - descriptor:
-                                  code: LOT_SIZE
-                                value: '100'
-                              - descriptor:
                                   code: BID_QTY_INCREMENT
                                 value: '1'
                               - descriptor:
-                                  code: MIN_BIDDER_REQ
+                                  code: MIN_BIDDER_REQUIRED
                                 value: '5'
                               - descriptor:
                                   code: TYPE_OF_AUCTION
@@ -3866,31 +3825,33 @@ x-flows:
                         category_ids:
                           - SRV16-1001
                         item_ids:
-                          - I2
+                          - I1
                         time:
                           label: validity
                           range:
                             start: '2024-04-01T00:00:00.000Z'
                             end: '2024-12-10T00:00:00.000Z'
-                          days: 04,05
                         tags:
-                          - code: qualifier
+                          - descriptor:
+                              code: qualifier
                             list:
                               - descriptor:
                                   code: min_value
                                 value: '5000'
-                          - code: benefit
+                          - descriptor:
+                              code: benefit
                             list:
                               - descriptor:
                                   code: item_count
                                 value: '5'
                               - descriptor:
                                   code: item_id
-                                value: I2
+                                value: I1
                               - descriptor:
                                   code: item_value
                                 value: '200.00'
-                          - code: meta
+                          - descriptor:
+                              code: meta
                             list:
                               - descriptor:
                                   code: additive
@@ -3933,8 +3894,6 @@ x-flows:
                     - id: L1
                 items:
                   - id: I1
-                    fulfillment_ids:
-                      - F1
                     location_ids:
                       - L1
                     category_ids:
@@ -3959,8 +3918,7 @@ x-flows:
                               code: DEFECTIVES
                             value: 7%
                 fulfillments:
-                  - type: Buyer-Fulfilled
-                    stops:
+                  - stops:
                       - type: end
                         time:
                           label: selected
@@ -4010,9 +3968,7 @@ x-flows:
                 provider:
                   id: P1
                 items:
-                  - fulfillment_ids:
-                      - F1
-                    id: I1
+                  - id: I1
                     location_ids:
                       - L1
                     category_ids:
@@ -4038,11 +3994,6 @@ x-flows:
                             value: 7%
                 fulfillments:
                   - id: F1
-                    type: Buyer-Fulfilled
-                    tracking: false
-                    state:
-                      descriptor:
-                        code: Serviceable
                     stops:
                       - type: end
                         location:
@@ -4168,8 +4119,6 @@ x-flows:
                     - id: L1
                 items:
                   - id: I1
-                    fulfillment_ids:
-                      - F1
                     location_ids:
                       - L1
                     category_ids:
@@ -4207,7 +4156,6 @@ x-flows:
                   phone: '9886098860'
                 fulfillments:
                   - id: F1
-                    type: Buyer-Fulfilled
                     stops:
                       - type: end
                         location:
@@ -4273,8 +4221,6 @@ x-flows:
                   - id: L1
                 items:
                   - id: I1
-                    fulfillment_ids:
-                      - F1
                     location_ids:
                       - L1
                     category_ids:
@@ -4299,7 +4245,7 @@ x-flows:
                               code: DEFECTIVES
                             value: 7%
                       - descriptor:
-                          code: CERTIFICATES
+                          code: QUALITY_ASSESSMENT_REPORT
                         display: true
                         list:
                           - descriptor:
@@ -4325,8 +4271,6 @@ x-flows:
                   phone: '9886098860'
                 fulfillments:
                   - id: F1
-                    type: Buyer-Fulfilled
-                    tracking: false
                     stops:
                       - type: end
                         location:
@@ -4537,8 +4481,6 @@ x-flows:
                     - id: L1
                 items:
                   - id: I1
-                    fulfillment_ids:
-                      - F1
                     location_ids:
                       - L1
                     category_ids:
@@ -4563,7 +4505,7 @@ x-flows:
                               code: DEFECTIVES
                             value: 7%
                       - descriptor:
-                          code: CERTIFICATES
+                          code: QUALITY_ASSESSMENT_REPORT
                         display: true
                         list:
                           - descriptor:
@@ -4589,8 +4531,6 @@ x-flows:
                   phone: '9886098860'
                 fulfillments:
                   - id: F1
-                    type: Buyer-Fulfilled
-                    tracking: false
                     stops:
                       - type: end
                         location:
@@ -4794,8 +4734,6 @@ x-flows:
                   rateable: true
                 items:
                   - id: I1
-                    fulfillment_ids:
-                      - F1
                     location_ids:
                       - L1
                     category_ids:
@@ -4820,7 +4758,7 @@ x-flows:
                               code: DEFECTIVES
                             value: 7%
                       - descriptor:
-                          code: CERTIFICATES
+                          code: QUALITY_ASSESSMENT_REPORT
                         display: true
                         list:
                           - descriptor:
@@ -4849,8 +4787,6 @@ x-flows:
                     state:
                       descriptor:
                         code: Placed
-                    type: Buyer-Fulfilled
-                    tracking: false
                     stops:
                       - type: end
                         location:
@@ -5100,8 +5036,6 @@ x-flows:
                     - id: L1
                 items:
                   - id: I1
-                    fulfillment_ids:
-                      - F1
                     location_ids:
                       - L1
                     category_ids:
@@ -5126,7 +5060,7 @@ x-flows:
                               code: DEFECTIVES
                             value: 7%
                       - descriptor:
-                          code: CERTIFICATES
+                          code: QUALITY_ASSESSMENT_REPORT
                         display: true
                         list:
                           - descriptor:
@@ -5155,8 +5089,6 @@ x-flows:
                     state:
                       descriptor:
                         code: Placed
-                    type: Buyer-Fulfilled
-                    tracking: false
                     stops:
                       - type: end
                         location:
@@ -5367,8 +5299,6 @@ x-flows:
                     quantity:
                       selected:
                         count: 100
-                    fulfillment_ids:
-                      - F1
                     payment_ids:
                       - PY2
                     tags:
@@ -5455,8 +5385,6 @@ x-flows:
                     state:
                       descriptor:
                         code: Awarded
-                    type: Buyer-Fulfilled
-                    tracking: false
                     stops:
                       - type: end
                         location:
@@ -5602,9 +5530,7 @@ x-flows:
                   locations:
                     - id: L1
                 items:
-                  - id: I2
-                    fulfillment_ids:
-                      - F1
+                  - id: I1
                     quantity:
                       selected:
                         count: 100
@@ -5613,8 +5539,6 @@ x-flows:
                     state:
                       descriptor:
                         code: Not-Awarded
-                    type: Buyer-Fulfilled
-                    tracking: false
                     stops:
                       - type: end
                         location:
@@ -5836,10 +5760,9 @@ x-flows:
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to bids for agricultural commodity. The bids and
       auction majorly happens in four phases of order processing flow, i.e.
-      Discovery of available commodity and service providers based on
-      serviceability, order, fulfillment and post-fulfillment but in Close Bid,
-      the buyers places their bid which is encrypted (not made visible) for
-      other buyers.
+      Discovery of available commodity and service providers, order, fulfillment
+      and post-fulfillment but in Close Bid, the buyers places their bid which
+      is encrypted (not made visible) for other buyers.
     details:
       - description: Sequence Diagram for Bids and Auction (Close Bid)
         mermaidGraph: |-
@@ -5923,22 +5846,17 @@ x-flows:
           agricultural commodity
         api: search
         description: >-
-          Search intent sent by the buyer based on the particular agri product
-          required - e.g. Wheat
+          The buyer expresses interest in purchasing a commodity (such as wheat)
+          from all currently available auctions
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: >-
-          Returns the catalog specific to the search intent and also
-          serviceability and time can be reffered from <a
-          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
-          document]</a> and for polygon geoJSON check <a
-          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
-          <br><br> - The Bids are closed in the nature i.e. the buyers places
-          their bid which is encrypted (not made visible) for other buyers <br>
-          - The highest bid is disclosed at the time of the conclusion of the
-          auction
+          Returns the catalog specific to the search intent <br> - The Bids are
+          closed in the nature i.e. the buyers places their bid which is
+          encrypted (not made visible) for other buyers <br> - The highest bid
+          is disclosed at the time of the conclusion of the auction
         reference: if any
         example:
           value:
@@ -5961,9 +5879,6 @@ x-flows:
               ttl: PT30S
             message:
               catalog:
-                fulfillments:
-                  - id: F1
-                    type: Buyer-Fulfilled
                 payments:
                   - id: PY1
                     type: PRE-FULFILLMENT
@@ -6010,24 +5925,6 @@ x-flows:
                         url: https://abcd.cdn.com/images/bage-img
                     tags:
                       - descriptor:
-                          code: serviceability
-                        list:
-                          - descriptor:
-                              code: location
-                            value: L1
-                          - descriptor:
-                              code: category
-                            value: SRV16-1001
-                          - descriptor:
-                              code: type
-                            value: '12'
-                          - descriptor:
-                              code: val
-                            value: IND
-                          - descriptor:
-                              code: unit
-                            value: country
-                      - descriptor:
                           code: seller_terms
                         list:
                           - descriptor:
@@ -6047,13 +5944,13 @@ x-flows:
                         list:
                           - descriptor:
                               code: BRAND_OWNER
-                            value: '12345678901234'
+                            value: ABC Foods Pvt. Ltd.
                           - descriptor:
-                              code: OTHER
-                            value: '12345678901234'
+                              code: LICENSE_NUMBER
+                            value: '10012345000001'
                           - descriptor:
-                              code: IMPORTER
-                            value: '12345678901234'
+                              code: TYPE_OF_BUSINESS
+                            value: Importer
                     items:
                       - id: I1
                         descriptor:
@@ -6079,12 +5976,11 @@ x-flows:
                         price:
                           currency: INR
                           value: '300.00'
-                          minimum_value: '250.00'
                         quantity:
                           unitized:
                             measure:
                               unit: kg
-                              value: '50'
+                              value: '5000'
                           available:
                             measure:
                               unit: kg
@@ -6097,8 +5993,6 @@ x-flows:
                             count: 100
                         category_ids:
                           - SRV16-1001
-                        fulfillment_ids:
-                          - F1
                         location_ids:
                           - L1
                         payment_ids:
@@ -6141,7 +6035,7 @@ x-flows:
                                   code: CANCELLABLE
                                 value: 'true'
                           - descriptor:
-                              code: CERTIFICATES
+                              code: QUALITY_ASSESSMENT_REPORT
                             display: true
                             list:
                               - descriptor:
@@ -6153,15 +6047,6 @@ x-flows:
                               - descriptor:
                                   code: COPY
                                 value: https://abc.com/certificates
-                          - descriptor:
-                              code: LOT_INFORMATION
-                            list:
-                              - descriptor:
-                                  code: PACK_SIZE
-                                value: '50'
-                              - descriptor:
-                                  code: NUM_PACK_SIZE
-                                value: '100'
                           - descriptor:
                               code: COMMODITY_SPECIFICATION
                             list:
@@ -6298,13 +6183,10 @@ x-flows:
                                   code: FLOOR_PRICE
                                 value: '250.00'
                               - descriptor:
-                                  code: LOT_SIZE
-                                value: '100'
-                              - descriptor:
                                   code: BID_QTY_INCREMENT
                                 value: '1'
                               - descriptor:
-                                  code: MIN_BIDDER_REQ
+                                  code: MIN_BIDDER_REQUIRED
                                 value: '5'
                               - descriptor:
                                   code: TYPE_OF_AUCTION
@@ -6335,31 +6217,33 @@ x-flows:
                         category_ids:
                           - SRV16-1001
                         item_ids:
-                          - I2
+                          - I1
                         time:
                           label: validity
                           range:
                             start: '2024-04-01T00:00:00.000Z'
                             end: '2024-12-10T00:00:00.000Z'
-                          days: 04,05
                         tags:
-                          - code: qualifier
+                          - descriptor:
+                              code: qualifier
                             list:
                               - descriptor:
                                   code: min_value
                                 value: '5000'
-                          - code: benefit
+                          - descriptor:
+                              code: benefit
                             list:
                               - descriptor:
                                   code: item_count
                                 value: '5'
                               - descriptor:
                                   code: item_id
-                                value: I2
+                                value: I1
                               - descriptor:
                                   code: item_value
                                 value: '200.00'
-                          - code: meta
+                          - descriptor:
+                              code: meta
                             list:
                               - descriptor:
                                   code: additive
@@ -6435,11 +6319,11 @@ x-flows:
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to bids for agricultural commodity. The bids and
       auction majorly happens in four phases of order processing flow, i.e.
-      Discovery of available commodity and service providers based on
-      serviceability, order, fulfillment and post-fulfillment but gricultural
-      produce received by the buyer does not match the description provided by
-      the seller, the buyer may raise a complaint on the buyer app and the buyer
-      app tries to analyse the complaints.
+      Discovery of available commodity and service providers, order, fulfillment
+      and post-fulfillment but gricultural produce received by the buyer does
+      not match the description provided by the seller, the buyer may raise a
+      complaint on the buyer app and the buyer app tries to analyse the
+      complaints.
     details:
       - description: >-
           Sequence Diagram for Bids and Auction (Buyer not satisfied with the
@@ -6525,18 +6409,13 @@ x-flows:
           agricultural commodity
         api: search
         description: >-
-          Search intent sent by the buyer based on the particular agri product
-          required - e.g. Wheat
+          The buyer expresses interest in purchasing a commodity (such as wheat)
+          from all currently available auctions, serviceable to him
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: >-
-          Returns the catalog specific to the search intent and also
-          serviceability and time can be reffered from <a
-          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
-          document]</a> and for polygon geoJSON check <a
-          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
+        description: Returns the catalog specific to the search intent
         reference: if any
         example: *ref_26
       - summary: Buyer selects the required agri commodity
@@ -6649,9 +6528,7 @@ x-flows:
                   locations:
                     - id: L1
                 items:
-                  - id: I2
-                    fulfillment_ids:
-                      - F1
+                  - id: I1
                     quantity:
                       selected:
                         count: 100
@@ -6660,8 +6537,6 @@ x-flows:
                     state:
                       descriptor:
                         code: Cancelled
-                    type: Buyer-Fulfilled
-                    tracking: false
                     stops:
                       - type: end
                         location:
@@ -6881,8 +6756,6 @@ x-flows:
                     quantity:
                       selected:
                         count: 100
-                    fulfillment_ids:
-                      - F1
                     payment_ids:
                       - PY2
                 quote:
@@ -7030,8 +6903,6 @@ x-flows:
                     state:
                       descriptor:
                         code: Placed
-                    type: Buyer-Fulfilled
-                    tracking: false
                     stops:
                       - type: end
                         location:
@@ -7097,8 +6968,6 @@ x-flows:
                     quantity:
                       selected:
                         count: 100
-                    fulfillment_ids:
-                      - F1
                     payment_ids:
                       - PY2
                     tags:
@@ -7222,8 +7091,6 @@ x-flows:
                     state:
                       descriptor:
                         code: Placed
-                    type: Buyer-Fulfilled
-                    tracking: false
                     stops:
                       - type: end
                         location:
@@ -7348,10 +7215,10 @@ x-flows:
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to bids for agricultural commodity. The bids and
       auction majorly happens in four phases of order processing flow, i.e.
-      Discovery of available commodity and service providers based on
-      serviceability, order, fulfillment and post-fulfillment but winning bidder
-      fails to make payment within the specified timeframe, leading to a dispute
-      resolution process involving the platform's customer support.
+      Discovery of available commodity and service providers, order, fulfillment
+      and post-fulfillment but winning bidder fails to make payment within the
+      specified timeframe, leading to a dispute resolution process involving the
+      platform's customer support.
     details:
       - description: Sequence Diagram for Bids and Auction (Buyer fails to make payment)
         mermaidGraph: |-
@@ -7435,18 +7302,13 @@ x-flows:
           agricultural commodity
         api: search
         description: >-
-          Search intent sent by the buyer based on the particular agri product
-          required - e.g. Wheat
+          The buyer expresses interest in purchasing a commodity (such as wheat)
+          from all currently available auctions, serviceable to him
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: >-
-          Returns the catalog specific to the search intent and also
-          serviceability and time can be reffered from <a
-          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
-          document]</a> and for polygon geoJSON check <a
-          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
+        description: Returns the catalog specific to the search intent
         reference: if any
         example: *ref_26
       - summary: Buyer selects the required agri commodity
@@ -7528,9 +7390,7 @@ x-flows:
                   locations:
                     - id: L1
                 items:
-                  - id: I2
-                    fulfillment_ids:
-                      - F1
+                  - id: I1
                     quantity:
                       selected:
                         count: 100
@@ -7539,8 +7399,6 @@ x-flows:
                     state:
                       descriptor:
                         code: Not-Awarded
-                    type: Buyer-Fulfilled
-                    tracking: false
                     stops:
                       - type: end
                         location:
@@ -7807,18 +7665,13 @@ x-flows:
           agricultural commodity
         api: search
         description: >-
-          Search intent sent by the buyer based on the particular agri product
-          required - e.g. Wheat
+          The buyer expresses interest in purchasing a commodity (such as wheat)
+          from all currently available auctions
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
-        description: >-
-          Returns the catalog specific to the search intent and also
-          serviceability and time can be reffered from <a
-          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
-          document]</a> and for polygon geoJSON check <a
-          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
+        description: Returns the catalog specific to the search intent
         reference: if any
         example: *ref_26
       - summary: >-
@@ -7826,10 +7679,10 @@ x-flows:
           agricultural commodity
         api: search (interval pull)
         description: >-
-          Search intent sent by the buyer based on the particular agri product
-          required - e.g. Wheat, with the incremental pull option with the
-          provided range so seller will send the on search based on selected
-          range
+          The buyer expresses interest in purchasing a commodity (such as wheat)
+          from all currently available auctions, with the incremental pull
+          option with the provided range so seller will send the on search based
+          on selected range
         reference: if any
         example:
           value:
@@ -7848,15 +7701,8 @@ x-flows:
               message_id: M1
               timestamp: '2024-06-10T22:00:00.000Z'
               ttl: PT30S
-            message1:
+            message:
               intent:
-                fulfillment:
-                  type: Buyer-Fulfilled
-                  stops:
-                    - type: end
-                      location:
-                        gps: 12.974002,77.613458
-                        area_code: '560001'
                 payment:
                   type: ON-FULFILLMENT
                   collected_by: BAP
@@ -7902,9 +7748,9 @@ x-flows:
           agricultural commodity
         api: search (start)
         description: >-
-          Search intent sent by the buyer based on the particular agri product
-          required - e.g. Wheat, with the incremental mode start option so
-          seller will send the catalogs until stop it
+          The buyer expresses interest in purchasing a commodity (such as wheat)
+          from all currently available auctions, with the incremental mode start
+          option so seller will send the catalogs until stop it
         reference: if any
         example:
           value:
@@ -7923,15 +7769,8 @@ x-flows:
               message_id: M1
               timestamp: '2024-06-10T22:00:00.000Z'
               ttl: PT30S
-            message1:
+            message:
               intent:
-                fulfillment:
-                  type: Buyer-Fulfilled
-                  stops:
-                    - type: end
-                      location:
-                        gps: 12.974002,77.613458
-                        area_code: '560001'
                 payment:
                   type: ON-FULFILLMENT
                   collected_by: BAP
@@ -7965,9 +7804,9 @@ x-flows:
           agricultural commodity
         api: search (stop)
         description: >-
-          Search intent sent by the buyer based on the particular agri product
-          required - e.g. Wheat, with the incremental mode stop option so seller
-          will stop senidng catalogs
+          The buyer expresses interest in purchasing a commodity (such as wheat)
+          from all currently available auctions, with the incremental mode stop
+          option so seller will stop senidng catalogs
         reference: if any
         example:
           value:
@@ -7986,15 +7825,8 @@ x-flows:
               message_id: M1
               timestamp: '2024-06-10T22:00:00.000Z'
               ttl: PT30S
-            message1:
+            message:
               intent:
-                fulfillment:
-                  type: Buyer-Fulfilled
-                  stops:
-                    - type: end
-                      location:
-                        gps: 12.974002,77.613458
-                        area_code: '560001'
                 payment:
                   type: ON-FULFILLMENT
                   collected_by: BAP
@@ -8037,10 +7869,9 @@ x-flows:
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to bids for agricultural commodity. The bids and
       auction majorly happens in four phases of order processing flow, i.e.
-      Discovery of available commodity and service providers based on
-      serviceability, order, fulfillment and post-fulfillmentand bids can be
-      done with minimum quantity (If a Seller has 3 MT, and MBQ is (or can be) 1
-      MT).
+      Discovery of available commodity and service providers, order, fulfillment
+      and post-fulfillmentand bids can be done with minimum quantity (If a
+      Seller has 3 MT, and MBQ is (or can be) 1 MT).
     details:
       - description: Sequence Diagram for Bids and Auction
         mermaidGraph: |-
@@ -8124,20 +7955,16 @@ x-flows:
           agricultural commodity
         api: search
         description: >-
-          Search intent sent by the buyer based on the particular agri product
-          required - e.g. Wheat
+          The buyer expresses interest in purchasing a commodity (such as wheat)
+          from all currently available auctions, serviceable to him
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: >-
-          Returns the catalog specific to the search intent and also
-          serviceability and time can be reffered from <a
-          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
-          document]</a> and for polygon geoJSON check <a
-          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a>
-          <br><br> Buyer will select Minimum Bid Quantity (Buyer Side) /Lot Size
-          (Seller Side) (If a Seller has 3 MT, and MBQ is (or can be) 1 MT)
+          Returns the catalog specific to the search intent <br><br> Buyer will
+          select Minimum Bid Quantity (Buyer Side) /Lot Size (Seller Side) (If a
+          Seller has 3 MT, and MBQ is (or can be) 1 MT)
         reference: if any
         example:
           value:
@@ -8160,9 +7987,6 @@ x-flows:
               ttl: PT30S
             message:
               catalog:
-                fulfillments:
-                  - id: F1
-                    type: Buyer-Fulfilled
                 payments:
                   - id: PY1
                     type: PRE-FULFILLMENT
@@ -8209,24 +8033,6 @@ x-flows:
                         url: https://abcd.cdn.com/images/bage-img
                     tags:
                       - descriptor:
-                          code: serviceability
-                        list:
-                          - descriptor:
-                              code: location
-                            value: L1
-                          - descriptor:
-                              code: category
-                            value: SRV16-1001
-                          - descriptor:
-                              code: type
-                            value: '12'
-                          - descriptor:
-                              code: val
-                            value: IND
-                          - descriptor:
-                              code: unit
-                            value: country
-                      - descriptor:
                           code: seller_terms
                         list:
                           - descriptor:
@@ -8246,13 +8052,13 @@ x-flows:
                         list:
                           - descriptor:
                               code: BRAND_OWNER
-                            value: '12345678901234'
+                            value: ABC Foods Pvt. Ltd.
                           - descriptor:
-                              code: OTHER
-                            value: '12345678901234'
+                              code: LICENSE_NUMBER
+                            value: '10012345000001'
                           - descriptor:
-                              code: IMPORTER
-                            value: '12345678901234'
+                              code: TYPE_OF_BUSINESS
+                            value: Importer
                     items:
                       - id: I1
                         descriptor:
@@ -8278,12 +8084,11 @@ x-flows:
                         price:
                           currency: INR
                           value: '300.00'
-                          minimum_value: '250.00'
                         quantity:
                           unitized:
                             measure:
                               unit: kg
-                              value: '50'
+                              value: '50000'
                           available:
                             measure:
                               unit: kg
@@ -8296,8 +8101,6 @@ x-flows:
                             count: 100
                         category_ids:
                           - SRV16-1001
-                        fulfillment_ids:
-                          - F1
                         location_ids:
                           - L1
                         payment_ids:
@@ -8340,7 +8143,7 @@ x-flows:
                                   code: CANCELLABLE
                                 value: 'true'
                           - descriptor:
-                              code: CERTIFICATES
+                              code: QUALITY_ASSESSMENT_REPORT
                             display: true
                             list:
                               - descriptor:
@@ -8352,15 +8155,6 @@ x-flows:
                               - descriptor:
                                   code: COPY
                                 value: https://abc.com/certificates
-                          - descriptor:
-                              code: LOT_INFORMATION
-                            list:
-                              - descriptor:
-                                  code: PACK_SIZE
-                                value: '50'
-                              - descriptor:
-                                  code: NUM_PACK_SIZE
-                                value: '100'
                           - descriptor:
                               code: COMMODITY_SPECIFICATION
                             list:
@@ -8497,13 +8291,10 @@ x-flows:
                                   code: FLOOR_PRICE
                                 value: '250.00'
                               - descriptor:
-                                  code: LOT_SIZE
-                                value: '100'
-                              - descriptor:
                                   code: BID_QTY_INCREMENT
                                 value: '1'
                               - descriptor:
-                                  code: MIN_BIDDER_REQ
+                                  code: MIN_BIDDER_REQUIRED
                                 value: '5'
                               - descriptor:
                                   code: TYPE_OF_AUCTION
@@ -8534,31 +8325,33 @@ x-flows:
                         category_ids:
                           - SRV16-1001
                         item_ids:
-                          - I2
+                          - I1
                         time:
                           label: validity
                           range:
                             start: '2024-04-01T00:00:00.000Z'
                             end: '2024-12-10T00:00:00.000Z'
-                          days: 04,05
                         tags:
-                          - code: qualifier
+                          - descriptor:
+                              code: qualifier
                             list:
                               - descriptor:
                                   code: min_value
                                 value: '5000'
-                          - code: benefit
+                          - descriptor:
+                              code: benefit
                             list:
                               - descriptor:
                                   code: item_count
                                 value: '5'
                               - descriptor:
                                   code: item_id
-                                value: I2
+                                value: I1
                               - descriptor:
                                   code: item_value
                                 value: '200.00'
-                          - code: meta
+                          - descriptor:
+                              code: meta
                             list:
                               - descriptor:
                                   code: additive
@@ -8655,18 +8448,11 @@ x-examples:
                 message_id: M1
                 timestamp: '2024-06-10T22:00:00.000Z'
                 ttl: PT30S
-              message1:
+              message:
                 intent:
                   item:
                     descriptor:
                       name: Wheat (Auction)
-                  fulfillment:
-                    type: Buyer-Fulfilled
-                    stops:
-                      - type: end
-                        location:
-                          gps: 12.974002,77.613458
-                          area_code: '560001'
                   payment:
                     type: ON-FULFILLMENT
                     collected_by: BAP
@@ -8706,15 +8492,8 @@ x-examples:
                 message_id: M1
                 timestamp: '2024-06-10T22:00:00.000Z'
                 ttl: PT30S
-              message1:
+              message:
                 intent:
-                  fulfillment:
-                    type: Buyer-Fulfilled
-                    stops:
-                      - type: end
-                        location:
-                          gps: 12.974002,77.613458
-                          area_code: '560001'
                   payment:
                     type: ON-FULFILLMENT
                     collected_by: BAP
@@ -8754,18 +8533,11 @@ x-examples:
                 message_id: M1
                 timestamp: '2024-06-10T22:00:00.000Z'
                 ttl: PT30S
-              message1:
+              message:
                 intent:
                   item:
                     category:
                       code: SRV16-*
-                  fulfillment:
-                    type: Buyer-Fulfilled
-                    stops:
-                      - type: end
-                        location:
-                          gps: 12.974002,77.613458
-                          area_code: '560001'
                   payment:
                     type: ON-FULFILLMENT
                     collected_by: BAP
@@ -8805,15 +8577,8 @@ x-examples:
                 message_id: M1
                 timestamp: '2024-06-10T22:00:00.000Z'
                 ttl: PT30S
-              message1:
+              message:
                 intent:
-                  fulfillment:
-                    type: Buyer-Fulfilled
-                    stops:
-                      - type: end
-                        location:
-                          gps: 12.974002,77.613458
-                          area_code: '560001'
                   payment:
                     type: ON-FULFILLMENT
                     collected_by: BAP
@@ -8861,15 +8626,8 @@ x-examples:
                 message_id: M1
                 timestamp: '2024-06-10T22:00:00.000Z'
                 ttl: PT30S
-              message1:
+              message:
                 intent:
-                  fulfillment:
-                    type: Buyer-Fulfilled
-                    stops:
-                      - type: end
-                        location:
-                          gps: 12.974002,77.613458
-                          area_code: '560001'
                   payment:
                     type: ON-FULFILLMENT
                     collected_by: BAP
@@ -8914,15 +8672,8 @@ x-examples:
                 message_id: M1
                 timestamp: '2024-06-10T22:00:00.000Z'
                 ttl: PT30S
-              message1:
+              message:
                 intent:
-                  fulfillment:
-                    type: Buyer-Fulfilled
-                    stops:
-                      - type: end
-                        location:
-                          gps: 12.974002,77.613458
-                          area_code: '560001'
                   payment:
                     type: ON-FULFILLMENT
                     collected_by: BAP
@@ -8979,8 +8730,6 @@ x-examples:
                       - id: L1
                   items:
                     - id: I1
-                      fulfillment_ids:
-                        - F1
                       location_ids:
                         - L1
                       category_ids:
@@ -9005,8 +8754,7 @@ x-examples:
                                 code: DEFECTIVES
                               value: 7%
                   fulfillments:
-                    - type: Buyer-Fulfilled
-                      stops:
+                    - stops:
                         - type: end
                           time:
                             label: selected
@@ -9056,8 +8804,6 @@ x-examples:
                       - id: L1
                   items:
                     - id: I1
-                      fulfillment_ids:
-                        - F1
                       location_ids:
                         - L1
                       category_ids:
@@ -9095,7 +8841,6 @@ x-examples:
                     phone: '9886098860'
                   fulfillments:
                     - id: F1
-                      type: Buyer-Fulfilled
                       stops:
                         - type: end
                           location:
@@ -9160,8 +8905,6 @@ x-examples:
                       - id: L1
                   items:
                     - id: I1
-                      fulfillment_ids:
-                        - F1
                       location_ids:
                         - L1
                       category_ids:
@@ -9186,7 +8929,7 @@ x-examples:
                                 code: DEFECTIVES
                               value: 7%
                         - descriptor:
-                            code: CERTIFICATES
+                            code: QUALITY_ASSESSMENT_REPORT
                           display: true
                           list:
                             - descriptor:
@@ -9212,8 +8955,6 @@ x-examples:
                     phone: '9886098860'
                   fulfillments:
                     - id: F1
-                      type: Buyer-Fulfilled
-                      tracking: false
                       stops:
                         - type: end
                           location:
@@ -9458,8 +9199,6 @@ x-examples:
                       quantity:
                         selected:
                           count: 100
-                      fulfillment_ids:
-                        - F1
                       payment_ids:
                         - PY2
                   quote:
@@ -9607,8 +9346,6 @@ x-examples:
                       state:
                         descriptor:
                           code: Placed
-                      type: Buyer-Fulfilled
-                      tracking: false
                       stops:
                         - type: end
                           location:
@@ -9688,9 +9425,6 @@ x-examples:
                 ttl: PT30S
               message:
                 catalog:
-                  fulfillments:
-                    - id: F1
-                      type: Buyer-Fulfilled
                   payments:
                     - id: PY1
                       type: PRE-FULFILLMENT
@@ -9737,24 +9471,6 @@ x-examples:
                           url: https://abcd.cdn.com/images/bage-img
                       tags:
                         - descriptor:
-                            code: serviceability
-                          list:
-                            - descriptor:
-                                code: location
-                              value: L1
-                            - descriptor:
-                                code: category
-                              value: SRV16-1001
-                            - descriptor:
-                                code: type
-                              value: '12'
-                            - descriptor:
-                                code: val
-                              value: IND
-                            - descriptor:
-                                code: unit
-                              value: country
-                        - descriptor:
                             code: seller_terms
                           list:
                             - descriptor:
@@ -9774,13 +9490,13 @@ x-examples:
                           list:
                             - descriptor:
                                 code: BRAND_OWNER
-                              value: '12345678901234'
+                              value: ABC Foods Pvt. Ltd.
                             - descriptor:
-                                code: OTHER
-                              value: '12345678901234'
+                                code: LICENSE_NUMBER
+                              value: '10012345000001'
                             - descriptor:
-                                code: IMPORTER
-                              value: '12345678901234'
+                                code: TYPE_OF_BUSINESS
+                              value: Importer
                       items:
                         - id: I1
                           descriptor:
@@ -9806,12 +9522,11 @@ x-examples:
                           price:
                             currency: INR
                             value: '300.00'
-                            minimum_value: '250.00'
                           quantity:
                             unitized:
                               measure:
                                 unit: kg
-                                value: '50'
+                                value: '5000'
                             available:
                               measure:
                                 unit: kg
@@ -9824,8 +9539,6 @@ x-examples:
                               count: 100
                           category_ids:
                             - SRV16-1001
-                          fulfillment_ids:
-                            - F1
                           location_ids:
                             - L1
                           payment_ids:
@@ -9868,7 +9581,7 @@ x-examples:
                                     code: CANCELLABLE
                                   value: 'true'
                             - descriptor:
-                                code: CERTIFICATES
+                                code: QUALITY_ASSESSMENT_REPORT
                               display: true
                               list:
                                 - descriptor:
@@ -9880,15 +9593,6 @@ x-examples:
                                 - descriptor:
                                     code: COPY
                                   value: https://abc.com/certificates
-                            - descriptor:
-                                code: LOT_INFORMATION
-                              list:
-                                - descriptor:
-                                    code: PACK_SIZE
-                                  value: '50'
-                                - descriptor:
-                                    code: NUM_PACK_SIZE
-                                  value: '100'
                             - descriptor:
                                 code: COMMODITY_SPECIFICATION
                               list:
@@ -10025,13 +9729,10 @@ x-examples:
                                     code: FLOOR_PRICE
                                   value: '250.00'
                                 - descriptor:
-                                    code: LOT_SIZE
-                                  value: '100'
-                                - descriptor:
                                     code: BID_QTY_INCREMENT
                                   value: '1'
                                 - descriptor:
-                                    code: MIN_BIDDER_REQ
+                                    code: MIN_BIDDER_REQUIRED
                                   value: '5'
                                 - descriptor:
                                     code: TYPE_OF_AUCTION
@@ -10062,31 +9763,33 @@ x-examples:
                           category_ids:
                             - SRV16-1001
                           item_ids:
-                            - I2
+                            - I1
                           time:
                             label: validity
                             range:
                               start: '2024-04-01T00:00:00.000Z'
                               end: '2024-12-10T00:00:00.000Z'
-                            days: 04,05
                           tags:
-                            - code: qualifier
+                            - descriptor:
+                                code: qualifier
                               list:
                                 - descriptor:
                                     code: min_value
                                   value: '5000'
-                            - code: benefit
+                            - descriptor:
+                                code: benefit
                               list:
                                 - descriptor:
                                     code: item_count
                                   value: '5'
                                 - descriptor:
                                     code: item_id
-                                  value: I2
+                                  value: I1
                                 - descriptor:
                                     code: item_value
                                   value: '200.00'
-                            - code: meta
+                            - descriptor:
+                                code: meta
                               list:
                                 - descriptor:
                                     code: additive
@@ -10118,9 +9821,6 @@ x-examples:
                 ttl: PT30S
               message:
                 catalog:
-                  fulfillments:
-                    - id: F1
-                      type: Buyer-Fulfilled
                   payments:
                     - id: PY1
                       type: PRE-FULFILLMENT
@@ -10167,24 +9867,6 @@ x-examples:
                           url: https://abcd.cdn.com/images/bage-img
                       tags:
                         - descriptor:
-                            code: serviceability
-                          list:
-                            - descriptor:
-                                code: location
-                              value: L1
-                            - descriptor:
-                                code: category
-                              value: SRV16-1001
-                            - descriptor:
-                                code: type
-                              value: '12'
-                            - descriptor:
-                                code: val
-                              value: IND
-                            - descriptor:
-                                code: unit
-                              value: country
-                        - descriptor:
                             code: seller_terms
                           list:
                             - descriptor:
@@ -10204,13 +9886,13 @@ x-examples:
                           list:
                             - descriptor:
                                 code: BRAND_OWNER
-                              value: '12345678901234'
+                              value: ABC Foods Pvt. Ltd.
                             - descriptor:
-                                code: OTHER
-                              value: '12345678901234'
+                                code: LICENSE_NUMBER
+                              value: '10012345000001'
                             - descriptor:
-                                code: IMPORTER
-                              value: '12345678901234'
+                                code: TYPE_OF_BUSINESS
+                              value: Importer
                       items:
                         - id: I1
                           descriptor:
@@ -10236,12 +9918,11 @@ x-examples:
                           price:
                             currency: INR
                             value: '300.00'
-                            minimum_value: '250.00'
                           quantity:
                             unitized:
                               measure:
                                 unit: kg
-                                value: '50'
+                                value: '5000'
                             available:
                               measure:
                                 unit: kg
@@ -10254,8 +9935,6 @@ x-examples:
                               count: 100
                           category_ids:
                             - SRV16-1001
-                          fulfillment_ids:
-                            - F1
                           location_ids:
                             - L1
                           payment_ids:
@@ -10298,7 +9977,7 @@ x-examples:
                                     code: CANCELLABLE
                                   value: 'true'
                             - descriptor:
-                                code: CERTIFICATES
+                                code: QUALITY_ASSESSMENT_REPORT
                               display: true
                               list:
                                 - descriptor:
@@ -10310,15 +9989,6 @@ x-examples:
                                 - descriptor:
                                     code: COPY
                                   value: https://abc.com/certificates
-                            - descriptor:
-                                code: LOT_INFORMATION
-                              list:
-                                - descriptor:
-                                    code: PACK_SIZE
-                                  value: '50'
-                                - descriptor:
-                                    code: NUM_PACK_SIZE
-                                  value: '100'
                             - descriptor:
                                 code: COMMODITY_SPECIFICATION
                               list:
@@ -10455,13 +10125,10 @@ x-examples:
                                     code: FLOOR_PRICE
                                   value: '250.00'
                                 - descriptor:
-                                    code: LOT_SIZE
-                                  value: '100'
-                                - descriptor:
                                     code: BID_QTY_INCREMENT
                                   value: '1'
                                 - descriptor:
-                                    code: MIN_BIDDER_REQ
+                                    code: MIN_BIDDER_REQUIRED
                                   value: '5'
                                 - descriptor:
                                     code: TYPE_OF_AUCTION
@@ -10492,31 +10159,33 @@ x-examples:
                           category_ids:
                             - SRV16-1001
                           item_ids:
-                            - I2
+                            - I1
                           time:
                             label: validity
                             range:
                               start: '2024-04-01T00:00:00.000Z'
                               end: '2024-12-10T00:00:00.000Z'
-                            days: 04,05
                           tags:
-                            - code: qualifier
+                            - descriptor:
+                                code: qualifier
                               list:
                                 - descriptor:
                                     code: min_value
                                   value: '5000'
-                            - code: benefit
+                            - descriptor:
+                                code: benefit
                               list:
                                 - descriptor:
                                     code: item_count
                                   value: '5'
                                 - descriptor:
                                     code: item_id
-                                  value: I2
+                                  value: I1
                                 - descriptor:
                                     code: item_value
                                   value: '200.00'
-                            - code: meta
+                            - descriptor:
+                                code: meta
                               list:
                                 - descriptor:
                                     code: additive
@@ -10553,9 +10222,7 @@ x-examples:
                   provider:
                     id: P1
                   items:
-                    - fulfillment_ids:
-                        - F1
-                      id: I1
+                    - id: I1
                       location_ids:
                         - L1
                       category_ids:
@@ -10581,11 +10248,6 @@ x-examples:
                               value: 7%
                   fulfillments:
                     - id: F1
-                      type: Buyer-Fulfilled
-                      tracking: false
-                      state:
-                        descriptor:
-                          code: Serviceable
                       stops:
                         - type: end
                           location:
@@ -10706,8 +10368,6 @@ x-examples:
                     - id: L1
                   items:
                     - id: I1
-                      fulfillment_ids:
-                        - F1
                       location_ids:
                         - L1
                       category_ids:
@@ -10732,7 +10392,7 @@ x-examples:
                                 code: DEFECTIVES
                               value: 7%
                         - descriptor:
-                            code: CERTIFICATES
+                            code: QUALITY_ASSESSMENT_REPORT
                           display: true
                           list:
                             - descriptor:
@@ -10758,8 +10418,6 @@ x-examples:
                     phone: '9886098860'
                   fulfillments:
                     - id: F1
-                      type: Buyer-Fulfilled
-                      tracking: false
                       stops:
                         - type: end
                           location:
@@ -10969,8 +10627,6 @@ x-examples:
                     rateable: true
                   items:
                     - id: I1
-                      fulfillment_ids:
-                        - F1
                       location_ids:
                         - L1
                       category_ids:
@@ -10995,7 +10651,7 @@ x-examples:
                                 code: DEFECTIVES
                               value: 7%
                         - descriptor:
-                            code: CERTIFICATES
+                            code: QUALITY_ASSESSMENT_REPORT
                           display: true
                           list:
                             - descriptor:
@@ -11024,8 +10680,6 @@ x-examples:
                       state:
                         descriptor:
                           code: Placed
-                      type: Buyer-Fulfilled
-                      tracking: false
                       stops:
                         - type: end
                           location:
@@ -11249,8 +10903,6 @@ x-examples:
                       - id: L1
                   items:
                     - id: I1
-                      fulfillment_ids:
-                        - F1
                       location_ids:
                         - L1
                       category_ids:
@@ -11275,7 +10927,7 @@ x-examples:
                                 code: DEFECTIVES
                               value: 7%
                         - descriptor:
-                            code: CERTIFICATES
+                            code: QUALITY_ASSESSMENT_REPORT
                           display: true
                           list:
                             - descriptor:
@@ -11304,8 +10956,6 @@ x-examples:
                       state:
                         descriptor:
                           code: Placed
-                      type: Buyer-Fulfilled
-                      tracking: false
                       stops:
                         - type: end
                           location:
@@ -11517,9 +11167,7 @@ x-examples:
                     locations:
                       - id: L1
                   items:
-                    - id: I2
-                      fulfillment_ids:
-                        - F1
+                    - id: I1
                       quantity:
                         selected:
                           count: 100
@@ -11528,8 +11176,6 @@ x-examples:
                       state:
                         descriptor:
                           code: Cancelled
-                      type: Buyer-Fulfilled
-                      tracking: false
                       stops:
                         - type: end
                           location:
@@ -11747,9 +11393,7 @@ x-examples:
                     locations:
                       - id: L1
                   items:
-                    - id: I2
-                      fulfillment_ids:
-                        - F1
+                    - id: I1
                       quantity:
                         selected:
                           count: 100
@@ -11758,8 +11402,6 @@ x-examples:
                       state:
                         descriptor:
                           code: Not-Awarded
-                      type: Buyer-Fulfilled
-                      tracking: false
                       stops:
                         - type: end
                           location:
@@ -11977,9 +11619,7 @@ x-examples:
                     locations:
                       - id: L1
                   items:
-                    - id: I2
-                      fulfillment_ids:
-                        - F1
+                    - id: I1
                       quantity:
                         selected:
                           count: 100
@@ -11988,8 +11628,6 @@ x-examples:
                       state:
                         descriptor:
                           code: Not-Awarded
-                      type: Buyer-Fulfilled
-                      tracking: false
                       stops:
                         - type: end
                           location:
@@ -12206,8 +11844,6 @@ x-examples:
                       quantity:
                         selected:
                           count: 100
-                      fulfillment_ids:
-                        - F1
                       payment_ids:
                         - PY2
                       tags:
@@ -12331,8 +11967,6 @@ x-examples:
                       state:
                         descriptor:
                           code: Placed
-                      type: Buyer-Fulfilled
-                      tracking: false
                       stops:
                         - type: end
                           location:
@@ -12538,7 +12172,7 @@ x-attributes:
           timestamp:
             description: RFC3339 compliant timestamp
             required: mandatory
-            usage: '2023-10-17T21:10:00.000Z'
+            usage: '2024-06-10T21:10:00.000Z'
             reference: if any
           ttl:
             description: validity of message
@@ -12552,48 +12186,10 @@ x-attributes:
             item:
               parent: true
               category:
-                description: Category of the search
+                description: Category of the commodity
                 required: optional
-                usage: SRV15-1001
+                usage: SRV16-1001
                 reference: if any
-            fulfillment:
-              parent: true
-              type:
-                description: >-
-                  fulfillment type for the auction, enum - "Buyer-Fulfilled,
-                  Seller-Fulfilled"
-                required: required
-                usage: Buyer-Fulfilled
-                reference: if any
-              stops:
-                location:
-                  gps:
-                    description: >-
-                      auction location gps coordinates where auction needs to be
-                      provided, should be atleast 6 digit decimal precision
-                    required: required
-                    usage: 12.4535445,77.9283792
-                    reference: if any
-                time:
-                  range:
-                    start:
-                      description: start time of the time slot desired for the auction
-                      required: required
-                      usage: '2023-11-16T09:30:00Z'
-                      reference: if any
-                    end:
-                      description: end time of the time slot desired for the auction
-                      required: required
-                      usage: '2023-11-16T10:30:00Z'
-                      reference: if any
-                  days:
-                    description: >-
-                      string comma separated values representing days of the
-                      week on which the auction is required ("1" - Monday, "7" -
-                      Sunday)
-                    required: required
-                    usage: 1,2,3,4,5,6,7
-                    reference: if any
             payment:
               parent: true
               collected_by:
@@ -12621,20 +12217,6 @@ x-attributes:
           parent: true
           catalog:
             parent: true
-            fulfillments:
-              parent: true
-              id:
-                description: fulfillment id
-                required: required
-                usage: '1'
-                reference: if any
-              type:
-                description: >-
-                  fulfillment type of the bids, enum - "Seller-Fulfilled,
-                  Buyer-Fulfilled"
-                required: required
-                usage: Selled-Fulfilled
-                reference: if any
             payments:
               parent: true
               id:
@@ -12665,10 +12247,11 @@ x-attributes:
                 usage: bids and auction Providers
                 reference: if any
               images:
-                description: images of auction commodity provider
-                required: optional
-                usage: '[]'
-                reference: if any
+                url:
+                  description: images url of auction commodity provider
+                  required: optional
+                  usage: '-'
+                  reference: if any
             providers:
               parent: true
               id:
@@ -12677,61 +12260,169 @@ x-attributes:
                 usage: P1
                 reference: if any
               descriptor:
-                description: details of the auction provider
-                required: required
-                usage: Equipment Provider store
-                reference: if any
+                name:
+                  description: name of auction commodity provider
+                  required: required
+                  usage: ABC store
+                  reference: if any
+                code:
+                  description: code of auction commodity provider
+                  required: required
+                  usage: P001
+                  reference: if any
+                short_desc:
+                  description: description of auction commodity provider
+                  required: required
+                  usage: bids and auction Providers
+                  reference: if any
+                long_desc:
+                  description: long description of auction commodity provider
+                  required: optional
+                  usage: bids and auction Providers
+                  reference: if any
+                images:
+                  url:
+                    description: images url of auction commodity provider
+                    required: optional
+                    usage: '-'
+                    reference: if any
               rating:
                 description: rating of the auction provider
                 required: optional
                 usage: '4.4'
                 reference: if any
+              ttl:
+                description: ttl for catalog
+                required: optional
+                usage: P1D
+                reference: if any
               locations:
                 description: auction provider locations
-                required: optional
-                usage: '-'
+                required: required
+                usage: refer the on_search example json
                 reference: if any
               creds:
-                description: Any certification details
-                required: optional
-                usage: '-'
-                reference: if any
-              offers:
-                id:
-                  description: offer id
+                parent: true
+                creds:
+                  description: credentials of the seller
                   required: optional
-                  usage: '[{}]'
+                  usage: '-'
+                  reference: if any
+                id:
+                  required: required
+                  description: Human readable id
+                  reference: if any
+                  usage: ESG-12345678
+                type:
+                  required: required
+                  description: Type of creds
+                  reference: if any
+                  usage: License
+                desc:
+                  required: optional
+                  description: Description of creds
+                  reference: if any
+                  usage: Export License No. ESG-12345678
+                url:
+                  required: optional
+                  description: Physical description
+                  reference: if any
+                  usage: https://abcd.cdn.com/images/license-img
+              offers:
+                parent: true
+                offers:
+                  description: >-
+                    Offers can be defined for a provider. An offer can be -
+                    opt-in, auto-applied. An offer will include the following
+                    info - offer id, offer type, images - may be used as banners
+                    to promote the offer from a merchant. An offer applicability
+                    criteria can include one or more of the following -
+                    location(s), categories, item(s), time period validity.
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                id:
+                  description: unique offer id from provider;
+                  required: required
+                  usage: FLAT150, DISCP60, DISCA150, BUY2GET3, FREEBIE
                   reference: if any
                 descriptor:
-                  code:
-                    description: code of the offer being provided by the auction provider
-                    required: optional
-                    usage: FREEBIE
-                    reference: if any
-                  short_desc:
-                    description: >-
-                      description of the offer being provided by the auction
-                      provider
-                    required: optional
-                    usage: Cushion Cleaning
-                    reference: if any
-                item_ids:
-                  description: item ids on which this offer is applicable
+                  description: description of the offer.
+                  required: required
+                  usage: '-'
+                  reference: if any
+                descriptor.name:
+                  description: description of the offer.
                   required: optional
-                  usage: '[I2]'
+                  usage: 60% off up to ₹120, for order value above ₹159
+                  reference: if any
+                descriptor.code:
+                  description: >-
+                    offer type - disc_pct  (discount percent or amount applied
+                    to the cart value, with or without a cap, and may be based
+                    on minimum cart value) , disc_amt (flat discount amount
+                    applied to the cart value, and may be based on minimum cart
+                    value), buyXgetY ( for every "X" item count in the cart,
+                    total of "Y" items will be offered (i.e. "Y" - "X"
+                    additional items), at 0 additional value) , freebie (for a
+                    minimum order value, 1 or more free item(s) will be offered
+                    at 0 value)
+                  required: required
+                  usage: disc_pct
+                  reference: if any
+                descriptor.short_desc:
+                  description: short description of the offer.
+                  required: optional
+                  usage: 60% off up to ₹120
+                  reference: if any
+                descriptor.long_desc:
+                  description: long description of the offer.
+                  required: optional
+                  usage: for order value above ₹159
+                  reference: if any
+                descriptor.images:
+                  description: banner image from seller
+                  required: optional
+                  usage: https://sellerNP.com/images/offer2-banner.png
+                  reference: if any
+                location_ids:
+                  description: location ids of the stores where the offer is applicable.
+                  required: required
+                  usage: L1
+                  reference: if any
+                category_ids:
+                  description: category ids for which the offer is applicable.
+                  required: required
+                  usage: SRV16-1001
+                  reference: if any
+                item_ids:
+                  description: item ids for which the offer is applicable.
+                  required: required
+                  usage: I1
                   reference: if any
                 time:
-                  range:
-                    start:
-                      description: start date of the period for which offer is available
-                      required: optional
-                      usage: '2023-11-12T00:00:00.000Z'
-                      reference: if any
-                    end:
-                      description: end date of the offer
-                      required: optional
-                      usage: '2023-11-16T00:00:00.000Z'
-                      reference: if any
+                  description: validity of the offer.
+                  required: required
+                  usage: '-'
+                  reference: if any
+                time.label:
+                  description: if the offer is valid
+                  required: required
+                  usage: valid
+                  reference: if any
+                time.range:
+                  description: range of the validity of the offer
+                  required: required
+                  usage: '-'
+                  reference: if any
+                tags:
+                  description: >-
+                    Tags can be utilized to specify the minimum order value,
+                    discount value, and other metadata related to the offer and
+                    its application.
+                  required: required
+                  usage: '-'
+                  reference: if any
               fulfillments:
                 contact:
                   phone:
@@ -12739,7 +12430,18 @@ x-attributes:
                     required: optional
                     usage: '9886098860'
                     reference: if any
+                  email:
+                    description: email of the auction provider
+                    required: optional
+                    usage: abc@xyz.com
+                    reference: if any
               items:
+                parent: true
+                items:
+                  description: Commodity details for auction
+                  required: required
+                  usage: '-'
+                  reference: if any
                 id:
                   description: Item id
                   required: required
@@ -12777,75 +12479,92 @@ x-attributes:
                     required: optional
                     usage: '-'
                     reference: if any
-                  price:
-                    value:
-                      description: price of the auction
+                creator:
+                  descriptor.name:
+                    description: Any Marketer if (applicable)
+                    required: optional
+                    usage: Any Marketer if (applicable)
+                    reference: if any
+                  descriptor.contact:
+                    description: contact deatils of creator
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                price:
+                  value:
+                    description: price of the commodity per unit applicable for auction
+                    required: required
+                    usage: '300'
+                    reference: if any
+                  currency:
+                    description: currency of the price value
+                    required: required
+                    usage: INR
+                    reference: if any
+                quantity:
+                  unitized:
+                    measure:
+                      unit:
+                        description: unit of the lot size of commodity
+                        required: required
+                        usage: kg
+                        reference: if any
+                      value:
+                        description: actual weight/quantity/size of the commodity
+                        required: required
+                        usage: '5000'
+                        reference: if any
+                  minimum:
+                    measure:
+                      unit:
+                        description: unit of the commodity
+                        required: required
+                        usage: kg
+                        reference: if any
+                      value:
+                        description: commodity unit size/weight
+                        required: required
+                        usage: '50'
+                        reference: if any
+                    count:
+                      description: minimum quantity need to select for bid
                       required: required
-                      usage: '500'
+                      usage: '100'
                       reference: if any
-                    currency:
-                      description: currency of the price value
+                  available:
+                    measure:
+                      unit:
+                        description: unit of the commodity
+                        required: required
+                        usage: kg
+                        reference: if any
+                      value:
+                        description: commodity unit size/weight
+                        required: required
+                        usage: '50'
+                        reference: if any
+                    count:
+                      description: quantity available for bid
                       required: required
-                      usage: INR
+                      usage: '100'
                       reference: if any
                 category_ids:
                   description: >-
                     category id of the auction provided by the auction provider
                     which was sent in /search call
                   required: required
-                  usage: SRV16-1000
-                  reference: if any
-                fulfillment_ids:
-                  description: >-
-                    fulfillment id of the auction provided by the auction
-                    provider
-                  required: required
-                  usage: F1
+                  usage: SRV16-1001
                   reference: if any
                 location_ids:
                   description: location ids of the auction provider
                   required: required
                   usage: L1
                   reference: if any
-                add_ons:
-                  id:
-                    description: Add-on item id
-                    required: required
-                    usage: A1
-                    reference: if any
-                  descriptor:
-                    name:
-                      description: >-
-                        name of the add-on equipment provided by the auction
-                        provider
-                      required: required
-                      usage: Driver
-                      reference: if any
-                    short_desc:
-                      description: >-
-                        short description of the equipment provided by the
-                        auction provider
-                      required: required
-                      usage: Driver knows about farming
-                      reference: if any
-                    long_desc:
-                      description: >-
-                        long description of the equipment provided by the
-                        auction provider
-                      required: required
-                      usage: Driver knows about farming
-                      reference: if any
-                    price:
-                      value:
-                        description: price of the auction
-                        required: required
-                        usage: '500'
-                        reference: if any
-                      currency:
-                        description: currency of the price value
-                        required: required
-                        usage: INR
-                        reference: if any
+                payment_ids:
+                  description: payment ids of the auction provider
+                  required: required
+                  usage: PY1
+                  reference: if any
                 time:
                   range:
                     start:
@@ -12857,22 +12576,6 @@ x-attributes:
                       description: availability end date of the auction provider
                       required: required
                       usage: '2022-11-20T00:00:00.000Z'
-                      reference: if any
-                  schedule:
-                    frequency:
-                      description: auction slot frequency
-                      required: required
-                      usage: PT1H
-                      reference: if any
-                    holidays:
-                      description: days on which auction provide is not available
-                      required: required
-                      usage: '[2023-11-13, 2023-11-15]'
-                      reference: if any
-                    times:
-                      description: time slots in which auction provide is available
-                      required: required
-                      usage: '[2022-11-20T00:00:00.000Z]'
                       reference: if any
                 cancellation_terms:
                   fulfillment_state:
@@ -12893,6 +12596,29 @@ x-attributes:
                       required: required
                       usage: '2022-11-20T00:00:00.000Z'
                       reference: if any
+                tags:
+                  descriptor:
+                    code:
+                      description: >-
+                        Required property need to add SERVICE_INFORMATION
+                        (Required), QUALITY_ASSESSMENT_REPORT (Optional),
+                        COMMODITY_SPECIFICATION (Required) and
+                        AUCTION_SPECIFICATION (Required), for detailed child key
+                        please refer tags section which have all child tags with
+                        required descriptions
+                      required: required
+                      usage: '-'
+                      reference: if any
+              tags:
+                descriptor:
+                  code:
+                    description: >-
+                      Details of seller_terms (any gst term), seller_id (like
+                      mmandi licence) and FSSAI_LICENSE_NO (fssai license
+                      details).
+                    required: required
+                    usage: '-'
+                    reference: if any
       select:
         parent: true
         message:
@@ -12919,11 +12645,6 @@ x-attributes:
                 required: required
                 usage: I1
                 reference: if any
-              fulfillment_ids:
-                description: fulfillment ids related to the item
-                required: required
-                usage: '[2]'
-                reference: if any
               location_ids:
                 description: location ids related to the item
                 required: required
@@ -12937,14 +12658,14 @@ x-attributes:
               quantity:
                 selected:
                   count:
-                    description: >-
-                      number of items selected e.g. number of sofas to be
-                      cleaned
+                    description: number of items selected for bid
                     required: required
                     usage: '1'
                     reference: if any
               tags:
-                description: tags associated with the item
+                description: >-
+                  tags associated with the item like auction details and
+                  commodity details which you have selected for bid
                 required: optional
                 usage: >-
                   [{"descriptor":{"code":"COMMODITY_SPECIFICATION"},"list":[{"descriptor":{"code":"SELF_LIFE"},"value":"P10M"},{"descriptor":{"code":"MOISTURE"},"value":"10%"},{"descriptor":{"code":"OIL_CONTENT"},"value":"2%"},{"descriptor":{"code":"DEFECTIVES"},"value":"7%"}]}]
@@ -12955,11 +12676,6 @@ x-attributes:
                 description: contains the fulfillment details
                 required: required
                 usage: '-'
-                reference: if any
-              type:
-                description: type of fulfillment
-                required: required
-                usage: Seller-Fulfilled
                 reference: if any
               stops:
                 time:
@@ -12972,7 +12688,7 @@ x-attributes:
                     start:
                       description: start time of the time slot chosen for the auction
                       required: required
-                      usage: '2023-11-16T09:30:00Z'
+                      usage: '2024-06-10T09:30:00Z'
                       reference: if any
                 location:
                   gps:
@@ -13010,11 +12726,6 @@ x-attributes:
                 required: required
                 usage: I1
                 reference: if any
-              fulfillment_ids:
-                description: fulfillment ids related to the item
-                required: required
-                usage: '[F1]'
-                reference: if any
               location_ids:
                 description: location ids related to the item
                 required: required
@@ -13023,11 +12734,9 @@ x-attributes:
               quantity:
                 selected:
                   count:
-                    description: >-
-                      number of items selected e.g. number of sofas to be
-                      cleaned
+                    description: number of items selected for bid
                     required: required
-                    usage: '1'
+                    usage: '100'
                     reference: if any
             fulfillments:
               parent: true
@@ -13041,23 +12750,6 @@ x-attributes:
                 required: required
                 usage: F1
                 reference: if any
-              type:
-                description: type of fulfillment
-                required: required
-                usage: Seller-Fulfilled
-                reference: if any
-              tracking:
-                description: indicates if tracking is enabled
-                required: required
-                usage: false
-                reference: if any
-              state:
-                descriptor:
-                  code:
-                    description: state code of the fulfillment
-                    required: required
-                    usage: Serviceable
-                    reference: if any
               stops:
                 type:
                   description: type of stop
@@ -13093,6 +12785,12 @@ x-attributes:
                       usage: '2024-04-04T23:00:00.000Z'
                       reference: if any
             quote:
+              parent: true
+              quote:
+                description: quote of the bid
+                required: required
+                usage: '-'
+                reference: if any
               price:
                 currency:
                   description: currency of the price
@@ -13102,13 +12800,13 @@ x-attributes:
                 value:
                   description: value of the price
                   required: required
-                  usage: '7140'
+                  usage: '30050'
                   reference: if any
               breakup:
                 - title:
                     description: title of the price component
                     required: required
-                    usage: Tractor
+                    usage: Wheat (Auction)
                     reference: if any
                   price:
                     currency:
@@ -13119,7 +12817,7 @@ x-attributes:
                     value:
                       description: value of the price component
                       required: required
-                      usage: '500'
+                      usage: '25000'
                       reference: if any
                   item:
                     id:
@@ -13132,7 +12830,7 @@ x-attributes:
                         count:
                           description: number of items selected
                           required: required
-                          usage: '1'
+                          usage: '100'
                           reference: if any
                     price:
                       currency:
@@ -13143,7 +12841,7 @@ x-attributes:
                       value:
                         description: value of the item price
                         required: required
-                        usage: '500'
+                        usage: '250'
                         reference: if any
                   tags:
                     description: tags associated with the price component
@@ -13154,7 +12852,7 @@ x-attributes:
                 - title:
                     description: title of the price component
                     required: required
-                    usage: refundable_security
+                    usage: earnest_money_deposit
                     reference: if any
                   price:
                     currency:
@@ -13221,7 +12919,7 @@ x-attributes:
                     value:
                       description: value of the price component
                       required: required
-                      usage: '10'
+                      usage: '100'
                       reference: if any
                   item:
                     id:
@@ -13269,6 +12967,12 @@ x-attributes:
                 usage: P1D
                 reference: if any
             payments:
+              parent: true
+              payments:
+                description: payments of the bid
+                required: required
+                usage: '-'
+                reference: if any
               type:
                 description: type of payment
                 required: required
@@ -13305,11 +13009,6 @@ x-attributes:
                 required: required
                 usage: I1
                 reference: if any
-              fulfillment_ids:
-                description: fulfillment ids related to the item
-                required: required
-                usage: '[2]'
-                reference: if any
               location_ids:
                 description: location ids related to the item
                 required: required
@@ -13323,11 +13022,9 @@ x-attributes:
               quantity:
                 selected:
                   count:
-                    description: >-
-                      number of items selected e.g. number of sofas to be
-                      cleaned
+                    description: number of items selected for bids
                     required: required
-                    usage: '1'
+                    usage: '100'
                     reference: if any
               tags:
                 description: tags associated with the item
@@ -13386,11 +13083,6 @@ x-attributes:
                 description: id of the fulfillment
                 required: required
                 usage: F1
-                reference: if any
-              type:
-                description: type of fulfillment
-                required: required
-                usage: Seller-Fulfilled
                 reference: if any
               stops:
                 type:
@@ -13456,6 +13148,12 @@ x-attributes:
                       usage: '2024-04-04T23:00:00.000Z'
                       reference: if any
             payments:
+              parent: true
+              payments:
+                description: payments of the bid
+                required: required
+                usage: '-'
+                reference: if any
               type:
                 description: type of payment
                 required: required
@@ -13479,23 +13177,18 @@ x-attributes:
                 required: required
                 usage: P1
                 reference: if any
-            locations:
-              - id:
-                  description: location id of the provider
-                  required: required
-                  usage: L1
-                  reference: if any
+              locations:
+                - id:
+                    description: location id of the provider
+                    required: required
+                    usage: L1
+                    reference: if any
             items:
               parent: true
               id:
                 description: item id i.e. the id of the bid
                 required: required
                 usage: I1
-                reference: if any
-              fulfillment_ids:
-                description: fulfillment ids related to the item
-                required: required
-                usage: '[2]'
                 reference: if any
               location_ids:
                 description: location ids related to the item
@@ -13510,11 +13203,9 @@ x-attributes:
               quantity:
                 selected:
                   count:
-                    description: >-
-                      number of items selected e.g. number of sofas to be
-                      cleaned
+                    description: number of items selected for bid
                     required: required
-                    usage: '1'
+                    usage: '100'
                     reference: if any
               tags:
                 description: tags associated with the item
@@ -13573,16 +13264,6 @@ x-attributes:
                 description: id of the fulfillment
                 required: required
                 usage: F1
-                reference: if any
-              type:
-                description: type of fulfillment
-                required: required
-                usage: Seller-Fulfilled
-                reference: if any
-              tracking:
-                description: tracking status of the fulfillment
-                required: required
-                usage: 'false'
                 reference: if any
               stops:
                 type:
@@ -13648,6 +13329,12 @@ x-attributes:
                       usage: '2024-06-10T23:00:00.000Z'
                       reference: if any
             quote:
+              parent: true
+              quote:
+                description: quote of the bid
+                required: required
+                usage: '-'
+                reference: if any
               price:
                 currency:
                   description: currency of the price
@@ -13657,151 +13344,271 @@ x-attributes:
                 value:
                   description: value of the price
                   required: required
-                  usage: '7140'
+                  usage: '30050'
                   reference: if any
               breakup:
-                description: detailed price breakup
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: Wheat (Auction)
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '25000'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                    quantity:
+                      selected:
+                        count:
+                          description: number of items selected
+                          required: required
+                          usage: '100'
+                          reference: if any
+                    price:
+                      currency:
+                        description: currency of the item price
+                        required: required
+                        usage: INR
+                        reference: if any
+                      value:
+                        description: value of the item price
+                        required: required
+                        usage: '250'
+                        reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"item"}]}]
+                    reference: if any
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: earnest_money_deposit
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '5000'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"refundable_security"}]}]
+                    reference: if any
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: tax
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '50'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"tax"}]}]
+                    reference: if any
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: discount
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '100'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"discount"}]}]
+                    reference: if any
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: pickup_charge
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '100'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"misc"}]}]
+                    reference: if any
+              ttl:
+                description: time-to-live for the quote
                 required: required
-                usage:
-                  - title:
-                      description: title of the price component
-                      required: required
-                      usage: Tractor
-                      reference: if any
-                    price:
-                      currency:
-                        description: currency of the price
-                        required: required
-                        usage: INR
-                        reference: if any
-                      value:
-                        description: value of the price
-                        required: required
-                        usage: '500'
-                        reference: if any
-                    item:
-                      id:
-                        description: item id
-                        required: required
-                        usage: I1
-                        reference: if any
-                      quantity:
-                        selected:
-                          count:
-                            description: selected quantity
-                            required: required
-                            usage: '1'
-                            reference: if any
-                      price:
-                        currency:
-                          description: currency of the item price
-                          required: required
-                          usage: INR
-                          reference: if any
-                        value:
-                          description: value of the item price
-                          required: required
-                          usage: '500'
-                          reference: if any
-                    tags:
-                      description: tags associated with the price component
-                      required: optional
-                      usage: >-
-                        [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"item"}]}]
-                      reference: if any
-                  - title:
-                      description: title of the price component
-                      required: required
-                      usage: refundable_security
-                      reference: if any
-                    price:
-                      currency:
-                        description: currency of the price
-                        required: required
-                        usage: INR
-                        reference: if any
-                      value:
-                        description: value of the price
-                        required: required
-                        usage: '5000'
-                        reference: if any
-                    item:
-                      id:
-                        description: item id
-                        required: required
-                        usage: I1
-                        reference: if any
-                    tags:
-                      description: tags associated with the price component
-                      required: optional
-                      usage: >-
-                        [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"refundable_security"}]}]
-                      reference: if any
-                  - title:
-                      description: title of the price component
-                      required: required
-                      usage: tax
-                      reference: if any
-                    price:
-                      currency:
-                        description: currency of the price
-                        required: required
-                        usage: INR
-                        reference: if any
-                      value:
-                        description: value of the price
-                        required: required
-                        usage: '50'
-                        reference: if any
-                    item:
-                      id:
-                        description: item id
-                        required: required
-                        usage: I1
-                        reference: if any
-                    tags:
-                      description: tags associated with the price component
-                      required: optional
-                      usage: >-
-                        [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"tax"}]}]
-                      reference: if any
-                  - title:
-                      description: title of the price component
-                      required: required
-                      usage: discount
-                      reference: if any
-                    price:
-                      currency:
-                        description: currency of the price
-                        required: required
-                        usage: INR
-                        reference: if any
-                      value:
-                        description: value of the price
-                        required: required
-                        usage: '10'
-                        reference: if any
-                    item:
-                      id:
-                        description: item id
-                        required: required
-                        usage: I1
-                        reference: if any
-                    tags:
-                      description: tags associated with the price component
-                      required: optional
-                      usage: >-
-                        [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"discount"}]}]
-                      reference: if any
-                  - title:
-                      description: title of the price component
-                      required: required
+                usage: P1D
+                reference: if any
       confirm:
         parent: true
         message:
           parent: true
           order:
             parent: true
+            id:
+              description: Order Id of the auction
+              required: required
+              usage: O1
+              reference: if any
+            status:
+              description: status of the order
+              required: required
+              usage: O1
+              reference: if any
+            provider:
+              parent: true
+              id:
+                description: id of the provider chosen for the bid
+                required: required
+                usage: P1
+                reference: if any
+              locations:
+                id:
+                  description: location id of the provider
+                  required: required
+                  usage: L1
+                  reference: if any
+            items:
+              parent: true
+              id:
+                description: item id i.e. the id of the bid
+                required: required
+                usage: I1
+                reference: if any
+              location_ids:
+                description: location ids related to the item
+                required: required
+                usage: '[L1]'
+                reference: if any
+              category_ids:
+                description: category ids related to the item
+                required: required
+                usage: '[SRV16-1001]'
+                reference: if any
+              quantity:
+                selected:
+                  count:
+                    description: number of items selected for bid
+                    required: required
+                    usage: '100'
+                    reference: if any
+              tags:
+                description: tags associated with the item
+                required: optional
+                usage: >-
+                  [{"descriptor":{"code":"COMMODITY_SPECIFICATION"},"list":[{"descriptor":{"code":"SELF_LIFE"},"value":"P10M"},{"descriptor":{"code":"MOISTURE"},"value":"10%"},{"descriptor":{"code":"OIL_CONTENT"},"value":"2%"},{"descriptor":{"code":"DEFECTIVES"},"value":"7%"}]}]
+                reference: if any
+            billing:
+              name:
+                description: name of the billing person or entity
+                required: required
+                usage: ONDC buyer
+                reference: if any
+              address:
+                description: billing address
+                required: required
+                usage: >-
+                  22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                  Bengaluru, Karnataka 560001
+                reference: if any
+              state:
+                name:
+                  description: state name in the billing address
+                  required: required
+                  usage: Karnataka
+                  reference: if any
+              city:
+                name:
+                  description: city name in the billing address
+                  required: required
+                  usage: Bengaluru
+                  reference: if any
+              tax_id:
+                description: tax identification number
+                required: required
+                usage: XXXXXXXXXXXXXXX
+                reference: if any
+              email:
+                description: email address for billing
+                required: required
+                usage: nobody@nomail.com
+                reference: if any
+              phone:
+                description: phone number for billing
+                required: required
+                usage: '9886098860'
+                reference: if any
             fulfillments:
               parent: true
               fulfillments:
@@ -13815,15 +13622,20 @@ x-attributes:
                     start:
                       description: start time of the bid
                       required: required
-                      usage: '2023-11-16T09:30:00Z'
+                      usage: '2024-06-10T09:30:00Z'
                       reference: if any
                     end:
                       description: end time of the bid
                       required: required
-                      usage: '2023-11-16T10:30:00Z'
+                      usage: '2024-06-10T10:30:00Z'
                       reference: if any
             payments:
               parent: true
+              payments:
+                description: payments of the bid
+                required: required
+                usage: '-'
+                reference: if any
               id:
                 description: Payment ID
                 required: required
@@ -13893,11 +13705,99 @@ x-attributes:
           parent: true
           order:
             parent: true
+            id:
+              description: Order Id of the auction
+              required: required
+              usage: O1
+              reference: if any
             state:
               description: status of the order, enum - "In-progress", "Cancelled"
               required: required
               usage: Created
               reference: if any
+            provider:
+              parent: true
+              id:
+                description: id of the provider chosen for the bid
+                required: required
+                usage: P1
+                reference: if any
+              locations:
+                id:
+                  description: location id of the provider
+                  required: required
+                  usage: L1
+                  reference: if any
+            items:
+              parent: true
+              id:
+                description: item id i.e. the id of the bid
+                required: required
+                usage: I1
+                reference: if any
+              location_ids:
+                description: location ids related to the item
+                required: required
+                usage: '[L1]'
+                reference: if any
+              category_ids:
+                description: category ids related to the item
+                required: required
+                usage: '[SRV16-1001]'
+                reference: if any
+              quantity:
+                selected:
+                  count:
+                    description: number of items selected for bid
+                    required: required
+                    usage: '100'
+                    reference: if any
+              tags:
+                description: tags associated with the item
+                required: optional
+                usage: >-
+                  [{"descriptor":{"code":"COMMODITY_SPECIFICATION"},"list":[{"descriptor":{"code":"SELF_LIFE"},"value":"P10M"},{"descriptor":{"code":"MOISTURE"},"value":"10%"},{"descriptor":{"code":"OIL_CONTENT"},"value":"2%"},{"descriptor":{"code":"DEFECTIVES"},"value":"7%"}]}]
+                reference: if any
+            billing:
+              name:
+                description: name of the billing person or entity
+                required: required
+                usage: ONDC buyer
+                reference: if any
+              address:
+                description: billing address
+                required: required
+                usage: >-
+                  22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                  Bengaluru, Karnataka 560001
+                reference: if any
+              state:
+                name:
+                  description: state name in the billing address
+                  required: required
+                  usage: Karnataka
+                  reference: if any
+              city:
+                name:
+                  description: city name in the billing address
+                  required: required
+                  usage: Bengaluru
+                  reference: if any
+              tax_id:
+                description: tax identification number
+                required: required
+                usage: XXXXXXXXXXXXXXX
+                reference: if any
+              email:
+                description: email address for billing
+                required: required
+                usage: nobody@nomail.com
+                reference: if any
+              phone:
+                description: phone number for billing
+                required: required
+                usage: '9886098860'
+                reference: if any
             fulfillments:
               parent: true
               fulfillments:
@@ -13911,12 +13811,12 @@ x-attributes:
                     start:
                       description: start time of the bid
                       required: required
-                      usage: '2023-11-16T09:30:00Z'
+                      usage: '2024-06-10T09:30:00Z'
                       reference: if any
                     end:
                       description: end time of the bid
                       required: required
-                      usage: '2023-11-16T10:30:00Z'
+                      usage: '2024-06-10T10:30:00Z'
                       reference: if any
             payments:
               parent: true
@@ -13983,6 +13883,188 @@ x-attributes:
                       required: optional
                       usage: BPP
                       reference: if any
+            quote:
+              parent: true
+              quote:
+                description: quote of the bid
+                required: required
+                usage: '-'
+                reference: if any
+              price:
+                currency:
+                  description: currency of the price
+                  required: required
+                  usage: INR
+                  reference: if any
+                value:
+                  description: value of the price
+                  required: required
+                  usage: '30050'
+                  reference: if any
+              breakup:
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: Wheat (Auction)
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '25000'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                    quantity:
+                      selected:
+                        count:
+                          description: number of items selected
+                          required: required
+                          usage: '100'
+                          reference: if any
+                    price:
+                      currency:
+                        description: currency of the item price
+                        required: required
+                        usage: INR
+                        reference: if any
+                      value:
+                        description: value of the item price
+                        required: required
+                        usage: '250'
+                        reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"item"}]}]
+                    reference: if any
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: earnest_money_deposit
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '5000'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"refundable_security"}]}]
+                    reference: if any
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: tax
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '50'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"tax"}]}]
+                    reference: if any
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: discount
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '100'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"discount"}]}]
+                    reference: if any
+                - title:
+                    description: title of the price component
+                    required: required
+                    usage: pickup_charge
+                    reference: if any
+                  price:
+                    currency:
+                      description: currency of the price component
+                      required: required
+                      usage: INR
+                      reference: if any
+                    value:
+                      description: value of the price component
+                      required: required
+                      usage: '100'
+                      reference: if any
+                  item:
+                    id:
+                      description: id of the item
+                      required: required
+                      usage: I1
+                      reference: if any
+                  tags:
+                    description: tags associated with the price component
+                    required: optional
+                    usage: >-
+                      [{"descriptor":{"code":"title"},"list":[{"descriptor":{"code":"type"},"value":"misc"}]}]
+                    reference: if any
+              ttl:
+                description: time-to-live for the quote
+                required: required
+                usage: P1D
+                reference: if any
       update:
         parent: true
         message:
@@ -14007,12 +14089,12 @@ x-attributes:
                     start:
                       description: start time of the auction
                       required: required
-                      usage: '2023-11-16T09:30:00Z'
+                      usage: '2024-06-10T09:30:00Z'
                       reference: if any
                     end:
                       description: end time of the auction
                       required: required
-                      usage: '2023-11-16T10:30:00Z'
+                      usage: '2024-06-10T10:30:00Z'
                       reference: if any
             payment:
               parent: true
@@ -14050,7 +14132,7 @@ x-attributes:
             status:
               description: Status of the order
               required: mandatory
-              usage: Pending
+              usage: In-Progress
               reference: if any
             provider:
               parent: true
@@ -14079,11 +14161,6 @@ x-attributes:
                       required: mandatory
                       usage: '4'
                       reference: if any
-              fulfillment_ids:
-                description: Fulfillment IDs
-                required: mandatory
-                usage: F1
-                reference: if any
               payment_ids:
                 description: Payment IDs
                 required: mandatory
@@ -14166,16 +14243,6 @@ x-attributes:
                       required: mandatory
                       usage: Placed
                       reference: if any
-                type:
-                  description: Fulfillment type
-                  required: mandatory
-                  usage: Buyer-Fulfilled
-                  reference: if any
-                tracking:
-                  description: Tracking enabled
-                  required: mandatory
-                  usage: false
-                  reference: if any
                 stops:
                   type:
                     description: Type of the fulfillment stop
@@ -14274,7 +14341,7 @@ x-attributes:
                   timestamp:
                     description: timestamp of the fulfillment
                     required: required
-                    usage: '2023-11-16T09:00:00.000Z'
+                    usage: '2024-06-10T09:00:00.000Z'
 x-errorcodes:
   code:
     - Code: '90001'

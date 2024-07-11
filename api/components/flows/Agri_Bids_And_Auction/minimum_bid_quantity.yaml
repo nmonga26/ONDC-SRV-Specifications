@@ -1,5 +1,5 @@
 summary: Agricultural product - Bids and Auction for a Commodity (Minimum Bid Quantity)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to bids for agricultural commodity. The bids and auction majorly happens in four phases of order processing flow, i.e. Discovery of available commodity and service providers based on serviceability, order, fulfillment and post-fulfillmentand bids can be done with minimum quantity (If a Seller has 3 MT, and MBQ is (or can be) 1 MT).
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to bids for agricultural commodity. The bids and auction majorly happens in four phases of order processing flow, i.e. Discovery of available commodity and service providers, order, fulfillment and post-fulfillmentand bids can be done with minimum quantity (If a Seller has 3 MT, and MBQ is (or can be) 1 MT).
 details:
 
   - description: Sequence Diagram for Bids and Auction
@@ -87,13 +87,13 @@ reference: if any
 steps:
   - summary: Search based on the intent for bids and auction for a particular agricultural commodity
     api: search
-    description: Search intent sent by the buyer based on the particular agri product required - e.g. Wheat
+    description: The buyer expresses interest in purchasing a commodity (such as wheat) from all currently available auctions, serviceable to him
     reference: if any
     example:
       $ref: "../../Examples/Agri_Bids_And_Auction_yaml/search/search_by_category.yaml"
   - summary: Returns the catalog specific to the search intent
     api: on_search
-    description: Returns the catalog specific to the search intent and also serviceability and time can be reffered from <a href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this document]</a> and for polygon geoJSON check <a href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[here]</a> <br><br> Buyer will select Minimum Bid Quantity (Buyer Side) /Lot Size (Seller Side) (If a Seller has 3 MT, and MBQ is (or can be) 1 MT)
+    description: Returns the catalog specific to the search intent <br><br> Buyer will select Minimum Bid Quantity (Buyer Side) /Lot Size (Seller Side) (If a Seller has 3 MT, and MBQ is (or can be) 1 MT)
 
     reference: if any
     example:

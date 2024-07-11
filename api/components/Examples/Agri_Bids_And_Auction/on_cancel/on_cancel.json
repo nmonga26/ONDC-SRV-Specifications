@@ -42,10 +42,7 @@
       },
       "items": [
         {
-          "id": "I2",
-          "fulfillment_ids": [
-            "F1"
-          ],
+          "id": "I1",
           "quantity": {
             "selected": {
               "count": 100
@@ -61,8 +58,6 @@
               "code": "Cancelled"
             }
           },
-          "type": "Buyer-Fulfilled",
-          "tracking": false,
           "stops": [
             {
               "type": "end",

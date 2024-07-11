@@ -21,6 +21,10 @@ on_search:
         type: 
           $ref: "./fulfillments.yaml#/fulfillments/type"
       providers:
+        tags:
+          FSSAI_LICENSE_NO:
+            TYPE_OF_BUSINESS:
+              $ref: "./tags.yaml#/FSSAI_LICENSE_NO/TYPE_OF_BUSINESS"
         items:
           tags:
             AUCTION_SPECIFICATION:

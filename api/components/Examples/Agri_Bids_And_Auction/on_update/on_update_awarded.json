@@ -35,9 +35,6 @@
                             "count": 100
                         }
                     },
-                    "fulfillment_ids": [
-                        "F1"
-                    ],
                     "payment_ids": [
                         "PY2"
                     ],
@@ -200,8 +197,6 @@
                             "code": "Awarded"
                         }
                     },
-                    "type": "Buyer-Fulfilled",
-                    "tracking": false,
                     "stops": [
                         {
                             "type": "end",

@@ -55,16 +55,11 @@ catalog:
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./Tag.yaml#/COMMODITY_SPECIFICATION"
-        - code: LOT_INFORMATION
-          description: Bids and auction lot information for a particular commodity (Required)
+        - code: QUALITY_ASSESSMENT_REPORT
+          description: Quality assessment report that need to verify for bids if applicable (Optional)
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/LOT_INFORMATION"
-        - code: CERTIFICATES
-          description: Certificates that need to verify for bids if applicable (Optional)
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            $ref: "./Tag.yaml#/CERTIFICATES"
+            $ref: "./Tag.yaml#/QUALITY_ASSESSMENT_REPORT"
 
 order:
   items:

@@ -2,6 +2,96 @@ message:
   parent: true
   order:
     parent: true
+    id:
+      description: Order Id of the auction
+      required: required
+      usage: O1
+      reference: if any
+    status:
+      description: status of the order
+      required: required
+      usage: O1
+      reference: if any
+    provider:
+      parent: true
+      id:
+        description: id of the provider chosen for the bid
+        required: required
+        usage: "P1"
+        reference: if any
+      locations:
+        id:
+          description: location id of the provider
+          required: required
+          usage: "L1"
+          reference: if any
+    items:
+      parent: true
+      id:
+        description: item id i.e. the id of the bid
+        required: required
+        usage: "I1"
+        reference: if any
+      location_ids:
+        description: location ids related to the item
+        required: required
+        usage: "[L1]"
+        reference: if any
+      category_ids:
+        description: category ids related to the item
+        required: required
+        usage: "[SRV16-1001]"
+        reference: if any
+      quantity:
+        selected:
+          count:
+            description: number of items selected for bid
+            required: required
+            usage: "100"
+            reference: if any
+      tags:
+        description: tags associated with the item
+        required: optional
+        usage: "[{\"descriptor\":{\"code\":\"COMMODITY_SPECIFICATION\"},\"list\":[{\"descriptor\":{\"code\":\"SELF_LIFE\"},\"value\":\"P10M\"},{\"descriptor\":{\"code\":\"MOISTURE\"},\"value\":\"10%\"},{\"descriptor\":{\"code\":\"OIL_CONTENT\"},\"value\":\"2%\"},{\"descriptor\":{\"code\":\"DEFECTIVES\"},\"value\":\"7%\"}]}]"
+        reference: if any
+    billing:
+      name:
+        description: name of the billing person or entity
+        required: required
+        usage: "ONDC buyer"
+        reference: if any
+      address:
+        description: billing address
+        required: required
+        usage: "22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001"
+        reference: if any
+      state:
+        name:
+          description: state name in the billing address
+          required: required
+          usage: "Karnataka"
+          reference: if any
+      city:
+        name:
+          description: city name in the billing address
+          required: required
+          usage: "Bengaluru"
+          reference: if any
+      tax_id:
+        description: tax identification number
+        required: required
+        usage: "XXXXXXXXXXXXXXX"
+        reference: if any
+      email:
+        description: email address for billing
+        required: required
+        usage: "nobody@nomail.com"
+        reference: if any
+      phone:
+        description: phone number for billing
+        required: required
+        usage: "9886098860"
+        reference: if any
     fulfillments:
       parent: true
       fulfillments:
@@ -15,15 +105,20 @@ message:
             start:
               description: start time of the bid
               required: required
-              usage: "2023-11-16T09:30:00Z"
+              usage: "2024-06-10T09:30:00Z"
               reference: if any
             end:
               description: end time of the bid
               required: required
-              usage: "2023-11-16T10:30:00Z"
+              usage: "2024-06-10T10:30:00Z"
               reference: if any
     payments:
       parent: true
+      payments:
+        description: payments of the bid
+        required: required
+        usage: "-"
+        reference: if any
       id:
         description: Payment ID
         required: required

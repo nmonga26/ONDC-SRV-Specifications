@@ -22,12 +22,6 @@
   },
   "message": {
     "catalog": {
-      "fulfillments": [
-        {
-          "id": "F1",
-          "type": "Buyer-Fulfilled"
-        }
-      ],
       "payments": [
         {
           "id": "PY1",
@@ -101,43 +95,6 @@
           "tags": [
             {
               "descriptor": {
-                "code": "serviceability"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "location"
-                  },
-                  "value": "L1"
-                },
-                {
-                  "descriptor": {
-                    "code": "category"
-                  },
-                  "value": "SRV16-1001"
-                },
-                {
-                  "descriptor": {
-                    "code": "type"
-                  },
-                  "value": "12"
-                },
-                {
-                  "descriptor": {
-                    "code": "val"
-                  },
-                  "value": "IND"
-                },
-                {
-                  "descriptor": {
-                    "code": "unit"
-                  },
-                  "value": "country"
-                }
-              ]
-            },
-            {
-              "descriptor": {
                 "code": "seller_terms"
               },
               "list": [
@@ -177,19 +134,19 @@
                   "descriptor": {
                     "code": "BRAND_OWNER"
                   },
-                  "value": "12345678901234"
+                  "value": "ABC Foods Pvt. Ltd."
                 },
                 {
                   "descriptor": {
-                    "code": "OTHER"
+                    "code": "LICENSE_NUMBER"
                   },
-                  "value": "12345678901234"
+                  "value": "10012345000001"
                 },
                 {
                   "descriptor": {
-                    "code": "IMPORTER"
+                    "code": "TYPE_OF_BUSINESS"
                   },
-                  "value": "12345678901234"
+                  "value": "Importer"
                 }
               ]
             }
@@ -228,14 +185,13 @@
               },
               "price": {
                 "currency": "INR",
-                "value": "300.00",
-                "minimum_value": "250.00"
+                "value": "300.00"
               },
               "quantity": {
                 "unitized": {
                   "measure": {
                     "unit": "kg",
-                    "value": "50"
+                    "value": "5000"
                   }
                 },
                 "available": {
@@ -255,9 +211,6 @@
               },
               "category_ids": [
                 "SRV16-1001"
-              ],
-              "fulfillment_ids": [
-                "F1"
               ],
               "location_ids": [
                 "L1"
@@ -329,7 +282,7 @@
                 },
                 {
                   "descriptor": {
-                    "code": "CERTIFICATES"
+                    "code": "QUALITY_ASSESSMENT_REPORT"
                   },
                   "display": true,
                   "list": [
@@ -350,25 +303,6 @@
                         "code": "COPY"
                       },
                       "value": "https://abc.com/certificates"
-                    }
-                  ]
-                },
-                {
-                  "descriptor": {
-                    "code": "LOT_INFORMATION"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "PACK_SIZE"
-                      },
-                      "value": "50"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "NUM_PACK_SIZE"
-                      },
-                      "value": "100"
                     }
                   ]
                 },
@@ -633,19 +567,13 @@
                     },
                     {
                       "descriptor": {
-                        "code": "LOT_SIZE"
-                      },
-                      "value": "100"
-                    },
-                    {
-                      "descriptor": {
                         "code": "BID_QTY_INCREMENT"
                       },
                       "value": "1"
                     },
                     {
                       "descriptor": {
-                        "code": "MIN_BIDDER_REQ"
+                        "code": "MIN_BIDDER_REQUIRED"
                       },
                       "value": "5"
                     },
@@ -705,19 +633,20 @@
                 "SRV16-1001"
               ],
               "item_ids": [
-                "I2"
+                "I1"
               ],
               "time": {
                 "label": "validity",
                 "range": {
                   "start": "2024-04-01T00:00:00.000Z",
                   "end": "2024-12-10T00:00:00.000Z"
-                },
-                "days": "04,05"
+                }
               },
               "tags": [
                 {
-                  "code": "qualifier",
+                  "descriptor": {
+                    "code": "qualifier"
+                  },
                   "list": [
                     {
                       "descriptor": {
@@ -728,7 +657,9 @@
                   ]
                 },
                 {
-                  "code": "benefit",
+                  "descriptor": {
+                    "code": "benefit"
+                  },
                   "list": [
                     {
                       "descriptor": {
@@ -740,7 +671,7 @@
                       "descriptor": {
                         "code": "item_id"
                       },
-                      "value": "I2"
+                      "value": "I1"
                     },
                     {
                       "descriptor": {
@@ -751,7 +682,9 @@
                   ]
                 },
                 {
-                  "code": "meta",
+                  "descriptor": {
+                    "code": "meta"
+                  },
                   "list": [
                     {
                       "descriptor": {

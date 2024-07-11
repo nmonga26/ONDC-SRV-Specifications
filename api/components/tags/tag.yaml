@@ -63,11 +63,11 @@ FSSAI_LICENSE_NO:
   - code: BRAND_OWNER
     description: Brand owner name (Required)
     reference: <PR/Issue/Discussion Links md format text>
-  - code: OTHER
-    description: Brand owner other details (Required)
+  - code: LICENSE_NUMBER
+    description: Brand license number details (Required)
     reference: <PR/Issue/Discussion Links md format text>
-  - code: IMPORTER
-    description: Brand owner importer details (Optional)
+  - code: TYPE_OF_BUSINESS
+    description: Type of business of commodity (Optional)
     reference: <PR/Issue/Discussion Links md format text>
 BAP_TERMS:
   - code: FINDER_FEE_TYPE
@@ -120,13 +120,10 @@ AUCTION_SPECIFICATION:
   - code: FLOOR_PRICE
     description: Bids floor (Minimum) price for commodity (Required)
     reference: <PR/Issue/Discussion Links md format text>
-  - code: LOT_SIZE
-    description: Lot size for the bid (Required)
-    reference: <PR/Issue/Discussion Links md format text>
   - code: BID_QTY_INCREMENT
     description: Increment in bid quantity (Required)
     reference: <PR/Issue/Discussion Links md format text>
-  - code: MIN_BIDDER_REQ
+  - code: MIN_BIDDER_REQUIRED
     description: Minimum number of Bidders required (Required)
     reference: <PR/Issue/Discussion Links md format text>
   - code: TYPE_OF_AUCTION
@@ -157,7 +154,7 @@ RESCHEDULE_TERMS:
   - code: RESCHEDULE_WITHIN
     description: Time within which it should be rescheduled after the fulfilment has been changed (Required)
     reference: <PR/Issue/Discussion Links md format text>
-CERTIFICATES:
+QUALITY_ASSESSMENT_REPORT:
   - code: NAME
     description: Certificate name if applicable (Required)
     reference: <PR/Issue/Discussion Links md format text>
@@ -188,16 +185,6 @@ CHECKLIST_DOCUMENTS:
     reference: <PR/Issue/Discussion Links md format text>
   - code: TERMS_OF_USAGE
     description: Terms of uses for equipment hiring if applicable (Optional)
-    reference: <PR/Issue/Discussion Links md format text>
-LOT_INFORMATION:
-  - code: TYPE
-    description: Type of the item, mandatory only when the item is a customization (Required)
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: PACK_SIZE
-    description: Lot size of the commodity if applicable (Required)
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: NUM_PACK_SIZE
-    description: Number of Lot of the commodity if applicable (Required)
     reference: <PR/Issue/Discussion Links md format text>
 COMMODITY_SPECIFICATION:
   - code: REFERENCE_DOCS_MIME_TYPE
