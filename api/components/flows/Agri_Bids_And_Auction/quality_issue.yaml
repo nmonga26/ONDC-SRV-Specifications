@@ -172,10 +172,10 @@ steps:
     description: Seller app confirm re-negotiate request
     example:
       $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_update/on_update_requote.yaml"
-  - summary: Buyer app shares the ratings to seller app
-    api: rating
-    description: Buyer leaves a detailed review on the buyer, sharing both positive and negative aspects. Buyer app shares the same with the seller app following the rating framework
-    reference: if any
-    example:
-      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/rating/rating.yaml"
+  # - summary: Buyer app shares the ratings to seller app
+  #   api: rating
+  #   description: Buyer leaves a detailed review on the buyer, sharing both positive and negative aspects. Buyer app shares the same with the seller app following the rating framework
+  #   reference: if any
+  #   example:
+  #     $ref: "../../Examples/Agri_Bids_And_Auction_yaml/rating/rating.yaml"
 

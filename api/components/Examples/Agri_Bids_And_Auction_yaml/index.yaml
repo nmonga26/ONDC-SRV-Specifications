@@ -24,9 +24,9 @@ cancel:
 update:
   examples:
     - $ref: "./update/update_requote.yaml"
-rating:
-  examples:
-    - $ref: "./rating/rating.yaml"
+# rating:
+#   examples:
+#     - $ref: "./rating/rating.yaml"
 on_search:
   examples:
     - $ref: "./on_search/on_search.yaml"

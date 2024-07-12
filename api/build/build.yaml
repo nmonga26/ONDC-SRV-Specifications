@@ -3463,7 +3463,7 @@ x-flows:
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: &ref_26
+        example: &ref_25
           value:
             context:
               domain: ONDC:SRV16
@@ -5718,37 +5718,6 @@ x-flows:
                               code: UPI_Address
                             value: xxxxxxx
                 updated_at: '2024-06-10T22:01:05.000Z'
-      - summary: Buyer app shares the ratings to seller app
-        api: rating
-        description: >-
-          Buyer leaves a detailed review on the buyer, sharing both positive and
-          negative aspects. Buyer app shares the same with the seller app
-          following the rating framework
-        reference: if any
-        example: &ref_25
-          value:
-            context:
-              domain: ONDC:SRV16
-              location:
-                city:
-                  code: std:080
-                country:
-                  code: IND
-              action: rating
-              version: 2.0.0
-              bap_id: buyerapp.com
-              bap_uri: https://buyerapp.com/services
-              bpp_id: sellerapp.com
-              bpp_uri: https://sellerapp.com/services
-              transaction_id: T1
-              message_id: M7
-              timestamp: '2024-06-11T22:30:00.000Z'
-              ttl: P30S
-            message:
-              ratings:
-                - rating_category: Item
-                  id: I1
-                  value: '4.4'
   - summary: Agricultural product - Bids and Auction for a Commodity (Close Bid)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -6295,14 +6264,6 @@ x-flows:
         api: on_cancel (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
         example: *ref_24
-      - summary: Buyer app shares the ratings to seller app
-        api: rating
-        description: >-
-          Buyer leaves a detailed review on the buyer, sharing both positive and
-          negative aspects. Buyer app shares the same with the seller app
-          following the rating framework
-        reference: if any
-        example: *ref_25
   - summary: >-
       Agricultural product - Bids and Auction for a Commodity (Buyer not
       satisfied with the quality)
@@ -6408,7 +6369,7 @@ x-flows:
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_26
+        example: *ref_25
       - summary: Buyer selects the required agri commodity
         api: select
         description: Buyer selects the required agri commodity + suitable fulfillment type
@@ -7191,14 +7152,6 @@ x-flows:
                                 code: type
                               value: misc
                   ttl: P1D
-      - summary: Buyer app shares the ratings to seller app
-        api: rating
-        description: >-
-          Buyer leaves a detailed review on the buyer, sharing both positive and
-          negative aspects. Buyer app shares the same with the seller app
-          following the rating framework
-        reference: if any
-        example: *ref_25
   - summary: >-
       Agricultural product - Bids and Auction for a Commodity (Buyer fails to
       make payment)
@@ -7301,7 +7254,7 @@ x-flows:
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_26
+        example: *ref_25
       - summary: Buyer selects the required agri commodity
         api: select
         description: Buyer selects the required agri commodity + suitable fulfillment type
@@ -7575,14 +7528,6 @@ x-flows:
                               code: UPI_Address
                             value: xxxxxxx
                 updated_at: '2024-06-10T22:01:05.000Z'
-      - summary: Buyer app shares the ratings to seller app
-        api: rating
-        description: >-
-          Buyer leaves a detailed review on the buyer, sharing both positive and
-          negative aspects. Buyer app shares the same with the seller app
-          following the rating framework
-        reference: if any
-        example: *ref_25
   - summary: >-
       Agricultural product - Bids and Auction for a Commodity (Pull and Push
       catalogs)
@@ -7664,7 +7609,7 @@ x-flows:
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_26
+        example: *ref_25
       - summary: >-
           Pull intent into interval for bids and auction for a particular
           agricultural commodity
@@ -7733,7 +7678,7 @@ x-flows:
           Returns the catalog specific to the search intent till the range
           selected when ever seller detact change in catalog
         reference: if any
-        example: *ref_26
+        example: *ref_25
       - summary: >-
           Start the mode to pull intent for bids and auction for a particular
           agricultural commodity
@@ -7852,7 +7797,7 @@ x-flows:
           Returns the catalog specific to the search intent till the mode open
           when ever seller detact change in catalog
         reference: if any
-        example: *ref_26
+        example: *ref_25
   - summary: >-
       Agricultural product - Bids and Auction for a Commodity (Minimum Bid
       Quantity)
@@ -8400,14 +8345,6 @@ x-flows:
         api: on_cancel (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
         example: *ref_24
-      - summary: Buyer app shares the ratings to seller app
-        api: rating
-        description: >-
-          Buyer leaves a detailed review on the buyer, sharing both positive and
-          negative aspects. Buyer app shares the same with the seller app
-          following the rating framework
-        reference: if any
-        example: *ref_25
 x-examples:
   Agricultural product - Bids and Auction:
     summary: Bids and Auction
@@ -8417,7 +8354,7 @@ x-examples:
       phases of order processing flow, i.e. Discovery of available commodity for
       bids and auction, and service providers based on serviceability, order,
       fulfillment and post-fulfillment.
-    example_set: &ref_27
+    example_set: &ref_26
       search:
         examples:
           - value:
@@ -9366,31 +9303,6 @@ x-examples:
                             valid_to: '2024-06-10T23:00:00Z'
                             status: valid
                       rateable: true
-      rating:
-        examples:
-          - value:
-              context:
-                domain: ONDC:SRV16
-                location:
-                  city:
-                    code: std:080
-                  country:
-                    code: IND
-                action: rating
-                version: 2.0.0
-                bap_id: buyerapp.com
-                bap_uri: https://buyerapp.com/services
-                bpp_id: sellerapp.com
-                bpp_uri: https://sellerapp.com/services
-                transaction_id: T1
-                message_id: M7
-                timestamp: '2024-06-11T22:30:00.000Z'
-                ttl: P30S
-              message:
-                ratings:
-                  - rating_category: Item
-                    id: I1
-                    value: '4.4'
       on_search:
         examples:
           - value:
@@ -12067,7 +11979,7 @@ x-examples:
       bids and auction, and service providers based on serviceability, order,
       fulfillment and post-fulfillment but in Close Bid, the buyers places their
       bid which is encrypted (not made visible) for other buyers.
-    example_set: *ref_27
+    example_set: *ref_26
   Agricultural product - Bids and Auction (Buyer fails to make payment):
     summary: Bids and Auction (Buyer fails to make payment)
     description: >-
@@ -12078,7 +11990,7 @@ x-examples:
       fulfillment and post-fulfillment but winning bidder fails to make payment
       within the specified timeframe, leading to a dispute resolution process
       involving the platform's customer support.
-    example_set: *ref_27
+    example_set: *ref_26
   Agricultural product - Bids and Auction (Buyer not satisfied with the quality):
     summary: Bids and Auction (Buyer not satisfied with the quality)
     description: >-
@@ -12090,7 +12002,7 @@ x-examples:
       buyer does not match the description provided by the seller, the buyer may
       raise a complaint on the buyer app and the buyer app tries to analyse the
       complaints.
-    example_set: *ref_27
+    example_set: *ref_26
   Agricultural product - Bids and Auction (Pull and Push catalogs):
     summary: >-
       Bids and Auction - Buyer can pull the current bids state for the changed
@@ -12101,7 +12013,7 @@ x-examples:
       and auction over the network. Buyer can pull the current bids state for
       the changed catalog and seller can push (send) all the catalog which bids
       prices are modified
-    example_set: *ref_27
+    example_set: *ref_26
   Agricultural product - Bids and Auction (Minimum Bid Quantity):
     summary: Bids and Auction (Minimum Bid Quantity)
     description: >-
@@ -12111,7 +12023,7 @@ x-examples:
       bids and auction, and service providers based on serviceability, order,
       fulfillment and post-fulfillment and bids can be done with minimum
       quantity (If a Seller has 3 MT, and MBQ is (or can be) 1 MT).
-    example_set: *ref_27
+    example_set: *ref_26
 x-attributes:
   Agricultural product - Bids and Auction:
     attribute_set:
