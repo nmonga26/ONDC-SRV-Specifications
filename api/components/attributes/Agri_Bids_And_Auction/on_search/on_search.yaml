@@ -253,7 +253,7 @@ message:
             reference: if any
         price:
           value:
-            description: price of the commodity per unit applicable for auction
+            description: The price of the commodity per unit applicable for auction for example ₹300 per lot.
             required: required
             usage: "300"
             reference: if any
@@ -329,12 +329,12 @@ message:
             start:
               description: availability start date of the auction provider
               required: required
-              usage: "2022-11-10T00:00:00.000Z"
+              usage: "2024-06-10T00:00:00.000Z"
               reference: if any
             end:
               description: availability end date of the auction provider
               required: required
-              usage: "2022-11-20T00:00:00.000Z"
+              usage: "2024-06-20T00:00:00.000Z"
               reference: if any
         cancellation_terms:
           fulfillment_state:
@@ -346,14 +346,14 @@ message:
                 reference: if any
           cancellation_fee:
             percentage:
-              description: value that need to pay in case of cancelation 
+              description: value that need to pay in case of cancelation as percentage for example 10%, it can be percentage of the order amount or any fixed amount as well, so in example if defined percentage = 10 then 10% of order amount need to pay but if defined amount = { currency = INR, value = 200 } then ₹200 need to pay as cancellation fee
               required: optional
               usage: "0"
               reference: if any
-            end:
-              description: availability end date of the auction provider
+            amount:
+              description: fixed amount need to pay as cancellation fee for example ₹200
               required: required
-              usage: "2022-11-20T00:00:00.000Z"
+              usage: "200"
               reference: if any
         tags: 
           descriptor:

@@ -319,9 +319,6 @@ value:
                         code: FLOOR_PRICE
                       value: '250.00'
                     - descriptor:
-                        code: BID_QTY_INCREMENT
-                      value: '1'
-                    - descriptor:
                         code: MIN_BIDDER_REQUIRED
                       value: '5'
                     - descriptor:

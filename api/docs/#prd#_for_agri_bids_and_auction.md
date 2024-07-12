@@ -4,7 +4,7 @@
 
 <b>As a Seller</b> of an Agri Commodity <b>I want to </b> list my Product in Market for Open/Close Bidding <b>So that</b> buyers can bid for it and I get the right price <b>When</b> I have ample Agri Produce
 
-- <b>Buyer</> (looking to bid for Products (Agri Produce) available in Auction)
+- <b>Buyer</b> (looking to bid for Products (Agri Produce) available in Auction)
 - <b>Buyer app</b> (providing the interface for the buyer looking forAuctions available on the product)
 - <b>Seller</b> (selling products in an Auction to the relevant and highest bidder)
 - <b>Seller app</b> (providing the interface for the seller looking to sell their products via Auction on the network)
@@ -44,7 +44,6 @@
 | #  | Offer Type | Offer ID (Example) | Qualifier |                |                | Benefit   |          |           |            |         |            |
 |----|------------|--------------------|-----------|----------------|----------------|-----------|----------|-----------|------------|---------|------------|
 |    |            |                    | Min Value | Item Count     | Item ID        | Value     |Value Type| Value Cap | Item Count | Item ID | Item Value |
-|----|------------|--------------------|-----------|----------------|----------------|-----------|----------|-----------|------------|---------|------------|
 | 1  | discount   | DISCP60            | ₹159      |                |                | -60       | percent  | -₹120     |            |         |            |
 | 2  | discount   | FLAT150            | ₹499      |                |                | -₹150     | amount   |           |            |         |            |
 | 3  | buyXgetY   | BUY2GET3           |           | 2              |                |           |          |           | 3          | item id |            |
