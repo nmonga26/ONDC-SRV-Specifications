@@ -25,7 +25,7 @@ The intent is broadcasted from the buyer app to all the relevant seller apps on 
 
 - Based on the intent, the request is broadcasted to all the relevant sellers on the network through the gateway
 - In response, the Seller has shared the catalog detailing all specifications and features of the equipment as per the search intent. Quantity is measured in hours and days, and one can find comprehensive information regarding serviceability and operational time within the catalog. 
-Note:- serviceability and time can be reffered from <a href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this document]</a> and to generate/about the GeoJSON (if required) need to flow <a href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this document]</a>
+Note:- serviceability and time can be reffered from <a href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this document]</a> and to generate/about the GeoJSON (if required) need to refer <a href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this document]</a>
 - Seller apps with relevant offerings send their responses to the buyer app and the buyer app renders the offerings for the buyer to go through the provided details
 
 #### Booking order placement
@@ -41,10 +41,11 @@ Note:- serviceability and time can be reffered from <a href="https://docs.google
     - Refundable Security
     - Delivery
     - Surcharges
-      - Case 1: In case the buyer opts for self pickup (if provided by the seller), equipment location and pickup instructions are shared with the buyer
-      - case 2: In case the buyer opts for equipment delivery (if provided by the seller), fulfilment details are shared with the buyer as per the duration required 
-        - With Driver
-        - Without Driver
+        - Case 1: In case the buyer opts for self pickup (if provided by the seller), equipment location and pickup instructions are shared with the buyer
+        - Case 2: In case the buyer opts for equipment delivery (if provided by the seller), fulfilment details are shared with the buyer as per the duration required 
+
+            - With Driver
+            - Without Driver
 
 4. Seller responds to the initiation of the booking with confirmed pricing details and settlement details are exchanged depending
  on the application collecting the payment. If the buyer app is collecting payment from the buyer, the seller app shares their settlement details and vice versa
@@ -80,4 +81,45 @@ Note:- serviceability and time can be reffered from <a href="https://docs.google
 1. Seller requests ratings and reviews on the services provided
 
 2. Buyer leaves a detailed review on the buyer, sharing both positive and negative aspects. Buyer app shares the same with the seller app following the rating framework
+
+
+### Offer Definition Template
+
+| #  | Offer Type | Offer ID (Example) | Qualifier |                |                | Benefit   |          |           |            |         |            |   
+|----|------------|--------------------|-----------|----------------|----------------|-----------|----------|-----------|------------|---------|------------|
+|    |            |                    | Min Value | Item Count     | Item ID        | Value     |Value Type| Value Cap | Item Count | Item ID | Item Value |
+|----|------------|--------------------|-----------|----------------|----------------|-----------|----------|-----------|------------|---------|------------|
+| 1  | discount   | DISCP60            | ₹159      |                |                | -60       | percent  | -₹120     |            |         |            |
+| 2  | discount   | FLAT150            | ₹499      |                |                | -₹150     | amount   |           |            |         |            |
+| 3  | buyXgetY   | BUY2GET3           |           | 2              |                |           |          |           | 3          | item id |            |
+| 4  | freebie    | FREEBIE            | ₹598      |                |                |           |          |           | 1          | item id | ₹200       |
+
+
+In the template above:
+
+- Offer type - standard offer types:
+    - discount - discount percent or amount applied to the cart value, with or without a cap, and may be based on minimum cart value;
+    - buyXgetY - for every "X" item count in the cart, total of "Y" items will be offered (i.e. "Y" - "X" additional items), at 0 additional value;
+    - freebie - for a minimum order value, 1 or more free item(s) will be offered at 0 value;
+- Offer id - unique offer id from provider;
+- Offer qualifiers:
+    - Min value - min cart value for the offer to be applicable;
+    - Item count - min count of items in the cart for the offer to be applicable;
+    - Item id - Item id that qualifies for offer;
+- Offer benefit:
+    - Value - discount on the cart value (-ve) or value for extra items offered (0);
+    - Value type - "percent", "amount";
+    - Value cap - cap on the offer value;
+    - Item count - total count of items offered;
+    - Item id - additional item offered, should be part of the catalog;
+    - Item value - actual value of item being offered;
+    
+Description of the above (example) offer ids:
+- DISCP60 - 60% off up to ₹120, for order value above ₹159;
+- DISCA150 - flat 150 off, for order value above ₹499;
+- BUY2GET3 - buy 2 items, get additional item for free or for offered price;
+- FREEBIE - free item (of value ₹200) for order value above ₹598;
+
+
+
 

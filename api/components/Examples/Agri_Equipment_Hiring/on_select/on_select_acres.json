@@ -28,7 +28,7 @@
       "items": [
         {
           "fulfillment_ids": [
-            "F2"
+            "F1"
           ],
           "id": "I1",
           "location_ids": [
@@ -53,8 +53,8 @@
       ],
       "fulfillments": [
         {
-          "id": "F2",
-          "type": "Seller-Fulfilled",
+          "id": "F1",
+          "type": "Buyer-Fulfilled",
           "tracking": false,
           "state": {
             "descriptor": {
@@ -205,7 +205,7 @@
             ]
           },
           {
-            "title": "delivery_charge",
+            "title": "pickup_charge",
             "price": {
               "currency": "INR",
               "value": "100"

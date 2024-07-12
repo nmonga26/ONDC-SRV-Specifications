@@ -136,7 +136,7 @@ message:
           item_ids:
             description: item ids on which this offer is applicable
             required: optional
-            usage: "[PI2]"
+            usage: "[I1]"
             reference: if any
           time:
             range:

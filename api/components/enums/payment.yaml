@@ -31,3 +31,9 @@ payment:
         - code: tandc_violation_charge
           description: Terms and condition violation charge for equipment
           reference: <PR/Issue/Discussion Links md format text>
+        - code: extend_renting_charge
+          description: Extend the rending for equipment
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: surcharge
+          description: surcharge amount for extended period for equipment 
+          reference: <PR/Issue/Discussion Links md format text>

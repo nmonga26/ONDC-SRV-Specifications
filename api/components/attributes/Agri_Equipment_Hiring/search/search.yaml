@@ -30,7 +30,7 @@ context:
   timestamp:
     description: RFC3339 compliant timestamp
     required: mandatory
-    usage: "2023-10-17T21:10:00.000Z"
+    usage: "2024-06-097T21:10:00.000Z"
     reference: if any
   ttl:
     description: validity of message
@@ -67,12 +67,12 @@ message:
             start:
               description: start time of the time slot desired for the service
               required: required
-              usage: "2023-11-16T09:30:00Z"
+              usage: "2024-06-09T09:30:00Z"
               reference: if any
             end:
               description: end time of the time slot desired for the service
               required: required
-              usage: "2023-11-16T10:30:00Z"
+              usage: "2024-06-09T10:30:00Z"
               reference: if any
           days:
             description: string comma separated values representing days of the week on which the service is required ("1" - Monday, "7" - Sunday)

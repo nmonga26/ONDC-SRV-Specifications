@@ -40,7 +40,7 @@ message:
       quantity:
         selected:
           count:
-            description: number of items selected e.g. number of sofas to be cleaned
+            description: number of equipment items selected for hiring
             required: required
             usage: "1"
             reference: if any
@@ -72,7 +72,7 @@ message:
             start:
               description: start time of the time slot chosen for the service
               required: required
-              usage: "2023-11-16T09:30:00Z"
+              usage: "2024-06-09T09:30:00Z"
               reference: if any
         location:
           gps:

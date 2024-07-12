@@ -604,19 +604,20 @@
                 "SRV15-1001"
               ],
               "item_ids": [
-                "PI2"
+                "I1"
               ],
               "time": {
                 "label": "validity",
                 "range": {
                   "start": "2024-04-01T00:00:00.000Z",
                   "end": "2024-12-10T00:00:00.000Z"
-                },
-                "days": "04,05"
+                }
               },
               "tags": [
                 {
-                  "code": "qualifier",
+                  "descriptor": {
+                    "code": "qualifier"
+                  },
                   "list": [
                     {
                       "descriptor": {
@@ -627,7 +628,9 @@
                   ]
                 },
                 {
-                  "code": "benefit",
+                  "descriptor": {
+                    "code": "benefit"
+                  },
                   "list": [
                     {
                       "descriptor": {
@@ -639,7 +642,7 @@
                       "descriptor": {
                         "code": "item_id"
                       },
-                      "value": "I2"
+                      "value": "I1"
                     },
                     {
                       "descriptor": {
@@ -650,7 +653,9 @@
                   ]
                 },
                 {
-                  "code": "meta",
+                  "descriptor": {
+                    "code": "meta"
+                  },
                   "list": [
                     {
                       "descriptor": {
