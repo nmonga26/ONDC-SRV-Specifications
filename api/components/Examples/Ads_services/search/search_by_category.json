@@ -14,9 +14,9 @@
       "version": "2.0.0",
       "bap_id": "buyerapp.com",
       "bap_uri": "https://buyerapp.com/services",
-      "transaction_id": "9568beb3-265a-4730-be4e-c00ba2e5e30a",
-      "message_id": "T1",
-      "timestamp": "M1",
+      "transaction_id": "T1",
+      "message_id": "M1",
+      "timestamp": "2024-04-01T22:00:39.000Z",
       "ttl": "PT30S"
     },
     "message": {

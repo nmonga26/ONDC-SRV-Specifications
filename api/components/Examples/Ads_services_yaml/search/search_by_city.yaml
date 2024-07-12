@@ -18,7 +18,6 @@ value:
       timestamp: '2023-01-08T22:00:00.000Z'
       ttl: PT30S
     message:
-      intent: null
       tags:
         - descriptor:
             code: bap_terms
@@ -29,12 +28,3 @@ value:
             - descriptor:
                 code: finder_fee_amount
               value: '10'
-        - descriptor:
-            code: buyer_details
-          list:
-            - descriptor:
-                code: buyer_id_code
-              value: gst
-            - descriptor:
-                code: buyer_id_no
-              value: xxxxxxxxxxxxxxx

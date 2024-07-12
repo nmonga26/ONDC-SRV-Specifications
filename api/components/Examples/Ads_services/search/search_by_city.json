@@ -20,7 +20,6 @@
       "ttl": "PT30S"
     },
     "message": {
-      "intent": null,
       "tags": [
         {
           "descriptor": {
@@ -38,25 +37,6 @@
                 "code": "finder_fee_amount"
               },
               "value": "10"
-            }
-          ]
-        },
-        {
-          "descriptor": {
-            "code": "buyer_details"
-          },
-          "list": [
-            {
-              "descriptor": {
-                "code": "buyer_id_code"
-              },
-              "value": "gst"
-            },
-            {
-              "descriptor": {
-                "code": "buyer_id_no"
-              },
-              "value": "xxxxxxxxxxxxxxx"
             }
           ]
         }
