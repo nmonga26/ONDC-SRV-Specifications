@@ -17,7 +17,7 @@ value:
     timestamp: '2024-06-10T22:01:20.000Z'
     ttl: PT30S
   message:
-    update_target: fulfillments,items
+    update_target: items
     order:
       id: OC1
       status: Pending

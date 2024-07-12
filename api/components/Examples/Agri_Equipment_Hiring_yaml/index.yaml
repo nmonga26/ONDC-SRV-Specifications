@@ -28,9 +28,9 @@ update:
     - $ref: "./update/update_requote_cancellation.yaml"
     - $ref: "./update/update_requote_damage.yaml"
     - $ref: "./update/update_requote_tandc.yaml"
-rating:
-  examples:
-    - $ref: "./rating/rating.yaml"
+# rating:
+#   examples:
+#     - $ref: "./rating/rating.yaml"
 on_search:
   examples:
     - $ref: "./on_search/on_search.yaml"

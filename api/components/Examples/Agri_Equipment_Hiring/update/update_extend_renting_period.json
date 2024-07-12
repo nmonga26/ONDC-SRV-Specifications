@@ -21,7 +21,7 @@
     "ttl": "PT30S"
   },
   "message": {
-    "update_target": "fulfillments,items",
+    "update_target": "items",
     "order": {
       "id": "OC1",
       "status": "Pending",

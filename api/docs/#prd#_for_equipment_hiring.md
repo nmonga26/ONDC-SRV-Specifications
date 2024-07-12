@@ -85,10 +85,9 @@ Note:- serviceability and time can be reffered from <a href="https://docs.google
 
 ### Offer Definition Template
 
-| #  | Offer Type | Offer ID (Example) | Qualifier |                |                | Benefit   |          |           |            |         |            |   
+| #  | Offer Type | Offer ID (Example) | Qualifier |                |                | Benefit   |          |           |            |         |            |
 |----|------------|--------------------|-----------|----------------|----------------|-----------|----------|-----------|------------|---------|------------|
 |    |            |                    | Min Value | Item Count     | Item ID        | Value     |Value Type| Value Cap | Item Count | Item ID | Item Value |
-|----|------------|--------------------|-----------|----------------|----------------|-----------|----------|-----------|------------|---------|------------|
 | 1  | discount   | DISCP60            | ₹159      |                |                | -60       | percent  | -₹120     |            |         |            |
 | 2  | discount   | FLAT150            | ₹499      |                |                | -₹150     | amount   |           |            |         |            |
 | 3  | buyXgetY   | BUY2GET3           |           | 2              |                |           |          |           | 3          | item id |            |

@@ -5814,37 +5814,6 @@ x-flows:
                     label: INVOICE
                 created_at: '2024-06-10T22:00:52.000Z'
                 updated_at: '2024-06-10T22:00:52.000Z'
-      - summary: Buyer app shares the ratings to seller app
-        api: rating
-        description: >-
-          Buyer leaves a detailed review on the buyer, sharing both positive and
-          negative aspects. Buyer app shares the same with the seller app
-          following the rating framework
-        reference: if any
-        example: &ref_26
-          value:
-            context:
-              domain: ONDC:SRV15
-              location:
-                city:
-                  code: std:080
-                country:
-                  code: IND
-              action: rating
-              version: 2.0.0
-              bap_id: buyerapp.com
-              bap_uri: https://buyerapp.com/services
-              bpp_id: sellerapp.com
-              bpp_uri: https://sellerapp.com/services
-              transaction_id: T1
-              message_id: M7
-              timestamp: '2024-06-11T22:30:00.000Z'
-              ttl: P30S
-            message:
-              ratings:
-                - rating_category: Item
-                  id: I1
-                  value: '4.4'
   - summary: Agriculture Equipment Hiring (No equipments available)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -6172,14 +6141,6 @@ x-flows:
           completed
         reference: if any
         example: *ref_25
-      - summary: Buyer app shares the ratings to seller app
-        api: rating
-        description: >-
-          Buyer leaves a detailed review on the buyer, sharing both positive and
-          negative aspects. Buyer app shares the same with the seller app
-          following the rating framework
-        reference: if any
-        example: *ref_26
   - summary: >-
       Agriculture Equipment Hiring (Availability changes during the transaction
       journey)
@@ -6733,8 +6694,8 @@ x-flows:
               code: 90002
               message: Equipment schedule initialised by buyer is not available
   - summary: >-
-      Agriculture Equipment Hiring of a Commodity (Know land's acreage but
-      unsure usage hours)
+      Agriculture Equipment Hiring of a Commodity (Know the land's acres but
+      unsure of the usage hours)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to hire agricultural equipment. The booking
@@ -6746,8 +6707,8 @@ x-flows:
       and share it in the price quote.
     details:
       - description: >-
-          Sequence Diagram for Agriculture Equipment Hiring (Know land's acreage
-          but unsure usage hours)
+          Sequence Diagram for Agriculture Equipment Hiring (Know the land's
+          acres but unsure of the usage hours)
         mermaidGraph: |-
           sequenceDiagram
             participant B as Buyer
@@ -7099,14 +7060,6 @@ x-flows:
           completed
         reference: if any
         example: *ref_25
-      - summary: Buyer app shares the ratings to seller app
-        api: rating
-        description: >-
-          Buyer leaves a detailed review on the buyer, sharing both positive and
-          negative aspects. Buyer app shares the same with the seller app
-          following the rating framework
-        reference: if any
-        example: *ref_26
   - summary: >-
       Agriculture Equipment Hiring (Requisite documents not available during
       equipment delivery/ pickup)
@@ -8995,14 +8948,6 @@ x-flows:
                                 code: type
                               value: misc
                   ttl: P1D
-      - summary: Buyer app shares the ratings to seller app
-        api: rating
-        description: >-
-          Buyer leaves a detailed review on the buyer, sharing both positive and
-          negative aspects. Buyer app shares the same with the seller app
-          following the rating framework
-        reference: if any
-        example: *ref_26
   - summary: Agriculture Equipment Hiring (Buyer raising complaints)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9175,14 +9120,6 @@ x-flows:
           completed
         reference: if any
         example: *ref_25
-      - summary: Buyer app shares the ratings to seller app
-        api: rating
-        description: >-
-          Buyer leaves a detailed review on the buyer, sharing both positive and
-          negative aspects. Buyer app shares the same with the seller app
-          following the rating framework
-        reference: if any
-        example: *ref_26
   - summary: >-
       Agriculture Equipment Hiring of a Commodity (Buyer extend the renting
       period)
@@ -9366,7 +9303,7 @@ x-flows:
               timestamp: '2024-06-10T22:01:20.000Z'
               ttl: PT30S
             message:
-              update_target: fulfillments,items
+              update_target: items
               order:
                 id: OC1
                 status: Pending
@@ -9687,7 +9624,7 @@ x-flows:
                   - id: PY2
                     collected_by: BAP
                     params:
-                      amount: '1050.00'
+                      amount: '1000.00'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -9778,17 +9715,17 @@ x-flows:
                 quote:
                   price:
                     currency: INR
-                    value: '1050'
+                    value: '8140'
                   breakup:
                     - title: Tractor
                       price:
                         currency: INR
-                        value: '1000'
+                        value: '3000'
                       item:
                         id: I1
                         quantity:
                           selected:
-                            count: 2
+                            count: 6
                         price:
                           currency: INR
                           value: '500'
@@ -9799,6 +9736,19 @@ x-flows:
                             - descriptor:
                                 code: type
                               value: item
+                    - title: refundable_security
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: refundable_security
                     - title: tax
                       price:
                         currency: INR
@@ -9812,6 +9762,32 @@ x-flows:
                             - descriptor:
                                 code: type
                               value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '10'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: pickup_charge
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
                   ttl: P1D
       - summary: >-
           Seller app shares requote by applying surcharges for extra renting
@@ -10468,14 +10444,6 @@ x-flows:
                                 code: type
                               value: misc
                   ttl: P1D
-      - summary: Buyer app shares the ratings to seller app
-        api: rating
-        description: >-
-          Buyer leaves a detailed review on the buyer, sharing both positive and
-          negative aspects. Buyer app shares the same with the seller app
-          following the rating framework
-        reference: if any
-        example: *ref_26
   - summary: >-
       Agriculture Equipment Hiring of a Commodity (Buyer cancels the placed
       Order)
@@ -11720,14 +11688,6 @@ x-flows:
                                 code: type
                               value: misc
                   ttl: P1D
-      - summary: Buyer app shares the ratings to seller app
-        api: rating
-        description: >-
-          Buyer leaves a detailed review on the buyer, sharing both positive and
-          negative aspects. Buyer app shares the same with the seller app
-          following the rating framework
-        reference: if any
-        example: *ref_26
 x-examples:
   Services - Equipment Hiring:
     summary: Agriculture Equipment Hiring
@@ -11737,7 +11697,7 @@ x-examples:
       order processing flow, i.e. Discovery of available equipments and service
       providers based on serviceability, order, fulfillment and
       post-fulfillment.
-    example_set: &ref_27
+    example_set: &ref_26
       search:
         examples:
           - value:
@@ -13783,31 +13743,6 @@ x-examples:
                                   code: type
                                 value: misc
                     ttl: P1D
-      rating:
-        examples:
-          - value:
-              context:
-                domain: ONDC:SRV15
-                location:
-                  city:
-                    code: std:080
-                  country:
-                    code: IND
-                action: rating
-                version: 2.0.0
-                bap_id: buyerapp.com
-                bap_uri: https://buyerapp.com/services
-                bpp_id: sellerapp.com
-                bpp_uri: https://sellerapp.com/services
-                transaction_id: T1
-                message_id: M7
-                timestamp: '2024-06-11T22:30:00.000Z'
-                ttl: P30S
-              message:
-                ratings:
-                  - rating_category: Item
-                    id: I1
-                    value: '4.4'
       on_search:
         examples:
           - value:
@@ -18167,7 +18102,7 @@ x-examples:
     description: >-
       Buyer creates an intent for booking an equipment to hire but Seller
       responds with no equipments available for the requested duration
-    example_set: *ref_27
+    example_set: *ref_26
   Services - Equipment Hiring (Availability changes during the transaction journey):
     summary: >-
       Agriculture Equipment Hiring (Availability changes during the transaction
@@ -18178,15 +18113,17 @@ x-examples:
       initiation of the booking by mentioning that the requested equipment is no
       longer available Buyer goes back to the listing page and looks for other
       available equipments
-    example_set: *ref_27
-  Services - Equipment Hiring (Know land's acreage but unsure usage hours):
-    summary: Agriculture Equipment Hiring (Know land's acreage but unsure usage hours)
+    example_set: *ref_26
+  Services - Equipment Hiring (Know the land's acres but unsure of the usage hours):
+    summary: >-
+      Agriculture Equipment Hiring (Know the land's acres but unsure of the
+      usage hours)
     description: >-
       Buyer creates an intent for booking an equipment for hire and buyer to
       enter the acreage of the Land in order to understand how many hours he
       would need to use the equipment for and the seller will then compute the
       price based on hours and share it in the price quote.
-    example_set: *ref_27
+    example_set: *ref_26
   Services - Equipment Hiring (Requisite documents not available during equipment delivery/ pickup):
     summary: >-
       Agriculture Equipment Hiring (Requisite documents not available during
@@ -18200,7 +18137,7 @@ x-examples:
       then seller updates the status and same is communicated to the buyer with
       corresponding cancellation charges as per the cancellation policy and
       refund, if any, takes place accordingly
-    example_set: *ref_27
+    example_set: *ref_26
   Services - Equipment Hiring (Change in charges because of inspection on journey completion):
     summary: >-
       Agriculture Equipment Hiring (Change in charges because of inspection on
@@ -18209,14 +18146,14 @@ x-examples:
       At the time of journey completion, the seller inspects the equipment and
       finds discrepancies in the state of the equipment and makes an update of
       the order object with respective to the discrepancies 
-    example_set: *ref_27
+    example_set: *ref_26
   Services - Equipment Hiring (Buyer raising complaints):
     summary: Agriculture Equipment Hiring (Buyer raising complaints)
     description: >-
       During the journey if the buyer faces any issues, the buyer may raise a
       complaint on the buyer app and the buyer app tries to analyse the
       complaints
-    example_set: *ref_27
+    example_set: *ref_26
   Services - Equipment Hiring (Buyer extend the renting period):
     summary: Agriculture Equipment Hiring (Buyer extend the renting period)
     description: >-
@@ -18233,13 +18170,13 @@ x-examples:
       available <br> a. Delivery : Seller may collect back the Equipment at the
       time of the completion <br> b. Self Pick Up : Seller may charge a
       Fee/Surcharge as per his terms and conditions <br>
-    example_set: *ref_27
+    example_set: *ref_26
   Services - Equipment Hiring (Violation of Terms and conditions by the Buyer):
     summary: >-
       Agriculture Equipment Hiring (Violation of Terms and conditions by the
       Buyer)
     description: Like Equipment not used for stated usage or Not returned
-    example_set: *ref_27
+    example_set: *ref_26
 x-attributes:
   Equipment Hiring Services:
     attribute_set:
@@ -18774,14 +18711,22 @@ x-attributes:
                         reference: if any
                   cancellation_fee:
                     percentage:
-                      description: value that need to pay in case of cancelation
+                      description: >-
+                        value that need to pay in case of cancelation as
+                        percentage for example 10%, it can be percentage of the
+                        order amount or any fixed amount as well, so in example
+                        if defined percentage = 10 then 10% of order amount need
+                        to pay but if defined amount = { currency = INR, value =
+                        200 } then ₹200 need to pay as cancellation fee
                       required: optional
                       usage: '0'
                       reference: if any
-                    end:
-                      description: availability end date of the service provider
+                    amount:
+                      description: >-
+                        fixed amount need to pay as cancellation fee for example
+                        ₹200
                       required: required
-                      usage: '2022-11-20T00:00:00.000Z'
+                      usage: '200'
                       reference: if any
                 tags:
                   descriptor:
