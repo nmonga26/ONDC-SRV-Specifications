@@ -581,7 +581,7 @@
                       "descriptor": {
                         "code": "TYPE_OF_AUCTION"
                       },
-                      "value": "OPEN"
+                      "value": "CLOSE"
                     },
                     {
                       "descriptor": {

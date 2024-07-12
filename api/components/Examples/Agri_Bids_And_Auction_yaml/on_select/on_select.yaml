@@ -21,9 +21,7 @@ value:
       provider:
         id: P1
       items:
-        - fulfillment_ids:
-            - F1
-          id: I1
+        - id: I1
           location_ids:
             - L1
           category_ids:
@@ -49,11 +47,6 @@ value:
                   value: 7%
       fulfillments:
         - id: F1
-          type: Buyer-Fulfilled
-          tracking: false
-          state:
-            descriptor:
-              code: Serviceable
           stops:
             - type: end
               location:

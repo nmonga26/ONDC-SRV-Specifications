@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:SRV16",
+    "domain": "ONDC:SRV15",
     "location": {
       "city": {
         "code": "std:080"
@@ -9,124 +9,53 @@
         "code": "IND"
       }
     },
-    "action": "on_confirm",
+    "action": "on_cancel",
     "version": "2.0.0",
     "bap_id": "buyerapp.com",
     "bap_uri": "https://buyerapp.com/services",
     "bpp_id": "sellerapp.com",
     "bpp_uri": "https://sellerapp.com/services",
     "transaction_id": "T1",
-    "message_id": "M4",
-    "timestamp": "2024-06-10T22:00:48.000Z",
+    "message_id": "M5",
+    "timestamp": "2024-06-10T22:01:05.000Z",
     "ttl": "PT30S"
   },
   "message": {
     "order": {
       "id": "O1",
-      "status": "In-Progress",
+      "status": "Cancelled",
+      "cancellation": {
+        "cancelled_by": "BPP",
+        "reason": {
+          "descriptor": {
+            "code": "03"
+          }
+        }
+      },
       "provider": {
         "id": "P1",
         "locations": [
           {
             "id": "L1"
           }
-        ],
-        "rateable": true
+        ]
       },
       "items": [
         {
           "id": "I1",
-          "location_ids": [
-            "L1"
-          ],
-          "category_ids": [
-            "SRV16-1001"
-          ],
           "quantity": {
             "selected": {
               "count": 100
             }
-          },
-          "tags": [
-            {
-              "descriptor": {
-                "code": "COMMODITY_SPECIFICATION"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "SELF_LIFE"
-                  },
-                  "value": "P10M"
-                },
-                {
-                  "descriptor": {
-                    "code": "MOISTURE"
-                  },
-                  "value": "10%"
-                },
-                {
-                  "descriptor": {
-                    "code": "OIL_CONTENT"
-                  },
-                  "value": "2%"
-                },
-                {
-                  "descriptor": {
-                    "code": "DEFECTIVES"
-                  },
-                  "value": "7%"
-                }
-              ]
-            },
-            {
-              "descriptor": {
-                "code": "QUALITY_ASSESSMENT_REPORT"
-              },
-              "display": true,
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "NAME"
-                  },
-                  "value": "CER-001"
-                },
-                {
-                  "descriptor": {
-                    "code": "MIME_TYPE"
-                  },
-                  "value": "application/pdf"
-                },
-                {
-                  "descriptor": {
-                    "code": "COPY"
-                  },
-                  "value": "https://abc.com/certificates"
-                }
-              ]
-            }
-          ]
+          }
         }
       ],
-      "billing": {
-        "name": "ONDC buyer",
-        "address": "22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001",
-        "state": {
-          "name": "Karnataka"
-        },
-        "city": {
-          "name": "Bengaluru"
-        },
-        "tax_id": "XXXXXXXXXXXXXXX",
-        "email": "nobody@nomail.com",
-        "phone": "9886098860"
-      },
       "fulfillments": [
         {
           "id": "F1",
           "state": {
             "descriptor": {
-              "code": "Placed"
+              "code": "Not-Awarded"
             }
           },
           "stops": [
@@ -176,6 +105,19 @@
           "rateable": true
         }
       ],
+      "billing": {
+        "name": "ONDC buyer",
+        "address": "22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001",
+        "state": {
+          "name": "Karnataka"
+        },
+        "city": {
+          "name": "Bengaluru"
+        },
+        "tax_id": "XXXXXXXXXXXXXXX",
+        "email": "nobody@nomail.com",
+        "phone": "9886098860"
+      },
       "quote": {
         "price": {
           "currency": "INR",
@@ -435,40 +377,7 @@
           ]
         }
       ],
-      "cancellation_terms": [
-        {
-          "fulfillment_state": {
-            "descriptor": {
-              "code": "Pending"
-            }
-          },
-          "reason_required": false,
-          "cancellation_fee": {
-            "percentage": "0",
-            "amount": {
-              "currency": "IND",
-              "value": "0"
-            }
-          }
-        },
-        {
-          "fulfillment_state": {
-            "descriptor": {
-              "code": "Awarded"
-            }
-          },
-          "reason_required": false,
-          "cancellation_fee": {
-            "percentage": "10",
-            "amount": {
-              "currency": "IND",
-              "value": "100"
-            }
-          }
-        }
-      ],
-      "created_at": "2024-06-10T22:00:46.000Z",
-      "updated_at": "2024-06-10T22:00:48.000Z"
+      "updated_at": "2024-06-10T22:01:05.000Z"
     }
   }
 }

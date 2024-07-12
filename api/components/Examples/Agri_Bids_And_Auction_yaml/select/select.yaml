@@ -24,8 +24,6 @@ value:
           - id: L1
       items:
         - id: I1
-          fulfillment_ids:
-            - F1
           location_ids:
             - L1
           category_ids:
@@ -50,8 +48,7 @@ value:
                     code: DEFECTIVES
                   value: 7%
       fulfillments:
-        - type: Buyer-Fulfilled
-          stops:
+        - stops:
             - type: end
               time:
                 label: selected

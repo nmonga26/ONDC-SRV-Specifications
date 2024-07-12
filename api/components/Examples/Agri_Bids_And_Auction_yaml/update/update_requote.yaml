@@ -28,8 +28,6 @@ value:
           quantity:
             selected:
               count: 100
-          fulfillment_ids:
-            - F1
           payment_ids:
             - PY2
       quote:
@@ -144,11 +142,11 @@ value:
         - id: PY2
           collected_by: BAP
           params:
-            amount: '30050.00'
+            amount: '27045.00'
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
-          status: NOT-PAID
+          status: PAID
           type: ON-FULFILLMENT
           tags:
             - descriptor:
@@ -177,8 +175,6 @@ value:
           state:
             descriptor:
               code: Placed
-          type: Buyer-Fulfilled
-          tracking: false
           stops:
             - type: end
               location:

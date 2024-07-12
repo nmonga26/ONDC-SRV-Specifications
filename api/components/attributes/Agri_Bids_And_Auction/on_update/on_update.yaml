@@ -10,7 +10,7 @@ message:
     status:
       description: Status of the order
       required: mandatory
-      usage: "Pending"
+      usage: "In-Progress"
       reference: if any
     provider:
       parent: true
@@ -39,11 +39,6 @@ message:
               required: mandatory
               usage: "4"
               reference: if any
-      fulfillment_ids:
-        description: Fulfillment IDs
-        required: mandatory
-        usage: "F1"
-        reference: if any
       payment_ids:
         description: Payment IDs
         required: mandatory
@@ -126,16 +121,6 @@ message:
               required: mandatory
               usage: "Placed"
               reference: if any
-        type:
-          description: Fulfillment type
-          required: mandatory
-          usage: "Buyer-Fulfilled"
-          reference: if any
-        tracking:
-          description: Tracking enabled
-          required: mandatory
-          usage: false
-          reference: if any
         stops:
           type:
             description: Type of the fulfillment stop

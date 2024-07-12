@@ -26,6 +26,17 @@
             },
             "tags": [
                 {
+                    "code": "CATALOG_INC",
+                    "list": [
+                        {
+                            "descriptor": {
+                                "code": "MODE"
+                            },
+                            "value": "stop"
+                        }
+                    ]
+                },
+                {
                     "descriptor": {
                         "code": "BAP_TERMS"
                     },

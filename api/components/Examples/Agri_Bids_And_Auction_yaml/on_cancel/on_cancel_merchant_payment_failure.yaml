@@ -21,10 +21,10 @@ value:
       id: O1
       status: Cancelled
       cancellation:
-        cancelled_by: CONSUMER
+        cancelled_by: BPP
         reason:
           descriptor:
-            code: '01'
+            code: '03'
       provider:
         id: P1
         locations:
@@ -38,7 +38,7 @@ value:
         - id: F1
           state:
             descriptor:
-              code: Cancelled
+              code: Not-Awarded
           stops:
             - type: end
               location:
@@ -168,7 +168,7 @@ value:
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
-          status: NOT-PAID
+          status: PAID
           type: PRE-FULFILLMENT
           tags:
             - descriptor:

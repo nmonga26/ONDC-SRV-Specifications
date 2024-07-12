@@ -33,9 +33,6 @@
       "items": [
         {
           "id": "I1",
-          "fulfillment_ids": [
-            "F1"
-          ],
           "location_ids": [
             "L1"
           ],
@@ -98,7 +95,6 @@
       "fulfillments": [
         {
           "id": "F1",
-          "type": "Buyer-Fulfilled",
           "stops": [
             {
               "type": "end",

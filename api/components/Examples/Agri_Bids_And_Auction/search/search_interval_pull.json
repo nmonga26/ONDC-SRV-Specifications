@@ -26,6 +26,23 @@
             },
             "tags": [
                 {
+                    "code": "CATALOG_INC",
+                    "list": [
+                        {
+                            "descriptor": {
+                                "code": "START_TIME"
+                            },
+                            "value": "2023-06-03T08:00:00.000Z"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "END_TIME"
+                            },
+                            "value": "2023-06-03T09:00:00.000Z"
+                        }
+                    ]
+                },
+                {
                     "descriptor": {
                         "code": "BAP_TERMS"
                     },

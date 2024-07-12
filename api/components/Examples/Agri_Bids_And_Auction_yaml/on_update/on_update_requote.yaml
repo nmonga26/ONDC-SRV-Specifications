@@ -27,10 +27,24 @@ value:
           quantity:
             selected:
               count: 100
-          fulfillment_ids:
-            - F1
           payment_ids:
             - PY2
+          tags:
+            - descriptor:
+                code: COMMODITY_SPECIFICATION
+              list:
+                - descriptor:
+                    code: SELF_LIFE
+                  value: P10M
+                - descriptor:
+                    code: MOISTURE
+                  value: 10%
+                - descriptor:
+                    code: OIL_CONTENT
+                  value: 2%
+                - descriptor:
+                    code: DEFECTIVES
+                  value: 7%
       payments:
         - id: PY1
           collected_by: BAP
@@ -94,13 +108,48 @@ value:
                 - descriptor:
                     code: UPI_Address
                   value: xxxxxxx
+        - id: PY2
+          collected_by: BAP
+          params:
+            amount: '-3005.00'
+            currency: INR
+            bank_account_number: xxxxxxxx
+            virtual_payment_address: xxx@xxxx
+          status: NOT-PAID
+          type: ON-FULFILLMENT
+          tags:
+            - descriptor:
+                code: Settlement_Details
+              list:
+                - descriptor:
+                    code: Counterparty
+                  value: BPP
+                - descriptor:
+                    code: Mode
+                  value: UPI
+                - descriptor:
+                    code: Beneficiary_Name
+                  value: xxxxx
+                - descriptor:
+                    code: Bank_Account_No
+                  value: xxxxx
+                - descriptor:
+                    code: Ifsc_Code
+                  value: xxxxxxx
+                - descriptor:
+                    code: UPI_Address
+                  value: xxxxxxx
+            - descriptor:
+                code: Payment_Details
+              list:
+                - descriptor:
+                    code: Reason
+                  value: quality_degrade_charge
       fulfillments:
         - id: F1
           state:
             descriptor:
               code: Placed
-          type: Buyer-Fulfilled
-          tracking: false
           stops:
             - type: end
               location:

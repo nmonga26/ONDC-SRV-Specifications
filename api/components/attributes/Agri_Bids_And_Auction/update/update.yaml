@@ -18,14 +18,14 @@ message:
         time:
           range:
             start:
-              description: start time of the service
+              description: start time of the auction
               required: required
-              usage: "2023-11-16T09:30:00Z"
+              usage: "2024-06-10T09:30:00Z"
               reference: if any
             end:
-              description: end time of the service
+              description: end time of the auction
               required: required
-              usage: "2023-11-16T10:30:00Z"
+              usage: "2024-06-10T10:30:00Z"
               reference: if any  
     payment:
       parent: true

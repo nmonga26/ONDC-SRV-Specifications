@@ -43,7 +43,7 @@ update:
         item:
           tags:
             - code: COMMODITY_SPECIFICATION
-              description: Update parameter for commodity specifications
+              description: Update parameter for commodity specifications (Required)
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 $ref: "./Tag.yaml#/COMMODITY_SPECIFICATION"

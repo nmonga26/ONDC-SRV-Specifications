@@ -119,12 +119,12 @@ value:
                 unitized:
                   measure:
                     unit: kg
-                    value: '5000'
+                    value: '50000'
                 available:
                   measure:
                     unit: kg
                     value: '50'
-                  count: 100
+                  count: 1000
                 minimum:
                   measure:
                     unit: kg

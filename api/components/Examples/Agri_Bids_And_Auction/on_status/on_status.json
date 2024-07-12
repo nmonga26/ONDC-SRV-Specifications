@@ -35,9 +35,6 @@
       "items": [
         {
           "id": "I1",
-          "fulfillment_ids": [
-            "F1"
-          ],
           "location_ids": [
             "L1"
           ],
@@ -83,7 +80,7 @@
             },
             {
               "descriptor": {
-                "code": "CERTIFICATES"
+                "code": "QUALITY_ASSESSMENT_REPORT"
               },
               "display": true,
               "list": [
@@ -131,8 +128,6 @@
               "code": "Placed"
             }
           },
-          "type": "Buyer-Fulfilled",
-          "tracking": false,
           "stops": [
             {
               "type": "end",

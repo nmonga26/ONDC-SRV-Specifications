@@ -35,11 +35,41 @@
                             "count": 100
                         }
                     },
-                    "fulfillment_ids": [
-                        "F1"
-                    ],
                     "payment_ids": [
                         "PY2"
+                    ],
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "code": "COMMODITY_SPECIFICATION"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "code": "SELF_LIFE"
+                                    },
+                                    "value": "P10M"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "MOISTURE"
+                                    },
+                                    "value": "10%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "OIL_CONTENT"
+                                    },
+                                    "value": "2%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "DEFECTIVES"
+                                    },
+                                    "value": "7%"
+                                }
+                            ]
+                        }
                     ]
                 }
             ],
@@ -167,8 +197,6 @@
                             "code": "Awarded"
                         }
                     },
-                    "type": "Buyer-Fulfilled",
-                    "tracking": false,
                     "stops": [
                         {
                             "type": "end",

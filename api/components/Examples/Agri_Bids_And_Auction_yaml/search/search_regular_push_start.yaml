@@ -16,13 +16,15 @@ value:
     ttl: PT30S
   message:
     intent:
-      item:
-        category:
-          code: SRV16-*
       payment:
         type: ON-FULFILLMENT
         collected_by: BAP
       tags:
+        - code: CATALOG_INC
+          list:
+            - descriptor:
+                code: MODE
+              value: start
         - descriptor:
             code: BAP_TERMS
           display: false

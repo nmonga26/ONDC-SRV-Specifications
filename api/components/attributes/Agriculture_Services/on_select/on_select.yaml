@@ -14,7 +14,7 @@ message:
       id:
         description: item id sent in /select call
         required: required
-        usage: "I2"
+        usage: "I1"
         reference: if any
       fulfillment_ids:
         description: fulfillment id of the service
