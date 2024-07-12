@@ -20,12 +20,12 @@ message:
             start:
               description: start time of the service
               required: required
-              usage: "2023-11-16T09:30:00Z"
+              usage: "2024-06-09T09:30:00Z"
               reference: if any
             end:
               description: end time of the service
               required: required
-              usage: "2023-11-16T10:30:00Z"
+              usage: "2024-06-09T10:30:00Z"
               reference: if any  
     payment:
       parent: true

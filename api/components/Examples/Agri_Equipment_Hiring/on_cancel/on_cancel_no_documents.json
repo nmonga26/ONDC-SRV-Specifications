@@ -25,7 +25,7 @@
       "id": "O1",
       "status": "Cancelled",
       "cancellation": {
-        "cancelled_by": "CONSUMER",
+        "cancelled_by": "MERCHANT",
         "reason": {
           "descriptor": {
             "code": "02"
@@ -42,7 +42,7 @@
       },
       "items": [
         {
-          "id": "I2",
+          "id": "I1",
           "fulfillment_ids": [
             "F1"
           ],

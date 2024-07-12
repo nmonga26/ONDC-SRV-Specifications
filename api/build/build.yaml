@@ -2828,6 +2828,11 @@ x-enum:
                     - code: days
                       description: Quantity measure to hire the equipment
                       reference: <PR/Issue/Discussion Links md format text>
+                    - code: acres
+                      description: >-
+                        Area (Acres) of land's to hire the equipment when unsure
+                        about hours/days
+                      reference: <PR/Issue/Discussion Links md format text>
             tags:
               RESCHEDULE_TERMS:
                 RESCHEDULE_FEE_TYPE:
@@ -2908,6 +2913,12 @@ x-enum:
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: tandc_violation_charge
                   description: Terms and condition violation charge for equipment
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: extend_renting_charge
+                  description: Extend the rending for equipment
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: surcharge
+                  description: surcharge amount for extended period for equipment
                   reference: <PR/Issue/Discussion Links md format text>
   confirm:
     context:
@@ -3858,31 +3869,33 @@ x-flows:
                         category_ids:
                           - SRV15-1001
                         item_ids:
-                          - PI2
+                          - I1
                         time:
                           label: validity
                           range:
                             start: '2024-04-01T00:00:00.000Z'
                             end: '2024-12-10T00:00:00.000Z'
-                          days: 04,05
                         tags:
-                          - code: qualifier
+                          - descriptor:
+                              code: qualifier
                             list:
                               - descriptor:
                                   code: min_value
                                 value: '5000'
-                          - code: benefit
+                          - descriptor:
+                              code: benefit
                             list:
                               - descriptor:
                                   code: item_count
                                 value: '5'
                               - descriptor:
                                   code: item_id
-                                value: I2
+                                value: I1
                               - descriptor:
                                   code: item_value
                                 value: '200.00'
-                          - code: meta
+                          - descriptor:
+                              code: meta
                             list:
                               - descriptor:
                                   code: additive
@@ -6720,6 +6733,381 @@ x-flows:
               code: 90002
               message: Equipment schedule initialised by buyer is not available
   - summary: >-
+      Agriculture Equipment Hiring of a Commodity (Know land's acreage but
+      unsure usage hours)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to hire agricultural equipment. The booking
+      majorly happens in four phases of order processing flow, i.e. Discovery of
+      available services and service providers based on serviceability, order,
+      fulfillment and post-fulfillment but Buyer to enter the acreage of the
+      Land in order to understand how many hours he would need to use the
+      equipment for and The seller will then compute the price based on hours
+      and share it in the price quote.
+    details:
+      - description: >-
+          Sequence Diagram for Agriculture Equipment Hiring (Know land's acreage
+          but unsure usage hours)
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA1 as SellerApp1
+            participant SA2 as SellerApp2
+            
+            Note Over B,SA: **SEARCH FLOW**
+            B ->> BA: Search by city for a equipment
+            BA ->> G: **/search** - Search by city for a equipment and <br>additional parameters
+            Note left of BA: Additional params include: <br><br>
+            G ->> SA1: **/search** - Equipment request broadcasted based <br>on city and domain in context
+            G ->> SA2: **/search** - Equipment request broadcasted based <br>on city and domain in context
+            SA1 ->> BA: **/on_search** - Equipment catalog returned <br>with pricing, seller statutory details, pricing
+            SA2 ->> BA: **/on_search** - Equipment catalog returned <br>with pricing, seller statutory details, pricing
+            Note Over BA,SA1: Buyer now has the option to choose the <br>Equipment from either Seller 1 or Seller 2 or both
+            BA ->> B: Shows all the equipments <br>options from sellers
+      - description: Ordering
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA as SellerApp
+            Note Over B,SA: **SELECT FLOW**
+            B ->> BA: Selects one of the <br>providers for equipment
+            BA ->> SA: **/select** - A equipment is selected with a <br>TTL for receiving response
+            SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including logistics charges
+            BA ->> B: Shows response with price details
+      - description: Initializing the order
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA as SellerApp
+            Note Over B,SA: **INITIALIZATION FLOW**
+            B ->> BA: Proceeds with the Order
+            BA ->> SA: **/init** - Initializes the order and <br>sends billing details
+            SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
+            BA ->> B: Confirms initialization
+      - description: Order Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **CONFIRMATION FLOW**
+            B ->> BA: Confirms the Order
+            BA ->> SA: **/confirm** - Creates order to create final digital contract
+            SA ->> BA: **/on_confirm** - Accepts the order 
+            BA ->> B: Confirms order and delivery 
+      - description: Fulfillment
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp 
+            Note Over B,SA: **ORDER STATUS FLOW**
+            B ->> BA: Checks the order status
+            BA ->> SA: **/status** - Enquire order status <br>or tracking information
+            SA ->> BA: **/on_status_in_transit** - Latest order and fulfillment status is sent
+            BA ->> B: Updates the latest order <br>and fulfillment information
+    reference: if any
+    steps:
+      - summary: Search based on the intent for hiring a particular agri equipment
+        api: search
+        description: >-
+          The search intent from the buyer focuses on specific agricultural
+          equipment needs, such as irrigation equipment (defined by category
+          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          Operated Zero-Till Seed-Cum-Fertilizer Drill.
+        reference: if any
+        example: *ref_14
+      - summary: Returns the catalog specific to the search intent
+        api: on_search
+        description: >-
+          In response, the Seller has shared the catalog detailing all
+          specifications and features of the equipment as per the search intent.
+          Quantity is measured in hours and days, and one can find comprehensive
+          information regarding serviceability and operational time within the
+          catalog. <br> Note:- serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and to generate/about the GeoJSON (if required) need to
+          refer <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
+          document]</a>
+        reference: if any
+        example: *ref_15
+      - summary: Buyer selects the required agri equipment
+        api: select
+        description: >-
+          Once all options are visible, the Buyer selects the desired
+          agricultural equipment along with a suitable fulfillment type but
+          Buyer enters the acreage of the Land in order to understand how many
+          hours he would need to use the equipment for as he is unsure about
+          hours
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:SRV15
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: select
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M2
+              timestamp: '2024-06-10T22:00:30.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F2
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - SRV15-1001
+                    quantity:
+                      selected:
+                        measure:
+                          unit: acres
+                          value: '2'
+                    tags:
+                      - descriptor:
+                          code: ATTRIBUTE
+                        list:
+                          - descriptor:
+                              code: TYPE
+                            value: item
+                fulfillments:
+                  - type: Seller-Fulfilled
+                    stops:
+                      - type: end
+                        time:
+                          label: selected
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        location:
+                          gps: 12.974002,77.613458
+                          area_code: '560001'
+                payments:
+                  - type: PRE-FULFILLMENT
+                  - type: ON-FULFILLMENT
+      - summary: Seller confirms the equipment item and returns the quote for equipment
+        api: on_select
+        description: >-
+          The Seller confirms the selected equipment item and provides a quote
+          for the equipment based on selected acreage of the Land where seller
+          calculate the hours of the equipment useges based on area of Land.
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:SRV15
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_select
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M2
+              timestamp: '2024-06-10T22:00:31.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                items:
+                  - fulfillment_ids:
+                      - F1
+                    id: I1
+                    location_ids:
+                      - L1
+                    tags:
+                      - descriptor:
+                          code: ATTRIBUTE
+                        list:
+                          - descriptor:
+                              code: TYPE
+                            value: item
+                fulfillments:
+                  - id: F1
+                    type: Buyer-Fulfilled
+                    tracking: false
+                    state:
+                      descriptor:
+                        code: Serviceable
+                    stops:
+                      - type: start
+                        location:
+                          gps: 12.974002,77.613458
+                          area_code: '560001'
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                      - type: end
+                        location:
+                          gps: 12.956399,77.636803
+                        range:
+                          start: '2024-06-09T22:00:00.000Z'
+                          end: '2024-06-10T02:00:00.000Z'
+                quote:
+                  price:
+                    currency: INR
+                    value: '7140'
+                  breakup:
+                    - title: Tractor
+                      price:
+                        currency: INR
+                        value: '2000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 4
+                        price:
+                          currency: INR
+                          value: '500'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: refundable_security
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: refundable_security
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '50'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '10'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: pickup_charge
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
+                  ttl: P1D
+                payments:
+                  - type: PRE-FULFILLMENT
+                    collected_by: BAP
+                  - type: ON-FULFILLMENT
+                    collected_by: BAP
+      - summary: Buyer initialises the order for equipment
+        api: init
+        description: Buyer initialises the order and provides billing details
+        reference: if any
+        example: *ref_18
+      - summary: Seller provides the final quotation for the equipment
+        api: on_init
+        description: Seller provides the final quotation
+        reference: if any
+        example: *ref_19
+      - summary: Buyer confirm the order for the equipment
+        api: confirm
+        description: Buyer makes the payment to confirm the order
+        example: *ref_20
+      - summary: Seller accepts the order for equipment
+        api: on_confirm
+        description: >-
+          Seller app sends an on_confirm call to the buyer app accepting the
+          order
+        reference: if any
+        example: *ref_21
+      - summary: Buyer requests for the status of the order
+        api: status
+        description: Buyer requests for the status of the order
+        example: *ref_22
+      - summary: Seller app sends order status update (In-Transit)
+        api: on_status (In Transit)
+        description: Seller app sends order status update when equipment is on the way
+        reference: if any
+        example: *ref_23
+      - summary: Seller app sends the order status (At location)
+        api: on_status (At Location)
+        description: >-
+          Seller app sends order status update when service provider has reached
+          the buyer location with equipment
+        reference: if any
+        example: *ref_24
+      - summary: Seller app sends the order status (Completed)
+        api: on_status (Completed)
+        description: >-
+          Seller app sends order status update when service provider has
+          completed
+        reference: if any
+        example: *ref_25
+      - summary: Buyer app shares the ratings to seller app
+        api: rating
+        description: >-
+          Buyer leaves a detailed review on the buyer, sharing both positive and
+          negative aspects. Buyer app shares the same with the seller app
+          following the rating framework
+        reference: if any
+        example: *ref_26
+  - summary: >-
       Agriculture Equipment Hiring (Requisite documents not available during
       equipment delivery/ pickup)
     description: >-
@@ -6905,7 +7293,7 @@ x-flows:
                 id: O1
                 status: Cancelled
                 cancellation:
-                  cancelled_by: CONSUMER
+                  cancelled_by: MERCHANT
                   reason:
                     descriptor:
                       code: '02'
@@ -6914,7 +7302,7 @@ x-flows:
                   locations:
                     - id: L1
                 items:
-                  - id: I2
+                  - id: I1
                     fulfillment_ids:
                       - F1
                     quantity:
@@ -8795,6 +9183,1718 @@ x-flows:
           following the rating framework
         reference: if any
         example: *ref_26
+  - summary: >-
+      Agriculture Equipment Hiring of a Commodity (Buyer extend the renting
+      period)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to hire agricultural equipment. The booking
+      majorly happens in four phases of order processing flow, i.e. Discovery of
+      available services and service providers based on serviceability, order,
+      fulfillment and post-fulfillment. If Buyer wants to extend the renting
+      period (For e.g. He rented the equipment for 3 Hours and now wants to use
+      it for 8 Hours) We are enabling following ways to handle this ver the
+      protocol, given the inventory is available  a. A new order may be created
+      using Parent Child Order mapping  b. Or Surcharge will be sent in the
+      Price Quote in the Update Call If the inventory is not available a.
+      Delivery : Seller may collect back the Equipment at the time of the
+      completion  b. Self Pick Up : Seller may charge a Fee/Surcharge as per his
+      terms and conditions 
+    details:
+      - description: >-
+          Sequence Diagram for Agriculture Equipment Hiring (Buyer extend the
+          renting period)
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA1 as SellerApp1
+            participant SA2 as SellerApp2
+            
+            Note Over B,SA: **SEARCH FLOW**
+            B ->> BA: Search by city for a equipment
+            BA ->> G: **/search** - Search by city for a equipment and <br>additional parameters
+            Note left of BA: Additional params include: <br><br>
+            G ->> SA1: **/search** - Equipment request broadcasted based <br>on city and domain in context
+            G ->> SA2: **/search** - Equipment request broadcasted based <br>on city and domain in context
+            SA1 ->> BA: **/on_search** - Equipment catalog returned <br>with pricing, seller statutory details, pricing
+            SA2 ->> BA: **/on_search** - Equipment catalog returned <br>with pricing, seller statutory details, pricing
+            Note Over BA,SA1: Buyer now has the option to choose the <br>Equipment from either Seller 1 or Seller 2 or both
+            BA ->> B: Shows all the equipments <br>options from sellers
+      - description: Ordering
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA as SellerApp
+            Note Over B,SA: **SELECT FLOW**
+            B ->> BA: Selects one of the <br>providers for equipment
+            BA ->> SA: **/select** - A equipment is selected with a <br>TTL for receiving response
+            SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including logistics charges
+            BA ->> B: Shows response with price details
+      - description: Initializing the order
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA as SellerApp
+            Note Over B,SA: **INITIALIZATION FLOW**
+            B ->> BA: Proceeds with the Order
+            BA ->> SA: **/init** - Initializes the order and <br>sends billing details
+            SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
+            BA ->> B: Confirms initialization
+      - description: Order Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **CONFIRMATION FLOW**
+            B ->> BA: Confirms the Order
+            BA ->> SA: **/confirm** - Creates order to create final digital contract
+            SA ->> BA: **/on_confirm** - Accepts the order 
+            BA ->> B: Confirms order and delivery 
+      - description: Extend the renting period
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp 
+            Note Over B,SA: **ORDER RENTING PERIOD EXTEND FLOW**
+            B ->> BA: Extend the renting period
+            BA ->> SA: **/update** - Request to Extend <br> the renting period 
+            SA ->> BA: **/on_update** - Fulfill the requiested renting period 
+            BA ->> B: Updates the latest order <br>with extended renting period 
+      - description: Fulfillment
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp 
+            Note Over B,SA: **ORDER STATUS FLOW**
+            B ->> BA: Checks the order status
+            BA ->> SA: **/status** - Enquire order status <br>or tracking information
+            SA ->> BA: **/on_status_in_transit** - Latest order and fulfillment status is sent
+            BA ->> B: Updates the latest order <br>and fulfillment information
+    reference: if any
+    steps:
+      - summary: Search based on the intent for hiring a particular agri equipment
+        api: search
+        description: >-
+          The search intent from the buyer focuses on specific agricultural
+          equipment needs, such as irrigation equipment (defined by category
+          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          Operated Zero-Till Seed-Cum-Fertilizer Drill.
+        reference: if any
+        example: *ref_14
+      - summary: Returns the catalog specific to the search intent
+        api: on_search
+        description: >-
+          In response, the Seller has shared the catalog detailing all
+          specifications and features of the equipment as per the search intent.
+          Quantity is measured in hours and days, and one can find comprehensive
+          information regarding serviceability and operational time within the
+          catalog. <br> Note:- serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and to generate/about the GeoJSON (if required) need to
+          refer <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
+          document]</a>
+        reference: if any
+        example: *ref_15
+      - summary: Buyer selects the required agri equipment
+        api: select
+        description: >-
+          Once all options are visible, the Buyer selects the desired
+          agricultural equipment along with a suitable fulfillment type.
+        reference: if any
+        example: *ref_16
+      - summary: Seller confirms the equipment item and returns the quote for equipment
+        api: on_select
+        description: >-
+          The Seller confirms the selected equipment item and provides a quote
+          for the equipment.
+        reference: if any
+        example: *ref_17
+      - summary: Buyer initialises the order for equipment
+        api: init
+        description: Buyer initialises the order and provides billing details
+        reference: if any
+        example: *ref_18
+      - summary: Seller provides the final quotation for the equipment
+        api: on_init
+        description: Seller provides the final quotation
+        reference: if any
+        example: *ref_19
+      - summary: Buyer confirm the order for the equipment
+        api: confirm
+        description: Buyer makes the payment to confirm the order
+        example: *ref_20
+      - summary: Seller accepts the order for equipment
+        api: on_confirm
+        description: >-
+          Seller app sends an on_confirm call to the buyer app accepting the
+          order
+        reference: if any
+        example: *ref_21
+      - summary: Buyer wants to extend the renting period
+        api: update (new order)
+        description: >-
+          Buyer wants to extend the renting period (For e.g. He rented the
+          equipment for 3 Hours and now wants to use it for 8 Hours)
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:SRV15
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M6
+              timestamp: '2024-06-10T22:01:20.000Z'
+              ttl: PT30S
+            message:
+              update_target: fulfillments,items
+              order:
+                id: OC1
+                status: Pending
+                provider:
+                  id: P1
+                items:
+                  - id: I1
+                    quantity:
+                      unitized:
+                        measure:
+                          unit: hours
+                          value: '2'
+                    fulfillment_ids:
+                      - F1
+                    payment_ids:
+                      - PY2
+                payments:
+                  - id: PY1
+                    collected_by: BAP
+                    params:
+                      amount: '5000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '2140'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Buyer-Fulfilled
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: Equipment Provider store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        person:
+                          name: Kishan
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        person:
+                          name: Ramu
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                        authorization:
+                          type: OTP
+                          token: '1234'
+                          valid_from: '2024-06-10T22:00:00Z'
+                          valid_to: '2024-06-10T23:00:00Z'
+                          status: valid
+                    rateable: true
+                quote:
+                  price:
+                    currency: INR
+                    value: '7140'
+                  breakup:
+                    - title: Tractor
+                      price:
+                        currency: INR
+                        value: '2000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 4
+                        price:
+                          currency: INR
+                          value: '500'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: refundable_security
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: refundable_security
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '50'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '10'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: pickup_charge
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
+                  ttl: P1D
+      - summary: Seller app extend the renting period for requested equipment
+        api: on_update (new order)
+        description: >-
+          Seller app extend the renting period and A new order may be created
+          using Parent Child Order mapping
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:SRV15
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M6
+              timestamp: '2024-06-10T22:01:20.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: OC1
+                ref_order_ids:
+                  - O1
+                status: Pending
+                provider:
+                  id: P1
+                items:
+                  - id: I1
+                    quantity:
+                      unitized:
+                        measure:
+                          unit: hours
+                          value: '2'
+                    fulfillment_ids:
+                      - F1
+                    payment_ids:
+                      - PY2
+                payments:
+                  - id: PY1
+                    collected_by: BAP
+                    params:
+                      amount: '5000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '2140'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '1050.00'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: POST-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Payment_Details
+                        list:
+                          - descriptor:
+                              code: Reason
+                            value: extend_renting_charge
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Buyer-Fulfilled
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: Equipment Provider store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        person:
+                          name: Kishan
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        person:
+                          name: Ramu
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                        authorization:
+                          type: OTP
+                          token: '1234'
+                          valid_from: '2024-06-10T22:00:00Z'
+                          valid_to: '2024-06-10T23:00:00Z'
+                          status: valid
+                    rateable: true
+                quote:
+                  price:
+                    currency: INR
+                    value: '1050'
+                  breakup:
+                    - title: Tractor
+                      price:
+                        currency: INR
+                        value: '1000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 2
+                        price:
+                          currency: INR
+                          value: '500'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '50'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                  ttl: P1D
+      - summary: >-
+          Seller app shares requote by applying surcharges for extra renting
+          period
+        api: on_update (surcharges)
+        description: >-
+          Seller app shares requote by applying surcharges for extra renting
+          period
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:SRV15
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M6
+              timestamp: '2024-06-10T22:01:20.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: Completed
+                provider:
+                  id: P1
+                items:
+                  - id: I1
+                    quantity:
+                      unitized:
+                        measure:
+                          unit: hours
+                          value: '4'
+                    fulfillment_ids:
+                      - F1
+                    payment_ids:
+                      - PY2
+                payments:
+                  - id: PY1
+                    collected_by: BAP
+                    params:
+                      amount: '5000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '2140'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '2000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Payment_Details
+                        list:
+                          - descriptor:
+                              code: Reason
+                            value: surcharge
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Completed
+                    type: Buyer-Fulfilled
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: Equipment Provider store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        person:
+                          name: Kishan
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        person:
+                          name: Ramu
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                        authorization:
+                          type: OTP
+                          token: '1234'
+                          valid_from: '2024-06-10T22:00:00Z'
+                          valid_to: '2024-06-10T23:00:00Z'
+                          status: valid
+                    rateable: true
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Buyer-Fulfilled
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: Equipment Provider store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        person:
+                          name: Kishan
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        person:
+                          name: Ramu
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                        authorization:
+                          type: OTP
+                          token: '1234'
+                          valid_from: '2024-06-10T22:00:00Z'
+                          valid_to: '2024-06-10T23:00:00Z'
+                          status: valid
+                    rateable: true
+                quote:
+                  price:
+                    currency: INR
+                    value: '7140'
+                  breakup:
+                    - title: Tractor
+                      price:
+                        currency: INR
+                        value: '2000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 4
+                        price:
+                          currency: INR
+                          value: '500'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: refundable_security
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: refundable_security
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '50'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '10'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: pickup_charge
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
+                  ttl: P1D
+      - summary: Buyer app sends the acknowledgement of payment
+        api: update (surcharges)
+        description: >-
+          Buyer app sends the acknowledgement of payment for extra renting
+          period
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:SRV15
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M6
+              timestamp: '2024-06-10T22:01:20.000Z'
+              ttl: PT30S
+            message:
+              update_target: payments
+              order:
+                id: O1
+                status: Completed
+                provider:
+                  id: P1
+                items:
+                  - id: I1
+                    quantity:
+                      unitized:
+                        measure:
+                          unit: hours
+                          value: '4'
+                    fulfillment_ids:
+                      - F1
+                    payment_ids:
+                      - PY2
+                payments:
+                  - id: PY1
+                    collected_by: BAP
+                    params:
+                      amount: '5000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '2140'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '2000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Payment_Details
+                        list:
+                          - descriptor:
+                              code: Reason
+                            value: surcharge
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Completed
+                    type: Buyer-Fulfilled
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: Equipment Provider store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        person:
+                          name: Kishan
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        person:
+                          name: Ramu
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                        authorization:
+                          type: OTP
+                          token: '1234'
+                          valid_from: '2024-06-10T22:00:00Z'
+                          valid_to: '2024-06-10T23:00:00Z'
+                          status: valid
+                    rateable: true
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Buyer-Fulfilled
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: Equipment Provider store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        person:
+                          name: Kishan
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        person:
+                          name: Ramu
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                        authorization:
+                          type: OTP
+                          token: '1234'
+                          valid_from: '2024-06-10T22:00:00Z'
+                          valid_to: '2024-06-10T23:00:00Z'
+                          status: valid
+                    rateable: true
+                quote:
+                  price:
+                    currency: INR
+                    value: '7140'
+                  breakup:
+                    - title: Tractor
+                      price:
+                        currency: INR
+                        value: '2000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 4
+                        price:
+                          currency: INR
+                          value: '500'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: refundable_security
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: refundable_security
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '50'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '10'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: pickup_charge
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
+                  ttl: P1D
+      - summary: Buyer app shares the ratings to seller app
+        api: rating
+        description: >-
+          Buyer leaves a detailed review on the buyer, sharing both positive and
+          negative aspects. Buyer app shares the same with the seller app
+          following the rating framework
+        reference: if any
+        example: *ref_26
+  - summary: >-
+      Agriculture Equipment Hiring of a Commodity (Buyer cancels the placed
+      Order)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to hire agricultural equipment. The booking
+      majorly happens in four phases of order processing flow, i.e. Discovery of
+      available services and service providers based on serviceability and
+      order. Buyer wants to cancel the confirmed order and Buyer tries to cancel
+      the booking and is shown the Cancellation Terms
+        i. The sellers T&C’s to be followed here which were shown at the time of the Booking.
+        ii. If the Order is prepaid, the refund or part payment should be made by the Buyer App and cancelation details should be informed to the Seller/Driver 
+        iii. Buyer app may collect the feedback/cancellation reasons. 
+    details:
+      - description: >-
+          Sequence Diagram for Agriculture Equipment Hiring (Buyer cancels the
+          placed Order)
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA1 as SellerApp1
+            participant SA2 as SellerApp2
+            
+            Note Over B,SA: **SEARCH FLOW**
+            B ->> BA: Search by city for a equipment
+            BA ->> G: **/search** - Search by city for a equipment and <br>additional parameters
+            Note left of BA: Additional params include: <br><br>
+            G ->> SA1: **/search** - Equipment request broadcasted based <br>on city and domain in context
+            G ->> SA2: **/search** - Equipment request broadcasted based <br>on city and domain in context
+            SA1 ->> BA: **/on_search** - Equipment catalog returned <br>with pricing, seller statutory details, pricing
+            SA2 ->> BA: **/on_search** - Equipment catalog returned <br>with pricing, seller statutory details, pricing
+            Note Over BA,SA1: Buyer now has the option to choose the <br>Equipment from either Seller 1 or Seller 2 or both
+            BA ->> B: Shows all the equipments <br>options from sellers
+      - description: Ordering
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA as SellerApp
+            Note Over B,SA: **SELECT FLOW**
+            B ->> BA: Selects one of the <br>providers for equipment
+            BA ->> SA: **/select** - A equipment is selected with a <br>TTL for receiving response
+            SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including logistics charges
+            BA ->> B: Shows response with price details
+      - description: Initializing the order
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA as SellerApp
+            Note Over B,SA: **INITIALIZATION FLOW**
+            B ->> BA: Proceeds with the Order
+            BA ->> SA: **/init** - Initializes the order and <br>sends billing details
+            SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
+            BA ->> B: Confirms initialization
+      - description: Order Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **CONFIRMATION FLOW**
+            B ->> BA: Confirms the Order
+            BA ->> SA: **/confirm** - Creates order to create final digital contract
+            SA ->> BA: **/on_confirm** - Accepts the order 
+            BA ->> B: Confirms order and delivery 
+      - description: Cancel order
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp 
+            Note Over B,SA: **ORDER CANCELLATION FLOW**
+            B ->> BA: Cancel the order 
+            BA ->> SA: **/cancel** - Send cancel requiest <br> for equipment with reason
+            SA ->> BA: **/on_cancel** - Confirmation for cancellation requiest
+            BA ->> B: Updates the latest order <br> status as cancel
+    reference: if any
+    steps:
+      - summary: Search based on the intent for hiring a particular agri equipment
+        api: search
+        description: >-
+          The search intent from the buyer focuses on specific agricultural
+          equipment needs, such as irrigation equipment (defined by category
+          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          Operated Zero-Till Seed-Cum-Fertilizer Drill.
+        reference: if any
+        example: *ref_14
+      - summary: Returns the catalog specific to the search intent
+        api: on_search
+        description: >-
+          In response, the Seller has shared the catalog detailing all
+          specifications and features of the equipment as per the search intent.
+          Quantity is measured in hours and days, and one can find comprehensive
+          information regarding serviceability and operational time within the
+          catalog. <br> Note:- serviceability and time can be reffered from <a
+          href="https://docs.google.com/document/d/1f4QbVstY5m-L_-Jut5jvbeiaBKLR1ttJL_am6GG2Fko/edit">[this
+          document]</a> and to generate/about the GeoJSON (if required) need to
+          refer <a
+          href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
+          document]</a>
+        reference: if any
+        example: *ref_15
+      - summary: Buyer selects the required agri equipment
+        api: select
+        description: >-
+          Once all options are visible, the Buyer selects the desired
+          agricultural equipment along with a suitable fulfillment type.
+        reference: if any
+        example: *ref_16
+      - summary: Seller confirms the equipment item and returns the quote for equipment
+        api: on_select
+        description: >-
+          The Seller confirms the selected equipment item and provides a quote
+          for the equipment.
+        reference: if any
+        example: *ref_17
+      - summary: Buyer initialises the order for equipment
+        api: init
+        description: Buyer initialises the order and provides billing details
+        reference: if any
+        example: *ref_18
+      - summary: Seller provides the final quotation for the equipment
+        api: on_init
+        description: Seller provides the final quotation
+        reference: if any
+        example: *ref_19
+      - summary: Buyer confirm the order for the equipment
+        api: confirm
+        description: Buyer makes the payment to confirm the order
+        example: *ref_20
+      - summary: Seller accepts the order for equipment
+        api: on_confirm
+        description: >-
+          Seller app sends an on_confirm call to the buyer app accepting the
+          order
+        reference: if any
+        example: *ref_21
+      - summary: Buyer requests for the order cancellation
+        api: cancel
+        description: >-
+          Buyer requests for order cancellation and provides the cancellation
+          reason_id
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:SRV15
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: cancel
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M5
+              timestamp: '2024-06-10T22:01:00.000Z'
+              ttl: PT30S
+            message:
+              order_id: O1
+              cancellation_reason_id: '01'
+      - summary: Seller accepts the cancellation request
+        api: on_cancel
+        description: Seller accepts the cancellation request
+        example:
+          value:
+            context:
+              domain: ONDC:SRV15
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_cancel
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M5
+              timestamp: '2024-06-10T22:01:05.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: Cancelled
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '01'
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 4
+                quote:
+                  price:
+                    currency: INR
+                    value: '7140'
+                  breakup:
+                    - title: Tractor
+                      price:
+                        currency: INR
+                        value: '2000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 4
+                        price:
+                          currency: INR
+                          value: '500'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: refundable_security
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: refundable_security
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '50'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '10'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: pickup_charge
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
+                  ttl: P1D
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Cancelled
+                    type: Buyer-Fulfilled
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: Equipment Provider store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        person:
+                          name: Kishan
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-06-09T22:00:00.000Z'
+                            end: '2024-06-10T02:00:00.000Z'
+                        person:
+                          name: Ramu
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                        authorization:
+                          type: OTP
+                          token: '1234'
+                          valid_from: '2024-06-10T22:00:00Z'
+                          valid_to: '2024-06-10T23:00:00Z'
+                          status: valid
+                    rateable: true
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                payments:
+                  - id: PY1
+                    collected_by: BAP
+                    params:
+                      amount: '5000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BAP
+                    params:
+                      amount: '2140'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                updated_at: '2024-06-10T22:01:05.000Z'
   - summary: >-
       Agriculture Equipment Hiring (Violation of Terms and conditions by the
       Buyer)
@@ -12057,31 +14157,33 @@ x-examples:
                           category_ids:
                             - SRV15-1001
                           item_ids:
-                            - PI2
+                            - I1
                           time:
                             label: validity
                             range:
                               start: '2024-04-01T00:00:00.000Z'
                               end: '2024-12-10T00:00:00.000Z'
-                            days: 04,05
                           tags:
-                            - code: qualifier
+                            - descriptor:
+                                code: qualifier
                               list:
                                 - descriptor:
                                     code: min_value
                                   value: '5000'
-                            - code: benefit
+                            - descriptor:
+                                code: benefit
                               list:
                                 - descriptor:
                                     code: item_count
                                   value: '5'
                                 - descriptor:
                                     code: item_id
-                                  value: I2
+                                  value: I1
                                 - descriptor:
                                     code: item_value
                                   value: '200.00'
-                            - code: meta
+                            - descriptor:
+                                code: meta
                               list:
                                 - descriptor:
                                     code: additive
@@ -12260,7 +14362,7 @@ x-examples:
                   items:
                     - fulfillment_ids:
                         - F2
-                      id: I2
+                      id: I1
                       location_ids:
                         - L1
                       tags:
@@ -14643,7 +16745,7 @@ x-examples:
                     locations:
                       - id: L1
                   items:
-                    - id: I2
+                    - id: I1
                       fulfillment_ids:
                         - F1
                       quantity:
@@ -14879,7 +16981,7 @@ x-examples:
                   id: O1
                   status: Cancelled
                   cancellation:
-                    cancelled_by: CONSUMER
+                    cancelled_by: MERCHANT
                     reason:
                       descriptor:
                         code: '02'
@@ -14888,7 +16990,7 @@ x-examples:
                     locations:
                       - id: L1
                   items:
-                    - id: I2
+                    - id: I1
                       fulfillment_ids:
                         - F1
                       quantity:
@@ -16077,6 +18179,14 @@ x-examples:
       longer available Buyer goes back to the listing page and looks for other
       available equipments
     example_set: *ref_27
+  Services - Equipment Hiring (Know land's acreage but unsure usage hours):
+    summary: Agriculture Equipment Hiring (Know land's acreage but unsure usage hours)
+    description: >-
+      Buyer creates an intent for booking an equipment for hire and buyer to
+      enter the acreage of the Land in order to understand how many hours he
+      would need to use the equipment for and the seller will then compute the
+      price based on hours and share it in the price quote.
+    example_set: *ref_27
   Services - Equipment Hiring (Requisite documents not available during equipment delivery/ pickup):
     summary: >-
       Agriculture Equipment Hiring (Requisite documents not available during
@@ -16106,6 +18216,23 @@ x-examples:
       During the journey if the buyer faces any issues, the buyer may raise a
       complaint on the buyer app and the buyer app tries to analyse the
       complaints
+    example_set: *ref_27
+  Services - Equipment Hiring (Buyer extend the renting period):
+    summary: Agriculture Equipment Hiring (Buyer extend the renting period)
+    description: >-
+      This elaborates the model implementations for booking agriculture
+      equipment over the network. The booking majorly happens in four phases of
+      order processing flow, i.e. Discovery of available equipments and service
+      providers based on serviceability, order, fulfillment and
+      post-fulfillment.<br> If Buyer wants to extend the renting period (For
+      e.g. He rented the equipment for 3 Hours and now wants to use it for 8
+      Hours) <br><br> We are enabling following ways to handle this ver the
+      protocol, given the inventory is available <br> a. A new order may be
+      created using Parent Child Order mapping <br> b. Or Surcharge will be sent
+      in the Price Quote in the Update Call <br><br> If the inventory is not
+      available <br> a. Delivery : Seller may collect back the Equipment at the
+      time of the completion <br> b. Self Pick Up : Seller may charge a
+      Fee/Surcharge as per his terms and conditions <br>
     example_set: *ref_27
   Services - Equipment Hiring (Violation of Terms and conditions by the Buyer):
     summary: >-
@@ -16155,7 +18282,7 @@ x-attributes:
           timestamp:
             description: RFC3339 compliant timestamp
             required: mandatory
-            usage: '2023-10-17T21:10:00.000Z'
+            usage: 2024-06-097T21:10:00.000Z
             reference: if any
           ttl:
             description: validity of message
@@ -16196,12 +18323,12 @@ x-attributes:
                     start:
                       description: start time of the time slot desired for the service
                       required: required
-                      usage: '2023-11-16T09:30:00Z'
+                      usage: '2024-06-09T09:30:00Z'
                       reference: if any
                     end:
                       description: end time of the time slot desired for the service
                       required: required
-                      usage: '2023-11-16T10:30:00Z'
+                      usage: '2024-06-09T10:30:00Z'
                       reference: if any
                   days:
                     description: >-
@@ -16282,10 +18409,11 @@ x-attributes:
                 usage: At Equipment Service Providers
                 reference: if any
               images:
-                description: images of service provider
-                required: optional
-                usage: '[]'
-                reference: if any
+                url:
+                  description: images of service provider
+                  required: optional
+                  usage: '[]'
+                  reference: if any
             providers:
               parent: true
               id:
@@ -16298,6 +18426,32 @@ x-attributes:
                 required: required
                 usage: Equipment Provider store
                 reference: if any
+                name:
+                  description: name of auction commodity provider
+                  required: required
+                  usage: ABC store
+                  reference: if any
+                code:
+                  description: code of auction commodity provider
+                  required: required
+                  usage: P001
+                  reference: if any
+                short_desc:
+                  description: description of auction commodity provider
+                  required: required
+                  usage: bids and auction Providers
+                  reference: if any
+                long_desc:
+                  description: long description of auction commodity provider
+                  required: optional
+                  usage: bids and auction Providers
+                  reference: if any
+                images:
+                  url:
+                    description: images url of auction commodity provider
+                    required: optional
+                    usage: '-'
+                    reference: if any
               rating:
                 description: rating of the service provider
                 required: optional
@@ -16305,50 +18459,131 @@ x-attributes:
                 reference: if any
               locations:
                 description: service provider locations
-                required: optional
-                usage: '-'
+                required: required
+                usage: refer the on_search example json
                 reference: if any
               creds:
-                description: Any certification details
-                required: optional
-                usage: '-'
-                reference: if any
-              offers:
-                id:
-                  description: offer id
+                parent: true
+                creds:
+                  description: credentials of the seller
                   required: optional
-                  usage: '[{}]'
+                  usage: '-'
+                  reference: if any
+                id:
+                  required: required
+                  description: Human readable id
+                  reference: if any
+                  usage: ESG-12345678
+                type:
+                  required: required
+                  description: Type of creds
+                  reference: if any
+                  usage: License
+                desc:
+                  required: optional
+                  description: Description of creds
+                  reference: if any
+                  usage: Export License No. ESG-12345678
+                url:
+                  required: optional
+                  description: Physical description
+                  reference: if any
+                  usage: https://abcd.cdn.com/images/license-img
+              offers:
+                parent: true
+                offers:
+                  description: >-
+                    Offers can be defined for a provider. An offer can be -
+                    opt-in, auto-applied. An offer will include the following
+                    info - offer id, offer type, images - may be used as banners
+                    to promote the offer from a merchant. An offer applicability
+                    criteria can include one or more of the following -
+                    location(s), categories, item(s), time period validity.
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                id:
+                  description: unique offer id from provider;
+                  required: required
+                  usage: FLAT150, DISCP60, DISCA150, BUY2GET3, FREEBIE
                   reference: if any
                 descriptor:
-                  code:
-                    description: code of the offer being provided by the service provider
-                    required: optional
-                    usage: FREEBIE
-                    reference: if any
-                  short_desc:
-                    description: >-
-                      description of the offer being provided by the service
-                      provider
-                    required: optional
-                    usage: Cushion Cleaning
-                    reference: if any
-                item_ids:
-                  description: item ids on which this offer is applicable
+                  description: description of the offer.
+                  required: required
+                  usage: '-'
+                  reference: if any
+                descriptor.name:
+                  description: description of the offer.
                   required: optional
-                  usage: '[I2]'
+                  usage: 60% off up to ₹120, for order value above ₹159
+                  reference: if any
+                descriptor.code:
+                  description: >-
+                    offer type - disc_pct  (discount percent or amount applied
+                    to the cart value, with or without a cap, and may be based
+                    on minimum cart value) , disc_amt (flat discount amount
+                    applied to the cart value, and may be based on minimum cart
+                    value), buyXgetY ( for every "X" item count in the cart,
+                    total of "Y" items will be offered (i.e. "Y" - "X"
+                    additional items), at 0 additional value) , freebie (for a
+                    minimum order value, 1 or more free item(s) will be offered
+                    at 0 value)
+                  required: required
+                  usage: disc_pct
+                  reference: if any
+                descriptor.short_desc:
+                  description: short description of the offer.
+                  required: optional
+                  usage: 60% off up to ₹120
+                  reference: if any
+                descriptor.long_desc:
+                  description: long description of the offer.
+                  required: optional
+                  usage: for order value above ₹159
+                  reference: if any
+                descriptor.images:
+                  description: banner image from seller
+                  required: optional
+                  usage: https://sellerNP.com/images/offer2-banner.png
+                  reference: if any
+                location_ids:
+                  description: location ids of the stores where the offer is applicable.
+                  required: required
+                  usage: L1
+                  reference: if any
+                category_ids:
+                  description: category ids for which the offer is applicable.
+                  required: required
+                  usage: SRV15-1001
+                  reference: if any
+                item_ids:
+                  description: item ids for which the offer is applicable.
+                  required: required
+                  usage: I1
                   reference: if any
                 time:
-                  range:
-                    start:
-                      description: start date of the period for which offer is available
-                      required: optional
-                      usage: '2023-11-12T00:00:00.000Z'
-                      reference: if any
-                    end:
-                      description: end date of the offer
-                      required: optional
-                      usage: '2023-11-16T00:00:00.000Z'
-                      reference: if any
+                  description: validity of the offer.
+                  required: required
+                  usage: '-'
+                  reference: if any
+                time.label:
+                  description: if the offer is valid
+                  required: required
+                  usage: valid
+                  reference: if any
+                time.range:
+                  description: range of the validity of the offer
+                  required: required
+                  usage: '-'
+                  reference: if any
+                tags:
+                  description: >-
+                    Tags can be utilized to specify the minimum order value,
+                    discount value, and other metadata related to the offer and
+                    its application.
+                  required: required
+                  usage: '-'
+                  reference: if any
               fulfillments:
                 contact:
                   phone:
@@ -16356,7 +18591,13 @@ x-attributes:
                     required: optional
                     usage: '9886098860'
                     reference: if any
+                  email:
+                    description: email of the auction provider
+                    required: optional
+                    usage: abc@xyz.com
+                    reference: if any
               items:
+                parent: true
                 id:
                   description: Item id
                   required: required
@@ -16394,17 +18635,6 @@ x-attributes:
                     required: optional
                     usage: '-'
                     reference: if any
-                  price:
-                    value:
-                      description: price of the service
-                      required: required
-                      usage: '500'
-                      reference: if any
-                    currency:
-                      description: currency of the price value
-                      required: required
-                      usage: INR
-                      reference: if any
                 category_ids:
                   description: >-
                     category id of the service provided by the service provider
@@ -16424,11 +18654,44 @@ x-attributes:
                   required: required
                   usage: L1
                   reference: if any
+                price:
+                  value:
+                    description: price of the service
+                    required: required
+                    usage: '500'
+                    reference: if any
+                  currency:
+                    description: currency of the price value
+                    required: required
+                    usage: INR
+                    reference: if any
                 quantity:
-                  description: quantity of the item
-                  required: required
-                  usage: '-'
-                  reference: if any
+                  unitized:
+                    measure:
+                      unit:
+                        description: >-
+                          unit of the renting period of equipment like hours,
+                          days and acres (in case of land selection)
+                        required: required
+                        usage: hours
+                        reference: if any
+                      value:
+                        description: The quantity of selected equipment period
+                        required: required
+                        usage: '4'
+                        reference: if any
+                  minimum:
+                    value:
+                      description: Minimum selection of time period for equipment
+                      required: required
+                      usage: '4'
+                      reference: if any
+                  maximum:
+                    value:
+                      description: Maximum selection of time period for equipment
+                      required: required
+                      usage: '4'
+                      reference: if any
                 add_ons:
                   id:
                     description: Add-on item id
@@ -16478,12 +18741,12 @@ x-attributes:
                     start:
                       description: availability start date of the service provider
                       required: required
-                      usage: '2022-11-10T00:00:00.000Z'
+                      usage: '2024-06-09T00:00:00.000Z'
                       reference: if any
                     end:
                       description: availability end date of the service provider
                       required: required
-                      usage: '2022-11-20T00:00:00.000Z'
+                      usage: '2024-06-19T00:00:00.000Z'
                       reference: if any
                   schedule:
                     frequency:
@@ -16494,7 +18757,7 @@ x-attributes:
                     holidays:
                       description: days on which service provide is not available
                       required: required
-                      usage: '[2023-11-13, 2023-11-15]'
+                      usage: '[2024-06-13, 2024-06-15]'
                       reference: if any
                     times:
                       description: time slots in which service provide is available
@@ -16520,6 +18783,27 @@ x-attributes:
                       required: required
                       usage: '2022-11-20T00:00:00.000Z'
                       reference: if any
+                tags:
+                  descriptor:
+                    code:
+                      description: >-
+                        Required property need to add SERVICE_INFORMATION
+                        (Required), ADDITIONAL_CHARGES (Optional),
+                        RESCHEDULE_TERMS (Optional), CHECKLIST_DOCUMENTS
+                        (Optional), INSURANCE (Optional) and
+                        EQUIPMENT_ATTRIBUTES (Required), for detailed child key
+                        please refer tags section which have all child tags with
+                        required descriptions
+                      required: required
+                      usage: '-'
+                      reference: if any
+              tags:
+                descriptor:
+                  code:
+                    description: serviceability details
+                    required: required
+                    usage: '-'
+                    reference: if any
       select:
         parent: true
         message:
@@ -16564,9 +18848,7 @@ x-attributes:
               quantity:
                 selected:
                   count:
-                    description: >-
-                      number of items selected e.g. number of sofas to be
-                      cleaned
+                    description: number of equipment items selected for hiring
                     required: required
                     usage: '1'
                     reference: if any
@@ -16599,7 +18881,7 @@ x-attributes:
                     start:
                       description: start time of the time slot chosen for the service
                       required: required
-                      usage: '2023-11-16T09:30:00Z'
+                      usage: '2024-06-09T09:30:00Z'
                       reference: if any
                 location:
                   gps:
@@ -16650,9 +18932,7 @@ x-attributes:
               quantity:
                 selected:
                   count:
-                    description: >-
-                      number of items selected e.g. number of sofas to be
-                      cleaned
+                    description: number of equipment items selected for hiring
                     required: required
                     usage: '1'
                     reference: if any
@@ -16950,9 +19230,7 @@ x-attributes:
               quantity:
                 selected:
                   count:
-                    description: >-
-                      number of items selected e.g. number of sofas to be
-                      cleaned
+                    description: number of equipment items selected for hiring
                     required: required
                     usage: '1'
                     reference: if any
@@ -17137,9 +19415,7 @@ x-attributes:
               quantity:
                 selected:
                   count:
-                    description: >-
-                      number of items selected e.g. number of sofas to be
-                      cleaned
+                    description: number of equipment items selected for hiring
                     required: required
                     usage: '1'
                     reference: if any
@@ -17442,15 +19718,20 @@ x-attributes:
                     start:
                       description: start time of the service
                       required: required
-                      usage: '2023-11-16T09:30:00Z'
+                      usage: '2024-06-09T09:30:00Z'
                       reference: if any
                     end:
                       description: end time of the service
                       required: required
-                      usage: '2023-11-16T10:30:00Z'
+                      usage: '2024-06-10T10:30:00Z'
                       reference: if any
             payments:
               parent: true
+              payments:
+                description: payments of the equipment renting
+                required: required
+                usage: '-'
+                reference: if any
               id:
                 description: Payment ID
                 required: required
@@ -17540,15 +19821,20 @@ x-attributes:
                     start:
                       description: start time of the service
                       required: required
-                      usage: '2023-11-16T09:30:00Z'
+                      usage: '2024-06-09T09:30:00Z'
                       reference: if any
                     end:
                       description: end time of the service
                       required: required
-                      usage: '2023-11-16T10:30:00Z'
+                      usage: '2024-06-10T10:30:00Z'
                       reference: if any
             payments:
               parent: true
+              payments:
+                description: payments of the equipment renting
+                required: required
+                usage: '-'
+                reference: if any
               id:
                 description: Payment ID
                 required: required
@@ -17636,12 +19922,12 @@ x-attributes:
                     start:
                       description: start time of the service
                       required: required
-                      usage: '2023-11-16T09:30:00Z'
+                      usage: '2024-06-09T09:30:00Z'
                       reference: if any
                     end:
                       description: end time of the service
                       required: required
-                      usage: '2023-11-16T10:30:00Z'
+                      usage: '2024-06-09T10:30:00Z'
                       reference: if any
             payment:
               parent: true
@@ -17903,7 +20189,7 @@ x-attributes:
                   timestamp:
                     description: timestamp of the fulfillment
                     required: required
-                    usage: '2023-11-16T09:00:00.000Z'
+                    usage: '2024-06-09T09:00:00.000Z'
 x-errorcodes:
   code:
     - Code: '90001'
