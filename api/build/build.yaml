@@ -6733,8 +6733,8 @@ x-flows:
               code: 90002
               message: Equipment schedule initialised by buyer is not available
   - summary: >-
-      Agriculture Equipment Hiring of a Commodity (Know land's acreage but
-      unsure usage hours)
+      Agriculture Equipment Hiring of a Commodity (Know the land's acres but
+      unsure of the usage hours)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to hire agricultural equipment. The booking
@@ -6746,8 +6746,8 @@ x-flows:
       and share it in the price quote.
     details:
       - description: >-
-          Sequence Diagram for Agriculture Equipment Hiring (Know land's acreage
-          but unsure usage hours)
+          Sequence Diagram for Agriculture Equipment Hiring (Know the land's
+          acres but unsure of the usage hours)
         mermaidGraph: |-
           sequenceDiagram
             participant B as Buyer
@@ -9366,7 +9366,7 @@ x-flows:
               timestamp: '2024-06-10T22:01:20.000Z'
               ttl: PT30S
             message:
-              update_target: fulfillments,items
+              update_target: items
               order:
                 id: OC1
                 status: Pending
@@ -9687,7 +9687,7 @@ x-flows:
                   - id: PY2
                     collected_by: BAP
                     params:
-                      amount: '1050.00'
+                      amount: '1000.00'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -9778,17 +9778,17 @@ x-flows:
                 quote:
                   price:
                     currency: INR
-                    value: '1050'
+                    value: '8140'
                   breakup:
                     - title: Tractor
                       price:
                         currency: INR
-                        value: '1000'
+                        value: '3000'
                       item:
                         id: I1
                         quantity:
                           selected:
-                            count: 2
+                            count: 6
                         price:
                           currency: INR
                           value: '500'
@@ -9799,6 +9799,19 @@ x-flows:
                             - descriptor:
                                 code: type
                               value: item
+                    - title: refundable_security
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: refundable_security
                     - title: tax
                       price:
                         currency: INR
@@ -9812,6 +9825,32 @@ x-flows:
                             - descriptor:
                                 code: type
                               value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '10'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: pickup_charge
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
                   ttl: P1D
       - summary: >-
           Seller app shares requote by applying surcharges for extra renting
@@ -18179,8 +18218,10 @@ x-examples:
       longer available Buyer goes back to the listing page and looks for other
       available equipments
     example_set: *ref_27
-  Services - Equipment Hiring (Know land's acreage but unsure usage hours):
-    summary: Agriculture Equipment Hiring (Know land's acreage but unsure usage hours)
+  Services - Equipment Hiring (Know the land's acres but unsure of the usage hours):
+    summary: >-
+      Agriculture Equipment Hiring (Know the land's acres but unsure of the
+      usage hours)
     description: >-
       Buyer creates an intent for booking an equipment for hire and buyer to
       enter the acreage of the Land in order to understand how many hours he

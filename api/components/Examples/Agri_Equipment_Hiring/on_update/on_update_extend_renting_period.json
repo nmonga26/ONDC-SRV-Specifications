@@ -168,7 +168,7 @@
                     "id": "PY2",
                     "collected_by": "BAP",
                     "params": {
-                        "amount": "1050.00",
+                        "amount": "1000.00",
                         "currency": "INR",
                         "bank_account_number": "xxxxxxxx",
                         "virtual_payment_address": "xxx@xxxx"
@@ -318,20 +318,20 @@
             "quote": {
                 "price": {
                     "currency": "INR",
-                    "value": "1050"
+                    "value": "8140"
                 },
                 "breakup": [
                     {
                         "title": "Tractor",
                         "price": {
                             "currency": "INR",
-                            "value": "1000"
+                            "value": "3000"
                         },
                         "item": {
                             "id": "I1",
                             "quantity": {
                                 "selected": {
-                                    "count": 2
+                                    "count": 6
                                 }
                             },
                             "price": {
@@ -350,6 +350,31 @@
                                             "code": "type"
                                         },
                                         "value": "item"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "title": "refundable_security",
+                        "price": {
+                            "currency": "INR",
+                            "value": "5000"
+                        },
+                        "item": {
+                            "id": "I1"
+                        },
+                        "tags": [
+                            {
+                                "descriptor": {
+                                    "code": "title"
+                                },
+                                "list": [
+                                    {
+                                        "descriptor": {
+                                            "code": "type"
+                                        },
+                                        "value": "refundable_security"
                                     }
                                 ]
                             }
@@ -375,6 +400,56 @@
                                             "code": "type"
                                         },
                                         "value": "tax"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "title": "discount",
+                        "price": {
+                            "currency": "INR",
+                            "value": "10"
+                        },
+                        "item": {
+                            "id": "I1"
+                        },
+                        "tags": [
+                            {
+                                "descriptor": {
+                                    "code": "title"
+                                },
+                                "list": [
+                                    {
+                                        "descriptor": {
+                                            "code": "type"
+                                        },
+                                        "value": "discount"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "title": "pickup_charge",
+                        "price": {
+                            "currency": "INR",
+                            "value": "100"
+                        },
+                        "item": {
+                            "id": "I1"
+                        },
+                        "tags": [
+                            {
+                                "descriptor": {
+                                    "code": "title"
+                                },
+                                "list": [
+                                    {
+                                        "descriptor": {
+                                            "code": "type"
+                                        },
+                                        "value": "misc"
                                     }
                                 ]
                             }

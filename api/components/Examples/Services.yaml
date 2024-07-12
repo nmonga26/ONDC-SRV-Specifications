@@ -18,8 +18,8 @@ Services - Equipment Hiring (Availability changes during the transaction journey
     Buyer goes back to the listing page and looks for other available equipments
   example_set:
     $ref: "./Agri_Equipment_Hiring_yaml/index.yaml"
-Services - Equipment Hiring (Know land's acreage but unsure usage hours):
-  summary: Agriculture Equipment Hiring (Know land's acreage but unsure usage hours)
+Services - Equipment Hiring (Know the land's acres but unsure of the usage hours):
+  summary: Agriculture Equipment Hiring (Know the land's acres but unsure of the usage hours)
   description: >-
     Buyer creates an intent for booking an equipment for hire and buyer to enter the acreage of the Land in order to understand how many hours he would need to use the equipment for and the seller will then compute the price based on hours and share it in the price quote.
   example_set:
