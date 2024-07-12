@@ -1,4 +1,4 @@
-# PRD: Agriculture Equipment Hiring
+## PRD: Agricultural Equipment Hiring
 
 
 <b>As a Buyer</b> of Equipment hiring services <b>I am</b> looking for various <b>equipments</b> available to hire in my vicinity <b>So that</b> I can fulfil my agricultural requirements <b>When</b> I require an Equipment in immediate or near future and for a specific time period <b>Why,</b> as this becomes a quick and easy mechanism for executing my requirement without bearing the cost of buying the Equipment.

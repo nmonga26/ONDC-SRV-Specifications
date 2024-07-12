@@ -1,6 +1,6 @@
 domain:
   - code: ONDC:SRV15
-    description: Agriculture Equipment Hiring
+    description: Agricultural Equipment Hiring
     reference: <PR/Issue/Discussion Links md format text>
   - code: ONDC:SRV10
     description: Home Services - Appliance Repair Services

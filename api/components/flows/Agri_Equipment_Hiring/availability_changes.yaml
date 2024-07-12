@@ -1,9 +1,9 @@
-summary: Agriculture Equipment Hiring (Availability changes during the transaction journey)
+summary: Agricultural Equipment Hiring (Availability changes during the transaction journey)
 description: The following is an illustrative flow to perform a transaction of a nature where a Buyer creates an intent for booking an equipment for hire and selects a particular equipment (of a particular provider) and Seller responds to the initiation of the booking by mentioning that the requested equipment is no longer available
-    Buyer goes back to the listing page and looks for other available equipments
+    so Buyer goes back to the listing page and looks for other available equipments
 details:
 
-  - description: Sequence Diagram for Agriculture Equipment Hiring (Availability changes during the transaction journey)
+  - description: Sequence Diagram for Agricultural Equipment Hiring (Availability changes during the transaction journey)
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer

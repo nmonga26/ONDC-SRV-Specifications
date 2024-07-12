@@ -1,9 +1,8 @@
-summary: Agriculture Equipment Hiring (Requisite documents not available during equipment delivery/ pickup)
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and seller finds some discrepancies with the documents presented and the equipment is not handed over to the buyer 
-    then seller updates the status and same is communicated to the buyer with corresponding cancellation charges as per the cancellation policy and refund, if any, takes place accordingly.
+summary: Agricultural Equipment Hiring (Requisite documents not available during equipment delivery/ pickup)
+description: The following is an illustrative flow for performing a transaction where a buyer wants to hire agricultural equipment. The booking process primarily occurs in four phases - discovery of available services and service providers based on serviceability, order, fulfillment, and post-fulfillment. If the seller finds discrepancies with the documents presented and the equipment is not handed over to the buyer, the seller updates the status, and the same is communicated to the buyer and also initiate the refund process if required.
 details:
 
-  - description: Sequence Diagram for Agriculture Equipment Hiring (Requisite documents not available during equipment delivery/ pickup)
+  - description: Sequence Diagram for Agricultural Equipment Hiring (Requisite documents not available during equipment delivery/ pickup)
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer

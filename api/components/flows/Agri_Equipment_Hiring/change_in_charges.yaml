@@ -1,8 +1,8 @@
-summary: Agriculture Equipment Hiring (Change in charges because of inspection on journey completion)
+summary: Agricultural Equipment Hiring (Change in charges because of inspection on journey completion)
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment and At the time of journey completion, the seller inspects the equipment and finds discrepancies in the state of the equipment and makes an update of the order object with respective to the discrepancies.
 details:
 
-  - description: Sequence Diagram for Agriculture Equipment Hiring (Change in charges because of inspection on journey completion)
+  - description: Sequence Diagram for Agricultural Equipment Hiring (Change in charges because of inspection on journey completion)
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer

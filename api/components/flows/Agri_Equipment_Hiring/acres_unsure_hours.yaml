@@ -1,9 +1,9 @@
-summary: Agriculture Equipment Hiring of a Commodity (Know the land's acres but unsure of the usage hours)
+summary: Agricultural Equipment Hiring (Know the land's acres but unsure of the usage hours)
 description: >-
- The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment but Buyer to enter the acreage of the Land in order to understand how many hours he would need to use the equipment for and The seller will then compute the price based on hours and share it in the price quote.
+ The following is an illustrative flow for performing a transaction where a buyer wants to hire agricultural equipment. The booking process primarily occurs in four phases: discovery of available services and service providers based on serviceability, order, fulfillment, and post-fulfillment. The buyer unsure about the hours so they provide the acreage of the land to determine how many hours the equipment will be needed. The seller will then compute the price based on the required hours calculated based on land areas and provide it in the price quote.
 details:
 
-  - description: Sequence Diagram for Agriculture Equipment Hiring (Know the land's acres but unsure of the usage hours)
+  - description: Sequence Diagram for Agricultural Equipment Hiring (Know the land's acres but unsure of the usage hours)
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer

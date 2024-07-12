@@ -1,9 +1,9 @@
-summary: Agriculture Equipment Hiring (Buyer raising complaints)
+summary: Agricultural Equipment Hiring (Buyer raising complaints)
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment after that
   if the buyer faces any issues, the buyer may raise a complaint on the buyer app and the buyer app tries to analyse the complaints.
 details:
 
-  - description: Sequence Diagram for Agriculture Equipment Hiring (Buyer raising complaints)
+  - description: Sequence Diagram for Agricultural Equipment Hiring (Buyer raising complaints)
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer
