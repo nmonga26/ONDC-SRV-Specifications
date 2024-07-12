@@ -169,10 +169,10 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Agri_Equipment_Hiring_yaml/update/update_requote_tandc.yaml"
-  - summary: Buyer app shares the ratings to seller app
-    api: rating
-    description: Buyer leaves a detailed review on the buyer, sharing both positive and negative aspects. Buyer app shares the same with the seller app following the rating framework
-    reference: if any
-    example:
-      $ref: "../../Examples/Agri_Equipment_Hiring_yaml/rating/rating.yaml"
+  # - summary: Buyer app shares the ratings to seller app
+  #   api: rating
+  #   description: Buyer leaves a detailed review on the buyer, sharing both positive and negative aspects. Buyer app shares the same with the seller app following the rating framework
+  #   reference: if any
+  #   example:
+  #     $ref: "../../Examples/Agri_Equipment_Hiring_yaml/rating/rating.yaml"
 
