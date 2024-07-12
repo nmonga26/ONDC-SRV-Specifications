@@ -120,9 +120,6 @@ AUCTION_SPECIFICATION:
   - code: FLOOR_PRICE
     description: Bids floor (Minimum) price for commodity (Required)
     reference: <PR/Issue/Discussion Links md format text>
-  - code: BID_QTY_INCREMENT
-    description: Increment in bid quantity (Required)
-    reference: <PR/Issue/Discussion Links md format text>
   - code: MIN_BIDDER_REQUIRED
     description: Minimum number of Bidders required (Required)
     reference: <PR/Issue/Discussion Links md format text>
