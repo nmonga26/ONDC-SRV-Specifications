@@ -1,9 +1,9 @@
-summary: Agriculture Equipment Hiring (No equipments available)
+summary: Agricultural Equipment Hiring (No equipments available)
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment but Seller responds with no equipments available for the requested duration
 
 details:
 
-  - description: Sequence Diagram for Agriculture Equipment Hiring
+  - description: Sequence Diagram for Agricultural Equipment Hiring
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer

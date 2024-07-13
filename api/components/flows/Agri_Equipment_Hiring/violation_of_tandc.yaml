@@ -1,8 +1,8 @@
-summary: Agriculture Equipment Hiring (Violation of Terms and conditions by the Buyer)
+summary: Agricultural Equipment Hiring (Violation of Terms and conditions by the Buyer)
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment but buyer violate the terms and condition like Equipment not used for stated usage or Not returned
 details:
 
-  - description: Sequence Diagram for Agriculture Equipment Hiring (Violation of Terms and conditions by the Buyer)
+  - description: Sequence Diagram for Agricultural Equipment Hiring (Violation of Terms and conditions by the Buyer)
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer

@@ -1,14 +1,10 @@
-summary: Agriculture Equipment Hiring of a Commodity (Buyer cancels the placed Order)
+summary: Agricultural Equipment Hiring (Buyer cancels the placed Order)
 description: >-
-  The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability and order.
-  Buyer wants to cancel the confirmed order and Buyer tries to cancel the booking and is shown the Cancellation Terms
-    i. The sellers T&C’s to be followed here which were shown at the time of the Booking.
-    ii. If the Order is prepaid, the refund or part payment should be made by the Buyer App and cancelation details should be informed to the Seller/Driver 
-    iii. Buyer app may collect the feedback/cancellation reasons. 
+ The following is an illustrative flow for performing a transaction where a buyer wants to hire agricultural equipment. The booking process primarily occurs in four phases: discovery of available services and service providers based on serviceability, order, fulfillment, and post-fulfillment. If the buyer wants to cancel a confirmed order, the buyer is shown the cancellation terms. The seller's terms and conditions, which were displayed at the time of booking, must be followed. If the order is prepaid, the refund or partial payment should be processed by the buyer app, and cancellation details should be communicated to the seller/driver. The buyer app may also collect feedback and cancellation reasons. 
 
 details:
 
-  - description: Sequence Diagram for Agriculture Equipment Hiring (Buyer cancels the placed Order)
+  - description: Sequence Diagram for Agricultural Equipment Hiring (Buyer cancels the placed Order)
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer

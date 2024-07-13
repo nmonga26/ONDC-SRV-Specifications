@@ -2579,7 +2579,7 @@ x-enum:
     context:
       domain: &ref_0
         - code: ONDC:SRV15
-          description: Agriculture Equipment Hiring
+          description: Agricultural Equipment Hiring
           reference: <PR/Issue/Discussion Links md format text>
         - code: ONDC:SRV10
           description: Home Services - Appliance Repair Services
@@ -3379,7 +3379,7 @@ x-tags:
   on_update:
     message: *ref_13
 x-flows:
-  - summary: Agriculture Equipment Hiring of a Commodity
+  - summary: Agricultural Equipment Hiring
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to hire agricultural equipment. The booking
@@ -3387,7 +3387,7 @@ x-flows:
       available services and service providers based on serviceability, order,
       fulfillment and post-fulfillment.
     details:
-      - description: Sequence Diagram for Agriculture Equipment Hiring
+      - description: Sequence Diagram for Agricultural Equipment Hiring
         mermaidGraph: |-
           sequenceDiagram
             participant B as Buyer
@@ -5814,13 +5814,13 @@ x-flows:
                     label: INVOICE
                 created_at: '2024-06-10T22:00:52.000Z'
                 updated_at: '2024-06-10T22:00:52.000Z'
-  - summary: Agriculture Equipment Hiring (No equipments available)
+  - summary: Agricultural Equipment Hiring (No equipments available)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to hire agricultural equipment but Seller
       responds with no equipments available for the requested duration
     details:
-      - description: Sequence Diagram for Agriculture Equipment Hiring
+      - description: Sequence Diagram for Agricultural Equipment Hiring
         mermaidGraph: |-
           sequenceDiagram
             participant B as Buyer
@@ -6142,18 +6142,18 @@ x-flows:
         reference: if any
         example: *ref_25
   - summary: >-
-      Agriculture Equipment Hiring (Availability changes during the transaction
+      Agricultural Equipment Hiring (Availability changes during the transaction
       journey)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a Buyer creates an intent for booking an equipment for hire and
       selects a particular equipment (of a particular provider) and Seller
       responds to the initiation of the booking by mentioning that the requested
-      equipment is no longer available Buyer goes back to the listing page and
-      looks for other available equipments
+      equipment is no longer available so Buyer goes back to the listing page
+      and looks for other available equipments
     details:
       - description: >-
-          Sequence Diagram for Agriculture Equipment Hiring (Availability
+          Sequence Diagram for Agricultural Equipment Hiring (Availability
           changes during the transaction journey)
         mermaidGraph: |-
           sequenceDiagram
@@ -6694,20 +6694,20 @@ x-flows:
               code: 90002
               message: Equipment schedule initialised by buyer is not available
   - summary: >-
-      Agriculture Equipment Hiring of a Commodity (Know the land's acres but
-      unsure of the usage hours)
+      Agricultural Equipment Hiring (Know the land's acres but unsure of the
+      usage hours)
     description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to hire agricultural equipment. The booking
-      majorly happens in four phases of order processing flow, i.e. Discovery of
-      available services and service providers based on serviceability, order,
-      fulfillment and post-fulfillment but Buyer to enter the acreage of the
-      Land in order to understand how many hours he would need to use the
-      equipment for and The seller will then compute the price based on hours
-      and share it in the price quote.
+      The following is an illustrative flow for performing a transaction where a
+      buyer wants to hire agricultural equipment. The booking process primarily
+      occurs in four phases: discovery of available services and service
+      providers based on serviceability, order, fulfillment, and
+      post-fulfillment. The buyer unsure about the hours so they provide the
+      acreage of the land to determine how many hours the equipment will be
+      needed. The seller will then compute the price based on the required hours
+      calculated based on land areas and provide it in the price quote.
     details:
       - description: >-
-          Sequence Diagram for Agriculture Equipment Hiring (Know the land's
+          Sequence Diagram for Agricultural Equipment Hiring (Know the land's
           acres but unsure of the usage hours)
         mermaidGraph: |-
           sequenceDiagram
@@ -7061,22 +7061,21 @@ x-flows:
         reference: if any
         example: *ref_25
   - summary: >-
-      Agriculture Equipment Hiring (Requisite documents not available during
+      Agricultural Equipment Hiring (Requisite documents not available during
       equipment delivery/ pickup)
     description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to hire agricultural equipment. The booking
-      majorly happens in four phases of order processing flow, i.e. Discovery of
-      available services and service providers based on serviceability, order,
-      fulfillment and seller finds some discrepancies with the documents
-      presented and the equipment is not handed over to the buyer then seller
-      updates the status and same is communicated to the buyer with
-      corresponding cancellation charges as per the cancellation policy and
-      refund, if any, takes place accordingly.
+      The following is an illustrative flow for performing a transaction where a
+      buyer wants to hire agricultural equipment. The booking process primarily
+      occurs in four phases - discovery of available services and service
+      providers based on serviceability, order, fulfillment, and
+      post-fulfillment. If the seller finds discrepancies with the documents
+      presented and the equipment is not handed over to the buyer, the seller
+      updates the status, and the same is communicated to the buyer and also
+      initiate the refund process if required.
     details:
       - description: >-
-          Sequence Diagram for Agriculture Equipment Hiring (Requisite documents
-          not available during equipment delivery/ pickup)
+          Sequence Diagram for Agricultural Equipment Hiring (Requisite
+          documents not available during equipment delivery/ pickup)
         mermaidGraph: |-
           sequenceDiagram
             participant B as Buyer
@@ -8122,7 +8121,7 @@ x-flows:
                               value: misc
                   ttl: P1D
   - summary: >-
-      Agriculture Equipment Hiring (Change in charges because of inspection on
+      Agricultural Equipment Hiring (Change in charges because of inspection on
       journey completion)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -8135,7 +8134,7 @@ x-flows:
       the discrepancies.
     details:
       - description: >-
-          Sequence Diagram for Agriculture Equipment Hiring (Change in charges
+          Sequence Diagram for Agricultural Equipment Hiring (Change in charges
           because of inspection on journey completion)
         mermaidGraph: |-
           sequenceDiagram
@@ -8948,7 +8947,7 @@ x-flows:
                                 code: type
                               value: misc
                   ttl: P1D
-  - summary: Agriculture Equipment Hiring (Buyer raising complaints)
+  - summary: Agricultural Equipment Hiring (Buyer raising complaints)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to hire agricultural equipment. The booking
@@ -8959,7 +8958,7 @@ x-flows:
       to analyse the complaints.
     details:
       - description: >-
-          Sequence Diagram for Agriculture Equipment Hiring (Buyer raising
+          Sequence Diagram for Agricultural Equipment Hiring (Buyer raising
           complaints)
         mermaidGraph: |-
           sequenceDiagram
@@ -9120,9 +9119,7 @@ x-flows:
           completed
         reference: if any
         example: *ref_25
-  - summary: >-
-      Agriculture Equipment Hiring of a Commodity (Buyer extend the renting
-      period)
+  - summary: Agricultural Equipment Hiring (Buyer extend the renting period)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to hire agricultural equipment. The booking
@@ -9130,16 +9127,18 @@ x-flows:
       available services and service providers based on serviceability, order,
       fulfillment and post-fulfillment. If Buyer wants to extend the renting
       period (For e.g. He rented the equipment for 3 Hours and now wants to use
-      it for 8 Hours) We are enabling following ways to handle this ver the
-      protocol, given the inventory is available  a. A new order may be created
-      using Parent Child Order mapping  b. Or Surcharge will be sent in the
-      Price Quote in the Update Call If the inventory is not available a.
-      Delivery : Seller may collect back the Equipment at the time of the
-      completion  b. Self Pick Up : Seller may charge a Fee/Surcharge as per his
-      terms and conditions 
+      it for next 2 Hours) We are enabling following ways to handle this via the
+      protocol, Case 1: if given inventory is available to hire then either a
+      new order will be create using Parent Child Order mapping Or Surcharge
+      will be sent in the Price Quote in the Update Call. Case 2: If the
+      inventory is not available then based on delivery mode selected, action
+      will be taken so lets say if delivery mode selected for Delivery
+      (Seller-fulfilled) then Seller may collect back the Equipment at the time
+      of the completion  and if Self Pick Up (Buyer-fulfilled) then Seller may
+      charge a Fee/Surcharge as per his terms and conditions.
     details:
       - description: >-
-          Sequence Diagram for Agriculture Equipment Hiring (Buyer extend the
+          Sequence Diagram for Agricultural Equipment Hiring (Buyer extend the
           renting period)
         mermaidGraph: |-
           sequenceDiagram
@@ -9281,7 +9280,7 @@ x-flows:
         api: update (new order)
         description: >-
           Buyer wants to extend the renting period (For e.g. He rented the
-          equipment for 3 Hours and now wants to use it for 8 Hours)
+          equipment for 3 Hours and now wants to use it for next 2 Hours)
         reference: if any
         example:
           value:
@@ -10444,22 +10443,22 @@ x-flows:
                                 code: type
                               value: misc
                   ttl: P1D
-  - summary: >-
-      Agriculture Equipment Hiring of a Commodity (Buyer cancels the placed
-      Order)
+  - summary: Agricultural Equipment Hiring (Buyer cancels the placed Order)
     description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to hire agricultural equipment. The booking
-      majorly happens in four phases of order processing flow, i.e. Discovery of
-      available services and service providers based on serviceability and
-      order. Buyer wants to cancel the confirmed order and Buyer tries to cancel
-      the booking and is shown the Cancellation Terms
-        i. The sellers T&C’s to be followed here which were shown at the time of the Booking.
-        ii. If the Order is prepaid, the refund or part payment should be made by the Buyer App and cancelation details should be informed to the Seller/Driver 
-        iii. Buyer app may collect the feedback/cancellation reasons. 
+      The following is an illustrative flow for performing a transaction where a
+      buyer wants to hire agricultural equipment. The booking process primarily
+      occurs in four phases: discovery of available services and service
+      providers based on serviceability, order, fulfillment, and
+      post-fulfillment. If the buyer wants to cancel a confirmed order, the
+      buyer is shown the cancellation terms. The seller's terms and conditions,
+      which were displayed at the time of booking, must be followed. If the
+      order is prepaid, the refund or partial payment should be processed by the
+      buyer app, and cancellation details should be communicated to the
+      seller/driver. The buyer app may also collect feedback and cancellation
+      reasons. 
     details:
       - description: >-
-          Sequence Diagram for Agriculture Equipment Hiring (Buyer cancels the
+          Sequence Diagram for Agricultural Equipment Hiring (Buyer cancels the
           placed Order)
         mermaidGraph: |-
           sequenceDiagram
@@ -10864,7 +10863,7 @@ x-flows:
                             value: xxxxxxx
                 updated_at: '2024-06-10T22:01:05.000Z'
   - summary: >-
-      Agriculture Equipment Hiring (Violation of Terms and conditions by the
+      Agricultural Equipment Hiring (Violation of Terms and conditions by the
       Buyer)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -10875,7 +10874,7 @@ x-flows:
       like Equipment not used for stated usage or Not returned
     details:
       - description: >-
-          Sequence Diagram for Agriculture Equipment Hiring (Violation of Terms
+          Sequence Diagram for Agricultural Equipment Hiring (Violation of Terms
           and conditions by the Buyer)
         mermaidGraph: |-
           sequenceDiagram
@@ -11690,7 +11689,7 @@ x-flows:
                   ttl: P1D
 x-examples:
   Services - Equipment Hiring:
-    summary: Agriculture Equipment Hiring
+    summary: Agricultural Equipment Hiring
     description: >-
       This elaborates the model implementations for booking agriculture
       equipment over the network. The booking majorly happens in four phases of
@@ -18098,35 +18097,35 @@ x-examples:
                                 value: misc
                     ttl: P1D
   Services - Equipment Hiring (No equipments available):
-    summary: Agriculture Equipment Hiring (No equipments available)
+    summary: Agricultural Equipment Hiring (No equipments available)
     description: >-
       Buyer creates an intent for booking an equipment to hire but Seller
       responds with no equipments available for the requested duration
     example_set: *ref_26
   Services - Equipment Hiring (Availability changes during the transaction journey):
     summary: >-
-      Agriculture Equipment Hiring (Availability changes during the transaction
+      Agricultural Equipment Hiring (Availability changes during the transaction
       journey)
     description: >-
       Buyer creates an intent for booking an equipment for hire and selects a
       particular equipment (of a particular provider) and Seller responds to the
       initiation of the booking by mentioning that the requested equipment is no
-      longer available Buyer goes back to the listing page and looks for other
-      available equipments
+      longer available so Buyer goes back to the listing page and looks for
+      other available equipments
     example_set: *ref_26
   Services - Equipment Hiring (Know the land's acres but unsure of the usage hours):
     summary: >-
-      Agriculture Equipment Hiring (Know the land's acres but unsure of the
+      Agricultural Equipment Hiring (Know the land's acres but unsure of the
       usage hours)
     description: >-
-      Buyer creates an intent for booking an equipment for hire and buyer to
-      enter the acreage of the Land in order to understand how many hours he
-      would need to use the equipment for and the seller will then compute the
-      price based on hours and share it in the price quote.
+      buyer creates an intent to book equipment for hire and enters the acreage
+      of the land to determine how many hours the equipment will be needed. The
+      seller will then compute the price based on the required hours and provide
+      it in the price quote.
     example_set: *ref_26
   Services - Equipment Hiring (Requisite documents not available during equipment delivery/ pickup):
     summary: >-
-      Agriculture Equipment Hiring (Requisite documents not available during
+      Agricultural Equipment Hiring (Requisite documents not available during
       equipment delivery/ pickup)
     description: >-
       Buyer creates an intent for booking an equipment for hire and confirmed
@@ -18140,7 +18139,7 @@ x-examples:
     example_set: *ref_26
   Services - Equipment Hiring (Change in charges because of inspection on journey completion):
     summary: >-
-      Agriculture Equipment Hiring (Change in charges because of inspection on
+      Agricultural Equipment Hiring (Change in charges because of inspection on
       journey completion)
     description: >-
       At the time of journey completion, the seller inspects the equipment and
@@ -18148,22 +18147,22 @@ x-examples:
       the order object with respective to the discrepancies 
     example_set: *ref_26
   Services - Equipment Hiring (Buyer raising complaints):
-    summary: Agriculture Equipment Hiring (Buyer raising complaints)
+    summary: Agricultural Equipment Hiring (Buyer raising complaints)
     description: >-
       During the journey if the buyer faces any issues, the buyer may raise a
       complaint on the buyer app and the buyer app tries to analyse the
       complaints
     example_set: *ref_26
   Services - Equipment Hiring (Buyer extend the renting period):
-    summary: Agriculture Equipment Hiring (Buyer extend the renting period)
+    summary: Agricultural Equipment Hiring (Buyer extend the renting period)
     description: >-
       This elaborates the model implementations for booking agriculture
       equipment over the network. The booking majorly happens in four phases of
       order processing flow, i.e. Discovery of available equipments and service
       providers based on serviceability, order, fulfillment and
       post-fulfillment.<br> If Buyer wants to extend the renting period (For
-      e.g. He rented the equipment for 3 Hours and now wants to use it for 8
-      Hours) <br><br> We are enabling following ways to handle this ver the
+      e.g. He rented the equipment for 3 Hours and now wants to use it for next
+      2 Hours) <br><br> We are enabling following ways to handle this ver the
       protocol, given the inventory is available <br> a. A new order may be
       created using Parent Child Order mapping <br> b. Or Surcharge will be sent
       in the Price Quote in the Update Call <br><br> If the inventory is not
@@ -18173,7 +18172,7 @@ x-examples:
     example_set: *ref_26
   Services - Equipment Hiring (Violation of Terms and conditions by the Buyer):
     summary: >-
-      Agriculture Equipment Hiring (Violation of Terms and conditions by the
+      Agricultural Equipment Hiring (Violation of Terms and conditions by the
       Buyer)
     description: Like Equipment not used for stated usage or Not returned
     example_set: *ref_26

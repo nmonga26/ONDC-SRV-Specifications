@@ -1,8 +1,8 @@
-summary: Agriculture Equipment Hiring of a Commodity
+summary: Agricultural Equipment Hiring
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to hire agricultural equipment. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
 details:
 
-  - description: Sequence Diagram for Agriculture Equipment Hiring
+  - description: Sequence Diagram for Agricultural Equipment Hiring
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer
