@@ -1,6 +1,6 @@
 {
     "context": {
-        "domain": "ONDC:SRV16",
+        "domain": "ONDC:SRV18",
         "location": {
             "city": {
                 "code": "std:080"
@@ -22,7 +22,7 @@
         "intent": {
             "item": {
                 "category": {
-                    "code": "SRV16-*"
+                    "code": "SRV18-*"
                 }
             },
             "payment": {

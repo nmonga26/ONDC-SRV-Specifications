@@ -1,6 +1,6 @@
 value:
   context:
-    domain: ONDC:SRV16
+    domain: ONDC:SRV18
     location:
       city:
         code: std:080
@@ -131,7 +131,7 @@ value:
                     value: '50'
                   count: 100
               category_ids:
-                - SRV16-1001
+                - SRV18-1001
               location_ids:
                 - L1
               payment_ids:
@@ -348,7 +348,7 @@ value:
               location_ids:
                 - L1
               category_ids:
-                - SRV16-1001
+                - SRV18-1001
               item_ids:
                 - I1
               time:

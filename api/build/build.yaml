@@ -2578,7 +2578,7 @@ x-enum:
   search:
     context:
       domain: &ref_0
-        - code: ONDC:SRV16
+        - code: ONDC:SRV18
           description: Agriculture Bids and Auction
           reference: <PR/Issue/Discussion Links md format text>
         - code: ONDC:SRV10
@@ -2596,7 +2596,7 @@ x-enum:
         - code: ONDC:SRV14
           description: Agriculture Services
           reference: <PR/Issue/Discussion Links md format text>
-        - code: ONDC:SRV15
+        - code: ONDC:SRV17
           description: Agriculture Equipment Hiring
           reference: <PR/Issue/Discussion Links md format text>
     message:
@@ -2604,37 +2604,37 @@ x-enum:
         item:
           category:
             id:
-              - code: SRV16-1000
+              - code: SRV18-1000
                 description: Pulses
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV16-1001
+              - code: SRV18-1001
                 description: Cereals
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV16-1002
+              - code: SRV18-1002
                 description: Oilseeds
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV16-1003
+              - code: SRV18-1003
                 description: Fruits
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV16-1004
+              - code: SRV18-1004
                 description: Vegetables
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV16-1005
+              - code: SRV18-1005
                 description: Spices
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV16-1006
+              - code: SRV18-1006
                 description: Plantation Crop
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV16-1007
+              - code: SRV18-1007
                 description: Flowers
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV16-1008
+              - code: SRV18-1008
                 description: Fibre Crop
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV16-1009
+              - code: SRV18-1009
                 description: Dry fruit
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV16-1010
+              - code: SRV18-1010
                 description: Honey
                 reference: <PR/Issue/Discussion Links md format text>
         fulfillments:
@@ -3417,7 +3417,7 @@ x-flows:
         example: &ref_14
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -3435,7 +3435,7 @@ x-flows:
               intent:
                 item:
                   category:
-                    code: SRV16-*
+                    code: SRV18-*
                 payment:
                   type: ON-FULFILLMENT
                   collected_by: BAP
@@ -3466,7 +3466,7 @@ x-flows:
         example: &ref_25
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -3597,7 +3597,7 @@ x-flows:
                               value: '50'
                             count: 100
                         category_ids:
-                          - SRV16-1001
+                          - SRV18-1001
                         location_ids:
                           - L1
                         payment_ids:
@@ -3817,7 +3817,7 @@ x-flows:
                         location_ids:
                           - L1
                         category_ids:
-                          - SRV16-1001
+                          - SRV18-1001
                         item_ids:
                           - I1
                         time:
@@ -3864,7 +3864,7 @@ x-flows:
         example: &ref_15
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -3891,7 +3891,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV16-1001
+                      - SRV18-1001
                     quantity:
                       selected:
                         count: 100
@@ -3941,7 +3941,7 @@ x-flows:
         example: &ref_16
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -3966,7 +3966,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV16-1001
+                      - SRV18-1001
                     quantity:
                       selected:
                         count: 100
@@ -4089,7 +4089,7 @@ x-flows:
         example: &ref_17
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -4116,7 +4116,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV16-1001
+                      - SRV18-1001
                     quantity:
                       selected:
                         count: 100
@@ -4191,7 +4191,7 @@ x-flows:
         example: &ref_18
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -4218,7 +4218,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV16-1001
+                      - SRV18-1001
                     quantity:
                       selected:
                         count: 4
@@ -4449,7 +4449,7 @@ x-flows:
         example: &ref_19
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -4478,7 +4478,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV16-1001
+                      - SRV18-1001
                     quantity:
                       selected:
                         count: 100
@@ -4701,7 +4701,7 @@ x-flows:
         example: &ref_20
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -4731,7 +4731,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV16-1001
+                      - SRV18-1001
                     quantity:
                       selected:
                         count: 100
@@ -4980,7 +4980,7 @@ x-flows:
         example: &ref_21
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -5004,7 +5004,7 @@ x-flows:
         example: &ref_22
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -5033,7 +5033,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV16-1001
+                      - SRV18-1001
                     quantity:
                       selected:
                         count: 100
@@ -5266,7 +5266,7 @@ x-flows:
         example: &ref_23
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -5494,7 +5494,7 @@ x-flows:
         example: &ref_24
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -5824,7 +5824,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -5955,7 +5955,7 @@ x-flows:
                               value: '50'
                             count: 100
                         category_ids:
-                          - SRV16-1001
+                          - SRV18-1001
                         location_ids:
                           - L1
                         payment_ids:
@@ -6175,7 +6175,7 @@ x-flows:
                         location_ids:
                           - L1
                         category_ids:
-                          - SRV16-1001
+                          - SRV18-1001
                         item_ids:
                           - I1
                         time:
@@ -6425,7 +6425,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -6450,7 +6450,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV1
               location:
                 city:
                   code: std:080
@@ -6680,7 +6680,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -6893,7 +6893,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -7304,7 +7304,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -7623,7 +7623,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -7691,7 +7691,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -7747,7 +7747,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -7905,7 +7905,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV16
+              domain: ONDC:SRV18
               location:
                 city:
                   code: std:080
@@ -8036,7 +8036,7 @@ x-flows:
                               value: '50'
                             count: 100
                         category_ids:
-                          - SRV16-1001
+                          - SRV18-1001
                         location_ids:
                           - L1
                         payment_ids:
@@ -8256,7 +8256,7 @@ x-flows:
                         location_ids:
                           - L1
                         category_ids:
-                          - SRV16-1001
+                          - SRV18-1001
                         item_ids:
                           - I1
                         time:
@@ -8359,7 +8359,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -8403,7 +8403,7 @@ x-examples:
                           value: xxxxxxxxxxxxxxx
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -8444,7 +8444,7 @@ x-examples:
                           value: xxxxxxxxxxxxxxx
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -8462,7 +8462,7 @@ x-examples:
                 intent:
                   item:
                     category:
-                      code: SRV16-*
+                      code: SRV18-*
                   payment:
                     type: ON-FULFILLMENT
                     collected_by: BAP
@@ -8488,7 +8488,7 @@ x-examples:
                           value: xxxxxxxxxxxxxxx
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -8537,7 +8537,7 @@ x-examples:
                           value: xxxxxxxxxxxxxxx
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -8583,7 +8583,7 @@ x-examples:
                           value: xxxxxxxxxxxxxxx
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -8631,7 +8631,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -8658,7 +8658,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV16-1001
+                        - SRV18-1001
                       quantity:
                         selected:
                           count: 100
@@ -8705,7 +8705,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -8732,7 +8732,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV16-1001
+                        - SRV18-1001
                       quantity:
                         selected:
                           count: 100
@@ -8804,7 +8804,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -8833,7 +8833,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV16-1001
+                        - SRV18-1001
                       quantity:
                         selected:
                           count: 100
@@ -9051,7 +9051,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -9073,7 +9073,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -9096,7 +9096,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -9307,7 +9307,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -9438,7 +9438,7 @@ x-examples:
                                 value: '50'
                               count: 100
                           category_ids:
-                            - SRV16-1001
+                            - SRV18-1001
                           location_ids:
                             - L1
                           payment_ids:
@@ -9658,7 +9658,7 @@ x-examples:
                           location_ids:
                             - L1
                           category_ids:
-                            - SRV16-1001
+                            - SRV18-1001
                           item_ids:
                             - I1
                           time:
@@ -9700,7 +9700,7 @@ x-examples:
                             email: abc@xyz.com
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -9831,7 +9831,7 @@ x-examples:
                                 value: '50'
                               count: 100
                           category_ids:
-                            - SRV16-1001
+                            - SRV18-1001
                           location_ids:
                             - L1
                           payment_ids:
@@ -10051,7 +10051,7 @@ x-examples:
                           location_ids:
                             - L1
                           category_ids:
-                            - SRV16-1001
+                            - SRV18-1001
                           item_ids:
                             - I1
                           time:
@@ -10095,7 +10095,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -10120,7 +10120,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV16-1001
+                        - SRV18-1001
                       quantity:
                         selected:
                           count: 100
@@ -10238,7 +10238,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -10265,7 +10265,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV16-1001
+                        - SRV18-1001
                       quantity:
                         selected:
                           count: 4
@@ -10494,7 +10494,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -10524,7 +10524,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV16-1001
+                        - SRV18-1001
                       quantity:
                         selected:
                           count: 100
@@ -10771,7 +10771,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -10800,7 +10800,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV16-1001
+                        - SRV18-1001
                       quantity:
                         selected:
                           count: 100
@@ -11031,7 +11031,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV1
                 location:
                   city:
                     code: std:080
@@ -11257,7 +11257,7 @@ x-examples:
                   updated_at: '2024-06-10T22:01:05.000Z'
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -11483,7 +11483,7 @@ x-examples:
                   updated_at: '2024-06-10T22:01:05.000Z'
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -11711,7 +11711,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV16
+                domain: ONDC:SRV18
                 location:
                   city:
                     code: std:080
@@ -12032,9 +12032,9 @@ x-attributes:
         context:
           parent: true
           domain:
-            description: domain code, enums - ONDC:SRV16 (Agriculture Bids and Auction)
+            description: domain code, enums - ONDC:SRV18 (Agriculture Bids and Auction)
             required: mandatory
-            usage: ONDC:SRV16
+            usage: ONDC:SRV18
             reference: if any
           city:
             code:
@@ -12082,7 +12082,7 @@ x-attributes:
               category:
                 description: Category of the commodity
                 required: optional
-                usage: SRV16-1001
+                usage: SRV18-1001
                 reference: if any
             payment:
               parent: true
@@ -12287,7 +12287,7 @@ x-attributes:
                 category_ids:
                   description: category ids for which the offer is applicable.
                   required: required
-                  usage: SRV16-1001
+                  usage: SRV18-1001
                   reference: if any
                 item_ids:
                   description: item ids for which the offer is applicable.
@@ -12449,7 +12449,7 @@ x-attributes:
                     category id of the auction provided by the auction provider
                     which was sent in /search call
                   required: required
-                  usage: SRV16-1001
+                  usage: SRV18-1001
                   reference: if any
                 location_ids:
                   description: location ids of the auction provider
@@ -12557,7 +12557,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV16-1001]'
+                usage: '[SRV18-1001]'
                 reference: if any
               quantity:
                 selected:
@@ -12921,7 +12921,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV16-1001]'
+                usage: '[SRV18-1001]'
                 reference: if any
               quantity:
                 selected:
@@ -13102,7 +13102,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV16-1001]'
+                usage: '[SRV18-1001]'
                 reference: if any
               quantity:
                 selected:
@@ -13458,7 +13458,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV16-1001]'
+                usage: '[SRV18-1001]'
                 reference: if any
               quantity:
                 selected:
@@ -13647,7 +13647,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV16-1001]'
+                usage: '[SRV18-1001]'
                 reference: if any
               quantity:
                 selected:

@@ -12,7 +12,8 @@ This repository contains the model implementations for Services - Home, Agricult
 | Home Services - Personal Care Services                  | ONDC:SRV12 |
 | Agriculture Services                                    | ONDC:SRV13 |
 | Health And Wellness Services                            | ONDC:SRV14 |
-| Agriculture Equipment Hiring Services                   | ONDC:SRV15 |
+| Agriculture Equipment Hiring Services                   | ONDC:SRV17 |
+| Agriculture Bids and Auction                            | ONDC:SRV18 |
 
 ## Latest Release
 draft-2.0.0 | Nov 30 2023
