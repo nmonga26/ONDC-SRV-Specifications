@@ -89,7 +89,7 @@ reference: if any
 steps:
   - summary: Search based on the intent for hiring a particular agri equipment
     api: search
-    description: The search intent from the buyer focuses on specific agricultural equipment needs, such as irrigation equipment (defined by category codes like SRV15-1001) which corresponds to equipment like the Tractor Operated Zero-Till Seed-Cum-Fertilizer Drill.
+    description: The search intent from the buyer focuses on specific agricultural equipment needs, such as irrigation equipment (defined by category codes like SRV17-1001) which corresponds to equipment like the Tractor Operated Zero-Till Seed-Cum-Fertilizer Drill.
     reference: if any
     example:
       $ref: "../../Examples/Agri_Equipment_Hiring_yaml/search/search_by_category.yaml"

@@ -174,7 +174,7 @@ message:
         category_ids:
           description: category ids for which the offer is applicable.
           required: required
-          usage: 'SRV15-1001'
+          usage: 'SRV17-1001'
           reference: if any
         item_ids:
           description: item ids for which the offer is applicable.
@@ -250,7 +250,7 @@ message:
         category_ids:
           description: category id of the service provided by the service provider which was sent in /search call
           required: required
-          usage: "SRV15-1000"
+          usage: "SRV17-1000"
           reference: if any
         fulfillment_ids:
           description: fulfillment id of the service provided by the service provider

@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:SRV15",
+    "domain": "ONDC:SRV17",
     "location": {
       "city": {
         "code": "std:080"
@@ -114,7 +114,7 @@
                   "descriptor": {
                     "code": "category"
                   },
-                  "value": "SRV15-1001"
+                  "value": "SRV17-1001"
                 },
                 {
                   "descriptor": {
@@ -151,7 +151,7 @@
                   "descriptor": {
                     "code": "category"
                   },
-                  "value": "SRV15-1001"
+                  "value": "SRV17-1001"
                 },
                 {
                   "descriptor": {
@@ -188,7 +188,7 @@
                   "descriptor": {
                     "code": "category"
                   },
-                  "value": "SRV15-1001"
+                  "value": "SRV17-1001"
                 },
                 {
                   "descriptor": {
@@ -225,7 +225,7 @@
                   "descriptor": {
                     "code": "category"
                   },
-                  "value": "SRV15-1001"
+                  "value": "SRV17-1001"
                 },
                 {
                   "descriptor": {
@@ -287,7 +287,7 @@
                 }
               },
               "category_ids": [
-                "SRV15-1001"
+                "SRV17-1001"
               ],
               "fulfillment_ids": [
                 "F1",
@@ -601,7 +601,7 @@
                 "L1"
               ],
               "category_ids": [
-                "SRV15-1001"
+                "SRV17-1001"
               ],
               "item_ids": [
                 "I1"

@@ -2578,7 +2578,7 @@ x-enum:
   search:
     context:
       domain: &ref_0
-        - code: ONDC:SRV15
+        - code: ONDC:SRV17
           description: Agricultural Equipment Hiring
           reference: <PR/Issue/Discussion Links md format text>
         - code: ONDC:SRV10
@@ -2604,187 +2604,187 @@ x-enum:
         item:
           category:
             id:
-              - code: SRV15-1000
+              - code: SRV17-1000
                 description: Seed Drill
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1001
+              - code: SRV17-1001
                 description: Tractor Operated Zero-Till Seed-Cum-Fertilizer Drill
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1002
+              - code: SRV17-1002
                 description: Seed cum fertilizer drill
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1003
+              - code: SRV17-1003
                 description: Tractor mounted ridger seeder
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1004
+              - code: SRV17-1004
                 description: Tractor drawn cultivator seeder
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1005
+              - code: SRV17-1005
                 description: Tractor mounted Raised Bed Planter
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1006
+              - code: SRV17-1006
                 description: Tractor Operated Inclined Plate Planter
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1007
+              - code: SRV17-1007
                 description: Pneumatic Planter
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1008
+              - code: SRV17-1008
                 description: Rice Transplanter
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1009
+              - code: SRV17-1009
                 description: Mat Type Rice Planter
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1010
+              - code: SRV17-1010
                 description: Rice Cum Daincha Seeder
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1011
+              - code: SRV17-1011
                 description: Direct Paddy Seeder
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1012
+              - code: SRV17-1012
                 description: Power operated sugarcane sett cutting machine
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1013
+              - code: SRV17-1013
                 description: Sugarcane cutter planter
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1014
+              - code: SRV17-1014
                 description: Tractor operated Post Hole Digger
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1015
+              - code: SRV17-1015
                 description: Power Tiller Operated Auger Digger
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1016
+              - code: SRV17-1016
                 description: Manually Operated Rice Transplanter
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1017
+              - code: SRV17-1017
                 description: Rotary Dibbler
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1018
+              - code: SRV17-1018
                 description: Automated protray sowing machine
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1019
+              - code: SRV17-1019
                 description: Tractor drawn pulse seeder
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1020
+              - code: SRV17-1020
                 description: Manually Operated Line Marker
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1021
+              - code: SRV17-1021
                 description: Basin Lister cum Seeder
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1022
+              - code: SRV17-1022
                 description: Any Other - please specify
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1023
+              - code: SRV17-1023
                 description: Travellers/Reels
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1024
+              - code: SRV17-1024
                 description: Irrigation booms
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1025
+              - code: SRV17-1025
                 description: Irrigation guns
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1026
+              - code: SRV17-1026
                 description: Drone based
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1027
+              - code: SRV17-1027
                 description: Any Other - please specify
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1028
+              - code: SRV17-1028
                 description: Pressure sprayer
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1029
+              - code: SRV17-1029
                 description: Knapsack manual sprayer
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1030
+              - code: SRV17-1030
                 description: Spray gun
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1031
+              - code: SRV17-1031
                 description: Drone based
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1032
+              - code: SRV17-1032
                 description: Any Other - please specify
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1033
+              - code: SRV17-1033
                 description: Power Weeder
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1034
+              - code: SRV17-1034
                 description: Hi Tech weeding machine / smart weeder
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1035
+              - code: SRV17-1035
                 description: Steel rotor harrow machines
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1036
+              - code: SRV17-1036
                 description: Hoeing Machine
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1037
+              - code: SRV17-1037
                 description: Any Other - please specify
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1038
+              - code: SRV17-1038
                 description: Combine Harvester
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1039
+              - code: SRV17-1039
                 description: Potato harvester
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1040
+              - code: SRV17-1040
                 description: Mower
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1041
+              - code: SRV17-1041
                 description: Baler
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1042
+              - code: SRV17-1042
                 description: Cotton Picker
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1043
+              - code: SRV17-1043
                 description: Cassava grating machine
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1044
+              - code: SRV17-1044
                 description: Groundnut digger
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1045
+              - code: SRV17-1045
                 description: Banana harvester
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1046
+              - code: SRV17-1046
                 description: Coconut tree climber
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1047
+              - code: SRV17-1047
                 description: Tea plucking machine
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1048
+              - code: SRV17-1048
                 description: Turmeric harvester
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1049
+              - code: SRV17-1049
                 description: Sugarcane harvester
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1050
+              - code: SRV17-1050
                 description: Any Other - please specify
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1051
+              - code: SRV17-1051
                 description: Mini Tractor
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1052
+              - code: SRV17-1052
                 description: Hi Tech based Tractor
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1053
+              - code: SRV17-1053
                 description: Winnower
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1054
+              - code: SRV17-1054
                 description: Thresher
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1055
+              - code: SRV17-1055
                 description: Grain Dryer
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1056
+              - code: SRV17-1056
                 description: Multi Crop Thresher
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1057
+              - code: SRV17-1057
                 description: Rotovator
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1058
+              - code: SRV17-1058
                 description: Laser guided Land leveler
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1059
+              - code: SRV17-1059
                 description: Medium Power Tractor
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV15-1060
+              - code: SRV17-1060
                 description: High Power Tractor
                 reference: <PR/Issue/Discussion Links md format text>
         fulfillments:
@@ -3459,13 +3459,13 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          codes like SRV17-1001) which corresponds to equipment like the Tractor
           Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: &ref_14
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -3483,7 +3483,7 @@ x-flows:
               intent:
                 item:
                   category:
-                    code: SRV15-****
+                    code: SRV17-****
                 fulfillment:
                   type: Seller-Fulfilled
                   stops:
@@ -3525,7 +3525,7 @@ x-flows:
         example: &ref_15
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -3598,7 +3598,7 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: SRV15-1001
+                            value: SRV17-1001
                           - descriptor:
                               code: type
                             value: '10'
@@ -3616,7 +3616,7 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: SRV15-1001
+                            value: SRV17-1001
                           - descriptor:
                               code: type
                             value: '11'
@@ -3634,7 +3634,7 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: SRV15-1001
+                            value: SRV17-1001
                           - descriptor:
                               code: type
                             value: '12'
@@ -3652,7 +3652,7 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: SRV15-1001
+                            value: SRV17-1001
                           - descriptor:
                               code: type
                             value: '13'
@@ -3695,7 +3695,7 @@ x-flows:
                           maximum:
                             value: '4'
                         category_ids:
-                          - SRV15-1001
+                          - SRV17-1001
                         fulfillment_ids:
                           - F1
                           - F2
@@ -3867,7 +3867,7 @@ x-flows:
                         location_ids:
                           - L1
                         category_ids:
-                          - SRV15-1001
+                          - SRV17-1001
                         item_ids:
                           - I1
                         time:
@@ -3916,7 +3916,7 @@ x-flows:
         example: &ref_16
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -3945,7 +3945,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV15-1001
+                      - SRV17-1001
                     quantity:
                       selected:
                         count: 4
@@ -3980,7 +3980,7 @@ x-flows:
         example: &ref_17
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -4125,7 +4125,7 @@ x-flows:
         example: &ref_18
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -4154,7 +4154,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV15-1001
+                      - SRV17-1001
                     quantity:
                       selected:
                         count: 4
@@ -4211,7 +4211,7 @@ x-flows:
         example: &ref_19
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -4240,7 +4240,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV15-1001
+                      - SRV17-1001
                     quantity:
                       selected:
                         count: 4
@@ -4486,7 +4486,7 @@ x-flows:
         example: &ref_20
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -4517,7 +4517,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV15-1001
+                      - SRV17-1001
                     quantity:
                       selected:
                         count: 4
@@ -4720,7 +4720,7 @@ x-flows:
         example: &ref_21
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -4752,7 +4752,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV15-1001
+                      - SRV17-1001
                     quantity:
                       selected:
                         count: 4
@@ -5012,7 +5012,7 @@ x-flows:
         example: &ref_22
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -5037,7 +5037,7 @@ x-flows:
         example: &ref_23
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -5068,7 +5068,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV15-1001
+                      - SRV17-1001
                     quantity:
                       selected:
                         count: 4
@@ -5299,7 +5299,7 @@ x-flows:
         example: &ref_24
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -5330,7 +5330,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV15-1001
+                      - SRV17-1001
                     quantity:
                       selected:
                         count: 4
@@ -5561,7 +5561,7 @@ x-flows:
         example: &ref_25
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -5592,7 +5592,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV15-1001
+                      - SRV17-1001
                     quantity:
                       selected:
                         count: 4
@@ -5904,7 +5904,7 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          codes like SRV17-1001) which corresponds to equipment like the Tractor
           Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
@@ -5934,7 +5934,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -5963,7 +5963,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV15-1001
+                      - SRV17-1001
                     quantity:
                       selected:
                         count: 4
@@ -5998,7 +5998,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -6215,7 +6215,7 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          codes like SRV17-1001) which corresponds to equipment like the Tractor
           Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
@@ -6243,7 +6243,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -6272,7 +6272,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV15-1001
+                      - SRV17-1001
                     quantity:
                       selected:
                         count: 4
@@ -6307,7 +6307,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -6452,7 +6452,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -6481,7 +6481,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV15-1001
+                      - SRV17-1001
                     quantity:
                       selected:
                         count: 4
@@ -6542,7 +6542,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -6571,7 +6571,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV15-1001
+                      - SRV17-1001
                     quantity:
                       selected:
                         count: 4
@@ -6780,7 +6780,7 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          codes like SRV17-1001) which corresponds to equipment like the Tractor
           Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
@@ -6811,7 +6811,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -6840,7 +6840,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV15-1001
+                      - SRV17-1001
                     quantity:
                       selected:
                         measure:
@@ -6878,7 +6878,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -7160,7 +7160,7 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          codes like SRV17-1001) which corresponds to equipment like the Tractor
           Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
@@ -7224,7 +7224,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -7476,7 +7476,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -7802,7 +7802,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -8219,7 +8219,7 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          codes like SRV17-1001) which corresponds to equipment like the Tractor
           Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
@@ -8303,7 +8303,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -8629,7 +8629,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -9042,7 +9042,7 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          codes like SRV17-1001) which corresponds to equipment like the Tractor
           Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
@@ -9222,7 +9222,7 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          codes like SRV17-1001) which corresponds to equipment like the Tractor
           Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
@@ -9285,7 +9285,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -9522,7 +9522,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -9799,7 +9799,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -10125,7 +10125,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -10531,7 +10531,7 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          codes like SRV17-1001) which corresponds to equipment like the Tractor
           Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
@@ -10594,7 +10594,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -10619,7 +10619,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -10959,7 +10959,7 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV15-1001) which corresponds to equipment like the Tractor
+          codes like SRV17-1001) which corresponds to equipment like the Tractor
           Operated Zero-Till Seed-Cum-Fertilizer Drill.
         reference: if any
         example: *ref_14
@@ -11043,7 +11043,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -11369,7 +11369,7 @@ x-flows:
         example:
           value:
             context:
-              domain: ONDC:SRV15
+              domain: ONDC:SRV17
               location:
                 city:
                   code: std:080
@@ -11701,7 +11701,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -11743,7 +11743,7 @@ x-examples:
                           value: '3'
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -11761,7 +11761,7 @@ x-examples:
                 intent:
                   item:
                     category:
-                      code: SRV15-****
+                      code: SRV17-****
                   fulfillment:
                     type: Seller-Fulfilled
                     stops:
@@ -11790,7 +11790,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -11819,7 +11819,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -11847,7 +11847,7 @@ x-examples:
                     - type: ON-FULFILLMENT
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -11876,7 +11876,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -11904,7 +11904,7 @@ x-examples:
                     - type: ON-FULFILLMENT
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -11933,7 +11933,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -11961,7 +11961,7 @@ x-examples:
                     - type: ON-FULFILLMENT
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -11990,7 +11990,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -12020,7 +12020,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -12049,7 +12049,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -12101,7 +12101,7 @@ x-examples:
                       collected_by: BAP
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -12130,7 +12130,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -12188,7 +12188,7 @@ x-examples:
                       collected_by: BAP
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -12217,7 +12217,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -12271,7 +12271,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -12302,7 +12302,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -12498,7 +12498,7 @@ x-examples:
                   updated_at: '2024-06-10T22:00:46.000Z'
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -12529,7 +12529,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -12739,7 +12739,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -12761,7 +12761,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -12784,7 +12784,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -13104,7 +13104,7 @@ x-examples:
                     ttl: P1D
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -13424,7 +13424,7 @@ x-examples:
                     ttl: P1D
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -13746,7 +13746,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -13819,7 +13819,7 @@ x-examples:
                               value: L1
                             - descriptor:
                                 code: category
-                              value: SRV15-1001
+                              value: SRV17-1001
                             - descriptor:
                                 code: type
                               value: '10'
@@ -13837,7 +13837,7 @@ x-examples:
                               value: L1
                             - descriptor:
                                 code: category
-                              value: SRV15-1001
+                              value: SRV17-1001
                             - descriptor:
                                 code: type
                               value: '11'
@@ -13855,7 +13855,7 @@ x-examples:
                               value: L1
                             - descriptor:
                                 code: category
-                              value: SRV15-1001
+                              value: SRV17-1001
                             - descriptor:
                                 code: type
                               value: '12'
@@ -13873,7 +13873,7 @@ x-examples:
                               value: L1
                             - descriptor:
                                 code: category
-                              value: SRV15-1001
+                              value: SRV17-1001
                             - descriptor:
                                 code: type
                               value: '13'
@@ -13917,7 +13917,7 @@ x-examples:
                             maximum:
                               value: '4'
                           category_ids:
-                            - SRV15-1001
+                            - SRV17-1001
                           fulfillment_ids:
                             - F1
                             - F2
@@ -14089,7 +14089,7 @@ x-examples:
                           location_ids:
                             - L1
                           category_ids:
-                            - SRV15-1001
+                            - SRV17-1001
                           item_ids:
                             - I1
                           time:
@@ -14133,7 +14133,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -14273,7 +14273,7 @@ x-examples:
                       collected_by: BAP
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -14413,7 +14413,7 @@ x-examples:
                       collected_by: BAP
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -14496,7 +14496,7 @@ x-examples:
                 message: Equipment schedule selected by buyer is not available
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -14638,7 +14638,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -14667,7 +14667,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -14909,7 +14909,7 @@ x-examples:
                               value: xxxxxxx
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -14938,7 +14938,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -15196,7 +15196,7 @@ x-examples:
                               value: xxxxxxx
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -15225,7 +15225,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -15351,7 +15351,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -15383,7 +15383,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -15639,7 +15639,7 @@ x-examples:
                   updated_at: '2024-06-10T22:00:48.000Z'
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -15671,7 +15671,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -15882,7 +15882,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -15913,7 +15913,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -16137,7 +16137,7 @@ x-examples:
                   updated_at: '2024-06-10T22:00:52.000Z'
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -16168,7 +16168,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -16392,7 +16392,7 @@ x-examples:
                   updated_at: '2024-06-10T22:00:52.000Z'
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -16423,7 +16423,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV15-1001
+                        - SRV17-1001
                       quantity:
                         selected:
                           count: 4
@@ -16649,7 +16649,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -16894,7 +16894,7 @@ x-examples:
                   updated_at: '2024-06-10T22:01:05.000Z'
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -17141,7 +17141,7 @@ x-examples:
         examples:
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -17460,7 +17460,7 @@ x-examples:
                     ttl: P1D
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -17779,7 +17779,7 @@ x-examples:
                     ttl: P1D
           - value:
               context:
-                domain: ONDC:SRV15
+                domain: ONDC:SRV17
                 location:
                   city:
                     code: std:080
@@ -18184,9 +18184,9 @@ x-attributes:
         context:
           parent: true
           domain:
-            description: domain code, enums - ONDC:SRV15 (Equipment Hiring)
+            description: domain code, enums - ONDC:SRV17 (Equipment Hiring)
             required: mandatory
-            usage: ONDC:SRV15
+            usage: ONDC:SRV17
             reference: if any
           city:
             code:
@@ -18234,7 +18234,7 @@ x-attributes:
               category:
                 description: Category of the search
                 required: optional
-                usage: SRV15-1001
+                usage: SRV17-1001
                 reference: if any
             fulfillment:
               parent: true
@@ -18490,7 +18490,7 @@ x-attributes:
                 category_ids:
                   description: category ids for which the offer is applicable.
                   required: required
-                  usage: SRV15-1001
+                  usage: SRV17-1001
                   reference: if any
                 item_ids:
                   description: item ids for which the offer is applicable.
@@ -18576,7 +18576,7 @@ x-attributes:
                     category id of the service provided by the service provider
                     which was sent in /search call
                   required: required
-                  usage: SRV15-1000
+                  usage: SRV17-1000
                   reference: if any
                 fulfillment_ids:
                   description: >-
@@ -18787,7 +18787,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV15-****]'
+                usage: '[SRV17-****]'
                 reference: if any
               quantity:
                 selected:
@@ -19169,7 +19169,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV15-****]'
+                usage: '[SRV17-****]'
                 reference: if any
               quantity:
                 selected:
@@ -19354,7 +19354,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV15-****]'
+                usage: '[SRV17-****]'
                 reference: if any
               quantity:
                 selected:

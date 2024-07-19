@@ -1,9 +1,9 @@
 context:
   parent: true
   domain:
-    description: domain code, enums - ONDC:SRV15 (Equipment Hiring)
+    description: domain code, enums - ONDC:SRV17 (Equipment Hiring)
     required: mandatory
-    usage: "ONDC:SRV15"
+    usage: "ONDC:SRV17"
     reference: if any
   city:
     code:
@@ -46,7 +46,7 @@ message:
       category:
         description: Category of the search
         required: optional
-        usage: "SRV15-1001"
+        usage: "SRV17-1001"
         reference: if any
     fulfillment:
       parent: true

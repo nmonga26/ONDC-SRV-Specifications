@@ -1,6 +1,6 @@
 value:
   context:
-    domain: ONDC:SRV15
+    domain: ONDC:SRV17
     location:
       city:
         code: std:080
@@ -18,7 +18,7 @@ value:
     intent:
       item:
         category:
-          code: SRV15-****
+          code: SRV17-****
       fulfillment:
         type: Seller-Fulfilled
         stops:
