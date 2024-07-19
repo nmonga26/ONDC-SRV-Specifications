@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:SRV16",
+    "domain": "ONDC:SRV18",
     "location": {
       "city": {
         "code": "std:080"
@@ -37,7 +37,7 @@
             "L1"
           ],
           "category_ids": [
-            "SRV16-1001"
+            "SRV18-1001"
           ],
           "quantity": {
             "selected": {

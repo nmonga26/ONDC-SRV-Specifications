@@ -1,6 +1,6 @@
 value:
   context:
-    domain: ONDC:SRV16
+    domain: ONDC:SRV18
     location:
       city:
         code: std:080
@@ -18,7 +18,7 @@ value:
     intent:
       item:
         category:
-          code: SRV16-*
+          code: SRV18-*
       payment:
         type: ON-FULFILLMENT
         collected_by: BAP

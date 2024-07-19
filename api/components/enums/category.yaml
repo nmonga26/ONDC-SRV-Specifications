@@ -1,34 +1,34 @@
 category_ids:
-  - code: SRV16-1000
+  - code: SRV18-1000
     description: Pulses
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV16-1001
+  - code: SRV18-1001
     description: Cereals
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV16-1002
+  - code: SRV18-1002
     description: Oilseeds
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV16-1003
+  - code: SRV18-1003
     description: Fruits
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV16-1004
+  - code: SRV18-1004
     description: Vegetables
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV16-1005
+  - code: SRV18-1005
     description: Spices
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV16-1006
+  - code: SRV18-1006
     description: Plantation Crop
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV16-1007
+  - code: SRV18-1007
     description: Flowers
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV16-1008
+  - code: SRV18-1008
     description: Fibre Crop
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV16-1009
+  - code: SRV18-1009
     description: Dry fruit
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV16-1010
+  - code: SRV18-1010
     description: Honey
     reference: <PR/Issue/Discussion Links md format text>
