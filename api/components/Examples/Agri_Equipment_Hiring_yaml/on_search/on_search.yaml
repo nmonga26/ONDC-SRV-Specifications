@@ -1,6 +1,6 @@
 value:
   context:
-    domain: ONDC:SRV15
+    domain: ONDC:SRV17
     location:
       city:
         code: std:080
@@ -73,7 +73,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: SRV15-1001
+                  value: SRV17-1001
                 - descriptor:
                     code: type
                   value: '10'
@@ -91,7 +91,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: SRV15-1001
+                  value: SRV17-1001
                 - descriptor:
                     code: type
                   value: '11'
@@ -109,7 +109,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: SRV15-1001
+                  value: SRV17-1001
                 - descriptor:
                     code: type
                   value: '12'
@@ -127,7 +127,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: SRV15-1001
+                  value: SRV17-1001
                 - descriptor:
                     code: type
                   value: '13'
@@ -169,7 +169,7 @@ value:
                 maximum:
                   value: '4'
               category_ids:
-                - SRV15-1001
+                - SRV17-1001
               fulfillment_ids:
                 - F1
                 - F2
@@ -341,7 +341,7 @@ value:
               location_ids:
                 - L1
               category_ids:
-                - SRV15-1001
+                - SRV17-1001
               item_ids:
                 - I1
               time:
