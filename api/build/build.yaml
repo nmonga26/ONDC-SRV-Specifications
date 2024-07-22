@@ -4822,11 +4822,6 @@ x-flows:
                     tracking: false
                     stops:
                       - type: start
-                        authorization:
-                          token: 123456
-                          type: OTP
-                          status: UN-CLAIMED
-                          valid_to: '2024-06-10T02:00:00.000Z'
                         location:
                           id: L1
                           descriptor:
@@ -4870,7 +4865,7 @@ x-flows:
                           token: '1234'
                           valid_from: '2024-06-10T22:00:00Z'
                           valid_to: '2024-06-10T23:00:00Z'
-                          status: valid
+                          status: UN-CLAIMED
                     rateable: true
                 quote:
                   price:
@@ -15458,11 +15453,6 @@ x-examples:
                       tracking: false
                       stops:
                         - type: start
-                          authorization:
-                            token: 123456
-                            type: OTP
-                            status: UN-CLAIMED
-                            valid_to: '2024-06-10T02:00:00.000Z'
                           location:
                             id: L1
                             descriptor:
@@ -15506,7 +15496,7 @@ x-examples:
                             token: '1234'
                             valid_from: '2024-06-10T22:00:00Z'
                             valid_to: '2024-06-10T23:00:00Z'
-                            status: valid
+                            status: UN-CLAIMED
                       rateable: true
                   quote:
                     price:
@@ -15713,11 +15703,6 @@ x-examples:
                       tracking: false
                       stops:
                         - type: start
-                          authorization:
-                            token: 123456
-                            type: OTP
-                            status: UN-CLAIMED
-                            valid_to: '2024-06-10T02:00:00.000Z'
                           location:
                             gps: 12.974002,77.613458
                             address: 'My House #, My buildin'
@@ -15739,6 +15724,12 @@ x-examples:
                           person:
                             name: Ramu
                         - type: end
+                          authorization:
+                            token: '1234'
+                            type: OTP
+                            status: UN-CLAIMED
+                            valid_from: '2024-06-10T22:00:00Z'
+                            valid_to: '2024-06-10T02:00:00.000Z'
                           location:
                             id: L1
                             descriptor:

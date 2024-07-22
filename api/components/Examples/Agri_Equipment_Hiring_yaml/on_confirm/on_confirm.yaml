@@ -102,11 +102,6 @@ value:
           tracking: false
           stops:
             - type: start
-              authorization:
-                token: 123456
-                type: OTP
-                status: UN-CLAIMED
-                valid_to: '2024-06-10T02:00:00.000Z'
               location:
                 id: L1
                 descriptor:
@@ -150,7 +145,7 @@ value:
                 token: '1234'
                 valid_from: '2024-06-10T22:00:00Z'
                 valid_to: '2024-06-10T23:00:00Z'
-                status: valid
+                status: UN-CLAIMED
           rateable: true
       quote:
         price:
