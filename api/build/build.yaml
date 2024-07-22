@@ -3483,7 +3483,7 @@ x-flows:
               intent:
                 item:
                   category:
-                    code: SRV17-****
+                    code: SRV17-1001
                 fulfillment:
                   type: Seller-Fulfilled
                   stops:
@@ -4822,6 +4822,11 @@ x-flows:
                     tracking: false
                     stops:
                       - type: start
+                        authorization:
+                          token: 123456
+                          type: OTP
+                          status: UN-CLAIMED
+                          valid_to: '2024-06-10T02:00:00.000Z'
                         location:
                           id: L1
                           descriptor:
@@ -11761,7 +11766,7 @@ x-examples:
                 intent:
                   item:
                     category:
-                      code: SRV17-****
+                      code: SRV17-1001
                   fulfillment:
                     type: Seller-Fulfilled
                     stops:
@@ -15453,6 +15458,11 @@ x-examples:
                       tracking: false
                       stops:
                         - type: start
+                          authorization:
+                            token: 123456
+                            type: OTP
+                            status: UN-CLAIMED
+                            valid_to: '2024-06-10T02:00:00.000Z'
                           location:
                             id: L1
                             descriptor:
@@ -15703,6 +15713,11 @@ x-examples:
                       tracking: false
                       stops:
                         - type: start
+                          authorization:
+                            token: 123456
+                            type: OTP
+                            status: UN-CLAIMED
+                            valid_to: '2024-06-10T02:00:00.000Z'
                           location:
                             gps: 12.974002,77.613458
                             address: 'My House #, My buildin'
@@ -18787,7 +18802,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV17-****]'
+                usage: '[SRV17-1001]'
                 reference: if any
               quantity:
                 selected:
@@ -19169,7 +19184,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV17-****]'
+                usage: '[SRV17-1001]'
                 reference: if any
               quantity:
                 selected:
@@ -19354,7 +19369,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV17-****]'
+                usage: '[SRV17-1001]'
                 reference: if any
               quantity:
                 selected:
