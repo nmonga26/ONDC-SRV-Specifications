@@ -64,6 +64,11 @@ value:
           tracking: false
           stops:
             - type: start
+              authorization:
+                token: 123456
+                type: OTP
+                status: UN-CLAIMED
+                valid_to: '2024-06-10T02:00:00.000Z'
               location:
                 gps: 12.974002,77.613458
                 address: 'My House #, My buildin'

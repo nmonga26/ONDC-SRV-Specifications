@@ -18,7 +18,7 @@ value:
     intent:
       item:
         category:
-          code: SRV17-****
+          code: SRV17-1001
       fulfillment:
         type: Seller-Fulfilled
         stops:
