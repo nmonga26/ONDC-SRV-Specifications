@@ -51,6 +51,7 @@ details:
         BA ->> SA: **/confirm** - Confirms the order by paying to create final digital contract
         SA ->> BA: **/on_confirm** - Accepts the order 
         BA ->> B: Confirms order
+        SA ->> BA: **/on_update** - Assigns agent to the order with agent details
   - description: Fulfillment
     mermaidGraph: >-
       sequenceDiagram
@@ -112,6 +113,12 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Health_care_services_yaml/on_confirm/on_confirm.yaml"
+  - summary: Seller assigns an agent to the delivery
+    api: on_update (Agent assigned)
+    description: Seller app sends an on_update call to the buyer app confirming the agent assignment and provides the agent details
+    reference: if any
+    example:
+      $ref: "../../Examples/Health_care_services_yaml/on_update/on_update_agent_assigned.yaml"
   - summary: Buyer requests for the status of the order
     api: status
     description: Buyer requests for the status of the order
