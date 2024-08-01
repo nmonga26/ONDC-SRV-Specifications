@@ -116,7 +116,7 @@ value:
         - id: F1
           state:
             descriptor:
-              code: Awarded
+              code: Not-Awarded
           stops:
             - type: end
               location:

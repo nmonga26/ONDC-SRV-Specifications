@@ -56,6 +56,11 @@ message:
         required: mandatory
         usage: "BAP"
         reference: if any
+      url:
+        description: Payment url to take payment 
+        required: optional
+        usage: https://abc.com/take_payment
+        reference: if any
       params:
         amount:
           description: Payment amount

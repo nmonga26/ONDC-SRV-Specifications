@@ -325,7 +325,7 @@
                     },
                     {
                       "descriptor": {
-                        "code": "SELF_LIFE"
+                        "code": "SHELF_LIFE"
                       },
                       "value": "P10M"
                     },

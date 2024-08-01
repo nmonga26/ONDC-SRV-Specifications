@@ -41,6 +41,11 @@
           "category_ids": [
             "SRV18-1001"
           ],
+          "price": {
+            "currency": "INR",
+            "maximum_value": "280.00",
+            "offered_value": "250.00"
+          },
           "quantity": {
             "selected": {
               "count": 100
@@ -54,7 +59,7 @@
               "list": [
                 {
                   "descriptor": {
-                    "code": "SELF_LIFE"
+                    "code": "SHELF_LIFE"
                   },
                   "value": "P10M"
                 },
@@ -322,6 +327,7 @@
         {
           "id": "PY1",
           "collected_by": "BAP",
+          "url": "https://abc.com/take_payment",
           "params": {
             "amount": "5000.00",
             "currency": "INR",

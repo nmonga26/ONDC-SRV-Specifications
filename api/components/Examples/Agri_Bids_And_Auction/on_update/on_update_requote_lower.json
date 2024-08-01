@@ -32,7 +32,7 @@
                     "id": "I1",
                     "price": {
                         "currency": "INR",
-                        "offered_value": "250.00"
+                        "offered_value": "200.00"
                     },
                     "quantity": {
                         "selected": {
@@ -140,7 +140,7 @@
                     "id": "PY2",
                     "collected_by": "BAP",
                     "params": {
-                        "amount": "25050.00",
+                        "amount": "20050.00",
                         "currency": "INR",
                         "bank_account_number": "xxxxxxxx",
                         "virtual_payment_address": "xxx@xxxx"
@@ -192,6 +192,76 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "PY2",
+                    "collected_by": "BAP",
+                    "params": {
+                        "amount": "-2005.00",
+                        "currency": "INR",
+                        "bank_account_number": "xxxxxxxx",
+                        "virtual_payment_address": "xxx@xxxx"
+                    },
+                    "status": "NOT-PAID",
+                    "type": "ON-FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "code": "Settlement_Details"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "code": "Counterparty"
+                                    },
+                                    "value": "BPP"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "Mode"
+                                    },
+                                    "value": "UPI"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "Beneficiary_Name"
+                                    },
+                                    "value": "xxxxx"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "Bank_Account_No"
+                                    },
+                                    "value": "xxxxx"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "Ifsc_Code"
+                                    },
+                                    "value": "xxxxxxx"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "UPI_Address"
+                                    },
+                                    "value": "xxxxxxx"
+                                }
+                            ]
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Payment_Details"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "code": "Reason"
+                                    },
+                                    "value": "quality_degrade_charge"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ],
             "fulfillments": [
@@ -199,7 +269,7 @@
                     "id": "F1",
                     "state": {
                         "descriptor": {
-                            "code": "Awarded"
+                            "code": "Placed"
                         }
                     },
                     "stops": [
@@ -252,14 +322,14 @@
             "quote": {
                 "price": {
                     "currency": "INR",
-                    "value": "30050.00"
+                    "value": "25050.00"
                 },
                 "breakup": [
                     {
                         "title": "Wheat (Auction)",
                         "price": {
                             "currency": "INR",
-                            "value": "25000.00"
+                            "value": "20000.00"
                         },
                         "item": {
                             "id": "I1",
@@ -270,7 +340,7 @@
                             },
                             "price": {
                                 "currency": "INR",
-                                "value": "250.00"
+                                "value": "200.00"
                             }
                         },
                         "tags": [

@@ -24,6 +24,9 @@ value:
         id: P1
       items:
         - id: I1
+          price:
+            currency: INR
+            offered_value: '300.00'
           quantity:
             selected:
               count: 100
@@ -34,7 +37,7 @@ value:
                 code: COMMODITY_SPECIFICATION
               list:
                 - descriptor:
-                    code: SELF_LIFE
+                    code: SHELF_LIFE
                   value: P10M
                 - descriptor:
                     code: MOISTURE
@@ -48,6 +51,7 @@ value:
       payments:
         - id: PY1
           collected_by: BAP
+          url: https://abc.com/take_payment
           params:
             amount: '5000.00'
             currency: INR

@@ -196,7 +196,7 @@ value:
                         code: REFERENCE_DOCS_COPY
                       value: https://abc.com/commodity_specification.pdf
                     - descriptor:
-                        code: SELF_LIFE
+                        code: SHELF_LIFE
                       value: P10M
                     - descriptor:
                         code: MOISTURE

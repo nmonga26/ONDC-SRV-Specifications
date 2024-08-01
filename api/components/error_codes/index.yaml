@@ -14,3 +14,13 @@ code:
     Who can use code?: BPP
     Usage: Used in NACK
     Action: NACK on /select
+  - Code: '90004'
+    Reason: Bids quantity should be valid
+    Who can use code?: BPP
+    Usage: Used in NACK
+    Action: NACK on /init
+  - Code: '90005'
+    Reason: Only Invitees are allowed (Seller verifies the Buyer's ID whether he is allowed or not)
+    Who can use code?: BPP
+    Usage: Used in NACK
+    Action: NACK on /select

@@ -12,13 +12,13 @@ details:
         participant SA2 as SellerApp2
         
         Note Over B,SA: **SEARCH FLOW**
-        B ->> BA: Search by city for a commodity
+        B ->> BA: Buyer initiates an exploratory search for Bids and Auctions.
         BA ->> G: **/search** - Search by city for a commodity and <br>additional parameters
         Note left of BA: Additional params include: <br><br>
         G ->> SA1: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
         G ->> SA2: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
-        SA1 ->> BA: **/on_search** - Commodity bids catalog returned <br>with pricing, seller statutory details, pricing
-        SA2 ->> BA: **/on_search** - Commodity bids catalog returned <br>with pricing, seller statutory details, pricing
+        SA1 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with their details, including floor price, Start/End Time, Bid Increment
+        SA2 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with their details, including floor price, Start/End Time, Bid Increment
         Note Over BA,SA1: Buyer now has the option to choose the <br>Commodity bids from either Seller 1 or Seller 2 or both
         BA ->> B: Shows all the avilable bids <br>options from sellers
 
@@ -32,13 +32,13 @@ details:
         participant SA2 as SellerApp2
         
         Note Over B,SA: **SEARCH FLOW**
-        B ->> BA: Search by city for a commodity with incremental pull request
+        B ->> BA: Buyer initiates an exploratory search for Bids and Auctions with incremental pull request
         BA ->> G: **/search** - Search by city for a commodity <br> for modified calelogs
         Note left of BA: Additional params include: <br><br>
         G ->> SA1: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
         G ->> SA2: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
-        SA1 ->> BA: **/on_search** - Commodity bids catalog returned <br>with pricing, seller statutory details, pricing changes
-        SA2 ->> BA: **/on_search** - Commodity bids catalog returned <br>with pricing, seller statutory details, pricing changes
+        SA1 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with changed details, including floor price, Start/End Time, Bid Increment
+        SA2 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with changed details, including floor price, Start/End Time, Bid Increment
         Note Over BA,SA1: Buyer now have all the catalog which is either new added or modified
         BA ->> B: Shows all the avilable modified/new bids <br>options from sellers
 
@@ -52,7 +52,7 @@ details:
         participant SA2 as SellerApp2
         
         Note Over B,SA: **SEARCH FLOW**
-        B ->> BA: Search by city for a commodity with incremental regular start
+        B ->> BA: Buyer initiates an exploratory search for Bids and Auctions with incremental regular start
         BA ->> G: **/search** - Search by city for a auction commodity
         Note left of BA: Additional params include: <br><br>
         G ->> SA1: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
@@ -64,7 +64,7 @@ details:
 
 reference: if any
 steps:
-  - summary: Search based on the intent for bids and auction for a particular agricultural commodity
+  - summary: Buyer initiates an exploratory search for Bids and Auctions.
     api: search
     description: The buyer expresses interest in purchasing a commodity (such as wheat) from all currently available auctions
     reference: if any

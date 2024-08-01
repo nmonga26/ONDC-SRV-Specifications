@@ -25,6 +25,9 @@ value:
         id: P1
       items:
         - id: I1
+          price:
+            currency: INR
+            offered_value: '300.00'
           quantity:
             selected:
               count: 100
@@ -38,7 +41,7 @@ value:
           - title: Wheat (Auction)
             price:
               currency: INR
-              value: '35000.00'
+              value: '30000.00'
             item:
               id: I1
               quantity:
@@ -110,6 +113,7 @@ value:
       payments:
         - id: PY1
           collected_by: BAP
+          url: https://abc.com/take_payment
           params:
             amount: '5000.00'
             currency: INR
@@ -142,7 +146,7 @@ value:
         - id: PY2
           collected_by: BAP
           params:
-            amount: '27045.00'
+            amount: '30050.00'
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
