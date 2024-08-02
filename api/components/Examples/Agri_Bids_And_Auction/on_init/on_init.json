@@ -39,11 +39,6 @@
           "category_ids": [
             "SRV18-1001"
           ],
-          "quantity": {
-            "selected": {
-              "count": 4
-            }
-          },
           "tags": [
             {
               "descriptor": {
@@ -52,7 +47,7 @@
               "list": [
                 {
                   "descriptor": {
-                    "code": "SELF_LIFE"
+                    "code": "SHELF_LIFE"
                   },
                   "value": "P10M"
                 },
@@ -155,43 +150,9 @@
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "30050.00"
+          "value": "5000.00"
         },
         "breakup": [
-          {
-            "title": "Wheat (Auction)",
-            "price": {
-              "currency": "INR",
-              "value": "25000.00"
-            },
-            "item": {
-              "id": "I1",
-              "quantity": {
-                "selected": {
-                  "count": 100
-                }
-              },
-              "price": {
-                "currency": "INR",
-                "value": "250.00"
-              }
-            },
-            "tags": [
-              {
-                "descriptor": {
-                  "code": "TITLE"
-                },
-                "list": [
-                  {
-                    "descriptor": {
-                      "code": "type"
-                    },
-                    "value": "item"
-                  }
-                ]
-              }
-            ]
-          },
           {
             "title": "earnest_money_deposit",
             "price": {
@@ -216,81 +177,6 @@
                 ]
               }
             ]
-          },
-          {
-            "title": "tax",
-            "price": {
-              "currency": "INR",
-              "value": "50"
-            },
-            "item": {
-              "id": "I1"
-            },
-            "tags": [
-              {
-                "descriptor": {
-                  "code": "title"
-                },
-                "list": [
-                  {
-                    "descriptor": {
-                      "code": "type"
-                    },
-                    "value": "tax"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "discount",
-            "price": {
-              "currency": "INR",
-              "value": "100"
-            },
-            "item": {
-              "id": "I1"
-            },
-            "tags": [
-              {
-                "descriptor": {
-                  "code": "title"
-                },
-                "list": [
-                  {
-                    "descriptor": {
-                      "code": "type"
-                    },
-                    "value": "discount"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "pickup_charge",
-            "price": {
-              "currency": "INR",
-              "value": "100"
-            },
-            "item": {
-              "id": "I1"
-            },
-            "tags": [
-              {
-                "descriptor": {
-                  "code": "title"
-                },
-                "list": [
-                  {
-                    "descriptor": {
-                      "code": "type"
-                    },
-                    "value": "misc"
-                  }
-                ]
-              }
-            ]
           }
         ],
         "ttl": "P1D"
@@ -299,6 +185,7 @@
         {
           "id": "PY1",
           "collected_by": "BAP",
+          "url": "https://abc.com/take_payment",
           "params": {
             "amount": "5000.00",
             "currency": "INR",
@@ -307,63 +194,6 @@
           },
           "status": "NOT-PAID",
           "type": "PRE-FULFILLMENT",
-          "tags": [
-            {
-              "descriptor": {
-                "code": "Settlement_Details"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "Counterparty"
-                  },
-                  "value": "BPP"
-                },
-                {
-                  "descriptor": {
-                    "code": "Mode"
-                  },
-                  "value": "UPI"
-                },
-                {
-                  "descriptor": {
-                    "code": "Beneficiary_Name"
-                  },
-                  "value": "xxxxx"
-                },
-                {
-                  "descriptor": {
-                    "code": "Bank_Account_No"
-                  },
-                  "value": "xxxxx"
-                },
-                {
-                  "descriptor": {
-                    "code": "Ifsc_Code"
-                  },
-                  "value": "xxxxxxx"
-                },
-                {
-                  "descriptor": {
-                    "code": "UPI_Address"
-                  },
-                  "value": "xxxxxxx"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "PY2",
-          "collected_by": "BAP",
-          "params": {
-            "amount": "25050.00",
-            "currency": "INR",
-            "bank_account_number": "xxxxxxxx",
-            "virtual_payment_address": "xxx@xxxx"
-          },
-          "status": "NOT-PAID",
-          "type": "ON-FULFILLMENT",
           "tags": [
             {
               "descriptor": {

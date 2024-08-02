@@ -199,7 +199,7 @@
                     "id": "F1",
                     "state": {
                         "descriptor": {
-                            "code": "Awarded"
+                            "code": "Not-Awarded"
                         }
                     },
                     "stops": [

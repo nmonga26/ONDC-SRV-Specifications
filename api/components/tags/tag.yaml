@@ -190,7 +190,7 @@ COMMODITY_SPECIFICATION:
   - code: REFERENCE_DOCS_COPY
     description: Reference docs link of the commodity specification if applicable (Optional - depends on commodity)
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SELF_LIFE
+  - code: SHELF_LIFE
     description: Self life of the commodity if applicable (Optional - depends on commodity)
     reference: <PR/Issue/Discussion Links md format text>
   - code: MOISTURE

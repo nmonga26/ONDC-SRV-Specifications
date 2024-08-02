@@ -52,7 +52,7 @@ message:
       tags:
         description: tags associated with the item
         required: optional
-        usage: "[{\"descriptor\":{\"code\":\"COMMODITY_SPECIFICATION\"},\"list\":[{\"descriptor\":{\"code\":\"SELF_LIFE\"},\"value\":\"P10M\"},{\"descriptor\":{\"code\":\"MOISTURE\"},\"value\":\"10%\"},{\"descriptor\":{\"code\":\"OIL_CONTENT\"},\"value\":\"2%\"},{\"descriptor\":{\"code\":\"DEFECTIVES\"},\"value\":\"7%\"}]}]"
+        usage: "[{\"descriptor\":{\"code\":\"COMMODITY_SPECIFICATION\"},\"list\":[{\"descriptor\":{\"code\":\"SHELF_LIFE\"},\"value\":\"P10M\"},{\"descriptor\":{\"code\":\"MOISTURE\"},\"value\":\"10%\"},{\"descriptor\":{\"code\":\"OIL_CONTENT\"},\"value\":\"2%\"},{\"descriptor\":{\"code\":\"DEFECTIVES\"},\"value\":\"7%\"}]}]"
         reference: if any
     billing:
       name:
@@ -123,6 +123,11 @@ message:
         description: Entity that collected the payment
         required: required
         usage: BAP
+        reference: if any
+      url:
+        description: Payment url to take payment 
+        required: optional
+        usage: https://abc.com/take_payment
         reference: if any
       params:
         parent: true

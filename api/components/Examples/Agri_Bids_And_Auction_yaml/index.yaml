@@ -12,6 +12,7 @@ select:
 init:
   examples:
     - $ref: "./init/init.yaml"
+    - $ref: "./init/init_bid_placement.yaml"
 confirm:
   examples:
     - $ref: "./confirm/confirm.yaml"
@@ -24,6 +25,8 @@ cancel:
 update:
   examples:
     - $ref: "./update/update_requote.yaml"
+    - $ref: "./update/update_requote_lower.yaml"
+    - $ref: "./update/update_status.yaml"
 # rating:
 #   examples:
 #     - $ref: "./rating/rating.yaml"
@@ -37,6 +40,7 @@ on_select:
 on_init:
   examples:
     - $ref: "./on_init/on_init.yaml"
+    - $ref: "./on_init/on_init_bid_placement.yaml"
 on_confirm:
   examples:
     - $ref: "./on_confirm/on_confirm.yaml"
@@ -51,4 +55,8 @@ on_cancel:
 on_update:
   examples:
     - $ref: "./on_update/on_update_requote.yaml"
+    - $ref: "./on_update/on_update_awarded.yaml"
+    - $ref: "./on_update/on_update_not_awarded.yaml"
+    - $ref: "./on_update/on_update_requote_lower.yaml"
+    - $ref: "./on_update/on_update_status.yaml"
 
