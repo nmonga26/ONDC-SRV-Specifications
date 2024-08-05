@@ -15,7 +15,7 @@
 
 #### Initiate equipment hiring journey search
 
-The search intent from the buyer focuses on specific agricultural equipment needs, such as irrigation equipment (defined by category codes like SRV17-1001) which corresponds to equipment like the Tractor Operated Zero-Till Seed-Cum-Fertilizer Drill.
+The search intent from the buyer focuses on specific agricultural equipment needs, such as irrigation equipment (defined by category codes like SRV17-1035) which corresponds to equipment like the Tractor.
 
 #### Broadcast to sellers
 

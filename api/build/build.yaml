@@ -3128,6 +3128,9 @@ x-tags:
                 description: Equipment attribute of a particular item (Required)
                 reference: <PR/Issue/Discussion Links md format text>
                 list: &ref_7
+                  - code: ALIAS
+                    description: Item alias name or alternate name (Optional)
+                    reference: <PR/Issue/Discussion Links md format text>
                   - code: TYPE
                     description: >-
                       Type of the item, mandatory only when the item is a
@@ -3453,8 +3456,8 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV17-1001) which corresponds to equipment like the Tractor
-          Operated Zero-Till Seed-Cum-Fertilizer Drill.
+          codes like SRV17-1035) which corresponds to equipment like the
+          Tractor.
         reference: if any
         example: &ref_14
           value:
@@ -3477,7 +3480,7 @@ x-flows:
               intent:
                 item:
                   category:
-                    code: SRV17-1001
+                    code: SRV17-1035
                 fulfillment:
                   type: Seller-Fulfilled
                   stops:
@@ -3592,7 +3595,7 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: SRV17-1001
+                            value: SRV17-1035
                           - descriptor:
                               code: type
                             value: '10'
@@ -3610,7 +3613,7 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: SRV17-1001
+                            value: SRV17-1035
                           - descriptor:
                               code: type
                             value: '11'
@@ -3628,7 +3631,7 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: SRV17-1001
+                            value: SRV17-1035
                           - descriptor:
                               code: type
                             value: '12'
@@ -3646,7 +3649,7 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: SRV17-1001
+                            value: SRV17-1035
                           - descriptor:
                               code: type
                             value: '13'
@@ -3689,7 +3692,7 @@ x-flows:
                           maximum:
                             value: '4'
                         category_ids:
-                          - SRV17-1001
+                          - SRV17-1035
                         fulfillment_ids:
                           - F1
                           - F2
@@ -3768,6 +3771,9 @@ x-flows:
                           - descriptor:
                               code: EQUIPMENT_ATTRIBUTES
                             list:
+                              - descriptor:
+                                  code: ALIAS
+                                value: Tractor, Green Machine
                               - descriptor:
                                   code: TYPE
                                 value: item
@@ -3861,7 +3867,7 @@ x-flows:
                         location_ids:
                           - L1
                         category_ids:
-                          - SRV17-1001
+                          - SRV17-1035
                         item_ids:
                           - I1
                         time:
@@ -3939,7 +3945,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV17-1001
+                      - SRV17-1035
                     quantity:
                       selected:
                         count: 4
@@ -4148,7 +4154,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV17-1001
+                      - SRV17-1035
                     quantity:
                       selected:
                         count: 4
@@ -4234,7 +4240,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV17-1001
+                      - SRV17-1035
                     quantity:
                       selected:
                         count: 4
@@ -4511,7 +4517,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV17-1001
+                      - SRV17-1035
                     quantity:
                       selected:
                         count: 4
@@ -4746,7 +4752,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV17-1001
+                      - SRV17-1035
                     quantity:
                       selected:
                         count: 4
@@ -5062,7 +5068,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV17-1001
+                      - SRV17-1035
                     quantity:
                       selected:
                         count: 4
@@ -5324,7 +5330,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV17-1001
+                      - SRV17-1035
                     quantity:
                       selected:
                         count: 4
@@ -5586,7 +5592,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV17-1001
+                      - SRV17-1035
                     quantity:
                       selected:
                         count: 4
@@ -5898,8 +5904,8 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV17-1001) which corresponds to equipment like the Tractor
-          Operated Zero-Till Seed-Cum-Fertilizer Drill.
+          codes like SRV17-1035) which corresponds to equipment like the
+          Tractor.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
@@ -5957,7 +5963,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV17-1001
+                      - SRV17-1035
                     quantity:
                       selected:
                         count: 4
@@ -6209,8 +6215,8 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV17-1001) which corresponds to equipment like the Tractor
-          Operated Zero-Till Seed-Cum-Fertilizer Drill.
+          codes like SRV17-1035) which corresponds to equipment like the
+          Tractor.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
@@ -6266,7 +6272,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV17-1001
+                      - SRV17-1035
                     quantity:
                       selected:
                         count: 4
@@ -6475,7 +6481,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV17-1001
+                      - SRV17-1035
                     quantity:
                       selected:
                         count: 4
@@ -6565,7 +6571,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV17-1001
+                      - SRV17-1035
                     quantity:
                       selected:
                         count: 4
@@ -6774,8 +6780,8 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV17-1001) which corresponds to equipment like the Tractor
-          Operated Zero-Till Seed-Cum-Fertilizer Drill.
+          codes like SRV17-1035) which corresponds to equipment like the
+          Tractor.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
@@ -6834,7 +6840,7 @@ x-flows:
                     location_ids:
                       - L1
                     category_ids:
-                      - SRV17-1001
+                      - SRV17-1035
                     quantity:
                       selected:
                         measure:
@@ -7154,8 +7160,8 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV17-1001) which corresponds to equipment like the Tractor
-          Operated Zero-Till Seed-Cum-Fertilizer Drill.
+          codes like SRV17-1035) which corresponds to equipment like the
+          Tractor.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
@@ -8213,8 +8219,8 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV17-1001) which corresponds to equipment like the Tractor
-          Operated Zero-Till Seed-Cum-Fertilizer Drill.
+          codes like SRV17-1035) which corresponds to equipment like the
+          Tractor.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
@@ -9036,8 +9042,8 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV17-1001) which corresponds to equipment like the Tractor
-          Operated Zero-Till Seed-Cum-Fertilizer Drill.
+          codes like SRV17-1035) which corresponds to equipment like the
+          Tractor.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
@@ -9216,8 +9222,8 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV17-1001) which corresponds to equipment like the Tractor
-          Operated Zero-Till Seed-Cum-Fertilizer Drill.
+          codes like SRV17-1035) which corresponds to equipment like the
+          Tractor.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
@@ -10525,8 +10531,8 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV17-1001) which corresponds to equipment like the Tractor
-          Operated Zero-Till Seed-Cum-Fertilizer Drill.
+          codes like SRV17-1035) which corresponds to equipment like the
+          Tractor.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
@@ -10953,8 +10959,8 @@ x-flows:
         description: >-
           The search intent from the buyer focuses on specific agricultural
           equipment needs, such as irrigation equipment (defined by category
-          codes like SRV17-1001) which corresponds to equipment like the Tractor
-          Operated Zero-Till Seed-Cum-Fertilizer Drill.
+          codes like SRV17-1035) which corresponds to equipment like the
+          Tractor.
         reference: if any
         example: *ref_14
       - summary: Returns the catalog specific to the search intent
@@ -11755,7 +11761,7 @@ x-examples:
                 intent:
                   item:
                     category:
-                      code: SRV17-1001
+                      code: SRV17-1035
                   fulfillment:
                     type: Seller-Fulfilled
                     stops:
@@ -11813,7 +11819,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -11870,7 +11876,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -11927,7 +11933,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -11984,7 +11990,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -12043,7 +12049,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -12124,7 +12130,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -12211,7 +12217,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -12296,7 +12302,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -12523,7 +12529,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -13813,7 +13819,7 @@ x-examples:
                               value: L1
                             - descriptor:
                                 code: category
-                              value: SRV17-1001
+                              value: SRV17-1035
                             - descriptor:
                                 code: type
                               value: '10'
@@ -13831,7 +13837,7 @@ x-examples:
                               value: L1
                             - descriptor:
                                 code: category
-                              value: SRV17-1001
+                              value: SRV17-1035
                             - descriptor:
                                 code: type
                               value: '11'
@@ -13849,7 +13855,7 @@ x-examples:
                               value: L1
                             - descriptor:
                                 code: category
-                              value: SRV17-1001
+                              value: SRV17-1035
                             - descriptor:
                                 code: type
                               value: '12'
@@ -13867,7 +13873,7 @@ x-examples:
                               value: L1
                             - descriptor:
                                 code: category
-                              value: SRV17-1001
+                              value: SRV17-1035
                             - descriptor:
                                 code: type
                               value: '13'
@@ -13911,7 +13917,7 @@ x-examples:
                             maximum:
                               value: '4'
                           category_ids:
-                            - SRV17-1001
+                            - SRV17-1035
                           fulfillment_ids:
                             - F1
                             - F2
@@ -13990,6 +13996,9 @@ x-examples:
                             - descriptor:
                                 code: EQUIPMENT_ATTRIBUTES
                               list:
+                                - descriptor:
+                                    code: ALIAS
+                                  value: Tractor, Green Machine
                                 - descriptor:
                                     code: TYPE
                                   value: item
@@ -14083,7 +14092,7 @@ x-examples:
                           location_ids:
                             - L1
                           category_ids:
-                            - SRV17-1001
+                            - SRV17-1035
                           item_ids:
                             - I1
                           time:
@@ -14661,7 +14670,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -14932,7 +14941,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -15219,7 +15228,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -15377,7 +15386,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -15665,7 +15674,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -15913,7 +15922,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -16168,7 +16177,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -16423,7 +16432,7 @@ x-examples:
                       location_ids:
                         - L1
                       category_ids:
-                        - SRV17-1001
+                        - SRV17-1035
                       quantity:
                         selected:
                           count: 4
@@ -18234,7 +18243,7 @@ x-attributes:
               category:
                 description: Category of the search
                 required: optional
-                usage: SRV17-1001
+                usage: SRV17-1035
                 reference: if any
             fulfillment:
               parent: true
@@ -18490,7 +18499,7 @@ x-attributes:
                 category_ids:
                   description: category ids for which the offer is applicable.
                   required: required
-                  usage: SRV17-1001
+                  usage: SRV17-1035
                   reference: if any
                 item_ids:
                   description: item ids for which the offer is applicable.
@@ -18576,7 +18585,7 @@ x-attributes:
                     category id of the service provided by the service provider
                     which was sent in /search call
                   required: required
-                  usage: SRV17-1000
+                  usage: SRV17-10
                   reference: if any
                 fulfillment_ids:
                   description: >-
@@ -18787,7 +18796,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV17-1001]'
+                usage: '[SRV17-1035]'
                 reference: if any
               quantity:
                 selected:
@@ -19169,7 +19178,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV17-1001]'
+                usage: '[SRV17-1035]'
                 reference: if any
               quantity:
                 selected:
@@ -19354,7 +19363,7 @@ x-attributes:
               category_ids:
                 description: category ids related to the item
                 required: required
-                usage: '[SRV17-1001]'
+                usage: '[SRV17-1035]'
                 reference: if any
               quantity:
                 selected:
