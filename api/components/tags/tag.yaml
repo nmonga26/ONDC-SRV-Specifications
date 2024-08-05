@@ -163,6 +163,9 @@ CHECKLIST_DOCUMENTS:
     description: Terms of uses for equipment hiring if applicable (Optional)
     reference: <PR/Issue/Discussion Links md format text>
 EQUIPMENT_ATTRIBUTES:
+  - code: ALIAS
+    description: Item alias name or alternate name (Optional)
+    reference: <PR/Issue/Discussion Links md format text>
   - code: TYPE
     description: Type of the item, mandatory only when the item is a customization (Optional)
     reference: <PR/Issue/Discussion Links md format text>

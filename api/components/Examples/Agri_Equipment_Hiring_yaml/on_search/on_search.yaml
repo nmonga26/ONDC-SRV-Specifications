@@ -73,7 +73,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: SRV17-1001
+                  value: SRV17-1035
                 - descriptor:
                     code: type
                   value: '10'
@@ -91,7 +91,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: SRV17-1001
+                  value: SRV17-1035
                 - descriptor:
                     code: type
                   value: '11'
@@ -109,7 +109,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: SRV17-1001
+                  value: SRV17-1035
                 - descriptor:
                     code: type
                   value: '12'
@@ -127,7 +127,7 @@ value:
                   value: L1
                 - descriptor:
                     code: category
-                  value: SRV17-1001
+                  value: SRV17-1035
                 - descriptor:
                     code: type
                   value: '13'
@@ -169,7 +169,7 @@ value:
                 maximum:
                   value: '4'
               category_ids:
-                - SRV17-1001
+                - SRV17-1035
               fulfillment_ids:
                 - F1
                 - F2
@@ -248,6 +248,9 @@ value:
                 - descriptor:
                     code: EQUIPMENT_ATTRIBUTES
                   list:
+                    - descriptor:
+                        code: ALIAS
+                      value: 'Tractor, Green Machine'
                     - descriptor:
                         code: TYPE
                       value: item
@@ -341,7 +344,7 @@ value:
               location_ids:
                 - L1
               category_ids:
-                - SRV17-1001
+                - SRV17-1035
               item_ids:
                 - I1
               time:
