@@ -34,7 +34,9 @@ value:
             - SRV17-1035
           quantity:
             selected:
-              count: 4
+              measure:
+                unit: hours
+                value: '4'
           tags:
             - descriptor:
                 code: ATTRIBUTE

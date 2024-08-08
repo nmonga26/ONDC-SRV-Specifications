@@ -35,7 +35,9 @@ value:
             - SRV17-1035
           quantity:
             selected:
-              count: 4
+              measure:
+                unit: hours
+                value: '4'
           tags:
             - descriptor:
                 code: ATTRIBUTE
@@ -86,11 +88,11 @@ value:
                 name: Ramu
             - type: end
               authorization:
-                token: '1234'
                 type: OTP
-                status: UN-CLAIMED
+                token: '1234'
                 valid_from: '2024-06-10T22:00:00Z'
-                valid_to: '2024-06-10T02:00:00.000Z'
+                valid_to: '2024-06-10T23:00:00Z'
+                status: UN-CLAIMED
               location:
                 id: L1
                 descriptor:

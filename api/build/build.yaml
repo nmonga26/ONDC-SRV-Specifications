@@ -2815,7 +2815,7 @@ x-enum:
             quantity:
               unitized:
                 measure:
-                  unit:
+                  unit: &ref_2
                     - code: hours
                       description: Quantity measure to hire the equipment
                       reference: <PR/Issue/Discussion Links md format text>
@@ -2836,6 +2836,16 @@ x-enum:
                   - code: amount
                     description: Fee type value applied as percent
                     reference: <PR/Issue/Discussion Links md format text>
+  select:
+    context:
+      domain: *ref_0
+    message:
+      order:
+        items:
+          quantity:
+            selected:
+              measure:
+                unit: *ref_2
   init:
     context:
       domain: *ref_0
@@ -2850,7 +2860,7 @@ x-enum:
       order:
         quote:
           breakup:
-            title: &ref_2
+            title: &ref_3
               - code: Equipment
                 description: Equipment
                 reference: <PR/Issue/Discussion Links md format text>
@@ -2875,7 +2885,7 @@ x-enum:
               - code: Delivery Fee
                 description: Delivery Fee
                 reference: <PR/Issue/Discussion Links md format text>
-        payments: &ref_3
+        payments: &ref_4
           type:
             - code: PRE-FULFILLMENT
               description: about the enum
@@ -2922,10 +2932,10 @@ x-enum:
         fulfillments:
           type: *ref_1
         quote:
-          breakup: &ref_4
-            title: *ref_2
-        payments: *ref_3
-        status: &ref_5
+          breakup: &ref_5
+            title: *ref_3
+        payments: *ref_4
+        status: &ref_6
           - code: Created
             description: about the enum
             reference: <PR/Issue/Discussion Links md format text>
@@ -2948,7 +2958,7 @@ x-enum:
       order:
         fulfillments:
           type: *ref_1
-          state: &ref_6
+          state: &ref_7
             descriptor:
               code:
                 - code: PENDING
@@ -2964,26 +2974,26 @@ x-enum:
                   description: When equipement task is completed
                   reference: <PR/Issue/Discussion Links md format text>
         quote:
-          breakup: *ref_4
-        payments: *ref_3
-        status: *ref_5
+          breakup: *ref_5
+        payments: *ref_4
+        status: *ref_6
   update:
     context:
       domain: *ref_0
     message:
       order:
-        payments: *ref_3
+        payments: *ref_4
   on_update:
     context:
       domain: *ref_0
     message:
       order:
         fulfillments:
-          state: *ref_6
+          state: *ref_7
         quote:
-          breakup: *ref_4
-        payments: *ref_3
-        status: *ref_5
+          breakup: *ref_5
+        payments: *ref_4
+        status: *ref_6
   status:
     context:
       domain: *ref_0
@@ -2993,11 +3003,11 @@ x-enum:
     message:
       order:
         fulfillments:
-          state: *ref_6
+          state: *ref_7
         quote:
-          breakup: *ref_4
-        payments: *ref_3
-        status: *ref_5
+          breakup: *ref_5
+        payments: *ref_4
+        status: *ref_6
   on_cancel:
     context:
       domain: *ref_0
@@ -3127,7 +3137,7 @@ x-tags:
               - code: EQUIPMENT_ATTRIBUTES
                 description: Equipment attribute of a particular item (Required)
                 reference: <PR/Issue/Discussion Links md format text>
-                list: &ref_7
+                list: &ref_8
                   - code: ALIAS
                     description: Item alias name or alternate name (Optional)
                     reference: <PR/Issue/Discussion Links md format text>
@@ -3282,8 +3292,8 @@ x-tags:
     message:
       order:
         quote:
-          breakup: &ref_9
-            tags: &ref_12
+          breakup: &ref_10
+            tags: &ref_13
               - code: title
                 description: title tag (Optional)
                 reference: <PR/Issue/Discussion Links md format text>
@@ -3297,19 +3307,19 @@ x-tags:
   init:
     message:
       order:
-        items: &ref_8
+        items: &ref_9
           tags:
             - code: EQUIPMENT_ATTRIBUTES
               description: Attribute of a particular equipment item (Optional)
               reference: <PR/Issue/Discussion Links md format text>
-              list: *ref_7
+              list: *ref_8
   on_init:
-    message: &ref_10
+    message: &ref_11
       order:
-        items: *ref_8
+        items: *ref_9
         quote:
-          breakup: *ref_9
-        payments: &ref_11
+          breakup: *ref_10
+        payments: &ref_12
           tags:
             - code: Settlement_Details
               description: Define Payment Settlement Details here (Required)
@@ -3357,24 +3367,24 @@ x-tags:
                   description: Amount for the finder fee (Required)
                   reference: <PR/Issue/Discussion Links md format text>
   confirm:
-    message: *ref_10
+    message: *ref_11
   on_status:
-    message: *ref_10
+    message: *ref_11
   update:
-    message: &ref_13
+    message: &ref_14
       order:
-        payments: *ref_11
+        payments: *ref_12
         quote:
           breakup:
-            tags: *ref_12
+            tags: *ref_13
           item:
             tags:
               - code: EQUIPMENT_ATTRIBUTES
                 description: Update parameter for attributes (Required)
                 reference: <PR/Issue/Discussion Links md format text>
-                list: *ref_7
+                list: *ref_8
   on_update:
-    message: *ref_13
+    message: *ref_14
 x-flows:
   - summary: Agricultural Equipment Hiring
     description: >-
@@ -3459,7 +3469,7 @@ x-flows:
           codes like SRV17-1035) which corresponds to equipment like the
           Tractor.
         reference: if any
-        example: &ref_14
+        example: &ref_15
           value:
             context:
               domain: ONDC:SRV17
@@ -3519,7 +3529,7 @@ x-flows:
           href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
           document]</a>
         reference: if any
-        example: &ref_15
+        example: &ref_16
           value:
             context:
               domain: ONDC:SRV17
@@ -3773,7 +3783,7 @@ x-flows:
                             list:
                               - descriptor:
                                   code: ALIAS
-                                value: Tractor, Green Machine
+                                value: Tractor, Green Machine, Farmatrac
                               - descriptor:
                                   code: TYPE
                                 value: item
@@ -3913,7 +3923,7 @@ x-flows:
           Once all options are visible, the Buyer selects the desired
           agricultural equipment along with a suitable fulfillment type.
         reference: if any
-        example: &ref_16
+        example: &ref_17
           value:
             context:
               domain: ONDC:SRV17
@@ -3948,7 +3958,9 @@ x-flows:
                       - SRV17-1035
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -3977,7 +3989,7 @@ x-flows:
           The Seller confirms the selected equipment item and provides a quote
           for the equipment.
         reference: if any
-        example: &ref_17
+        example: &ref_18
           value:
             context:
               domain: ONDC:SRV17
@@ -4006,6 +4018,11 @@ x-flows:
                     id: I1
                     location_ids:
                       - L1
+                    quantity:
+                      selected:
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -4122,7 +4139,7 @@ x-flows:
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: &ref_18
+        example: &ref_19
           value:
             context:
               domain: ONDC:SRV17
@@ -4157,7 +4174,9 @@ x-flows:
                       - SRV17-1035
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -4208,7 +4227,7 @@ x-flows:
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: &ref_19
+        example: &ref_20
           value:
             context:
               domain: ONDC:SRV17
@@ -4243,7 +4262,9 @@ x-flows:
                       - SRV17-1035
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -4483,7 +4504,7 @@ x-flows:
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: &ref_20
+        example: &ref_21
           value:
             context:
               domain: ONDC:SRV17
@@ -4520,7 +4541,9 @@ x-flows:
                       - SRV17-1035
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -4717,7 +4740,7 @@ x-flows:
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: &ref_21
+        example: &ref_22
           value:
             context:
               domain: ONDC:SRV17
@@ -4755,7 +4778,9 @@ x-flows:
                       - SRV17-1035
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -5009,7 +5034,7 @@ x-flows:
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: &ref_22
+        example: &ref_23
           value:
             context:
               domain: ONDC:SRV17
@@ -5034,7 +5059,7 @@ x-flows:
         api: on_status (In Transit)
         description: Seller app sends order status update when equipment is on the way
         reference: if any
-        example: &ref_23
+        example: &ref_24
           value:
             context:
               domain: ONDC:SRV17
@@ -5071,7 +5096,9 @@ x-flows:
                       - SRV17-1035
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -5296,7 +5323,7 @@ x-flows:
           Seller app sends order status update when service provider has reached
           the buyer location with equipment
         reference: if any
-        example: &ref_24
+        example: &ref_25
           value:
             context:
               domain: ONDC:SRV17
@@ -5333,7 +5360,9 @@ x-flows:
                       - SRV17-1035
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -5558,7 +5587,7 @@ x-flows:
           Seller app sends order status update when service provider has
           completed
         reference: if any
-        example: &ref_25
+        example: &ref_26
           value:
             context:
               domain: ONDC:SRV17
@@ -5595,7 +5624,9 @@ x-flows:
                       - SRV17-1035
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -5907,7 +5938,7 @@ x-flows:
           codes like SRV17-1035) which corresponds to equipment like the
           Tractor.
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: >-
@@ -5922,7 +5953,7 @@ x-flows:
           href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
           document]</a>
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: >-
           Buyer selects the required agri equipment with a particular schedule
           slot
@@ -5966,7 +5997,9 @@ x-flows:
                       - SRV17-1035
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -6024,6 +6057,11 @@ x-flows:
                     id: I1
                     location_ids:
                       - L1
+                    quantity:
+                      selected:
+                        measure:
+                          unit: hours
+                          value: '4'
                     time:
                       label: validity
                       range:
@@ -6087,7 +6125,7 @@ x-flows:
           Buyer select another intent for booking a equipment for different
           duration + suitable fulfillment type
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: >-
           The Seller confirms the selected equipment item and provides a quote
           for the equipment with new selected schedule slot
@@ -6096,51 +6134,51 @@ x-flows:
           The Seller confirms the selected equipment item and provides a quote
           for the equipment with new selected schedule slot
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the order for equipment with new schedule fulfilment
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for equipment
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: Seller app sends order status update when equipment is on the way
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location with equipment
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app sends the order status (Completed)
         api: on_status (Completed)
         description: >-
           Seller app sends order status update when service provider has
           completed
         reference: if any
-        example: *ref_25
+        example: *ref_26
   - summary: >-
       Agricultural Equipment Hiring (Availability changes during the transaction
       journey)
@@ -6218,7 +6256,7 @@ x-flows:
           codes like SRV17-1035) which corresponds to equipment like the
           Tractor.
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: >-
@@ -6233,7 +6271,7 @@ x-flows:
           href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
           document]</a>
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required agri equipment
         api: select
         description: >-
@@ -6275,7 +6313,9 @@ x-flows:
                       - SRV17-1035
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -6333,6 +6373,11 @@ x-flows:
                     id: I1
                     location_ids:
                       - L1
+                    quantity:
+                      selected:
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -6484,7 +6529,9 @@ x-flows:
                       - SRV17-1035
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -6574,7 +6621,9 @@ x-flows:
                       - SRV17-1035
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                     time:
                       label: validity
                       range:
@@ -6783,7 +6832,7 @@ x-flows:
           codes like SRV17-1035) which corresponds to equipment like the
           Tractor.
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: >-
@@ -6798,7 +6847,7 @@ x-flows:
           href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
           document]</a>
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required agri equipment
         api: select
         description: >-
@@ -6904,6 +6953,11 @@ x-flows:
                     id: I1
                     location_ids:
                       - L1
+                    quantity:
+                      selected:
+                        measure:
+                          unit: hours
+                          value: '4'
                     tags:
                       - descriptor:
                           code: ATTRIBUTE
@@ -7020,46 +7074,46 @@ x-flows:
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for equipment
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: Seller app sends order status update when equipment is on the way
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location with equipment
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app sends the order status (Completed)
         api: on_status (Completed)
         description: >-
           Seller app sends order status update when service provider has
           completed
         reference: if any
-        example: *ref_25
+        example: *ref_26
   - summary: >-
       Agricultural Equipment Hiring (Requisite documents not available during
       equipment delivery/ pickup)
@@ -7163,7 +7217,7 @@ x-flows:
           codes like SRV17-1035) which corresponds to equipment like the
           Tractor.
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: >-
@@ -7178,42 +7232,42 @@ x-flows:
           href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
           document]</a>
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required agri equipment
         api: select
         description: >-
           Once all options are visible, the Buyer selects the desired
           agricultural equipment along with a suitable fulfillment type.
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
         description: >-
           The Seller confirms the selected equipment item and provides a quote
           for the equipment.
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the order for equipment
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for equipment
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: >-
           Seller cancel the order when finds some discrepancies with the
           documents presented
@@ -7259,7 +7313,9 @@ x-flows:
                       - F1
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                 quote:
                   price:
                     currency: INR
@@ -8222,7 +8278,7 @@ x-flows:
           codes like SRV17-1035) which corresponds to equipment like the
           Tractor.
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: >-
@@ -8237,65 +8293,65 @@ x-flows:
           href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
           document]</a>
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required agri equipment
         api: select
         description: >-
           Once all options are visible, the Buyer selects the desired
           agricultural equipment along with a suitable fulfillment type.
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
         description: >-
           The Seller confirms the selected equipment item and provides a quote
           for the equipment.
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the order for equipment
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for equipment
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: Seller app sends order status update when equipment is on the way
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location with equipment
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app sends the order status (Completed)
         api: on_status (Completed)
         description: >-
           Seller app sends order status update when service provider has
           completed
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Seller app shares state of the equipment for discrepancies
         api: on_update
         description: Seller app shares state of the equipment for discrepancies
@@ -9045,7 +9101,7 @@ x-flows:
           codes like SRV17-1035) which corresponds to equipment like the
           Tractor.
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: >-
@@ -9060,65 +9116,65 @@ x-flows:
           href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
           document]</a>
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required agri equipment
         api: select
         description: >-
           Once all options are visible, the Buyer selects the desired
           agricultural equipment along with a suitable fulfillment type.
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
         description: >-
           The Seller confirms the selected equipment item and provides a quote
           for the equipment.
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the order for equipment
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for equipment
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: Seller app sends order status update when equipment is on the way
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location with equipment
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app sends the order status (Completed)
         api: on_status (Completed)
         description: >-
           Seller app sends order status update when service provider has
           completed
         reference: if any
-        example: *ref_25
+        example: *ref_26
   - summary: Agricultural Equipment Hiring (Buyer extend the renting period)
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9225,7 +9281,7 @@ x-flows:
           codes like SRV17-1035) which corresponds to equipment like the
           Tractor.
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: >-
@@ -9240,42 +9296,42 @@ x-flows:
           href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
           document]</a>
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required agri equipment
         api: select
         description: >-
           Once all options are visible, the Buyer selects the desired
           agricultural equipment along with a suitable fulfillment type.
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
         description: >-
           The Seller confirms the selected equipment item and provides a quote
           for the equipment.
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the order for equipment
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for equipment
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer wants to extend the renting period
         api: update (new order)
         description: >-
@@ -10534,7 +10590,7 @@ x-flows:
           codes like SRV17-1035) which corresponds to equipment like the
           Tractor.
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: >-
@@ -10549,42 +10605,42 @@ x-flows:
           href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
           document]</a>
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required agri equipment
         api: select
         description: >-
           Once all options are visible, the Buyer selects the desired
           agricultural equipment along with a suitable fulfillment type.
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
         description: >-
           The Seller confirms the selected equipment item and provides a quote
           for the equipment.
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the order for equipment
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for equipment
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer requests for the order cancellation
         api: cancel
         description: >-
@@ -10654,7 +10710,9 @@ x-flows:
                       - F1
                     quantity:
                       selected:
-                        count: 4
+                        measure:
+                          unit: hours
+                          value: '4'
                 quote:
                   price:
                     currency: INR
@@ -10962,7 +11020,7 @@ x-flows:
           codes like SRV17-1035) which corresponds to equipment like the
           Tractor.
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: >-
@@ -10977,65 +11035,65 @@ x-flows:
           href="https://docs.google.com/document/d/1R4tw3L5jjjqxHxP21sLlSO2YQqpwn3ln0I5Eo7kintM/edit">[this
           document]</a>
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required agri equipment
         api: select
         description: >-
           Once all options are visible, the Buyer selects the desired
           agricultural equipment along with a suitable fulfillment type.
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the equipment item and returns the quote for equipment
         api: on_select
         description: >-
           The Seller confirms the selected equipment item and provides a quote
           for the equipment.
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the order for equipment
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the equipment
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the equipment
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for equipment
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: Seller app sends order status update when equipment is on the way
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location with equipment
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app sends the order status (Completed)
         api: on_status (Completed)
         description: >-
           Seller app sends order status update when service provider has
           completed
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Seller app shares state of the equipment for discrepancies
         api: on_update
         description: Seller app shares state of the equipment for discrepancies
@@ -11696,7 +11754,7 @@ x-examples:
       order processing flow, i.e. Discovery of available equipments and service
       providers based on serviceability, order, fulfillment and
       post-fulfillment.
-    example_set: &ref_26
+    example_set: &ref_27
       search:
         examples:
           - value:
@@ -11822,7 +11880,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -11879,7 +11939,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -11936,7 +11998,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -11993,7 +12057,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -12052,7 +12118,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -12133,7 +12201,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -12220,7 +12290,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -12305,7 +12377,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -12532,7 +12606,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -13998,7 +14074,7 @@ x-examples:
                               list:
                                 - descriptor:
                                     code: ALIAS
-                                  value: Tractor, Green Machine
+                                  value: Tractor, Green Machine, Farmatrac
                                 - descriptor:
                                     code: TYPE
                                   value: item
@@ -14162,6 +14238,11 @@ x-examples:
                       id: I1
                       location_ids:
                         - L1
+                      quantity:
+                        selected:
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -14302,6 +14383,11 @@ x-examples:
                       id: I1
                       location_ids:
                         - L1
+                      quantity:
+                        selected:
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -14442,6 +14528,11 @@ x-examples:
                       id: I1
                       location_ids:
                         - L1
+                      quantity:
+                        selected:
+                          measure:
+                            unit: hours
+                            value: '4'
                       time:
                         label: validity
                         range:
@@ -14525,6 +14616,11 @@ x-examples:
                       id: I1
                       location_ids:
                         - L1
+                      quantity:
+                        selected:
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -14673,7 +14769,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -14944,7 +15042,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -15231,7 +15331,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       time:
                         label: validity
                         range:
@@ -15389,7 +15491,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -15677,7 +15781,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -15728,11 +15834,11 @@ x-examples:
                             name: Ramu
                         - type: end
                           authorization:
-                            token: '1234'
                             type: OTP
-                            status: UN-CLAIMED
+                            token: '1234'
                             valid_from: '2024-06-10T22:00:00Z'
-                            valid_to: '2024-06-10T02:00:00.000Z'
+                            valid_to: '2024-06-10T23:00:00Z'
+                            status: UN-CLAIMED
                           location:
                             id: L1
                             descriptor:
@@ -15925,7 +16031,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -16180,7 +16288,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -16435,7 +16545,9 @@ x-examples:
                         - SRV17-1035
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                       tags:
                         - descriptor:
                             code: ATTRIBUTE
@@ -16693,7 +16805,9 @@ x-examples:
                         - F1
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                   quote:
                     price:
                       currency: INR
@@ -16938,7 +17052,9 @@ x-examples:
                         - F1
                       quantity:
                         selected:
-                          count: 4
+                          measure:
+                            unit: hours
+                            value: '4'
                   quote:
                     price:
                       currency: INR
@@ -18110,7 +18226,7 @@ x-examples:
     description: >-
       Buyer creates an intent for booking an equipment to hire but Seller
       responds with no equipments available for the requested duration
-    example_set: *ref_26
+    example_set: *ref_27
   Services - Equipment Hiring (Availability changes during the transaction journey):
     summary: >-
       Agricultural Equipment Hiring (Availability changes during the transaction
@@ -18121,7 +18237,7 @@ x-examples:
       initiation of the booking by mentioning that the requested equipment is no
       longer available so Buyer goes back to the listing page and looks for
       other available equipments
-    example_set: *ref_26
+    example_set: *ref_27
   Services - Equipment Hiring (Know the land's acres but unsure of the usage hours):
     summary: >-
       Agricultural Equipment Hiring (Know the land's acres but unsure of the
@@ -18131,7 +18247,7 @@ x-examples:
       of the land to determine how many hours the equipment will be needed. The
       seller will then compute the price based on the required hours and provide
       it in the price quote.
-    example_set: *ref_26
+    example_set: *ref_27
   Services - Equipment Hiring (Requisite documents not available during equipment delivery/ pickup):
     summary: >-
       Agricultural Equipment Hiring (Requisite documents not available during
@@ -18145,7 +18261,7 @@ x-examples:
       then seller updates the status and same is communicated to the buyer with
       corresponding cancellation charges as per the cancellation policy and
       refund, if any, takes place accordingly
-    example_set: *ref_26
+    example_set: *ref_27
   Services - Equipment Hiring (Change in charges because of inspection on journey completion):
     summary: >-
       Agricultural Equipment Hiring (Change in charges because of inspection on
@@ -18154,14 +18270,14 @@ x-examples:
       At the time of journey completion, the seller inspects the equipment and
       finds discrepancies in the state of the equipment and makes an update of
       the order object with respective to the discrepancies 
-    example_set: *ref_26
+    example_set: *ref_27
   Services - Equipment Hiring (Buyer raising complaints):
     summary: Agricultural Equipment Hiring (Buyer raising complaints)
     description: >-
       During the journey if the buyer faces any issues, the buyer may raise a
       complaint on the buyer app and the buyer app tries to analyse the
       complaints
-    example_set: *ref_26
+    example_set: *ref_27
   Services - Equipment Hiring (Buyer extend the renting period):
     summary: Agricultural Equipment Hiring (Buyer extend the renting period)
     description: >-
@@ -18178,13 +18294,13 @@ x-examples:
       available <br> a. Delivery : Seller may collect back the Equipment at the
       time of the completion <br> b. Self Pick Up : Seller may charge a
       Fee/Surcharge as per his terms and conditions <br>
-    example_set: *ref_26
+    example_set: *ref_27
   Services - Equipment Hiring (Violation of Terms and conditions by the Buyer):
     summary: >-
       Agricultural Equipment Hiring (Violation of Terms and conditions by the
       Buyer)
     description: Like Equipment not used for stated usage or Not returned
-    example_set: *ref_26
+    example_set: *ref_27
 x-attributes:
   Equipment Hiring Services:
     attribute_set:
@@ -18800,11 +18916,17 @@ x-attributes:
                 reference: if any
               quantity:
                 selected:
-                  count:
-                    description: number of equipment items selected for hiring
-                    required: required
-                    usage: '1'
-                    reference: if any
+                  measure:
+                    unit:
+                      description: units of selected count
+                      required: required
+                      usage: hours
+                      reference: if any
+                    value:
+                      description: number of equipment items selected for hiring
+                      required: required
+                      usage: '1'
+                      reference: if any
               tags:
                 description: tags associated with the item
                 required: optional
@@ -18884,11 +19006,17 @@ x-attributes:
                 reference: if any
               quantity:
                 selected:
-                  count:
-                    description: number of equipment items selected for hiring
-                    required: required
-                    usage: '1'
-                    reference: if any
+                  measure:
+                    unit:
+                      description: units of selected count
+                      required: required
+                      usage: hours
+                      reference: if any
+                    value:
+                      description: number of equipment items selected for hiring
+                      required: required
+                      usage: '1'
+                      reference: if any
             fulfillments:
               parent: true
               fulfillments:
@@ -19182,11 +19310,17 @@ x-attributes:
                 reference: if any
               quantity:
                 selected:
-                  count:
-                    description: number of equipment items selected for hiring
-                    required: required
-                    usage: '1'
-                    reference: if any
+                  measure:
+                    unit:
+                      description: units of selected count
+                      required: required
+                      usage: hours
+                      reference: if any
+                    value:
+                      description: number of equipment items selected for hiring
+                      required: required
+                      usage: '1'
+                      reference: if any
               tags:
                 description: tags associated with the item
                 required: optional
@@ -19367,11 +19501,17 @@ x-attributes:
                 reference: if any
               quantity:
                 selected:
-                  count:
-                    description: number of equipment items selected for hiring
-                    required: required
-                    usage: '1'
-                    reference: if any
+                  measure:
+                    unit:
+                      description: units of selected count
+                      required: required
+                      usage: hours
+                      reference: if any
+                    value:
+                      description: number of equipment items selected for hiring
+                      required: required
+                      usage: '1'
+                      reference: if any
               tags:
                 description: tags associated with the item
                 required: optional

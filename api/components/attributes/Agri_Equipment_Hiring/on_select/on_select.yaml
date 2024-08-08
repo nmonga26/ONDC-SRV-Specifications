@@ -28,11 +28,17 @@ message:
         reference: if any
       quantity:
         selected:
-          count:
-            description: number of equipment items selected for hiring
-            required: required
-            usage: "1"
-            reference: if any
+          measure:
+            unit:
+              description: units of selected count 
+              required: required
+              usage: "hours"
+              reference: if any
+            value:
+              description: number of equipment items selected for hiring
+              required: required
+              usage: "1"
+              reference: if any
     fulfillments:
       parent: true
       fulfillments:
