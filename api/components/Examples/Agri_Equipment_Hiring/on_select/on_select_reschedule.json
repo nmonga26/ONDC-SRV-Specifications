@@ -34,6 +34,14 @@
           "location_ids": [
             "L1"
           ],
+          "quantity": {
+            "selected": {
+              "measure": {
+                "unit": "hours",
+                "value": "4"
+              }
+            }
+          },
           "time": {
             "label": "validity",
             "range": {

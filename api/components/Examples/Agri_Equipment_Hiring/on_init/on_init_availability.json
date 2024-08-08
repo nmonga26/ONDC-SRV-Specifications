@@ -44,7 +44,10 @@
           ],
           "quantity": {
             "selected": {
-              "count": 4
+              "measure": {
+                "unit": "hours",
+                "value": "4"
+              }
             }
           },
           "time": {

@@ -34,6 +34,18 @@ on_search:
             RESCHEDULE_TERMS:
               RESCHEDULE_FEE_TYPE:
                 $ref: "./tags.yaml#/reschedule_fee_type"
+select:
+  context: &context
+    domain: 
+      $ref: "./context.yaml#/domain"
+  message:
+    order:
+      items:
+          quantity:
+            selected:
+              measure:
+                unit:
+                  $ref: "./quantity_measure.yaml#/unit"
 init:
   context: &context
     domain: 
