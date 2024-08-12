@@ -25,7 +25,7 @@ value:
       items:
         - id: I1
           fulfillment_ids:
-            - F1
+            - F2
           location_ids:
             - L1
           category_ids:
@@ -93,8 +93,8 @@ value:
         email: nobody@nomail.com
         phone: '9886098860'
       fulfillments:
-        - id: F1
-          type: Buyer-Fulfilled
+        - id: F2
+          type: Seller-Fulfilled
           tracking: false
           stops:
             - type: start
@@ -113,8 +113,8 @@ value:
               time:
                 label: confirmed
                 range:
-                  start: '2024-06-09T22:00:00.000Z'
-                  end: '2024-06-10T02:00:00.000Z'
+                  start: '2024-06-11T22:00:00.000Z'
+                  end: '2024-06-12T02:00:00.000Z'
             - type: end
               location:
                 gps: 12.974002,77.613458
@@ -131,8 +131,8 @@ value:
               time:
                 label: confirmed
                 range:
-                  start: '2024-06-09T22:00:00.000Z'
-                  end: '2024-06-10T02:00:00.000Z'
+                  start: '2024-06-11T22:00:00.000Z'
+                  end: '2024-06-12T02:00:00.000Z'
       quote:
         price:
           currency: INR

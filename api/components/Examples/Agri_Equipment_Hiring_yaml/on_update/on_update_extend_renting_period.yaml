@@ -32,7 +32,7 @@ value:
                 unit: hours
                 value: '2'
           fulfillment_ids:
-            - F1
+            - F2
           payment_ids:
             - PY2
       payments:
@@ -136,11 +136,11 @@ value:
                     code: Reason
                   value: extend_renting_charge
       fulfillments:
-        - id: F1
+        - id: F2
           state:
             descriptor:
               code: Pending
-          type: Buyer-Fulfilled
+          type: Seller-Fulfilled
           tracking: false
           stops:
             - type: start

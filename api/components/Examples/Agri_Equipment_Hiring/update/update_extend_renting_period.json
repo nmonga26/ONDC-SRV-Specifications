@@ -40,7 +40,7 @@
             }
           },
           "fulfillment_ids": [
-            "F1"
+            "F2"
           ],
           "payment_ids": [
             "PY2"
@@ -165,13 +165,13 @@
       ],
       "fulfillments": [
         {
-          "id": "F1",
+          "id": "F2",
           "state": {
             "descriptor": {
               "code": "Pending"
             }
           },
-          "type": "Buyer-Fulfilled",
+          "type": "Seller-Fulfilled",
           "tracking": false,
           "stops": [
             {

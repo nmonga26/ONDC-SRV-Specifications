@@ -22,7 +22,7 @@ value:
         id: P1
       items:
         - fulfillment_ids:
-            - F1
+            - F2
           id: I1
           location_ids:
             - L1
@@ -56,8 +56,8 @@ value:
                     code: TYPE
                   value: item
       fulfillments:
-        - id: F1
-          type: Buyer-Fulfilled
+        - id: F2
+          type: Seller-Fulfilled
           tracking: false
           state:
             descriptor:

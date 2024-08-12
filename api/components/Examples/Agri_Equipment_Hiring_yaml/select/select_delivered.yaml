@@ -25,7 +25,7 @@ value:
       items:
         - id: I1
           fulfillment_ids:
-            - F2
+            - F1
           location_ids:
             - L1
           category_ids:

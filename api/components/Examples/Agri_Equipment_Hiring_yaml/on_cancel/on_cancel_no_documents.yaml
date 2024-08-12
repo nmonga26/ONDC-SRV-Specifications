@@ -32,7 +32,7 @@ value:
       items:
         - id: I1
           fulfillment_ids:
-            - F1
+            - F2
           quantity:
             selected:
               measure:
@@ -116,11 +116,11 @@ value:
                     value: misc
         ttl: P1D
       fulfillments:
-        - id: F1
+        - id: F2
           state:
             descriptor:
               code: Cancelled
-          type: Buyer-Fulfilled
+          type: Seller-Fulfilled
           tracking: false
           stops:
             - type: start

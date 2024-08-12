@@ -55,7 +55,7 @@ value:
         email: nobody@nomail.com
         phone: '9886098860'
       fulfillments:
-        - id: F1
+        - id: F2
           type: Seller-Fulfilled
           stops:
             - type: end
