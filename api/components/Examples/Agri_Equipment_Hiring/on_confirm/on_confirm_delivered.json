@@ -37,7 +37,7 @@
         {
           "id": "I1",
           "fulfillment_ids": [
-            "F2"
+            "F1"
           ],
           "location_ids": [
             "L1"
@@ -85,13 +85,13 @@
       },
       "fulfillments": [
         {
-          "id": "F2",
+          "id": "F1",
           "state": {
             "descriptor": {
               "code": "Pending"
             }
           },
-          "type": "Seller-Fulfilled",
+          "type": "Buyer-Fulfilled",
           "tracking": false,
           "stops": [
             {

@@ -28,7 +28,7 @@
       "items": [
         {
           "fulfillment_ids": [
-            "F1"
+            "F2"
           ],
           "id": "I1",
           "location_ids": [
@@ -83,8 +83,8 @@
       ],
       "fulfillments": [
         {
-          "id": "F1",
-          "type": "Buyer-Fulfilled",
+          "id": "F2",
+          "type": "Seller-Fulfilled",
           "tracking": false,
           "state": {
             "descriptor": {

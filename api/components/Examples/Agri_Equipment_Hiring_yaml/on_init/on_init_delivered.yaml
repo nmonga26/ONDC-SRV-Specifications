@@ -25,7 +25,7 @@ value:
       items:
         - id: I1
           fulfillment_ids:
-            - F2
+            - F1
           location_ids:
             - L1
           category_ids:
@@ -93,8 +93,8 @@ value:
         email: nobody@nomail.com
         phone: '9886098860'
       fulfillments:
-        - id: F2
-          type: Seller-Fulfilled
+        - id: F1
+          type: Buyer-Fulfilled
           tracking: false
           stops:
             - type: start
@@ -113,42 +113,26 @@ value:
               time:
                 label: confirmed
                 range:
-                  start: '2024-06-09T22:00:00.000Z'
-                  end: '2024-06-10T02:00:00.000Z'
+                  start: '2024-06-11T22:00:00.000Z'
+                  end: '2024-06-12T02:00:00.000Z'
             - type: end
               location:
-                id: L1
-                descriptor:
-                  name: Equipment Provider store
-                gps: 12.956399,77.636803
-              time:
-                range:
-                  start: '2024-06-09T22:00:00.000Z'
-                  end: '2024-06-10T02:00:00.000Z'
+                gps: 12.974002,77.613458
+                address: Farm 14 Near Village
+                city:
+                  name: Bengaluru
+                country:
+                  code: IND
+                area_code: '560001'
+                state:
+                  name: Karnataka
               contact:
                 phone: '9886098860'
-                email: nobody@nomail.com
-              person:
-                name: Kishan
-          tags:
-            - descriptor:
-                code: SHAREABLE_FORMAT
-              list:
-                - descriptor:
-                    code: SHAREABLE_FILE_FORMAT
-                  value: PDF
-                - descriptor:
-                    code: SHAREABLE_FILE_URL
-                  value: https://abc.com/agri/format.pdf
-            - descriptor:
-                code: COLLECTION_INSTRUCTIONS
-              list:
-                - descriptor:
-                    code: COLLECTIONS_FILE_URL
-                  value: https://abc.com/agri/format.pdf
-                - descriptor:
-                    code: COLLECTIONS_FILE_VIDEO_URL
-                  value: https://abc.com/agri/video.mp4
+              time:
+                label: confirmed
+                range:
+                  start: '2024-06-11T22:00:00.000Z'
+                  end: '2024-06-12T02:00:00.000Z'
       quote:
         price:
           currency: INR

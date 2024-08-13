@@ -25,7 +25,7 @@ value:
       items:
         - id: I1
           fulfillment_ids:
-            - F2
+            - F1
           location_ids:
             - L1
           category_ids:
@@ -55,7 +55,7 @@ value:
         email: nobody@nomail.com
         phone: '9886098860'
       fulfillments:
-        - id: F2
+        - id: F1
           type: Buyer-Fulfilled
           stops:
             - type: start
