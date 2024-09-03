@@ -133,6 +133,11 @@ steps:
     description: Seller confirms the updated schedule
     example:
       $ref: "../../Examples/Health_care_services_yaml/on_update/on_update.yaml"
+  - summary: Seller confirms the updated schedule
+    api: on_update
+    description: Seller confirms the updated schedule
+    example:
+      $ref: "../../Examples/Health_care_services_yaml/on_update/on_update.yaml"
   - summary: Buyer requests for the status of the order
     api: status
     description: Buyer requests for the status of the order

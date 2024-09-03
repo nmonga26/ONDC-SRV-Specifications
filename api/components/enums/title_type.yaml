@@ -1,7 +1,7 @@
 breakup:
   title:
-    - code: Sofa Cleaning
-      description: Sofa Cleaning
+    - code: Display Ads
+      description: Display Ads
       reference: <PR/Issue/Discussion Links md format text>
     - code: tax
       description: tax
@@ -11,13 +11,4 @@ breakup:
       reference: <PR/Issue/Discussion Links md format text>
     - code: convenience_fee
       description: convenience_fee
-      reference: <PR/Issue/Discussion Links md format text>
-    - code: Soil Testing
-      description: Soil Testing
-      reference: <PR/Issue/Discussion Links md format text>
-    - code: Water Testing
-      description: Water Testing
-      reference: <PR/Issue/Discussion Links md format text>
-    - code: Chemical Testing
-      description: Chemical Testing
       reference: <PR/Issue/Discussion Links md format text>

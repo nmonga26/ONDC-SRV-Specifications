@@ -1,192 +1,189 @@
 summary: ''
 description: ''
 value:
-  summary: Return the catalog
-  description: Return the catalog
-  value:
-    context:
-      domain: ONDC:SRV17
-      location:
-        city:
-          code: std:080
-        country:
-          code: IND
-      action: on_search
-      version: 2.0.0
-      bap_id: buyerapp.com
-      bap_uri: https://buyerapp.com/services
-      bpp_id: sellerapp.com
-      bpp_uri: https://sellerapp.com/services
-      transaction_id: T1
-      message_id: M1
-      timestamp: '2023-01-08T22:00:30.000Z'
-      ttl: PT30S
-    message:
-      catalog:
-        fulfillments:
-          - id: '1'
-            type: ONLINE
-          - id: '2'
-            type: OFFLINE
-        payments:
-          - id: '1'
-            type: PRE-FULFILLMENT
-          - id: '2'
-            type: ON-FULFILLMENT
-          - id: '3'
-            type: POST-FULFILLMENT
-        descriptor:
-          name: Ads Pvt. Limited
-          short_desc: Online eCommerce app
-          long_desc: Online eCommerce app
-          images:
-            - url: https://abc.com/images/1-shop-img
-        providers:
-          - id: P1
-            descriptor:
-              name: ABC.com
-              code: P001
-              short_desc: <<desc>>
-              long_desc: <<desc>>
-              additional_desc:
-                url: chat link
-                content_type: text/html
-              images:
-                - url: https://abc.com/images/1-shop-img
-            rating: '4.4'
-            ttl: P1D
-            locations:
-              - id: L1
-                gps: 12.967555,77.749666
-                address: Jayanagar 4th Block
-                city:
-                  code: std:080
-                  name: Bengaluru
-                state:
-                  code: KA
-                country:
-                  code: IND
-            creds:
-              - id: ADS-12345678
-                type: License
-                desc: License No. ADS-12345678
-                url: https://abcd.cdn.com/images/license-img
-            tags:
-              - descriptor:
-                  code: serviceability
-                list:
-                  - descriptor:
-                      code: location
-                    value: L1
-                  - descriptor:
-                      code: category
-                    value: SRV17
-                  - descriptor:
-                      code: val
-                    value: >-
-                      {"type": "FeatureCollection", "features": [{"type":
-                      "Feature", "properties": {}, "geometry": {"coordinates":
-                      [[[77.175571, 28.675927], [77.128737, 28.600972],
-                      [77.446934, 28.545325], [77.175571, 28.675927]]], "type":
-                      "Polygon"}}]}
-                  - descriptor:
-                      code: unit
-                    value: geojson
-                  - descriptor:
-                      code: type
-                    value: 12
-              - code: target_audience
-                list:
-                  - descriptor:
-                      code: age_range
-                    value: 18-20,21-24,25-39
-                  - descriptor:
-                      code: gender
-                    value: Male
-                  - descriptor:
-                      code: allowed_domains
-                    value: Retail
-            items:
-              - id: I1
-                descriptor:
-                  name: Display ads
-                  code: Display Ads
-                  short_desc: Home page banner
-                  long_desc: Home page banner
-                  media:
-                    - mimetype: video/mp4
-                      url: video_url
-                price:
-                  currency: INR
-                  value: '500.00'
-                  offered_value: '500.00'
-                  maximum_value: '500.00'
-                quantity:
-                  unitized:
-                    measure:
-                      unit: CPM
-                      value: '1'
-                  available:
-                    measure:
-                      unit: CPM
-                      value: '10'
-                time:
-                  range:
-                    start: '2024-07-01T00:00:00.000Z'
-                    end: '2024-07-31T00:00:00.000Z'
-                tags:
-                  - code: ad_specifications
-                    list:
-                      - descriptor:
-                          code: size
-                        value: 970x250
-                      - descriptor:
-                          code: max_k_weight
-                        value: 250
-                      - descriptor:
-                          code: sub_load
-                        value: 200
-                      - descriptor:
-                          code: file_size_unit
-                        value: KB
-                      - descriptor:
-                          code: format
-                        value: image/jpeg
-                  - code: ad_placement
-                    list:
-                      - descriptor:
-                          code: position
-                        value: Homepage
-                      - descriptor:
-                          code: location
-                        value: <<city |area>>
-                      - descriptor:
-                          code: location_url
-                        value: <<location url>>
-                  - descriptor:
-                      code: ad_type
-                    value: Display-ADS
-                  - descriptor:
-                      code: availability
-                    value: Static
-                category_ids:
-                  - ADS-10-01-01
-                fulfillment_ids:
-                  - '1'
-                location_ids:
-                  - L1
-                payment_ids:
-                  - '2'
-                add-ons:
-                  - id: ADDON01
-                    descriptor:
-                      name: creative generation
-                      short_desc: image generation
-                      long_desc: Campaign Image generation
-                      images:
-                        - url: https://abc.com/images/208.png
-                    price:
-                      currency: INR
-                      value: '1000.0'
-                      offered_value: '1000.0'
-                      maximum_value: '1000.0'
+  context:
+    domain: ONDC:SRV17
+    location:
+      city:
+        code: std:080
+      country:
+        code: IND
+    action: on_search
+    version: 2.0.0
+    bap_id: buyerapp.com
+    bap_uri: https://buyerapp.com/services
+    bpp_id: sellerapp.com
+    bpp_uri: https://sellerapp.com/services
+    transaction_id: T1
+    message_id: M1
+    timestamp: '2023-01-08T22:00:30.000Z'
+    ttl: PT30S
+  message:
+    catalog:
+      fulfillments:
+        - id: '1'
+          type: ONLINE
+        - id: '2'
+          type: OFFLINE
+      payments:
+        - id: '1'
+          type: PRE-FULFILLMENT
+        - id: '2'
+          type: ON-FULFILLMENT
+        - id: '3'
+          type: POST-FULFILLMENT
+      descriptor:
+        name: Ads Pvt. Limited
+        short_desc: Online eCommerce app
+        long_desc: Online eCommerce app
+        images:
+          - url: https://abc.com/images/1-shop-img
+      providers:
+        - id: P1
+          descriptor:
+            name: ABC.com
+            code: P001
+            short_desc: <<desc>>
+            long_desc: <<desc>>
+            additional_desc:
+              url: chat link
+              content_type: text/html
+            images:
+              - url: https://abc.com/images/1-shop-img
+          rating: '4.4'
+          ttl: P1D
+          locations:
+            - id: L1
+              gps: 12.967555,77.749666
+              address: Jayanagar 4th Block
+              city:
+                code: std:080
+                name: Bengaluru
+              state:
+                code: KA
+              country:
+                code: IND
+          creds:
+            - id: ADS-12345678
+              type: License
+              desc: License No. ADS-12345678
+              url: https://abcd.cdn.com/images/license-img
+          tags:
+            - descriptor:
+                code: serviceability
+              list:
+                - descriptor:
+                    code: location
+                  value: L1
+                - descriptor:
+                    code: category
+                  value: SRV17
+                - descriptor:
+                    code: val
+                  value: >-
+                    {"type": "FeatureCollection", "features": [{"type":
+                    "Feature", "properties": {}, "geometry": {"coordinates":
+                    [[[77.175571, 28.675927], [77.128737, 28.600972],
+                    [77.446934, 28.545325], [77.175571, 28.675927]]], "type":
+                    "Polygon"}}]}
+                - descriptor:
+                    code: unit
+                  value: geojson
+                - descriptor:
+                    code: type
+                  value: 12
+            - code: target_audience
+              list:
+                - descriptor:
+                    code: age_range
+                  value: 18-20,21-24,25-39
+                - descriptor:
+                    code: gender
+                  value: Male
+                - descriptor:
+                    code: allowed_domains
+                  value: Retail
+          items:
+            - id: I1
+              descriptor:
+                name: Display ads
+                code: Display Ads
+                short_desc: Home page banner
+                long_desc: Home page banner
+                media:
+                  - mimetype: video/mp4
+                    url: video_url
+              price:
+                currency: INR
+                value: '500.00'
+                offered_value: '500.00'
+                maximum_value: '500.00'
+              quantity:
+                unitized:
+                  measure:
+                    unit: CPM
+                    value: '1'
+                available:
+                  measure:
+                    unit: CPM
+                    value: '10'
+              time:
+                range:
+                  start: '2024-07-01T00:00:00.000Z'
+                  end: '2024-07-31T00:00:00.000Z'
+              tags:
+                - code: ad_specifications
+                  list:
+                    - descriptor:
+                        code: size
+                      value: 970x250
+                    - descriptor:
+                        code: max_k_weight
+                      value: 250
+                    - descriptor:
+                        code: sub_load
+                      value: 200
+                    - descriptor:
+                        code: file_size_unit
+                      value: KB
+                    - descriptor:
+                        code: format
+                      value: image/jpeg
+                - code: ad_placement
+                  list:
+                    - descriptor:
+                        code: position
+                      value: Homepage
+                    - descriptor:
+                        code: location
+                      value: <<city |area>>
+                    - descriptor:
+                        code: location_url
+                      value: <<location url>>
+                - descriptor:
+                    code: ad_type
+                  value: Display-ADS
+                - descriptor:
+                    code: availability
+                  value: Static
+              category_ids:
+                - ADS-10-01-01
+              fulfillment_ids:
+                - '1'
+              location_ids:
+                - L1
+              payment_ids:
+                - '2'
+              add-ons:
+                - id: ADDON01
+                  descriptor:
+                    name: creative generation
+                    short_desc: image generation
+                    long_desc: Campaign Image generation
+                    images:
+                      - url: https://abc.com/images/208.png
+                  price:
+                    currency: INR
+                    value: '1000.0'
+                    offered_value: '1000.0'
+                    maximum_value: '1000.0'

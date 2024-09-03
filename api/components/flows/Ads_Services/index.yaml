@@ -67,7 +67,7 @@ reference: if any
 steps:
   - summary: Search based on the intent for buying a particular Ads service
     api: search
-    description: Search intent sent by the buyer based on the particular Ads service required - e.g. CBC
+    description: Search intent sent by the buyer based on the particular Ads service required
     reference: if any
     example:
       $ref: "../../Examples/Ads_services_yaml/search/search_by_category.yaml"
