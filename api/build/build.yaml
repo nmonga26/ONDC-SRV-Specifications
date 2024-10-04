@@ -4012,6 +4012,8 @@ x-flows:
               order:
                 provider:
                   id: P1
+                  locations:
+                    - id: L1
                 items:
                   - fulfillment_ids:
                       - F2
@@ -4250,8 +4252,8 @@ x-flows:
               order:
                 provider:
                   id: P1
-                locations:
-                  - id: L1
+                  locations:
+                    - id: L1
                 items:
                   - id: I1
                     fulfillment_ids:
@@ -4767,7 +4769,6 @@ x-flows:
                   id: P1
                   locations:
                     - id: L1
-                  rateable: true
                 items:
                   - id: I1
                     fulfillment_ids:
@@ -6051,6 +6052,8 @@ x-flows:
               order:
                 provider:
                   id: P1
+                  locations:
+                    - id: L1
                 items:
                   - fulfillment_ids:
                       - F2
@@ -6367,6 +6370,8 @@ x-flows:
               order:
                 provider:
                   id: P1
+                  locations:
+                    - id: L1
                 items:
                   - fulfillment_ids:
                       - F2
@@ -6609,8 +6614,8 @@ x-flows:
               order:
                 provider:
                   id: P1
-                locations:
-                  - id: L1
+                  locations:
+                    - id: L1
                 items:
                   - id: I1
                     fulfillment_ids:
@@ -6947,6 +6952,8 @@ x-flows:
               order:
                 provider:
                   id: P1
+                  locations:
+                    - id: L1
                 items:
                   - fulfillment_ids:
                       - F2
@@ -14232,6 +14239,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
+                    locations:
+                      - id: L1
                   items:
                     - fulfillment_ids:
                         - F2
@@ -14377,6 +14386,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
+                    locations:
+                      - id: L1
                   items:
                     - fulfillment_ids:
                         - F1
@@ -14522,6 +14533,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
+                    locations:
+                      - id: L1
                   items:
                     - fulfillment_ids:
                         - F2
@@ -14610,6 +14623,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
+                    locations:
+                      - id: L1
                   items:
                     - fulfillment_ids:
                         - F2
@@ -14757,8 +14772,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
-                  locations:
-                    - id: L1
+                    locations:
+                      - id: L1
                   items:
                     - id: I1
                       fulfillment_ids:
@@ -15030,8 +15045,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
-                  locations:
-                    - id: L1
+                    locations:
+                      - id: L1
                   items:
                     - id: I1
                       fulfillment_ids:
@@ -15303,8 +15318,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
-                  locations:
-                    - id: L1
+                    locations:
+                      - id: L1
                   items:
                     - id: I1
                       fulfillment_ids:
@@ -15464,7 +15479,6 @@ x-examples:
                     id: P1
                     locations:
                       - id: L1
-                    rateable: true
                   items:
                     - id: I1
                       fulfillment_ids:
@@ -15754,7 +15768,6 @@ x-examples:
                     id: P1
                     locations:
                       - id: L1
-                    rateable: true
                   items:
                     - id: I1
                       fulfillment_ids:
