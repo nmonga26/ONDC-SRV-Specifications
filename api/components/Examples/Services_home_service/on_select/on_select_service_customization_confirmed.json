@@ -24,6 +24,7 @@
     "order": {
       "provider": {
         "id": "P1",
+<<<<<<< HEAD
         "categories": [
           {
             "id": "C1"
@@ -35,6 +36,11 @@
           {
             "id": "C31",
             "parent_category_id": "C3"
+=======
+        "locations": [
+          {
+            "id": "L1"
+>>>>>>> tanya-services/draft-services
           }
         ]
       },

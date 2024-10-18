@@ -98,64 +98,64 @@ value:
           currency: INR
           value: "499"
         breakup:
-        - title: Sofa Cleaning
-          price:
-            currency: INR
-            value: '474'
-          item:
-            id: I1
-            quantity:
-              selected:
-                count: 1
+          - title: Sofa Cleaning
             price:
               currency: INR
-              value: '474'
-          tags:
-          - descriptor:
-              code: title
-            list:
+              value: "474"
+            item:
+              id: I1
+              quantity:
+                selected:
+                  count: 1
+              price:
+                currency: INR
+                value: "474"
+            tags:
             - descriptor:
-                code: type
-              value: item
-        - title: tax
-          price:
-            currency: INR
-            value: '25'
-          item:
-            id: I1
-          tags:
-          - descriptor:
-              code: title
-            list:
+                code: title
+              list:
+              - descriptor:
+                  code: type
+                value: item
+          - title: tax
+            price:
+              currency: INR
+              value: '25'
+            item:
+              id: I1
+            tags:
             - descriptor:
-                code: type
-              value: tax
-        - title: discount
-          price:
-            currency: INR
-            value: '0'
-          item:
-            id: I1
-          tags:
-          - descriptor:
-              code: title
-            list:
+                code: title
+              list:
+              - descriptor:
+                  code: type
+                value: tax
+          - title: discount
+            price:
+              currency: INR
+              value: '0'
+            item:
+              id: I1
+            tags:
             - descriptor:
-                code: type
-              value: discount
-        - title: convenience_fee
-          price:
-            currency: INR
-            value: '0'
-          item:
-            id: I1
-          tags:
-          - descriptor:
-              code: title
-            list:
+                code: title
+              list:
+              - descriptor:
+                  code: type
+                value: discount
+          - title: convenience_fee
+            price:
+              currency: INR
+              value: '0'
+            item:
+              id: I1
+            tags:
             - descriptor:
-                code: type
-              value: misc
+                code: title
+              list:
+              - descriptor:
+                  code: type
+                value: misc
         ttl: P1D
       payments:
         - id: P1

@@ -2,22 +2,22 @@ summary: Returns the catalog specific to the search intent, customizations and a
 description: Returns the catalog specific to the search intent + customization + available schedule
 value:
   context:
-  domain: ONDC:SRV11
-  location:
-    city:
-      code: std:080
-    country:
-      code: IND
-  action: on_search
-  version: 2.0.0
-  bap_id: buyerapp.com
-  bap_uri: https://buyerapp.com/ondc
-  bpp_id: sellerapp.com
-  bpp_uri: https://sellerapp.com/ondc
-  transaction_id: T1
-  message_id: M1
-  timestamp: '2024-03-04T22:00:30.000Z'
-  ttl: PT30S
+    domain: ONDC:SRV11
+    location:
+      city:
+        code: std:080
+      country:
+        code: IND
+    action: on_search
+    version: 2.0.0
+    bap_id: buyerapp.com
+    bap_uri: https://buyerapp.com/ondc
+    bpp_id: sellerapp.com
+    bpp_uri: https://sellerapp.com/ondc
+    transaction_id: T1
+    message_id: M1
+    timestamp: '2024-03-04T22:00:30.000Z'
+    ttl: PT30S
   message:
     catalog:
       fulfillments:

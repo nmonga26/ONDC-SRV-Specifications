@@ -1,24 +1,26 @@
 {
-  "context": null,
-  "domain": "ONDC:SRV11",
-  "location": {
-    "city": {
-      "code": "std:080"
+  "context": {
+    "domain": "ONDC:SRV11",
+    "location": {
+      "city": {
+        "code": "std:080"
+      },
+      "country": {
+        "code": "IND"
+      }
     },
-    "country": {
-      "code": "IND"
-    }
+    "action": "on_search",
+    "version": "2.0.0",
+    "bap_id": "buyerapp.com",
+    "bap_uri": "https://buyerapp.com/ondc",
+    "bpp_id": "sellerapp.com",
+    "bpp_uri": "https://sellerapp.com/ondc",
+    "transaction_id": "T1",
+    "message_id": "M1",
+    "timestamp": "2024-03-04T22:00:30.000Z",
+    "ttl": "PT30S"
   },
-  "action": "on_search",
-  "version": "2.0.0",
-  "bap_id": "buyerapp.com",
-  "bap_uri": "https://buyerapp.com/ondc",
-  "bpp_id": "sellerapp.com",
-  "bpp_uri": "https://sellerapp.com/ondc",
-  "transaction_id": "T1",
-  "message_id": "M1",
-  "timestamp": "2024-03-04T22:00:30.000Z",
-  "ttl": "PT30S",
+
   "message": {
     "catalog": {
       "fulfillments": [
@@ -472,18 +474,10 @@
                 "value": "199",
                 "minimum_value": "199.00"
               },
-              "category_ids": [
-                "SRV11-xxxx"
-              ],
-              "fulfillment_ids": [
-                "1"
-              ],
-              "location_ids": [
-                "L1"
-              ],
-              "payment_ids": [
-                "1"
-              ],
+              "category_ids": ["SRV11-xxxx"],
+              "fulfillment_ids": ["1"],
+              "location_ids": ["L1"],
+              "payment_ids": ["1"],
               "add_ons": [
                 {
                   "id": "A1",
@@ -643,9 +637,7 @@
                   "value": "8"
                 }
               },
-              "category_ids": [
-                "C1"
-              ],
+              "category_ids": ["C1"],
               "tags": [
                 {
                   "descriptor": {
@@ -692,11 +684,7 @@
                   "value": "1"
                 }
               },
-              "category_ids": [
-                "C3",
-                "C21",
-                "C31"
-              ],
+              "category_ids": ["C3", "C21", "C31"],
               "tags": [
                 {
                   "descriptor": {
@@ -755,12 +743,7 @@
                   "value": "1"
                 }
               },
-              "category_ids": [
-                "C3",
-                "C21",
-                "C22",
-                "C31"
-              ],
+              "category_ids": ["C3", "C21", "C22", "C31"],
               "tags": [
                 {
                   "descriptor": {
@@ -819,11 +802,7 @@
                   "value": "1"
                 }
               },
-              "category_ids": [
-                "C3",
-                "C22",
-                "C31"
-              ],
+              "category_ids": ["C3", "C22", "C31"],
               "tags": [
                 {
                   "descriptor": {
@@ -869,9 +848,7 @@
               },
               "location_ids": [],
               "category_ids": [],
-              "item_ids": [
-                "I1"
-              ],
+              "item_ids": ["I1"],
               "time": {
                 "label": "validity",
                 "range": {
