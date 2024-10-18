@@ -24,35 +24,17 @@
     "order": {
       "provider": {
         "id": "P1",
-<<<<<<< HEAD
-        "categories": [
-          {
-            "id": "C1"
-          },
-          {
-            "id": "C21",
-            "parent_category_id": "C2"
-          },
-          {
-            "id": "C31",
-            "parent_category_id": "C3"
-=======
         "locations": [
           {
             "id": "L1"
->>>>>>> tanya-services/draft-services
           }
         ]
       },
       "items": [
         {
           "id": "I1",
-          "location_ids": [
-            "L1"
-          ],
-          "fulfillment_ids": [
-            "F1"
-          ],
+          "location_ids": ["L1"],
+          "fulfillment_ids": ["F1"],
           "quantity": {
             "selected": {
               "count": 1
@@ -62,15 +44,9 @@
         {
           "id": "IC1",
           "parent_item_id": "I1",
-          "location_ids": [
-            "L1"
-          ],
-          "category_ids": [
-            "C1"
-          ],
-          "fulfillment_ids": [
-            "F1"
-          ],
+          "location_ids": ["L1"],
+          "category_ids": ["C1"],
+          "fulfillment_ids": ["F1"],
           "quantity": {
             "selected": {
               "count": 3
@@ -95,17 +71,9 @@
         {
           "id": "IC2",
           "parent_item_id": "I1",
-          "location_ids": [
-            "L1"
-          ],
-          "category_ids": [
-            "C3",
-            "C21",
-            "C31"
-          ],
-          "fulfillment_ids": [
-            "F1"
-          ],
+          "location_ids": ["L1"],
+          "category_ids": ["C3", "C21", "C31"],
+          "fulfillment_ids": ["F1"],
           "quantity": {
             "selected": {
               "count": 1
@@ -136,17 +104,9 @@
         {
           "id": "IC3",
           "parent_item_id": "I1",
-          "location_ids": [
-            "L1"
-          ],
-          "fulfillment_ids": [
-            "F1"
-          ],
-          "category_ids": [
-            "C3",
-            "C21",
-            "C31"
-          ],
+          "location_ids": ["L1"],
+          "fulfillment_ids": ["F1"],
+          "category_ids": ["C3", "C21", "C31"],
           "quantity": {
             "selected": {
               "count": 1
