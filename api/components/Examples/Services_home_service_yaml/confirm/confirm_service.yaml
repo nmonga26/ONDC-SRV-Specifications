@@ -21,7 +21,7 @@ value:
   message:
     order:
       id: O1
-      status: Created
+      status: CREATED
       provider:
         id: P1
         locations:
@@ -70,9 +70,8 @@ value:
                 range:
                   start: "2023-11-16T09:30:00.000Z"
                   end: "2023-11-16T10:30:00.000Z"
-              customer:
-                person:
-                  name: Ramu
+              person:
+                name: Ramu
               instructions:
                 name: Special Instructions
                 short_desc: Customer Special Instructions
@@ -119,42 +118,52 @@ value:
               price:
                 currency: INR
                 value: "474"
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: item
           - title: tax
             price:
               currency: INR
               value: "25"
             item:
               id: I1
-              quantity:
-                selected:
-                  count: 1
-              price:
-                currency: INR
-                value: "474"
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: tax
           - title: discount
             price:
               currency: INR
               value: "0"
             item:
               id: I1
-              quantity:
-                selected:
-                  count: 1
-              price:
-                currency: INR
-                value: "474"
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: discount
           - title: convenience_fee
             price:
               currency: INR
               value: "0"
             item:
               id: I1
-              quantity:
-                selected:
-                  count: 1
-              price:
-                currency: INR
-                value: "474"
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: misc
         ttl: P1D
       payments:
         - id: P1
@@ -190,6 +199,21 @@ value:
                     code: UPI_Address
                   value: xxxxxxx
             - descriptor:
+                code: Settlement_Details
+              list:
+                - descriptor:
+                    code: Window
+                  value: P1D
+                - descriptor:
+                    code: Basis
+                  value: Completed
+                - descriptor:
+                    code: Witholding_Amount
+                  value: "0.00"
+                - descriptor:
+                    code: Phase
+                  value: sale-amount
+            - descriptor:
                 code: Buyer_Finder_Fee
               list:
                 - descriptor:
@@ -205,3 +229,4 @@ value:
           url: https://abc.com/checklist
           mimetype: text/html
           submission_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
+          status: SUCCESS

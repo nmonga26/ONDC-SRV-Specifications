@@ -53,7 +53,7 @@ steps:
     description: Returns the catalog specific to the search intent + customization options + available schedule
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/on_search/on_search_customized_cusines.yaml"
+      $ref: "../../Examples/Services_home_service_yaml/on_search/on_search_customized.yaml"
   - summary: Buyer adds the service + customizations to cart + selects the schedule for the home service
     api: select
     description: Buyer adds the service + customizations to cart + selects the schedule for the home service

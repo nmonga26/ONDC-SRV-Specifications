@@ -34,7 +34,9 @@
         {
           "id": "I2",
           "parent_item_id": "PI2",
-          "fulfillment_ids": ["F1"],
+          "fulfillment_ids": [
+            "F1"
+          ],
           "quantity": {
             "selected": {
               "count": 1
@@ -86,19 +88,6 @@
                   "start": "2023-11-16T09:30:00.000Z",
                   "end": "2023-11-16T10:30:00.000Z"
                 }
-              },
-              "tags": {
-                "descriptor": {
-                  "code": "schedule"
-                },
-                "list": [
-                  {
-                    "descriptor": {
-                      "code": "ttl"
-                    },
-                    "value": "PT1H"
-                  }
-                ]
               }
             }
           ]
@@ -197,16 +186,7 @@
               "value": "25"
             },
             "item": {
-              "id": "I1",
-              "quantity": {
-                "allocated": {
-                  "count": 1
-                }
-              },
-              "price": {
-                "currency": "INR",
-                "value": "474"
-              }
+              "id": "I1"
             },
             "tags": [
               {
@@ -231,16 +211,7 @@
               "value": "0"
             },
             "item": {
-              "id": "I1",
-              "quantity": {
-                "allocated": {
-                  "count": 1
-                }
-              },
-              "price": {
-                "currency": "INR",
-                "value": "474"
-              }
+              "id": "I1"
             },
             "tags": [
               {
@@ -265,16 +236,7 @@
               "value": "0"
             },
             "item": {
-              "id": "I1",
-              "quantity": {
-                "allocated": {
-                  "count": 1
-                }
-              },
-              "price": {
-                "currency": "INR",
-                "value": "474"
-              }
+              "id": "I1"
             },
             "tags": [
               {
@@ -308,8 +270,11 @@
           "type": "PRE-FULFILLMENT",
           "tags": [
             {
+              "descriptor": null
+            },
+            {
               "descriptor": {
-                "code": "Settlement_Details"
+                "code": "Settlement_Counterparty"
               },
               "list": [
                 {
@@ -347,6 +312,37 @@
                     "code": "UPI_Address"
                   },
                   "value": "xxxxxxx"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "Settlement_Details"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Window"
+                  },
+                  "value": "P1D"
+                },
+                {
+                  "descriptor": {
+                    "code": "Basis"
+                  },
+                  "value": "Completed"
+                },
+                {
+                  "descriptor": {
+                    "code": "Witholding_Amount"
+                  },
+                  "value": "0.00"
+                },
+                {
+                  "descriptor": {
+                    "code": "Phase"
+                  },
+                  "value": "sale-amount"
                 }
               ]
             },

@@ -105,125 +105,122 @@ value:
           currency: INR
           value: "499"
         breakup:
-          - title: Sofa Cleaning
+        - title: Sofa Cleaning
+          price:
+            currency: INR
+            value: '474'
+          item:
+            id: I1
+            quantity:
+              selected:
+                count: 1
             price:
               currency: INR
-              value: "474"
-            item:
-              id: I1
-              quantity:
-                selected:
-                  count: 1
-              price:
-                currency: INR
-                value: "474"
-            tags:
-              - descriptor:
-                  code: title
-                list:
-                  - descriptor:
-                      code: type
-                    value: item
-          - title: tax
-            price:
-              currency: INR
-              value: "25"
-            item:
-              id: I1
-              quantity:
-                allocated:
-                  count: 1
-              price:
-                currency: INR
-                value: "474"
-            tags:
-              - descriptor:
-                  code: title
-                list:
-                  - descriptor:
-                      code: type
-                    value: tax
-          - title: discount
-            price:
-              currency: INR
-              value: "0"
-            item:
-              id: I1
-              quantity:
-                allocated:
-                  count: 1
-              price:
-                currency: INR
-                value: "474"
-            tags:
-              - descriptor:
-                  code: title
-                list:
-                  - descriptor:
-                      code: type
-                    value: discount
-          - title: convenience_fee
-            price:
-              currency: INR
-              value: "0"
-            item:
-              id: I1
-              quantity:
-                allocated:
-                  count: 1
-              price:
-                currency: INR
-                value: "474"
-            tags:
-              - descriptor:
-                  code: title
-                list:
-                  - descriptor:
-                      code: type
-                    value: misc
+              value: '474'
+          tags:
+          - descriptor:
+              code: title
+            list:
+            - descriptor:
+                code: type
+              value: item
+        - title: tax
+          price:
+            currency: INR
+            value: '25'
+          item:
+            id: I1
+          tags:
+          - descriptor:
+              code: title
+            list:
+            - descriptor:
+                code: type
+              value: tax
+        - title: discount
+          price:
+            currency: INR
+            value: '0'
+          item:
+            id: I1
+          tags:
+          - descriptor:
+              code: title
+            list:
+            - descriptor:
+                code: type
+              value: discount
+        - title: convenience_fee
+          price:
+            currency: INR
+            value: '0'
+          item:
+            id: I1
+          tags:
+          - descriptor:
+              code: title
+            list:
+            - descriptor:
+                code: type
+              value: misc
         ttl: P1D
       payments:
-        - id: P1
-          collected_by: BAP
-          params:
-            amount: "499"
-            currency: INR
-            transaction_id: "3937"
-            bank_account_number: xxxxxxxx
-            virtual_payment_address: xxx@xxxx
-          status: PAID
-          type: PRE-FULFILLMENT
-          tags:
+      - id: P1
+        collected_by: BAP
+        params:
+          amount: '499'
+          currency: INR
+          transaction_id: '3937'
+          bank_account_number: xxxxxxxx
+          virtual_payment_address: xxx@xxxx
+        status: PAID
+        type: PRE-FULFILLMENT
+        tags:
+        - descriptor:
+            code: Settlement_Counterparty
+          list:
             - descriptor:
-                code: Settlement_Details
-              list:
-                - descriptor:
-                    code: Counterparty
-                  value: BPP
-                - descriptor:
-                    code: Mode
-                  value: UPI
-                - descriptor:
-                    code: Beneficiary_Name
-                  value: xxxxx
-                - descriptor:
-                    code: Bank_Account_No
-                  value: xxxxx
-                - descriptor:
-                    code: Ifsc_Code
-                  value: xxxxxxx
-                - descriptor:
-                    code: UPI_Address
-                  value: xxxxxxx
+                code: Counterparty
+              value: BPP
             - descriptor:
-                code: Buyer_Finder_Fee
-              list:
-                - descriptor:
-                    code: Buyer_Finder_Fee_Type
-                  value: percentage
-                - descriptor:
-                    code: Buyer_Finder_Fee_Amount
-                  value: "3"
+                code: Mode
+              value: UPI
+            - descriptor:
+                code: Beneficiary_Name
+              value: xxxxx
+            - descriptor:
+                code: Bank_Account_No
+              value: xxxxx
+            - descriptor:
+                code: Ifsc_Code
+              value: xxxxxxx
+            - descriptor:
+                code: UPI_Address
+              value: xxxxxxx
+        - descriptor:
+            code: Settlement_Details
+          list:
+          - descriptor:
+              code: Window
+            value: P1D
+          - descriptor:
+              code: Basis
+            value: Completed
+          - descriptor:
+              code: Witholding_Amount
+            value: '0.00'
+          - descriptor:
+              code: Phase
+            value: sale-amount
+        - descriptor:
+            code: Buyer_Finder_Fee
+          list:
+          - descriptor:
+              code: Buyer_Finder_Fee_Type
+            value: percentage
+          - descriptor:
+              code: Buyer_Finder_Fee_Amount
+            value: '3'
       documents:
         - url: https://invoice_url
           label: INVOICE

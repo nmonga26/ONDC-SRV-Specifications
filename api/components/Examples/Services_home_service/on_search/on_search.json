@@ -81,7 +81,10 @@
             "days": "4,5",
             "schedule": {
               "frequency": "PT1H",
-              "holidays": ["2023-11-13", "2023-11-15"],
+              "holidays": [
+                "2023-11-13T00:00:00.000Z",
+                "2023-11-15T00:00:00.000Z"
+              ],
               "times": [
                 "2023-11-16T09:30:00.000Z",
                 "2023-11-16T19:30:00.000Z",
@@ -173,7 +176,7 @@
                 "media": [
                   {
                     "mimetype": "video/mp4",
-                    "url": "video_url"
+                    "url": "https://video_url.mp4"
                   }
                 ]
               },
@@ -183,10 +186,18 @@
                 "offered_value": "99.00",
                 "maximum_value": "149.00"
               },
-              "category_ids": ["SRV11-xxxx"],
-              "fulfillment_ids": ["1"],
-              "location_ids": ["L1"],
-              "payment_ids": ["1"],
+              "category_ids": [
+                "SRV11-xxxx"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "location_ids": [
+                "L1"
+              ],
+              "payment_ids": [
+                "1"
+              ],
               "cancellation_terms": [
                 {
                   "fulfillment_state": {
@@ -261,7 +272,10 @@
                 "days": "4,5",
                 "schedule": {
                   "frequency": "PT1H",
-                  "holidays": ["2023-11-13", "2023-11-15"],
+                  "holidays": [
+                    "2023-11-13T00:00:00.000Z",
+                    "2023-11-15T00:00:00.000Z"
+                  ],
                   "times": [
                     "2023-11-16T09:30:00.000Z",
                     "2023-11-16T19:30:00.000Z",
@@ -290,7 +304,7 @@
                 "media": [
                   {
                     "mimetype": "video/mp4",
-                    "url": "video_url"
+                    "url": "https://video_url.mp4"
                   }
                 ]
               },
@@ -321,10 +335,18 @@
                   }
                 }
               },
-              "category_ids": ["SRV11-xxxx"],
-              "fulfillment_ids": ["1"],
-              "location_ids": ["L1"],
-              "payment_ids": ["1"],
+              "category_ids": [
+                "SRV11-xxxx"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "location_ids": [
+                "L1"
+              ],
+              "payment_ids": [
+                "1"
+              ],
               "cancellation_terms": [
                 {
                   "fulfillment_state": {
@@ -345,7 +367,7 @@
                 {
                   "fulfillment_state": {
                     "descriptor": {
-                      "code": "Out-For-Delivery"
+                      "code": "In-Transit"
                     }
                   },
                   "reason_required": true,
@@ -399,7 +421,10 @@
                 "days": "4,5",
                 "schedule": {
                   "frequency": "PT1H",
-                  "holidays": ["2023-22-13", "2023-22-15"],
+                  "holidays": [
+                    "2023-12-13T00:00:00.000Z",
+                    "2023-12-15T00:00:00.000Z"
+                  ],
                   "times": [
                     "2023-11-16T09:30:00.000Z",
                     "2023-11-16T19:30:00.000Z",
@@ -428,7 +453,7 @@
                 "media": [
                   {
                     "mimetype": "video/mp4",
-                    "url": "video_url"
+                    "url": "https://video_url.mp4"
                   }
                 ]
               },
@@ -459,10 +484,18 @@
                   }
                 }
               },
-              "category_ids": ["SRV11-xxxx"],
-              "fulfillment_ids": ["1"],
-              "location_ids": ["L1"],
-              "payment_ids": ["1"],
+              "category_ids": [
+                "SRV11-xxxx"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "location_ids": [
+                "L1"
+              ],
+              "payment_ids": [
+                "1"
+              ],
               "cancellation_terms": [
                 {
                   "fulfillment_state": {
@@ -483,7 +516,7 @@
                 {
                   "fulfillment_state": {
                     "descriptor": {
-                      "code": "Out-For-Delivery"
+                      "code": "In-Transit"
                     }
                   },
                   "reason_required": true,
@@ -537,7 +570,10 @@
                 "days": "4,5",
                 "schedule": {
                   "frequency": "PT1H",
-                  "holidays": ["2023-22-13", "2023-22-15"],
+                  "holidays": [
+                    "2023-12-13T00:00:00.000Z",
+                    "2023-12-15T00:00:00.000Z"
+                  ],
                   "times": [
                     "2023-11-16T09:30:00.000Z",
                     "2023-11-16T19:30:00.000Z",
@@ -566,7 +602,7 @@
                 "media": [
                   {
                     "mimetype": "video/mp4",
-                    "url": "video_url"
+                    "url": "https://video_url.mp4"
                   }
                 ]
               },
@@ -597,10 +633,18 @@
                   }
                 }
               },
-              "category_ids": ["SRV11-xxxx"],
-              "fulfillment_ids": ["1"],
-              "location_ids": ["L1"],
-              "payment_ids": ["1"],
+              "category_ids": [
+                "SRV11-xxxx"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "location_ids": [
+                "L1"
+              ],
+              "payment_ids": [
+                "1"
+              ],
               "cancellation_terms": [
                 {
                   "fulfillment_state": {
@@ -621,7 +665,7 @@
                 {
                   "fulfillment_state": {
                     "descriptor": {
-                      "code": "Out-For-Delivery"
+                      "code": "In-Transit"
                     }
                   },
                   "reason_required": true,
@@ -675,7 +719,10 @@
                 "days": "4,5",
                 "schedule": {
                   "frequency": "PT1H",
-                  "holidays": ["2023-22-13", "2023-22-15"],
+                  "holidays": [
+                    "2023-12-13T00:00:00.000Z",
+                    "2023-12-15T00:00:00.000Z"
+                  ],
                   "times": [
                     "2023-11-16T09:30:00.000Z",
                     "2023-11-16T19:30:00.000Z",

@@ -92,10 +92,12 @@
           ]
         }
       ],
-      "payments": [{
-        "type": "PRE-FULFILLMENT",
-        "collected_by": "BAP"
-    }]
+      "payments": [
+        {
+          "type": "PRE-FULFILLMENT",
+          "collected_by": "BAP"
+        }
+      ]
     }
   }
 }

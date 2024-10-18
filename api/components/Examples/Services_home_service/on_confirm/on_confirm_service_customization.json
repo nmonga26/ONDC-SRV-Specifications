@@ -23,7 +23,7 @@
   "message": {
     "order": {
       "id": "O1",
-      "status": "Accepted",
+      "status": "ACCEPTED",
       "provider": {
         "id": "P1",
         "locations": [
@@ -130,6 +130,12 @@
                     "code": "dish_type"
                   },
                   "value": "breakfast"
+                },
+                {
+                  "descriptor": {
+                    "code": "cuisine"
+                  },
+                  "value": "North_Indian"
                 }
               ]
             }
@@ -146,8 +152,7 @@
           ],
           "category_ids": [
             "C3",
-            "C21",
-            "C31"
+            "C22"
           ],
           "quantity": {
             "selected": {
@@ -208,7 +213,7 @@
                 "short_desc": "Instuctions by provider",
                 "long_desc": "Instuctions by provider",
                 "additional_desc": {
-                  "url": "https://abc.com/checklist",
+                  "url": "https://abc.com/instructions",
                   "content_type": "text/html"
                 }
               }
@@ -625,7 +630,7 @@
           "id": "P1",
           "collected_by": "BAP",
           "params": {
-            "amount": "499.00",
+            "amount": "1518.00",
             "currency": "INR",
             "transaction_id": "3937",
             "bank_account_number": "xxxxxxxx",
@@ -736,7 +741,7 @@
             "amount": "522",
             "currency": "INR",
             "bank_account_number": "xxxxxxxx",
-            "bank_code": "xxxxxxx",
+            "bank_code": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
           "type": "ON-FULFILLMENT",
@@ -744,7 +749,7 @@
           "tags": [
             {
               "descriptor": {
-                "code": "Settlement_Details"
+                "code": "Settlement_Counterparty"
               },
               "list": [
                 {
@@ -787,6 +792,37 @@
             },
             {
               "descriptor": {
+                "code": "Settlement_Details"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Window"
+                  },
+                  "value": "P1D"
+                },
+                {
+                  "descriptor": {
+                    "code": "Basis"
+                  },
+                  "value": "Completed"
+                },
+                {
+                  "descriptor": {
+                    "code": "Witholding_Amount"
+                  },
+                  "value": "0.00"
+                },
+                {
+                  "descriptor": {
+                    "code": "Phase"
+                  },
+                  "value": "sale-amount"
+                }
+              ]
+            },
+            {
+              "descriptor": {
                 "code": "Buyer_Finder_Fee"
               },
               "list": [
@@ -813,7 +849,7 @@
         "form": {
           "url": "https://abc.com/checklist",
           "mimetype": "text/html",
-          "submission_id": "xxxxxxxxxx",
+          "submission_id": "65fe13c2-d306-4ef1-8c25-fa126c134b67",
           "status": "SUCCESS"
         }
       }

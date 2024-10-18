@@ -23,25 +23,12 @@
   "message": {
     "order": {
       "id": "O1",
-      "status": "Created",
+      "status": "CREATED",
       "provider": {
         "id": "P1",
         "locations": [
           {
             "id": "L1"
-          }
-        ],
-        "categories": [
-          {
-            "id": "C1"
-          },
-          {
-            "id": "C21",
-            "parent_category_id": "C2"
-          },
-          {
-            "id": "C31",
-            "parent_category_id": "C3"
           }
         ]
       },
@@ -258,7 +245,7 @@
                 "short_desc": "Instuctions by provider",
                 "long_desc": "Instuctions by provider",
                 "additional_desc": {
-                  "url": "https://abc.com/checklist",
+                  "url": "https://abc.com/instructions",
                   "content_type": "text/html"
                 }
               }
@@ -290,10 +277,8 @@
                   "end": "2024-03-04T18:00:00.000Z"
                 }
               },
-              "customer": {
-                "person": {
-                  "name": "Ramu"
-                }
+              "person": {
+                "name": "Ramu"
               },
               "instructions": {
                 "name": "",
@@ -364,6 +349,11 @@
             },
             "item": {
               "id": "I1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              },
               "price": {
                 "currency": "INR",
                 "value": "00.00"
@@ -756,15 +746,15 @@
             "amount": "522",
             "currency": "INR",
             "bank_account_number": "xxxxxxxx",
-            "bank_code": "xxxxxxx",
+            "bank_code": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
-          "status": "NOT-PAID",
           "type": "ON-FULFILLMENT",
+          "status": "NOT-PAID",
           "tags": [
             {
               "descriptor": {
-                "code": "Settlement_Details"
+                "code": "Settlement_Counterparty"
               },
               "list": [
                 {
@@ -802,6 +792,37 @@
                     "code": "UPI_Address"
                   },
                   "value": "xxxxxxx"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "Settlement_Details"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Window"
+                  },
+                  "value": "P1D"
+                },
+                {
+                  "descriptor": {
+                    "code": "Basis"
+                  },
+                  "value": "Completed"
+                },
+                {
+                  "descriptor": {
+                    "code": "Witholding_Amount"
+                  },
+                  "value": "0.00"
+                },
+                {
+                  "descriptor": {
+                    "code": "Phase"
+                  },
+                  "value": "sale-amount"
                 }
               ]
             },

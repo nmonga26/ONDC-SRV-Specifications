@@ -21,7 +21,7 @@ value:
   message:
     order:
       id: O1
-      status: Cancelled
+      status: CANCELLED
       cancellation:
         cancelled_by: PRODUCER
         reason:
@@ -97,12 +97,6 @@ value:
               value: '0.00'
             item:
               id: I1
-              quantity:
-                allocated:
-                  count: 1
-              price:
-                currency: INR
-                value: '0.00'
             tags:
               - descriptor:
                   code: title
@@ -116,12 +110,6 @@ value:
               value: '-0.00'
             item:
               id: I1
-              quantity:
-                allocated:
-                  count: '0'
-              price:
-                currency: INR
-                value: '0.00'
             tags:
               - descriptor:
                   code: title
@@ -135,12 +123,6 @@ value:
               value: '0'
             item:
               id: I1
-              quantity:
-                allocated:
-                  count: 1
-              price:
-                currency: INR
-                value: '0.00'
             tags:
               - descriptor:
                   code: title
@@ -154,12 +136,6 @@ value:
               value: '0'
             item:
               id: I1
-              quantity:
-                allocated:
-                  count: 1
-              price:
-                currency: INR
-                value: '0.00'
             tags:
               - descriptor:
                   code: title

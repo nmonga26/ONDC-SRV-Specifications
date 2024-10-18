@@ -27,10 +27,14 @@
       },
       "items": [
         {
-          "fulfillment_ids": ["F1"],
+          "fulfillment_ids": [
+            "F1"
+          ],
           "id": "I2",
           "parent_item_id": "PI2",
-          "location_ids": ["L1"],
+          "location_ids": [
+            "L1"
+          ],
           "quantity": {
             "selected": {
               "count": 1
@@ -58,22 +62,9 @@
               "time": {
                 "label": "confirmed",
                 "range": {
-                  "start": "2023-11-16T09:30:00.000Z",
-                  "end": "2023-11-16T10:30:00.000Z"
+                  "start": "2022-17-10T00:00:00.000Z",
+                  "end": "2022-11-20T00:00:00.000Z"
                 }
-              },
-              "tags": {
-                "descriptor": {
-                  "code": "schedule"
-                },
-                "list": [
-                  {
-                    "descriptor": {
-                      "code": "ttl"
-                    },
-                    "value": "PT1H"
-                  }
-                ]
               }
             }
           ]
@@ -128,8 +119,8 @@
             "item": {
               "id": "I1",
               "quantity": {
-                "allocated": {
-                  "count": "1"
+                "selected": {
+                  "count": 1
                 }
               },
               "price": {
@@ -162,8 +153,8 @@
             "item": {
               "id": "I1",
               "quantity": {
-                "allocated": {
-                  "count": "1"
+                "selected": {
+                  "count": 1
                 }
               },
               "price": {
@@ -196,8 +187,8 @@
             "item": {
               "id": "I1",
               "quantity": {
-                "allocated": {
-                  "count": "1"
+                "selected": {
+                  "count": 1
                 }
               },
               "price": {

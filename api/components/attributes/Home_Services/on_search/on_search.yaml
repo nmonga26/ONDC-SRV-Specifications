@@ -192,7 +192,7 @@ message:
         descriptor.code:
             description: unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - others
             required: optional
-            usage: '5:other code'
+            usage: 'CUSTOM : other code'
             reference: if any
         descriptor.images:
           description: while item images ensures better discoverability & enhances user experience, if no image is available, seller NPs shouldn’t send image (instead of sending placeholder image)

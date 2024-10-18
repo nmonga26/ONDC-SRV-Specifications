@@ -1,25 +1,24 @@
 {
-  "context": {
-    "domain": "ONDC:SRV11",
-    "location": {
-      "city": {
-        "code": "std:080"
-      },
-      "country": {
-        "code": "IND"
-      }
+  "context": null,
+  "domain": "ONDC:SRV11",
+  "location": {
+    "city": {
+      "code": "std:080"
     },
-    "action": "on_search",
-    "version": "2.0.0",
-    "bap_id": "buyerapp.com",
-    "bap_uri": "https://buyerapp.com/ondc",
-    "bpp_id": "sellerapp.com",
-    "bpp_uri": "https://sellerapp.com/ondc",
-    "transaction_id": "T1",
-    "message_id": "M1",
-    "timestamp": "2024-03-04T22:00:30.000Z",
-    "ttl": "PT30S"
+    "country": {
+      "code": "IND"
+    }
   },
+  "action": "on_search",
+  "version": "2.0.0",
+  "bap_id": "buyerapp.com",
+  "bap_uri": "https://buyerapp.com/ondc",
+  "bpp_id": "sellerapp.com",
+  "bpp_uri": "https://sellerapp.com/ondc",
+  "transaction_id": "T1",
+  "message_id": "M1",
+  "timestamp": "2024-03-04T22:00:30.000Z",
+  "ttl": "PT30S",
   "message": {
     "catalog": {
       "fulfillments": [
@@ -82,8 +81,8 @@
             "schedule": {
               "frequency": "PT12H",
               "holidays": [
-                "2024-03-06",
-                "2024-03-08"
+                "2024-03-06T00:00:00.000Z",
+                "2024-03-08T00:00:00.000Z"
               ],
               "times": [
                 "2024-03-04T09:00:00.000Z",
@@ -470,7 +469,7 @@
               },
               "price": {
                 "currency": "INR",
-                "value":"199",
+                "value": "199",
                 "minimum_value": "199.00"
               },
               "category_ids": [
@@ -597,8 +596,8 @@
                 "schedule": {
                   "frequency": "PT12H",
                   "holidays": [
-                    "2024-03-06",
-                    "2024-03-08"
+                    "2024-03-06T00:00:00.000Z",
+                    "2024-03-08T00:00:00.000Z"
                   ],
                   "times": [
                     "2024-03-04T09:00:00.000Z",
@@ -627,7 +626,7 @@
               },
               "price": {
                 "currency": "INR",
-                "value":"299",
+                "value": "299",
                 "minimum_value": "299.00"
               },
               "quantity": {
@@ -679,7 +678,7 @@
               },
               "price": {
                 "currency": "INR",
-                "value":"199",
+                "value": "199",
                 "minimum_value": "199"
               },
               "quantity": {
@@ -742,7 +741,7 @@
               },
               "price": {
                 "currency": "INR",
-                "value":"199",
+                "value": "199",
                 "minimum_value": "199"
               },
               "quantity": {
@@ -806,7 +805,7 @@
               },
               "price": {
                 "currency": "INR",
-                "value":"199",
+                "value": "199",
                 "minimum_value": "199"
               },
               "quantity": {

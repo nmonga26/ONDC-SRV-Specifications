@@ -187,7 +187,7 @@
                 "short_desc": "Instuctions by provider",
                 "long_desc": "Instuctions by provider",
                 "additional_desc": {
-                  "url": "https://abc.com/checklist",
+                  "url": "https://abc.com/instructions",
                   "content_type": "text/html"
                 }
               }
@@ -283,6 +283,11 @@
             },
             "item": {
               "id": "I1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              },
               "price": {
                 "currency": "INR",
                 "value": "00.00"
@@ -626,14 +631,14 @@
             "amount": "499",
             "currency": "INR",
             "bank_account_number": "xxxxxxxx",
-            "bank_code": "xxxxxxx",
+            "bank_code": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
           "type": "PRE-FULFILLMENT",
           "tags": [
             {
               "descriptor": {
-                "code": "Settlement_Details"
+                "code": "Settlement_Counterparty"
               },
               "list": [
                 {
@@ -702,14 +707,14 @@
             "amount": "522",
             "currency": "INR",
             "bank_account_number": "xxxxxxxx",
-            "bank_code": "xxxxxxx",
+            "bank_code": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
           "type": "ON-FULFILLMENT",
           "tags": [
             {
               "descriptor": {
-                "code": "Settlement_Details"
+                "code": "Settlement_Counterparty"
               },
               "list": [
                 {
@@ -747,6 +752,37 @@
                     "code": "UPI_Address"
                   },
                   "value": "xxxxxxx"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "Settlement_Details"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Window"
+                  },
+                  "value": "P1D"
+                },
+                {
+                  "descriptor": {
+                    "code": "Basis"
+                  },
+                  "value": "Completed"
+                },
+                {
+                  "descriptor": {
+                    "code": "Witholding_Amount"
+                  },
+                  "value": "0.00"
+                },
+                {
+                  "descriptor": {
+                    "code": "Phase"
+                  },
+                  "value": "sale-amount"
                 }
               ]
             },

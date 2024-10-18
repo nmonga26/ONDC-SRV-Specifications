@@ -97,12 +97,6 @@ value:
               value: "25"
             item:
               id: I1
-              quantity:
-                selected:
-                  count: 1
-              price:
-                currency: INR
-                value: "474"
             tags:
               - descriptor:
                   code: title
@@ -116,12 +110,6 @@ value:
               value: "0"
             item:
               id: I1
-              quantity:
-                selected:
-                  count: 1
-              price:
-                currency: INR
-                value: "474"
             tags:
               - descriptor:
                   code: title
@@ -135,12 +123,6 @@ value:
               value: "0"
             item:
               id: I1
-              quantity:
-                selected:
-                  count: 1
-              price:
-                currency: INR
-                value: "474"
             tags:
               - descriptor:
                   code: title
