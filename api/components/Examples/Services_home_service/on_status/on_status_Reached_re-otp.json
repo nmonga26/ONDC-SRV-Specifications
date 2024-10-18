@@ -158,31 +158,43 @@
             },
             "item": {
               "id": "I1",
-              "price": {
-                "currency": "INR",
-                "value": "00.00"
-              },
               "quantity": {
                 "selected": {
                   "count": 1
                 }
-              }
-            },
-            "tags": [
-              {
-                "descriptor": {
-                  "code": "title"
+              },
+              "price": {
+                "currency": "INR",
+                "value": "474"
+              },
+              "item": {
+                "id": "I1",
+                "price": {
+                  "currency": "INR",
+                  "value": "00.00"
                 },
-                "list": [
-                  {
-                    "descriptor": {
-                      "code": "type"
-                    },
-                    "value": "item"
+                "quantity": {
+                  "selected": {
+                    "count": 1
                   }
-                ]
-              }
-            ]
+                }
+              },
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "title"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "type"
+                      },
+                      "value": "item"
+                    }
+                  ]
+                }
+              ]
+            }
           },
           {
             "title": "tax",
@@ -259,9 +271,9 @@
               }
             ]
           }
-        ],
-        "ttl": "P1D"
+        ]
       },
+      "ttl": "P1D",
       "payments": [
         {
           "id": "P1",
