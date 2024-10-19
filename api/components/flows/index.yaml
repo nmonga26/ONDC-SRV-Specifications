@@ -1,1 +1,6 @@
 - $ref: "./Ads_Services/index.yaml"
+- $ref: "./Ads_Services_Cpm/index.yaml"
+- $ref: "./Ads_Auction/index.yaml"
+- $ref: "./Ads_Auction_Offline/index.yaml"
+- $ref: "./Ads_Auction_Increment_Rejection/index.yaml"
+- $ref: "./Ads_Auction_Reject_Eligibility/index.yaml"

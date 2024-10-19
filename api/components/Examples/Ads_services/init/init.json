@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:SRV17",
+    "domain": "ONDC:SRV18",
     "location": {
       "city": {
         "code": "std:080"
@@ -44,21 +44,6 @@
             {
               "id": "ADDON01"
             }
-          ],
-          "tags": [
-            {
-              "descriptor": {
-                "code": "BUYER_TERMS"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "ITEM_REQ"
-                  },
-                  "value": "free text on Item Customization"
-                }
-              ]
-            }
           ]
         }
       ],
@@ -83,28 +68,7 @@
       ],
       "payments": [
         {
-          "type": "ON-FULFILLMENT"
-        }
-      ],
-      "tags": [
-        {
-          "descriptor": {
-            "code": "buyer_id"
-          },
-          "list": [
-            {
-              "descriptor": {
-                "code": "buyer_id_code"
-              },
-              "value": "gst"
-            },
-            {
-              "descriptor": {
-                "code": "buyer_id_no"
-              },
-              "value": "xxxxxxxxxxxxxxx"
-            }
-          ]
+          "type": "PRE-FULFILLMENT"
         }
       ]
     }

@@ -1,5 +1,5 @@
 summary: Ads Services
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for Ads services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for Ads services based on total number of days. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
 details:
   - description: Sequence Diagram for Booking Ads Service
     mermaidGraph: >-
@@ -125,15 +125,33 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Ads_services_yaml/on_status/on_status.yaml"
+  - summary: Seller sends back the update of order
+    api: on_status (Creative Created)
+    description: Seller sends back the update of order when creative is created
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_status/on_status_creative_created.yaml"
+  - summary: Seller sends back the update of order
+    api: on_status (Creative Iteration)
+    description: Seller sends back the update of order when creative is re-iterated
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_status/on_status_creative_iteration.yaml"
+  - summary: Seller sends back the update of order
+    api: on_status (Creative Finalised)
+    description: Seller sends back the update of order when creative is finalised
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_status/on_status_creative_final.yaml"
+  - summary: Seller sends back the update of order
+    api: on_status (Ad is live)
+    description: Seller sends back the update of order when ad is live. Performance metrics are also shared in item tag group.
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_status/on_status_ad_live.yaml"
   - summary: Seller sends back the update of order on completion
     api: on_status (Completed)
-    description: Seller sends back the update of order on completion
+    description: Seller sends back the update of order on completion, with final pdf report.
     reference: if any
     example:
       $ref: "../../Examples/Ads_services_yaml/on_status/on_status_completed.yaml"
-  - summary: Seller gives confirmation of payment
-    api: on_update (Confirms payment)
-    description: Seller gives confirmation of payment
-    reference: if any
-    example:
-      $ref: "../../Examples/Ads_services_yaml/on_update/on_update.yaml"

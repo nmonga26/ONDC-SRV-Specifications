@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:SRV17",
+    "domain": "ONDC:SRV18",
     "location": {
       "city": {
         "code": "std:080"
@@ -111,6 +111,12 @@
             }
           },
           "type": "Online",
+          "time": {
+            "range": {
+              "start": "2024-07-11T00:00:00.000Z",
+              "end": "2024-07-21T00:00:00.000Z"
+            }
+          },
           "tracking": false
         }
       ],

@@ -1,0 +1,379 @@
+{
+  "context": {
+    "domain": "ONDC:SRV18",
+    "location": {
+      "city": {
+        "code": "std:080"
+      },
+      "country": {
+        "code": "IND"
+      }
+    },
+    "action": "on_search",
+    "version": "2.0.0",
+    "bap_id": "buyerapp.com",
+    "bap_uri": "https://buyerapp.com/services",
+    "bpp_id": "sellerapp.com",
+    "bpp_uri": "https://sellerapp.com/services",
+    "transaction_id": "T1",
+    "message_id": "M1",
+    "timestamp": "2023-01-08T22:00:30.000Z",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalog": {
+      "fulfillments": [
+        {
+          "id": "F1",
+          "type": "ONLINE"
+        },
+        {
+          "id": "F2",
+          "type": "OFFLINE"
+        },
+        {
+          "id": "F3",
+          "type": "BIDS",
+          "tags": [
+            {
+              "descriptor": {
+                "code": "INFO"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "PARENT_ID"
+                  },
+                  "value": "F1,F2"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "payments": [
+        {
+          "id": "1",
+          "type": "PRE-FULFILLMENT"
+        },
+        {
+          "id": "2",
+          "type": "ON-FULFILLMENT"
+        },
+        {
+          "id": "3",
+          "type": "POST-FULFILLMENT"
+        }
+      ],
+      "descriptor": {
+        "name": "Ads Pvt. Limited",
+        "short_desc": "Online eCommerce app",
+        "long_desc": "Online eCommerce app",
+        "images": [
+          {
+            "url": "https://abc.com/images/1-shop-img"
+          }
+        ]
+      },
+      "providers": [
+        {
+          "id": "P1",
+          "descriptor": {
+            "name": "ABC.com",
+            "code": "P001",
+            "short_desc": "Short description of the provider",
+            "long_desc": "Long description of the provider",
+            "images": [
+              {
+                "url": "https://abc.com/images/1-shop-img"
+              }
+            ]
+          },
+          "rating": "4.4",
+          "ttl": "P1D",
+          "locations": [
+            {
+              "id": "L1",
+              "gps": "12.967555,77.749666",
+              "address": "Jayanagar 4th Block",
+              "city": {
+                "code": "std:080",
+                "name": "Bengaluru"
+              },
+              "state": {
+                "code": "KA"
+              },
+              "country": {
+                "code": "IND"
+              }
+            }
+          ],
+          "creds": [
+            {
+              "id": "ADS-12345678",
+              "type": "License",
+              "desc": "License No. ADS-12345678",
+              "url": "https://abcd.cdn.com/images/license-img"
+            }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "serviceability"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "location"
+                  },
+                  "value": "L1"
+                },
+                {
+                  "descriptor": {
+                    "code": "category"
+                  },
+                  "value": "SRV18"
+                },
+                {
+                  "descriptor": {
+                    "code": "val"
+                  },
+                  "value": "{\"type\": \"FeatureCollection\", \"features\": [{\"type\": \"Feature\", \"properties\": {}, \"geometry\": {\"coordinates\": [[[77.175571, 28.675927], [77.128737, 28.600972], [77.446934, 28.545325], [77.175571, 28.675927]]], \"type\": \"Polygon\"}}]}"
+                },
+                {
+                  "descriptor": {
+                    "code": "unit"
+                  },
+                  "value": "geojson"
+                },
+                {
+                  "descriptor": {
+                    "code": "type"
+                  },
+                  "value": 12
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "id": "I1",
+              "descriptor": {
+                "name": "Display ads",
+                "code": "Display Ads",
+                "short_desc": "Home page banner",
+                "long_desc": "Home page banner",
+                "media": [
+                  {
+                    "mimetype": "video/mp4",
+                    "url": "video_url"
+                  }
+                ]
+              },
+              "price": {
+                "currency": "INR",
+                "value": "500.00"
+              },
+              "quantity": {
+                "unitized": {
+                  "measure": {
+                    "unit": "CPM",
+                    "value": "1"
+                  }
+                },
+                "available": {
+                  "measure": {
+                    "unit": "CPM",
+                    "value": "10"
+                  }
+                }
+              },
+              "time": {
+                "range": {
+                  "start": "2024-07-01T00:00:00.000Z",
+                  "end": "2024-07-31T00:00:00.000Z"
+                }
+              },
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "AUCTION_SPECIFICATION"
+                  },
+                  "display": true,
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "CURRENCY_UNIT"
+                      },
+                      "value": "INR"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "FLOOR_PRICE"
+                      },
+                      "value": "500.00"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MIN_BIDDER_REQUIRED"
+                      },
+                      "value": "5"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "TYPE_OF_AUCTION"
+                      },
+                      "value": "OPEN"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "EARNEST_MONEY_DEPOSIT"
+                      },
+                      "value": "5000.00"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "TICK_SIZE"
+                      },
+                      "value": "50.00"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MAXIMUM_TARGET_PRICE"
+                      },
+                      "value": "1000.00"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "BIDS_LIMITATION"
+                      },
+                      "value": "5"
+                    }
+                  ]
+                },
+                {
+                  "code": "AD_SPECIFICATIONS",
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "SIZE"
+                      },
+                      "value": "970x250"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MAX_K_WEIGHT"
+                      },
+                      "value": 250
+                    },
+                    {
+                      "descriptor": {
+                        "code": "SUB_LOAD"
+                      },
+                      "value": 200
+                    },
+                    {
+                      "descriptor": {
+                        "code": "FILE_SIZE_UNIT"
+                      },
+                      "value": "KB"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "FORMAT"
+                      },
+                      "value": "image/jpeg"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AD_TYPE"
+                      },
+                      "value": "Display-ADS"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVAILABILITY"
+                      },
+                      "value": "Static"
+                    }
+                  ]
+                },
+                {
+                  "code": "AD_PLACEMENT",
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "POSITION"
+                      },
+                      "value": "Homepage"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "LOCATION"
+                      },
+                      "value": "<<city |area>>"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "LOCATION_URL"
+                      },
+                      "value": "<<location url>>"
+                    }
+                  ]
+                },
+                {
+                  "code": "TARGET_AUDIENCE",
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "AGE_RANGE"
+                      },
+                      "value": "18-20,21-24,25-39"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "GENDER"
+                      },
+                      "value": "Male"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ALLOWED_DOMAINS"
+                      },
+                      "value": "Retail"
+                    }
+                  ]
+                }
+              ],
+              "category_ids": ["SRV18-1000"],
+              "fulfillment_ids": ["F3"],
+              "location_ids": ["L1"],
+              "payment_ids": ["2"],
+              "add-ons": [
+                {
+                  "id": "ADDON01",
+                  "descriptor": {
+                    "name": "Creative generation",
+                    "short_desc": "Image generation",
+                    "long_desc": "Campaign Image generation",
+                    "images": [
+                      {
+                        "url": "https://abc.com/images/208.png"
+                      }
+                    ]
+                  },
+                  "price": {
+                    "currency": "INR",
+                    "value": "1000.0",
+                    "offered_value": "1000.0",
+                    "maximum_value": "1000.0"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

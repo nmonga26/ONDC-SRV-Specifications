@@ -19,3 +19,8 @@ code:
     Who can use code?: BPP
     Usage: Used in error object
     Action: /on_select
+  - Code: "90005"
+    Reason: Reschedule not possible for ad
+    Who can use code?: BPP
+    Usage: Used in error object
+    Action: /on_update

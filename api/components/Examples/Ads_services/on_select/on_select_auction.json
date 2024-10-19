@@ -1,0 +1,112 @@
+{
+  "context": {
+    "domain": "ONDC:SRV18",
+    "location": {
+      "city": {
+        "code": "std:080"
+      },
+      "country": {
+        "code": "IND"
+      }
+    },
+    "action": "on_select",
+    "version": "2.0.0",
+    "bap_id": "buyerapp.com",
+    "bap_uri": "https://buyerapp.com/grocery",
+    "bpp_id": "sellerapp.com",
+    "bpp_uri": "https://sellerapp.com/grocery",
+    "transaction_id": "T2",
+    "message_id": "M2",
+    "timestamp": "2023-01-08T22:00:30.000Z",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "P1"
+      },
+      "items": [
+        {
+          "id": "I1",
+          "fulfillment_ids": ["F3"],
+          "location_ids": ["L1"],
+          "quantity": {
+            "selected": {
+              "count": 1
+            }
+          },
+          "add-ons": [
+            {
+              "id": "ADDON01"
+            }
+          ]
+        }
+      ],
+      "fulfillments": [
+        {
+          "id": "FF3",
+          "type": "BIDS",
+          "tags": [
+            {
+              "descriptor": {
+                "code": "INFO"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "PARENT_ID"
+                  },
+                  "value": "F1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "5000.00"
+        },
+        "breakup": [
+          {
+            "title": "Earnest Money Deposit",
+            "price": {
+              "currency": "INR",
+              "value": "5000.00"
+            },
+            "item": {
+              "id": "I1"
+            },
+            "tags": [
+              {
+                "descriptor": {
+                  "code": "TITLE"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "type"
+                    },
+                    "value": "earnest_money_deposit"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "ttl": "P1D"
+      },
+      "payments": [
+        {
+          "type": "PRE-FULFILLMENT",
+          "collected_by": "BAP"
+        },
+        {
+          "type": "ON-FULFILLMENT",
+          "collected_by": "BAP"
+        }
+      ]
+    }
+  }
+}

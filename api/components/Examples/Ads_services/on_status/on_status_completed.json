@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:SRV17",
+    "domain": "ONDC:SRV18",
     "location": {
       "city": {
         "code": "std:080"
@@ -16,7 +16,7 @@
     "bpp_id": "sellerapp.com",
     "bpp_uri": "https://sellerapp.com/services",
     "transaction_id": "T2",
-    "message_id": "M4",
+    "message_id": "M8",
     "timestamp": "2024-04-01T22:00:39.000Z",
     "ttl": "PT30S"
   },
@@ -107,10 +107,16 @@
           "id": "F1",
           "state": {
             "descriptor": {
-              "code": "Completed"
+              "code": "Ad_Over"
             }
           },
           "type": "Online",
+          "time": {
+            "range": {
+              "start": "2024-07-11T00:00:00.000Z",
+              "end": "2024-07-21T00:00:00.000Z"
+            }
+          },
           "tracking": false
         }
       ],
@@ -237,6 +243,12 @@
               ]
             }
           ]
+        }
+      ],
+      "documents": [
+        {
+          "url": "https://final_ad_performance_report_url_pdf.com",
+          "label": "Final Report"
         }
       ],
       "cancellation_terms": [

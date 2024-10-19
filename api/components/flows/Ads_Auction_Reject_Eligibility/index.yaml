@@ -1,0 +1,135 @@
+summary: Ads Bids & Auction - Rejection due to eligibility
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for Ads services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+details:
+  - description: Sequence Diagram for Bids and Auction
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant G as Gateway
+        participant SA1 as SellerApp1
+        participant SA2 as SellerApp2
+        
+        Note Over B,SA2: **SEARCH FLOW**
+        B ->> BA: Buyer initiates an exploratory search for Bids and Auctions.
+        BA ->> G: **/search** - Search by city for a commodity and <br>additional parameters
+        G ->> SA1: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
+        G ->> SA2: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
+        SA1 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with their details, including floor price, Start/End Time, Bid Increment
+        SA2 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with their details, including floor price, Start/End Time, Bid Increment
+        Note Over BA,SA1: Buyer now has the option to choose the <br>Commodity bids from either Seller 1 or Seller 2 or both
+        BA ->> B: Shows all the avilable bids <br>options from sellers
+
+  - description: Auction Selection
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp
+        Note Over B,SA: **SELECT FLOW**
+        B ->> BA: Buyer selects an auction.
+        BA ->> SA: **/select** - Buyer sends a /select request to <br> Seller, along with the Buyer's ID.
+        SA ->> SA: Verifies Buyer ID
+        SA ->> BA: **/on_select** - Seller verifies the Buyer's ID <br> whether he is allowed or not and send the status.
+        BA ->> B: If Buyer is eligible, Seller confirms bid details
+
+  - description: Fee Requirement Check
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp
+        Note Over B,SA: **FEE REQUIREMENT CHECK**
+        B ->> BA: If a fee is required, buyer check payment
+        BA ->> SA: **/init** - Buyer requests participation with /init
+        SA ->> BA: **/on_init** - Seller responds with /on_init, <br> sending a payment gateway (PG) link for payment.
+        B ->> BA: Buyer makes the payment.
+
+  - description: Bid Placement
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp
+        Note Over B,SA: **BID PLACEMENT FLOW**
+        B ->> BA: Buyer places a bid.
+        BA ->> SA: **/init** - Buyer sends /init, indicating bid placement. <br> The bid price will be shared in the intent.
+        SA ->> BA: **/on_init** - Seller acknowledges the bid placement with /on_init.
+        BA ->> B: Confirms Bid Placement
+
+  - description: Bid Confirmation
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp
+        Note Over B,SA: **CONFIRMATION FLOW**
+        B ->> BA: Confirms the Order
+        BA ->> SA: **/confirm** - Buyer confirms the order
+        SA ->> BA: **/on_confirm** - Seller responds with /on_confirm, <br> creating an Order ID with the bid state set to "Placed."
+        BA ->> B: Confirms the bids
+
+  - description: Fulfillment
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp 
+        Note Over B,SA: **BIDS STATUS FLOW**
+        B ->> BA: Checks the bid status
+        BA ->> SA: **/status** - Enquire bid status <br>or maximum bid price (if open bid)
+        SA ->> BA: **/on_status** - Seller responds with the highest price
+        BA ->> B: Updates the latest status
+
+  - description: Update Requests
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp 
+        Note Over B,SA: **BIDS UPDATES FLOW**
+        B ->> BA: Buyer requests updates with /update
+        BA ->> SA: **/update** - Buyer requests updates
+        SA ->> BA: **/on_update** - Seller responds with /on_update, updating with the highest price
+        BA ->> B: Updates the latest status
+        B ->> BA: Buyer may update an existing bid price with another /update request.
+
+  - description: Bid Outcome
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp 
+        Note Over B,SA: **BID OUTCOME FLOW**
+        B ->> BA: Buyer requests an update on the auction
+        BA ->> SA: **/update** - Buyer requests an update on the auction
+        SA ->> BA: **/on_update** - If Buyer wins the bid, Seller responds with /on_update,<br> setting the bid state to "Awarded."
+        SA ->> BA: **/on_update** - If Buyer loses, Seller responds with /on_update, <br> setting the bid state to "Not Awarded" and indicating the highest bid amount.
+        BA ->> B: Updates the latest bid outcome
+
+reference: if any
+steps:
+  - summary: Search based on the intent for buying Ads service
+    api: search
+    description: Search intent sent by the buyer based on the particular Ads service required
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/search/search_by_category.yaml"
+  - summary: Returns the catalog specific to the search intent
+    api: on_search
+    description: Returns the catalog specific to the search intent
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_search/on_search_auction.yaml"
+  - summary: Buyer selects the required Ads service
+    api: select (Eligbility check)
+    description: Buyer selects the required Ads service with bidding fulfillment and elgible pre-decided ID
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/select/select_auction.yaml"
+  - summary: Seller fails the eligibility
+    api: on_select (Failed eligbility)
+    description: Seller fails the eligibility check
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_select/on_select_auction.yaml"

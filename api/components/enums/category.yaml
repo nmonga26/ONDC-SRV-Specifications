@@ -1,55 +1,55 @@
 category_ids:
-  - code: SRV17-1000
+  - code: SRV18-1000
     description: Digital - Commerce
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-1001
+  - code: SRV18-1001
     description: Digital - Entertainment
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-1002
+  - code: SRV18-1002
     description: Digital - Social
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-1003
+  - code: SRV18-1003
     description: Digital - Search
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-1005
+  - code: SRV18-1005
     description: Digital - Content
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-2000
+  - code: SRV18-2000
     description: OOH - Transient Media (In movement)
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-2001
+  - code: SRV18-2001
     description: OOH - Outdoor Fixed Media
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-2002
+  - code: SRV18-2002
     description: OOH - Activation
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-2003
+  - code: SRV18-2003
     description: OOH - Indoor/ Ambient Media
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-3000
+  - code: SRV18-3000
     description: Broadcast - Radio
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-3001
+  - code: SRV18-3001
     description: Broadcast - Influencer
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-3002
+  - code: SRV18-3002
     description: Broadcast - In Flight Entertainment
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-3003
+  - code: SRV18-3003
     description: Broadcast - Television
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-3004
+  - code: SRV18-3004
     description: Broadcast - Film
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-3005
+  - code: SRV18-3005
     description: Broadcast - Marketing Collaterals
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-3006
+  - code: SRV18-3006
     description: Broadcast - Newspapers
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-3007
+  - code: SRV18-3007
     description: Broadcast - Magazines
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV17-3008
+  - code: SRV18-3008
     description: Broadcast - Books
     reference: <PR/Issue/Discussion Links md format text>

@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:SRV17",
+    "domain": "ONDC:SRV18",
     "location": {
       "city": {
         "code": "std:080"
@@ -113,7 +113,7 @@
                   "descriptor": {
                     "code": "category"
                   },
-                  "value": "SRV17"
+                  "value": "SRV18"
                 },
                 {
                   "descriptor": {
@@ -154,20 +154,13 @@
               "price": {
                 "currency": "INR",
                 "value": "500.00",
-                "offered_value": "500.00",
                 "maximum_value": "500.00"
               },
               "quantity": {
                 "unitized": {
                   "measure": {
-                    "unit": "CPM",
+                    "unit": "days",
                     "value": "1"
-                  }
-                },
-                "available": {
-                  "measure": {
-                    "unit": "CPM",
-                    "value": "10"
                   }
                 }
               },
@@ -219,9 +212,68 @@
                     },
                     {
                       "descriptor": {
+                        "code": "CHANGEABLE_CREATIVE"
+                      },
+                      "value": "false"
+                    },
+                    {
+                      "descriptor": {
                         "code": "AVAILABILITY"
                       },
                       "value": "Static"
+                    }
+                  ]
+                },
+                {
+                  "code": "AD_PAST_PERFORMANCE",
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "COST_UNIT"
+                      },
+                      "value": "INR"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_IMPRESSIONS"
+                      },
+                      "value": "5000-10000"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_CLICKS"
+                      },
+                      "value": "500-1000"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_CLICK_THROUGH_RATE"
+                      },
+                      "value": 200
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_COST_PER_ACQUISITION"
+                      },
+                      "value": 200
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_SPENDS"
+                      },
+                      "value": 500
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_SALES"
+                      },
+                      "value": 100
+                    },
+                    {
+                      "descriptor": {
+                        "code": "PERFORMANCE_TIMERANGE"
+                      },
+                      "value": "2013-01-01/2013-06-31"
                     }
                   ]
                 },
@@ -265,6 +317,30 @@
                     },
                     {
                       "descriptor": {
+                        "code": "LANGUAGE"
+                      },
+                      "value": "Hindi"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "INCOME_RANGE_UNIT"
+                      },
+                      "value": "INR"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "PROFESSION"
+                      },
+                      "value": "Software Engineer,Sales Executive,Project Manager"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "INCOME_RANGE"
+                      },
+                      "value": "1000000-2000000"
+                    },
+                    {
+                      "descriptor": {
                         "code": "ALLOWED_DOMAINS"
                       },
                       "value": "Retail"
@@ -272,7 +348,7 @@
                   ]
                 }
               ],
-              "category_ids": ["SRV17-1000"],
+              "category_ids": ["SRV18-1000"],
               "fulfillment_ids": ["1"],
               "location_ids": ["L1"],
               "payment_ids": ["2"],
@@ -280,7 +356,7 @@
                 {
                   "id": "ADDON01",
                   "descriptor": {
-                    "name": "Creative generation",
+                    "name": "Creative generation (max 3 re-iterations)",
                     "short_desc": "Image generation",
                     "long_desc": "Campaign Image generation",
                     "images": [
@@ -291,9 +367,528 @@
                   },
                   "price": {
                     "currency": "INR",
-                    "value": "1000.0",
-                    "offered_value": "1000.0",
-                    "maximum_value": "1000.0"
+                    "value": "1000.0"
+                  }
+                },
+                {
+                  "id": "ADDON02",
+                  "descriptor": {
+                    "name": "Creative generation (max 6 re-iterations)",
+                    "short_desc": "Image generation",
+                    "long_desc": "Campaign Image generation",
+                    "images": [
+                      {
+                        "url": "https://abc.com/images/208.png"
+                      }
+                    ]
+                  },
+                  "price": {
+                    "currency": "INR",
+                    "value": "2000.0"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "I2",
+              "descriptor": {
+                "name": "Display ads",
+                "code": "Display Ads",
+                "short_desc": "Home page banner",
+                "long_desc": "Home page banner",
+                "media": [
+                  {
+                    "mimetype": "video/mp4",
+                    "url": "video_url"
+                  }
+                ]
+              },
+              "price": {
+                "currency": "INR",
+                "value": "500.00",
+                "maximum_value": "500.00"
+              },
+              "quantity": {
+                "unitized": {
+                  "measure": {
+                    "unit": "CPM",
+                    "value": "1000"
+                  }
+                }
+              },
+              "time": {
+                "range": {
+                  "start": "2024-07-01T00:00:00.000Z",
+                  "end": "2024-07-31T00:00:00.000Z"
+                }
+              },
+              "tags": [
+                {
+                  "code": "AD_SPECIFICATIONS",
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "SIZE"
+                      },
+                      "value": "970x250"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MAX_K_WEIGHT"
+                      },
+                      "value": 250
+                    },
+                    {
+                      "descriptor": {
+                        "code": "SUB_LOAD"
+                      },
+                      "value": 200
+                    },
+                    {
+                      "descriptor": {
+                        "code": "FILE_SIZE_UNIT"
+                      },
+                      "value": "KB"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "FORMAT"
+                      },
+                      "value": "image/jpeg"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AD_TYPE"
+                      },
+                      "value": "Display-ADS"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "CHANGEABLE_CREATIVE"
+                      },
+                      "value": "false"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVAILABILITY"
+                      },
+                      "value": "Static"
+                    }
+                  ]
+                },
+                {
+                  "code": "AD_PAST_PERFORMANCE",
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "COST_UNIT"
+                      },
+                      "value": "INR"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_IMPRESSIONS"
+                      },
+                      "value": "5000-10000"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_CLICKS"
+                      },
+                      "value": "500-1000"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_CLICK_THROUGH_RATE"
+                      },
+                      "value": 200
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_COST_PER_ACQUISITION"
+                      },
+                      "value": 200
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_SPENDS"
+                      },
+                      "value": 500
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_SALES"
+                      },
+                      "value": 100
+                    },
+                    {
+                      "descriptor": {
+                        "code": "PERFORMANCE_TIMERANGE"
+                      },
+                      "value": "2013-01-01/2013-06-31"
+                    }
+                  ]
+                },
+                {
+                  "code": "AD_PLACEMENT",
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "POSITION"
+                      },
+                      "value": "Homepage"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "LOCATION"
+                      },
+                      "value": "<<city |area>>"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "LOCATION_URL"
+                      },
+                      "value": "<<location url>>"
+                    }
+                  ]
+                },
+                {
+                  "code": "TARGET_AUDIENCE",
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "AGE_RANGE"
+                      },
+                      "value": "18-20,21-24,25-39"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "GENDER"
+                      },
+                      "value": "Male"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "LANGUAGE"
+                      },
+                      "value": "Hindi"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "INCOME_RANGE_UNIT"
+                      },
+                      "value": "INR"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "PROFESSION"
+                      },
+                      "value": "Software Engineer,Sales Executive,Project Manager"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "INCOME_RANGE"
+                      },
+                      "value": "1000000-2000000"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ALLOWED_DOMAINS"
+                      },
+                      "value": "Retail"
+                    }
+                  ]
+                }
+              ],
+              "category_ids": ["SRV18-1000"],
+              "fulfillment_ids": ["1"],
+              "location_ids": ["L1"],
+              "payment_ids": ["2"],
+              "add-ons": [
+                {
+                  "id": "ADDON01",
+                  "descriptor": {
+                    "name": "Creative generation (max 3 re-iterations)",
+                    "short_desc": "Image generation",
+                    "long_desc": "Campaign Image generation",
+                    "images": [
+                      {
+                        "url": "https://abc.com/images/208.png"
+                      }
+                    ]
+                  },
+                  "price": {
+                    "currency": "INR",
+                    "value": "1000.0"
+                  }
+                },
+                {
+                  "id": "ADDON02",
+                  "descriptor": {
+                    "name": "Creative generation (max 6 re-iterations)",
+                    "short_desc": "Image generation",
+                    "long_desc": "Campaign Image generation",
+                    "images": [
+                      {
+                        "url": "https://abc.com/images/208.png"
+                      }
+                    ]
+                  },
+                  "price": {
+                    "currency": "INR",
+                    "value": "2000.0"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "I3",
+              "descriptor": {
+                "name": "Display ads",
+                "code": "Display Ads",
+                "short_desc": "Home page banner",
+                "long_desc": "Home page banner",
+                "media": [
+                  {
+                    "mimetype": "video/mp4",
+                    "url": "video_url"
+                  }
+                ]
+              },
+              "price": {
+                "currency": "INR",
+                "value": "500.00",
+                "maximum_value": "500.00"
+              },
+              "quantity": {
+                "unitized": {
+                  "measure": {
+                    "unit": "CPC",
+                    "value": "100"
+                  }
+                }
+              },
+              "time": {
+                "range": {
+                  "start": "2024-07-01T00:00:00.000Z",
+                  "end": "2024-07-31T00:00:00.000Z"
+                }
+              },
+              "tags": [
+                {
+                  "code": "AD_SPECIFICATIONS",
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "SIZE"
+                      },
+                      "value": "970x250"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "MAX_K_WEIGHT"
+                      },
+                      "value": 250
+                    },
+                    {
+                      "descriptor": {
+                        "code": "SUB_LOAD"
+                      },
+                      "value": 200
+                    },
+                    {
+                      "descriptor": {
+                        "code": "FILE_SIZE_UNIT"
+                      },
+                      "value": "KB"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "FORMAT"
+                      },
+                      "value": "image/jpeg"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AD_TYPE"
+                      },
+                      "value": "Display-ADS"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "CHANGEABLE_CREATIVE"
+                      },
+                      "value": "false"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVAILABILITY"
+                      },
+                      "value": "Static"
+                    }
+                  ]
+                },
+                {
+                  "code": "AD_PAST_PERFORMANCE",
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "COST_UNIT"
+                      },
+                      "value": "INR"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_IMPRESSIONS"
+                      },
+                      "value": "5000-10000"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_CLICKS"
+                      },
+                      "value": "500-1000"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_CLICK_THROUGH_RATE"
+                      },
+                      "value": 200
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_COST_PER_ACQUISITION"
+                      },
+                      "value": 200
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_SPENDS"
+                      },
+                      "value": 500
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVG_SALES"
+                      },
+                      "value": 100
+                    },
+                    {
+                      "descriptor": {
+                        "code": "PERFORMANCE_TIMERANGE"
+                      },
+                      "value": "2013-01-01/2013-06-31"
+                    }
+                  ]
+                },
+                {
+                  "code": "AD_PLACEMENT",
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "POSITION"
+                      },
+                      "value": "Homepage"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "LOCATION"
+                      },
+                      "value": "<<city |area>>"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "LOCATION_URL"
+                      },
+                      "value": "<<location url>>"
+                    }
+                  ]
+                },
+                {
+                  "code": "TARGET_AUDIENCE",
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "AGE_RANGE"
+                      },
+                      "value": "18-20,21-24,25-39"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "GENDER"
+                      },
+                      "value": "Male"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "LANGUAGE"
+                      },
+                      "value": "Hindi"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "INCOME_RANGE_UNIT"
+                      },
+                      "value": "INR"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "PROFESSION"
+                      },
+                      "value": "Software Engineer,Sales Executive,Project Manager"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "INCOME_RANGE"
+                      },
+                      "value": "1000000-2000000"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ALLOWED_DOMAINS"
+                      },
+                      "value": "Retail"
+                    }
+                  ]
+                }
+              ],
+              "category_ids": ["SRV18-1000"],
+              "fulfillment_ids": ["1"],
+              "location_ids": ["L1"],
+              "payment_ids": ["2"],
+              "add-ons": [
+                {
+                  "id": "ADDON01",
+                  "descriptor": {
+                    "name": "Creative generation (max 3 re-iterations)",
+                    "short_desc": "Image generation",
+                    "long_desc": "Campaign Image generation",
+                    "images": [
+                      {
+                        "url": "https://abc.com/images/208.png"
+                      }
+                    ]
+                  },
+                  "price": {
+                    "currency": "INR",
+                    "value": "1000.0"
+                  }
+                },
+                {
+                  "id": "ADDON02",
+                  "descriptor": {
+                    "name": "Creative generation (max 6 re-iterations)",
+                    "short_desc": "Image generation",
+                    "long_desc": "Campaign Image generation",
+                    "images": [
+                      {
+                        "url": "https://abc.com/images/208.png"
+                      }
+                    ]
+                  },
+                  "price": {
+                    "currency": "INR",
+                    "value": "2000.0"
                   }
                 }
               ]

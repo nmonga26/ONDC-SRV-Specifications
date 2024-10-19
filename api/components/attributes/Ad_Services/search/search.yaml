@@ -1,9 +1,9 @@
 context:
   parent: true
   domain:
-    description: domain code, enums - ONDC:SRV17( Services - Ads Services )
+    description: domain code, enums - ONDC:SRV18( Services - Ads Services )
     required: mandatory
-    usage: "ONDC:SRV17"
+    usage: "ONDC:SRV18"
     reference: if any
   city:
     code:
@@ -48,7 +48,7 @@ message:
         id:
           description: Category of the search
           required: optional
-          usage: "SRV17-1000"
+          usage: "SRV18-1000"
           reference: if any
     fulfillment:
       parent: true

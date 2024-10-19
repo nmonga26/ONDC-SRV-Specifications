@@ -5,7 +5,7 @@ value:
   description: Search By City
   value:
     context:
-      domain: ONDC:SRV17
+      domain: ONDC:SRV18
       location:
         city:
           code: std:080

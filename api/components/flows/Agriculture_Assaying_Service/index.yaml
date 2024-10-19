@@ -13,7 +13,7 @@ details:
         Note Over B,SA: **SEARCH FLOW**
         B ->> BA: Search by item for a service within a city
         BA ->> G: **/search** - Search by item for a service within city and <br>additional parameters
-        Note left of BA: Additional params include: <br><br>
+        Note left of BA:  include: <br><br>
         G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
         G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
         SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing

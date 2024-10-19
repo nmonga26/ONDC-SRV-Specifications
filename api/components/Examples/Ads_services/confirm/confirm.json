@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:SRV17",
+    "domain": "ONDC:SRV18",
     "location": {
       "city": {
         "code": "std:080"
@@ -60,6 +60,12 @@
         {
           "id": "F1",
           "type": "ONLINE",
+          "time": {
+            "range": {
+              "start": "2024-07-11T00:00:00.000Z",
+              "end": "2024-07-21T00:00:00.000Z"
+            }
+          },
           "tracking": false
         }
       ],
@@ -120,8 +126,8 @@
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
-          "status": "NOT-PAID",
-          "type": "ON-FULFILLMENT",
+          "status": "PAID",
+          "type": "PRE-FULFILLMENT",
           "tags": [
             {
               "descriptor": {

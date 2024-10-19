@@ -1,0 +1,35 @@
+summary: ""
+description: ""
+value:
+  context:
+    domain: ONDC:SRV18
+    location:
+      city:
+        code: std:080
+      country:
+        code: IND
+    action: update
+    version: 2.0.0
+    bap_id: buyerapp.com
+    bap_uri: https://buyerapp.com/services
+    bpp_id: sellerapp.com
+    bpp_uri: https://sellerapp.com/services
+    transaction_id: T1
+    message_id: M6
+    timestamp: "2024-06-10T22:01:20.000Z"
+    ttl: PT30S
+  message:
+    update_target: items
+    order:
+      id: O1
+      status: In-Progress
+      provider:
+        id: P1
+      items:
+        - id: I1
+          price:
+            currency: INR
+            offered_value: "1000.00"
+          quantity:
+            selected:
+              count: 1

@@ -14,6 +14,6 @@ domain:
   - code: ONDC:SRV14
     description: Agriculture Services
     reference: <PR/Issue/Discussion Links md format text>
-  - code: ONDC:SRV17
+  - code: ONDC:SRV18
     description: Ads Services
     reference: <PR/Issue/Discussion Links md format text>
