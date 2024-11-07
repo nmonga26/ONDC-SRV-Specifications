@@ -1,5 +1,5 @@
-summary: ""
-description: ""
+summary: ''
+description: ''
 value:
   context:
     domain: ONDC:SRV18
@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: T1
     message_id: M6
-    timestamp: "2024-06-10T22:01:20.000Z"
+    timestamp: '2024-06-10T22:01:20.000Z'
     ttl: PT30S
   message:
     update_target: fulfillments
@@ -33,6 +33,6 @@ value:
           type: Online
           time:
             range:
-              start: "2024-07-15T00:00:00.000Z"
-              end: "2024-07-25T00:00:00.000Z"
+              start: '2024-07-15T00:00:00.000Z'
+              end: '2024-07-25T00:00:00.000Z'
           tracking: false

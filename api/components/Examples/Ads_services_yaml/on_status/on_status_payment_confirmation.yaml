@@ -29,7 +29,7 @@ value:
           location_ids:
             - L1
           fulfillment_ids:
-            - F3
+            - F1
       billing:
         name: ONDC buyer
         address: >-
@@ -47,40 +47,50 @@ value:
       quote:
         price:
           currency: INR
-          value: '5000.00'
+          value: '6500'
         breakup:
-          - title: earnest_money_deposit
+          - title: Display ads
             price:
               currency: INR
-              value: '5000.00'
+              value: '5000'
             item:
               id: I1
-            tags:
-              - descriptor:
-                  code: TITLE
-                list:
-                  - descriptor:
-                      code: type
-                    value: earnest_money_deposit
+              quantity:
+                selected:
+                  count: '10'
+              price:
+                currency: INR
+                value: '500'
+          - title: tax
+            price:
+              currency: INR
+              value: '500'
+            item:
+              id: I1
+          - title: creative generation
+            id: ADDON01
+            price:
+              currency: INR
+              value: '1000'
         ttl: P1D
       payments:
-        - id: PY1
-          collected_by: BAP
-          url: https://abc.com/take_payment
+        - id: P1
+          collected_by: BPP
+          url: https://payment-gateway-url/payment-link
           params:
-            amount: '5000.00'
+            amount: '6500'
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
           status: PAID
-          type: PRE-FULFILLMENT
+          type: ON-FULFILLMENT
           tags:
             - descriptor:
                 code: Settlement_Details
               list:
                 - descriptor:
                     code: Counterparty
-                  value: BPP
+                  value: BAP
                 - descriptor:
                     code: Mode
                   value: UPI
@@ -96,22 +106,31 @@ value:
                 - descriptor:
                     code: UPI_Address
                   value: xxxxxxx
+            - descriptor:
+                code: Buyer_Finder_Fee
+              list:
+                - descriptor:
+                    code: Buyer_Finder_Fee_Type
+                  value: percentage
+                - descriptor:
+                    code: Buyer_Finder_Fee_Amount
+                  value: '3'
       cancellation_terms:
         - fulfillment_state:
             descriptor:
-              code: Pending
-          reason_required: false
+              code: PENDING
+              short_desc: '002'
           cancellation_fee:
-            percentage: '0'
+            percentage: '0.00'
             amount:
-              currency: IND
-              value: '0'
+              currency: INR
+              value: '0.00'
         - fulfillment_state:
             descriptor:
-              code: Awarded
-          reason_required: false
+              code: IN_TRANSIT
+              short_desc: '002'
           cancellation_fee:
-            percentage: '10'
+            percentage: '0.00'
             amount:
-              currency: IND
-              value: '100'
+              currency: INR
+              value: '0.00'

@@ -1,5 +1,5 @@
-summary: ""
-description: ""
+summary: ''
+description: ''
 value:
   context:
     domain: ONDC:SRV18
@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: T1
     message_id: M1
-    timestamp: "2023-01-08T22:00:30.000Z"
+    timestamp: '2023-01-08T22:00:30.000Z'
     ttl: PT30S
   message:
     catalog:
@@ -35,11 +35,11 @@ value:
                     code: PARENT_ID
                   value: F1,F2
       payments:
-        - id: "1"
+        - id: '1'
           type: PRE-FULFILLMENT
-        - id: "2"
+        - id: '2'
           type: ON-FULFILLMENT
-        - id: "3"
+        - id: '3'
           type: POST-FULFILLMENT
       descriptor:
         name: Ads Pvt. Limited
@@ -56,7 +56,7 @@ value:
             long_desc: Long description of the provider
             images:
               - url: https://abc.com/images/1-shop-img
-          rating: "4.4"
+          rating: '4.4'
           ttl: P1D
           locations:
             - id: L1
@@ -110,20 +110,20 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: "500.00"
+                value: '500.00'
               quantity:
                 unitized:
                   measure:
                     unit: CPM
-                    value: "1"
+                    value: '1'
                 available:
                   measure:
                     unit: CPM
-                    value: "10"
+                    value: '10'
               time:
                 range:
-                  start: "2024-07-01T00:00:00.000Z"
-                  end: "2024-07-31T00:00:00.000Z"
+                  start: '2024-07-01T00:00:00.000Z'
+                  end: '2024-07-31T00:00:00.000Z'
               tags:
                 - descriptor:
                     code: AUCTION_SPECIFICATION
@@ -134,25 +134,25 @@ value:
                       value: INR
                     - descriptor:
                         code: FLOOR_PRICE
-                      value: "500.00"
+                      value: '500.00'
                     - descriptor:
                         code: MIN_BIDDER_REQUIRED
-                      value: "5"
+                      value: '5'
                     - descriptor:
                         code: TYPE_OF_AUCTION
                       value: OPEN
                     - descriptor:
                         code: EARNEST_MONEY_DEPOSIT
-                      value: "5000.00"
+                      value: '5000.00'
                     - descriptor:
                         code: TICK_SIZE
-                      value: "50.00"
+                      value: '50.00'
                     - descriptor:
                         code: MAXIMUM_TARGET_PRICE
-                      value: "1000.00"
+                      value: '1000.00'
                     - descriptor:
                         code: BIDS_LIMITATION
-                      value: "5"
+                      value: '5'
                 - code: AD_SPECIFICATIONS
                   list:
                     - descriptor:
@@ -205,7 +205,7 @@ value:
               location_ids:
                 - L1
               payment_ids:
-                - "2"
+                - '2'
               add-ons:
                 - id: ADDON01
                   descriptor:
@@ -216,6 +216,6 @@ value:
                       - url: https://abc.com/images/208.png
                   price:
                     currency: INR
-                    value: "1000.0"
-                    offered_value: "1000.0"
-                    maximum_value: "1000.0"
+                    value: '1000.0'
+                    offered_value: '1000.0'
+                    maximum_value: '1000.0'

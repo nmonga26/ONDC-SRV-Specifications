@@ -1,5 +1,5 @@
-summary: ""
-description: ""
+summary: ''
+description: ''
 value:
   context:
     domain: ONDC:SRV18
@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: T2
     message_id: M4
-    timestamp: "2024-04-01T22:00:39.000Z"
+    timestamp: '2024-04-01T22:00:39.000Z'
     ttl: PT30S
   message:
     order:
@@ -39,7 +39,7 @@ value:
                 descriptor:
                   code: PENDING
               cancellation_fee:
-                percentage: "0.00"
+                percentage: '0.00'
           tags:
             - descriptor:
                 code: RESCHEDULE_TERMS
@@ -49,10 +49,10 @@ value:
                   value: Pending
                 - descriptor:
                     code: RESCHEDULE_ELIGIBLE
-                  value: "true"
+                  value: 'true'
                 - descriptor:
                     code: RESCHEDULE_FEE
-                  value: "0.00"
+                  value: '0.00'
                 - descriptor:
                     code: RESCHEDULE_WITHIN
                   value: PT1D
@@ -67,7 +67,7 @@ value:
           name: Bengaluru
         tax_id: XXXXXXXXXXXXXXX
         email: nobody@nomail.com
-        phone: "9886098860"
+        phone: '9886098860'
       fulfillments:
         - id: F1
           state:
@@ -78,38 +78,38 @@ value:
       quote:
         price:
           currency: INR
-          value: "6500"
+          value: '6500'
         breakup:
           - title: Display ads
             price:
               currency: INR
-              value: "5000"
+              value: '5000'
             item:
               id: I1
               quantity:
                 selected:
-                  count: "10"
+                  count: '10'
               price:
                 currency: INR
-                value: "500"
+                value: '500'
           - title: tax
             price:
               currency: INR
-              value: "500"
+              value: '500'
             item:
               id: I1
           - title: creative generation
             id: ADDON01
             price:
               currency: INR
-              value: "1000"
+              value: '1000'
         ttl: P1D
       payments:
         - id: P1
           collected_by: BPP
           url: https://payment-gateway-url/payment-link
           params:
-            amount: "6500"
+            amount: '6500'
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
@@ -145,25 +145,25 @@ value:
                   value: percentage
                 - descriptor:
                     code: Buyer_Finder_Fee_Amount
-                  value: "3"
+                  value: '3'
       cancellation_terms:
         - fulfillment_state:
             descriptor:
               code: PENDING
-              short_desc: "002"
+              short_desc: '002'
           cancellation_fee:
-            percentage: "0.00"
+            percentage: '0.00'
             amount:
               currency: INR
-              value: "0.00"
+              value: '0.00'
         - fulfillment_state:
             descriptor:
               code: IN_TRANSIT
-              short_desc: "002"
+              short_desc: '002'
           cancellation_fee:
-            percentage: "0.00"
+            percentage: '0.00'
             amount:
               currency: INR
-              value: "0.00"
-      created_at: "2024-04-01T22:00:38.000Z"
-      updated_at: "2024-04-01T22:00:39.000Z"
+              value: '0.00'
+      created_at: '2024-04-01T22:00:38.000Z'
+      updated_at: '2024-04-01T22:00:39.000Z'

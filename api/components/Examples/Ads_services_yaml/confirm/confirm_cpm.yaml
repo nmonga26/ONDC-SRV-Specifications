@@ -1,5 +1,5 @@
-summary: ""
-description: ""
+summary: ''
+description: ''
 value:
   context:
     domain: ONDC:SRV18
@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: T2
     message_id: M4
-    timestamp: "2024-04-01T22:00:38.000Z"
+    timestamp: '2024-04-01T22:00:38.000Z'
     ttl: PT30S
   message:
     order:
@@ -44,50 +44,50 @@ value:
           name: Bengaluru
         tax_id: XXXXXXXXXXXXXXX
         email: nobody@nomail.com
-        phone: "9886098860"
+        phone: '9886098860'
       fulfillments:
         - id: F1
           type: ONLINE
           time:
             range:
-              start: "2024-07-11T00:00:00.000Z"
-              end: "2024-07-21T00:00:00.000Z"
+              start: '2024-07-11T00:00:00.000Z'
+              end: '2024-07-21T00:00:00.000Z'
           tracking: false
       quote:
         price:
           currency: INR
-          value: "6500"
+          value: '6500'
         breakup:
           - title: Display ads
             price:
               currency: INR
-              value: "5000"
+              value: '5000'
             item:
               id: I2
               quantity:
                 selected:
-                  count: "10"
+                  count: '10'
               price:
                 currency: INR
-                value: "500"
+                value: '500'
           - title: tax
             price:
               currency: INR
-              value: "500"
+              value: '500'
             item:
               id: I2
           - title: creative generation
             id: ADDON01
             price:
               currency: INR
-              value: "1000"
+              value: '1000'
         ttl: P1D
       payments:
         - id: P1
           collected_by: BPP
           url: https://payment-gateway-url/payment-link
           params:
-            amount: "6500"
+            amount: '6500'
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
@@ -123,6 +123,6 @@ value:
                   value: percentage
                 - descriptor:
                     code: Buyer_Finder_Fee_Amount
-                  value: "3"
-      created_at: "2024-04-01T22:00:38.000Z"
-      updated_at: "2024-04-01T22:00:38.000Z"
+                  value: '3'
+      created_at: '2024-04-01T22:00:38.000Z'
+      updated_at: '2024-04-01T22:00:38.000Z'

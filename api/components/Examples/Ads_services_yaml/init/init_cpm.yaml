@@ -1,5 +1,5 @@
-summary: ""
-description: ""
+summary: ''
+description: ''
 value:
   context:
     domain: ONDC:SRV18
@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: T2
     message_id: M3
-    timestamp: "2023-01-08T22:00:30.000Z"
+    timestamp: '2023-01-08T22:00:30.000Z'
     ttl: PT30S
   message:
     order:
@@ -45,7 +45,7 @@ value:
           name: Bengaluru
         tax_id: XXXXXXXXXXXXXXX
         email: nobody@nomail.com
-        phone: "9886098860"
+        phone: '9886098860'
       fulfillments:
         - id: F1
           type: ONLINE

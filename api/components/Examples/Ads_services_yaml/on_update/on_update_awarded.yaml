@@ -1,5 +1,5 @@
-summary: ""
-description: ""
+summary: ''
+description: ''
 value:
   context:
     domain: ONDC:SRV18
@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: T1
     message_id: M11
-    timestamp: "2024-06-10T22:00:41.000Z"
+    timestamp: '2024-06-10T22:00:41.000Z'
     ttl: PT30S
   message:
     order:
@@ -34,8 +34,8 @@ value:
             - SRV18-1001
           price:
             currency: INR
-            offered_value: "1000.00"
-            maximum_value: "1000.00"
+            offered_value: '1000.00'
+            maximum_value: '1000.00'
           quantity:
             selected:
               count: 1
@@ -50,7 +50,7 @@ value:
           name: Bengaluru
         tax_id: XXXXXXXXXXXXXXX
         email: nobody@nomail.com
-        phone: "9886098860"
+        phone: '9886098860'
       fulfillments:
         - id: FF3
           state:
@@ -66,12 +66,12 @@ value:
       quote:
         price:
           currency: INR
-          value: "6000.00"
+          value: '6000.00'
         breakup:
           - title: Display ads
             price:
               currency: INR
-              value: "1000.00"
+              value: '1000.00'
             item:
               id: I1
               quantity:
@@ -79,8 +79,8 @@ value:
                   count: 1
               price:
                 currency: INR
-                value: "500.00"
-                offered_value: "1000.00"
+                value: '500.00'
+                offered_value: '1000.00'
             tags:
               - descriptor:
                   code: TITLE
@@ -91,7 +91,7 @@ value:
           - title: Earnest Money Deposit
             price:
               currency: INR
-              value: "5000.00"
+              value: '5000.00'
             item:
               id: I1
             tags:
@@ -107,7 +107,7 @@ value:
           collected_by: BAP
           url: https://abc.com/take_payment
           params:
-            amount: "5000.00"
+            amount: '5000.00'
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
@@ -138,7 +138,7 @@ value:
         - id: PY2
           collected_by: BAP
           params:
-            amount: "700.00"
+            amount: '700.00'
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
@@ -169,7 +169,7 @@ value:
         - id: PY3
           collected_by: BAP
           params:
-            amount: "1000.00"
+            amount: '1000.00'
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
@@ -203,16 +203,16 @@ value:
               code: Pending
           reason_required: false
           cancellation_fee:
-            percentage: "0"
+            percentage: '0'
             amount:
               currency: IND
-              value: "0"
+              value: '0'
         - fulfillment_state:
             descriptor:
               code: Awarded
           reason_required: false
           cancellation_fee:
-            percentage: "10"
+            percentage: '10'
             amount:
               currency: IND
-              value: "100"
+              value: '100'

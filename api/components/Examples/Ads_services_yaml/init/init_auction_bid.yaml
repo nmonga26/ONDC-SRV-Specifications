@@ -1,5 +1,5 @@
-summary: ""
-description: ""
+summary: ''
+description: ''
 value:
   context:
     domain: ONDC:SRV18
@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: T1
     message_id: M3
-    timestamp: "2024-06-10T22:00:40.000Z"
+    timestamp: '2024-06-10T22:00:40.000Z'
     ttl: P30S
   message:
     order:
@@ -32,7 +32,7 @@ value:
             - SRV18-1001
           price:
             currency: INR
-            offered_value: "700.00"
+            offered_value: '700.00'
           quantity:
             selected:
               count: 1
@@ -47,7 +47,7 @@ value:
           name: Bengaluru
         tax_id: XXXXXXXXXXXXXXX
         email: nobody@nomail.com
-        phone: "9886098860"
+        phone: '9886098860'
       fulfillments:
         - id: FF3
           type: BIDS
