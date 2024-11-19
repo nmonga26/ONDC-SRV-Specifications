@@ -45,7 +45,7 @@
       "fulfillments": [
         {
           "id": "F1",
-          "type": "ONLINE"
+          "type": "Online"
         }
       ],
       "quote": {

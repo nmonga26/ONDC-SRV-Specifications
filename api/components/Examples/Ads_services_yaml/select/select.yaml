@@ -34,6 +34,6 @@ value:
           add-ons:
             - id: ADDON01
       fulfillments:
-        - type: ONLINE
+        - type: Online
       payments:
         - type: PRE-FULFILLMENT

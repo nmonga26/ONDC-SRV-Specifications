@@ -53,9 +53,9 @@ message:
     fulfillment:
       parent: true
       type:
-        description: fulfillment type for the service, enum - "ONLINE, OFFLINE"
+        description: fulfillment type for the service, enum - "Online, Seller-Fulfilled"
         required: required
-        usage: "ONLINE"
+        usage: "Online"
         reference: if any
     payment:
       parent: true

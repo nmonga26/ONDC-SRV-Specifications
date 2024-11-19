@@ -1,0 +1,46 @@
+summary: Ads Services - Extend the Ad Duration
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to extend the number of days of a booked transaction.
+details:
+  - description: Order Confirmation
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp
+        Note Over B,SA: **CONFIRMATION FLOW**
+        B ->> BA: Confirms the Order
+        BA ->> SA: **/confirm** - Confirms the order by paying to create final digital contract
+        SA ->> BA: **/on_confirm** - Accepts the order 
+        BA ->> B: Confirms order
+  - description: Extension of Days
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp      
+        Note Over B,SA: **ORDER EXTENSION FLOW**
+        B ->> BA: Requests for extension
+        BA ->> SA: **/update** - Updates the order with updated days quantity
+        SA ->> BA: **/on_update** - Updates the appropriate objects in the order to faciliate the change and adds quote trail.
+        BA ->> B: Updates the order information
+
+reference: if any
+steps:
+  - summary: Seller accepts the order
+    api: on_confirm
+    description: Seller accepts the order
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_confirm/on_confirm.yaml"
+  - summary: Buyer requests for extension of days
+    api: update
+    description: Buyer requests for extension of days
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/update/update_extend.yaml"
+  - summary: Seller sends back the update of order
+    api: on_update (Extension Completed)
+    description: Seller updated the order accordingly by changing quantity, breakup and adding 1 more payment object to pickup the additional payment. QUOTE_TRAIL tag group is also added for keeping track of changed quotes.
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_update/on_update_extend.yaml"

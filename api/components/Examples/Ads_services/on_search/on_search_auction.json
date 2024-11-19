@@ -25,11 +25,11 @@
       "fulfillments": [
         {
           "id": "F1",
-          "type": "ONLINE"
+          "type": "Online"
         },
         {
           "id": "F2",
-          "type": "OFFLINE"
+          "type": "Seller-Fulfilled"
         },
         {
           "id": "F3",
@@ -227,12 +227,6 @@
                     },
                     {
                       "descriptor": {
-                        "code": "EARNEST_MONEY_DEPOSIT"
-                      },
-                      "value": "5000.00"
-                    },
-                    {
-                      "descriptor": {
                         "code": "TICK_SIZE"
                       },
                       "value": "50.00"
@@ -248,6 +242,18 @@
                         "code": "BIDS_LIMITATION"
                       },
                       "value": "5"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ADDITIONAL_TERMS"
+                      },
+                      "value": "https://www.auctionterms.com/abcd"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ADDITIONAL_TERMS_MIME_TYPE"
+                      },
+                      "value": "application/pdf"
                     }
                   ]
                 },
@@ -343,12 +349,56 @@
                       "value": "Retail"
                     }
                   ]
+                },
+
+                {
+                  "descriptor": {
+                    "code": "RESCHEDULE_TERMS"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "FULFILLMENT_STATE"
+                      },
+                      "value": "Pending"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_ELIGIBLE"
+                      },
+                      "value": "true"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_FEE"
+                      },
+                      "value": "0.00"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_WITHIN"
+                      },
+                      "value": "PT1D"
+                    }
+                  ]
                 }
               ],
               "category_ids": ["SRV18-1000"],
               "fulfillment_ids": ["F3"],
               "location_ids": ["L1"],
               "payment_ids": ["2"],
+              "cancellation_terms": [
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "PENDING"
+                    }
+                  },
+                  "cancellation_fee": {
+                    "percentage": "0.00"
+                  }
+                }
+              ],
               "add-ons": [
                 {
                   "id": "ADDON01",

@@ -47,7 +47,7 @@ value:
         phone: '9886098860'
       fulfillments:
         - id: F1
-          type: ONLINE
+          type: Online
           time:
             range:
               start: '2024-07-11T00:00:00.000Z'

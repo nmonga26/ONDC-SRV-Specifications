@@ -25,11 +25,11 @@
       "fulfillments": [
         {
           "id": "1",
-          "type": "ONLINE"
+          "type": "Online"
         },
         {
           "id": "2",
-          "type": "OFFLINE"
+          "type": "Seller-Fulfilled"
         }
       ],
       "payments": [
@@ -346,12 +346,56 @@
                       "value": "Retail"
                     }
                   ]
+                },
+
+                {
+                  "descriptor": {
+                    "code": "RESCHEDULE_TERMS"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "FULFILLMENT_STATE"
+                      },
+                      "value": "Pending"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_ELIGIBLE"
+                      },
+                      "value": "true"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_FEE"
+                      },
+                      "value": "0.00"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_WITHIN"
+                      },
+                      "value": "PT1D"
+                    }
+                  ]
                 }
               ],
               "category_ids": ["SRV18-1000"],
               "fulfillment_ids": ["1"],
               "location_ids": ["L1"],
               "payment_ids": ["2"],
+              "cancellation_terms": [
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "PENDING"
+                    }
+                  },
+                  "cancellation_fee": {
+                    "percentage": "0.00"
+                  }
+                }
+              ],
               "add-ons": [
                 {
                   "id": "ADDON01",

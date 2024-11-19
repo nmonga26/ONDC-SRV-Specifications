@@ -22,9 +22,9 @@ value:
     catalog:
       fulfillments:
         - id: F1
-          type: ONLINE
+          type: Online
         - id: F2
-          type: OFFLINE
+          type: Seller-Fulfilled
         - id: F3
           type: BIDS
           tags:
@@ -142,9 +142,6 @@ value:
                         code: TYPE_OF_AUCTION
                       value: OPEN
                     - descriptor:
-                        code: EARNEST_MONEY_DEPOSIT
-                      value: '5000.00'
-                    - descriptor:
                         code: TICK_SIZE
                       value: '50.00'
                     - descriptor:
@@ -153,6 +150,12 @@ value:
                     - descriptor:
                         code: BIDS_LIMITATION
                       value: '5'
+                    - descriptor:
+                        code: ADDITIONAL_TERMS
+                      value: https://www.auctionterms.com/abcd
+                    - descriptor:
+                        code: ADDITIONAL_TERMS_MIME_TYPE
+                      value: application/pdf
                 - code: AD_SPECIFICATIONS
                   list:
                     - descriptor:
@@ -198,6 +201,21 @@ value:
                     - descriptor:
                         code: ALLOWED_DOMAINS
                       value: Retail
+                - descriptor:
+                    code: RESCHEDULE_TERMS
+                  list:
+                    - descriptor:
+                        code: FULFILLMENT_STATE
+                      value: Pending
+                    - descriptor:
+                        code: RESCHEDULE_ELIGIBLE
+                      value: 'true'
+                    - descriptor:
+                        code: RESCHEDULE_FEE
+                      value: '0.00'
+                    - descriptor:
+                        code: RESCHEDULE_WITHIN
+                      value: PT1D
               category_ids:
                 - SRV18-1000
               fulfillment_ids:
@@ -206,6 +224,12 @@ value:
                 - L1
               payment_ids:
                 - '2'
+              cancellation_terms:
+                - fulfillment_state:
+                    descriptor:
+                      code: PENDING
+                  cancellation_fee:
+                    percentage: '0.00'
               add-ons:
                 - id: ADDON01
                   descriptor:

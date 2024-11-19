@@ -2657,10 +2657,10 @@ x-enum:
                 reference: <PR/Issue/Discussion Links md format text>
         fulfillments:
           type: &ref_1
-            - code: ONLINE
+            - code: Online
               description: When the fulfillment is done through online means
               reference: <PR/Issue/Discussion Links md format text>
-            - code: OFFLINE
+            - code: Seller-Fulfilled
               description: When the fulfillment is done in offline mode
               reference: <PR/Issue/Discussion Links md format text>
   on_search:
@@ -3227,9 +3227,9 @@ x-flows:
               catalog:
                 fulfillments:
                   - id: '1'
-                    type: ONLINE
+                    type: Online
                   - id: '2'
-                    type: OFFLINE
+                    type: Seller-Fulfilled
                 payments:
                   - id: '1'
                     type: PRE-FULFILLMENT
@@ -3406,6 +3406,21 @@ x-flows:
                               - descriptor:
                                   code: ALLOWED_DOMAINS
                                 value: Retail
+                          - descriptor:
+                              code: RESCHEDULE_TERMS
+                            list:
+                              - descriptor:
+                                  code: FULFILLMENT_STATE
+                                value: Pending
+                              - descriptor:
+                                  code: RESCHEDULE_ELIGIBLE
+                                value: 'true'
+                              - descriptor:
+                                  code: RESCHEDULE_FEE
+                                value: '0.00'
+                              - descriptor:
+                                  code: RESCHEDULE_WITHIN
+                                value: PT1D
                         category_ids:
                           - SRV18-1000
                         fulfillment_ids:
@@ -3414,6 +3429,12 @@ x-flows:
                           - L1
                         payment_ids:
                           - '2'
+                        cancellation_terms:
+                          - fulfillment_state:
+                              descriptor:
+                                code: PENDING
+                            cancellation_fee:
+                              percentage: '0.00'
                         add-ons:
                           - id: ADDON01
                             descriptor:
@@ -3756,7 +3777,7 @@ x-flows:
                     add-ons:
                       - id: ADDON01
                 fulfillments:
-                  - type: ONLINE
+                  - type: Online
                 payments:
                   - type: PRE-FULFILLMENT
       - summary: Seller confirms the schedule and returns the quote for service
@@ -3801,7 +3822,7 @@ x-flows:
                       - id: ADDON01
                 fulfillments:
                   - id: F1
-                    type: ONLINE
+                    type: Online
                 quote:
                   price:
                     currency: INR
@@ -3886,7 +3907,7 @@ x-flows:
                   phone: '9886098860'
                 fulfillments:
                   - id: F1
-                    type: ONLINE
+                    type: Online
                 payments:
                   - type: PRE-FULFILLMENT
       - summary: Seller provides the final quotation for the service
@@ -3943,7 +3964,7 @@ x-flows:
                   phone: '9886098860'
                 fulfillments:
                   - id: F1
-                    type: ONLINE
+                    type: Online
                     time:
                       range:
                         start: '2024-07-11T00:00:00.000Z'
@@ -4109,7 +4130,7 @@ x-flows:
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
                     status: PAID
-                    type: ON-FULFILLMENT
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -4214,7 +4235,7 @@ x-flows:
                   phone: '9886098860'
                 fulfillments:
                   - id: F1
-                    type: ONLINE
+                    type: Online
                     time:
                       range:
                         start: '2024-07-11T00:00:00.000Z'
@@ -4297,7 +4318,7 @@ x-flows:
         api: on_confirm
         description: Seller accepts the order
         reference: if any
-        example:
+        example: &ref_24
           summary: ''
           description: ''
           value:
@@ -5908,7 +5929,7 @@ x-flows:
                     add-ons:
                       - id: ADDON01
                 fulfillments:
-                  - type: ONLINE
+                  - type: Online
                 payments:
                   - type: PRE-FULFILLMENT
       - summary: Seller confirms the schedule and returns the quote for service
@@ -5953,7 +5974,7 @@ x-flows:
                       - id: ADDON01
                 fulfillments:
                   - id: F1
-                    type: ONLINE
+                    type: Online
                 quote:
                   price:
                     currency: INR
@@ -6038,7 +6059,7 @@ x-flows:
                   phone: '9886098860'
                 fulfillments:
                   - id: F1
-                    type: ONLINE
+                    type: Online
                 payments:
                   - type: PRE-FULFILLMENT
       - summary: Seller provides the final quotation for the service
@@ -6095,7 +6116,7 @@ x-flows:
                   phone: '9886098860'
                 fulfillments:
                   - id: F1
-                    type: ONLINE
+                    type: Online
                     time:
                       range:
                         start: '2024-07-11T00:00:00.000Z'
@@ -6230,7 +6251,7 @@ x-flows:
                   phone: '9886098860'
                 fulfillments:
                   - id: F1
-                    type: ONLINE
+                    type: Online
                     time:
                       range:
                         start: '2024-07-11T00:00:00.000Z'
@@ -6526,13 +6547,853 @@ x-flows:
           report.
         reference: if any
         example: *ref_23
-  - summary: Ads Bids & Auction - Open
+  - summary: Ads Services - Reschedule after Order Confirmation
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to request for Ads services. The booking majorly
-      happens in four phases of order processing flow, i.e. Discovery of
-      available services and service providers based on serviceability, order,
-      fulfillment and post-fulfillment.
+      where a buyer would like to reschedule a booked transaction.
+    details:
+      - description: Order Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **CONFIRMATION FLOW**
+            B ->> BA: Confirms the Order
+            BA ->> SA: **/confirm** - Confirms the order by paying to create final digital contract
+            SA ->> BA: **/on_confirm** - Accepts the order 
+            BA ->> B: Confirms order
+      - description: Rescheduling
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp      
+            Note Over B,SA: **ORDER RESCHEDULE FLOW**
+            B ->> BA: Asks for reschedule
+            BA ->> SA: **/update** - Requests for an update <br>by changing time
+            alt Seller approves & confirms the change
+            SA ->> BA: **/on_update** - Confirms the Updates the time in order
+            BA ->> B: Updates the latest order <br>and fulfillment information
+            else Seller declines the change
+            SA ->> BA: **/on_update** - Replies back with an Error Code
+            BA ->> B: Shows the order <br>and fulfillment information
+            end
+    reference: if any
+    steps:
+      - summary: Seller accepts the order
+        api: on_confirm
+        description: Seller accepts the order
+        reference: if any
+        example: *ref_24
+      - summary: Buyer requests for the status
+        api: update
+        description: Seller provides accepts the order
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV18
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M6
+              timestamp: '2024-06-10T22:01:20.000Z'
+              ttl: PT30S
+            message:
+              update_target: fulfillments
+              order:
+                id: O1
+                status: In-Progress
+                provider:
+                  id: P1
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Online
+                    time:
+                      range:
+                        start: '2024-07-15T00:00:00.000Z'
+                        end: '2024-07-25T00:00:00.000Z'
+                    tracking: false
+      - summary: Seller sends back the update of order
+        api: on_update (Reschedule Completed)
+        description: Seller sends back the update of order
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV18
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T2
+              message_id: M5
+              timestamp: '2024-04-01T22:00:39.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: In-Progress
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                  rateable: true
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 10
+                    cancellation_terms:
+                      - fulfillment_state:
+                          descriptor:
+                            code: PENDING
+                        cancellation_fee:
+                          percentage: '0.00'
+                    tags:
+                      - descriptor:
+                          code: RESCHEDULE_TERMS
+                        list:
+                          - descriptor:
+                              code: FULFILLMENT_STATE
+                            value: Pending
+                          - descriptor:
+                              code: RESCHEDULE_ELIGIBLE
+                            value: 'true'
+                          - descriptor:
+                              code: RESCHEDULE_FEE
+                            value: '0.00'
+                          - descriptor:
+                              code: RESCHEDULE_WITHIN
+                            value: PT1D
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Online
+                    time:
+                      range:
+                        start: '2024-07-15T00:00:00.000Z'
+                        end: '2024-07-25T00:00:00.000Z'
+                    tracking: false
+                quote:
+                  price:
+                    currency: INR
+                    value: '6500'
+                  breakup:
+                    - title: Display ads
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: '10'
+                        price:
+                          currency: INR
+                          value: '500'
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '500'
+                      item:
+                        id: I1
+                    - title: creative generation
+                      id: ADDON01
+                      price:
+                        currency: INR
+                        value: '1000'
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    url: https://payment-gateway-url/payment-link
+                    params:
+                      amount: '6500'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Type
+                            value: percentage
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Amount
+                            value: '3'
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: PENDING
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: IN_TRANSIT
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                created_at: '2024-04-01T22:00:38.000Z'
+                updated_at: '2024-04-01T22:00:39.000Z'
+      - summary: Seller sends back the update of order
+        api: on_update (Reschedule Failed)
+        description: Seller sends back the update of order when creative is created
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV18
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T2
+              message_id: M5
+              timestamp: '2024-04-01T22:00:39.000Z'
+              ttl: PT30S
+            error:
+              code: '90005'
+              message: The ad cannot be rescheduled to the specified duration
+  - summary: Ads Services - Cancel after Order Confirmation
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to cancel a booked transaction.
+    details:
+      - description: Order Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **CONFIRMATION FLOW**
+            B ->> BA: Confirms the Order
+            BA ->> SA: **/confirm** - Confirms the order by paying to create final digital contract
+            SA ->> BA: **/on_confirm** - Accepts the order 
+            BA ->> B: Confirms order
+      - description: Cancellation
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp      
+            Note Over B,SA: **ORDER CANCELLATION FLOW**
+            B ->> BA: Cancels the Order
+            BA ->> SA: **/cancels** - Requests for cancelling the order
+            SA ->> BA: **/on_cancel** - Confirms cancellation
+            BA ->> B: Shows status
+    reference: if any
+    steps:
+      - summary: Seller accepts the order
+        api: on_confirm
+        description: Seller accepts the order
+        reference: if any
+        example: *ref_24
+      - summary: Buyer app cancels the order
+        api: cancel
+        description: Seller requests for cancellation of order with cancellation reason id
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV18
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: cancel
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T2
+              message_id: M5
+              timestamp: '2024-04-01T22:00:39.000Z'
+              ttl: PT30S
+            message:
+              order_id: '01'
+              cancellation_reason_id: '012'
+      - summary: Seller cancels the order
+        api: on_cancel
+        description: >-
+          Seller sends back the update of the cancelled order and any
+          settlement/refund will be handled by RSF
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV18
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_cancel
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T2
+              message_id: M6
+              timestamp: '2024-04-01T22:00:39.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: Cancelled
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                  rateable: true
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 10
+                    cancellation_terms:
+                      - fulfillment_state:
+                          descriptor:
+                            code: PENDING
+                        cancellation_fee:
+                          percentage: '0.00'
+                    tags:
+                      - descriptor:
+                          code: RESCHEDULE_TERMS
+                        list:
+                          - descriptor:
+                              code: FULFILLMENT_STATE
+                            value: Pending
+                          - descriptor:
+                              code: RESCHEDULE_ELIGIBLE
+                            value: 'true'
+                          - descriptor:
+                              code: RESCHEDULE_FEE
+                            value: '0.00'
+                          - descriptor:
+                              code: RESCHEDULE_WITHIN
+                            value: PT1D
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Cancelled
+                    type: Online
+                    time:
+                      range:
+                        start: '2024-07-11T00:00:00.000Z'
+                        end: '2024-07-21T00:00:00.000Z'
+                    tracking: false
+                quote:
+                  price:
+                    currency: INR
+                    value: '6500'
+                  breakup:
+                    - title: Display ads
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: '10'
+                        price:
+                          currency: INR
+                          value: '500'
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '500'
+                      item:
+                        id: I1
+                    - title: creative generation
+                      id: ADDON01
+                      price:
+                        currency: INR
+                        value: '1000'
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    url: https://payment-gateway-url/payment-link
+                    params:
+                      amount: '6500'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Type
+                            value: percentage
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Amount
+                            value: '3'
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: PENDING
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: IN_TRANSIT
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                created_at: '2024-04-01T22:00:38.000Z'
+                updated_at: '2024-04-01T22:00:39.000Z'
+  - summary: Ads Services - Extend the Ad Duration
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to extend the number of days of a booked
+      transaction.
+    details:
+      - description: Order Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **CONFIRMATION FLOW**
+            B ->> BA: Confirms the Order
+            BA ->> SA: **/confirm** - Confirms the order by paying to create final digital contract
+            SA ->> BA: **/on_confirm** - Accepts the order 
+            BA ->> B: Confirms order
+      - description: Extension of Days
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp      
+            Note Over B,SA: **ORDER EXTENSION FLOW**
+            B ->> BA: Requests for extension
+            BA ->> SA: **/update** - Updates the order with updated days quantity
+            SA ->> BA: **/on_update** - Updates the appropriate objects in the order to faciliate the change and adds quote trail.
+            BA ->> B: Updates the order information
+    reference: if any
+    steps:
+      - summary: Seller accepts the order
+        api: on_confirm
+        description: Seller accepts the order
+        reference: if any
+        example: *ref_24
+      - summary: Buyer requests for extension of days
+        api: update
+        description: Buyer requests for extension of days
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV18
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M6
+              timestamp: '2024-06-10T22:01:20.000Z'
+              ttl: PT30S
+            message:
+              update_target: items
+              order:
+                id: O1
+                status: In-Progress
+                provider:
+                  id: P1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 15
+      - summary: Seller sends back the update of order
+        api: on_update (Extension Completed)
+        description: >-
+          Seller updated the order accordingly by changing quantity, breakup and
+          adding 1 more payment object to pickup the additional payment.
+          QUOTE_TRAIL tag group is also added for keeping track of changed
+          quotes.
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV18
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T2
+              message_id: M5
+              timestamp: '2024-04-01T22:00:39.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: In-Progress
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                  rateable: true
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 15
+                    cancellation_terms:
+                      - fulfillment_state:
+                          descriptor:
+                            code: PENDING
+                        cancellation_fee:
+                          percentage: '0.00'
+                    tags:
+                      - descriptor:
+                          code: RESCHEDULE_TERMS
+                        list:
+                          - descriptor:
+                              code: FULFILLMENT_STATE
+                            value: Pending
+                          - descriptor:
+                              code: RESCHEDULE_ELIGIBLE
+                            value: 'true'
+                          - descriptor:
+                              code: RESCHEDULE_FEE
+                            value: '0.00'
+                          - descriptor:
+                              code: RESCHEDULE_WITHIN
+                            value: PT1D
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Pending
+                    type: Online
+                    time:
+                      range:
+                        start: '2024-07-11T00:00:00.000Z'
+                        end: '2024-07-26T00:00:00.000Z'
+                    tracking: false
+                quote:
+                  price:
+                    currency: INR
+                    value: '9000'
+                  breakup:
+                    - title: Display ads
+                      price:
+                        currency: INR
+                        value: '5000'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: '15'
+                        price:
+                          currency: INR
+                          value: '500'
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '500'
+                      item:
+                        id: I1
+                    - title: creative generation
+                      id: ADDON01
+                      price:
+                        currency: INR
+                        value: '1000'
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    url: https://payment-gateway-url/payment-link
+                    params:
+                      amount: '6500'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Type
+                            value: percentage
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Amount
+                            value: '3'
+                  - id: P2
+                    collected_by: BPP
+                    url: https://payment-gateway-url/payment-link-2
+                    params:
+                      amount: '2500'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Type
+                            value: percentage
+                          - descriptor:
+                              code: Buyer_Finder_Fee_Amount
+                            value: '3'
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: PENDING
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: IN_TRANSIT
+                        short_desc: '002'
+                    cancellation_fee:
+                      percentage: '0.00'
+                      amount:
+                        currency: INR
+                        value: '0.00'
+                tags:
+                  - descriptor:
+                      code: QUOTE_TRAIL
+                    list:
+                      - descriptor:
+                          code: SEQ
+                        value: '1'
+                      - descriptor:
+                          code: AMOUNT
+                        value: '6500'
+                      - descriptor:
+                          code: UPDATED_TIMESTAMP
+                        value: '2024-04-01T22:00:39.000Z'
+                created_at: '2024-04-01T22:00:38.000Z'
+                updated_at: '2024-04-01T22:00:39.000Z'
+  - summary: Ads Bids & Auction - Real-Time Bidding
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to request for Ads services through auction. The
+      booking majorly happens in four phases of order processing flow, i.e.
+      Discovery of available services and service providers based on
+      serviceability, order, fulfillment and post-fulfillment.
     details:
       - description: Sequence Diagram for Bids and Auction
         mermaidGraph: |-
@@ -6564,17 +7425,6 @@ x-flows:
             SA ->> SA: Verifies Buyer ID
             SA ->> BA: **/on_select** - Seller verifies the Buyer's ID <br> whether he is allowed or not and send the status.
             BA ->> B: If Buyer is eligible, Seller confirms bid details
-      - description: Fee Requirement Check
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp
-            Note Over B,SA: **FEE REQUIREMENT CHECK**
-            B ->> BA: If a fee is required, buyer check payment
-            BA ->> SA: **/init** - Buyer requests participation with /init
-            SA ->> BA: **/on_init** - Seller responds with /on_init, <br> sending a payment gateway (PG) link for payment.
-            B ->> BA: Buyer makes the payment.
       - description: Bid Placement
         mermaidGraph: |-
           sequenceDiagram
@@ -6645,7 +7495,7 @@ x-flows:
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: &ref_24
+        example:
           summary: ''
           description: ''
           value:
@@ -6670,9 +7520,9 @@ x-flows:
               catalog:
                 fulfillments:
                   - id: F1
-                    type: ONLINE
+                    type: Online
                   - id: F2
-                    type: OFFLINE
+                    type: Seller-Fulfilled
                   - id: F3
                     type: BIDS
                     tags:
@@ -6790,9 +7640,6 @@ x-flows:
                                   code: TYPE_OF_AUCTION
                                 value: OPEN
                               - descriptor:
-                                  code: EARNEST_MONEY_DEPOSIT
-                                value: '5000.00'
-                              - descriptor:
                                   code: TICK_SIZE
                                 value: '50.00'
                               - descriptor:
@@ -6801,6 +7648,12 @@ x-flows:
                               - descriptor:
                                   code: BIDS_LIMITATION
                                 value: '5'
+                              - descriptor:
+                                  code: ADDITIONAL_TERMS
+                                value: https://www.auctionterms.com/abcd
+                              - descriptor:
+                                  code: ADDITIONAL_TERMS_MIME_TYPE
+                                value: application/pdf
                           - code: AD_SPECIFICATIONS
                             list:
                               - descriptor:
@@ -6846,6 +7699,21 @@ x-flows:
                               - descriptor:
                                   code: ALLOWED_DOMAINS
                                 value: Retail
+                          - descriptor:
+                              code: RESCHEDULE_TERMS
+                            list:
+                              - descriptor:
+                                  code: FULFILLMENT_STATE
+                                value: Pending
+                              - descriptor:
+                                  code: RESCHEDULE_ELIGIBLE
+                                value: 'true'
+                              - descriptor:
+                                  code: RESCHEDULE_FEE
+                                value: '0.00'
+                              - descriptor:
+                                  code: RESCHEDULE_WITHIN
+                                value: PT1D
                         category_ids:
                           - SRV18-1000
                         fulfillment_ids:
@@ -6854,6 +7722,12 @@ x-flows:
                           - L1
                         payment_ids:
                           - '2'
+                        cancellation_terms:
+                          - fulfillment_state:
+                              descriptor:
+                                code: PENDING
+                            cancellation_fee:
+                              percentage: '0.00'
                         add-ons:
                           - id: ADDON01
                             descriptor:
@@ -6873,7 +7747,7 @@ x-flows:
           Buyer selects the required Ads service with bidding fulfillment and
           elgible pre-decided ID
         reference: if any
-        example: &ref_25
+        example:
           summary: ''
           description: ''
           value:
@@ -6910,14 +7784,14 @@ x-flows:
                     add-ons:
                       - id: ADDON01
                 fulfillments:
-                  - type: ONLINE
+                  - type: Online
                 payments:
                   - type: PRE-FULFILLMENT
       - summary: Seller confirms the schedule and returns the quote for service
         api: on_select (Eligbility check)
         description: Seller confirms the requests and deposit payment quote
         reference: if any
-        example: &ref_26
+        example:
           summary: ''
           description: ''
           value:
@@ -6988,335 +7862,10 @@ x-flows:
                   - type: ON-FULFILLMENT
                     collected_by: BAP
       - summary: Buyer initialises the order for service
-        api: init (Participant fee intiation)
-        description: Buyer initialises the order and provides billing details
-        reference: if any
-        example: &ref_27
-          summary: ''
-          description: ''
-          value:
-            context:
-              domain: ONDC:SRV18
-              location:
-                city:
-                  code: std:080
-                country:
-                  code: IND
-              action: init
-              version: 2.0.0
-              bap_id: buyerapp.com
-              bap_uri: https://buyerapp.com/services
-              bpp_id: sellerapp.com
-              bpp_uri: https://sellerapp.com/services
-              transaction_id: T2
-              message_id: M3
-              timestamp: '2023-01-08T22:00:30.000Z'
-              ttl: PT30S
-            message:
-              order:
-                provider:
-                  id: P1
-                  locations:
-                    - id: L1
-                  ttl: P1D
-                items:
-                  - id: I1
-                    fulfillment_ids:
-                      - F3
-                    quantity:
-                      selected:
-                        count: 1
-                billing:
-                  name: ONDC buyer
-                  address: >-
-                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
-                    Bengaluru, Karnataka 560001
-                  state:
-                    name: Karnataka
-                  city:
-                    name: Bengaluru
-                  tax_id: XXXXXXXXXXXXXXX
-                  email: nobody@nomail.com
-                  phone: '9886098860'
-                fulfillments:
-                  - id: FF3
-                    type: BIDS
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                payments:
-                  - type: ON-FULFILLMENT
-                tags:
-                  - descriptor:
-                      code: BUYER_ID
-                    list:
-                      - descriptor:
-                          code: BUYER_ID_CODE
-                        value: Any seller pre-decided code name
-                      - descriptor:
-                          code: BUYER_ID_NO
-                        value: xxxxxxxxxxxxxxx
-      - summary: Seller provides the final quotation for the service
-        api: on_init (Participant fee payment url link)
-        description: Seller provides the final quotation
-        reference: if any
-        example: &ref_28
-          summary: ''
-          description: ''
-          value:
-            context:
-              domain: ONDC:AGR11
-              location:
-                city:
-                  code: std:080
-                country:
-                  code: IND
-              action: on_init
-              version: 2.0.0
-              bap_id: buyerapp.com
-              bap_uri: https://buyerapp.com/services
-              bpp_id: sellerapp.com
-              bpp_uri: https://sellerapp.com/services
-              transaction_id: T1
-              message_id: M3
-              timestamp: '2024-06-10T22:00:41.000Z'
-              ttl: PT30S
-            message:
-              order:
-                provider:
-                  id: P1
-                locations:
-                  - id: L1
-                items:
-                  - id: I1
-                    location_ids:
-                      - L1
-                    fulfillment_ids:
-                      - F3
-                billing:
-                  name: ONDC buyer
-                  address: >-
-                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
-                    Bengaluru, Karnataka 560001
-                  state:
-                    name: Karnataka
-                  city:
-                    name: Bengaluru
-                  tax_id: XXXXXXXXXXXXXXX
-                  email: nobody@nomail.com
-                  phone: '9886098860'
-                fulfillments:
-                  - id: FF3
-                    type: BIDS
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                quote:
-                  price:
-                    currency: INR
-                    value: '5000.00'
-                  breakup:
-                    - title: Earnest Money Deposit
-                      price:
-                        currency: INR
-                        value: '5000.00'
-                      item:
-                        id: I1
-                      tags:
-                        - descriptor:
-                            code: TITLE
-                          list:
-                            - descriptor:
-                                code: type
-                              value: earnest_money_deposit
-                  ttl: P1D
-                payments:
-                  - id: PY1
-                    collected_by: BAP
-                    url: https://abc.com/take_payment
-                    params:
-                      amount: '5000.00'
-                      currency: INR
-                      bank_account_number: xxxxxxxx
-                      virtual_payment_address: xxx@xxxx
-                    status: NOT-PAID
-                    type: PRE-FULFILLMENT
-                    tags:
-                      - descriptor:
-                          code: Settlement_Details
-                        list:
-                          - descriptor:
-                              code: Counterparty
-                            value: BPP
-                          - descriptor:
-                              code: Mode
-                            value: UPI
-                          - descriptor:
-                              code: Beneficiary_Name
-                            value: xxxxx
-                          - descriptor:
-                              code: Bank_Account_No
-                            value: xxxxx
-                          - descriptor:
-                              code: Ifsc_Code
-                            value: xxxxxxx
-                          - descriptor:
-                              code: UPI_Address
-                            value: xxxxxxx
-                cancellation_terms:
-                  - fulfillment_state:
-                      descriptor:
-                        code: Pending
-                    reason_required: false
-                    cancellation_fee:
-                      percentage: '0'
-                      amount:
-                        currency: IND
-                        value: '0'
-                  - fulfillment_state:
-                      descriptor:
-                        code: Awarded
-                    reason_required: false
-                    cancellation_fee:
-                      percentage: '10'
-                      amount:
-                        currency: IND
-                        value: '100'
-      - summary: Seller provides the final quotation for the service
-        api: on_status (Payment confirmation)
-        description: Seller provides the confirmation of the payment
-        reference: if any
-        example: &ref_29
-          summary: ''
-          description: ''
-          value:
-            context:
-              domain: ONDC:SRV18
-              location:
-                city:
-                  code: std:080
-                country:
-                  code: IND
-              action: on_status
-              version: 2.0.0
-              bap_id: buyerapp.com
-              bap_uri: https://buyerapp.com/services
-              bpp_id: sellerapp.com
-              bpp_uri: https://sellerapp.com/services
-              transaction_id: T1
-              message_id: M99
-              timestamp: '2024-06-10T22:00:41.400Z'
-              ttl: PT30S
-            message:
-              order:
-                provider:
-                  id: P1
-                locations:
-                  - id: L1
-                items:
-                  - id: I1
-                    location_ids:
-                      - L1
-                    fulfillment_ids:
-                      - F3
-                billing:
-                  name: ONDC buyer
-                  address: >-
-                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
-                    Bengaluru, Karnataka 560001
-                  state:
-                    name: Karnataka
-                  city:
-                    name: Bengaluru
-                  tax_id: XXXXXXXXXXXXXXX
-                  email: nobody@nomail.com
-                  phone: '9886098860'
-                fulfillments:
-                  - id: F3
-                quote:
-                  price:
-                    currency: INR
-                    value: '5000.00'
-                  breakup:
-                    - title: earnest_money_deposit
-                      price:
-                        currency: INR
-                        value: '5000.00'
-                      item:
-                        id: I1
-                      tags:
-                        - descriptor:
-                            code: TITLE
-                          list:
-                            - descriptor:
-                                code: type
-                              value: earnest_money_deposit
-                  ttl: P1D
-                payments:
-                  - id: PY1
-                    collected_by: BAP
-                    url: https://abc.com/take_payment
-                    params:
-                      amount: '5000.00'
-                      currency: INR
-                      bank_account_number: xxxxxxxx
-                      virtual_payment_address: xxx@xxxx
-                    status: PAID
-                    type: PRE-FULFILLMENT
-                    tags:
-                      - descriptor:
-                          code: Settlement_Details
-                        list:
-                          - descriptor:
-                              code: Counterparty
-                            value: BPP
-                          - descriptor:
-                              code: Mode
-                            value: UPI
-                          - descriptor:
-                              code: Beneficiary_Name
-                            value: xxxxx
-                          - descriptor:
-                              code: Bank_Account_No
-                            value: xxxxx
-                          - descriptor:
-                              code: Ifsc_Code
-                            value: xxxxxxx
-                          - descriptor:
-                              code: UPI_Address
-                            value: xxxxxxx
-                cancellation_terms:
-                  - fulfillment_state:
-                      descriptor:
-                        code: Pending
-                    reason_required: false
-                    cancellation_fee:
-                      percentage: '0'
-                      amount:
-                        currency: IND
-                        value: '0'
-                  - fulfillment_state:
-                      descriptor:
-                        code: Awarded
-                    reason_required: false
-                    cancellation_fee:
-                      percentage: '10'
-                      amount:
-                        currency: IND
-                        value: '100'
-      - summary: Buyer initialises the order for service
         api: init (Bid placement)
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: &ref_30
+        example:
           summary: ''
           description: ''
           value:
@@ -7394,7 +7943,7 @@ x-flows:
         api: on_init (Bid placement confirmation)
         description: Seller provides the final quotation
         reference: if any
-        example: &ref_31
+        example:
           summary: ''
           description: ''
           value:
@@ -7581,7 +8130,7 @@ x-flows:
         api: confirm (Confirm Bid Order)
         description: Buyer confirms the order
         reference: if any
-        example: &ref_32
+        example:
           summary: ''
           description: ''
           value:
@@ -7770,7 +8319,7 @@ x-flows:
         api: on_confirm (Confirm Bid Order & Placement)
         description: Seller accepts the order
         reference: if any
-        example: &ref_33
+        example:
           summary: ''
           description: ''
           value:
@@ -7966,7 +8515,7 @@ x-flows:
         api: on_status
         description: Seller send the bid order details and the highest bid at the moment
         reference: if any
-        example: &ref_34
+        example:
           summary: ''
           description: ''
           value:
@@ -8158,7 +8707,7 @@ x-flows:
         api: update (Update bid)
         description: Buyer request to update the bid amount
         reference: if any
-        example: &ref_35
+        example:
           summary: ''
           description: ''
           value:
@@ -8200,7 +8749,7 @@ x-flows:
           Seller accepts the bid increment and sends a new payment object with
           updated quote
         reference: if any
-        example: &ref_36
+        example:
           summary: ''
           description: ''
           value:
@@ -8423,7 +8972,7 @@ x-flows:
         api: on_update (Awarded)
         description: Seller sends update back with status changed to AWARDED
         reference: if any
-        example: &ref_37
+        example:
           summary: ''
           description: ''
           value:
@@ -8648,7 +9197,7 @@ x-flows:
           Seller sends update back with status changed to NOT_AWARDED and
           cancels order
         reference: if any
-        example: &ref_38
+        example:
           summary: ''
           description: ''
           value:
@@ -8867,526 +9416,6 @@ x-flows:
                       amount:
                         currency: IND
                         value: '100'
-  - summary: Ads Bids & Auction - Open
-    description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to request for Ads services. The booking majorly
-      happens in four phases of order processing flow, i.e. Discovery of
-      available services and service providers based on serviceability, order,
-      fulfillment and post-fulfillment.
-    details:
-      - description: Sequence Diagram for Bids and Auction
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant G as Gateway
-            participant SA1 as SellerApp1
-            participant SA2 as SellerApp2
-            
-            Note Over B,SA2: **SEARCH FLOW**
-            B ->> BA: Buyer initiates an exploratory search for Bids and Auctions.
-            BA ->> G: **/search** - Search by city for a commodity and <br>additional parameters
-            G ->> SA1: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
-            G ->> SA2: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
-            SA1 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with their details, including floor price, Start/End Time, Bid Increment
-            SA2 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with their details, including floor price, Start/End Time, Bid Increment
-            Note Over BA,SA1: Buyer now has the option to choose the <br>Commodity bids from either Seller 1 or Seller 2 or both
-            BA ->> B: Shows all the avilable bids <br>options from sellers
-      - description: Auction Selection
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp
-            Note Over B,SA: **SELECT FLOW**
-            B ->> BA: Buyer selects an auction.
-            BA ->> SA: **/select** - Buyer sends a /select request to <br> Seller, along with the Buyer's ID.
-            SA ->> SA: Verifies Buyer ID
-            SA ->> BA: **/on_select** - Seller verifies the Buyer's ID <br> whether he is allowed or not and send the status.
-            BA ->> B: If Buyer is eligible, Seller confirms bid details
-      - description: Fee Requirement Check
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp
-            Note Over B,SA: **FEE REQUIREMENT CHECK**
-            B ->> BA: If a fee is required, buyer check payment
-            BA ->> SA: **/init** - Buyer requests participation with /init
-            SA ->> BA: **/on_init** - Seller responds with /on_init, <br> sending a payment gateway (PG) link for payment.
-            B ->> BA: Buyer makes the payment.
-      - description: Bid Placement
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp
-            Note Over B,SA: **BID PLACEMENT FLOW**
-            B ->> BA: Buyer places a bid.
-            BA ->> SA: **/init** - Buyer sends /init, indicating bid placement. <br> The bid price will be shared in the intent.
-            SA ->> BA: **/on_init** - Seller acknowledges the bid placement with /on_init.
-            BA ->> B: Confirms Bid Placement
-      - description: Bid Confirmation
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp
-            Note Over B,SA: **CONFIRMATION FLOW**
-            B ->> BA: Confirms the Order
-            BA ->> SA: **/confirm** - Buyer confirms the order
-            SA ->> BA: **/on_confirm** - Seller responds with /on_confirm, <br> creating an Order ID with the bid state set to "Placed."
-            BA ->> B: Confirms the bids
-      - description: Fulfillment
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp 
-            Note Over B,SA: **BIDS STATUS FLOW**
-            B ->> BA: Checks the bid status
-            BA ->> SA: **/status** - Enquire bid status <br>or maximum bid price (if open bid)
-            SA ->> BA: **/on_status** - Seller responds with the highest price
-            BA ->> B: Updates the latest status
-      - description: Update Requests
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp 
-            Note Over B,SA: **BIDS UPDATES FLOW**
-            B ->> BA: Buyer requests updates with /update
-            BA ->> SA: **/update** - Buyer requests updates
-            SA ->> BA: **/on_update** - Seller responds with /on_update, updating with the highest price
-            BA ->> B: Updates the latest status
-            B ->> BA: Buyer may update an existing bid price with another /update request.
-      - description: Bid Outcome
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp 
-            Note Over B,SA: **BID OUTCOME FLOW**
-            B ->> BA: Buyer requests an update on the auction
-            BA ->> SA: **/update** - Buyer requests an update on the auction
-            SA ->> BA: **/on_update** - If Buyer wins the bid, Seller responds with /on_update,<br> setting the bid state to "Awarded."
-            SA ->> BA: **/on_update** - If Buyer loses, Seller responds with /on_update, <br> setting the bid state to "Not Awarded" and indicating the highest bid amount.
-            BA ->> B: Updates the latest bid outcome
-    reference: if any
-    steps:
-      - summary: Search based on the intent for buying Ads service
-        api: search
-        description: >-
-          Search intent sent by the buyer based on the particular Ads service
-          required
-        reference: if any
-        example: *ref_14
-      - summary: Returns the catalog specific to the search intent
-        api: on_search
-        description: Returns the catalog specific to the search intent
-        reference: if any
-        example: *ref_24
-      - summary: Buyer selects the required Ads service
-        api: select (Eligbility check)
-        description: >-
-          Buyer selects the required Ads service with bidding fulfillment and
-          elgible pre-decided ID
-        reference: if any
-        example: *ref_25
-      - summary: Seller confirms the schedule and returns the quote for service
-        api: on_select (Eligbility check)
-        description: Seller confirms the requests and deposit payment quote
-        reference: if any
-        example: *ref_26
-      - summary: Buyer initialises the order for service
-        api: init (Participant fee intiation)
-        description: Buyer initialises the order and provides billing details
-        reference: if any
-        example: *ref_27
-      - summary: Seller provides the final quotation for the service
-        api: on_init (Participant fee payment url link)
-        description: Seller provides the final quotation
-        reference: if any
-        example: *ref_28
-      - summary: Seller provides the final quotation for the service
-        api: on_status (Payment confirmation)
-        description: Seller provides the confirmation of the payment
-        reference: if any
-        example: *ref_29
-      - summary: Buyer initialises the order for service
-        api: init (Bid placement)
-        description: Buyer initialises the order and provides billing details
-        reference: if any
-        example: *ref_30
-      - summary: Seller provides the final quotation for the service
-        api: on_init (Bid placement confirmation)
-        description: Seller provides the final quotation
-        reference: if any
-        example: *ref_31
-      - summary: Buyer confirms the order
-        api: confirm (Confirm Bid Order)
-        description: Buyer confirms the order
-        reference: if any
-        example: *ref_32
-      - summary: Seller accepts the order
-        api: on_confirm (Confirm Bid Order & Placement)
-        description: Seller accepts the order
-        reference: if any
-        example: *ref_33
-      - summary: Buyer requests for status
-        api: status
-        description: Buyer requests for status with order id
-        reference: if any
-        example: *ref_17
-      - summary: Seller sends the highest bid back
-        api: on_status
-        description: Seller send the bid order details and the highest bid at the moment
-        reference: if any
-        example: *ref_34
-      - summary: Buyer updates bid
-        api: update (Update bid)
-        description: Buyer request to update the bid amount
-        reference: if any
-        example: *ref_35
-      - summary: Seller accepts the bid increment
-        api: on_update (Bid increment confirm)
-        description: >-
-          Seller accepts the bid increment and sends a new payment object with
-          updated quote
-        reference: if any
-        example: *ref_36
-      - summary: Seller awards the bid
-        api: on_update (Awarded)
-        description: Seller sends update back with status changed to AWARDED
-        reference: if any
-        example: *ref_37
-      - summary: Seller sends not awarded
-        api: on_update (Not Awarded)
-        description: >-
-          Seller sends update back with status changed to NOT_AWARDED and
-          cancels order
-        reference: if any
-        example: *ref_38
-  - summary: Ads Bids & Auction - Rejection due to Bid Increment Failure
-    description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to request for Ads services. The booking majorly
-      happens in four phases of order processing flow, i.e. Discovery of
-      available services and service providers based on serviceability, order,
-      fulfillment and post-fulfillment.
-    details:
-      - description: Sequence Diagram for Bids and Auction
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant G as Gateway
-            participant SA1 as SellerApp1
-            participant SA2 as SellerApp2
-            
-            Note Over B,SA2: **SEARCH FLOW**
-            B ->> BA: Buyer initiates an exploratory search for Bids and Auctions.
-            BA ->> G: **/search** - Search by city for a commodity and <br>additional parameters
-            G ->> SA1: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
-            G ->> SA2: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
-            SA1 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with their details, including floor price, Start/End Time, Bid Increment
-            SA2 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with their details, including floor price, Start/End Time, Bid Increment
-            Note Over BA,SA1: Buyer now has the option to choose the <br>Commodity bids from either Seller 1 or Seller 2 or both
-            BA ->> B: Shows all the avilable bids <br>options from sellers
-      - description: Auction Selection
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp
-            Note Over B,SA: **SELECT FLOW**
-            B ->> BA: Buyer selects an auction.
-            BA ->> SA: **/select** - Buyer sends a /select request to <br> Seller, along with the Buyer's ID.
-            SA ->> SA: Verifies Buyer ID
-            SA ->> BA: **/on_select** - Seller verifies the Buyer's ID <br> whether he is allowed or not and send the status.
-            BA ->> B: If Buyer is eligible, Seller confirms bid details
-      - description: Fee Requirement Check
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp
-            Note Over B,SA: **FEE REQUIREMENT CHECK**
-            B ->> BA: If a fee is required, buyer check payment
-            BA ->> SA: **/init** - Buyer requests participation with /init
-            SA ->> BA: **/on_init** - Seller responds with /on_init, <br> sending a payment gateway (PG) link for payment.
-            B ->> BA: Buyer makes the payment.
-      - description: Bid Placement
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp
-            Note Over B,SA: **BID PLACEMENT FLOW**
-            B ->> BA: Buyer places a bid.
-            BA ->> SA: **/init** - Buyer sends /init, indicating bid placement. <br> The bid price will be shared in the intent.
-            SA ->> BA: **/on_init** - Seller acknowledges the bid placement with /on_init.
-            BA ->> B: Confirms Bid Placement
-      - description: Bid Confirmation
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp
-            Note Over B,SA: **CONFIRMATION FLOW**
-            B ->> BA: Confirms the Order
-            BA ->> SA: **/confirm** - Buyer confirms the order
-            SA ->> BA: **/on_confirm** - Seller responds with /on_confirm, <br> creating an Order ID with the bid state set to "Placed."
-            BA ->> B: Confirms the bids
-      - description: Fulfillment
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp 
-            Note Over B,SA: **BIDS STATUS FLOW**
-            B ->> BA: Checks the bid status
-            BA ->> SA: **/status** - Enquire bid status <br>or maximum bid price (if open bid)
-            SA ->> BA: **/on_status** - Seller responds with the highest price
-            BA ->> B: Updates the latest status
-      - description: Update Requests
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp 
-            Note Over B,SA: **BIDS UPDATES FLOW**
-            B ->> BA: Buyer requests updates with /update
-            BA ->> SA: **/update** - Buyer requests updates
-            SA ->> BA: **/on_update** - Seller responds with /on_update, updating with the highest price
-            BA ->> B: Updates the latest status
-            B ->> BA: Buyer may update an existing bid price with another /update request.
-      - description: Bid Outcome
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp 
-            Note Over B,SA: **BID OUTCOME FLOW**
-            B ->> BA: Buyer requests an update on the auction
-            BA ->> SA: **/update** - Buyer requests an update on the auction
-            SA ->> BA: **/on_update** - If Buyer wins the bid, Seller responds with /on_update,<br> setting the bid state to "Awarded."
-            SA ->> BA: **/on_update** - If Buyer loses, Seller responds with /on_update, <br> setting the bid state to "Not Awarded" and indicating the highest bid amount.
-            BA ->> B: Updates the latest bid outcome
-    reference: if any
-    steps:
-      - summary: Search based on the intent for buying Ads service
-        api: search
-        description: >-
-          Search intent sent by the buyer based on the particular Ads service
-          required
-        reference: if any
-        example: *ref_14
-      - summary: Returns the catalog specific to the search intent
-        api: on_search
-        description: Returns the catalog specific to the search intent
-        reference: if any
-        example: *ref_24
-      - summary: Buyer selects the required Ads service
-        api: select (Eligbility check)
-        description: >-
-          Buyer selects the required Ads service with bidding fulfillment and
-          elgible pre-decided ID
-        reference: if any
-        example: *ref_25
-      - summary: Seller confirms the schedule and returns the quote for service
-        api: on_select (Eligbility check)
-        description: Seller confirms the requests and deposit payment quote
-        reference: if any
-        example: *ref_26
-      - summary: Buyer initialises the order for service
-        api: init (Participant fee intiation)
-        description: Buyer initialises the order and provides billing details
-        reference: if any
-        example: *ref_27
-      - summary: Seller provides the final quotation for the service
-        api: on_init (Participant fee payment url link)
-        description: Seller provides the final quotation
-        reference: if any
-        example: *ref_28
-      - summary: Seller provides the final quotation for the service
-        api: on_status (Payment confirmation)
-        description: Seller provides the confirmation of the payment
-        reference: if any
-        example: *ref_29
-      - summary: Buyer initialises the order for service
-        api: init (Bid placement)
-        description: Buyer initialises the order and provides billing details
-        reference: if any
-        example: *ref_30
-      - summary: Seller provides the final quotation for the service
-        api: on_init (Bid placement confirmation)
-        description: Seller provides the final quotation
-        reference: if any
-        example: *ref_31
-      - summary: Buyer confirms the order
-        api: confirm (Confirm Bid Order)
-        description: Buyer confirms the order
-        reference: if any
-        example: *ref_32
-      - summary: Seller accepts the order
-        api: on_confirm (Confirm Bid Order & Placement)
-        description: Seller accepts the order
-        reference: if any
-        example: *ref_33
-      - summary: Buyer requests for status
-        api: status
-        description: Buyer requests for status with order id
-        reference: if any
-        example: *ref_17
-      - summary: Seller sends the highest bid back
-        api: on_status
-        description: Seller send the bid order details and the highest bid at the moment
-        reference: if any
-        example: *ref_34
-      - summary: Buyer updates bid
-        api: update (Update bid)
-        description: Buyer request to update the bid amount
-        reference: if any
-        example: *ref_35
-      - summary: Seller rejects the bid increment
-        api: on_update (Sellers rejects the increment)
-        description: Seller rejects the increment due to another bid with maximum amount
-        reference: if any
-        example: *ref_36
-  - summary: Ads Bids & Auction - Rejection due to eligibility
-    description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to request for Ads services. The booking majorly
-      happens in four phases of order processing flow, i.e. Discovery of
-      available services and service providers based on serviceability, order,
-      fulfillment and post-fulfillment.
-    details:
-      - description: Sequence Diagram for Bids and Auction
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant G as Gateway
-            participant SA1 as SellerApp1
-            participant SA2 as SellerApp2
-            
-            Note Over B,SA2: **SEARCH FLOW**
-            B ->> BA: Buyer initiates an exploratory search for Bids and Auctions.
-            BA ->> G: **/search** - Search by city for a commodity and <br>additional parameters
-            G ->> SA1: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
-            G ->> SA2: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
-            SA1 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with their details, including floor price, Start/End Time, Bid Increment
-            SA2 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with their details, including floor price, Start/End Time, Bid Increment
-            Note Over BA,SA1: Buyer now has the option to choose the <br>Commodity bids from either Seller 1 or Seller 2 or both
-            BA ->> B: Shows all the avilable bids <br>options from sellers
-      - description: Auction Selection
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp
-            Note Over B,SA: **SELECT FLOW**
-            B ->> BA: Buyer selects an auction.
-            BA ->> SA: **/select** - Buyer sends a /select request to <br> Seller, along with the Buyer's ID.
-            SA ->> SA: Verifies Buyer ID
-            SA ->> BA: **/on_select** - Seller verifies the Buyer's ID <br> whether he is allowed or not and send the status.
-            BA ->> B: If Buyer is eligible, Seller confirms bid details
-      - description: Fee Requirement Check
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp
-            Note Over B,SA: **FEE REQUIREMENT CHECK**
-            B ->> BA: If a fee is required, buyer check payment
-            BA ->> SA: **/init** - Buyer requests participation with /init
-            SA ->> BA: **/on_init** - Seller responds with /on_init, <br> sending a payment gateway (PG) link for payment.
-            B ->> BA: Buyer makes the payment.
-      - description: Bid Placement
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp
-            Note Over B,SA: **BID PLACEMENT FLOW**
-            B ->> BA: Buyer places a bid.
-            BA ->> SA: **/init** - Buyer sends /init, indicating bid placement. <br> The bid price will be shared in the intent.
-            SA ->> BA: **/on_init** - Seller acknowledges the bid placement with /on_init.
-            BA ->> B: Confirms Bid Placement
-      - description: Bid Confirmation
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp
-            Note Over B,SA: **CONFIRMATION FLOW**
-            B ->> BA: Confirms the Order
-            BA ->> SA: **/confirm** - Buyer confirms the order
-            SA ->> BA: **/on_confirm** - Seller responds with /on_confirm, <br> creating an Order ID with the bid state set to "Placed."
-            BA ->> B: Confirms the bids
-      - description: Fulfillment
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp 
-            Note Over B,SA: **BIDS STATUS FLOW**
-            B ->> BA: Checks the bid status
-            BA ->> SA: **/status** - Enquire bid status <br>or maximum bid price (if open bid)
-            SA ->> BA: **/on_status** - Seller responds with the highest price
-            BA ->> B: Updates the latest status
-      - description: Update Requests
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp 
-            Note Over B,SA: **BIDS UPDATES FLOW**
-            B ->> BA: Buyer requests updates with /update
-            BA ->> SA: **/update** - Buyer requests updates
-            SA ->> BA: **/on_update** - Seller responds with /on_update, updating with the highest price
-            BA ->> B: Updates the latest status
-            B ->> BA: Buyer may update an existing bid price with another /update request.
-      - description: Bid Outcome
-        mermaidGraph: |-
-          sequenceDiagram
-            participant B as Buyer
-            participant BA as BuyerApp
-            participant SA as SellerApp 
-            Note Over B,SA: **BID OUTCOME FLOW**
-            B ->> BA: Buyer requests an update on the auction
-            BA ->> SA: **/update** - Buyer requests an update on the auction
-            SA ->> BA: **/on_update** - If Buyer wins the bid, Seller responds with /on_update,<br> setting the bid state to "Awarded."
-            SA ->> BA: **/on_update** - If Buyer loses, Seller responds with /on_update, <br> setting the bid state to "Not Awarded" and indicating the highest bid amount.
-            BA ->> B: Updates the latest bid outcome
-    reference: if any
-    steps:
-      - summary: Search based on the intent for buying Ads service
-        api: search
-        description: >-
-          Search intent sent by the buyer based on the particular Ads service
-          required
-        reference: if any
-        example: *ref_14
-      - summary: Returns the catalog specific to the search intent
-        api: on_search
-        description: Returns the catalog specific to the search intent
-        reference: if any
-        example: *ref_24
-      - summary: Buyer selects the required Ads service
-        api: select (Eligbility check)
-        description: >-
-          Buyer selects the required Ads service with bidding fulfillment and
-          elgible pre-decided ID
-        reference: if any
-        example: *ref_25
-      - summary: Seller fails the eligibility
-        api: on_select (Failed eligbility)
-        description: Seller fails the eligibility check
-        reference: if any
-        example: *ref_26
 x-examples:
   Services - Ads Services:
     summary: Ads Services
@@ -9500,9 +9529,9 @@ x-examples:
                 catalog:
                   fulfillments:
                     - id: '1'
-                      type: ONLINE
+                      type: Online
                     - id: '2'
-                      type: OFFLINE
+                      type: Seller-Fulfilled
                   payments:
                     - id: '1'
                       type: PRE-FULFILLMENT
@@ -9680,6 +9709,21 @@ x-examples:
                                 - descriptor:
                                     code: ALLOWED_DOMAINS
                                   value: Retail
+                            - descriptor:
+                                code: RESCHEDULE_TERMS
+                              list:
+                                - descriptor:
+                                    code: FULFILLMENT_STATE
+                                  value: Pending
+                                - descriptor:
+                                    code: RESCHEDULE_ELIGIBLE
+                                  value: 'true'
+                                - descriptor:
+                                    code: RESCHEDULE_FEE
+                                  value: '0.00'
+                                - descriptor:
+                                    code: RESCHEDULE_WITHIN
+                                  value: PT1D
                           category_ids:
                             - SRV18-1000
                           fulfillment_ids:
@@ -9688,6 +9732,12 @@ x-examples:
                             - L1
                           payment_ids:
                             - '2'
+                          cancellation_terms:
+                            - fulfillment_state:
+                                descriptor:
+                                  code: PENDING
+                              cancellation_fee:
+                                percentage: '0.00'
                           add-ons:
                             - id: ADDON01
                               descriptor:
@@ -10027,7 +10077,7 @@ x-examples:
                       add-ons:
                         - id: ADDON01
                   fulfillments:
-                    - type: ONLINE
+                    - type: Online
                   payments:
                     - type: PRE-FULFILLMENT
       on_select:
@@ -10069,7 +10119,7 @@ x-examples:
                         - id: ADDON01
                   fulfillments:
                     - id: F1
-                      type: ONLINE
+                      type: Online
                   quote:
                     price:
                       currency: INR
@@ -10151,7 +10201,7 @@ x-examples:
                     phone: '9886098860'
                   fulfillments:
                     - id: F1
-                      type: ONLINE
+                      type: Online
                   payments:
                     - type: PRE-FULFILLMENT
       on_init:
@@ -10205,7 +10255,7 @@ x-examples:
                     phone: '9886098860'
                   fulfillments:
                     - id: F1
-                      type: ONLINE
+                      type: Online
                       time:
                         range:
                           start: '2024-07-11T00:00:00.000Z'
@@ -10282,7 +10332,7 @@ x-examples:
                                 code: Buyer_Finder_Fee_Amount
                               value: '3'
 x-attributes:
-  Healthcare Services:
+  Ads Services:
     attribute_set:
       search:
         parent: true
@@ -10346,9 +10396,11 @@ x-attributes:
             fulfillment:
               parent: true
               type:
-                description: fulfillment type for the service, enum - "ONLINE, OFFLINE"
+                description: >-
+                  fulfillment type for the service, enum - "Online,
+                  Seller-Fulfilled"
                 required: required
-                usage: ONLINE
+                usage: Online
                 reference: if any
             payment:
               parent: true
@@ -10374,10 +10426,10 @@ x-attributes:
                 reference: if any
               type:
                 description: >-
-                  fulfillment type of the service, enum - "Buyer-Fulfilled,
+                  fulfillment type of the service, enum - "Online,
                   Seller-Fulfilled"
                 required: required
-                usage: Buyer-Fulfilled
+                usage: Seller-Fulfilled
                 reference: if any
             payments:
               parent: true
@@ -10647,7 +10699,7 @@ x-attributes:
                     title of the service charges enum - LFT Test, tax, discount,
                     convenience_fee
                   required: required
-                  usage: LFT Test
+                  usage: Ads Space
                   reference: if any
                 price:
                   description: price of the quote breakup type
@@ -10707,7 +10759,7 @@ x-attributes:
                     title of the service charges enum - LFT Test, tax, discount,
                     convenience_fee
                   required: required
-                  usage: LFT Test
+                  usage: Ads Space
                   reference: if any
             payments:
               parent: true

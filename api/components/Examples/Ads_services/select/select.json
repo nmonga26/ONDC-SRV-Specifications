@@ -48,7 +48,7 @@
       ],
       "fulfillments": [
         {
-          "type": "ONLINE"
+          "type": "Online"
         }
       ],
       "payments": [

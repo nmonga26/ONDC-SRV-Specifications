@@ -35,7 +35,7 @@ value:
             - id: ADDON01
       fulfillments:
         - id: F1
-          type: ONLINE
+          type: Online
       quote:
         price:
           currency: INR

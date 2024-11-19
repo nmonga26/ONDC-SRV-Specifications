@@ -10,9 +10,9 @@ message:
         usage: "1"
         reference: if any
       type:
-        description: fulfillment type of the service, enum - "Buyer-Fulfilled, Seller-Fulfilled"
+        description: fulfillment type of the service, enum - "Online, Seller-Fulfilled"
         required: required
-        usage: "Buyer-Fulfilled"
+        usage: "Seller-Fulfilled"
         reference: if any
     payments:
       parent: true

@@ -1,9 +1,9 @@
 fulfillments:
   type:
-    - code: ONLINE
+    - code: Online
       description: When the fulfillment is done through online means
       reference: <PR/Issue/Discussion Links md format text>
-    - code: OFFLINE
+    - code: Seller-Fulfilled
       description: When the fulfillment is done in offline mode
       reference: <PR/Issue/Discussion Links md format text>
   state:

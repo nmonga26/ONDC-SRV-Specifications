@@ -18,7 +18,7 @@ message:
         title:
           description: title of the service charges enum - LFT Test, tax, discount, convenience_fee
           required: required
-          usage: "LFT Test"
+          usage: "Ads Space"
           reference: if any
     payments:
       parent: true

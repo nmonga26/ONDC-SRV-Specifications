@@ -1,0 +1,46 @@
+summary: Ads Services - Cancel after Order Confirmation
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to cancel a booked transaction.
+details:
+  - description: Order Confirmation
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp
+        Note Over B,SA: **CONFIRMATION FLOW**
+        B ->> BA: Confirms the Order
+        BA ->> SA: **/confirm** - Confirms the order by paying to create final digital contract
+        SA ->> BA: **/on_confirm** - Accepts the order 
+        BA ->> B: Confirms order
+  - description: Cancellation
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp      
+        Note Over B,SA: **ORDER CANCELLATION FLOW**
+        B ->> BA: Cancels the Order
+        BA ->> SA: **/cancels** - Requests for cancelling the order
+        SA ->> BA: **/on_cancel** - Confirms cancellation
+        BA ->> B: Shows status
+
+reference: if any
+steps:
+  - summary: Seller accepts the order
+    api: on_confirm
+    description: Seller accepts the order
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_confirm/on_confirm.yaml"
+  - summary: Buyer app cancels the order
+    api: cancel
+    description: Seller requests for cancellation of order with cancellation reason id
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/cancel/cancel.yaml"
+  - summary: Seller cancels the order
+    api: on_cancel
+    description: Seller sends back the update of the cancelled order and any settlement/refund will be handled by RSF
+    reference: if any
+    example:
+      $ref: "../../Examples/Ads_services_yaml/on_cancel/on_cancel.yaml"
