@@ -1,10 +1,10 @@
 fulfillments:
   type:
-    - code: ONLINE
-      description: When the fulfillment is done through online means
+    - code: Buyer-Fulfilled
+      description: When the fulfillment is performed by the buyer by coming to the seller appointed location
       reference: <PR/Issue/Discussion Links md format text>
-    - code: OFFLINE
-      description: When the fulfillment is done in offline mode
+    - code: Seller-Fulfilled
+      description: When the fulfillment is performed by the seller by coming to the buyer
       reference: <PR/Issue/Discussion Links md format text>
   state:
     descriptor:

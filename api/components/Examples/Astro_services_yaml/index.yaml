@@ -1,0 +1,34 @@
+search:
+  examples:
+    - $ref: ./search/search_by_city.yaml
+    - $ref: ./search/search_by_category.yaml
+on_search:
+  examples:
+    - $ref: ./on_search/on_search.yaml
+select:
+  examples:
+    - $ref: ./select/select.yaml
+on_select:
+  examples:
+    - $ref: ./on_select/on_select.yaml
+init:
+  examples:
+    - $ref: ./init/init.yaml
+on_init:
+  examples:
+    - $ref: ./on_init/on_init.yaml
+confirm:
+  examples:
+    - $ref: ./confirm/confirm.yaml
+on_confirm:
+  examples:
+    - $ref: ./on_confirm/on_confirm.yaml
+status:
+  examples:
+    - $ref: ./status/status.yaml
+on_status:
+  examples:
+    - $ref: ./on_status/on_status_assigned.yaml
+    - $ref: ./on_status/on_status_completed.yaml
+    - $ref: ./on_status/on_status_in_transit.yaml
+    - $ref: ./on_status/on_status_at_location.yaml

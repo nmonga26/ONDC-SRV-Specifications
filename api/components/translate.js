@@ -29,8 +29,8 @@ const traverse = (source) => {
   }
 };
 
-let folderName = "Ads_services";
-const traversedPaths = traverse("./Examples/Ads_services");
+let folderName = "Astro_services";
+const traversedPaths = traverse("./Examples/Astro_services");
 
 traversedPaths.forEach((path, i) => {
   path.forEach((jsonPath, j) => {

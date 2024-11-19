@@ -1,0 +1,66 @@
+context:
+  parent: true
+  domain:
+    description: domain code, enums - ONDC:SRV19( Services - Astrology Services )
+    required: mandatory
+    usage: "ONDC:SRV19"
+    reference: if any
+  city:
+    code:
+      description: city code for search where service needs to be provided. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+      required: mandatory
+      usage: std:080
+      reference: if any
+  country:
+    code:
+      description: ISO standard 3 digit country code where service needs to be provided
+      required: mandatory
+      usage: IND
+      reference: if any
+  bap_id:
+    description: subscriber id for buyer app
+    required: mandatory
+    usage: buyerapp.com
+    reference: if any
+  bap_uri:
+    description: subscriber URI for buyer app
+    required: mandatory
+    usage: https://buyerapp.com/ondc
+    reference: if any
+  timestamp:
+    description: RFC3339 compliant timestamp
+    required: mandatory
+    usage: "2023-10-17T21:10:00.000Z"
+    reference: if any
+  ttl:
+    description: validity of message
+    required: mandatory
+    usage: PT30S
+    reference: if any
+message:
+  parent: true
+  intent:
+    parent: true
+    item:
+      parent: true
+      category:
+        parent: true
+        id:
+          description: Category of the search
+          required: optional
+          usage: "SRV19-1000"
+          reference: if any
+    fulfillment:
+      parent: true
+      type:
+        description: fulfillment type for the service, enum - "Seller-Fulfilled, Buyer-Fulfilled, Online"
+        required: required
+        usage: "Online"
+        reference: if any
+    payment:
+      parent: true
+      collected_by:
+        description: Payment collected by, enum - "BAP" (Buyer App), "BPP" (Seller App)
+        required: optional
+        usage: "BPP"
+        reference: if any

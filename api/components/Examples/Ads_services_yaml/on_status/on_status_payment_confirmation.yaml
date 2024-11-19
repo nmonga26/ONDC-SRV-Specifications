@@ -83,7 +83,7 @@ value:
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
           status: PAID
-          type: ON-FULFILLMENT
+          type: PRE-FULFILLMENT
           tags:
             - descriptor:
                 code: Settlement_Details

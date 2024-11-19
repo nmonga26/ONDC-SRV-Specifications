@@ -1,0 +1,708 @@
+{
+  "context": {
+    "domain": "ONDC:SRV19",
+    "location": {
+      "city": {
+        "code": "std:080"
+      },
+      "country": {
+        "code": "IND"
+      }
+    },
+    "action": "on_search",
+    "version": "2.0.0",
+    "bap_id": "buyerapp.com",
+    "bap_uri": "https://buyerapp.com/services",
+    "bpp_id": "sellerapp.com",
+    "bpp_uri": "https://sellerapp.com/services",
+    "transaction_id": "T1",
+    "message_id": "M1",
+    "timestamp": "2023-01-08T22:00:30.000Z",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalog": {
+      "fulfillments": [
+        {
+          "id": "F1",
+          "type": "Seller-Fulfilled"
+        },
+        {
+          "id": "F2",
+          "type": "Buyer-Fulfilled"
+        },
+        {
+          "id": "F3",
+          "type": "Online",
+          "tags": [
+            {
+              "descriptor": {
+                "code": "INFO"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "MODE"
+                  },
+                  "value": "CHAT"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F4",
+          "type": "Online",
+          "tags": [
+            {
+              "descriptor": {
+                "code": "INFO"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "MODE"
+                  },
+                  "value": "CALL"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F3",
+          "type": "Online",
+          "tags": [
+            {
+              "descriptor": {
+                "code": "INFO"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "MODE"
+                  },
+                  "value": "VIDEO"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "payments": [
+        {
+          "id": "1",
+          "type": "PRE-FULFILLMENT"
+        },
+        {
+          "id": "2",
+          "type": "ON-FULFILLMENT"
+        },
+        {
+          "id": "3",
+          "type": "POST-FULFILLMENT"
+        }
+      ],
+      "descriptor": {
+        "name": "Astro Service Limited",
+        "short_desc": "Online astrology app",
+        "long_desc": "Online astrology app",
+        "images": [
+          {
+            "url": "https://abc.com/images/1-shop-img"
+          }
+        ]
+      },
+      "providers": [
+        {
+          "id": "P1",
+          "descriptor": {
+            "name": "Astrology Service provider",
+            "code": "P001",
+            "short_desc": "Short description of the provider",
+            "long_desc": "Long description of the provider",
+            "images": [
+              {
+                "url": "https://abc.com/images/1-shop-img"
+              }
+            ]
+          },
+          "rating": "4.4",
+          "ttl": "P1D",
+          "categories": [
+            {
+              "id": "C1",
+              "descriptor": {
+                "name": "Pujaris",
+                "code": "PUJARIS"
+              },
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "selection"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "seq"
+                      },
+                      "value": "1"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "mandatory_selection"
+                      },
+                      "value": "true"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "min_selection"
+                      },
+                      "value": "1"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "max_selection"
+                      },
+                      "value": "1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "locations": [
+            {
+              "id": "L1",
+              "gps": "12.967555,77.749666",
+              "address": "Jayanagar 4th Block",
+              "city": {
+                "code": "std:080",
+                "name": "Bengaluru"
+              },
+              "state": {
+                "code": "KA"
+              },
+              "country": {
+                "code": "IND"
+              }
+            }
+          ],
+          "creds": [
+            {
+              "id": "ASTRO-12345678",
+              "type": "Certification",
+              "desc": "Certification No. ASTRO-12345678",
+              "url": "https://abcd.cdn.com/images/certification-img"
+            }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "serviceability"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "location"
+                  },
+                  "value": "L1"
+                },
+                {
+                  "descriptor": {
+                    "code": "category"
+                  },
+                  "value": "SRV19"
+                },
+                {
+                  "descriptor": {
+                    "code": "val"
+                  },
+                  "value": "{\"type\": \"FeatureCollection\", \"features\": [{\"type\": \"Feature\", \"properties\": {}, \"geometry\": {\"coordinates\": [[[77.175571, 28.675927], [77.128737, 28.600972], [77.446934, 28.545325], [77.175571, 28.675927]]], \"type\": \"Polygon\"}}]}"
+                },
+                {
+                  "descriptor": {
+                    "code": "unit"
+                  },
+                  "value": "geojson"
+                },
+                {
+                  "descriptor": {
+                    "code": "type"
+                  },
+                  "value": 12
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "id": "I1",
+              "descriptor": {
+                "name": "Maha Mritunjay Path",
+                "code": "MAHA-001",
+                "short_desc": "Maha Mritunjay Path Pooja",
+                "long_desc": "Maha Mritunjay Path Pooja",
+                "media": [
+                  {
+                    "mimetype": "video/mp4",
+                    "url": "video_url"
+                  }
+                ]
+              },
+              "price": {
+                "currency": "INR",
+                "value": "500.00",
+                "maximum_value": "500.00"
+              },
+              "quantity": {
+                "unitized": {
+                  "measure": {
+                    "unit": "unit",
+                    "value": "1"
+                  }
+                }
+              },
+              "time": {
+                "label": "validity",
+                "range": {
+                  "start": "2024-04-01T00:00:00.000Z",
+                  "end": "2024-04-10T00:00:00.000Z"
+                },
+                "days": "04,05",
+                "schedule": {
+                  "frequency": "PT1H",
+                  "holidays": ["2024-04-09", "2024-04-07"],
+                  "times": [
+                    "2024-04-04T22:00:00.000Z",
+                    "2024-04-06T22:00:00.000Z",
+                    "2024-04-08T22:00:00.000Z",
+                    "2024-04-10T22:00:00.000Z"
+                  ]
+                }
+              },
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "INFO"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "TYPE"
+                      },
+                      "value": "Service"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "SERVICE_DETAILS"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "SESSION_DURATION"
+                      },
+                      "value": "PT30M"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "ATTENDEES_CAPACITY"
+                      },
+                      "value": "4"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AVAILABLE_PUJARIS"
+                      },
+                      "value": "PU1,PU2"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "TEMPLE_DETAILS"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "ADDRESS"
+                      },
+                      "value": "Temple Address"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "PINCODE"
+                      },
+                      "value": "530008"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "GPS"
+                      },
+                      "value": "12.967555,77.749666"
+                    }
+                  ]
+                },
+                {
+                  "code": "POOJA_CHECKLIST",
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "MIME_TYPE"
+                      },
+                      "value": "application/pdf"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "FILE_URL"
+                      },
+                      "value": "https://astro-service/file-url.pdf"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "RESCHEDULE_TERMS"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "FULFILLMENT_STATE"
+                      },
+                      "value": "Pending"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_ELIGIBLE"
+                      },
+                      "value": "true"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_FEE"
+                      },
+                      "value": "0.00"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_WITHIN"
+                      },
+                      "value": "PT1D"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "RESCHEDULE_TERMS"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "FULFILLMENT_STATE"
+                      },
+                      "value": "In-Transit"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_ELIGIBLE"
+                      },
+                      "value": "true"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_FEE"
+                      },
+                      "value": "10.00"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "RESCHEDULE_WITHIN"
+                      },
+                      "value": "PT1D"
+                    }
+                  ]
+                }
+              ],
+              "category_ids": ["SRV18-1000"],
+              "fulfillment_ids": ["F1", "F2", "F3"],
+              "location_ids": ["L1"],
+              "payment_ids": ["2"],
+              "add_ons": [
+                {
+                  "id": "ADDON01",
+                  "descriptor": {
+                    "name": "Potli",
+                    "short_desc": "Potli",
+                    "long_desc": "Potli",
+                    "images": [
+                      {
+                        "url": "https://abc.com/images/208.png"
+                      }
+                    ]
+                  },
+                  "price": {
+                    "currency": "INR",
+                    "value": "50.0"
+                  }
+                },
+                {
+                  "id": "ADDON02",
+                  "descriptor": {
+                    "name": "Hawan Kund",
+                    "short_desc": "Hawan Kund",
+                    "long_desc": "Hawan Kund",
+                    "images": [
+                      {
+                        "url": "https://abc.com/images/208.png"
+                      }
+                    ]
+                  },
+                  "price": {
+                    "currency": "INR",
+                    "value": "0"
+                  }
+                }
+              ],
+              "cancellation_terms": [
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Pending"
+                    }
+                  },
+                  "cancel_by": {
+                    "duration": "P1D"
+                  },
+                  "cancellation_fee": {
+                    "amount": {
+                      "value": "0"
+                    }
+                  },
+                  "reason_required": false
+                },
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "In-Transit"
+                    }
+                  },
+                  "cancel_by": {
+                    "duration": "P1D"
+                  },
+                  "cancellation_fee": {
+                    "percentage": "5"
+                  },
+                  "reason_required": true
+                },
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "At-Location"
+                    }
+                  },
+                  "cancel_by": {
+                    "duration": "P1D"
+                  },
+                  "cancellation_fee": {
+                    "percentage": "25"
+                  },
+                  "reason_required": true
+                }
+              ]
+            },
+            {
+              "id": "PU1",
+              "descriptor": {
+                "name": "Pujari Name",
+                "code": "PUJ-001",
+                "short_desc": "Short description about Pujari",
+                "long_desc": "Long description about Pujari",
+                "media": [
+                  {
+                    "mimetype": "image/png",
+                    "url": "image_url"
+                  },
+                  {
+                    "mimetype": "video/mp4",
+                    "url": "video_url"
+                  }
+                ]
+              },
+              "price": {
+                "currency": "INR",
+                "value": "0.00",
+                "maximum_value": "0.00"
+              },
+              "quantity": {
+                "unitized": {
+                  "measure": {
+                    "unit": "people",
+                    "value": "1"
+                  }
+                }
+              },
+              "time": {
+                "label": "validity",
+                "range": {
+                  "start": "2024-04-01T00:00:00.000Z",
+                  "end": "2024-04-10T00:00:00.000Z"
+                },
+                "days": "04,05",
+                "schedule": {
+                  "frequency": "PT1H",
+                  "holidays": ["2024-04-09", "2024-04-07"],
+                  "times": [
+                    "2024-04-04T22:00:00.000Z",
+                    "2024-04-06T22:00:00.000Z",
+                    "2024-04-08T22:00:00.000Z",
+                    "2024-04-10T22:00:00.000Z"
+                  ]
+                }
+              },
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "INFO"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "TYPE"
+                      },
+                      "value": "Pujari"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "PUJARI_DETAILS"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "LANGUAGE"
+                      },
+                      "value": "Hindi,Kannada,English"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "Experience"
+                      },
+                      "value": "10+ years"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "SPECIALITY"
+                      },
+                      "value": "Tarot,Vedic"
+                    }
+                  ]
+                }
+              ],
+              "category_ids": ["C1"],
+              "fulfillment_ids": ["F1", "F2"],
+              "location_ids": ["L1"],
+              "payment_ids": ["2"]
+            },
+            {
+              "id": "PU2",
+              "descriptor": {
+                "name": "Pujari Name",
+                "code": "PUJ-002",
+                "short_desc": "Short description about Pujari",
+                "long_desc": "Long description about Pujari",
+                "media": [
+                  {
+                    "mimetype": "image/png",
+                    "url": "image_url"
+                  },
+                  {
+                    "mimetype": "video/mp4",
+                    "url": "video_url"
+                  }
+                ]
+              },
+              "price": {
+                "currency": "INR",
+                "value": "0.00",
+                "maximum_value": "0.00"
+              },
+              "quantity": {
+                "unitized": {
+                  "measure": {
+                    "unit": "people",
+                    "value": "1"
+                  }
+                }
+              },
+              "time": {
+                "label": "validity",
+                "range": {
+                  "start": "2024-04-01T00:00:00.000Z",
+                  "end": "2024-04-10T00:00:00.000Z"
+                },
+                "days": "04,05",
+                "schedule": {
+                  "frequency": "PT1H",
+                  "holidays": ["2024-04-09", "2024-04-07"],
+                  "times": [
+                    "2024-04-04T22:00:00.000Z",
+                    "2024-04-06T22:00:00.000Z",
+                    "2024-04-08T22:00:00.000Z",
+                    "2024-04-10T22:00:00.000Z"
+                  ]
+                }
+              },
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "INFO"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "TYPE"
+                      },
+                      "value": "Pujari"
+                    }
+                  ]
+                },
+                {
+                  "descriptor": {
+                    "code": "PUJARI_DETAILS"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "LANGUAGE"
+                      },
+                      "value": "Hindi"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "Experience"
+                      },
+                      "value": "8+ years"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "SPECIALITY"
+                      },
+                      "value": "Tarot"
+                    }
+                  ]
+                }
+              ],
+              "category_ids": ["C1"],
+              "fulfillment_ids": ["F1"],
+              "location_ids": ["L1"],
+              "payment_ids": ["2"]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
