@@ -1,9 +1,9 @@
 context:
   parent: true
   domain:
-    description: domain code, enums - ONDC:SRV19( Services - Astrology Services )
+    description: domain code, enums - ONDC:SRV16( Services - Astrology Services )
     required: mandatory
-    usage: "ONDC:SRV19"
+    usage: "ONDC:SRV16"
     reference: if any
   city:
     code:
@@ -48,7 +48,7 @@ message:
         id:
           description: Category of the search
           required: optional
-          usage: "SRV19-1000"
+          usage: "SRV16-1000"
           reference: if any
     fulfillment:
       parent: true

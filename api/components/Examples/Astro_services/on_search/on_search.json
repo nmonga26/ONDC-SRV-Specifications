@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:SRV19",
+    "domain": "ONDC:SRV16",
     "location": {
       "city": {
         "code": "std:080"
@@ -169,6 +169,55 @@
                   ]
                 }
               ]
+            },
+            {
+              "id": "C2",
+              "descriptor": {
+                "name": "Career",
+                "code": "CAREER"
+              }
+            },
+            {
+              "id": "C3",
+              "descriptor": {
+                "name": "Marriage",
+                "code": "MARRIAGE"
+              }
+            },
+            {
+              "id": "C4",
+              "descriptor": {
+                "name": "Love",
+                "code": "LOVE"
+              }
+            },
+            {
+              "id": "C5",
+              "descriptor": {
+                "name": "Energy",
+                "code": "ENERGY"
+              }
+            },
+            {
+              "id": "C6",
+              "descriptor": {
+                "name": "Home",
+                "code": "HOME"
+              }
+            },
+            {
+              "id": "C7",
+              "descriptor": {
+                "name": "Education",
+                "code": "EDUCATION"
+              }
+            },
+            {
+              "id": "C8",
+              "descriptor": {
+                "name": "Job",
+                "code": "JOB"
+              }
             }
           ],
           "locations": [
@@ -212,7 +261,7 @@
                   "descriptor": {
                     "code": "category"
                   },
-                  "value": "SRV19"
+                  "value": "SRV16"
                 },
                 {
                   "descriptor": {
@@ -425,7 +474,7 @@
                   ]
                 }
               ],
-              "category_ids": ["SRV18-1000"],
+              "category_ids": ["SRV18-1000", "C6"],
               "fulfillment_ids": ["F1", "F2", "F3"],
               "location_ids": ["L1"],
               "payment_ids": ["2"],

@@ -1,7 +1,7 @@
 category_ids:
-  - code: SRV19-1000
+  - code: SRV16-1000
     description: E-Puja Services
     reference: <PR/Issue/Discussion Links md format text>
-  - code: SRV19-1001
+  - code: SRV16-1001
     description: Astrology Services
     reference: <PR/Issue/Discussion Links md format text>

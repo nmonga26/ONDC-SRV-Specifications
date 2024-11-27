@@ -1,8 +1,8 @@
-summary: ''
-description: ''
+summary: ""
+description: ""
 value:
   context:
-    domain: ONDC:SRV19
+    domain: ONDC:SRV16
     location:
       city:
         code: std:080
@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: T1
     message_id: M2
-    timestamp: '2023-01-08T22:00:30.000Z'
+    timestamp: "2023-01-08T22:00:30.000Z"
     ttl: PT30S
   message:
     order:
@@ -47,12 +47,12 @@ value:
               time:
                 label: selected
                 range:
-                  start: '2024-04-04T10:00:00.000Z'
-                  end: '2024-04-04T11:00:00.000Z'
-                days: '4'
+                  start: "2024-04-04T10:00:00.000Z"
+                  end: "2024-04-04T11:00:00.000Z"
+                days: "4"
               location:
                 gps: 12.974002,77.613458
-                area_code: '560001'
+                area_code: "560001"
           tags:
             - descriptor:
                 code: SELECTION

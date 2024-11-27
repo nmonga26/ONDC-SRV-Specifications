@@ -2578,7 +2578,7 @@ x-enum:
   search:
     context:
       domain: &ref_0
-        - code: ONDC:SRV19
+        - code: ONDC:SRV16
           description: Astrology Services
           reference: <PR/Issue/Discussion Links md format text>
     message:
@@ -2586,10 +2586,10 @@ x-enum:
         item:
           category:
             id:
-              - code: SRV19-1000
+              - code: SRV16-1000
                 description: E-Puja Services
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV19-1001
+              - code: SRV16-1001
                 description: Astrology Services
                 reference: <PR/Issue/Discussion Links md format text>
         fulfillments:
@@ -3110,7 +3110,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -3127,7 +3127,7 @@ x-flows:
             message:
               intent:
                 category:
-                  id: SRV19-1000
+                  id: SRV16-1000
                 tags:
                   - descriptor:
                       code: BUYER_FINDER_FEES
@@ -3148,7 +3148,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -3268,7 +3268,7 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: SRV19
+                            value: SRV16
                           - descriptor:
                               code: val
                             value: >-
@@ -3582,7 +3582,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -3651,7 +3651,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -3815,7 +3815,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -3893,7 +3893,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -4106,7 +4106,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -4335,7 +4335,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -4579,7 +4579,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -4606,7 +4606,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -4857,7 +4857,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -5114,7 +5114,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -5371,7 +5371,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -5711,7 +5711,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -5777,7 +5777,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -5938,7 +5938,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -6013,7 +6013,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -6223,7 +6223,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -6444,7 +6444,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -6680,7 +6680,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -6918,7 +6918,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -7241,7 +7241,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -7307,7 +7307,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -7468,7 +7468,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -7543,7 +7543,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -7753,7 +7753,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -7974,7 +7974,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -8205,7 +8205,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -8447,7 +8447,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -8689,7 +8689,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -8931,7 +8931,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -9244,7 +9244,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -9279,7 +9279,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -9399,7 +9399,7 @@ x-flows:
                             value: L1
                           - descriptor:
                               code: category
-                            value: SRV19
+                            value: SRV16
                           - descriptor:
                               code: val
                             value: >-
@@ -9793,7 +9793,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -10007,7 +10007,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -10222,7 +10222,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV16
               location:
                 city:
                   code: std:080
@@ -10459,7 +10459,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -10489,7 +10489,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -10506,7 +10506,7 @@ x-examples:
               message:
                 intent:
                   category:
-                    id: SRV19-1000
+                    id: SRV16-1000
                   tags:
                     - descriptor:
                         code: BUYER_FINDER_FEES
@@ -10524,7 +10524,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -10644,7 +10644,7 @@ x-examples:
                               value: L1
                             - descriptor:
                                 code: category
-                              value: SRV19
+                              value: SRV16
                             - descriptor:
                                 code: val
                               value: >-
@@ -10954,7 +10954,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -11020,7 +11020,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -11181,7 +11181,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -11256,7 +11256,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -11466,7 +11466,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -11692,7 +11692,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -11933,7 +11933,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -11957,7 +11957,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -12201,7 +12201,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -12451,7 +12451,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -12701,7 +12701,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV16
                 location:
                   city:
                     code: std:080
@@ -12955,9 +12955,9 @@ x-attributes:
         context:
           parent: true
           domain:
-            description: domain code, enums - ONDC:SRV19( Services - Astrology Services )
+            description: domain code, enums - ONDC:SRV16( Services - Astrology Services )
             required: mandatory
-            usage: ONDC:SRV19
+            usage: ONDC:SRV16
             reference: if any
           city:
             code:
@@ -13007,7 +13007,7 @@ x-attributes:
                 id:
                   description: Category of the search
                   required: optional
-                  usage: SRV19-1000
+                  usage: SRV16-1000
                   reference: if any
             fulfillment:
               parent: true
@@ -13112,7 +13112,7 @@ x-attributes:
                     which was sent in /search call, or catalog specific
                     categories
                   required: required
-                  usage: SRV19-1000
+                  usage: SRV16-1000
                   reference: if any
                 fulfillment_ids:
                   description: >-
