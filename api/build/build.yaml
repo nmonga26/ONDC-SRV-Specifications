@@ -3051,14 +3051,20 @@ x-enum:
               - code: Sofa Cleaning
                 description: Sofa Cleaning
                 reference: <PR/Issue/Discussion Links md format text>
+              - code: item
+                description: item/service level
+                reference: <PR/Issue/Discussion Links md format text>
               - code: tax
-                description: tax
+                description: Any kind of tax
                 reference: <PR/Issue/Discussion Links md format text>
               - code: discount
-                description: discount
+                description: Any kind of discount/offer
                 reference: <PR/Issue/Discussion Links md format text>
               - code: convenience_fee
-                description: convenience_fee
+                description: Any convenience fees that the NP wants to charge
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: misc
+                description: Any miscellanous fees
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Soil Testing
                 description: Soil Testing
@@ -3344,12 +3350,25 @@ x-tags:
                   description: If the offer can be applicable more than once
                 - code: AUTO
                   description: If the offer code will be auto-applied
+  select:
+    message:
+      order:
+        fulfillment: &ref_7
+          - code: SELECTION
+            description: Selection parameters for this fulfillment
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: ITEM_IDS
+                description: >-
+                  Comma-separated list of item IDs that are to be selected for
+                  this fulfillment
+                reference: <PR/Issue/Discussion Links md format text>
   on_select:
     message:
       order:
         quote:
-          breakup: &ref_9
-            tags: &ref_12
+          breakup: &ref_10
+            tags: &ref_13
               - code: title
                 description: title tag
                 reference: <PR/Issue/Discussion Links md format text>
@@ -3359,10 +3378,33 @@ x-tags:
                       Depending upon the context, it can take the value of the
                       discount, tax, misc or item type value.
                     reference: <PR/Issue/Discussion Links md format text>
+            title:
+              - code: type
+                description: breakup type
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
+                  - code: item
+                    description: item/service level
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: tax
+                    description: Any kind of tax
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: discount
+                    description: Any kind of discount/offer deduction
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: convenience_fee
+                    description: Convenience Fee (fulfillment level)
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: refund
+                    description: Refund in case of cancellation
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: misc
+                    description: Any miscellanous cost
+                    reference: <PR/Issue/Discussion Links md format text>
   init:
     message:
       order:
-        items: &ref_7
+        items: &ref_8
           tags:
             - code: REPORT_REQUIREMENT
               description: Attribute of a particular item
@@ -3371,7 +3413,7 @@ x-tags:
                 - code: REPORT_DEADLINE
                   description: The deadline within which report is required
                   reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: &ref_8
+        fulfillments: &ref_9
           stops:
             person:
               tags:
@@ -3395,14 +3437,15 @@ x-tags:
                       description: Age of the patient
                     - code: MOBILE_NUMBER
                       description: Mobile number of the patient
+          tags: *ref_7
   on_init:
-    message: &ref_10
+    message: &ref_11
       order:
-        items: *ref_7
-        fulfillments: *ref_8
+        items: *ref_8
+        fulfillments: *ref_9
         quote:
-          breakup: *ref_9
-        payments: &ref_11
+          breakup: *ref_10
+        payments: &ref_12
           tags:
             - code: SETTLEMENT_DETAILS
               description: Define Payment Settlement Details here
@@ -3437,16 +3480,16 @@ x-tags:
                   description: Amount for the finder fee
                   reference: <PR/Issue/Discussion Links md format text>
   confirm:
-    message: *ref_10
+    message: *ref_11
   on_status:
-    message: *ref_10
+    message: *ref_11
   update:
-    message: &ref_13
+    message: &ref_14
       order:
-        payments: *ref_11
+        payments: *ref_12
         quote:
           breakup:
-            tags: *ref_12
+            tags: *ref_13
           item:
             tags:
               - code: attributes
@@ -3457,7 +3500,7 @@ x-tags:
                     description: Hex Code for color
                     reference: <PR/Issue/Discussion Links md format text>
   on_update:
-    message: *ref_13
+    message: *ref_14
 x-flows:
   - summary: Health Care Services
     description: >-
@@ -3537,7 +3580,7 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. CBC
         reference: if any
-        example: &ref_14
+        example: &ref_15
           summary: Search based on the intent for buying a particular health service
           description: >-
             Search intent sent by the buyer based on the particular health
@@ -3596,7 +3639,7 @@ x-flows:
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: &ref_15
+        example: &ref_16
           summary: Returns the catalog specific to the search intent
           description: Returns the catalog specific to the search intent
           value:
@@ -4156,7 +4199,7 @@ x-flows:
           Buyer selects the required health care service + suitable fulfillment
           type
         reference: if any
-        example: &ref_16
+        example: &ref_17
           summary: Buyer selects the required health care service
           description: >-
             Buyer selects the required health care service + suitable
@@ -4211,6 +4254,13 @@ x-flows:
                         location:
                           gps: 12.974002,77.613458
                           area_code: '560001'
+                    tags:
+                      - descriptor:
+                          code: SELECTION
+                        list:
+                          - descriptor:
+                              code: ITEM_IDS
+                            value: PI1
                 offers:
                   - id: PI1CODE
                     tags:
@@ -4224,7 +4274,7 @@ x-flows:
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: &ref_17
+        example: &ref_18
           summary: Seller confirms the schedule and returns the quote for service
           description: Seller confirms the schedule and returns the quote for service
           value:
@@ -4405,7 +4455,7 @@ x-flows:
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: &ref_18
+        example: &ref_19
           summary: Buyer initialises the order for service
           description: Buyer initialises the order and provides billing details
           value:
@@ -4525,7 +4575,7 @@ x-flows:
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: &ref_19
+        example: &ref_20
           summary: Seller provides the final quotation for the service
           description: Seller provides the final quotation
           value:
@@ -4766,7 +4816,7 @@ x-flows:
       - summary: Buyer confirm the order for the service
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: &ref_20
+        example: &ref_21
           summary: Buyer confirm the order for the service
           description: Buyer makes the payment to confirm the order
           value:
@@ -5017,7 +5067,7 @@ x-flows:
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: &ref_21
+        example: &ref_22
           summary: Seller accepts the order for service
           description: >-
             Seller app sends an on_confirm call to the buyer app accepting the
@@ -5672,7 +5722,7 @@ x-flows:
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: &ref_22
+        example: &ref_23
           summary: Buyer requests for the status of the order
           description: Buyer requests for the status of the order
           value:
@@ -5701,7 +5751,7 @@ x-flows:
           Seller app sends order status update when service provider is on the
           way
         reference: if any
-        example: &ref_23
+        example: &ref_24
           summary: Seller app sends order status update (In-Transit)
           description: >-
             Seller app sends order status update when service provider is on the
@@ -5984,7 +6034,7 @@ x-flows:
           Seller app sends order status update when service provider has reached
           the buyer location
         reference: if any
-        example: &ref_24
+        example: &ref_25
           summary: Seller app sends the order status (At location)
           description: >-
             Seller app sends order status update when service provider has
@@ -6267,7 +6317,7 @@ x-flows:
           Seller app sends the order status update when the sample has been
           collected by the service provider
         reference: if any
-        example: &ref_25
+        example: &ref_26
           summary: Seller app sends order status (Collected by agent)
           description: >-
             Seller app sends the order status update when the sample has been
@@ -6550,7 +6600,7 @@ x-flows:
           Seller app sends the order status update when the sample has been
           received at the lab
         reference: if any
-        example: &ref_26
+        example: &ref_27
           summary: Seller app sends order status (Received at lab)
           description: >-
             Seller app sends the order status update when the sample has been
@@ -6833,7 +6883,7 @@ x-flows:
           Seller app sends the order status update when the test has been
           completed at the lab
         reference: if any
-        example: &ref_27
+        example: &ref_28
           summary: Seller app sends the order status (Test completed)
           description: >-
             Seller app sends the order status update when the test has been
@@ -7116,7 +7166,7 @@ x-flows:
           Seller app sends the order status update when the test report is
           generated
         reference: if any
-        example: &ref_28
+        example: &ref_29
           summary: Seller app sends the order status (Report generated)
           description: >-
             Seller app sends the order status update when the test report is
@@ -7399,7 +7449,7 @@ x-flows:
           Seller app sends the order status update when the test report is
           shared
         reference: if any
-        example: &ref_29
+        example: &ref_30
           summary: Seller app sends the order status (Completed)
           description: >-
             Seller app sends the order status update when the test report is
@@ -8927,45 +8977,45 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. CBC
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required health care service
         api: select
         description: >-
           Buyer selects the required health care service + suitable fulfillment
           type
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the schedule and returns the quote for service
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the order for service
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the service
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the service
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for service
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer requests for the order cancellation
         api: cancel
         description: >-
@@ -9335,45 +9385,45 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. CBC
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required health care service
         api: select
         description: >-
           Buyer selects the required health care service + suitable fulfillment
           type
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the schedule and returns the quote for service
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the order for service
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the service
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the service
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for service
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer requests for the updation of slot schedule
         api: update
         description: Buyer requests for the updation of slot schedule
@@ -9842,56 +9892,56 @@ x-flows:
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: >-
           Seller app sends order status update when service provider is on the
           way
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app sends order status (Collected by agent)
         api: on_status (Collected By Agent)
         description: >-
           Seller app sends the order status update when the sample has been
           collected by the service provider
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Seller app sends order status (Received at lab)
         api: on_status (Received At Lab)
         description: >-
           Seller app sends the order status update when the sample has been
           received at the lab
         reference: if any
-        example: *ref_26
+        example: *ref_27
       - summary: Seller app sends order status (Test completed)
         api: on_status (Test Completed)
         description: >-
           Seller app sends the order status update when the test has been
           completed at the lab
         reference: if any
-        example: *ref_27
+        example: *ref_28
       - summary: Seller app sends the order status(Report generated)
         api: on_status (Report Generated)
         description: >-
           Seller app sends the order status update when the test report is
           generated
         reference: if any
-        example: *ref_28
+        example: *ref_29
       - summary: Seller app sends the order status (Report Shared)
         api: on_status (Report Shared)
         description: >-
           Seller app sends the order status update when the test report is
           shared
         reference: if any
-        example: *ref_29
+        example: *ref_30
   - summary: Health Care Services Updation
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9983,49 +10033,49 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. CBC
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required health care service
         api: select
         description: >-
           Buyer selects the required health care service + suitable fulfillment
           type
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the schedule and returns the quote for service
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the order for service
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the service
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the service
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for service
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer requests for the updation of slot schedule
         api: update
         description: Buyer requests for the updation of slot schedule
-        example: &ref_30
+        example: &ref_31
           summary: Buyer requests for the updation of number of tests or patients
           description: Buyer requests for the updation of number of tests or patients
           value:
@@ -10364,7 +10414,7 @@ x-flows:
       - summary: Seller confirms the updated schedule
         api: on_update
         description: Seller confirms the updated schedule
-        example: &ref_31
+        example: &ref_32
           summary: Seller acknowledges the updation and sends the partial quotation
           description: Seller acknowledges the updation and sends the partial quotation
           value:
@@ -10703,56 +10753,56 @@ x-flows:
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: >-
           Seller app sends order status update when service provider is on the
           way
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app sends order status (Collected by agent)
         api: on_status (Collected By Agent)
         description: >-
           Seller app sends the order status update when the sample has been
           collected by the service provider
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Seller app sends order status (Received at lab)
         api: on_status (Received At Lab)
         description: >-
           Seller app sends the order status update when the sample has been
           received at the lab
         reference: if any
-        example: *ref_26
+        example: *ref_27
       - summary: Seller app sends order status (Test completed)
         api: on_status (Test Completed)
         description: >-
           Seller app sends the order status update when the test has been
           completed at the lab
         reference: if any
-        example: *ref_27
+        example: *ref_28
       - summary: Seller app sends the order status(Report generated)
         api: on_status (Report Generated)
         description: >-
           Seller app sends the order status update when the test report is
           generated
         reference: if any
-        example: *ref_28
+        example: *ref_29
       - summary: Seller app sends the order status (Report Shared)
         api: on_status (Report Shared)
         description: >-
           Seller app sends the order status update when the test report is
           shared
         reference: if any
-        example: *ref_29
+        example: *ref_30
   - summary: Health Care Services Merchant Cancellation
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -10842,45 +10892,45 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. CBC
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required health care service
         api: select
         description: >-
           Buyer selects the required health care service + suitable fulfillment
           type
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the schedule and returns the quote for service
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the order for service
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the service
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the service
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for service
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Seller accepts the cancellation request
         api: on_cancel
         description: Seller accepts the cancellation request
@@ -11209,45 +11259,45 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. CBC
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required health care service
         api: select
         description: >-
           Buyer selects the required health care service + suitable fulfillment
           type
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the schedule and returns the quote for service
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the order for service
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the service
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the service
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for service
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Seller accepts the order for service
         api: update
         description: >-
@@ -12155,12 +12205,12 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. CBC
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required health care service
         api: select
         description: >-
@@ -12220,6 +12270,13 @@ x-flows:
                         location:
                           gps: 12.974002,77.613458
                           area_code: '560001'
+                    tags:
+                      - descriptor:
+                          code: SELECTION
+                        list:
+                          - descriptor:
+                              code: ITEM_IDS
+                            value: I2
                 payments:
                   - type: PRE-FULFILLMENT
       - summary: >-
@@ -13462,85 +13519,85 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. CBC
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required health care service
         api: select
         description: >-
           Buyer selects the required health care service + suitable fulfillment
           type
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller confirms the schedule and returns the quote for service
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Buyer initialises the order for service
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Seller provides the final quotation for the service
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Buyer confirm the order for the service
         api: confirm
         description: Buyer makes the payment to confirm the order
-        example: *ref_20
+        example: *ref_21
       - summary: Seller accepts the order for service
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Buyer requests for the updation of slot schedule
         api: update
         description: Buyer requests for the updation of slot schedule
-        example: *ref_30
+        example: *ref_31
       - summary: Seller confirms the updated schedule
         api: on_update
         description: Seller confirms the updated schedule
-        example: *ref_31
+        example: *ref_32
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_22
+        example: *ref_23
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: >-
           Seller app sends order status update when service provider is on the
           way
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app sends order status (Collected by agent)
         api: on_status (Collected By Agent)
         description: >-
           Seller app sends the order status update when the sample has been
           collected by the service provider
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Seller app sends order status (Received at lab)
         api: on_status (Received At Lab)
         description: >-
           Seller app sends the order status update when the sample has been
           received at the lab
         reference: if any
-        example: *ref_26
+        example: *ref_27
       - summary: Seller app sends order status (Test completed)
         api: on_status (Recollection Required)
         description: >-
@@ -15047,6 +15104,13 @@ x-examples:
                           location:
                             gps: 12.974002,77.613458
                             area_code: '560001'
+                      tags:
+                        - descriptor:
+                            code: SELECTION
+                          list:
+                            - descriptor:
+                                code: ITEM_IDS
+                              value: PI1
                   offers:
                     - id: PI1CODE
                       tags:
@@ -15108,6 +15172,13 @@ x-examples:
                           location:
                             gps: 12.974002,77.613458
                             area_code: '560001'
+                      tags:
+                        - descriptor:
+                            code: SELECTION
+                          list:
+                            - descriptor:
+                                code: ITEM_IDS
+                              value: I2
                   payments:
                     - type: PRE-FULFILLMENT
       init:
@@ -23941,7 +24012,7 @@ x-attributes:
                 title:
                   description: >-
                     title of the service charges enum - LFT Test, tax, discount,
-                    convenience_fee
+                    convenience fee
                   required: required
                   usage: LFT Test
                   reference: if any
