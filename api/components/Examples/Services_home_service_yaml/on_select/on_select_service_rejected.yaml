@@ -22,6 +22,8 @@ value:
     order:
       provider:
         id: P1
+        locations:
+          - id: L1
       items:
         - fulfillment_ids:
             - F1
