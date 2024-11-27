@@ -7,6 +7,12 @@ on_search:
     catalog:
       $ref: "./TagGroup.yaml#/catalog"
 
+select:
+  message:
+    order:
+      fulfillment:
+        $ref: "./TagGroup.yaml#/order/fulfillments/tags"
+
 on_select:
   message:
     order:

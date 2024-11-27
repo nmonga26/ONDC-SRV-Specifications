@@ -73,6 +73,21 @@
                 "area_code": "560001"
               }
             }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "SELECTION"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "ITEM_IDS"
+                  },
+                  "value": "PI1"
+                }
+              ]
+            }
           ]
         }
       ],

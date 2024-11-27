@@ -80,6 +80,7 @@ order:
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./Tag.yaml#/REPORT_REQUIREMENT"
+
   fulfillments:
     stops:
       person:
@@ -94,6 +95,12 @@ order:
             reference: <PR/Issue/Discussion Links md format text>
             list:
               $ref: "./Tag.yaml#/PI1"
+    tags:
+      - code: SELECTION
+        description: Selection parameters for this fulfillment
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./Tag.yaml#/selection_params"
   quote:
     breakup:
       tags: &ref2
@@ -102,6 +109,13 @@ order:
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./Tag.yaml#/title"
+      title:
+        - code: type
+          description: breakup type
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            $ref: "./Tag.yaml#/breakup_type"
+
   payments: &ref1
     tags:
       - code: SETTLEMENT_DETAILS

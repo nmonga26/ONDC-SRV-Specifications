@@ -3,14 +3,20 @@ breakup:
     - code: Sofa Cleaning
       description: Sofa Cleaning
       reference: <PR/Issue/Discussion Links md format text>
+    - code: item
+      description: item/service level
+      reference: <PR/Issue/Discussion Links md format text>
     - code: tax
-      description: tax
+      description: Any kind of tax
       reference: <PR/Issue/Discussion Links md format text>
     - code: discount
-      description: discount
+      description: Any kind of discount/offer
       reference: <PR/Issue/Discussion Links md format text>
     - code: convenience_fee
-      description: convenience_fee
+      description: Any convenience fees that the NP wants to charge
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: misc
+      description: Any miscellanous fees
       reference: <PR/Issue/Discussion Links md format text>
     - code: Soil Testing
       description: Soil Testing

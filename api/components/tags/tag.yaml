@@ -2,6 +2,29 @@ title:
   - code: type
     description: Depending upon the context, it can take the value of the discount, tax, misc or item type value.
     reference: <PR/Issue/Discussion Links md format text>
+breakup_type:
+  - code: item
+    description: item/service level
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: tax
+    description: Any kind of tax
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: discount
+    description: Any kind of discount/offer deduction
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: convenience_fee
+    description: Convenience Fee (fulfillment level)
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: refund
+    description: Refund in case of cancellation
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: misc
+    description: Any miscellanous cost
+    reference: <PR/Issue/Discussion Links md format text>
+selection_params:
+  - code: ITEM_IDS
+    description: Comma-separated list of item IDs that are to be selected for this fulfillment
+    reference: <PR/Issue/Discussion Links md format text>
 Settlement_Details:
   - code: Counterparty
     description: Counterparty involved; Can be BAP/BPP

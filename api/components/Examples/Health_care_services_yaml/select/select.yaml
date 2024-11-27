@@ -50,6 +50,13 @@ value:
               location:
                 gps: 12.974002,77.613458
                 area_code: '560001'
+          tags:
+            - descriptor:
+                code: SELECTION
+              list:
+                - descriptor:
+                    code: ITEM_IDS
+                  value: PI1
       offers:
         - id: PI1CODE
           tags:
