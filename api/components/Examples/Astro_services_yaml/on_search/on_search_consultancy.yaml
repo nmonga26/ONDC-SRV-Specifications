@@ -1,5 +1,5 @@
-summary: ""
-description: ""
+summary: ''
+description: ''
 value:
   context:
     domain: ONDC:SRV16
@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: T1
     message_id: M1
-    timestamp: "2023-01-08T22:00:30.000Z"
+    timestamp: '2023-01-08T22:00:30.000Z'
     ttl: PT30S
   message:
     catalog:
@@ -53,11 +53,11 @@ value:
                     code: MODE
                   value: VIDEO
       payments:
-        - id: "1"
+        - id: '1'
           type: PRE-FULFILLMENT
-        - id: "2"
+        - id: '2'
           type: ON-FULFILLMENT
-        - id: "3"
+        - id: '3'
           type: POST-FULFILLMENT
       descriptor:
         name: Astro Service Limited
@@ -74,7 +74,7 @@ value:
             long_desc: Long description of the provider
             images:
               - url: https://abc.com/images/1-shop-img
-          rating: "4.4"
+          rating: '4.4'
           ttl: P1D
           categories:
             - id: C1
@@ -87,16 +87,44 @@ value:
                   list:
                     - descriptor:
                         code: seq
-                      value: "1"
+                      value: '1'
                     - descriptor:
                         code: mandatory_selection
-                      value: "true"
+                      value: 'true'
                     - descriptor:
                         code: min_selection
-                      value: "1"
+                      value: '1'
                     - descriptor:
                         code: max_selection
-                      value: "1"
+                      value: '1'
+            - id: C2
+              descriptor:
+                name: Career
+                code: CAREER
+            - id: C3
+              descriptor:
+                name: Marriage
+                code: MARRIAGE
+            - id: C4
+              descriptor:
+                name: Love
+                code: LOVE
+            - id: C5
+              descriptor:
+                name: Energy
+                code: ENERGY
+            - id: C6
+              descriptor:
+                name: Home
+                code: HOME
+            - id: C7
+              descriptor:
+                name: Education
+                code: EDUCATION
+            - id: C8
+              descriptor:
+                name: Job
+                code: JOB
           locations:
             - id: L1
               gps: 12.967555,77.749666
@@ -149,13 +177,13 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: "500.00"
-                maximum_value: "500.00"
+                value: '500.00'
+                maximum_value: '500.00'
               quantity:
                 unitized:
                   measure:
                     unit: unit
-                    value: "1"
+                    value: '1'
               tags:
                 - descriptor:
                     code: INFO
@@ -174,7 +202,7 @@ value:
                       value: PT30M
                     - descriptor:
                         code: ATTENDEES_CAPACITY
-                      value: "4"
+                      value: '4'
                     - descriptor:
                         code: AVAILABLE_PUJARIS
                       value: PU1,PU2
@@ -195,10 +223,10 @@ value:
                       value: Pending
                     - descriptor:
                         code: RESCHEDULE_ELIGIBLE
-                      value: "true"
+                      value: 'true'
                     - descriptor:
                         code: RESCHEDULE_FEE
-                      value: "0.00"
+                      value: '0.00'
                     - descriptor:
                         code: RESCHEDULE_WITHIN
                       value: PT1D
@@ -210,15 +238,16 @@ value:
                       value: In-Transit
                     - descriptor:
                         code: RESCHEDULE_ELIGIBLE
-                      value: "true"
+                      value: 'true'
                     - descriptor:
                         code: RESCHEDULE_FEE
-                      value: "10.00"
+                      value: '10.00'
                     - descriptor:
                         code: RESCHEDULE_WITHIN
                       value: PT1D
               category_ids:
                 - SRV18-1001
+                - C3
               fulfillment_ids:
                 - F1
                 - F2
@@ -226,7 +255,7 @@ value:
               location_ids:
                 - L1
               payment_ids:
-                - "2"
+                - '2'
               add_ons:
                 - id: ADDON01
                   descriptor:
@@ -237,7 +266,7 @@ value:
                       - url: https://abc.com/images/208.png
                   price:
                     currency: INR
-                    value: "50.0"
+                    value: '50.0'
                 - id: ADDON02
                   descriptor:
                     name: Hawan Kund
@@ -247,7 +276,7 @@ value:
                       - url: https://abc.com/images/208.png
                   price:
                     currency: INR
-                    value: "0"
+                    value: '0'
               cancellation_terms:
                 - fulfillment_state:
                     descriptor:
@@ -256,7 +285,7 @@ value:
                     duration: P1D
                   cancellation_fee:
                     amount:
-                      value: "0"
+                      value: '0'
                   reason_required: false
                 - fulfillment_state:
                     descriptor:
@@ -264,7 +293,7 @@ value:
                   cancel_by:
                     duration: P1D
                   cancellation_fee:
-                    percentage: "5"
+                    percentage: '5'
                   reason_required: true
                 - fulfillment_state:
                     descriptor:
@@ -272,7 +301,7 @@ value:
                   cancel_by:
                     duration: P1D
                   cancellation_fee:
-                    percentage: "25"
+                    percentage: '25'
                   reason_required: true
             - id: PU1
               descriptor:
@@ -287,29 +316,29 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: "0.00"
-                maximum_value: "0.00"
+                value: '0.00'
+                maximum_value: '0.00'
               quantity:
                 unitized:
                   measure:
                     unit: people
-                    value: "1"
+                    value: '1'
               time:
                 label: validity
                 range:
-                  start: "2024-04-01T00:00:00.000Z"
-                  end: "2024-04-10T00:00:00.000Z"
+                  start: '2024-04-01T00:00:00.000Z'
+                  end: '2024-04-10T00:00:00.000Z'
                 days: 04,05
                 schedule:
                   frequency: PT1H
                   holidays:
-                    - "2024-04-09"
-                    - "2024-04-07"
+                    - '2024-04-09'
+                    - '2024-04-07'
                   times:
-                    - "2024-04-04T22:00:00.000Z"
-                    - "2024-04-06T22:00:00.000Z"
-                    - "2024-04-08T22:00:00.000Z"
-                    - "2024-04-10T22:00:00.000Z"
+                    - '2024-04-04T22:00:00.000Z'
+                    - '2024-04-06T22:00:00.000Z'
+                    - '2024-04-08T22:00:00.000Z'
+                    - '2024-04-10T22:00:00.000Z'
               tags:
                 - descriptor:
                     code: INFO
@@ -337,7 +366,7 @@ value:
               location_ids:
                 - L1
               payment_ids:
-                - "2"
+                - '2'
             - id: PU2
               descriptor:
                 name: Pujari Name
@@ -351,29 +380,29 @@ value:
                     url: video_url
               price:
                 currency: INR
-                value: "0.00"
-                maximum_value: "0.00"
+                value: '0.00'
+                maximum_value: '0.00'
               quantity:
                 unitized:
                   measure:
                     unit: people
-                    value: "1"
+                    value: '1'
               time:
                 label: validity
                 range:
-                  start: "2024-04-01T00:00:00.000Z"
-                  end: "2024-04-10T00:00:00.000Z"
+                  start: '2024-04-01T00:00:00.000Z'
+                  end: '2024-04-10T00:00:00.000Z'
                 days: 04,05
                 schedule:
                   frequency: PT1H
                   holidays:
-                    - "2024-04-09"
-                    - "2024-04-07"
+                    - '2024-04-09'
+                    - '2024-04-07'
                   times:
-                    - "2024-04-04T22:00:00.000Z"
-                    - "2024-04-06T22:00:00.000Z"
-                    - "2024-04-08T22:00:00.000Z"
-                    - "2024-04-10T22:00:00.000Z"
+                    - '2024-04-04T22:00:00.000Z'
+                    - '2024-04-06T22:00:00.000Z'
+                    - '2024-04-08T22:00:00.000Z'
+                    - '2024-04-10T22:00:00.000Z'
               tags:
                 - descriptor:
                     code: INFO
@@ -400,4 +429,4 @@ value:
               location_ids:
                 - L1
               payment_ids:
-                - "2"
+                - '2'

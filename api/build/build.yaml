@@ -3243,6 +3243,34 @@ x-flows:
                               - descriptor:
                                   code: max_selection
                                 value: '1'
+                      - id: C2
+                        descriptor:
+                          name: Career
+                          code: CAREER
+                      - id: C3
+                        descriptor:
+                          name: Marriage
+                          code: MARRIAGE
+                      - id: C4
+                        descriptor:
+                          name: Love
+                          code: LOVE
+                      - id: C5
+                        descriptor:
+                          name: Energy
+                          code: ENERGY
+                      - id: C6
+                        descriptor:
+                          name: Home
+                          code: HOME
+                      - id: C7
+                        descriptor:
+                          name: Education
+                          code: EDUCATION
+                      - id: C8
+                        descriptor:
+                          name: Job
+                          code: JOB
                     locations:
                       - id: L1
                         gps: 12.967555,77.749666
@@ -3389,6 +3417,7 @@ x-flows:
                                 value: PT1D
                         category_ids:
                           - SRV18-1000
+                          - C6
                         fulfillment_ids:
                           - F1
                           - F2
@@ -9374,6 +9403,34 @@ x-flows:
                               - descriptor:
                                   code: max_selection
                                 value: '1'
+                      - id: C2
+                        descriptor:
+                          name: Career
+                          code: CAREER
+                      - id: C3
+                        descriptor:
+                          name: Marriage
+                          code: MARRIAGE
+                      - id: C4
+                        descriptor:
+                          name: Love
+                          code: LOVE
+                      - id: C5
+                        descriptor:
+                          name: Energy
+                          code: ENERGY
+                      - id: C6
+                        descriptor:
+                          name: Home
+                          code: HOME
+                      - id: C7
+                        descriptor:
+                          name: Education
+                          code: EDUCATION
+                      - id: C8
+                        descriptor:
+                          name: Job
+                          code: JOB
                     locations:
                       - id: L1
                         gps: 12.967555,77.749666
@@ -9496,6 +9553,7 @@ x-flows:
                                 value: PT1D
                         category_ids:
                           - SRV18-1001
+                          - C3
                         fulfillment_ids:
                           - F1
                           - F2
@@ -10619,6 +10677,34 @@ x-examples:
                                 - descriptor:
                                     code: max_selection
                                   value: '1'
+                        - id: C2
+                          descriptor:
+                            name: Career
+                            code: CAREER
+                        - id: C3
+                          descriptor:
+                            name: Marriage
+                            code: MARRIAGE
+                        - id: C4
+                          descriptor:
+                            name: Love
+                            code: LOVE
+                        - id: C5
+                          descriptor:
+                            name: Energy
+                            code: ENERGY
+                        - id: C6
+                          descriptor:
+                            name: Home
+                            code: HOME
+                        - id: C7
+                          descriptor:
+                            name: Education
+                            code: EDUCATION
+                        - id: C8
+                          descriptor:
+                            name: Job
+                            code: JOB
                       locations:
                         - id: L1
                           gps: 12.967555,77.749666
@@ -10766,6 +10852,7 @@ x-examples:
                                   value: PT1D
                           category_ids:
                             - SRV18-1000
+                            - C6
                           fulfillment_ids:
                             - F1
                             - F2

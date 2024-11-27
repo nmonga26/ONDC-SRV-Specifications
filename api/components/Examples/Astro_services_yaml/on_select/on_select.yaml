@@ -1,5 +1,5 @@
-summary: ""
-description: ""
+summary: ''
+description: ''
 value:
   context:
     domain: ONDC:SRV16
@@ -16,7 +16,7 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: T1
     message_id: M2
-    timestamp: "2024-04-01T22:00:31.000Z"
+    timestamp: '2024-04-01T22:00:31.000Z'
     ttl: PT30S
   message:
     order:
@@ -50,21 +50,21 @@ value:
               time:
                 label: confirmed
                 range:
-                  start: "2024-04-04T10:00:00.000Z"
-                  end: "2024-04-04T11:00:00.000Z"
-                days: "4"
+                  start: '2024-04-04T10:00:00.000Z'
+                  end: '2024-04-04T11:00:00.000Z'
+                days: '4'
               location:
                 gps: 12.974002,77.613458
-                area_code: "560001"
+                area_code: '560001'
       quote:
         price:
           currency: INR
-          value: "600"
+          value: '600'
         breakup:
           - title: Maha Mritunjay Path
             price:
               currency: INR
-              value: "500"
+              value: '500'
             item:
               id: I1
               quantity:
@@ -72,7 +72,7 @@ value:
                   count: 1
               price:
                 currency: INR
-                value: "500"
+                value: '500'
             tags:
               - descriptor:
                   code: title
@@ -83,7 +83,7 @@ value:
           - title: Pujari Name
             price:
               currency: INR
-              value: "0"
+              value: '0'
             item:
               id: I1
               quantity:
@@ -91,7 +91,7 @@ value:
                   count: 1
               price:
                 currency: INR
-                value: "0"
+                value: '0'
             tags:
               - descriptor:
                   code: title
@@ -102,7 +102,7 @@ value:
           - title: Tax
             price:
               currency: INR
-              value: "50"
+              value: '50'
             item:
               id: I1
             tags:
@@ -115,7 +115,7 @@ value:
           - title: Potli
             price:
               currency: INR
-              value: "50"
+              value: '50'
             item:
               id: I1
               add-ons:
@@ -130,7 +130,7 @@ value:
           - title: Discount
             price:
               currency: INR
-              value: "0"
+              value: '0'
             item:
               id: I1
             tags:
@@ -143,7 +143,7 @@ value:
           - title: Convenience Fee
             price:
               currency: INR
-              value: "0"
+              value: '0'
             item:
               id: I1
             tags:
