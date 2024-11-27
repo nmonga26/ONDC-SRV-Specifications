@@ -10,8 +10,8 @@ details:
         participant SA1 as SellerApp1
         participant SA2 as SellerApp2
         Note Over B,SA: **SEARCH FLOW**
-        B ->> BA: Search for the Health Service withing the city
-        BA ->> SA: **/search** - Search for the Health Service withing the city
+        B ->> BA: Search for the Health Service within the city
+        BA ->> SA: **/search** - Search for the Health Service within the city
         G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
         G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
         SA ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
@@ -27,7 +27,7 @@ details:
         Note Over B,SA: **SELECT FLOW**
         B ->> BA: Selects one of the <br>providers for service
         BA ->> SA: **/select** - A test/package is selected with a <br>TTL for receiving response
-        SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including sampling charges and all fulfillments
+        SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote  and all fulfillments
         BA ->> B: Shows response with price details
   - description: Initializing the order
     mermaidGraph: >-
@@ -37,7 +37,7 @@ details:
         participant SA as SellerApp      
         Note Over B,SA: **INITIALIZATION FLOW**
         B ->> BA: Proceeds with the Order
-        BA ->> SA: **/init** - Initializes the order and <br>sends billing details, patient details
+        BA ->> SA: **/init** - Initializes the order and <br>sends billing details, user details
         SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
         BA ->> B: Confirms initialization
   - description: Order Confirmation

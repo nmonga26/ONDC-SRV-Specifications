@@ -2805,18 +2805,18 @@ x-tags:
                   reference: <PR/Issue/Discussion Links md format text>
           items:
             tags:
-              - code: ADDITIONAL_TEST_INFORMATION
-                description: Additional Test Information
+              - code: INFO
+                description: Information about the item/service
                 reference: <PR/Issue/Discussion Links md format text>
                 list:
                   - code: ALIAS
                     description: Common other names of the test
                   - code: RISK_ASSESSMENT
                     description: Risk assessment of the test, can be - LOW, MEDIUM, HIGH
-              - code: RESCHEDULE_TERMS
-                description: Reschedule terms for the item
+              - code: SERVICE_DETAILS
+                description: If it is service, then service details are compulsory
                 reference: <PR/Issue/Discussion Links md format text>
-                list:
+                list: &ref_7
                   - code: FULFILLMENT_STATE
                     description: >-
                       Describing the fulfilment state for which reschdule will
@@ -2835,8 +2835,10 @@ x-tags:
                       Time within which it should be rescheduled after the
                       fulfilment has been changed
                     reference: <PR/Issue/Discussion Links md format text>
-              - code: ATTRIBUTE
-                description: Attribute of a particular item
+              - code: TEMPLE_DETAILS
+                description: >-
+                  If the astro pooja/consultance is to be held offline, template
+                  details are compulsory
                 reference: <PR/Issue/Discussion Links md format text>
                 list:
                   - code: TYPE
@@ -2847,8 +2849,8 @@ x-tags:
                     description: >-
                       A comma separated list of items/packages that this test is
                       also included in
-              - code: TEST_CRITERIA
-                description: Criteria for the test
+              - code: POOJA_CHECKLIST
+                description: Checklist for items that are mandatory for pooja
                 reference: <PR/Issue/Discussion Links md format text>
                 list:
                   - code: GENDER
@@ -2863,12 +2865,12 @@ x-tags:
                       conducting the test or collecting sample
                   - code: SAMPLE_COLLECTION
                     description: Whether sample collection will be done for this test
-              - code: TEST_PARAMETERS
-                description: Test parameters which will be tested in the test
+              - code: RESCHEDULE_TERMS
+                description: >-
+                  Reschedule terms for the service/item, can be duplicated
+                  multiple times over
                 reference: <PR/Issue/Discussion Links md format text>
-                list:
-                  - code: <Parameters>
-                    description: Paramteres that will be checked under a test
+                list: *ref_7
               - code: PRE_TEST_PREPARATION
                 description: Pre test preparations to be done before test
                 reference: <PR/Issue/Discussion Links md format text>
@@ -2917,8 +2919,8 @@ x-tags:
     message:
       order:
         quote:
-          breakup: &ref_9
-            tags: &ref_12
+          breakup: &ref_10
+            tags: &ref_13
               - code: title
                 description: title tag
                 reference: <PR/Issue/Discussion Links md format text>
@@ -2931,7 +2933,7 @@ x-tags:
   init:
     message:
       order:
-        items: &ref_7
+        items: &ref_8
           tags:
             - code: REPORT_REQUIREMENT
               description: Attribute of a particular item
@@ -2940,7 +2942,7 @@ x-tags:
                 - code: REPORT_DEADLINE
                   description: The deadline within which report is required
                   reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: &ref_8
+        fulfillments: &ref_9
           stops:
             person:
               tags:
@@ -2965,13 +2967,13 @@ x-tags:
                     - code: MOBILE_NUMBER
                       description: Mobile number of the patient
   on_init:
-    message: &ref_10
+    message: &ref_11
       order:
-        items: *ref_7
-        fulfillments: *ref_8
+        items: *ref_8
+        fulfillments: *ref_9
         quote:
-          breakup: *ref_9
-        payments: &ref_11
+          breakup: *ref_10
+        payments: &ref_12
           tags:
             - code: SETTLEMENT_DETAILS
               description: Define Payment Settlement Details here
@@ -3006,16 +3008,16 @@ x-tags:
                   description: Amount for the finder fee
                   reference: <PR/Issue/Discussion Links md format text>
   confirm:
-    message: *ref_10
+    message: *ref_11
   on_status:
-    message: *ref_10
+    message: *ref_11
   update:
-    message: &ref_13
+    message: &ref_14
       order:
-        payments: *ref_11
+        payments: *ref_12
         quote:
           breakup:
-            tags: *ref_12
+            tags: *ref_13
           item:
             tags:
               - code: attributes
@@ -3026,7 +3028,7 @@ x-tags:
                     description: Hex Code for color
                     reference: <PR/Issue/Discussion Links md format text>
   on_update:
-    message: *ref_13
+    message: *ref_14
 x-flows:
   - summary: Astrology Services - Pujari comes to Buyer Location for Pooja
     description: >-
@@ -3045,8 +3047,8 @@ x-flows:
             participant SA1 as SellerApp1
             participant SA2 as SellerApp2
             Note Over B,SA1: **SEARCH FLOW**
-            B ->> BA: Search for the Astrology service withing the city
-            BA ->> G: **/search** - Search for the Astrology service withing the city
+            B ->> BA: Search for the Astrology service within the city
+            BA ->> G: **/search** - Search for the Astrology service within the city
             G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
             SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
@@ -3061,8 +3063,8 @@ x-flows:
             participant SA as SellerApp
             Note Over B,SA: **SELECT FLOW**
             B ->> BA: Selects one of the <br>providers for service
-            BA ->> SA: **/select** - A test/package is selected with a <br>TTL for receiving response
-            SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including sampling charges
+            BA ->> SA: **/select** - An astro service is selected with a <br>TTL for receiving response
+            SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote 
             BA ->> B: Shows response with price details
       - description: Initializing the order
         mermaidGraph: |-
@@ -3072,7 +3074,7 @@ x-flows:
             participant SA as SellerApp      
             Note Over B,SA: **INITIALIZATION FLOW**
             B ->> BA: Proceeds with the Order
-            BA ->> SA: **/init** - Initializes the order and <br>sends billing details, patient details
+            BA ->> SA: **/init** - Initializes the order and <br>sends billing details, user details
             SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
             BA ->> B: Confirms initialization
       - description: Order Confirmation
@@ -3105,7 +3107,7 @@ x-flows:
           Search intent sent by the buyer based on the particular Astrology
           service required
         reference: if any
-        example: &ref_14
+        example: &ref_15
           summary: ''
           description: ''
           value:
@@ -3143,7 +3145,7 @@ x-flows:
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: &ref_15
+        example: &ref_16
           summary: ''
           description: ''
           value:
@@ -3839,7 +3841,7 @@ x-flows:
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: &ref_27
+        example: &ref_28
           summary: ''
           description: ''
           value:
@@ -4603,7 +4605,7 @@ x-flows:
         api: status
         description: Buyer requests for the status of the order
         reference: if any
-        example: &ref_16
+        example: &ref_17
           summary: ''
           description: ''
           value:
@@ -5663,8 +5665,8 @@ x-flows:
             participant SA1 as SellerApp1
             participant SA2 as SellerApp2
             Note Over B,SA1: **SEARCH FLOW**
-            B ->> BA: Search for the Astrology service withing the city
-            BA ->> G: **/search** - Search for the Astrology service withing the city
+            B ->> BA: Search for the Astrology service within the city
+            BA ->> G: **/search** - Search for the Astrology service within the city
             G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
             SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
@@ -5679,8 +5681,8 @@ x-flows:
             participant SA as SellerApp
             Note Over B,SA: **SELECT FLOW**
             B ->> BA: Selects one of the <br>providers for service
-            BA ->> SA: **/select** - A test/package is selected with a <br>TTL for receiving response
-            SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including sampling charges
+            BA ->> SA: **/select** - A astro service is selected with a <br>TTL for receiving response
+            SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote 
             BA ->> B: Shows response with price details
       - description: Initializing the order
         mermaidGraph: |-
@@ -5690,7 +5692,7 @@ x-flows:
             participant SA as SellerApp      
             Note Over B,SA: **INITIALIZATION FLOW**
             B ->> BA: Proceeds with the Order
-            BA ->> SA: **/init** - Initializes the order and <br>sends billing details, patient details
+            BA ->> SA: **/init** - Initializes the order and <br>sends billing details, user details
             SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
             BA ->> B: Confirms initialization
       - description: Order Confirmation
@@ -5723,12 +5725,12 @@ x-flows:
           Search intent sent by the buyer based on the particular Astrology
           service required
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required Astrology service
         api: select
         description: >-
@@ -6697,7 +6699,7 @@ x-flows:
         api: status
         description: Buyer requests for the status of the order
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller sends back the update of order
         api: on_status (At location)
         description: >-
@@ -7193,8 +7195,8 @@ x-flows:
             participant SA1 as SellerApp1
             participant SA2 as SellerApp2
             Note Over B,SA1: **SEARCH FLOW**
-            B ->> BA: Search for the Astrology service withing the city
-            BA ->> G: **/search** - Search for the Astrology service withing the city
+            B ->> BA: Search for the Astrology service within the city
+            BA ->> G: **/search** - Search for the Astrology service within the city
             G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
             SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
@@ -7209,8 +7211,8 @@ x-flows:
             participant SA as SellerApp
             Note Over B,SA: **SELECT FLOW**
             B ->> BA: Selects one of the <br>providers for service
-            BA ->> SA: **/select** - A test/package is selected with a <br>TTL for receiving response
-            SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including sampling charges
+            BA ->> SA: **/select** - An astro service is selected with a <br>TTL for receiving response
+            SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote 
             BA ->> B: Shows response with price details
       - description: Initializing the order
         mermaidGraph: |-
@@ -7220,7 +7222,7 @@ x-flows:
             participant SA as SellerApp      
             Note Over B,SA: **INITIALIZATION FLOW**
             B ->> BA: Proceeds with the Order
-            BA ->> SA: **/init** - Initializes the order and <br>sends billing details, patient details
+            BA ->> SA: **/init** - Initializes the order and <br>sends billing details, user details
             SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
             BA ->> B: Confirms initialization
       - description: Order Confirmation
@@ -7253,19 +7255,19 @@ x-flows:
           Search intent sent by the buyer based on the particular Astrology
           service required
         reference: if any
-        example: *ref_14
+        example: *ref_15
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_15
+        example: *ref_16
       - summary: Buyer selects the required Astrology service
         api: select
         description: >-
           Buyer selects the required Astrology service + suitable fulfillment
           type
         reference: if any
-        example: &ref_17
+        example: &ref_18
           summary: ''
           description: ''
           value:
@@ -7331,7 +7333,7 @@ x-flows:
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: &ref_18
+        example: &ref_19
           summary: ''
           description: ''
           value:
@@ -7492,7 +7494,7 @@ x-flows:
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: &ref_19
+        example: &ref_20
           summary: ''
           description: ''
           value:
@@ -7567,7 +7569,7 @@ x-flows:
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: &ref_20
+        example: &ref_21
           summary: ''
           description: ''
           value:
@@ -7777,7 +7779,7 @@ x-flows:
         api: confirm
         description: Buyer confirms the order by paying the amount
         reference: if any
-        example: &ref_21
+        example: &ref_22
           summary: ''
           description: ''
           value:
@@ -7998,7 +8000,7 @@ x-flows:
         api: on_confirm
         description: Seller accepts the order
         reference: if any
-        example: &ref_22
+        example: &ref_23
           summary: ''
           description: ''
           value:
@@ -8222,14 +8224,14 @@ x-flows:
         api: status
         description: Buyer requests for the status of the order
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller sends back the update of order
         api: on_status (Chat Room Created)
         description: >-
           Seller sends back the update of order when a chat room/video call link
           is created
         reference: if any
-        example: &ref_23
+        example: &ref_24
           summary: ''
           description: ''
           value:
@@ -8471,7 +8473,7 @@ x-flows:
           Seller sends back the update of order when a chat room/video call link
           is updated
         reference: if any
-        example: &ref_24
+        example: &ref_25
           summary: ''
           description: ''
           value:
@@ -8713,7 +8715,7 @@ x-flows:
           Seller sends back the update of order when a chat room/video call link
           is opened for service
         reference: if any
-        example: &ref_25
+        example: &ref_26
           summary: ''
           description: ''
           value:
@@ -8955,7 +8957,7 @@ x-flows:
           Seller sends back the update of order when service is over and order
           is completed
         reference: if any
-        example: &ref_26
+        example: &ref_27
           summary: ''
           description: ''
           value:
@@ -9208,8 +9210,8 @@ x-flows:
             participant SA1 as SellerApp1
             participant SA2 as SellerApp2
             Note Over B,SA1: **SEARCH FLOW**
-            B ->> BA: Search for the Astrology service withing the city
-            BA ->> G: **/search** - Search for the Astrology service withing the city
+            B ->> BA: Search for the Astrology service within the city
+            BA ->> G: **/search** - Search for the Astrology service within the city
             G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
             SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
@@ -9224,8 +9226,8 @@ x-flows:
             participant SA as SellerApp
             Note Over B,SA: **SELECT FLOW**
             B ->> BA: Selects one of the <br>providers for service
-            BA ->> SA: **/select** - A test/package is selected with a <br>TTL for receiving response
-            SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including sampling charges
+            BA ->> SA: **/select** - An astro service is selected with a <br>TTL for receiving response
+            SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote 
             BA ->> B: Shows response with price details
       - description: Initializing the order
         mermaidGraph: |-
@@ -9235,7 +9237,7 @@ x-flows:
             participant SA as SellerApp      
             Note Over B,SA: **INITIALIZATION FLOW**
             B ->> BA: Proceeds with the Order
-            BA ->> SA: **/init** - Initializes the order and <br>sends billing details, patient details
+            BA ->> SA: **/init** - Initializes the order and <br>sends billing details, user details
             SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
             BA ->> B: Confirms initialization
       - description: Order Confirmation
@@ -9742,65 +9744,65 @@ x-flows:
           Buyer selects the required Astrology service + suitable fulfillment
           type
         reference: if any
-        example: *ref_17
+        example: *ref_18
       - summary: Seller confirms the schedule and returns the quote for service
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: *ref_18
+        example: *ref_19
       - summary: Buyer initialises the order for service
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Seller provides the final quotation for the service
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Buyer confirms the order
         api: confirm
         description: Buyer confirms the order by paying the amount
         reference: if any
-        example: *ref_21
+        example: *ref_22
       - summary: Seller accepts the order
         api: on_confirm
         description: Seller accepts the order
         reference: if any
-        example: *ref_22
+        example: *ref_23
       - summary: Buyer requests for the status
         api: status
         description: Buyer requests for the status of the order
         reference: if any
-        example: *ref_16
+        example: *ref_17
       - summary: Seller sends back the update of order
         api: on_status (Chat Room Created)
         description: >-
           Seller sends back the update of order when a chat room/video call link
           is created
         reference: if any
-        example: *ref_23
+        example: *ref_24
       - summary: Seller sends back the update of order
         api: on_status (Chat Room Updated)
         description: >-
           Seller sends back the update of order when a chat room/video call link
           is updated
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller sends back the update of order
         api: on_status (Chat Room Open)
         description: >-
           Seller sends back the update of order when a chat room/video call link
           is opened for service
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Seller sends back the update of order
         api: on_status (Complete)
         description: >-
           Seller sends back the update of order when service is over and order
           is completed
         reference: if any
-        example: *ref_26
+        example: *ref_27
   - summary: Astrology Services - Sellers (BPP) collects Payment
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9817,7 +9819,7 @@ x-flows:
             participant SA as SellerApp      
             Note Over B,SA: **INITIALIZATION FLOW**
             B ->> BA: Proceeds with the Order
-            BA ->> SA: **/init** - Initializes the order and <br>sends billing details, patient details
+            BA ->> SA: **/init** - Initializes the order and <br>sends billing details, user details
             SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer and payment link
             BA ->> B: Renders payment link
             B ->> BA: Pays payment
@@ -9841,7 +9843,7 @@ x-flows:
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_27
+        example: *ref_28
       - summary: Seller provides the final quotation for the service
         api: on_init
         description: Seller provides the final quotation with payment link
@@ -13180,7 +13182,7 @@ x-attributes:
                   name:
                     description: name of the service provided by the service provider
                     required: required
-                    usage: LFT Test
+                    usage: Kundli Pooja
                     reference: if any
                   price:
                     value:
@@ -13453,6 +13455,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
               breakup:
+                parent: true
                 breakup:
                   description: service provider provides the the breakup of the quote
                   required: required
@@ -13460,8 +13463,8 @@ x-attributes:
                   reference: if any
                 title:
                   description: >-
-                    title of the service charges enum - Pooja Services, tax,
-                    discount, convenience_fee
+                    title of the service charges - Pooja Services, tax,
+                    discount, convenience fee
                   required: required
                   usage: Pooja Services
                   reference: if any
@@ -13680,27 +13683,22 @@ x-attributes:
                     usage: '2023-11-16T09:00:00.000Z'
 x-errorcodes:
   code:
-    - Code: '90001'
+    - Code: '100001'
       Reason: Schedule selected by the buyer is not available
       Who can use code?: BPP
       Usage: Used in error object
       Action: /on_select
-    - Code: '90002'
+    - Code: '100002'
       Reason: Incorrect OTP provided by buyer
       Who can use code?: BPP
       Usage: Used in error object
       Action: /on_status
-    - Code: '90003'
+    - Code: '100003'
       Reason: Schedule is not provided by the buyer
       Who can use code?: BPP
       Usage: Used in NACK
       Action: NACK on /select
-    - Code: '90004'
-      Reason: Report deadline cannot be matched
-      Who can use code?: BPP
-      Usage: Used in error object
-      Action: /on_select
-    - Code: '90005'
+    - Code: '100004'
       Reason: Reschedule not possible for ad
       Who can use code?: BPP
       Usage: Used in error object

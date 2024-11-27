@@ -9,7 +9,7 @@ details:
         participant SA as SellerApp      
         Note Over B,SA: **INITIALIZATION FLOW**
         B ->> BA: Proceeds with the Order
-        BA ->> SA: **/init** - Initializes the order and <br>sends billing details, patient details
+        BA ->> SA: **/init** - Initializes the order and <br>sends billing details, user details
         SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer and payment link
         BA ->> B: Renders payment link
         B ->> BA: Pays payment

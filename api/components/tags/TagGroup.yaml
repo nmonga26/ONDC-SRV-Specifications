@@ -20,31 +20,31 @@ catalog:
           $ref: "./Tag.yaml#/serviceability"
     items:
       tags:
-        - code: ADDITIONAL_TEST_INFORMATION
-          description: Additional Test Information
+        - code: INFO
+          description: Information about the item/service
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./Tag.yaml#/ADDITIONAL_TEST_INFORMATION"
-        - code: RESCHEDULE_TERMS
-          description: Reschedule terms for the item
+        - code: SERVICE_DETAILS
+          description: If it is service, then service details are compulsory
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./Tag.yaml#/RESCHEDULE_TERMS"
-        - code: ATTRIBUTE
-          description: Attribute of a particular item
+        - code: TEMPLE_DETAILS
+          description: If the astro pooja/consultance is to be held offline, template details are compulsory
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./Tag.yaml#/ATTRIBUTE"
-        - code: TEST_CRITERIA
-          description: Criteria for the test
+        - code: POOJA_CHECKLIST
+          description: Checklist for items that are mandatory for pooja
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./Tag.yaml#/TEST_CRITERIA"
-        - code: TEST_PARAMETERS
-          description: Test parameters which will be tested in the test
+        - code: RESCHEDULE_TERMS
+          description: Reschedule terms for the service/item, can be duplicated multiple times over
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/TEST_PARAMETERS"
+            $ref: "./Tag.yaml#/RESCHEDULE_TERMS"
         - code: PRE_TEST_PREPARATION
           description: Pre test preparations to be done before test
           reference: <PR/Issue/Discussion Links md format text>

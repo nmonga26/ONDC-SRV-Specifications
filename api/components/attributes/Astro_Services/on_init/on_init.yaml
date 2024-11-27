@@ -10,13 +10,14 @@ message:
         usage: "-"
         reference: if any
       breakup:
+        parent: true
         breakup:
           description: service provider provides the the breakup of the quote
           required: required
           usage: "-"
           reference: if any
         title:
-          description: title of the service charges enum - Pooja Services, tax, discount, convenience_fee
+          description: title of the service charges - Pooja Services, tax, discount, convenience fee
           required: required
           usage: "Pooja Services"
           reference: if any

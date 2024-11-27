@@ -10,8 +10,8 @@ details:
         participant SA1 as SellerApp1
         participant SA2 as SellerApp2
         Note Over B,SA: **SEARCH FLOW**
-        B ->> BA: Search for the Health Service withing the city
-        BA ->> SA: **/search** - Search for the Health Service withing the city
+        B ->> BA: Search for the Health Service within the city
+        BA ->> SA: **/search** - Search for the Health Service within the city
         G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
         G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
         SA ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
@@ -27,7 +27,7 @@ details:
         Note Over B,SA: **SELECT FLOW**
         B ->> BA: Selects one of the <br>providers for service
         BA ->> SA: **/select** - A service is selected with a <br>TTL for receiving response
-        SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote including sampling charges
+        SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote 
         BA ->> B: Shows response with price details
   - description: Initializing the order
     mermaidGraph: >-
@@ -180,4 +180,3 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Health_care_services_yaml/on_status/on_status_report_shared.yaml"
-  
