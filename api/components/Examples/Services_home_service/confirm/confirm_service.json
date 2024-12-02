@@ -147,6 +147,22 @@
             "percentage": "25"
           },
           "reason_required": true
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Pending"
+            }
+          },
+          "cancel_by": {
+            "duration": "P1D"
+          },
+          "cancellation_fee": {
+            "amount": {
+              "value": "0"
+            }
+          },
+          "reason_required": false
         }
       ],
       "quote": {

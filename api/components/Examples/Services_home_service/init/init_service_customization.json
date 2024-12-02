@@ -86,7 +86,8 @@
           ],
           "category_ids": [
             "C3",
-            "C21"
+            "C21",
+            "C31"
           ],
           "fulfillment_ids": [
             "F1"
@@ -135,7 +136,8 @@
           ],
           "category_ids": [
             "C3",
-            "C22"
+            "C21",
+            "C31"
           ],
           "quantity": {
             "selected": {

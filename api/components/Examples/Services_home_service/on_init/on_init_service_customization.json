@@ -86,7 +86,8 @@
           ],
           "category_ids": [
             "C3",
-            "C21"
+            "C21",
+            "C31"
           ],
           "fulfillment_ids": [
             "F1"
@@ -135,7 +136,8 @@
           ],
           "category_ids": [
             "C3",
-            "C22"
+            "C21",
+            "C31"
           ],
           "quantity": {
             "selected": {
@@ -243,7 +245,7 @@
                 "short_desc": "Instuctions by provider",
                 "long_desc": "Instuctions by provider",
                 "additional_desc": {
-                  "url": "https://abc.com/checklist",
+                  "url": "https://abc.com/instructions",
                   "content_type": "text/html"
                 }
               }
@@ -694,7 +696,7 @@
           "tags": [
             {
               "descriptor": {
-                "code": "Settlement_Details"
+                "code": "Settlement_Counterparty"
               },
               "list": [
                 {
@@ -770,7 +772,7 @@
           "tags": [
             {
               "descriptor": {
-                "code": "Settlement_Details"
+                "code": "Settlement_Counterparty"
               },
               "list": [
                 {
@@ -808,6 +810,37 @@
                     "code": "UPI_Address"
                   },
                   "value": "xxxxxxx"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "Settlement_Details"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Window"
+                  },
+                  "value": "P1D"
+                },
+                {
+                  "descriptor": {
+                    "code": "Basis"
+                  },
+                  "value": "Completed"
+                },
+                {
+                  "descriptor": {
+                    "code": "Witholding_Amount"
+                  },
+                  "value": "0.00"
+                },
+                {
+                  "descriptor": {
+                    "code": "Phase"
+                  },
+                  "value": "sale-amount"
                 }
               ]
             },

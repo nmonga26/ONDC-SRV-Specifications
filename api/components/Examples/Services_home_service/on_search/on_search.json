@@ -82,8 +82,8 @@
             "schedule": {
               "frequency": "PT1H",
               "holidays": [
-                "2023-11-13",
-                "2023-11-15"
+                "2023-11-13T00:00:00.000Z",
+                "2023-11-15T00:00:00.000Z"
               ],
               "times": [
                 "2023-11-16T09:30:00.000Z",
@@ -176,7 +176,7 @@
                 "media": [
                   {
                     "mimetype": "video/mp4",
-                    "url": "video_url"
+                    "url": "https://video_url.mp4"
                   }
                 ]
               },
@@ -273,8 +273,8 @@
                 "schedule": {
                   "frequency": "PT1H",
                   "holidays": [
-                    "2023-11-13",
-                    "2023-11-15"
+                    "2023-11-13T00:00:00.000Z",
+                    "2023-11-15T00:00:00.000Z"
                   ],
                   "times": [
                     "2023-11-16T09:30:00.000Z",
@@ -304,7 +304,7 @@
                 "media": [
                   {
                     "mimetype": "video/mp4",
-                    "url": "video_url"
+                    "url": "https://video_url.mp4"
                   }
                 ]
               },
@@ -367,7 +367,7 @@
                 {
                   "fulfillment_state": {
                     "descriptor": {
-                      "code": "Out-For-Delivery"
+                      "code": "In-Transit"
                     }
                   },
                   "reason_required": true,
@@ -422,8 +422,8 @@
                 "schedule": {
                   "frequency": "PT1H",
                   "holidays": [
-                    "2024-10-13T00:00:00.000Z",
-                    "2024-10-15T00:00:00.000Z"
+                    "2023-12-13T00:00:00.000Z",
+                    "2023-12-15T00:00:00.000Z"
                   ],
                   "times": [
                     "2023-11-16T09:30:00.000Z",
@@ -453,7 +453,7 @@
                 "media": [
                   {
                     "mimetype": "video/mp4",
-                    "url": "video_url"
+                    "url": "https://video_url.mp4"
                   }
                 ]
               },
@@ -516,7 +516,7 @@
                 {
                   "fulfillment_state": {
                     "descriptor": {
-                      "code": "Out-For-Delivery"
+                      "code": "In-Transit"
                     }
                   },
                   "reason_required": true,
@@ -571,8 +571,8 @@
                 "schedule": {
                   "frequency": "PT1H",
                   "holidays": [
-                    "2024-10-13T00:00:00.000Z",
-                    "2024-10-15T00:00:00.000Z"
+                    "2023-12-13T00:00:00.000Z",
+                    "2023-12-15T00:00:00.000Z"
                   ],
                   "times": [
                     "2023-11-16T09:30:00.000Z",
@@ -602,7 +602,7 @@
                 "media": [
                   {
                     "mimetype": "video/mp4",
-                    "url": "video_url"
+                    "url": "https://video_url.mp4"
                   }
                 ]
               },
@@ -665,7 +665,7 @@
                 {
                   "fulfillment_state": {
                     "descriptor": {
-                      "code": "Out-For-Delivery"
+                      "code": "In-Transit"
                     }
                   },
                   "reason_required": true,
@@ -720,8 +720,8 @@
                 "schedule": {
                   "frequency": "PT1H",
                   "holidays": [
-                    "2024-10-13T00:00:00.000Z",
-                    "2024-10-15T00:00:00.000Z"
+                    "2023-12-13T00:00:00.000Z",
+                    "2023-12-15T00:00:00.000Z"
                   ],
                   "times": [
                     "2023-11-16T09:30:00.000Z",

@@ -143,11 +143,7 @@
               "value": "0"
             },
             "item": {
-              "id": "I1",
-              "price": {
-                "currency": "INR",
-                "value": "99"
-              }
+              "id": "I1"
             },
             "tags": [
               {

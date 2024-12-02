@@ -168,6 +168,7 @@ value:
           type: PRE-FULFILLMENT
           tags:
             - descriptor:
+            - descriptor:
                 code: Settlement_Counterparty
               list:
                 - descriptor:
@@ -188,6 +189,21 @@ value:
                 - descriptor:
                     code: UPI_Address
                   value: xxxxxxx
+            - descriptor:
+                code: Settlement_Details
+              list:
+              - descriptor:
+                  code: Window
+                value: P1D
+              - descriptor:
+                  code: Basis
+                value: Completed
+              - descriptor:
+                  code: Witholding_Amount
+                value: '0.00'
+              - descriptor:
+                  code: Phase
+                value: sale-amount
             - descriptor:
                 code: Buyer_Finder_Fee
               list:
