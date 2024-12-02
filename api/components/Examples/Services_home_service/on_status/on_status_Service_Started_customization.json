@@ -331,6 +331,11 @@
               "price": {
                 "currency": "INR",
                 "value": "00.00"
+              },
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
               }
             },
             "tags": [

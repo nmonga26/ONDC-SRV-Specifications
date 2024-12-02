@@ -76,7 +76,9 @@
                 "descriptor": {
                   "name": "ABC Store",
                   "images": [
-                    "https://gf-integration/images/5.png"
+                    {
+                      "url": "https://gf-integration/images/5.png"
+                    }
                   ]
                 },
                 "gps": "12.956399,77.636803"

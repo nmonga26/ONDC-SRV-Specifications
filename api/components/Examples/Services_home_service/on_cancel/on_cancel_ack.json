@@ -16,7 +16,7 @@
     "bpp_id": "sellerapp.com",
     "bpp_uri": "https://sellerapp.com/services",
     "transaction_id": "9fdb667c-76c6-456a-9742-ba9caa5eb765",
-    "message_id": "1755281254860",
+    "message_id": "bd186a4e-b075-41e7-926f-c833d9977f8d",
     "timestamp": "2023-11-08T22:00:57.000Z",
     "ttl": "PT30S"
   },
@@ -134,11 +134,7 @@
               "value": "0"
             },
             "item": {
-              "id": "I1",
-              "price": {
-                "currency": "INR",
-                "value": "0.00"
-              }
+              "id": "I1"
             },
             "tags": [
               {
@@ -163,11 +159,7 @@
               "value": "0"
             },
             "item": {
-              "id": "I1",
-              "price": {
-                "currency": "INR",
-                "value": "0.00"
-              }
+              "id": "I1"
             },
             "tags": [
               {

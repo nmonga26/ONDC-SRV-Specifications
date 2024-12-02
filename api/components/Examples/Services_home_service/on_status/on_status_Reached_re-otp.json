@@ -76,7 +76,9 @@
                 "descriptor": {
                   "name": "ABC Store",
                   "images": [
-                    "https://gf-integration/images/5.png"
+                    {
+                      "url": "https://gf-integration/images/5.png"
+                    }
                   ]
                 },
                 "gps": "12.956399,77.636803"
@@ -164,23 +166,35 @@
               "price": {
                 "currency": "INR",
                 "value": "474"
-              }
-            },
-            "tags": [
-              {
-                "descriptor": {
-                  "code": "title"
+              },
+              "item": {
+                "id": "I1",
+                "price": {
+                  "currency": "INR",
+                  "value": "00.00"
                 },
-                "list": [
-                  {
-                    "descriptor": {
-                      "code": "type"
-                    },
-                    "value": "item"
+                "quantity": {
+                  "selected": {
+                    "count": 1
                   }
-                ]
-              }
-            ]
+                }
+              },
+              "tags": [
+                {
+                  "descriptor": {
+                    "code": "title"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "code": "type"
+                      },
+                      "value": "item"
+                    }
+                  ]
+                }
+              ]
+            }
           },
           {
             "title": "tax",
@@ -257,9 +271,9 @@
               }
             ]
           }
-        ],
-        "ttl": "P1D"
+        ]
       },
+      "ttl": "P1D",
       "payments": [
         {
           "id": "P1",
