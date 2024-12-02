@@ -22,6 +22,8 @@ value:
     order:
       provider:
         id: P1
+        locations:
+          - id: L1
       items:
         - id: I1
           location_ids:
@@ -56,6 +58,7 @@ value:
           category_ids:
             - C3
             - C21
+            - C31
           fulfillment_ids:
             - F1
           quantity:
@@ -82,7 +85,8 @@ value:
             - F1
           category_ids:
             - C3
-            - C22
+            - C21
+            - C31
           quantity:
             selected:
               count: 1
@@ -153,6 +157,9 @@ value:
               value: "00.00"
             item:
               id: I1
+              quantity:
+                selected:
+                  count: 1
               price:
                 currency: INR
                 value: "00.00"

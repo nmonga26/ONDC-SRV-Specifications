@@ -23,7 +23,7 @@
   "message": {
     "order": {
       "id": "O1",
-      "status": "Accepted",
+      "status": "ACCEPTED",
       "provider": {
         "id": "P1",
         "locations": [
@@ -72,7 +72,6 @@
           "tracking": false,
           "stops": [
             {
-              "id": "L1",
               "type": "start",
               "location": {
                 "id": "L1",
@@ -96,7 +95,6 @@
               }
             },
             {
-              "id": "L2",
               "type": "end",
               "location": {
                 "gps": "12.974002,77.613458",
@@ -213,19 +211,19 @@
               }
             },
             "tags": [
-                {
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
                     "descriptor": {
-                        "code": "title"
+                      "code": "type"
                     },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "type"
-                            },
-                            "value": "item"
-                        }
-                    ]
-                }
+                    "value": "item"
+                  }
+                ]
+              }
             ]
           },
           {
@@ -235,31 +233,22 @@
               "value": "25"
             },
             "item": {
-              "id": "I1",
-              "quantity": {
-                "allocated": {
-                  "count": "1"
-                }
-              },
-              "price": {
-                "currency": "INR",
-                "value": "474"
-              }
+              "id": "I1"
             },
             "tags": [
-                {
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
                     "descriptor": {
-                        "code": "title"
+                      "code": "type"
                     },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "type"
-                            },
-                            "value": "tax"
-                        }
-                    ]
-                }
+                    "value": "tax"
+                  }
+                ]
+              }
             ]
           },
           {
@@ -269,31 +258,22 @@
               "value": "0"
             },
             "item": {
-              "id": "I1",
-              "quantity": {
-                "allocated": {
-                  "count": "1"
-                }
-              },
-              "price": {
-                "currency": "INR",
-                "value": "474"
-              }
+              "id": "I1"
             },
             "tags": [
-                {
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
                     "descriptor": {
-                        "code": "title"
+                      "code": "type"
                     },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "type"
-                            },
-                            "value": "discount"
-                        }
-                    ]
-                }
+                    "value": "discount"
+                  }
+                ]
+              }
             ]
           },
           {
@@ -303,31 +283,22 @@
               "value": "0"
             },
             "item": {
-              "id": "I1",
-              "quantity": {
-                "allocated": {
-                  "count": "1"
-                }
-              },
-              "price": {
-                "currency": "INR",
-                "value": "474"
-              }
+              "id": "I1"
             },
             "tags": [
-                {
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
                     "descriptor": {
-                        "code": "title"
+                      "code": "type"
                     },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "type"
-                            },
-                            "value": "misc"
-                        }
-                    ]
-                }
+                    "value": "misc"
+                  }
+                ]
+              }
             ]
           }
         ],
@@ -340,11 +311,11 @@
           "params": {
             "amount": "499",
             "currency": "INR",
-            "transaction_id":"3937",
+            "transaction_id": "3937",
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
-          "status":"PAID",
+          "status": "PAID",
           "type": "PRE-FULFILLMENT",
           "tags": [
             {
@@ -447,9 +418,9 @@
       "updated_at": "2023-02-03T09:31:30.000Z",
       "xinput": {
         "form": {
-          "url": "https//abc.com/checklist",
+          "url": "https://abc.com/checklist",
           "mimetype": "text/html",
-          "submission_id": "xxxxxxxxxx",
+          "submission_id": "65fe13c2-d306-4ef1-8c25-fa126c134b67",
           "status": "SUCCESS"
         }
       }

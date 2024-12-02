@@ -23,7 +23,12 @@
   "message": {
     "order": {
       "provider": {
-        "id": "P1"
+				"id": "P1",
+				"locations": [
+					{
+						"id": "L1"
+					}
+				]
       },
       "items": [
         {
@@ -62,22 +67,9 @@
               "time": {
                 "label": "confirmed",
                 "range": {
-                  "start": "2023-11-16T09:30:00.000Z",
-                  "end": "2023-11-16T10:30:00.000Z"
+                  "start": "2022-17-10T00:00:00.000Z",
+                  "end": "2022-11-20T00:00:00.000Z"
                 }
-              },
-              "tags": {
-                "descriptor": {
-                  "code": "schedule"
-                },
-                "list": [
-                  {
-                    "descriptor": {
-                      "code": "ttl"
-                    },
-                    "value": "PT1H"
-                  }
-                ]
               }
             }
           ]
@@ -97,6 +89,11 @@
             },
             "item": {
               "id": "I1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              },
               "price": {
                 "currency": "INR",
                 "value": "99"
@@ -125,11 +122,7 @@
               "value": "0"
             },
             "item": {
-              "id": "I1",
-              "price": {
-                "currency": "INR",
-                "value": "99"
-              }
+              "id": "I1"
             },
             "tags": [
               {

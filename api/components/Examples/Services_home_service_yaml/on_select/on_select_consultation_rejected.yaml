@@ -22,6 +22,8 @@ value:
     order:
       provider:
         id: P1
+        locations:
+          - id: L1
       items:
         - fulfillment_ids:
             - F1
@@ -76,6 +78,9 @@ value:
               value: '99'
             item:
               id: I1
+              quantity:
+                selected:
+                  count: 1
               price:
                 currency: INR
                 value: '99'
@@ -92,9 +97,6 @@ value:
               value: '0'
             item:
               id: I1
-              price:
-                currency: INR
-                value: '99'
             tags:
               - descriptor:
                   code: title

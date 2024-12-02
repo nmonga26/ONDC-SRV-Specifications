@@ -21,7 +21,7 @@ value:
   message:
     order:
       id: O1
-      status: Accepted
+      status: ACCEPTED
       provider:
         id: P1
         locations:
@@ -45,7 +45,7 @@ value:
           type: PRE-FULFILLMENT
           tags:
             - descriptor:
-                code: Settlement_Details
+                code: Settlement_Counterparty
               list:
                 - descriptor:
                     code: Counterparty
@@ -65,6 +65,21 @@ value:
                 - descriptor:
                     code: UPI_Address
                   value: xxxxxxx
+            - descriptor:
+                code: Settlement_Details
+              list:
+              - descriptor:
+                  code: Window
+                value: P1D
+              - descriptor:
+                  code: Basis
+                value: Completed
+              - descriptor:
+                  code: Witholding_Amount
+                value: '0.00'
+              - descriptor:
+                  code: Phase
+                value: sale-amount
             - descriptor:
                 code: Buyer_Finder_Fee
               list:
@@ -155,9 +170,6 @@ value:
               value: '0'
             item:
               id: I1
-              price:
-                currency: INR
-                value: '99'
             tags:
               - descriptor:
                   code: title

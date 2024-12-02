@@ -38,8 +38,8 @@
         ]
       },
       "payment": {
-        "type": "ON-FULFILLMENT",
-        "collected_by": "BPP"
+        "type": "PRE-FULFILLMENT",
+        "collected_by": "BAP"
       },
       "tags": [
         {

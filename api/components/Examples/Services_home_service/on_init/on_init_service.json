@@ -23,13 +23,13 @@
   "message": {
     "order": {
       "provider": {
-        "id": "P1"
+				"id": "P1",
+				"locations": [
+					{
+						"id": "L1"
+					}
+				]
       },
-      "locations": [
-        {
-          "id": "L1"
-        }
-      ],
       "items": [
         {
           "id": "I2",
@@ -88,19 +88,6 @@
                   "start": "2023-11-16T09:30:00.000Z",
                   "end": "2023-11-16T10:30:00.000Z"
                 }
-              },
-              "tags": {
-                "descriptor": {
-                  "code": "schedule"
-                },
-                "list": [
-                  {
-                    "descriptor": {
-                      "code": "ttl"
-                    },
-                    "value": "PT1H"
-                  }
-                ]
               }
             }
           ]
@@ -177,19 +164,19 @@
               }
             },
             "tags": [
-                {
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
                     "descriptor": {
-                        "code": "title"
+                      "code": "type"
                     },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "type"
-                            },
-                            "value": "item"
-                        }
-                    ]
-                }
+                    "value": "item"
+                  }
+                ]
+              }
             ]
           },
           {
@@ -199,31 +186,22 @@
               "value": "25"
             },
             "item": {
-              "id": "I1",
-              "quantity": {
-                "allocated": {
-                  "count": 1
-                }
-              },
-              "price": {
-                "currency": "INR",
-                "value": "474"
-              }
+              "id": "I1"
             },
             "tags": [
-                {
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
                     "descriptor": {
-                        "code": "title"
+                      "code": "type"
                     },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "type"
-                            },
-                            "value": "tax"
-                        }
-                    ]
-                }
+                    "value": "tax"
+                  }
+                ]
+              }
             ]
           },
           {
@@ -233,31 +211,22 @@
               "value": "0"
             },
             "item": {
-              "id": "I1",
-              "quantity": {
-                "allocated": {
-                  "count": 1
-                }
-              },
-              "price": {
-                "currency": "INR",
-                "value": "474"
-              }
+              "id": "I1"
             },
             "tags": [
-                {
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
                     "descriptor": {
-                        "code": "title"
+                      "code": "type"
                     },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "type"
-                            },
-                            "value": "discount"
-                        }
-                    ]
-                }
+                    "value": "discount"
+                  }
+                ]
+              }
             ]
           },
           {
@@ -267,31 +236,22 @@
               "value": "0"
             },
             "item": {
-              "id": "I1",
-              "quantity": {
-                "allocated": {
-                  "count": 1
-                }
-              },
-              "price": {
-                "currency": "INR",
-                "value": "474"
-              }
+              "id": "I1"
             },
             "tags": [
-                {
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
                     "descriptor": {
-                        "code": "title"
+                      "code": "type"
                     },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "type"
-                            },
-                            "value": "misc"
-                        }
-                    ]
-                }
+                    "value": "misc"
+                  }
+                ]
+              }
             ]
           }
         ],
@@ -310,8 +270,11 @@
           "type": "PRE-FULFILLMENT",
           "tags": [
             {
+              "descriptor": null
+            },
+            {
               "descriptor": {
-                "code": "Settlement_Details"
+                "code": "Settlement_Counterparty"
               },
               "list": [
                 {
@@ -354,6 +317,37 @@
             },
             {
               "descriptor": {
+                "code": "Settlement_Details"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Window"
+                  },
+                  "value": "P1D"
+                },
+                {
+                  "descriptor": {
+                    "code": "Basis"
+                  },
+                  "value": "Completed"
+                },
+                {
+                  "descriptor": {
+                    "code": "Witholding_Amount"
+                  },
+                  "value": "0.00"
+                },
+                {
+                  "descriptor": {
+                    "code": "Phase"
+                  },
+                  "value": "sale-amount"
+                }
+              ]
+            },
+            {
+              "descriptor": {
                 "code": "Buyer_Finder_Fee"
               },
               "list": [
@@ -376,7 +370,7 @@
       ],
       "xinput": {
         "form": {
-          "url": "https//abc.com/checklist",
+          "url": "https://abc.com/checklist",
           "mimetype": "text/html"
         },
         "required": false

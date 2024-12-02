@@ -22,7 +22,7 @@ value:
     update_target: payments
     order:
       id: O1
-      status: Accepted
+      status: ACCEPTED
       provider:
         id: P1
       items:
@@ -33,10 +33,10 @@ value:
         - id: PI1
           parent_item_id: PI1
           quantity:
-            unitized:
+            selected:
+              count: 6
               measure:
                 unit: rooms
-                value: '6'
           fulfillment_ids:
             - F2
           payment_ids:
@@ -55,7 +55,7 @@ value:
           type: PRE-FULFILLMENT
           tags:
             - descriptor:
-                code: Settlement_Details
+                code: Settlement_Counterparty
               list:
                 - descriptor:
                     code: Counterparty
@@ -75,6 +75,21 @@ value:
                 - descriptor:
                     code: UPI_Address
                   value: xxxxxxx
+            - descriptor:
+                code: Settlement_Details
+              list:
+              - descriptor:
+                  code: Window
+                value: P1D
+              - descriptor:
+                  code: Basis
+                value: Completed
+              - descriptor:
+                  code: Witholding_Amount
+                value: '0.00'
+              - descriptor:
+                  code: Phase
+                value: sale-amount
             - descriptor:
                 code: Buyer_Finder_Fee
               list:
@@ -505,9 +520,6 @@ value:
               value: '0'
             item:
               id: MB1
-              price:
-                currency: INR
-                value: '2784'
             tags:
               - descriptor:
                   code: title
@@ -521,9 +533,6 @@ value:
               value: '0'
             item:
               id: B1
-              price:
-                currency: INR
-                value: '922'
             tags:
               - descriptor:
                   code: title
@@ -537,9 +546,6 @@ value:
               value: '0'
             item:
               id: K1
-              price:
-                currency: INR
-                value: '286'
             tags:
               - descriptor:
                   code: title
@@ -553,9 +559,6 @@ value:
               value: '0'
             item:
               id: L1
-              price:
-                currency: INR
-                value: '4392'
             tags:
               - descriptor:
                   code: title
@@ -569,9 +572,6 @@ value:
               value: '0'
             item:
               id: B31
-              price:
-                currency: INR
-                value: '2466'
             tags:
               - descriptor:
                   code: title
@@ -585,9 +585,6 @@ value:
               value: '0'
             item:
               id: B21
-              price:
-                currency: INR
-                value: '2244'
             tags:
               - descriptor:
                   code: title
@@ -601,16 +598,24 @@ value:
               value: '0'
             item:
               id: L1
-              price:
-                currency: INR
-                value: '4392'
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: discount
           - title: convenience_fee
             price:
               currency: INR
               value: '0'
             item:
               id: L1
-              price:
-                currency: INR
-                value: '4392'
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: misc
         ttl: P5D

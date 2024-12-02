@@ -14,8 +14,8 @@ value:
     bap_uri: https://buyerapp.com/ondc
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/ondc
-    transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
-    message_id: ea89883a-57ff-44de-87fa-66b07c8d25d9
+    transaction_id: T1
+    message_id: M1
     timestamp: '2024-03-04T22:00:30.000Z'
     ttl: PT30S
   message:
@@ -53,26 +53,18 @@ value:
           label: validity
           range:
             start: '2024-03-04T00:00:00.000Z'
-            end: '2024-04-04T00:00:00.000Z'
-          days: '1,2,3,4,5,6'
+            end: '2024-03-09T19:00:00.000Z'
+          days: '2,3,4,5'
           schedule:
             frequency: PT12H
             holidays:
             - '2024-03-06T00:00:00.000Z'
             - '2024-03-08T00:00:00.000Z'
-            - '2024-03-18T00:00:00.000Z'
-            - '2024-04-08T00:00:00.000Z'
-            - '2024-04-20T00:00:00.000Z'
             times:
             - '2024-03-04T09:00:00.000Z'
-            - '2024-03-04T10:00:00.000Z'
-            - '2024-03-04T11:00:00.000Z'
-            - '2024-03-04T13:00:00.000Z'
-            - '2024-03-04T14:00:00.000Z'
-            - '2024-03-04T15:00:00.000Z'
-            - '2024-03-04T16:00:00.000Z'
-            - '2024-03-04T17:00:00.000Z'
-            - '2024-03-04T18:00:00.000Z'
+            - '2024-03-05T09:00:00.000Z'
+            - '2024-03-07T09:00:00.000Z'
+            - '2024-03-09T09:00:00.000Z'
         locations:
         - id: L1
           gps: 12.967555,77.749666
@@ -230,12 +222,47 @@ value:
             - descriptor:
                 code: seq
               value: '3'
+        - id: C31
+          parent_category_id: C3
+          descriptor:
+            name: North Indian
+            code: North_Indian
+        - id: C32
+          parent_category_id: C3
+          descriptor:
+            name: Chinese
+            code: CHINESE
+        - id: C33
+          parent_category_id: C3
+          descriptor:
+            name: Italian-American
+            code: ITALIAN_AMERICAN
+        - id: C34
+          parent_category_id: C3
+          descriptor:
+            name: Continental
+            code: CONTINENTAL
+        - id: C35
+          parent_category_id: C3
+          descriptor:
+            name: Thai
+            code: THAI
+        - id: C36
+          parent_category_id: C3
+          descriptor:
+            name: Mexican
+            code: MEXICAN
+        - id: C37
+          parent_category_id: C3
+          descriptor:
+            name: South Indian
+            code: SOUTH_INDIAN
         items:
         - id: I1
           parent_item_id: ''
           descriptor:
             name: Cook - On Demand
-            code: 'CUSTOM : other code'
+            code: OTHER:other code
             short_desc: Cook - On Demand
             long_desc: Cook - On Demand
             images:
@@ -245,7 +272,7 @@ value:
               url: video_url
           price:
             currency: INR
-            value: '199.00'
+            value: '199'
             minimum_value: '199.00'
           category_ids:
           - SRV11-xxxx
@@ -255,6 +282,17 @@ value:
           - L1
           payment_ids:
           - '1'
+          add_ons:
+          - id: A1
+            descriptor:
+              name: Pro-chef
+              code: OTHER:xxxx
+              short_desc: Get pro-chef
+            price:
+              currency: INR
+              value: '1000.00'
+              maximum_value: '1200.00'
+              offered_value: '1000.00'
           cancellation_terms:
           - fulfillment_state:
               descriptor:
@@ -307,22 +345,17 @@ value:
             range:
               start: '2024-03-04T00:00:00.000Z'
               end: '2024-03-09T19:00:00.000Z'
-            days: '4,5'
+            days: '2,3,4,5'
             schedule:
-              frequency: PT1H
+              frequency: PT12H
               holidays:
               - '2024-03-06T00:00:00.000Z'
               - '2024-03-08T00:00:00.000Z'
               times:
               - '2024-03-04T09:00:00.000Z'
-              - '2024-03-04T10:00:00.000Z'
-              - '2024-03-04T11:00:00.000Z'
-              - '2024-03-04T13:00:00.000Z'
-              - '2024-03-04T14:00:00.000Z'
-              - '2024-03-04T15:00:00.000Z'
-              - '2024-03-04T16:00:00.000Z'
-              - '2024-03-04T17:00:00.000Z'
-              - '2024-03-04T18:00:00.000Z'
+              - '2024-03-05T09:00:00.000Z'
+              - '2024-03-07T09:00:00.000Z'
+              - '2024-03-09T09:00:00.000Z'
           matched: true
           recommended: true
         - id: IC1
@@ -336,7 +369,7 @@ value:
             - url: https://abc.com/images/207.png
           price:
             currency: INR
-            value: '199.00'
+            value: '299'
             minimum_value: '299.00'
           quantity:
             unitized:
@@ -367,7 +400,7 @@ value:
             - url: https://abc.com/images/207.png
           price:
             currency: INR
-            value: '199.00'
+            value: '199'
             minimum_value: '199'
           quantity:
             unitized:
@@ -379,6 +412,7 @@ value:
           category_ids:
           - C3
           - C21
+          - C31
           tags:
           - descriptor:
               code: attribute
@@ -390,8 +424,8 @@ value:
                 code: dish_type
               value: breakfast
             - descriptor:
-                code: cuisine
-              value: North_Indian
+                code: Mandatory_Appliance
+              value: Microwave
         - id: IC3
           parent_item_id: I1
           descriptor:
@@ -403,7 +437,7 @@ value:
             - url: https://abc.com/images/207.png
           price:
             currency: INR
-            value: '199.00'
+            value: '199'
             minimum_value: '199'
           quantity:
             unitized:
@@ -414,7 +448,9 @@ value:
               value: '1'
           category_ids:
           - C3
+          - C21
           - C22
+          - C31
           tags:
           - descriptor:
               code: attribute
@@ -426,8 +462,8 @@ value:
                 code: dish_type
               value: Appetizers
             - descriptor:
-                code: cuisine
-              value: North_Indian
+                code: Mandatory_Appliance
+              value: Non-stick
         - id: IC4
           parent_item_id: I1
           descriptor:
@@ -439,7 +475,7 @@ value:
             - url: https://abc.com/images/207.png
           price:
             currency: INR
-            value: '199.00'
+            value: '199'
             minimum_value: '199'
           quantity:
             unitized:
@@ -451,6 +487,7 @@ value:
           category_ids:
           - C3
           - C22
+          - C31
           tags:
           - descriptor:
               code: attribute
@@ -462,8 +499,8 @@ value:
                 code: dish_type
               value: Main Course
             - descriptor:
-                code: cuisine
-              value: North_Indian
+                code: Mandatory_Appliance
+              value: Microwave
         offers:
         - id: offer-1
           descriptor:

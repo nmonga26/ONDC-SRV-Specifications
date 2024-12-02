@@ -23,13 +23,13 @@
   "message": {
     "order": {
       "provider": {
-        "id": "P1"
+				"id": "P1",
+				"locations": [
+					{
+						"id": "L1"
+					}
+				]
       },
-      "locations": [
-        {
-          "id": "L1"
-        }
-      ],
       "items": [
         {
           "id": "I1",
@@ -114,6 +114,12 @@
                     "code": "dish_type"
                   },
                   "value": "breakfast"
+                },
+                {
+                  "descriptor": {
+                    "code": "cuisine"
+                  },
+                  "value": "North_Indian"
                 }
               ]
             }
@@ -155,6 +161,58 @@
                     "code": "dish_type"
                   },
                   "value": "Appetizers"
+                },
+                {
+                  "descriptor": {
+                    "code": "cuisine"
+                  },
+                  "value": "North_Indian"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "IC4",
+          "parent_item_id": "I1",
+          "location_ids": [
+            "L1"
+          ],
+          "fulfillment_ids": [
+            "F1"
+          ],
+          "category_ids": [
+            "C3",
+            "C23"
+          ],
+          "quantity": {
+            "selected": {
+              "count": 1
+            }
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "code": "attribute"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "type"
+                  },
+                  "value": "customization"
+                },
+                {
+                  "descriptor": {
+                    "code": "dish_type"
+                  },
+                  "value": "Main Course"
+                },
+                {
+                  "descriptor": {
+                    "code": "cuisine"
+                  },
+                  "value": "North_Indian"
                 }
               ]
             }
@@ -187,7 +245,7 @@
                 "short_desc": "Instuctions by provider",
                 "long_desc": "Instuctions by provider",
                 "additional_desc": {
-                  "url": "https//abc.com/checklist",
+                  "url": "https://abc.com/instructions",
                   "content_type": "text/html"
                 }
               }
@@ -283,6 +341,11 @@
             },
             "item": {
               "id": "I1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              },
               "price": {
                 "currency": "INR",
                 "value": "00.00"
@@ -626,14 +689,14 @@
             "amount": "499",
             "currency": "INR",
             "bank_account_number": "xxxxxxxx",
-            "bank_code": "xxxxxxx",
+            "bank_code": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
           "type": "PRE-FULFILLMENT",
           "tags": [
             {
               "descriptor": {
-                "code": "Settlement_Details"
+                "code": "Settlement_Counterparty"
               },
               "list": [
                 {
@@ -702,14 +765,14 @@
             "amount": "522",
             "currency": "INR",
             "bank_account_number": "xxxxxxxx",
-            "bank_code": "xxxxxxx",
+            "bank_code": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
           "type": "ON-FULFILLMENT",
           "tags": [
             {
               "descriptor": {
-                "code": "Settlement_Details"
+                "code": "Settlement_Counterparty"
               },
               "list": [
                 {
@@ -752,6 +815,37 @@
             },
             {
               "descriptor": {
+                "code": "Settlement_Details"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Window"
+                  },
+                  "value": "P1D"
+                },
+                {
+                  "descriptor": {
+                    "code": "Basis"
+                  },
+                  "value": "Completed"
+                },
+                {
+                  "descriptor": {
+                    "code": "Witholding_Amount"
+                  },
+                  "value": "0.00"
+                },
+                {
+                  "descriptor": {
+                    "code": "Phase"
+                  },
+                  "value": "sale-amount"
+                }
+              ]
+            },
+            {
+              "descriptor": {
                 "code": "Buyer_Finder_Fee"
               },
               "list": [
@@ -774,7 +868,7 @@
       ],
       "xinput": {
         "form": {
-          "url": "https//abc.com/checklist",
+          "url": "https://abc.com/checklist",
           "mimetype": "text/html"
         },
         "required": false

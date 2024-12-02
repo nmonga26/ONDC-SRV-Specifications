@@ -15,13 +15,13 @@ value:
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/services
     transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-    message_id: '1755281254860'
+    message_id: 'bd186a4e-b075-41e7-926f-c833d9977f8c'
     timestamp: '2023-11-09T23:09:00.000Z'
     ttl: PT30S
   message:
     order:
       id: O1
-      status: Cancelled
+      status: CANCELLED
       cancellation:
         cancelled_by: PRODUCER
         reason:
@@ -97,12 +97,6 @@ value:
               value: '0.00'
             item:
               id: I1
-              quantity:
-                allocated:
-                  count: 1
-              price:
-                currency: INR
-                value: '0.00'
             tags:
               - descriptor:
                   code: title
@@ -116,12 +110,6 @@ value:
               value: '-0.00'
             item:
               id: I1
-              quantity:
-                allocated:
-                  count: '0'
-              price:
-                currency: INR
-                value: '0.00'
             tags:
               - descriptor:
                   code: title
@@ -135,12 +123,6 @@ value:
               value: '0'
             item:
               id: I1
-              quantity:
-                allocated:
-                  count: 1
-              price:
-                currency: INR
-                value: '0.00'
             tags:
               - descriptor:
                   code: title
@@ -154,12 +136,6 @@ value:
               value: '0'
             item:
               id: I1
-              quantity:
-                allocated:
-                  count: 1
-              price:
-                currency: INR
-                value: '0.00'
             tags:
               - descriptor:
                   code: title

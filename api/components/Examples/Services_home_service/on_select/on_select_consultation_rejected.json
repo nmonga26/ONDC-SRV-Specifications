@@ -23,7 +23,12 @@
   "message": {
     "order": {
       "provider": {
-        "id": "P1"
+				"id": "P1",
+				"locations": [
+					{
+						"id": "L1"
+					}
+				]
       },
       "items": [
         {
@@ -105,6 +110,11 @@
             },
             "item": {
               "id": "I1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              },
               "price": {
                 "currency": "INR",
                 "value": "99"
@@ -133,11 +143,7 @@
               "value": "0"
             },
             "item": {
-              "id": "I1",
-              "price": {
-                "currency": "INR",
-                "value": "99"
-              }
+              "id": "I1"
             },
             "tags": [
               {

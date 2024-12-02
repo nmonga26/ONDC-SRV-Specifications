@@ -9,19 +9,19 @@ value:
       country:
         code: IND
     action: on_confirm
-    version: '2.0.0'
+    version: "2.0.0"
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/services
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/services
     transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
     message_id: ea89883a-57ff-44de-87fa-66b07c8d25d9
-    timestamp: '2023-11-08T22:00:39.000Z'
+    timestamp: "2023-11-08T22:00:39.000Z"
     ttl: PT30S
   message:
     order:
       id: O1
-      status: Accepted
+      status: ACCEPTED
       provider:
         id: P1
         locations:
@@ -61,6 +61,7 @@ value:
           category_ids:
             - C3
             - C21
+            - C31
           fulfillment_ids:
             - F1
           quantity:
@@ -131,7 +132,8 @@ value:
                   value: North_Indian
       billing:
         name: ONDC buyer
-        address: 22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru,
+        address:
+          22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru,
           Karnataka 560001
         state:
           name: Karnataka
@@ -154,7 +156,7 @@ value:
                 short_desc: Instuctions by provider
                 long_desc: Instuctions by provider
                 additional_desc:
-                  url: https//abc.com/instructions
+                  url: https://abc.com/instructions
                   content_type: text/html
             - id: L1
               type: start
@@ -165,8 +167,8 @@ value:
                 gps: 12.956399,77.636803
               time:
                 range:
-                  start: '2024-03-04T09:00:00.000Z'
-                  end: '2024-03-04T10:00:00.000Z'
+                  start: "2024-03-04T09:00:00.000Z"
+                  end: "2024-03-04T10:00:00.000Z"
               contact:
                 phone: "9886098860"
                 email: nobody@nomail.com
@@ -190,8 +192,8 @@ value:
               time:
                 label: confirmed
                 range:
-                  start: '2024-03-04T10:00:00.000Z'
-                  end: '2024-03-04T18:00:00.000Z'
+                  start: "2024-03-04T10:00:00.000Z"
+                  end: "2024-03-04T18:00:00.000Z"
               person:
                 name: Ramu
               instructions:
@@ -200,36 +202,37 @@ value:
               authorization:
                 type: OTP
                 token: "1234"
-                valid_from: '2023-11-16T09:30:00.000Z'
-                valid_to: '2023-11-16T09:35:00.000Z'
+                valid_from: "2023-11-16T09:30:00.000Z"
+                valid_to: "2023-11-16T09:35:00.000Z"
                 status: valid
           rateable: true
+
       cancellation_terms:
-      - fulfillment_state:
-          descriptor:
-            code: Pending
-        cancel_by:
-          duration: P1D
-        cancellation_fee:
-          amount:
-            value: '0'
-        reason_required: false
-      - fulfillment_state:
-          descriptor:
-            code: In-Transit
-        cancel_by:
-          duration: P1D
-        cancellation_fee:
-          percentage: '5'
-        reason_required: true
-      - fulfillment_state:
-          descriptor:
-            code: At-Location
-        cancel_by:
-          duration: P1D
-        cancellation_fee:
-          percentage: '25'
-        reason_required: true
+        - fulfillment_state:
+            descriptor:
+              code: Pending
+          cancel_by:
+            duration: P1D
+          cancellation_fee:
+            amount:
+              value: "0"
+          reason_required: false
+        - fulfillment_state:
+            descriptor:
+              code: In-Transit
+          cancel_by:
+            duration: P1D
+          cancellation_fee:
+            percentage: "5"
+          reason_required: true
+        - fulfillment_state:
+            descriptor:
+              code: At-Location
+          cancel_by:
+            duration: P1D
+          cancellation_fee:
+            percentage: "25"
+          reason_required: true
       quote:
         price:
           currency: INR
@@ -455,18 +458,18 @@ value:
             - descriptor:
                 code: Settlement_Details
               list:
-              - descriptor:
-                  code: Window
-                value: P1D
-              - descriptor:
-                  code: Basis
-                value: Completed
-              - descriptor:
-                  code: Witholding_Amount
-                value: '0.00'
-              - descriptor:
-                  code: Phase
-                value: sale-amount
+                - descriptor:
+                    code: Window
+                  value: P1D
+                - descriptor:
+                    code: Basis
+                  value: Completed
+                - descriptor:
+                    code: Witholding_Amount
+                  value: "0.00"
+                - descriptor:
+                    code: Phase
+                  value: sale-amount
             - descriptor:
                 code: Buyer_Finder_Fee
               list:
@@ -488,7 +491,7 @@ value:
           status: NOT-PAID
           tags:
             - descriptor:
-                code: Settlement_Details
+                code: Settlement_Counterparty
               list:
                 - descriptor:
                     code: Counterparty
@@ -509,6 +512,21 @@ value:
                     code: UPI_Address
                   value: xxxxxxx
             - descriptor:
+                code: Settlement_Details
+              list:
+                - descriptor:
+                    code: Window
+                  value: P1D
+                - descriptor:
+                    code: Basis
+                  value: Completed
+                - descriptor:
+                    code: Witholding_Amount
+                  value: "0.00"
+                - descriptor:
+                    code: Phase
+                  value: sale-amount
+            - descriptor:
                 code: Buyer_Finder_Fee
               list:
                 - descriptor:
@@ -517,11 +535,11 @@ value:
                 - descriptor:
                     code: Buyer_Finder_Fee_Amount
                   value: "3"
-      created_at: '2023-02-03T09:30:00.000Z'
-      updated_at: '2023-02-03T09:31:30.000Z'
+      created_at: "2023-02-03T09:30:00.000Z"
+      updated_at: "2023-02-03T09:31:30.000Z"
       xinput:
         form:
-          url: https//abc.com/checklist
+          url: https://abc.com/checklist
           mimetype: text/html
-          submission_id: xxxxxxxxxx
+          submission_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
           status: SUCCESS

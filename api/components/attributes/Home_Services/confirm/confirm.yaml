@@ -126,10 +126,10 @@ message:
         reference: if any
       stops:
         type:
-            description: The type of stop - end point
-            required: required
-            usage: "end"
-            reference: if any
+          description: The type of stop - end point
+          required: required
+          usage: "end"
+          reference: if any
         location:
           gps:
             description: service location gps coordinates where service needs to be provided, should be atleast 6 digit decimal precision, should be same as in search request
@@ -142,30 +142,30 @@ message:
             usage: "My House #, My buildin"
             reference: if any
           city:
-           name:
-            description: name of the city where service is being availed
-            required: required
-            usage: "Bengaluru"
-            reference: if any
+            name:
+              description: name of the city where service is being availed
+              required: required
+              usage: "Bengaluru"
+              reference: if any
           country:
-           name:
-            description: name of the country where service is being availed
-            required: required
-            usage: "IND"
-            reference: if any
+            name:
+              description: name of the country where service is being availed
+              required: required
+              usage: "IND"
+              reference: if any
           area_code:
             description: area code where service is being availed
             required: required
             usage: "560001"
             reference: if any
           state:
-           name:
-            description: name of the state where service is being availed
-            required: required
-            usage: "Karnataka"
-            reference: if any
+            name:
+              description: name of the state where service is being availed
+              required: required
+              usage: "Karnataka"
+              reference: if any
         contact:
-         phone:
+          phone:
             description: phone number of the customer
             required: required
             usage: "9886098860"
@@ -187,8 +187,8 @@ message:
               required: required
               usage: "2023-11-16T09:30:00.000Z"
               reference: if any
-            end:  
-              description: end time of the time slot chosen for the service 
+            end:
+              description: end time of the time slot chosen for the service
               required: required
               usage: "2023-11-16T10:30:00.000Z"
               reference: if any
@@ -230,15 +230,15 @@ message:
         tags:
           title:
             type:
-                description: type of charge - enums (item, customization, discount, tax, misc)
-                required: required
-                usage: "item"
-                reference: if any
+              description: type of charge - enums (item, customization, discount, tax, misc)
+              required: required
+              usage: "item"
+              reference: if any
       ttl:
-          description: time duration for which this quote is valid
-          required: required
-          usage: "P2D"
-          reference: if any
+        description: time duration for which this quote is valid
+        required: required
+        usage: "P2D"
+        reference: if any
     payments:
       parent: true
       payments:
@@ -246,12 +246,12 @@ message:
         required: required
         usage: "P1"
         reference: if any
-      id: 
+      id:
         description: payment id
         required: required
         usage: "P1"
         reference: if any
-      type: 
+      type:
         description: selected payment mode by which buyer would like to pay, enum - 'PRE-FULFILLMENT',"ON-FULFILLMENT","POST-FULFILLMENT"
         required: required
         usage: "PRE-FULFILLMENT"
@@ -304,32 +304,30 @@ message:
           reference: if any
           required: required
     xinput:
-        parent: true
-        xinput:
-          description: Contains any additional or extended inputs required to confirm an order. This is typically a Form Input. This can be utilized if the service provider wishes to verify any mandatory requirements checklist at the consumer's end for the service to be completed.
-          usage: "-"
+      parent: true
+      xinput:
+        description: Contains any additional or extended inputs required to confirm an order. This is typically a Form Input. This can be utilized if the service provider wishes to verify any mandatory requirements checklist at the consumer's end for the service to be completed.
+        usage: "-"
+        reference: if any
+        required: required if 'xinput/required' = true in /on_init
+      form:
+        url:
+          description: Checklist url provided by the service provider
+          usage: "https://abc.com/checklist"
           reference: if any
-          required: required if 'xinput/required' = true in /on_init
-        form:
-          url:
-            description: Checklist url provided by the service provider
-            usage: "https//abc.com/checklist"
-            reference: if any
-            required: required
-          mimetype:
-            description:  It is a string identifier that specifies the format of the data, such as text, image, audio, video, or application-specific data types.
-            usage: "text/html"
-            reference: if any
-            required: required
-          submission_id:
-            description: unique id generated after submitting the form (UUID format)
-            usage: "65fe13c2-d306-4ef1-8c25-fa126c134b67"
-            reference: if any
-            required: required
-          status:
-            description: Whether the submission is successful or not
-            usage: SUCCESS
-            reference: if any
-            required: required
-
-
+          required: required
+        mimetype:
+          description: It is a string identifier that specifies the format of the data, such as text, image, audio, video, or application-specific data types.
+          usage: "text/html"
+          reference: if any
+          required: required
+        submission_id:
+          description: unique id generated after submitting the form (UUID format)
+          usage: "65fe13c2-d306-4ef1-8c25-fa126c134b67"
+          reference: if any
+          required: required
+        status:
+          description: Whether the submission is successful or not
+          usage: SUCCESS
+          reference: if any
+          required: required

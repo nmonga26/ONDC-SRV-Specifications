@@ -23,7 +23,7 @@
   "message": {
     "order": {
       "id": "C1",
-      "status": "Created",
+      "status": "CREATED",
       "provider": {
         "id": "P1",
         "locations": [
@@ -92,10 +92,8 @@
                   "end": "2023-11-16T10:30:00.000Z"
                 }
               },
-              "customer": {
-                "person": {
-                  "name": "Ramu"
-                }
+              "person": {
+                "name": "Ramu"
               }
             }
           ]
@@ -161,6 +159,11 @@
             },
             "item": {
               "id": "I1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              },
               "price": {
                 "currency": "INR",
                 "value": "99"
@@ -189,11 +192,7 @@
               "value": "0"
             },
             "item": {
-              "id": "I1",
-              "price": {
-                "currency": "INR",
-                "value": "99"
-              }
+              "id": "I1"
             },
             "tags": [
               {
@@ -221,11 +220,11 @@
           "params": {
             "amount": "99",
             "currency": "INR",
-            "transaction_id":"3937",
+            "transaction_id": "3937",
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
-          "status":"PAID",
+          "status": "PAID",
           "type": "PRE-FULFILLMENT",
           "tags": [
             {
@@ -328,7 +327,7 @@
       "updated_at": "2023-02-03T09:30:00.000Z",
       "xinput": {
         "form": {
-          "url": "https//abc.com/checklist",
+          "url": "https://abc.com/checklist",
           "mimetype": "text/html",
           "submission_id": "65fe13c2-d306-4ef1-8c25-fa126c134b67",
           "status": "SUCCESS"

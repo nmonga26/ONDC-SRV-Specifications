@@ -9,19 +9,19 @@ value:
       country:
         code: IND
     action: confirm
-    version: '2.0.0'
+    version: "2.0.0"
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/services
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/services
     transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
     message_id: ea89883a-57ff-44de-87fa-66b07c8d25d9
-    timestamp: '2023-11-08T22:00:38.000Z'
+    timestamp: "2023-11-08T22:00:38.000Z"
     ttl: PT30S
   message:
     order:
       id: O1
-      status: Created
+      status: CREATED
       provider:
         id: P1
         locations:
@@ -130,7 +130,8 @@ value:
                   value: North_Indian
       billing:
         name: ONDC buyer
-        address: 22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru,
+        address:
+          22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru,
           Karnataka 560001
         state:
           name: Karnataka
@@ -150,7 +151,7 @@ value:
                 short_desc: Instuctions by provider
                 long_desc: Instuctions by provider
                 additional_desc:
-                  url: https//abc.com/instructions
+                  url: https://abc.com/instructions
                   content_type: text/html
             - type: end
               location:
@@ -171,35 +172,38 @@ value:
                 range:
                   start: '2024-03-04T10:00:00.000Z'
                   end: '2024-03-04T18:00:00.000Z'
-              customer:
-                person:
-                  name: Ramu
+              person:
+                name: Ramu
+              instructions:
+                name: ""
+                short_desc: "Specific Instructions - Optional"
+                long_desc: ""
       cancellation_terms:
-      - fulfillment_state:
-          descriptor:
-            code: Pending
-        cancel_by:
-          duration: P1D
-        cancellation_fee:
-          amount:
-            value: '0'
-        reason_required: false
-      - fulfillment_state:
-          descriptor:
-            code: In-Transit
-        cancel_by:
-          duration: P1D
-        cancellation_fee:
-          percentage: '5'
-        reason_required: true
-      - fulfillment_state:
-          descriptor:
-            code: At-Location
-        cancel_by:
-          duration: P1D
-        cancellation_fee:
-          percentage: '25'
-        reason_required: true
+        - fulfillment_state:
+            descriptor:
+              code: Pending
+          cancel_by:
+            duration: P1D
+          cancellation_fee:
+            amount:
+              value: "0"
+          reason_required: false
+        - fulfillment_state:
+            descriptor:
+              code: In-Transit
+          cancel_by:
+            duration: P1D
+          cancellation_fee:
+            percentage: "5"
+          reason_required: true
+        - fulfillment_state:
+            descriptor:
+              code: At-Location
+          cancel_by:
+            duration: P1D
+          cancellation_fee:
+            percentage: "25"
+          reason_required: true
       quote:
         price:
           currency: INR
@@ -211,6 +215,9 @@ value:
               value: "00.00"
             item:
               id: I1
+              quantity:
+                selected:
+                  count: 1
               price:
                 currency: INR
                 value: "00.00"
@@ -425,18 +432,18 @@ value:
             - descriptor:
                 code: Settlement_Details
               list:
-              - descriptor:
-                  code: Window
-                value: P1D
-              - descriptor:
-                  code: Basis
-                value: Completed
-              - descriptor:
-                  code: Witholding_Amount
-                value: '0.00'
-              - descriptor:
-                  code: Phase
-                value: sale-amount
+                - descriptor:
+                    code: Window
+                  value: P1D
+                - descriptor:
+                    code: Basis
+                  value: Completed
+                - descriptor:
+                    code: Witholding_Amount
+                  value: "0.00"
+                - descriptor:
+                    code: Phase
+                  value: sale-amount
             - descriptor:
                 code: Buyer_Finder_Fee
               list:
@@ -458,7 +465,7 @@ value:
           status: NOT-PAID
           tags:
             - descriptor:
-                code: Settlement_Details
+                code: Settlement_Counterparty
               list:
                 - descriptor:
                     code: Counterparty
@@ -479,6 +486,21 @@ value:
                     code: UPI_Address
                   value: xxxxxxx
             - descriptor:
+                code: Settlement_Details
+              list:
+              - descriptor:
+                  code: Window
+                value: P1D
+              - descriptor:
+                  code: Basis
+                value: Completed
+              - descriptor:
+                  code: Witholding_Amount
+                value: '0.00'
+              - descriptor:
+                  code: Phase
+                value: sale-amount
+            - descriptor:
                 code: Buyer_Finder_Fee
               list:
                 - descriptor:
@@ -487,8 +509,8 @@ value:
                 - descriptor:
                     code: Buyer_Finder_Fee_Amount
                   value: "3"
-      created_at: '2023-02-03T09:30:00.000Z'
-      updated_at: '2023-02-03T09:30:00.000Z'
+      created_at: "2023-02-03T09:30:00.000Z"
+      updated_at: "2023-02-03T09:30:00.000Z"
       xinput:
         form:
           url: https://abc.com/checklist

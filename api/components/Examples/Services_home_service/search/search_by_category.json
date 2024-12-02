@@ -23,7 +23,6 @@
       "category": {
         "id": "SRV11-*"
       },
-
       "fulfillment": {
         "type": "Home-Service",
         "stops": [

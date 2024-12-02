@@ -21,7 +21,7 @@ value:
   message:
     order:
       id: C1
-      status: Created
+      status: CREATED
       provider:
         id: P1
         locations:
@@ -70,9 +70,9 @@ value:
                 range:
                   start: '2023-11-16T09:30:00.000Z'
                   end: '2023-11-16T10:30:00.000Z'
-              customer:
-                person:
-                  name: Ramu
+
+              person:
+                name: Ramu
       cancellation_terms:
       - fulfillment_state:
           descriptor:
@@ -110,6 +110,9 @@ value:
               value: '99'
             item:
               id: I1
+              quantity:
+                selected:
+                  count: 1
               price:
                 currency: INR
                 value: '99'
@@ -126,9 +129,6 @@ value:
               value: '0'
             item:
               id: I1
-              price:
-                currency: INR
-                value: '99'
             tags:
               - descriptor:
                   code: title
@@ -201,3 +201,4 @@ value:
           url: https://abc.com/checklist
           mimetype: text/html
           submission_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
+          status: SUCCESS
