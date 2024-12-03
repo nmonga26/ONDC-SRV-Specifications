@@ -1,21 +1,146 @@
+context:
+  parent: true
+  domain:
+    description: domain code, enums - ONDC:SRV16 (Services - Spirituality services)
+    required: mandatory
+    usage: "ONDC:SRV16"
+    reference: if any
+  location:
+    city:
+      code:
+        description: city code for search where service needs to be provided. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+        required: mandatory
+        usage: std:080
+        reference: if any
+    country:
+      code:
+        description: ISO standard 3 digit country code where service needs to be provided
+        required: mandatory
+        usage: IND
+        reference: if any
+  action:
+    description: the action being performed in this request, such as `init`
+    required: mandatory
+    usage: "init"
+    reference: if any
+  version:
+    description: version of the protocol being used
+    required: mandatory
+    usage: "2.0.0"
+    reference: if any
+  bap_id:
+    description: subscriber id for buyer app
+    required: mandatory
+    usage: buyerapp.com
+    reference: if any
+  bap_uri:
+    description: subscriber URI for buyer app
+    required: mandatory
+    usage: https://buyerapp.com/services
+    reference: if any
+  bpp_id:
+    description: subscriber id for provider app
+    required: mandatory
+    usage: sellerapp.com
+    reference: if any
+  bpp_uri:
+    description: subscriber URI for provider app
+    required: mandatory
+    usage: https://sellerapp.com/services
+    reference: if any
+  transaction_id:
+    description: unique identifier for the transaction
+    required: mandatory
+    usage: "T1"
+    reference: if any
+  message_id:
+    description: unique identifier for the message
+    required: mandatory
+    usage: "M2"
+    reference: if any
+  timestamp:
+    description: RFC3339 compliant timestamp
+    required: mandatory
+    usage: "2024-12-01T22:00:31.000Z"
+    reference: if any
+  ttl:
+    description: validity of the message
+    required: mandatory
+    usage: PT30S
+    reference: if any
 message:
   parent: true
   order:
     parent: true
     billing:
+      parent: true
       description: billing details of the marketplace ( service provider ) for invoicing;
       required: required
-      usage: "-"
-      reference: if any
+      id:
+        description: "unique identifier for the fulfillment"
+        required: "mandatory"
+        usage: "F1"
+        reference: "if any"
+
+      address:
+        description: "address of the buyer"
+        required: "mandatory"
+        usage: "22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001"
+        reference: "if any"
+
+      state:
+        description: "state where the buyer is located"
+        required: "mandatory"
+        usage: "Karnataka"
+        reference: "if any"
+
+      city:
+        description: "city where the buyer is located"
+        required: "mandatory"
+        usage: "Bengaluru"
+        reference: "if any"
+
+      tax_id:
+        description: "tax identification number of the buyer"
+        required: "mandatory"
+        usage: "XXXXXXXXXXXXXXX"
+        reference: "if any"
+
+      email:
+        description: "email address of the buyer"
+        required: "mandatory"
+        usage: "nobody@nomail.com"
+        reference: "if any"
+
+      phone:
+        description: "phone number of the buyer"
+        required: "mandatory"
+        usage: "9886098860"
+        reference: "if any"
+
     provider:
+      parent: true
       locations:
         description: mandatory only if provider.locations was returned in /on_search
         required: optional
         usage: "-"
         reference: if any
     fulfillments:
+      parent: true
       id:
         description: fulfillment_id from /on_search corresponding to appropriate type
         required: required
         usage: "F1"
+        reference: if any
+    payments:
+      parent: true
+      type:
+        description: type of payment (e.g., PRE-FULFILLMENT)
+        required: mandatory
+        usage: "PRE-FULFILLMENT"
+        reference: if any
+      collected_by:
+        description: entity collecting the payment
+        required: mandatory
+        usage: "BAP"
         reference: if any

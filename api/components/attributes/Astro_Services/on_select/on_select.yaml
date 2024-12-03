@@ -1,3 +1,73 @@
+context:
+  parent: true
+  domain:
+    description: domain code, enums - ONDC:SRV16 (Services - Spirituality services)
+    required: mandatory
+    usage: "ONDC:SRV16"
+    reference: if any
+  location:
+    city:
+      code:
+        description: city code for search where service needs to be provided. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+        required: mandatory
+        usage: std:080
+        reference: if any
+    country:
+      code:
+        description: ISO standard 3 digit country code where service needs to be provided
+        required: mandatory
+        usage: IND
+        reference: if any
+  action:
+    description: the action being performed in this request, such as `on_select`
+    required: mandatory
+    usage: "on_select"
+    reference: if any
+  version:
+    description: version of the protocol being used
+    required: mandatory
+    usage: "2.0.0"
+    reference: if any
+  bap_id:
+    description: subscriber id for buyer app
+    required: mandatory
+    usage: buyerapp.com
+    reference: if any
+  bap_uri:
+    description: subscriber URI for buyer app
+    required: mandatory
+    usage: https://buyerapp.com/services
+    reference: if any
+  bpp_id:
+    description: subscriber id for provider app
+    required: mandatory
+    usage: sellerapp.com
+    reference: if any
+  bpp_uri:
+    description: subscriber URI for provider app
+    required: mandatory
+    usage: https://sellerapp.com/services
+    reference: if any
+  transaction_id:
+    description: unique identifier for the transaction
+    required: mandatory
+    usage: "T1"
+    reference: if any
+  message_id:
+    description: unique identifier for the message
+    required: mandatory
+    usage: "M2"
+    reference: if any
+  timestamp:
+    description: RFC3339 compliant timestamp
+    required: mandatory
+    usage: "2024-12-01T22:00:31.000Z"
+    reference: if any
+  ttl:
+    description: validity of the message
+    required: mandatory
+    usage: PT30S
+    reference: if any
 message:
   parent: true
   order:
@@ -5,51 +75,195 @@ message:
     provider:
       parent: true
       id:
-        description: service provider id
-        required: required
+        description: unique identifier for the service provider
+        required: mandatory
         usage: "P1"
+        reference: if any
+      locations:
+        description: list of locations where the provider operates
+        required: mandatory
+        usage:
+          - id: "L1"
         reference: if any
     items:
       parent: true
-      id:
-        description: item id sent in /select call
-        required: required
-        usage: "I2"
+      id: 
+        description: unique identifier for the item
+        required: mandatory
+        usage: "I1"
+        reference: if any
+      location_ids:
+        description: list of location IDs associated with the item
+        required: mandatory
+        usage:
+          - "L1"
         reference: if any
       fulfillment_ids:
-        description: fulfillment id of the service
-        required: required
-        usage: "F1"
+        description: list of fulfillment IDs associated with the item
+        required: mandatory
+        usage:
+          - "FY1"
         reference: if any
+      quantity:
+        selected:
+          count:
+            description: selected quantity of the item
+            required: mandatory
+            usage: 1
+            reference: if any
+          add-ons:
+            description: list of add-ons associated with the item
+            required: optional
+            usage:
+              - id: "ADDON01"
+            reference: if any
+          tags:
+            description: metadata tags associated with the item
+            required: optional
+            usage:
+              - descriptor:
+                  code:
+                    description: code representing the tag type
+                    required: mandatory
+                    usage: "SELECTION"
+                    reference: if any
+                list:
+                  description: list of tag details
+                  required: optional
+                  usage:
+                    - descriptor:
+                        code:
+                          description: code for specific tag detail
+                          required: mandatory
+                          usage: "PUJARIS"
+                          reference: if any
+                      value:
+                        description: value associated with the tag
+                        required: mandatory
+                        usage: "PU1"
+                        reference: if any
     fulfillments:
       parent: true
       id:
-        description: fulfillment id of the service
-        required: required
-        usage: "F1"
+        description: unique identifier for the fulfillment
+        required: mandatory
+        usage: "FY1"
         reference: if any
-      state:
-        descriptor:
-          code:
-            description: provide the servicability status of the service i.e. if the service can be provided or not
-            required: required
-            usage: "Serviceable"
-            reference: if any
+      type:
+        description: type of fulfillment (e.g., Buyer-Fulfilled)
+        required: mandatory
+        usage: "Buyer-Fulfilled"
+        reference: if any
+      stops:
+        description: list of stops for the fulfillment
+        required: mandatory
+        usage:
+              - type:
+                  description: type of stop (e.g., end)
+                  required: mandatory
+                  usage: "end"
+                  reference: if any
+                time:
+                  label:
+                    description: label for the time
+                    required: mandatory
+                    usage: "confirmed"
+                    reference: if any
+                  range:
+                    description: range of time for the stop
+                    required: mandatory
+                    usage:
+                      start: "2024-04-04T10:00:00.000Z"
+                      end: "2024-04-04T11:00:00.000Z"
+                    reference: if any
+                  days:
+                    description: number of days applicable for the stop
+                    required: mandatory
+                    usage: "4"
+                    reference: if any
     quote:
       parent: true
       price:
-        description: total price of the service
-        required: required
-        usage: "499"
+        description: total price of the order
+        required: mandatory
+        usage:
+          currency: "INR"
+          value: "600"
         reference: if any
       breakup:
+        description: detailed price breakup
+        required: mandatory
         title:
-          description: title of the service charges enum - Pooja Service, tax, discount, convenience_fee
-          required: required
-          usage: "Pooja Service"
+          description: title of the breakup entry
+          required: mandatory
+          usage: "Maha Mritunjay Path"
           reference: if any
         price:
-          description: price of the quote breakup type
-          required: required
-          usage: "474"
+          description: price for the entry
+          required: mandatory
+          usage:
+            currency: "INR"
+            value: "500"
           reference: if any
+        item:
+          id:
+            description: unique identifier for the item
+            required: mandatory
+            usage: "I1"
+            reference: if any
+          quantity:
+            selected:
+              count:
+                description: selected quantity of the item
+                required: mandatory
+                usage: 1
+                reference: if any
+          price:
+            description: price details for the item
+            required: mandatory
+            usage:
+              currency: "INR"
+              value: "500"
+            reference: if any
+        tags:
+              description: metadata tags for the breakup entry
+              required: optional
+              usage:
+                - descriptor:
+                    code:
+                      description: code representing the tag type
+                      required: mandatory
+                      usage: "title"
+                      reference: if any
+                  list:
+                    description: list of tag details
+                    required: optional
+                    usage:
+                      - descriptor:
+                          code:
+                            description: code for specific tag detail
+                            required: mandatory
+                            usage: "type"
+                            reference: if any
+                        value:
+                          description: value associated with the tag
+                          required: mandatory
+                          usage: "ITEM"
+                          reference: if any
+      ttl:
+        description: validity period of the quote
+        required: mandatory
+        usage: "P1D"
+        reference: if any
+    payments:
+      parent: true
+      type:
+        description: type of payment (e.g., PRE-FULFILLMENT)
+        required: mandatory
+        usage: "PRE-FULFILLMENT"
+        reference: if any
+      collected_by:
+        description: entity collecting the payment
+        required: mandatory
+        usage: "BAP"
+        reference: if any

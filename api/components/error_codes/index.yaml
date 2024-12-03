@@ -5,17 +5,7 @@ code:
     Usage: Used in error object
     Action: /on_select
   - Code: "100002"
-    Reason: Incorrect OTP provided by buyer
-    Who can use code?: BPP
-    Usage: Used in error object
-    Action: /on_status
-  - Code: "100003"
     Reason: Schedule is not provided by the buyer
     Who can use code?: BPP
     Usage: Used in NACK
     Action: NACK on /select
-  - Code: "100004"
-    Reason: Reschedule not possible for ad
-    Who can use code?: BPP
-    Usage: Used in error object
-    Action: /on_update

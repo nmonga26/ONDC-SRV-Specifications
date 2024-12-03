@@ -2579,7 +2579,7 @@ x-enum:
     context:
       domain: &ref_0
         - code: ONDC:SRV16
-          description: Astrology Services
+          description: Spirituality Services
           reference: <PR/Issue/Discussion Links md format text>
     message:
       intent:
@@ -13044,27 +13044,38 @@ x-attributes:
         context:
           parent: true
           domain:
-            description: domain code, enums - ONDC:SRV16( Services - Astrology Services )
+            description: domain code, enums - ONDC:SRV16 (Services - Spirituality services)
             required: mandatory
             usage: ONDC:SRV16
             reference: if any
-          city:
-            code:
-              description: >-
-                city code for search where service needs to be provided. List of
-                city codes, with pincode mapping, are here -
-                https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
-              required: mandatory
-              usage: std:080
-              reference: if any
-          country:
-            code:
-              description: >-
-                ISO standard 3 digit country code where service needs to be
-                provided
-              required: mandatory
-              usage: IND
-              reference: if any
+          location:
+            city:
+              code:
+                description: >-
+                  city code for search where service needs to be provided. List
+                  of city codes, with pincode mapping, are here -
+                  https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+                required: mandatory
+                usage: std:080
+                reference: if any
+            country:
+              code:
+                description: >-
+                  ISO standard 3 digit country code where service needs to be
+                  provided
+                required: mandatory
+                usage: IND
+                reference: if any
+          action:
+            description: the action being performed in this request, such as `search`
+            required: mandatory
+            usage: search
+            reference: if any
+          version:
+            description: version of the protocol being used
+            required: mandatory
+            usage: 2.0.0
+            reference: if any
           bap_id:
             description: subscriber id for buyer app
             required: mandatory
@@ -13073,15 +13084,35 @@ x-attributes:
           bap_uri:
             description: subscriber URI for buyer app
             required: mandatory
-            usage: https://buyerapp.com/ondc
+            usage: https://buyerapp.com/services
+            reference: if any
+          bpp_id:
+            description: subscriber id for provider app
+            required: mandatory
+            usage: sellerapp.com
+            reference: if any
+          bpp_uri:
+            description: subscriber URI for provider app
+            required: mandatory
+            usage: https://sellerapp.com/services
+            reference: if any
+          transaction_id:
+            description: unique identifier for the transaction
+            required: mandatory
+            usage: T1
+            reference: if any
+          message_id:
+            description: unique identifier for the message
+            required: mandatory
+            usage: M2
             reference: if any
           timestamp:
             description: RFC3339 compliant timestamp
             required: mandatory
-            usage: '2023-10-17T21:10:00.000Z'
+            usage: '2024-12-01T22:00:31.000Z'
             reference: if any
           ttl:
-            description: validity of message
+            description: validity of the message
             required: mandatory
             usage: PT30S
             reference: if any
@@ -13118,6 +13149,81 @@ x-attributes:
                 reference: if any
       on_search:
         parent: true
+        context:
+          parent: true
+          domain:
+            description: domain code, enums - ONDC:SRV16 (Services - Spirituality services)
+            required: mandatory
+            usage: ONDC:SRV16
+            reference: if any
+          location:
+            city:
+              code:
+                description: >-
+                  city code for search where service needs to be provided. List
+                  of city codes, with pincode mapping, are here -
+                  https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+                required: mandatory
+                usage: std:080
+                reference: if any
+            country:
+              code:
+                description: >-
+                  ISO standard 3 digit country code where service needs to be
+                  provided
+                required: mandatory
+                usage: IND
+                reference: if any
+          action:
+            description: the action being performed in this request, such as `search`
+            required: mandatory
+            usage: search
+            reference: if any
+          version:
+            description: version of the protocol being used
+            required: mandatory
+            usage: 2.0.0
+            reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: mandatory
+            usage: buyerapp.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: mandatory
+            usage: https://buyerapp.com/services
+            reference: if any
+          bpp_id:
+            description: subscriber id for provider app
+            required: mandatory
+            usage: sellerapp.com
+            reference: if any
+          bpp_uri:
+            description: subscriber URI for provider app
+            required: mandatory
+            usage: https://sellerapp.com/services
+            reference: if any
+          transaction_id:
+            description: unique identifier for the transaction
+            required: mandatory
+            usage: T1
+            reference: if any
+          message_id:
+            description: unique identifier for the message
+            required: mandatory
+            usage: M2
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: mandatory
+            usage: '2024-12-01T22:00:31.000Z'
+            reference: if any
+          ttl:
+            description: validity of the message
+            required: mandatory
+            usage: PT30S
+            reference: if any
         message:
           parent: true
           catalog:
@@ -13125,169 +13231,937 @@ x-attributes:
             fulfillments:
               parent: true
               id:
-                description: fulfillment id
-                required: required
+                description: unique identifier for the fulfillment
+                required: mandatory
+                usage: F1
+                reference: if any
+              type:
+                description: >-
+                  type of fulfillment (e.g., Seller-Fulfilled, Buyer-Fulfilled,
+                  Online)
+                required: mandatory
+                usage: Seller-Fulfilled
+                reference: if any
+              tags:
+                parent: true
+                code:
+                  description: code for the tag type
+                  required: mandatory
+                  usage: INFO
+                  reference: if any
+                list:
+                  description: list of specific tag details
+                  required: optional
+                  code:
+                    description: code for specific tag detail
+                    required: mandatory
+                    usage: MODE
+                    reference: if any
+                  value:
+                    description: value associated with the tag
+                    required: mandatory
+                    usage: CHAT
+                    reference: if any
+            payments:
+              parent: true
+              id:
+                description: unique identifier for the payment
+                required: mandatory
                 usage: '1'
                 reference: if any
               type:
                 description: >-
-                  fulfillment type of the service, enum - "Buyer-Fulfilled,
-                  Seller-Fulfilled, Online"
-                required: required
-                usage: Buyer-Fulfilled
-                reference: if any
-            payments:
-              parent: true
-              id:
-                description: Payment id for the available payment methods
-                required: required
-                usage: '1'
-                reference: if any
-              type:
-                description: Type of payment methods available
-                required: required
+                  type of payment (e.g., PRE-FULFILLMENT, ON-FULFILLMENT,
+                  POST-FULFILLMENT)
+                required: mandatory
                 usage: PRE-FULFILLMENT
                 reference: if any
             descriptor:
               parent: true
               name:
-                description: name of service provider, as applicable
-                required: required
-                usage: ABC store
+                description: name of the entity or service
+                required: mandatory
+                usage: Astro Service Limited
                 reference: if any
               short_desc:
-                description: description of service provider
-                required: required
-                usage: At home Service Providers
+                description: short description of the entity or service
+                required: mandatory
+                usage: Online astrology app
                 reference: if any
+              long_desc:
+                description: long description of the entity or service
+                required: mandatory
+                usage: Online astrology app
+                reference: if any
+              images:
+                description: list of images associated with the entity or service
+                required: optional
+                url:
+                  description: URL of the image
+                  required: mandatory
+                  usage: https://abc.com/images/1-shop-img
+                  reference: if any
             providers:
               parent: true
               id:
-                description: service provider id
-                required: required
+                description: unique identifier for the provider
+                required: mandatory
                 usage: P1
                 reference: if any
               descriptor:
-                description: details of the service provider
-                required: required
-                usage: ABC store
-                reference: if any
-              locations:
-                description: service provider locations
+                parent: true
+                name:
+                  description: name of the provider
+                  required: mandatory
+                  usage: Astrology Service provider
+                  reference: if any
+                code:
+                  description: code for the provider
+                  required: mandatory
+                  usage: P001
+                  reference: if any
+                short_desc:
+                  description: short description of the provider
+                  required: mandatory
+                  usage: Short description of the provider
+                  reference: if any
+                long_desc:
+                  description: long description of the provider
+                  required: mandatory
+                  usage: Long description of the provider
+                  reference: if any
+                images:
+                  description: list of images associated with the provider
+                  required: optional
+                  url:
+                    description: URL of the image
+                    required: mandatory
+                    usage: https://abc.com/images/1-shop-img
+                    reference: if any
+              rating:
+                description: provider's rating
                 required: optional
-                usage: '-'
+                usage: '4.4'
                 reference: if any
+              ttl:
+                description: time-to-live for the provider's data
+                required: mandatory
+                usage: P1D
+                reference: if any
+              categories:
+                parent: true
+                usage:
+                  - id:
+                      description: unique identifier for the category
+                      required: mandatory
+                      usage: C1
+                      reference: if any
+                    descriptor:
+                      description: details about the category
+                      required: mandatory
+                      usage:
+                        name:
+                          description: name of the category
+                          required: mandatory
+                          usage: Pujaris
+                          reference: if any
+                        code:
+                          description: code for the category
+                          required: mandatory
+                          usage: PUJARIS
+                          reference: if any
+                    tags:
+                      description: metadata tags associated with the category
+                      required: optional
+                      usage:
+                        - descriptor:
+                            code:
+                              description: code for the tag type
+                              required: mandatory
+                              usage: selection
+                              reference: if any
+                          list:
+                            description: list of specific tag details
+                            required: optional
+                            usage:
+                              - descriptor:
+                                  code:
+                                    description: code for specific tag detail
+                                    required: mandatory
+                                    usage: seq
+                                    reference: if any
+                                value:
+                                  description: value associated with the tag
+                                  required: mandatory
+                                  usage: '1'
+                                  reference: if any
+                              - descriptor:
+                                  code:
+                                    description: code for specific tag detail
+                                    required: mandatory
+                                    usage: mandatory_selection
+                                    reference: if any
+                                value:
+                                  description: value associated with the tag
+                                  required: mandatory
+                                  usage: 'true'
+                                  reference: if any
+                              - descriptor:
+                                  code:
+                                    description: code for specific tag detail
+                                    required: mandatory
+                                    usage: min_selection
+                                    reference: if any
+                                value:
+                                  description: value associated with the tag
+                                  required: mandatory
+                                  usage: '1'
+                                  reference: if any
+                              - descriptor:
+                                  code:
+                                    description: code for specific tag detail
+                                    required: mandatory
+                                    usage: max_selection
+                                    reference: if any
+                                value:
+                                  description: value associated with the tag
+                                  required: mandatory
+                                  usage: '1'
+                                  reference: if any
+                  - id:
+                      description: unique identifier for the category
+                      required: mandatory
+                      usage: C2
+                      reference: if any
+                    descriptor:
+                      description: details about the category
+                      required: mandatory
+                      usage:
+                        name:
+                          description: name of the category
+                          required: mandatory
+                          usage: Career
+                          reference: if any
+                        code:
+                          description: code for the category
+                          required: mandatory
+                          usage: CAREER
+                          reference: if any
+                  - id:
+                      description: unique identifier for the category
+                      required: mandatory
+                      usage: C3
+                      reference: if any
+                    descriptor:
+                      description: details about the category
+                      required: mandatory
+                      usage:
+                        name:
+                          description: name of the category
+                          required: mandatory
+                          usage: Marriage
+                          reference: if any
+                        code:
+                          description: code for the category
+                          required: mandatory
+                          usage: MARRIAGE
+                          reference: if any
+                  - id:
+                      description: unique identifier for the category
+                      required: mandatory
+                      usage: C4
+                      reference: if any
+                    descriptor:
+                      description: details about the category
+                      required: mandatory
+                      usage:
+                        name:
+                          description: name of the category
+                          required: mandatory
+                          usage: Love
+                          reference: if any
+                        code:
+                          description: code for the category
+                          required: mandatory
+                          usage: LOVE
+                          reference: if any
+                  - id:
+                      description: unique identifier for the category
+                      required: mandatory
+                      usage: C5
+                      reference: if any
+                    descriptor:
+                      description: details about the category
+                      required: mandatory
+                      usage:
+                        name:
+                          description: name of the category
+                          required: mandatory
+                          usage: Energy
+                          reference: if any
+                        code:
+                          description: code for the category
+                          required: mandatory
+                          usage: ENERGY
+                          reference: if any
+                  - id:
+                      description: unique identifier for the category
+                      required: mandatory
+                      usage: C6
+                      reference: if any
+                    descriptor:
+                      description: details about the category
+                      required: mandatory
+                      usage:
+                        name:
+                          description: name of the category
+                          required: mandatory
+                          usage: Home
+                          reference: if any
+                        code:
+                          description: code for the category
+                          required: mandatory
+                          usage: HOME
+                          reference: if any
+                  - id:
+                      description: unique identifier for the category
+                      required: mandatory
+                      usage: C7
+                      reference: if any
+                    descriptor:
+                      description: details about the category
+                      required: mandatory
+                      usage:
+                        name:
+                          description: name of the category
+                          required: mandatory
+                          usage: Education
+                          reference: if any
+                        code:
+                          description: code for the category
+                          required: mandatory
+                          usage: EDUCATION
+                          reference: if any
+                  - id:
+                      description: unique identifier for the category
+                      required: mandatory
+                      usage: C8
+                      reference: if any
+                    descriptor:
+                      description: details about the category
+                      required: mandatory
+                      usage:
+                        name:
+                          description: name of the category
+                          required: mandatory
+                          usage: Job
+                          reference: if any
+                        code:
+                          description: code for the category
+                          required: mandatory
+                          usage: JOB
+                          reference: if any
+              locations:
+                parent: true
+                usage:
+                  - id:
+                      description: unique identifier for the location
+                      required: mandatory
+                      usage: L1
+                      reference: if any
+                    gps:
+                      description: GPS coordinates for the location
+                      required: mandatory
+                      usage: 12.967555,77.749666
+                      reference: if any
+                    address:
+                      description: address for the location
+                      required: mandatory
+                      usage: Jayanagar 4th Block
+                      reference: if any
+                    city:
+                      description: city associated with the location
+                      required: mandatory
+                      usage:
+                        code:
+                          description: code for the city
+                          required: mandatory
+                          usage: std:080
+                          reference: if any
+                        name:
+                          description: name of the city
+                          required: mandatory
+                          usage: Bengaluru
+                          reference: if any
+                    state:
+                      description: state associated with the location
+                      required: mandatory
+                      usage:
+                        code:
+                          description: code for the state
+                          required: mandatory
+                          usage: KA
+                          reference: if any
+                    country:
+                      description: country associated with the location
+                      required: mandatory
+                      usage:
+                        code:
+                          description: code for the country
+                          required: mandatory
+                          usage: IND
+                          reference: if any
+              creds:
+                description: list of credentials associated with the provider
+                required: optional
+                usage:
+                  - id:
+                      description: unique identifier for the credential
+                      required: mandatory
+                      usage: ASTRO-12345678
+                      reference: if any
+                    type:
+                      description: type of credential (e.g., Certification)
+                      required: mandatory
+                      usage: Certification
+                      reference: if any
+                    desc:
+                      description: description of the credential
+                      required: mandatory
+                      usage: Certification No. ASTRO-12345678
+                      reference: if any
+                    url:
+                      description: URL for the credential image or document
+                      required: mandatory
+                      usage: https://abcd.cdn.com/images/certification-img
+                      reference: if any
+              tags:
+                description: metadata tags associated with the provider
+                required: optional
+                usage:
+                  - descriptor:
+                      code:
+                        description: code for the tag type
+                        required: mandatory
+                        usage: serviceability
+                        reference: if any
+                    list:
+                      description: list of specific tag details
+                      required: optional
+                      usage:
+                        - descriptor:
+                            code:
+                              description: code for the tag type
+                              required: mandatory
+                              usage: location
+                              reference: if any
+                          value:
+                            description: value associated with the tag
+                            required: mandatory
+                            usage: L1
+                            reference: if any
+                        - descriptor:
+                            code:
+                              description: code for the tag type
+                              required: mandatory
+                              usage: category
+                              reference: if any
+                          value:
+                            description: value associated with the tag
+                            required: mandatory
+                            usage: SRV16
+                            reference: if any
+                        - descriptor:
+                            code:
+                              description: code for the tag type
+                              required: mandatory
+                              usage: val
+                              reference: if any
+                          value:
+                            description: value associated with the tag
+                            required: mandatory
+                            usage: >-
+                              {"type": "FeatureCollection", "features":
+                              [{"type": "Feature", "properties": {}, "geometry":
+                              {"coordinates": [[[77.175571, 28.675927],
+                              [77.128737, 28.600972], [77.446934, 28.545325],
+                              [77.175571, 28.675927]]], "type": "Polygon"}}]}
+                            reference: if any
+                        - descriptor:
+                            code:
+                              description: code for the tag type
+                              required: mandatory
+                              usage: unit
+                              reference: if any
+                          value:
+                            description: value associated with the tag
+                            required: mandatory
+                            usage: geojson
+                            reference: if any
+                        - descriptor:
+                            code:
+                              description: code for the tag type
+                              required: mandatory
+                              usage: type
+                              reference: if any
+                          value:
+                            description: value associated with the tag
+                            required: mandatory
+                            usage: 12
+                            reference: if any
               items:
+                parent: true
+                id:
+                  description: unique identifier for the item
+                  required: mandatory
+                  usage: I1
+                  reference: if any
                 descriptor:
                   name:
-                    description: name of the service provided by the service provider
-                    required: required
-                    usage: Kundli Pooja
+                    description: name of the item
+                    required: mandatory
+                    usage: Maha Mritunjay Path
                     reference: if any
-                  price:
-                    value:
-                      description: price of the service
-                      required: required
-                      usage: '149'
+                  code:
+                    description: code for the item
+                    required: mandatory
+                    usage: MAHA-001
+                    reference: if any
+                  short_desc:
+                    description: short description of the item
+                    required: mandatory
+                    usage: Maha Mritunjay Path Pooja
+                    reference: if any
+                  long_desc:
+                    description: long description of the item
+                    required: mandatory
+                    usage: Maha Mritunjay Path Pooja
+                    reference: if any
+                  media:
+                    description: list of media associated with the item
+                    required: optional
+                    mimetype:
+                      description: MIME type of the media
+                      required: mandatory
+                      usage: video/mp4
                       reference: if any
-                    currency:
-                      description: currency of the price value
-                      required: required
-                      usage: INR
+                    url:
+                      description: URL of the media
+                      required: mandatory
+                      usage: video_url
                       reference: if any
-                category_ids:
-                  description: >-
-                    category id of the service provided by the service provider
-                    which was sent in /search call, or catalog specific
-                    categories
-                  required: required
-                  usage: SRV16-1000
-                  reference: if any
-                fulfillment_ids:
-                  description: >-
-                    fulfillment id of the service provided by the service
-                    provider
-                  required: required
-                  usage: '1'
-                  reference: if any
-                location_ids:
-                  description: location ids of the service provider
-                  required: required
-                  usage: L1
-                  reference: if any
+                price:
+                  description: price details for the item
+                  required: mandatory
+                  currency:
+                    description: currency code
+                    required: mandatory
+                    usage: INR
+                    reference: if any
+                  value:
+                    description: price value of the item
+                    required: mandatory
+                    usage: '500.00'
+                    reference: if any
+                  maximum_value:
+                    description: maximum price value
+                    required: mandatory
+                    usage: '500.00'
+                    reference: if any
+                quantity:
+                  description: quantity details for the item
+                  required: mandatory
+                  unitized:
+                    description: unitized quantity measure
+                    required: mandatory
+                    measure:
+                      unit:
+                        description: unit for the quantity
+                        required: mandatory
+                        usage: unit
+                        reference: if any
+                      value:
+                        description: quantity value
+                        required: mandatory
+                        usage: '1'
+                        reference: if any
                 time:
+                  description: time details for the item
+                  required: mandatory
+                  label:
+                    description: label for the time
+                    required: mandatory
+                    usage: validity
+                    reference: if any
                   range:
+                    description: start and end time for the item
+                    required: mandatory
                     start:
-                      description: availability start date of the service provider
-                      required: required
-                      usage: '2022-11-10T00:00:00.000Z'
+                      description: start time
+                      required: mandatory
+                      usage: '2024-04-01T00:00:00.000Z'
                       reference: if any
                     end:
-                      description: availability end date of the service provider
-                      required: required
-                      usage: '2022-11-20T00:00:00.000Z'
+                      description: end time
+                      required: mandatory
+                      usage: '2024-04-10T00:00:00.000Z'
                       reference: if any
+                  days:
+                    description: days for availability
+                    required: mandatory
+                    usage: 04,05
+                    reference: if any
                   schedule:
+                    description: schedule details for the item
+                    required: mandatory
                     frequency:
-                      description: service slot frequency
-                      required: required
+                      description: frequency of the schedule
+                      required: mandatory
                       usage: PT1H
                       reference: if any
                     holidays:
-                      description: days on which service provide is not available
-                      required: required
-                      usage: '[2023-11-13, 2023-11-15]'
+                      description: list of holidays
+                      required: mandatory
+                      usage:
+                        - '2024-04-09'
+                        - '2024-04-07'
                       reference: if any
                     times:
-                      description: time slots in which service provide is available
-                      required: required
-                      usage: '[2022-11-20T00:00:00.000Z]'
+                      description: list of times for the schedule
+                      required: mandatory
+                      usage:
+                        - '2024-04-04T22:00:00.000Z'
+                        - '2024-04-06T22:00:00.000Z'
+                        - '2024-04-08T22:00:00.000Z'
+                        - '2024-04-10T22:00:00.000Z'
                       reference: if any
-                offers:
-                  id:
-                    description: offer id
-                    required: optional
-                    usage: offer-1
-                    reference: if any
-                  descriptor:
-                    code:
-                      description: code of the offer being provided by the service provider
-                      required: optional
-                      usage: FREEBIE
-                      reference: if any
-                    short_desc:
-                      description: >-
-                        description of the offer being provided by the service
-                        provider
-                      required: optional
-                      usage: Pooja Service
-                      reference: if any
-                  item_ids:
-                    description: item ids on which this offer is applicable
-                    required: optional
-                    usage: '[PI2]'
-                    reference: if any
-                  time:
-                    range:
-                      start:
-                        description: start date of the period for which offer is available
+                tags:
+                  description: metadata tags associated with the item
+                  required: optional
+                  usage:
+                    - descriptor:
+                        code:
+                          description: code for the tag type
+                          required: mandatory
+                          usage: INFO
+                          reference: if any
+                      list:
+                        description: list of specific tag details
                         required: optional
-                        usage: '2023-11-12T00:00:00.000Z'
-                        reference: if any
-                      end:
-                        description: end date of the offer
+                        usage:
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: TYPE
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: Service
+                              reference: if any
+                    - descriptor:
+                        code:
+                          description: code for the tag type
+                          required: mandatory
+                          usage: SERVICE_DETAILS
+                          reference: if any
+                      list:
+                        description: list of specific tag details
                         required: optional
-                        usage: '2023-11-16T00:00:00.000Z'
+                        usage:
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: SESSION_DURATION
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: PT30M
+                              reference: if any
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: ATTENDEES_CAPACITY
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: '4'
+                              reference: if any
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: AVAILABLE_PUJARIS
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: PU1,PU2
+                              reference: if any
+                    - descriptor:
+                        code:
+                          description: code for the tag type
+                          required: mandatory
+                          usage: TEMPLE_DETAILS
+                          reference: if any
+                      list:
+                        description: list of specific tag details
+                        required: optional
+                        usage:
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: ADDRESS
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: Temple Address
+                              reference: if any
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: PINCODE
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: '530008'
+                              reference: if any
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: GPS
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: 12.967555,77.749666
+                              reference: if any
+                    - code:
+                        description: code for the tag type
+                        required: mandatory
+                        usage: POOJA_CHECKLIST
                         reference: if any
-                fulfillments:
-                  contact:
-                    phone:
-                      description: contact number of the service provider
-                      required: optional
-                      usage: '9886098860'
-                      reference: if any
+                      list:
+                        description: list of specific tag details
+                        required: optional
+                        usage:
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: MIME_TYPE
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: application/pdf
+                              reference: if any
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: FILE_URL
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: https://astro-service/file-url.pdf
+                              reference: if any
+                    - descriptor:
+                        code:
+                          description: code for the tag type
+                          required: mandatory
+                          usage: RESCHEDULE_TERMS
+                          reference: if any
+                      list:
+                        description: list of specific tag details
+                        required: optional
+                        usage:
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: FULFILLMENT_STATE
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: Pending
+                              reference: if any
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: RESCHEDULE_ELIGIBLE
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: 'true'
+                              reference: if any
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: RESCHEDULE_FEE
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: '0.00'
+                              reference: if any
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: RESCHEDULE_WITHIN
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: PT1D
+                              reference: if any
+                    - descriptor:
+                        code:
+                          description: code for the tag type
+                          required: mandatory
+                          usage: RESCHEDULE_TERMS
+                          reference: if any
+                      list:
+                        description: list of specific tag details
+                        required: optional
+                        usage:
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: FULFILLMENT_STATE
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: In-Transit
+                              reference: if any
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: RESCHEDULE_ELIGIBLE
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: 'true'
+                              reference: if any
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: RESCHEDULE_FEE
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: '10.00'
+                              reference: if any
+                          - descriptor:
+                              code:
+                                description: code for the tag type
+                                required: mandatory
+                                usage: RESCHEDULE_WITHIN
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: PT1D
+                              reference: if any
       select:
         parent: true
+        context:
+          parent: true
+          domain:
+            description: domain code, enums - ONDC:SRV16 (Services - Spirituality services)
+            required: mandatory
+            usage: ONDC:SRV16
+            reference: if any
+          location:
+            city:
+              code:
+                description: >-
+                  city code for search where service needs to be provided. List
+                  of city codes, with pincode mapping, are here -
+                  https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+                required: mandatory
+                usage: std:080
+                reference: if any
+            country:
+              code:
+                description: >-
+                  ISO standard 3 digit country code where service needs to be
+                  provided
+                required: mandatory
+                usage: IND
+                reference: if any
+          action:
+            description: the action being performed in this request, such as `select`
+            required: mandatory
+            usage: select
+            reference: if any
+          version:
+            description: version of the protocol being used
+            required: mandatory
+            usage: 2.0.0
+            reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: mandatory
+            usage: buyerapp.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: mandatory
+            usage: https://buyerapp.com/services
+            reference: if any
+          bpp_id:
+            description: subscriber id for provider app
+            required: mandatory
+            usage: sellerapp.com
+            reference: if any
+          bpp_uri:
+            description: subscriber URI for provider app
+            required: mandatory
+            usage: https://sellerapp.com/services
+            reference: if any
+          transaction_id:
+            description: unique identifier for the transaction
+            required: mandatory
+            usage: T1
+            reference: if any
+          message_id:
+            description: unique identifier for the message
+            required: mandatory
+            usage: M2
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: mandatory
+            usage: '2024-12-01T22:00:31.000Z'
+            reference: if any
+          ttl:
+            description: validity of the message
+            required: mandatory
+            usage: PT30S
+            reference: if any
         message:
           parent: true
           order:
@@ -13299,12 +14173,25 @@ x-attributes:
                 required: required
                 usage: P1
                 reference: if any
+              locations:
+                description: location of the provider chosen for the service
+                required: required
+                id:
+                  description: id of the location of provider chosen for the service
+                  required: required
+                  usage: L1
+                  reference: if any
             items:
               parent: true
               id:
                 description: item id i.e. the id of the service
                 required: required
                 usage: I2
+                reference: if any
+              location_ids:
+                description: item location ids i.e. the id of the service
+                required: required
+                usage: '[''L1'']'
                 reference: if any
               quantity:
                 selected:
@@ -13351,8 +14238,90 @@ x-attributes:
                       required: required
                       usage: '2023-11-16T10:30:00Z'
                       reference: if any
+            payments:
+              parent: true
+              type:
+                description: Type of payment
+                required: required
+                usage: PRE-FULFILLMENT
+                reference: if any
       on_select:
         parent: true
+        context:
+          parent: true
+          domain:
+            description: domain code, enums - ONDC:SRV16 (Services - Spirituality services)
+            required: mandatory
+            usage: ONDC:SRV16
+            reference: if any
+          location:
+            city:
+              code:
+                description: >-
+                  city code for search where service needs to be provided. List
+                  of city codes, with pincode mapping, are here -
+                  https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+                required: mandatory
+                usage: std:080
+                reference: if any
+            country:
+              code:
+                description: >-
+                  ISO standard 3 digit country code where service needs to be
+                  provided
+                required: mandatory
+                usage: IND
+                reference: if any
+          action:
+            description: the action being performed in this request, such as `on_select`
+            required: mandatory
+            usage: on_select
+            reference: if any
+          version:
+            description: version of the protocol being used
+            required: mandatory
+            usage: 2.0.0
+            reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: mandatory
+            usage: buyerapp.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: mandatory
+            usage: https://buyerapp.com/services
+            reference: if any
+          bpp_id:
+            description: subscriber id for provider app
+            required: mandatory
+            usage: sellerapp.com
+            reference: if any
+          bpp_uri:
+            description: subscriber URI for provider app
+            required: mandatory
+            usage: https://sellerapp.com/services
+            reference: if any
+          transaction_id:
+            description: unique identifier for the transaction
+            required: mandatory
+            usage: T1
+            reference: if any
+          message_id:
+            description: unique identifier for the message
+            required: mandatory
+            usage: M2
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: mandatory
+            usage: '2024-12-01T22:00:31.000Z'
+            reference: if any
+          ttl:
+            description: validity of the message
+            required: mandatory
+            usage: PT30S
+            reference: if any
         message:
           parent: true
           order:
@@ -13360,72 +14329,324 @@ x-attributes:
             provider:
               parent: true
               id:
-                description: service provider id
-                required: required
+                description: unique identifier for the service provider
+                required: mandatory
                 usage: P1
+                reference: if any
+              locations:
+                description: list of locations where the provider operates
+                required: mandatory
+                usage:
+                  - id: L1
                 reference: if any
             items:
               parent: true
               id:
-                description: item id sent in /select call
-                required: required
-                usage: I2
+                description: unique identifier for the item
+                required: mandatory
+                usage: I1
+                reference: if any
+              location_ids:
+                description: list of location IDs associated with the item
+                required: mandatory
+                usage:
+                  - L1
                 reference: if any
               fulfillment_ids:
-                description: fulfillment id of the service
-                required: required
-                usage: F1
+                description: list of fulfillment IDs associated with the item
+                required: mandatory
+                usage:
+                  - FY1
                 reference: if any
+              quantity:
+                selected:
+                  count:
+                    description: selected quantity of the item
+                    required: mandatory
+                    usage: 1
+                    reference: if any
+                  add-ons:
+                    description: list of add-ons associated with the item
+                    required: optional
+                    usage:
+                      - id: ADDON01
+                    reference: if any
+                  tags:
+                    description: metadata tags associated with the item
+                    required: optional
+                    usage:
+                      - descriptor:
+                          code:
+                            description: code representing the tag type
+                            required: mandatory
+                            usage: SELECTION
+                            reference: if any
+                        list:
+                          description: list of tag details
+                          required: optional
+                          usage:
+                            - descriptor:
+                                code:
+                                  description: code for specific tag detail
+                                  required: mandatory
+                                  usage: PUJARIS
+                                  reference: if any
+                              value:
+                                description: value associated with the tag
+                                required: mandatory
+                                usage: PU1
+                                reference: if any
             fulfillments:
               parent: true
               id:
-                description: fulfillment id of the service
-                required: required
-                usage: F1
+                description: unique identifier for the fulfillment
+                required: mandatory
+                usage: FY1
                 reference: if any
-              state:
-                descriptor:
-                  code:
-                    description: >-
-                      provide the servicability status of the service i.e. if
-                      the service can be provided or not
-                    required: required
-                    usage: Serviceable
-                    reference: if any
+              type:
+                description: type of fulfillment (e.g., Buyer-Fulfilled)
+                required: mandatory
+                usage: Buyer-Fulfilled
+                reference: if any
+              stops:
+                description: list of stops for the fulfillment
+                required: mandatory
+                usage:
+                  - type:
+                      description: type of stop (e.g., end)
+                      required: mandatory
+                      usage: end
+                      reference: if any
+                    time:
+                      label:
+                        description: label for the time
+                        required: mandatory
+                        usage: confirmed
+                        reference: if any
+                      range:
+                        description: range of time for the stop
+                        required: mandatory
+                        usage:
+                          start: '2024-04-04T10:00:00.000Z'
+                          end: '2024-04-04T11:00:00.000Z'
+                        reference: if any
+                      days:
+                        description: number of days applicable for the stop
+                        required: mandatory
+                        usage: '4'
+                        reference: if any
             quote:
               parent: true
               price:
-                description: total price of the service
-                required: required
-                usage: '499'
+                description: total price of the order
+                required: mandatory
+                usage:
+                  currency: INR
+                  value: '600'
                 reference: if any
               breakup:
+                description: detailed price breakup
+                required: mandatory
                 title:
-                  description: >-
-                    title of the service charges enum - Pooja Service, tax,
-                    discount, convenience_fee
-                  required: required
-                  usage: Pooja Service
+                  description: title of the breakup entry
+                  required: mandatory
+                  usage: Maha Mritunjay Path
                   reference: if any
                 price:
-                  description: price of the quote breakup type
-                  required: required
-                  usage: '474'
+                  description: price for the entry
+                  required: mandatory
+                  usage:
+                    currency: INR
+                    value: '500'
                   reference: if any
+                item:
+                  id:
+                    description: unique identifier for the item
+                    required: mandatory
+                    usage: I1
+                    reference: if any
+                  quantity:
+                    selected:
+                      count:
+                        description: selected quantity of the item
+                        required: mandatory
+                        usage: 1
+                        reference: if any
+                  price:
+                    description: price details for the item
+                    required: mandatory
+                    usage:
+                      currency: INR
+                      value: '500'
+                    reference: if any
+                tags:
+                  description: metadata tags for the breakup entry
+                  required: optional
+                  usage:
+                    - descriptor:
+                        code:
+                          description: code representing the tag type
+                          required: mandatory
+                          usage: title
+                          reference: if any
+                      list:
+                        description: list of tag details
+                        required: optional
+                        usage:
+                          - descriptor:
+                              code:
+                                description: code for specific tag detail
+                                required: mandatory
+                                usage: type
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: ITEM
+                              reference: if any
+              ttl:
+                description: validity period of the quote
+                required: mandatory
+                usage: P1D
+                reference: if any
+            payments:
+              parent: true
+              type:
+                description: type of payment (e.g., PRE-FULFILLMENT)
+                required: mandatory
+                usage: PRE-FULFILLMENT
+                reference: if any
+              collected_by:
+                description: entity collecting the payment
+                required: mandatory
+                usage: BAP
+                reference: if any
       init:
         parent: true
+        context:
+          parent: true
+          domain:
+            description: domain code, enums - ONDC:SRV16 (Services - Spirituality services)
+            required: mandatory
+            usage: ONDC:SRV16
+            reference: if any
+          location:
+            city:
+              code:
+                description: >-
+                  city code for search where service needs to be provided. List
+                  of city codes, with pincode mapping, are here -
+                  https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+                required: mandatory
+                usage: std:080
+                reference: if any
+            country:
+              code:
+                description: >-
+                  ISO standard 3 digit country code where service needs to be
+                  provided
+                required: mandatory
+                usage: IND
+                reference: if any
+          action:
+            description: the action being performed in this request, such as `init`
+            required: mandatory
+            usage: init
+            reference: if any
+          version:
+            description: version of the protocol being used
+            required: mandatory
+            usage: 2.0.0
+            reference: if any
+          bap_id:
+            description: subscriber id for buyer app
+            required: mandatory
+            usage: buyerapp.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: mandatory
+            usage: https://buyerapp.com/services
+            reference: if any
+          bpp_id:
+            description: subscriber id for provider app
+            required: mandatory
+            usage: sellerapp.com
+            reference: if any
+          bpp_uri:
+            description: subscriber URI for provider app
+            required: mandatory
+            usage: https://sellerapp.com/services
+            reference: if any
+          transaction_id:
+            description: unique identifier for the transaction
+            required: mandatory
+            usage: T1
+            reference: if any
+          message_id:
+            description: unique identifier for the message
+            required: mandatory
+            usage: M2
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: mandatory
+            usage: '2024-12-01T22:00:31.000Z'
+            reference: if any
+          ttl:
+            description: validity of the message
+            required: mandatory
+            usage: PT30S
+            reference: if any
         message:
           parent: true
           order:
             parent: true
             billing:
+              parent: true
               description: >-
                 billing details of the marketplace ( service provider ) for
                 invoicing;
               required: required
-              usage: '-'
-              reference: if any
+              id:
+                description: unique identifier for the fulfillment
+                required: mandatory
+                usage: F1
+                reference: if any
+              address:
+                description: address of the buyer
+                required: mandatory
+                usage: >-
+                  22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                  Bengaluru, Karnataka 560001
+                reference: if any
+              state:
+                description: state where the buyer is located
+                required: mandatory
+                usage: Karnataka
+                reference: if any
+              city:
+                description: city where the buyer is located
+                required: mandatory
+                usage: Bengaluru
+                reference: if any
+              tax_id:
+                description: tax identification number of the buyer
+                required: mandatory
+                usage: XXXXXXXXXXXXXXX
+                reference: if any
+              email:
+                description: email address of the buyer
+                required: mandatory
+                usage: nobody@nomail.com
+                reference: if any
+              phone:
+                description: phone number of the buyer
+                required: mandatory
+                usage: '9886098860'
+                reference: if any
             provider:
+              parent: true
               locations:
                 description: >-
                   mandatory only if provider.locations was returned in
@@ -13434,6 +14655,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
             fulfillments:
+              parent: true
               id:
                 description: >-
                   fulfillment_id from /on_search corresponding to appropriate
@@ -13441,122 +14663,926 @@ x-attributes:
                 required: required
                 usage: F1
                 reference: if any
+            payments:
+              parent: true
+              type:
+                description: type of payment (e.g., PRE-FULFILLMENT)
+                required: mandatory
+                usage: PRE-FULFILLMENT
+                reference: if any
+              collected_by:
+                description: entity collecting the payment
+                required: mandatory
+                usage: BAP
+                reference: if any
       on_init:
         parent: true
         message:
           parent: true
           order:
             parent: true
+            provider:
+              parent: true
+              id:
+                description: unique identifier for the service provider
+                required: mandatory
+                usage: P1
+                reference: if any
+              locations:
+                description: list of locations where the provider operates
+                required: mandatory
+                usage:
+                  - id: L1
+                reference: if any
+            items:
+              parent: true
+              id:
+                description: unique identifier for the item
+                required: mandatory
+                usage: I1
+                reference: if any
+              location_ids:
+                description: list of location IDs associated with the item
+                required: mandatory
+                usage:
+                  - L1
+                reference: if any
+              fulfillment_ids:
+                description: list of fulfillment IDs associated with the item
+                required: mandatory
+                usage:
+                  - FY1
+                reference: if any
+              quantity:
+                selected:
+                  count:
+                    description: selected quantity of the item
+                    required: mandatory
+                    usage: 1
+                    reference: if any
+                  add-ons:
+                    description: list of add-ons associated with the item
+                    required: optional
+                    usage:
+                      - id: ADDON01
+                    reference: if any
+                  tags:
+                    description: metadata tags associated with the item
+                    required: optional
+                    usage:
+                      - descriptor:
+                          code:
+                            description: code representing the tag type
+                            required: mandatory
+                            usage: SELECTION
+                            reference: if any
+                        list:
+                          description: list of tag details
+                          required: optional
+                          usage:
+                            - descriptor:
+                                code:
+                                  description: code for specific tag detail
+                                  required: mandatory
+                                  usage: PUJARIS
+                                  reference: if any
+                              value:
+                                description: value associated with the tag
+                                required: mandatory
+                                usage: PU1
+                                reference: if any
+            fulfillments:
+              parent: true
+              id:
+                description: unique identifier for the fulfillment
+                required: mandatory
+                usage: FY1
+                reference: if any
+              type:
+                description: type of fulfillment (e.g., Buyer-Fulfilled)
+                required: mandatory
+                usage: Buyer-Fulfilled
+                reference: if any
+              stops:
+                description: list of stops for the fulfillment
+                required: mandatory
+                usage:
+                  - type:
+                      description: type of stop (e.g., end)
+                      required: mandatory
+                      usage: end
+                      reference: if any
+                    time:
+                      label:
+                        description: label for the time
+                        required: mandatory
+                        usage: confirmed
+                        reference: if any
+                      range:
+                        description: range of time for the stop
+                        required: mandatory
+                        usage:
+                          start: '2024-04-04T10:00:00.000Z'
+                          end: '2024-04-04T11:00:00.000Z'
+                        reference: if any
+                      days:
+                        description: number of days applicable for the stop
+                        required: mandatory
+                        usage: '4'
+                        reference: if any
+            billing:
+              parent: true
+              description: >-
+                billing details of the marketplace ( service provider ) for
+                invoicing;
+              required: required
+              id:
+                description: unique identifier for the fulfillment
+                required: mandatory
+                usage: F1
+                reference: if any
+              address:
+                description: address of the buyer
+                required: mandatory
+                usage: >-
+                  22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                  Bengaluru, Karnataka 560001
+                reference: if any
+              state:
+                description: state where the buyer is located
+                required: mandatory
+                usage: Karnataka
+                reference: if any
+              city:
+                description: city where the buyer is located
+                required: mandatory
+                usage: Bengaluru
+                reference: if any
+              tax_id:
+                description: tax identification number of the buyer
+                required: mandatory
+                usage: XXXXXXXXXXXXXXX
+                reference: if any
+              email:
+                description: email address of the buyer
+                required: mandatory
+                usage: nobody@nomail.com
+                reference: if any
+              phone:
+                description: phone number of the buyer
+                required: mandatory
+                usage: '9886098860'
+                reference: if any
             quote:
               parent: true
-              quote:
-                description: quote to be sent by service provider
-                required: required
-                usage: '-'
+              price:
+                description: total price of the order
+                required: mandatory
+                usage:
+                  currency: INR
+                  value: '600'
                 reference: if any
               breakup:
-                parent: true
-                breakup:
-                  description: service provider provides the the breakup of the quote
-                  required: required
-                  usage: '-'
-                  reference: if any
+                description: detailed price breakup
+                required: mandatory
                 title:
-                  description: >-
-                    title of the service charges - Pooja Services, tax,
-                    discount, convenience fee
-                  required: required
-                  usage: Pooja Services
+                  description: title of the breakup entry
+                  required: mandatory
+                  usage: Maha Mritunjay Path
                   reference: if any
+                price:
+                  description: price for the entry
+                  required: mandatory
+                  usage:
+                    currency: INR
+                    value: '500'
+                  reference: if any
+                item:
+                  id:
+                    description: unique identifier for the item
+                    required: mandatory
+                    usage: I1
+                    reference: if any
+                  quantity:
+                    selected:
+                      count:
+                        description: selected quantity of the item
+                        required: mandatory
+                        usage: 1
+                        reference: if any
+                  price:
+                    description: price details for the item
+                    required: mandatory
+                    usage:
+                      currency: INR
+                      value: '500'
+                    reference: if any
+                tags:
+                  description: metadata tags for the breakup entry
+                  required: optional
+                  usage:
+                    - descriptor:
+                        code:
+                          description: code representing the tag type
+                          required: mandatory
+                          usage: title
+                          reference: if any
+                      list:
+                        description: list of tag details
+                        required: optional
+                        usage:
+                          - descriptor:
+                              code:
+                                description: code for specific tag detail
+                                required: mandatory
+                                usage: type
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: ITEM
+                              reference: if any
+              ttl:
+                description: validity period of the quote
+                required: mandatory
+                usage: P1D
+                reference: if any
             payments:
               parent: true
               type:
-                description: >-
-                  stage when fulfillment will be done by service provider, enum
-                  - "PRE-FULFILLMENT", "ON-FULFILLMENT", "POST-FULFILLMENT"
-                required: required
+                description: type of payment (e.g., PRE-FULFILLMENT)
+                required: mandatory
                 usage: PRE-FULFILLMENT
+                reference: if any
+              collected_by:
+                description: entity collecting the payment
+                required: mandatory
+                usage: BAP
                 reference: if any
               params:
                 amount:
-                  description: amount as per the quote total value
-                  required: required
-                  usage: '6000'
+                  description: payment amount
+                  required: mandatory
+                  usage: '600'
                   reference: if any
                 currency:
-                  description: currency in which to receive the amount
-                  required: required
+                  description: currency for the payment
+                  required: mandatory
                   usage: INR
                   reference: if any
                 bank_account_number:
-                  description: service provider bank account number
-                  required: required
-                  usage: '001404845678'
+                  description: bank account number used for the transaction
+                  required: optional
+                  usage: xxxxxxxx
                   reference: if any
                 virtual_payment_address:
-                  description: service provider payment link address
-                  required: required
-                  usage: '-'
+                  description: virtual payment address used for the transaction
+                  required: optional
+                  usage: xxx@xxxx
                   reference: if any
+              tags:
+                description: additional metadata for the payment
+                required: optional
+                code:
+                  description: code for the tag type
+                  required: mandatory
+                  usage: Settlement_Details
+                  reference: if any
+                list:
+                  description: details related to settlement
+                  required: optional
+                  code:
+                    description: code for counterparty
+                    required: mandatory
+                    usage: Counterparty
+                    reference: if any
+                  value:
+                    description: value of the counterparty
+                    required: mandatory
+                    usage: BPP
+                    reference: if any
       confirm:
         parent: true
         message:
           parent: true
           order:
             parent: true
+            id:
+              description: unique order id for the service provider
+              required: mandatory
+              usage: O1
+              reference: if any
+            status:
+              description: >-
+                status of the order, enum - "Created", "Accepted",
+                "In-progress", "Completed", "Cancelled"
+              required: mandatory
+              usage: Created
+              reference: if any
+            provider:
+              parent: true
+              id:
+                description: unique identifier for the service provider
+                required: mandatory
+                usage: P1
+                reference: if any
+              locations:
+                description: list of locations where the provider operates
+                required: mandatory
+                usage:
+                  - id: L1
+                reference: if any
+            items:
+              parent: true
+              id:
+                description: unique identifier for the item
+                required: mandatory
+                usage: I1
+                reference: if any
+              location_ids:
+                description: list of location IDs associated with the item
+                required: mandatory
+                usage:
+                  - L1
+                reference: if any
+              fulfillment_ids:
+                description: list of fulfillment IDs associated with the item
+                required: mandatory
+                usage:
+                  - FY1
+                reference: if any
+              quantity:
+                selected:
+                  count:
+                    description: selected quantity of the item
+                    required: mandatory
+                    usage: 1
+                    reference: if any
+                  add-ons:
+                    description: list of add-ons associated with the item
+                    required: optional
+                    usage:
+                      - id: ADDON01
+                    reference: if any
+                  tags:
+                    description: metadata tags associated with the item
+                    required: optional
+                    usage:
+                      - descriptor:
+                          code:
+                            description: code representing the tag type
+                            required: mandatory
+                            usage: SELECTION
+                            reference: if any
+                        list:
+                          description: list of tag details
+                          required: optional
+                          usage:
+                            - descriptor:
+                                code:
+                                  description: code for specific tag detail
+                                  required: mandatory
+                                  usage: PUJARIS
+                                  reference: if any
+                              value:
+                                description: value associated with the tag
+                                required: mandatory
+                                usage: PU1
+                                reference: if any
             fulfillments:
               parent: true
-              fulfillments:
-                description: contains the fulfillment details
-                required: required
-                usage: '-'
+              id:
+                description: unique identifier for the fulfillment
+                required: mandatory
+                usage: FY1
+                reference: if any
+              type:
+                description: type of fulfillment (e.g., Buyer-Fulfilled)
+                required: mandatory
+                usage: Buyer-Fulfilled
                 reference: if any
               stops:
-                time:
-                  range:
-                    start:
-                      description: start time of the service
-                      required: required
-                      usage: '2023-11-16T09:30:00Z'
+                description: list of stops for the fulfillment
+                required: mandatory
+                usage:
+                  - type:
+                      description: type of stop (e.g., end)
+                      required: mandatory
+                      usage: end
                       reference: if any
-                    end:
-                      description: end time of the service
-                      required: required
-                      usage: '2023-11-16T10:30:00Z'
-                      reference: if any
+                    time:
+                      label:
+                        description: label for the time
+                        required: mandatory
+                        usage: confirmed
+                        reference: if any
+                      range:
+                        description: range of time for the stop
+                        required: mandatory
+                        usage:
+                          start: '2024-04-04T10:00:00.000Z'
+                          end: '2024-04-04T11:00:00.000Z'
+                        reference: if any
+                      days:
+                        description: number of days applicable for the stop
+                        required: mandatory
+                        usage: '4'
+                        reference: if any
+            billing:
+              parent: true
+              description: >-
+                billing details of the marketplace ( service provider ) for
+                invoicing;
+              required: required
+              id:
+                description: unique identifier for the fulfillment
+                required: mandatory
+                usage: F1
+                reference: if any
+              address:
+                description: address of the buyer
+                required: mandatory
+                usage: >-
+                  22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                  Bengaluru, Karnataka 560001
+                reference: if any
+              state:
+                description: state where the buyer is located
+                required: mandatory
+                usage: Karnataka
+                reference: if any
+              city:
+                description: city where the buyer is located
+                required: mandatory
+                usage: Bengaluru
+                reference: if any
+              tax_id:
+                description: tax identification number of the buyer
+                required: mandatory
+                usage: XXXXXXXXXXXXXXX
+                reference: if any
+              email:
+                description: email address of the buyer
+                required: mandatory
+                usage: nobody@nomail.com
+                reference: if any
+              phone:
+                description: phone number of the buyer
+                required: mandatory
+                usage: '9886098860'
+                reference: if any
+            quote:
+              parent: true
+              price:
+                description: total price of the order
+                required: mandatory
+                usage:
+                  currency: INR
+                  value: '600'
+                reference: if any
+              breakup:
+                description: detailed price breakup
+                required: mandatory
+                title:
+                  description: title of the breakup entry
+                  required: mandatory
+                  usage: Maha Mritunjay Path
+                  reference: if any
+                price:
+                  description: price for the entry
+                  required: mandatory
+                  usage:
+                    currency: INR
+                    value: '500'
+                  reference: if any
+                item:
+                  id:
+                    description: unique identifier for the item
+                    required: mandatory
+                    usage: I1
+                    reference: if any
+                  quantity:
+                    selected:
+                      count:
+                        description: selected quantity of the item
+                        required: mandatory
+                        usage: 1
+                        reference: if any
+                  price:
+                    description: price details for the item
+                    required: mandatory
+                    usage:
+                      currency: INR
+                      value: '500'
+                    reference: if any
+                tags:
+                  description: metadata tags for the breakup entry
+                  required: optional
+                  usage:
+                    - descriptor:
+                        code:
+                          description: code representing the tag type
+                          required: mandatory
+                          usage: title
+                          reference: if any
+                      list:
+                        description: list of tag details
+                        required: optional
+                        usage:
+                          - descriptor:
+                              code:
+                                description: code for specific tag detail
+                                required: mandatory
+                                usage: type
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: ITEM
+                              reference: if any
+              ttl:
+                description: validity period of the quote
+                required: mandatory
+                usage: P1D
+                reference: if any
+            payments:
+              parent: true
+              type:
+                description: type of payment (e.g., PRE-FULFILLMENT)
+                required: mandatory
+                usage: PRE-FULFILLMENT
+                reference: if any
+              collected_by:
+                description: entity collecting the payment
+                required: mandatory
+                usage: BAP
+                reference: if any
+              params:
+                amount:
+                  description: payment amount
+                  required: mandatory
+                  usage: '600'
+                  reference: if any
+                currency:
+                  description: currency for the payment
+                  required: mandatory
+                  usage: INR
+                  reference: if any
+                bank_account_number:
+                  description: bank account number used for the transaction
+                  required: optional
+                  usage: xxxxxxxx
+                  reference: if any
+                virtual_payment_address:
+                  description: virtual payment address used for the transaction
+                  required: optional
+                  usage: xxx@xxxx
+                  reference: if any
+              tags:
+                description: additional metadata for the payment
+                required: optional
+                code:
+                  description: code for the tag type
+                  required: mandatory
+                  usage: Settlement_Details
+                  reference: if any
+                list:
+                  description: details related to settlement
+                  required: optional
+                  code:
+                    description: code for counterparty
+                    required: mandatory
+                    usage: Counterparty
+                    reference: if any
+                  value:
+                    description: value of the counterparty
+                    required: mandatory
+                    usage: BPP
+                    reference: if any
+            created_at:
+              description: RFC3339 compliant order created time
+              required: mandatory
+              usage: '2024-12-01T22:00:31.000Z'
+              reference: if any
+            updated_at:
+              description: RFC3339 compliant order created time
+              required: mandatory
+              usage: '2024-12-01T22:00:31.000Z'
+              reference: if any
       on_confirm:
         parent: true
         message:
           parent: true
           order:
             parent: true
-            state:
+            id:
+              description: unique order id for the service provider
+              required: mandatory
+              usage: O1
+              reference: if any
+            status:
               description: >-
                 status of the order, enum - "Created", "Accepted",
                 "In-progress", "Completed", "Cancelled"
-              required: required
+              required: mandatory
               usage: Created
               reference: if any
+            provider:
+              parent: true
+              id:
+                description: unique identifier for the service provider
+                required: mandatory
+                usage: P1
+                reference: if any
+              locations:
+                description: list of locations where the provider operates
+                required: mandatory
+                usage:
+                  - id: L1
+                reference: if any
+            items:
+              parent: true
+              id:
+                description: unique identifier for the item
+                required: mandatory
+                usage: I1
+                reference: if any
+              location_ids:
+                description: list of location IDs associated with the item
+                required: mandatory
+                usage:
+                  - L1
+                reference: if any
+              fulfillment_ids:
+                description: list of fulfillment IDs associated with the item
+                required: mandatory
+                usage:
+                  - FY1
+                reference: if any
+              quantity:
+                selected:
+                  count:
+                    description: selected quantity of the item
+                    required: mandatory
+                    usage: 1
+                    reference: if any
+                  add-ons:
+                    description: list of add-ons associated with the item
+                    required: optional
+                    usage:
+                      - id: ADDON01
+                    reference: if any
+                  tags:
+                    description: metadata tags associated with the item
+                    required: optional
+                    usage:
+                      - descriptor:
+                          code:
+                            description: code representing the tag type
+                            required: mandatory
+                            usage: SELECTION
+                            reference: if any
+                        list:
+                          description: list of tag details
+                          required: optional
+                          usage:
+                            - descriptor:
+                                code:
+                                  description: code for specific tag detail
+                                  required: mandatory
+                                  usage: PUJARIS
+                                  reference: if any
+                              value:
+                                description: value associated with the tag
+                                required: mandatory
+                                usage: PU1
+                                reference: if any
             fulfillments:
               parent: true
-              fulfillments:
-                description: contains the fulfillment details
-                required: required
-                usage: '-'
+              id:
+                description: unique identifier for the fulfillment
+                required: mandatory
+                usage: FY1
                 reference: if any
+              type:
+                description: type of fulfillment (e.g., Buyer-Fulfilled)
+                required: mandatory
+                usage: Buyer-Fulfilled
+                reference: if any
+              state:
+                descriptor:
+                  code:
+                    description: >-
+                      state of the entity (e.g., Pending, At_Location,
+                      in_transit, Completed)
+                    required: mandatory
+                    usage: Pending
+                    reference: if any
               stops:
+                type:
+                  description: type of stop (e.g., end)
+                  required: mandatory
+                  usage: end
+                  reference: if any
                 time:
+                  label:
+                    description: label for the time
+                    required: mandatory
+                    usage: confirmed
+                    reference: if any
                   range:
-                    start:
-                      description: start time of the service
-                      required: required
-                      usage: '2023-11-16T09:30:00Z'
-                      reference: if any
-                    end:
-                      description: end time of the service
-                      required: required
-                      usage: '2023-11-16T10:30:00Z'
-                      reference: if any
+                    description: range of time for the stop
+                    required: mandatory
+                    usage:
+                      start: '2024-04-04T10:00:00.000Z'
+                      end: '2024-04-04T11:00:00.000Z'
+                    reference: if any
+                  days:
+                    description: number of days applicable for the stop
+                    required: mandatory
+                    usage: '4'
+                    reference: if any
+            billing:
+              parent: true
+              description: >-
+                billing details of the marketplace ( service provider ) for
+                invoicing;
+              required: required
+              id:
+                description: unique identifier for the fulfillment
+                required: mandatory
+                usage: F1
+                reference: if any
+              address:
+                description: address of the buyer
+                required: mandatory
+                usage: >-
+                  22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                  Bengaluru, Karnataka 560001
+                reference: if any
+              state:
+                description: state where the buyer is located
+                required: mandatory
+                usage: Karnataka
+                reference: if any
+              city:
+                description: city where the buyer is located
+                required: mandatory
+                usage: Bengaluru
+                reference: if any
+              tax_id:
+                description: tax identification number of the buyer
+                required: mandatory
+                usage: XXXXXXXXXXXXXXX
+                reference: if any
+              email:
+                description: email address of the buyer
+                required: mandatory
+                usage: nobody@nomail.com
+                reference: if any
+              phone:
+                description: phone number of the buyer
+                required: mandatory
+                usage: '9886098860'
+                reference: if any
+            quote:
+              parent: true
+              price:
+                description: total price of the order
+                required: mandatory
+                usage:
+                  currency: INR
+                  value: '600'
+                reference: if any
+              breakup:
+                description: detailed price breakup
+                required: mandatory
+                title:
+                  description: title of the breakup entry
+                  required: mandatory
+                  usage: Maha Mritunjay Path
+                  reference: if any
+                price:
+                  description: price for the entry
+                  required: mandatory
+                  usage:
+                    currency: INR
+                    value: '500'
+                  reference: if any
+                item:
+                  id:
+                    description: unique identifier for the item
+                    required: mandatory
+                    usage: I1
+                    reference: if any
+                  quantity:
+                    selected:
+                      count:
+                        description: selected quantity of the item
+                        required: mandatory
+                        usage: 1
+                        reference: if any
+                  price:
+                    description: price details for the item
+                    required: mandatory
+                    usage:
+                      currency: INR
+                      value: '500'
+                    reference: if any
+                tags:
+                  description: metadata tags for the breakup entry
+                  required: optional
+                  usage:
+                    - descriptor:
+                        code:
+                          description: code representing the tag type
+                          required: mandatory
+                          usage: title
+                          reference: if any
+                      list:
+                        description: list of tag details
+                        required: optional
+                        usage:
+                          - descriptor:
+                              code:
+                                description: code for specific tag detail
+                                required: mandatory
+                                usage: type
+                                reference: if any
+                            value:
+                              description: value associated with the tag
+                              required: mandatory
+                              usage: ITEM
+                              reference: if any
+              ttl:
+                description: validity period of the quote
+                required: mandatory
+                usage: P1D
+                reference: if any
+            payments:
+              parent: true
+              type:
+                description: type of payment (e.g., PRE-FULFILLMENT)
+                required: mandatory
+                usage: PRE-FULFILLMENT
+                reference: if any
+              collected_by:
+                description: entity collecting the payment
+                required: mandatory
+                usage: BAP
+                reference: if any
+              params:
+                amount:
+                  description: payment amount
+                  required: mandatory
+                  usage: '600'
+                  reference: if any
+                currency:
+                  description: currency for the payment
+                  required: mandatory
+                  usage: INR
+                  reference: if any
+                bank_account_number:
+                  description: bank account number used for the transaction
+                  required: optional
+                  usage: xxxxxxxx
+                  reference: if any
+                virtual_payment_address:
+                  description: virtual payment address used for the transaction
+                  required: optional
+                  usage: xxx@xxxx
+                  reference: if any
+              tags:
+                description: additional metadata for the payment
+                required: optional
+                code:
+                  description: code for the tag type
+                  required: mandatory
+                  usage: Settlement_Details
+                  reference: if any
+                list:
+                  description: details related to settlement
+                  required: optional
+                  code:
+                    description: code for counterparty
+                    required: mandatory
+                    usage: Counterparty
+                    reference: if any
+                  value:
+                    description: value of the counterparty
+                    required: mandatory
+                    usage: BPP
+                    reference: if any
+            created_at:
+              description: RFC3339 compliant order created time
+              required: mandatory
+              usage: '2024-12-01T22:00:31.000Z'
+              reference: if any
+            updated_at:
+              description: RFC3339 compliant order created time
+              required: mandatory
+              usage: '2024-12-01T22:00:31.000Z'
+              reference: if any
       update:
         parent: true
         message:
@@ -13689,17 +15715,7 @@ x-errorcodes:
       Usage: Used in error object
       Action: /on_select
     - Code: '100002'
-      Reason: Incorrect OTP provided by buyer
-      Who can use code?: BPP
-      Usage: Used in error object
-      Action: /on_status
-    - Code: '100003'
       Reason: Schedule is not provided by the buyer
       Who can use code?: BPP
       Usage: Used in NACK
       Action: NACK on /select
-    - Code: '100004'
-      Reason: Reschedule not possible for ad
-      Who can use code?: BPP
-      Usage: Used in error object
-      Action: /on_update
