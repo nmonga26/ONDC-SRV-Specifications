@@ -1,22 +1,33 @@
 context:
   parent: true
   domain:
-    description: domain code, enums - ONDC:SRV16( Services - Astrology Services )
+    description: domain code, enums - ONDC:SRV16 (Services - Spirituality services)
     required: mandatory
     usage: "ONDC:SRV16"
     reference: if any
-  city:
-    code:
-      description: city code for search where service needs to be provided. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
-      required: mandatory
-      usage: std:080
-      reference: if any
-  country:
-    code:
-      description: ISO standard 3 digit country code where service needs to be provided
-      required: mandatory
-      usage: IND
-      reference: if any
+  location:
+    city:
+      code:
+        description: city code for search where service needs to be provided. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+        required: mandatory
+        usage: std:080
+        reference: if any
+    country:
+      code:
+        description: ISO standard 3 digit country code where service needs to be provided
+        required: mandatory
+        usage: IND
+        reference: if any
+  action:
+    description: the action being performed in this request, such as `search`
+    required: mandatory
+    usage: "search"
+    reference: if any
+  version:
+    description: version of the protocol being used
+    required: mandatory
+    usage: "2.0.0"
+    reference: if any
   bap_id:
     description: subscriber id for buyer app
     required: mandatory
@@ -25,15 +36,35 @@ context:
   bap_uri:
     description: subscriber URI for buyer app
     required: mandatory
-    usage: https://buyerapp.com/ondc
+    usage: https://buyerapp.com/services
+    reference: if any
+  bpp_id:
+    description: subscriber id for provider app
+    required: mandatory
+    usage: sellerapp.com
+    reference: if any
+  bpp_uri:
+    description: subscriber URI for provider app
+    required: mandatory
+    usage: https://sellerapp.com/services
+    reference: if any
+  transaction_id:
+    description: unique identifier for the transaction
+    required: mandatory
+    usage: "T1"
+    reference: if any
+  message_id:
+    description: unique identifier for the message
+    required: mandatory
+    usage: "M2"
     reference: if any
   timestamp:
     description: RFC3339 compliant timestamp
     required: mandatory
-    usage: "2023-10-17T21:10:00.000Z"
+    usage: "2024-12-01T22:00:31.000Z"
     reference: if any
   ttl:
-    description: validity of message
+    description: validity of the message
     required: mandatory
     usage: PT30S
     reference: if any

@@ -1,3 +1,73 @@
+context:
+  parent: true
+  domain:
+    description: domain code, enums - ONDC:SRV16 (Services - Spirituality services)
+    required: mandatory
+    usage: "ONDC:SRV16"
+    reference: if any
+  location:
+    city:
+      code:
+        description: city code for search where service needs to be provided. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+        required: mandatory
+        usage: std:080
+        reference: if any
+    country:
+      code:
+        description: ISO standard 3 digit country code where service needs to be provided
+        required: mandatory
+        usage: IND
+        reference: if any
+  action:
+    description: the action being performed in this request, such as `select`
+    required: mandatory
+    usage: "select"
+    reference: if any
+  version:
+    description: version of the protocol being used
+    required: mandatory
+    usage: "2.0.0"
+    reference: if any
+  bap_id:
+    description: subscriber id for buyer app
+    required: mandatory
+    usage: buyerapp.com
+    reference: if any
+  bap_uri:
+    description: subscriber URI for buyer app
+    required: mandatory
+    usage: https://buyerapp.com/services
+    reference: if any
+  bpp_id:
+    description: subscriber id for provider app
+    required: mandatory
+    usage: sellerapp.com
+    reference: if any
+  bpp_uri:
+    description: subscriber URI for provider app
+    required: mandatory
+    usage: https://sellerapp.com/services
+    reference: if any
+  transaction_id:
+    description: unique identifier for the transaction
+    required: mandatory
+    usage: "T1"
+    reference: if any
+  message_id:
+    description: unique identifier for the message
+    required: mandatory
+    usage: "M2"
+    reference: if any
+  timestamp:
+    description: RFC3339 compliant timestamp
+    required: mandatory
+    usage: "2024-12-01T22:00:31.000Z"
+    reference: if any
+  ttl:
+    description: validity of the message
+    required: mandatory
+    usage: PT30S
+    reference: if any
 message:
   parent: true
   order:
@@ -9,12 +79,25 @@ message:
         required: required
         usage: "P1"
         reference: if any
+      locations:
+        description: location of the provider chosen for the service
+        required: required
+        id:
+          description: id of the location of provider chosen for the service
+          required: required
+          usage: "L1"
+          reference: if any
     items:
       parent: true
       id:
         description: item id i.e. the id of the service
         required: required
         usage: "I2"
+        reference: if any
+      location_ids:
+        description: item location ids i.e. the id of the service
+        required: required
+        usage: "['L1']"
         reference: if any
       quantity:
         selected:
@@ -59,3 +142,10 @@ message:
               required: required
               usage: "2023-11-16T10:30:00Z"
               reference: if any
+    payments:
+      parent: true
+      type:
+        description: Type of payment 
+        required: required
+        usage: "PRE-FULFILLMENT"
+        reference: if any

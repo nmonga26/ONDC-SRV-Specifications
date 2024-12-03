@@ -2,25 +2,306 @@ message:
   parent: true
   order:
     parent: true
+    id:
+      description: unique order id for the service provider
+      required: mandatory
+      usage: "O1"
+      reference: if any
+    status:
+      description: status of the order, enum - "Created", "Accepted", "In-progress", "Completed", "Cancelled"
+      required: mandatory
+      usage: "Created"
+      reference: if any
+    provider:
+      parent: true
+      id:
+        description: unique identifier for the service provider
+        required: mandatory
+        usage: "P1"
+        reference: if any
+      locations:
+        description: list of locations where the provider operates
+        required: mandatory
+        usage:
+          - id: "L1"
+        reference: if any
+    items:
+      parent: true
+      id: 
+        description: unique identifier for the item
+        required: mandatory
+        usage: "I1"
+        reference: if any
+      location_ids:
+        description: list of location IDs associated with the item
+        required: mandatory
+        usage:
+          - "L1"
+        reference: if any
+      fulfillment_ids:
+        description: list of fulfillment IDs associated with the item
+        required: mandatory
+        usage:
+          - "FY1"
+        reference: if any
+      quantity:
+        selected:
+          count:
+            description: selected quantity of the item
+            required: mandatory
+            usage: 1
+            reference: if any
+          add-ons:
+            description: list of add-ons associated with the item
+            required: optional
+            usage:
+              - id: "ADDON01"
+            reference: if any
+          tags:
+            description: metadata tags associated with the item
+            required: optional
+            usage:
+              - descriptor:
+                  code:
+                    description: code representing the tag type
+                    required: mandatory
+                    usage: "SELECTION"
+                    reference: if any
+                list:
+                  description: list of tag details
+                  required: optional
+                  usage:
+                    - descriptor:
+                        code:
+                          description: code for specific tag detail
+                          required: mandatory
+                          usage: "PUJARIS"
+                          reference: if any
+                      value:
+                        description: value associated with the tag
+                        required: mandatory
+                        usage: "PU1"
+                        reference: if any
     fulfillments:
       parent: true
-      fulfillments:
-        description: contains the fulfillment details
-        required: required
-        usage: "-"
+      id:
+        description: unique identifier for the fulfillment
+        required: mandatory
+        usage: "FY1"
+        reference: if any
+      type:
+        description: type of fulfillment (e.g., Buyer-Fulfilled)
+        required: mandatory
+        usage: "Buyer-Fulfilled"
         reference: if any
       stops:
-        time:
-          range:
-            start:
-              description: start time of the service
-              required: required
-              usage: "2023-11-16T09:30:00Z"
-              reference: if any
-            end:
-              description: end time of the service
-              required: required
-              usage: "2023-11-16T10:30:00Z"
-              reference: if any  
+        description: list of stops for the fulfillment
+        required: mandatory
+        usage:
+              - type:
+                  description: type of stop (e.g., end)
+                  required: mandatory
+                  usage: "end"
+                  reference: if any
+                time:
+                  label:
+                    description: label for the time
+                    required: mandatory
+                    usage: "confirmed"
+                    reference: if any
+                  range:
+                    description: range of time for the stop
+                    required: mandatory
+                    usage:
+                      start: "2024-04-04T10:00:00.000Z"
+                      end: "2024-04-04T11:00:00.000Z"
+                    reference: if any
+                  days:
+                    description: number of days applicable for the stop
+                    required: mandatory
+                    usage: "4"
+                    reference: if any
+    billing:
+      parent: true
+      description: billing details of the marketplace ( service provider ) for invoicing;
+      required: required
+      id:
+        description: "unique identifier for the fulfillment"
+        required: "mandatory"
+        usage: "F1"
+        reference: "if any"
 
-        
+      address:
+        description: "address of the buyer"
+        required: "mandatory"
+        usage: "22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560001"
+        reference: "if any"
+
+      state:
+        description: "state where the buyer is located"
+        required: "mandatory"
+        usage: "Karnataka"
+        reference: "if any"
+
+      city:
+        description: "city where the buyer is located"
+        required: "mandatory"
+        usage: "Bengaluru"
+        reference: "if any"
+
+      tax_id:
+        description: "tax identification number of the buyer"
+        required: "mandatory"
+        usage: "XXXXXXXXXXXXXXX"
+        reference: "if any"
+
+      email:
+        description: "email address of the buyer"
+        required: "mandatory"
+        usage: "nobody@nomail.com"
+        reference: "if any"
+
+      phone:
+        description: "phone number of the buyer"
+        required: "mandatory"
+        usage: "9886098860"
+        reference: "if any"
+
+    quote:
+      parent: true
+      price:
+        description: total price of the order
+        required: mandatory
+        usage:
+          currency: "INR"
+          value: "600"
+        reference: if any
+      breakup:
+        description: detailed price breakup
+        required: mandatory
+        title:
+          description: title of the breakup entry
+          required: mandatory
+          usage: "Maha Mritunjay Path"
+          reference: if any
+        price:
+          description: price for the entry
+          required: mandatory
+          usage:
+            currency: "INR"
+            value: "500"
+          reference: if any
+        item:
+          id:
+            description: unique identifier for the item
+            required: mandatory
+            usage: "I1"
+            reference: if any
+          quantity:
+            selected:
+              count:
+                description: selected quantity of the item
+                required: mandatory
+                usage: 1
+                reference: if any
+          price:
+            description: price details for the item
+            required: mandatory
+            usage:
+              currency: "INR"
+              value: "500"
+            reference: if any
+        tags:
+              description: metadata tags for the breakup entry
+              required: optional
+              usage:
+                - descriptor:
+                    code:
+                      description: code representing the tag type
+                      required: mandatory
+                      usage: "title"
+                      reference: if any
+                  list:
+                    description: list of tag details
+                    required: optional
+                    usage:
+                      - descriptor:
+                          code:
+                            description: code for specific tag detail
+                            required: mandatory
+                            usage: "type"
+                            reference: if any
+                        value:
+                          description: value associated with the tag
+                          required: mandatory
+                          usage: "ITEM"
+                          reference: if any
+      ttl:
+        description: validity period of the quote
+        required: mandatory
+        usage: "P1D"
+        reference: if any
+    payments:
+      parent: true
+      type:
+        description: "type of payment (e.g., PRE-FULFILLMENT)"
+        required: "mandatory"
+        usage: "PRE-FULFILLMENT"
+        reference: "if any"
+      collected_by:
+        description: "entity collecting the payment"
+        required: "mandatory"
+        usage: "BAP"
+        reference: "if any"
+      params:
+        amount:
+          description: "payment amount"
+          required: "mandatory"
+          usage: "600"
+          reference: "if any"
+        currency:
+          description: "currency for the payment"
+          required: "mandatory"
+          usage: "INR"
+          reference: "if any"
+        bank_account_number:
+          description: "bank account number used for the transaction"
+          required: "optional"
+          usage: "xxxxxxxx"
+          reference: "if any"
+        virtual_payment_address:
+          description: "virtual payment address used for the transaction"
+          required: "optional"
+          usage: "xxx@xxxx"
+          reference: "if any"
+      tags:
+        description: "additional metadata for the payment"
+        required: "optional"
+        code:
+          description: "code for the tag type"
+          required: "mandatory"
+          usage: "Settlement_Details"
+          reference: "if any"
+        list:
+          description: "details related to settlement"
+          required: "optional"
+          code:
+            description: "code for counterparty"
+            required: "mandatory"
+            usage: "Counterparty"
+            reference: "if any"
+          value:
+            description: "value of the counterparty"
+            required: "mandatory"
+            usage: "BPP"
+            reference: "if any"
+    created_at:
+      description: RFC3339 compliant order created time
+      required: mandatory
+      usage: "2024-12-01T22:00:31.000Z"
+      reference: if any              
+    updated_at:
+      description: RFC3339 compliant order created time
+      required: mandatory
+      usage: "2024-12-01T22:00:31.000Z"
+      reference: if any              
