@@ -34,25 +34,25 @@ schedule:
     reference: <PR/Issue/Discussion Links md format text>
 serviceability:
   - code: location
-    description: Description of the Tag
+    description: Location Id that serviceability applied
     reference: <PR/Issue/Discussion Links md format text>
   - code: category
-    description: Description of the Tag
+    description: Category Id that serviceability applied
     reference: <PR/Issue/Discussion Links md format text>
   - code: type
-    description: Description of the Tag
+    description: Type of serviceability like 10 - Hyperlocal, 11 - Intercity, 12 - Pan india, 13 - Polygon
     reference: <PR/Issue/Discussion Links md format text>
   - code: val
-    description: Description of the Tag
+    description: Value of serviceability depending upon unit
     reference: <PR/Issue/Discussion Links md format text>
   - code: unit
-    description: Description of the Tag
+    description: Unit of serviceability depending upon type
     reference: <PR/Issue/Discussion Links md format text>
 attributes:
   - code: color
     description: Hex Code for color
     reference: <PR/Issue/Discussion Links md format text>
-BAP_TERMS:
+BUYER_FINDER_FEES:
   - code: FINDER_FEE_TYPE
     description: Type of the finder fee. eg. "percent"
     reference: <PR/Issue/Discussion Links md format text>
@@ -82,6 +82,16 @@ SERVICE_INFORMATION:
     reference: <PR/Issue/Discussion Links md format text>
   - code: COMPLETION_TAT
     description: TAT for completing the whole test including pickup TAT, if applicable
+    reference: <PR/Issue/Discussion Links md format text>
+SERVICE_DETAILS:
+  - code: SESSION_DURATION
+    description: Session duration of puja
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: ATTENDEES_CAPACITY
+    description: Total number of attendees
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: AVAILABLE_PUJARIS
+    description: No of pujaries available
     reference: <PR/Issue/Discussion Links md format text>
 RESCHEDULE_TERMS:
   - code: FULFILLMENT_STATE
@@ -120,17 +130,20 @@ REPORT_REQUIREMENT:
     description: The deadline within which report is required
     reference: <PR/Issue/Discussion Links md format text>
 ATTRIBUTE:
+  - code: ADDRESS
+    description: Temple complete address
+  - code: PINCODE
+    description: Temple pincode
+  - code: GPS
+    description: Temple GPS lat long in comma separate like 23.546378,71.363789
+POOJA_CHECKLIST:
+  - code: MIME_TYPE
+    description: Link mime type
+  - code: FILE_URL
+    description: Link of the items that required during pooja
+TYPE:
   - code: TYPE
-    description: The type of item - PACKAGE or TEST
-  - code: CHILD_TEST_IDS
-    description: A comma separated list of items that are in this package
-  - code: PARENT_PACKAGE_IDS
-    description: A comma separated list of items/packages that this test is also included in
-ADDITIONAL_TEST_INFORMATION:
-  - code: ALIAS
-    description: Common other names of the test
-  - code: RISK_ASSESSMENT
-    description: Risk assessment of the test, can be - LOW, MEDIUM, HIGH
+    description: Service type for booking
 TEST_CRITERIA:
   - code: GENDER
     description: If the test is gender-specific - Optional

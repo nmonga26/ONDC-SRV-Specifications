@@ -441,37 +441,6 @@
                       "value": "PT1D"
                     }
                   ]
-                },
-                {
-                  "descriptor": {
-                    "code": "RESCHEDULE_TERMS"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "code": "FULFILLMENT_STATE"
-                      },
-                      "value": "In-Transit"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "RESCHEDULE_ELIGIBLE"
-                      },
-                      "value": "true"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "RESCHEDULE_FEE"
-                      },
-                      "value": "10.00"
-                    },
-                    {
-                      "descriptor": {
-                        "code": "RESCHEDULE_WITHIN"
-                      },
-                      "value": "PT1D"
-                    }
-                  ]
                 }
               ],
               "category_ids": ["SRV18-1000", "C6"],

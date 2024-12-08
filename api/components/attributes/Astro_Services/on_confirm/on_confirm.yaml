@@ -60,28 +60,8 @@ message:
           tags:
             description: metadata tags associated with the item
             required: optional
-            usage:
-              - descriptor:
-                  code:
-                    description: code representing the tag type
-                    required: mandatory
-                    usage: "SELECTION"
-                    reference: if any
-                list:
-                  description: list of tag details
-                  required: optional
-                  usage:
-                    - descriptor:
-                        code:
-                          description: code for specific tag detail
-                          required: mandatory
-                          usage: "PUJARIS"
-                          reference: if any
-                      value:
-                        description: value associated with the tag
-                        required: mandatory
-                        usage: "PU1"
-                        reference: if any
+            usage: "-"
+            reference: "if any"
     fulfillments:
       parent: true
       id:
@@ -218,28 +198,8 @@ message:
         tags:
               description: metadata tags for the breakup entry
               required: optional
-              usage:
-                - descriptor:
-                    code:
-                      description: code representing the tag type
-                      required: mandatory
-                      usage: "title"
-                      reference: if any
-                  list:
-                    description: list of tag details
-                    required: optional
-                    usage:
-                      - descriptor:
-                          code:
-                            description: code for specific tag detail
-                            required: mandatory
-                            usage: "type"
-                            reference: if any
-                        value:
-                          description: value associated with the tag
-                          required: mandatory
-                          usage: "ITEM"
-                          reference: if any
+              usage: "-"
+              reference: "if any"
       ttl:
         description: validity period of the quote
         required: mandatory
@@ -281,24 +241,8 @@ message:
       tags:
         description: "additional metadata for the payment"
         required: "optional"
-        code:
-          description: "code for the tag type"
-          required: "mandatory"
-          usage: "Settlement_Details"
-          reference: "if any"
-        list:
-          description: "details related to settlement"
-          required: "optional"
-          code:
-            description: "code for counterparty"
-            required: "mandatory"
-            usage: "Counterparty"
-            reference: "if any"
-          value:
-            description: "value of the counterparty"
-            required: "mandatory"
-            usage: "BPP"
-            reference: "if any"
+        usage: "-"
+        reference: "if any"
     created_at:
       description: RFC3339 compliant order created time
       required: mandatory

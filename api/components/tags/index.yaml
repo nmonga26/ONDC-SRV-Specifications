@@ -19,8 +19,6 @@ init:
     order:
       items:
         $ref: "./TagGroup.yaml#/order/items"
-      fulfillments:
-        $ref: "./TagGroup.yaml#/order/fulfillments"
 
 on_init:
   message: &ref1
@@ -42,12 +40,5 @@ update:
         breakup:
           tags:
             $ref: "./TagGroup.yaml#/order/quote/breakup/tags"
-        item:
-          tags:
-            - code: attributes
-              description: Update parameter for attributes
-              reference: <PR/Issue/Discussion Links md format text>
-              list:
-                $ref: "./Tag.yaml#/attributes"
 on_update:
   message: *ref2
