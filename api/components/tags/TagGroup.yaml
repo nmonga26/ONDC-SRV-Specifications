@@ -1,15 +1,10 @@
 intent:
   tags:
-    - code: BAP_TERMS
-      description: Terms of BAP
+    - code: BUYER_FINDER_FEES
+      description: Byter finder fee
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./Tag.yaml#/BAP_TERMS"
-    - code: BUYER_DETAILS
-      description: Details of the buyer
-      reference: <PR/Issue/Discussion Links md format text>
-      list:
-        $ref: "./Tag.yaml#/BAP_DETAILS"
+        $ref: "./Tag.yaml#/BUYER_FINDER_FEES"
 catalog:
   providers:
     tags:
@@ -24,12 +19,12 @@ catalog:
           description: Information about the item/service
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/ADDITIONAL_TEST_INFORMATION"
+            $ref: "./Tag.yaml#/TYPE"
         - code: SERVICE_DETAILS
-          description: If it is service, then service details are compulsory
+          description: Service details of your astro bookings like duration, attendees capacity and pujari
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/RESCHEDULE_TERMS"
+            $ref: "./Tag.yaml#/SERVICE_DETAILS"
         - code: TEMPLE_DETAILS
           description: If the astro pooja/consultance is to be held offline, template details are compulsory
           reference: <PR/Issue/Discussion Links md format text>
@@ -39,27 +34,12 @@ catalog:
           description: Checklist for items that are mandatory for pooja
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/TEST_CRITERIA"
+            $ref: "./Tag.yaml#/POOJA_CHECKLIST"
         - code: RESCHEDULE_TERMS
           description: Reschedule terms for the service/item, can be duplicated multiple times over
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./Tag.yaml#/RESCHEDULE_TERMS"
-        - code: PRE_TEST_PREPARATION
-          description: Pre test preparations to be done before test
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            $ref: "./Tag.yaml#/PRE_TEST_PREPARATION"
-        - code: FASTING
-          description: Fasting information before test
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            $ref: "./Tag.yaml#/FASTING"
-        - code: PRE_INTAKE
-          description: Intake to be taken before the test
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            $ref: "./Tag.yaml#/PRE_INTAKE"
   offers:
     tags:
       - code: BENEFIT
@@ -75,25 +55,11 @@ catalog:
 order:
   items:
     tags:
-      - code: REPORT_REQUIREMENT
-        description: Attribute of a particular item
+      - code: SELECTION
+        description: Selection of pujaries
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          $ref: "./Tag.yaml#/REPORT_REQUIREMENT"
-  fulfillments:
-    stops:
-      person:
-        tags:
-          - code: PATIENT_DETAILS
-            description: IDs of the all the patients
-            reference: <PR/Issue/Discussion Links md format text>
-            list:
-              $ref: "./Tag.yaml#/PATIENT_DETAILS"
-          - code: PI1
-            description: Describes the details of a patient
-            reference: <PR/Issue/Discussion Links md format text>
-            list:
-              $ref: "./Tag.yaml#/PI1"
+            $ref: "./Tag.yaml#/SELECTION"
   quote:
     breakup:
       tags: &ref2

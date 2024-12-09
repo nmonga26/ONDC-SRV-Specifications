@@ -120,28 +120,8 @@ message:
           tags:
             description: metadata tags associated with the item
             required: optional
-            usage:
-              - descriptor:
-                  code:
-                    description: code representing the tag type
-                    required: mandatory
-                    usage: "SELECTION"
-                    reference: if any
-                list:
-                  description: list of tag details
-                  required: optional
-                  usage:
-                    - descriptor:
-                        code:
-                          description: code for specific tag detail
-                          required: mandatory
-                          usage: "PUJARIS"
-                          reference: if any
-                      value:
-                        description: value associated with the tag
-                        required: mandatory
-                        usage: "PU1"
-                        reference: if any
+            usage: "-"
+            reference: "if any"
     fulfillments:
       parent: true
       id:
@@ -226,30 +206,10 @@ message:
               value: "500"
             reference: if any
         tags:
-              description: metadata tags for the breakup entry
-              required: optional
-              usage:
-                - descriptor:
-                    code:
-                      description: code representing the tag type
-                      required: mandatory
-                      usage: "title"
-                      reference: if any
-                  list:
-                    description: list of tag details
-                    required: optional
-                    usage:
-                      - descriptor:
-                          code:
-                            description: code for specific tag detail
-                            required: mandatory
-                            usage: "type"
-                            reference: if any
-                        value:
-                          description: value associated with the tag
-                          required: mandatory
-                          usage: "ITEM"
-                          reference: if any
+          description: metadata tags for the breakup entry
+          required: optional
+          usage: "-"
+          reference: "if any"
       ttl:
         description: validity period of the quote
         required: mandatory
