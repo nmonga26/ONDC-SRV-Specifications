@@ -133,7 +133,7 @@ value:
           - title: convenience_fee
             price:
               currency: INR
-              value: '0'
+              value: '-0'
             item:
               id: I1
             tags:
