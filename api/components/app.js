@@ -29,6 +29,7 @@ const SKIP_VALIDATION = {
   enums: "skip3",
   tags: "skip4",
 };
+
 async function baseYMLFile(file) {
   try {
     const schema = await $RefParser.dereference(file);
@@ -37,6 +38,7 @@ async function baseYMLFile(file) {
     console.error("Error parsing schema:", error);
   }
 }
+
 async function validateSchema(schema, data) {
   const validate = ajv.compile(schema);
   const valid = validate(data?.value);

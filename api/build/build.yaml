@@ -4087,6 +4087,8 @@ x-flows:
               order:
                 provider:
                   id: P1
+                  locations:
+                    - id: L1
                 items:
                   - fulfillment_ids:
                       - F1
@@ -4288,8 +4290,8 @@ x-flows:
               order:
                 provider:
                   id: P1
-                locations:
-                  - id: L1
+                  locations:
+                    - id: L1
                 items:
                   - id: I2
                     parent_item_id: PI2
@@ -6075,6 +6077,8 @@ x-flows:
               order:
                 provider:
                   id: P1
+                  locations:
+                    - id: L1
                 items:
                   - fulfillment_ids:
                       - F1
@@ -7584,8 +7588,8 @@ x-flows:
               order:
                 provider:
                   id: P1
-                locations:
-                  - id: L1
+                  locations:
+                    - id: L1
                 items:
                   - id: I1
                     location_ids:
@@ -10141,6 +10145,8 @@ x-flows:
               order:
                 provider:
                   id: P1
+                  locations:
+                    - id: L1
                 items:
                   - fulfillment_ids:
                       - F1
@@ -10316,8 +10322,8 @@ x-flows:
               order:
                 provider:
                   id: P1
-                locations:
-                  - id: L1
+                  locations:
+                    - id: L1
                 items:
                   - id: I1
                     parent_item_id: PI1
@@ -12332,6 +12338,8 @@ x-flows:
               order:
                 provider:
                   id: P1
+                  locations:
+                    - id: L1
                 items:
                   - fulfillment_ids:
                       - F1
@@ -13079,7 +13087,7 @@ x-flows:
                     - title: convenience_fee
                       price:
                         currency: INR
-                        value: '0'
+                        value: '-0'
                       item:
                         id: I1
                       tags:
@@ -17658,6 +17666,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
+                    locations:
+                      - id: L1
                   items:
                     - fulfillment_ids:
                         - F1
@@ -17754,6 +17764,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
+                    locations:
+                      - id: L1
                   items:
                     - fulfillment_ids:
                         - F1
@@ -17865,6 +17877,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
+                    locations:
+                      - id: L1
                   items:
                     - fulfillment_ids:
                         - F1
@@ -18334,6 +18348,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
+                    locations:
+                      - id: L1
                   items:
                     - fulfillment_ids:
                         - F1
@@ -18477,8 +18493,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
-                  locations:
-                    - id: L1
+                    locations:
+                      - id: L1
                   items:
                     - id: I1
                       parent_item_id: PI1
@@ -18672,8 +18688,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
-                  locations:
-                    - id: L1
+                    locations:
+                      - id: L1
                   items:
                     - id: I2
                       parent_item_id: PI2
@@ -18896,8 +18912,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
-                  locations:
-                    - id: L1
+                    locations:
+                      - id: L1
                   items:
                     - id: I1
                       location_ids:
@@ -23011,7 +23027,7 @@ x-examples:
                       - title: convenience_fee
                         price:
                           currency: INR
-                          value: '0'
+                          value: '-0'
                         item:
                           id: I1
                         tags:
