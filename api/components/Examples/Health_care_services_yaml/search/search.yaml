@@ -1,7 +1,7 @@
 summary: Search based on the intent for buying a particular health service
 description: >-
   Search intent sent by the buyer based on the particular health service
-  required - e.g. CBC
+  required - e.g. LFT
 value:
   context:
     domain: ONDC:SRV13

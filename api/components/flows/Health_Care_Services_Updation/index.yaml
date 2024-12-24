@@ -9,13 +9,14 @@ details:
         participant G as Gateway
         participant SA1 as SellerApp1
         participant SA2 as SellerApp2
-        Note Over B,SA: **SEARCH FLOW**
+        Note Over B,SA2: **SEARCH FLOW**
         B ->> BA: Search for the Health Service withing the city
-        BA ->> SA: **/search** - Search for the Health Service withing the city
+        BA ->> G: **/search** - Search for the Health Service withing the city
         G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
         G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
-        SA ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+        SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
         SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+        Note left of BA: BuyerApp caches the catalog in it's database. <br>All results shown to the buyer user <br>are shown from the DB instead of <br>real-time from the network.
         Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
         BA ->> B: Shows all service <br>options from sellers
   - description: Ordering
@@ -78,7 +79,7 @@ reference: if any
 steps:
   - summary: Search based on the intent for buying a particular health care service
     api: search
-    description: Search intent sent by the buyer based on the particular health care service required - e.g. CBC
+    description: Search intent sent by the buyer based on the particular health care service required - e.g. LFT
     reference: if any
     example:
       $ref: "../../Examples/Health_care_services_yaml/search/search.yaml"
@@ -180,4 +181,3 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Health_care_services_yaml/on_status/on_status_report_shared.yaml"
-  

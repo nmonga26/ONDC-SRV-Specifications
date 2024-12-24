@@ -3518,12 +3518,12 @@ x-flows:
             participant G as Gateway
             participant SA1 as SellerApp1
             participant SA2 as SellerApp2
-            Note Over B,SA: **SEARCH FLOW**
+            Note Over B,SA2: **SEARCH FLOW**
             B ->> BA: Search for the Health Service withing the city
-            BA ->> SA: **/search** - Search for the Health Service withing the city
+            BA ->> G: **/search** - Search for the Health Service withing the city
             G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
-            SA ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+            SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
             BA ->> B: Shows all service <br>options from sellers
@@ -3578,13 +3578,13 @@ x-flows:
         api: search
         description: >-
           Search intent sent by the buyer based on the particular health care
-          service required - e.g. CBC
+          service required - e.g. LFT
         reference: if any
         example: &ref_15
           summary: Search based on the intent for buying a particular health service
           description: >-
             Search intent sent by the buyer based on the particular health
-            service required - e.g. CBC
+            service required - e.g. LFT
           value:
             context:
               domain: ONDC:SRV13
@@ -4600,8 +4600,8 @@ x-flows:
               order:
                 provider:
                   id: P1
-                locations:
-                  - id: L1
+                  locations:
+                    - id: L1
                 items:
                   - id: PI1
                     fulfillment_ids:
@@ -5366,70 +5366,6 @@ x-flows:
                           - descriptor:
                               code: FINDER_FEE_AMOUNT
                             value: '3'
-                cancellation_terms:
-                  - fulfillment_state:
-                      descriptor:
-                        code: PENDING
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: IN_TRANSIT
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: AT_LOCATION
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: COLLECTED_BY_AGENT
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: RECEIVED_AT_LAB
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: TEST_COMPLETED
-                        short_desc: '009'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: REPORT_GENERATED
-                        short_desc: 010,011,012
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
                 created_at: '2024-04-01T22:00:38.000Z'
                 updated_at: '2024-04-01T22:00:39.000Z'
       - summary: Seller assigns an agent to the delivery
@@ -7819,8 +7755,8 @@ x-flows:
               order:
                 provider:
                   id: P1
-                locations:
-                  - id: L1
+                  locations:
+                    - id: L1
                 items:
                   - id: PI1
                     fulfillment_ids:
@@ -8822,70 +8758,6 @@ x-flows:
                           - descriptor:
                               code: FINDER_FEE_AMOUNT
                             value: '3'
-                cancellation_terms:
-                  - fulfillment_state:
-                      descriptor:
-                        code: PENDING
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: IN_TRANSIT
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: AT_LOCATION
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: COLLECTED_BY_AGENT
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: RECEIVED_AT_LAB
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: TEST_COMPLETED
-                        short_desc: '009'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: REPORT_GENERATED
-                        short_desc: 010,011,012
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
                 created_at: '2024-04-01T22:00:38.000Z'
                 updated_at: '2024-04-01T22:00:39.000Z'
   - summary: Health Care Services Buyer Cancellation
@@ -8905,12 +8777,12 @@ x-flows:
             participant G as Gateway
             participant SA1 as SellerApp1
             participant SA2 as SellerApp2
-            Note Over B,SA: **SEARCH FLOW**
+            Note Over B,SA2: **SEARCH FLOW**
             B ->> BA: Search for the Health Service withing the city
-            BA ->> SA: **/search** - Search for the Health Service withing the city
+            BA ->> G: **/search** - Search for the Health Service withing the city
             G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
-            SA ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+            SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
             BA ->> B: Shows all service <br>options from sellers
@@ -8975,7 +8847,7 @@ x-flows:
         api: search
         description: >-
           Search intent sent by the buyer based on the particular health care
-          service required - e.g. CBC
+          service required - e.g. LFT
         reference: if any
         example: *ref_15
       - summary: Returns the catalog specific to the search intent
@@ -9313,12 +9185,12 @@ x-flows:
             participant G as Gateway
             participant SA1 as SellerApp1
             participant SA2 as SellerApp2
-            Note Over B,SA: **SEARCH FLOW**
+            Note Over B,SA2: **SEARCH FLOW**
             B ->> BA: Search for the Health Service withing the city
-            BA ->> SA: **/search** - Search for the Health Service withing the city
+            BA ->> G: **/search** - Search for the Health Service withing the city
             G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
-            SA ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+            SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
             BA ->> B: Shows all service <br>options from sellers
@@ -9383,7 +9255,7 @@ x-flows:
         api: search
         description: >-
           Search intent sent by the buyer based on the particular health care
-          service required - e.g. CBC
+          service required - e.g. LFT
         reference: if any
         example: *ref_15
       - summary: Returns the catalog specific to the search intent
@@ -9961,12 +9833,12 @@ x-flows:
             participant G as Gateway
             participant SA1 as SellerApp1
             participant SA2 as SellerApp2
-            Note Over B,SA: **SEARCH FLOW**
+            Note Over B,SA2: **SEARCH FLOW**
             B ->> BA: Search for the Health Service withing the city
-            BA ->> SA: **/search** - Search for the Health Service withing the city
+            BA ->> G: **/search** - Search for the Health Service withing the city
             G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
-            SA ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+            SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
             BA ->> B: Shows all service <br>options from sellers
@@ -10031,7 +9903,7 @@ x-flows:
         api: search
         description: >-
           Search intent sent by the buyer based on the particular health care
-          service required - e.g. CBC
+          service required - e.g. LFT
         reference: if any
         example: *ref_15
       - summary: Returns the catalog specific to the search intent
@@ -10822,12 +10694,12 @@ x-flows:
             participant G as Gateway
             participant SA1 as SellerApp1
             participant SA2 as SellerApp2
-            Note Over B,SA: **SEARCH FLOW**
+            Note Over B,SA2: **SEARCH FLOW**
             B ->> BA: Search for the Health Service withing the city
-            BA ->> SA: **/search** - Search for the Health Service withing the city
+            BA ->> G: **/search** - Search for the Health Service withing the city
             G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
-            SA ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+            SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
             BA ->> B: Shows all service <br>options from sellers
@@ -10890,7 +10762,7 @@ x-flows:
         api: search
         description: >-
           Search intent sent by the buyer based on the particular health care
-          service required - e.g. CBC
+          service required - e.g. LFT
         reference: if any
         example: *ref_15
       - summary: Returns the catalog specific to the search intent
@@ -11198,12 +11070,12 @@ x-flows:
             participant G as Gateway
             participant SA1 as SellerApp1
             participant SA2 as SellerApp2
-            Note Over B,SA: **SEARCH FLOW**
+            Note Over B,SA2: **SEARCH FLOW**
             B ->> BA: Search for the Health Service withing the city
-            BA ->> SA: **/search** - Search for the Health Service withing the city
+            BA ->> G: **/search** - Search for the Health Service withing the city
             G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
-            SA ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+            SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
             BA ->> B: Shows all service <br>options from sellers
@@ -11257,7 +11129,7 @@ x-flows:
         api: search
         description: >-
           Search intent sent by the buyer based on the particular health care
-          service required - e.g. CBC
+          service required - e.g. LFT
         reference: if any
         example: *ref_15
       - summary: Returns the catalog specific to the search intent
@@ -12144,12 +12016,12 @@ x-flows:
             participant G as Gateway
             participant SA1 as SellerApp1
             participant SA2 as SellerApp2
-            Note Over B,SA: **SEARCH FLOW**
+            Note Over B,SA2: **SEARCH FLOW**
             B ->> BA: Search for the Health Service withing the city
-            BA ->> SA: **/search** - Search for the Health Service withing the city
+            BA ->> G: **/search** - Search for the Health Service withing the city
             G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
-            SA ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+            SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
             BA ->> B: Shows all service <br>options from sellers
@@ -12203,7 +12075,7 @@ x-flows:
         api: search
         description: >-
           Search intent sent by the buyer based on the particular health care
-          service required - e.g. CBC
+          service required - e.g. LFT
         reference: if any
         example: *ref_15
       - summary: Returns the catalog specific to the search intent
@@ -12618,8 +12490,8 @@ x-flows:
               order:
                 provider:
                   id: P1
-                locations:
-                  - id: L1
+                  locations:
+                    - id: L1
                 items:
                   - id: I2
                     fulfillment_ids:
@@ -13374,70 +13246,6 @@ x-flows:
                           - descriptor:
                               code: FINDER_FEE_AMOUNT
                             value: '3'
-                cancellation_terms:
-                  - fulfillment_state:
-                      descriptor:
-                        code: PENDING
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: IN_TRANSIT
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: AT_LOCATION
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: COLLECTED_BY_AGENT
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: RECEIVED_AT_LAB
-                        short_desc: '002'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: TEST_COMPLETED
-                        short_desc: '009'
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
-                  - fulfillment_state:
-                      descriptor:
-                        code: REPORT_GENERATED
-                        short_desc: 010,011,012
-                    cancellation_fee:
-                      percentage: '0.00'
-                      amount:
-                        currency: INR
-                        value: '0.00'
                 created_at: '2024-04-01T22:00:38.000Z'
                 updated_at: '2024-04-01T22:00:39.000Z'
   - summary: Health Care Services - Recollection
@@ -13459,12 +13267,12 @@ x-flows:
             participant G as Gateway
             participant SA1 as SellerApp1
             participant SA2 as SellerApp2
-            Note Over B,SA: **SEARCH FLOW**
+            Note Over B,SA2: **SEARCH FLOW**
             B ->> BA: Search for the Health Service withing the city
-            BA ->> SA: **/search** - Search for the Health Service withing the city
+            BA ->> G: **/search** - Search for the Health Service withing the city
             G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
-            SA ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+            SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
             BA ->> B: Shows all service <br>options from sellers
@@ -13517,7 +13325,7 @@ x-flows:
         api: search
         description: >-
           Search intent sent by the buyer based on the particular health care
-          service required - e.g. CBC
+          service required - e.g. LFT
         reference: if any
         example: *ref_15
       - summary: Returns the catalog specific to the search intent
@@ -14997,7 +14805,7 @@ x-examples:
           - summary: Search based on the intent for buying a particular health service
             description: >-
               Search intent sent by the buyer based on the particular health
-              service required - e.g. CBC
+              service required - e.g. LFT
             value:
               context:
                 domain: ONDC:SRV13
@@ -18388,8 +18196,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
-                  locations:
-                    - id: L1
+                    locations:
+                      - id: L1
                   items:
                     - id: I2
                       fulfillment_ids:
@@ -18572,8 +18380,8 @@ x-examples:
                 order:
                   provider:
                     id: P1
-                  locations:
-                    - id: L1
+                    locations:
+                      - id: L1
                   items:
                     - id: PI1
                       fulfillment_ids:
@@ -19085,70 +18893,6 @@ x-examples:
                             - descriptor:
                                 code: FINDER_FEE_AMOUNT
                               value: '3'
-                  cancellation_terms:
-                    - fulfillment_state:
-                        descriptor:
-                          code: PENDING
-                          short_desc: '002'
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
-                    - fulfillment_state:
-                        descriptor:
-                          code: IN_TRANSIT
-                          short_desc: '002'
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
-                    - fulfillment_state:
-                        descriptor:
-                          code: AT_LOCATION
-                          short_desc: '002'
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
-                    - fulfillment_state:
-                        descriptor:
-                          code: COLLECTED_BY_AGENT
-                          short_desc: '002'
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
-                    - fulfillment_state:
-                        descriptor:
-                          code: RECEIVED_AT_LAB
-                          short_desc: '002'
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
-                    - fulfillment_state:
-                        descriptor:
-                          code: TEST_COMPLETED
-                          short_desc: '009'
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
-                    - fulfillment_state:
-                        descriptor:
-                          code: REPORT_GENERATED
-                          short_desc: 010,011,012
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
                   created_at: '2024-04-01T22:00:38.000Z'
                   updated_at: '2024-04-01T22:00:39.000Z'
           - summary: ''
@@ -19496,70 +19240,6 @@ x-examples:
                             - descriptor:
                                 code: FINDER_FEE_AMOUNT
                               value: '3'
-                  cancellation_terms:
-                    - fulfillment_state:
-                        descriptor:
-                          code: PENDING
-                          short_desc: '002'
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
-                    - fulfillment_state:
-                        descriptor:
-                          code: IN_TRANSIT
-                          short_desc: '002'
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
-                    - fulfillment_state:
-                        descriptor:
-                          code: AT_LOCATION
-                          short_desc: '002'
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
-                    - fulfillment_state:
-                        descriptor:
-                          code: COLLECTED_BY_AGENT
-                          short_desc: '002'
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
-                    - fulfillment_state:
-                        descriptor:
-                          code: RECEIVED_AT_LAB
-                          short_desc: '002'
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
-                    - fulfillment_state:
-                        descriptor:
-                          code: TEST_COMPLETED
-                          short_desc: '009'
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
-                    - fulfillment_state:
-                        descriptor:
-                          code: REPORT_GENERATED
-                          short_desc: 010,011,012
-                      cancellation_fee:
-                        percentage: '0.00'
-                        amount:
-                          currency: INR
-                          value: '0.00'
                   created_at: '2024-04-01T22:00:38.000Z'
                   updated_at: '2024-04-01T22:00:39.000Z'
       on_status:
