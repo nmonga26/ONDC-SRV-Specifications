@@ -1,4 +1,5 @@
 - $ref: "./Health_Care_Service/index.yaml"
+- $ref: "./Health_Care_Service_Search_Cases/index.yaml"
 - $ref: "./Health_Care_Service_Collected_By_BPP/index.yaml"
 - $ref: "./Health_Care_Services_Cancellation/index.yaml"
 - $ref: "./Health_Care_Services_Slot_Reschedule/index.yaml"

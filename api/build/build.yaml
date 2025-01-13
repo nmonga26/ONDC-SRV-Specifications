@@ -3502,7 +3502,7 @@ x-tags:
   on_update:
     message: *ref_14
 x-flows:
-  - summary: Health Care Services
+  - summary: Health Care Services - Full Transaction
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to request for health care services. The booking
@@ -3581,10 +3581,8 @@ x-flows:
           service required - e.g. LFT
         reference: if any
         example: &ref_15
-          summary: Search based on the intent for buying a particular health service
-          description: >-
-            Search intent sent by the buyer based on the particular health
-            service required - e.g. LFT
+          summary: ''
+          description: ''
           value:
             context:
               domain: ONDC:SRV13
@@ -3603,27 +3601,6 @@ x-flows:
               ttl: PT30S
             message:
               intent:
-                item:
-                  descriptor:
-                    name: LFT
-                fulfillment:
-                  type: Seller-Fulfilled
-                  customer:
-                    person:
-                      name: XYZ
-                    contact:
-                      phone: '9999999999'
-                  stops:
-                    - type: end
-                      time:
-                        range:
-                          start: '2024-04-04T22:00:00.000Z'
-                      location:
-                        gps: 12.974002,77.613458
-                        area_code: '560001'
-                payment:
-                  type: PRE-FULFILLMENT
-                  collected_by: BAP
                 tags:
                   - descriptor:
                       code: BAP_TERMS
@@ -5658,7 +5635,7 @@ x-flows:
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: &ref_23
+        example: &ref_24
           summary: Buyer requests for the status of the order
           description: Buyer requests for the status of the order
           value:
@@ -5687,7 +5664,7 @@ x-flows:
           Seller app sends order status update when service provider is on the
           way
         reference: if any
-        example: &ref_24
+        example: &ref_25
           summary: Seller app sends order status update (In-Transit)
           description: >-
             Seller app sends order status update when service provider is on the
@@ -5970,7 +5947,7 @@ x-flows:
           Seller app sends order status update when service provider has reached
           the buyer location
         reference: if any
-        example: &ref_25
+        example: &ref_26
           summary: Seller app sends the order status (At location)
           description: >-
             Seller app sends order status update when service provider has
@@ -6253,7 +6230,7 @@ x-flows:
           Seller app sends the order status update when the sample has been
           collected by the service provider
         reference: if any
-        example: &ref_26
+        example: &ref_27
           summary: Seller app sends order status (Collected by agent)
           description: >-
             Seller app sends the order status update when the sample has been
@@ -6536,7 +6513,7 @@ x-flows:
           Seller app sends the order status update when the sample has been
           received at the lab
         reference: if any
-        example: &ref_27
+        example: &ref_28
           summary: Seller app sends order status (Received at lab)
           description: >-
             Seller app sends the order status update when the sample has been
@@ -6819,7 +6796,7 @@ x-flows:
           Seller app sends the order status update when the test has been
           completed at the lab
         reference: if any
-        example: &ref_28
+        example: &ref_29
           summary: Seller app sends the order status (Test completed)
           description: >-
             Seller app sends the order status update when the test has been
@@ -7102,7 +7079,7 @@ x-flows:
           Seller app sends the order status update when the test report is
           generated
         reference: if any
-        example: &ref_29
+        example: &ref_30
           summary: Seller app sends the order status (Report generated)
           description: >-
             Seller app sends the order status update when the test report is
@@ -7385,7 +7362,7 @@ x-flows:
           Seller app sends the order status update when the test report is
           shared
         reference: if any
-        example: &ref_30
+        example: &ref_31
           summary: Seller app sends the order status (Completed)
           description: >-
             Seller app sends the order status update when the test report is
@@ -7691,6 +7668,133 @@ x-flows:
                         letters of patient name
                 created_at: '2024-04-01T22:00:38.000Z'
                 updated_at: '2024-04-04T13:00:00.000Z'
+  - summary: Health Care Services - Discovery of Catalog
+    description: >-
+      The following is an illustrative flow to showcase how diffferent types of
+      discovery or searches can be done over network. The booking majorly
+      happens in four phases of order processing flow, i.e. Discovery of
+      available services and service providers based on serviceability, order,
+      fulfillment and post-fulfillment.
+    details:
+      - description: Sequence Diagram for Booking Healthcare Service - Search
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA1 as SellerApp1
+            participant SA2 as SellerApp2
+            Note Over B,SA2: **SEARCH FLOW**
+            B ->> BA: Search for the Health Service
+            BA ->> G: **/search** - Search for the Health Service
+            G ->> SA1: **/search** - Services request broadcasted based <br>on city, domain in context and message
+            G ->> SA2: **/search** - Services request broadcasted based <br>on city, domain in context and message
+            SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller details, packages/tests
+            SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller details, packages/tests
+            Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
+            BA ->> B: Shows all service <br>options from sellers
+    reference: if any
+    steps:
+      - summary: Search based on city
+        api: search (by city)
+        description: >-
+          Search intent sent by the buyer to fetch all tests based on
+          availability in a city
+        reference: if any
+        example: *ref_15
+      - summary: Search based on item
+        api: search (by item)
+        description: >-
+          Search intent sent by the buyer based on the particular health care
+          service required - e.g. LFT
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV13
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: search
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2024-04-01T22:00:00.000Z'
+              ttl: PT30S
+            message:
+              intent:
+                item:
+                  descriptor:
+                    name: LFT
+                tags:
+                  - descriptor:
+                      code: BAP_TERMS
+                    display: false
+                    list:
+                      - descriptor:
+                          code: FINDER_FEE_TYPE
+                        value: percent
+                      - descriptor:
+                          code: FINDER_FEE_AMOUNT
+                        value: '0'
+      - summary: Search based on fulfillment
+        api: search (by fulfillment)
+        description: >-
+          Search intent sent by the buyer based on fulfillment type and location
+          (optional)
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV13
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: search
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2024-04-01T22:00:00.000Z'
+              ttl: PT30S
+            message:
+              intent:
+                fulfillment:
+                  - type: Seller-Fulfilled
+                    stops:
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          area_code: '560001'
+                tags:
+                  - descriptor:
+                      code: BAP_TERMS
+                    display: false
+                    list:
+                      - descriptor:
+                          code: FINDER_FEE_TYPE
+                        value: percent
+                      - descriptor:
+                          code: FINDER_FEE_AMOUNT
+                        value: '0'
+      - summary: Selles responds with catalog
+        api: on_search
+        description: >-
+          Seller responds with their full or partial catalog based on intent
+          matching
+        reference: if any
+        example: *ref_16
   - summary: Health Care Services - Collected by BPP
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -8849,7 +8953,61 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. LFT
         reference: if any
-        example: *ref_15
+        example: &ref_23
+          summary: Search based on the intent for buying a particular health service
+          description: >-
+            Search intent sent by the buyer based on the particular health
+            service required - e.g. LFT
+          value:
+            context:
+              domain: ONDC:SRV13
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: search
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2024-04-01T22:00:00.000Z'
+              ttl: PT30S
+            message:
+              intent:
+                item:
+                  descriptor:
+                    name: LFT
+                fulfillment:
+                  type: Seller-Fulfilled
+                  customer:
+                    person:
+                      name: XYZ
+                    contact:
+                      phone: '9999999999'
+                  stops:
+                    - type: end
+                      time:
+                        range:
+                          start: '2024-04-04T22:00:00.000Z'
+                      location:
+                        gps: 12.974002,77.613458
+                        area_code: '560001'
+                payment:
+                  type: PRE-FULFILLMENT
+                  collected_by: BAP
+                tags:
+                  - descriptor:
+                      code: BAP_TERMS
+                    display: false
+                    list:
+                      - descriptor:
+                          code: FINDER_FEE_TYPE
+                        value: percent
+                      - descriptor:
+                          code: FINDER_FEE_AMOUNT
+                        value: '0'
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
@@ -9257,7 +9415,7 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. LFT
         reference: if any
-        example: *ref_15
+        example: *ref_23
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
@@ -9764,56 +9922,56 @@ x-flows:
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: >-
           Seller app sends order status update when service provider is on the
           way
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Seller app sends order status (Collected by agent)
         api: on_status (Collected By Agent)
         description: >-
           Seller app sends the order status update when the sample has been
           collected by the service provider
         reference: if any
-        example: *ref_26
+        example: *ref_27
       - summary: Seller app sends order status (Received at lab)
         api: on_status (Received At Lab)
         description: >-
           Seller app sends the order status update when the sample has been
           received at the lab
         reference: if any
-        example: *ref_27
+        example: *ref_28
       - summary: Seller app sends order status (Test completed)
         api: on_status (Test Completed)
         description: >-
           Seller app sends the order status update when the test has been
           completed at the lab
         reference: if any
-        example: *ref_28
+        example: *ref_29
       - summary: Seller app sends the order status(Report generated)
         api: on_status (Report Generated)
         description: >-
           Seller app sends the order status update when the test report is
           generated
         reference: if any
-        example: *ref_29
+        example: *ref_30
       - summary: Seller app sends the order status (Report Shared)
         api: on_status (Report Shared)
         description: >-
           Seller app sends the order status update when the test report is
           shared
         reference: if any
-        example: *ref_30
+        example: *ref_31
   - summary: Health Care Services Updation
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9840,6 +9998,7 @@ x-flows:
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
             SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+            Note left of BA: BuyerApp caches the catalog in it's database. <br>All results shown to the buyer user <br>are shown from the DB instead of <br>real-time from the network.
             Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
             BA ->> B: Shows all service <br>options from sellers
       - description: Ordering
@@ -9905,7 +10064,7 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. LFT
         reference: if any
-        example: *ref_15
+        example: *ref_23
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
@@ -9947,7 +10106,7 @@ x-flows:
       - summary: Buyer requests for the updation of slot schedule
         api: update
         description: Buyer requests for the updation of slot schedule
-        example: &ref_31
+        example: &ref_32
           summary: Buyer requests for the updation of number of tests or patients
           description: Buyer requests for the updation of number of tests or patients
           value:
@@ -10286,7 +10445,7 @@ x-flows:
       - summary: Seller confirms the updated schedule
         api: on_update
         description: Seller confirms the updated schedule
-        example: &ref_32
+        example: &ref_33
           summary: Seller acknowledges the updation and sends the partial quotation
           description: Seller acknowledges the updation and sends the partial quotation
           value:
@@ -10625,56 +10784,56 @@ x-flows:
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: >-
           Seller app sends order status update when service provider is on the
           way
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Seller app sends order status (Collected by agent)
         api: on_status (Collected By Agent)
         description: >-
           Seller app sends the order status update when the sample has been
           collected by the service provider
         reference: if any
-        example: *ref_26
+        example: *ref_27
       - summary: Seller app sends order status (Received at lab)
         api: on_status (Received At Lab)
         description: >-
           Seller app sends the order status update when the sample has been
           received at the lab
         reference: if any
-        example: *ref_27
+        example: *ref_28
       - summary: Seller app sends order status (Test completed)
         api: on_status (Test Completed)
         description: >-
           Seller app sends the order status update when the test has been
           completed at the lab
         reference: if any
-        example: *ref_28
+        example: *ref_29
       - summary: Seller app sends the order status(Report generated)
         api: on_status (Report Generated)
         description: >-
           Seller app sends the order status update when the test report is
           generated
         reference: if any
-        example: *ref_29
+        example: *ref_30
       - summary: Seller app sends the order status (Report Shared)
         api: on_status (Report Shared)
         description: >-
           Seller app sends the order status update when the test report is
           shared
         reference: if any
-        example: *ref_30
+        example: *ref_31
   - summary: Health Care Services Merchant Cancellation
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -10764,7 +10923,7 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. LFT
         reference: if any
-        example: *ref_15
+        example: *ref_23
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
@@ -11131,7 +11290,7 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. LFT
         reference: if any
-        example: *ref_15
+        example: *ref_23
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
@@ -12077,7 +12236,7 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. LFT
         reference: if any
-        example: *ref_15
+        example: *ref_23
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
@@ -13327,7 +13486,7 @@ x-flows:
           Search intent sent by the buyer based on the particular health care
           service required - e.g. LFT
         reference: if any
-        example: *ref_15
+        example: *ref_23
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
@@ -13369,43 +13528,43 @@ x-flows:
       - summary: Buyer requests for the updation of slot schedule
         api: update
         description: Buyer requests for the updation of slot schedule
-        example: *ref_31
+        example: *ref_32
       - summary: Seller confirms the updated schedule
         api: on_update
         description: Seller confirms the updated schedule
-        example: *ref_32
+        example: *ref_33
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
-        example: *ref_23
+        example: *ref_24
       - summary: Seller app sends order status update (In-Transit)
         api: on_status (In Transit)
         description: >-
           Seller app sends order status update when service provider is on the
           way
         reference: if any
-        example: *ref_24
+        example: *ref_25
       - summary: Seller app sends the order status (At location)
         api: on_status (At Location)
         description: >-
           Seller app sends order status update when service provider has reached
           the buyer location
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Seller app sends order status (Collected by agent)
         api: on_status (Collected By Agent)
         description: >-
           Seller app sends the order status update when the sample has been
           collected by the service provider
         reference: if any
-        example: *ref_26
+        example: *ref_27
       - summary: Seller app sends order status (Received at lab)
         api: on_status (Received At Lab)
         description: >-
           Seller app sends the order status update when the sample has been
           received at the lab
         reference: if any
-        example: *ref_27
+        example: *ref_28
       - summary: Seller app sends order status (Test completed)
         api: on_status (Recollection Required)
         description: >-

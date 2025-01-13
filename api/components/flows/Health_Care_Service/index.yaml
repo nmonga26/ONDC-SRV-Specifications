@@ -1,4 +1,4 @@
-summary: Health Care Services
+summary: Health Care Services - Full Transaction
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for health care services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
 details:
   - description: Sequence Diagram for Booking Healthcare Service - Seller Fulfilled
@@ -71,7 +71,7 @@ steps:
     description: Search intent sent by the buyer based on the particular health care service required - e.g. LFT
     reference: if any
     example:
-      $ref: "../../Examples/Health_care_services_yaml/search/search.yaml"
+      $ref: "../../Examples/Health_care_services_yaml/search/search_city.yaml"
   - summary: Returns the catalog specific to the search intent
     api: on_search
     description: Returns the catalog specific to the search intent
