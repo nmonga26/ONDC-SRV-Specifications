@@ -2578,19 +2578,16 @@ x-enum:
   search:
     context:
       domain: &ref_0
-        - code: ONDC:SRV16
-          description: Astrology Services
+        - code: ONDC:SRV19
+          description: Weightment Services
           reference: <PR/Issue/Discussion Links md format text>
     message:
       intent:
         item:
           category:
             id:
-              - code: SRV16-1000
-                description: E-Puja Services
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: SRV16-1001
-                description: Astrology Services
+              - code: SRV19-1000
+                description: Weighment Services
                 reference: <PR/Issue/Discussion Links md format text>
         fulfillments:
           type: &ref_1
@@ -2598,11 +2595,6 @@ x-enum:
               description: >-
                 When the fulfillment is performed by the buyer by coming to the
                 seller appointed location
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: Seller-Fulfilled
-              description: >-
-                When the fulfillment is performed by the seller by coming to the
-                buyer
               reference: <PR/Issue/Discussion Links md format text>
   on_search:
     context:
@@ -2626,8 +2618,8 @@ x-enum:
         quote:
           breakup:
             title: &ref_2
-              - code: Display Ads
-                description: Display Ads
+              - code: Weighment
+                description: Weighment
                 reference: <PR/Issue/Discussion Links md format text>
               - code: tax
                 description: tax
@@ -2646,18 +2638,12 @@ x-enum:
             - code: ON-FULFILLMENT
               description: about the enum
               reference: <PR/Issue/Discussion Links md format text>
-            - code: POST-FULFILLMENT
-              description: about the enum
-              reference: <PR/Issue/Discussion Links md format text>
           collected_by:
             - code: BAP
               description: Collected by BAP
               reference: <PR/Issue/Discussion Links md format text>
             - code: BPP
               description: Collected by BPP
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: SOR
-              description: Collected by Seller on Record
               reference: <PR/Issue/Discussion Links md format text>
   confirm:
     context:
@@ -2699,27 +2685,16 @@ x-enum:
                 - code: PENDING
                   description: Used when the order is still in pending state
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: IN_TRANSIT
-                  description: Used when an agent has been dispatched for pickup
-                  reference: <PR/Issue/Discussion Links md format text>
                 - code: AT_LOCATION
-                  description: Used when the agent is at the buyer location
+                  description: Used when the buyer is at the service location
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: COLLECTED_BY_AGENT
-                  description: Used when the sample is collected by the agent
+                - code: INSUFFICIENT_DOCS
+                  description: Used when the documents are not sufficient
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: RECEIVED_AT_LAB
-                  description: Used when the sample has been received at the lab
+                - code: TERMS_VIOLATED
+                  description: Used when truck measurements are not appropriate
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: TEST_COMPLETED
-                  description: >-
-                    Used when the test has been completed and report is yet to
-                    be generated
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: REPORT_GENERATED
-                  description: Used when report is generated at the lab side
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: REPORT_SHARED
+                - code: COMPLETED
                   description: Used when report is shared with the buyer
                   reference: <PR/Issue/Discussion Links md format text>
         quote:
@@ -4456,6 +4431,13 @@ x-flows:
                           - descriptor:
                               code: FINDER_FEE_AMOUNT
                             value: '3'
+                documents:
+                  - url: https://report_url
+                    descriptor:
+                      name: Report
+                      long_desc: >-
+                        Password protected file can be opened using first 4
+                        letters of order id
                 created_at: '2024-04-01T22:00:38.000Z'
                 updated_at: '2024-04-01T22:00:38.000Z'
   - summary: Weighment Services - Cancellation
@@ -6982,6 +6964,13 @@ x-examples:
                             - descriptor:
                                 code: FINDER_FEE_AMOUNT
                               value: '3'
+                  documents:
+                    - url: https://report_url
+                      descriptor:
+                        name: Report
+                        long_desc: >-
+                          Password protected file can be opened using first 4
+                          letters of order id
                   created_at: '2024-04-01T22:00:38.000Z'
                   updated_at: '2024-04-01T22:00:38.000Z'
       on_update:
@@ -7305,16 +7294,16 @@ x-examples:
                   created_at: '2024-04-01T22:00:38.000Z'
                   updated_at: '2024-04-01T22:00:38.000Z'
 x-attributes:
-  Astrology Services:
+  Weighment Services:
     attribute_set:
       search:
         parent: true
         context:
           parent: true
           domain:
-            description: domain code, enums - ONDC:SRV16( Services - Astrology Services )
+            description: domain code, enums - ONDC:SRV19( Services - Weighment Services )
             required: mandatory
-            usage: ONDC:SRV16
+            usage: ONDC:SRV19
             reference: if any
           city:
             code:
@@ -7364,16 +7353,14 @@ x-attributes:
                 id:
                   description: Category of the search
                   required: optional
-                  usage: SRV16-1000
+                  usage: SRV19-1000
                   reference: if any
             fulfillment:
               parent: true
               type:
-                description: >-
-                  fulfillment type for the service, enum - "Seller-Fulfilled,
-                  Buyer-Fulfilled, Online"
+                description: fulfillment type for the service, enum - "BUYER-FULFILLED"
                 required: required
-                usage: Online
+                usage: BUYER-FULFILLED
                 reference: if any
             payment:
               parent: true
@@ -7400,7 +7387,7 @@ x-attributes:
               type:
                 description: >-
                   fulfillment type of the service, enum - "Buyer-Fulfilled,
-                  Seller-Fulfilled, Online"
+                  Seller-Fulfilled"
                 required: required
                 usage: Buyer-Fulfilled
                 reference: if any
@@ -7450,7 +7437,7 @@ x-attributes:
                   name:
                     description: name of the service provided by the service provider
                     required: required
-                    usage: Kundli Pooja
+                    usage: Weighment Service
                     reference: if any
                   price:
                     value:
@@ -7469,7 +7456,7 @@ x-attributes:
                     which was sent in /search call, or catalog specific
                     categories
                   required: required
-                  usage: SRV16-1000
+                  usage: SRV19-1000
                   reference: if any
                 fulfillment_ids:
                   description: >-
@@ -7528,7 +7515,7 @@ x-attributes:
                         description of the offer being provided by the service
                         provider
                       required: optional
-                      usage: Pooja Service
+                      usage: Weighment Service
                       reference: if any
                   item_ids:
                     description: item ids on which this offer is applicable
@@ -7577,22 +7564,20 @@ x-attributes:
               quantity:
                 selected:
                   count:
-                    description: >-
-                      number of items selected e.g. number of sofas to be
-                      cleaned
+                    description: number of items selected
                     required: required
                     usage: '1'
                     reference: if any
                 measure:
                   unit:
-                    description: name of the unit e.g. sofa seats to be cleaned
+                    description: name of the unit
                     required: required
-                    usage: tests
+                    usage: unit
                     reference: if any
                   value:
-                    description: value of the unit e.g. number of sofa seats to be cleaned
+                    description: value of the unit
                     required: required
-                    usage: '2'
+                    usage: '1'
                     reference: if any
             fulfillments:
               parent: true
@@ -7670,10 +7655,10 @@ x-attributes:
               breakup:
                 title:
                   description: >-
-                    title of the service charges enum - Pooja Service, tax,
+                    title of the service charges enum - Weighment Service, tax,
                     discount, convenience_fee
                   required: required
-                  usage: Pooja Service
+                  usage: Weighment Service
                   reference: if any
                 price:
                   description: price of the quote breakup type
@@ -7723,7 +7708,6 @@ x-attributes:
                 usage: '-'
                 reference: if any
               breakup:
-                parent: true
                 breakup:
                   description: service provider provides the the breakup of the quote
                   required: required
@@ -7731,17 +7715,17 @@ x-attributes:
                   reference: if any
                 title:
                   description: >-
-                    title of the service charges - Pooja Services, tax,
-                    discount, convenience fee
+                    title of the service charges enum - Weighment Services, tax,
+                    discount, convenience_fee
                   required: required
-                  usage: Pooja Services
+                  usage: Weighment Services
                   reference: if any
             payments:
               parent: true
               type:
                 description: >-
                   stage when fulfillment will be done by service provider, enum
-                  - "PRE-FULFILLMENT", "ON-FULFILLMENT", "POST-FULFILLMENT"
+                  - "PRE-FULFILLMENT", "ON-FULFILLMENT"
                 required: required
                 usage: PRE-FULFILLMENT
                 reference: if any
@@ -7937,9 +7921,8 @@ x-attributes:
                   code:
                     description: >-
                       Denotes the state of the fulfillment; Enum; Values can be
-                      - "Pending", "In-Transit", "At-Location",
-                      "Chat-Room-Created", "Chart-Room-Updated",
-                      "Chat-Room-Started", "Completed";
+                      - "PENDING", "AT_LOCATION", "INSUFFICIENT_DOCS",
+                      "TERMS_VIOLATED", "COMPLETED";
                     required: mandatory
                     usage: '-'
                     reference: if any
