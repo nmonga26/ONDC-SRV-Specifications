@@ -161,6 +161,22 @@ PATIENT_DETAILS:
     description: Patient ID code by which another tag group is defined
   - code: CONTACT_PREFERENCE
     description: ID of the preference of contact
+ATTRIBUTES:
+  - code: WEIGHING_CAPACITY_MIN
+    description: Minimum weight capcity to be given in MT
+  - code: WEIGHING_CAPACITY_MAX
+    description: Maximum weight capcity to be given in MT
+  - code: WEIGHT_TYPE
+    description: Type of weight - LOADED or UNLOADED
+  - code: DIMESNSIONS
+    description: Dimensions of the truck given, can be given in ft or cm - L,B,H
+  - code: MAX_NUMBER_OF_WHEELS
+    description: Maximum number of wheels truck allowed - Integer value
+  - code: WEIGHMENT_TYPE
+    description: Type of weighment machine - AUTOMATIC or MANUAL
+REQUIRED_DOCUMENTS:
+  - code: DOCUMENTS
+    description: Necessary document list separated by commas, possible values - INVOICE_OF_MATERIAL,COMPANY_PROOF,ID_PROOF,VEHICLE_REGISTRATION
 BENEFIT:
   - code: VALUE_TYPE
     description: Type of value - percent or amount
