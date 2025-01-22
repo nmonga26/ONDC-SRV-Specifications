@@ -2780,15 +2780,15 @@ x-tags:
                   reference: <PR/Issue/Discussion Links md format text>
           items:
             tags:
-              - code: INFO
-                description: Information about the item/service
+              - code: ATTRIBUTES
+                description: Attributes about the item/service
                 reference: <PR/Issue/Discussion Links md format text>
                 list:
                   - code: ALIAS
                     description: Common other names of the test
                   - code: RISK_ASSESSMENT
                     description: Risk assessment of the test, can be - LOW, MEDIUM, HIGH
-              - code: SERVICE_DETAILS
+              - code: REQUIRED_DOCUMENTS
                 description: If it is service, then service details are compulsory
                 reference: <PR/Issue/Discussion Links md format text>
                 list: &ref_7
@@ -2810,66 +2810,10 @@ x-tags:
                       Time within which it should be rescheduled after the
                       fulfilment has been changed
                     reference: <PR/Issue/Discussion Links md format text>
-              - code: TEMPLE_DETAILS
-                description: >-
-                  If the astro pooja/consultance is to be held offline, template
-                  details are compulsory
-                reference: <PR/Issue/Discussion Links md format text>
-                list:
-                  - code: TYPE
-                    description: The type of item - PACKAGE or TEST
-                  - code: CHILD_TEST_IDS
-                    description: A comma separated list of items that are in this package
-                  - code: PARENT_PACKAGE_IDS
-                    description: >-
-                      A comma separated list of items/packages that this test is
-                      also included in
-              - code: POOJA_CHECKLIST
-                description: Checklist for items that are mandatory for pooja
-                reference: <PR/Issue/Discussion Links md format text>
-                list:
-                  - code: GENDER
-                    description: If the test is gender-specific - Optional
-                  - code: AGE_RANGE
-                    description: >-
-                      Comma separated list of age range groups -
-                      0-7,8-19,20-59,60+
-                  - code: PRESCRIPTION_REQUIRED
-                    description: >-
-                      Whether a prescription will be required at the time of
-                      conducting the test or collecting sample
-                  - code: SAMPLE_COLLECTION
-                    description: Whether sample collection will be done for this test
               - code: RESCHEDULE_TERMS
-                description: >-
-                  Reschedule terms for the service/item, can be duplicated
-                  multiple times over
-                reference: <PR/Issue/Discussion Links md format text>
-                list: *ref_7
-              - code: PRE_TEST_PREPARATION
-                description: Pre test preparations to be done before test
-                reference: <PR/Issue/Discussion Links md format text>
-                list:
-                  - code: FASTING
-                    description: Whether fasting is required under this test or not
-                  - code: PRE_INTAKE
-                    description: >-
-                      Whether some kind of pre-intake of medicine or any other
-                      things is required or not
-              - code: FASTING
-                description: Fasting information before test
-                reference: <PR/Issue/Discussion Links md format text>
-                list:
-                  - code: DURATION
-                    description: Duration for which fasting must be done
-              - code: PRE_INTAKE
                 description: Intake to be taken before the test
                 reference: <PR/Issue/Discussion Links md format text>
-                list:
-                  - code: DURATION_GAP
-                    description: Duration between the intake and the test
-                  - code: CONSUMTION_TYPE_INSTRUCTION
-                    description: Instructions to follow for pre-intake
+                list: *ref_7
         offers:
           tags:
             - code: BENEFIT
@@ -2894,8 +2838,8 @@ x-tags:
     message:
       order:
         quote:
-          breakup: &ref_10
-            tags: &ref_13
+          breakup: &ref_8
+            tags: &ref_11
               - code: title
                 description: title tag
                 reference: <PR/Issue/Discussion Links md format text>
@@ -2905,50 +2849,12 @@ x-tags:
                       Depending upon the context, it can take the value of the
                       discount, tax, misc or item type value.
                     reference: <PR/Issue/Discussion Links md format text>
-  init:
-    message:
-      order:
-        items: &ref_8
-          tags:
-            - code: REPORT_REQUIREMENT
-              description: Attribute of a particular item
-              reference: <PR/Issue/Discussion Links md format text>
-              list:
-                - code: REPORT_DEADLINE
-                  description: The deadline within which report is required
-                  reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: &ref_9
-          stops:
-            person:
-              tags:
-                - code: PATIENT_DETAILS
-                  description: IDs of the all the patients
-                  reference: <PR/Issue/Discussion Links md format text>
-                  list:
-                    - code: ~PATIENT_ID_CODE
-                      description: Patient ID code by which another tag group is defined
-                    - code: CONTACT_PREFERENCE
-                      description: ID of the preference of contact
-                - code: PI1
-                  description: Describes the details of a patient
-                  reference: <PR/Issue/Discussion Links md format text>
-                  list:
-                    - code: NAME
-                      description: Name of the patient
-                    - code: GENDER
-                      description: Gender of the patient
-                    - code: AGE
-                      description: Age of the patient
-                    - code: MOBILE_NUMBER
-                      description: Mobile number of the patient
   on_init:
-    message: &ref_11
+    message: &ref_9
       order:
-        items: *ref_8
-        fulfillments: *ref_9
         quote:
-          breakup: *ref_10
-        payments: &ref_12
+          breakup: *ref_8
+        payments: &ref_10
           tags:
             - code: SETTLEMENT_DETAILS
               description: Define Payment Settlement Details here
@@ -2983,16 +2889,16 @@ x-tags:
                   description: Amount for the finder fee
                   reference: <PR/Issue/Discussion Links md format text>
   confirm:
-    message: *ref_11
+    message: *ref_9
   on_status:
-    message: *ref_11
+    message: *ref_9
   update:
-    message: &ref_14
+    message: &ref_12
       order:
-        payments: *ref_12
+        payments: *ref_10
         quote:
           breakup:
-            tags: *ref_13
+            tags: *ref_11
           item:
             tags:
               - code: attributes
@@ -3003,7 +2909,7 @@ x-tags:
                     description: Hex Code for color
                     reference: <PR/Issue/Discussion Links md format text>
   on_update:
-    message: *ref_14
+    message: *ref_12
 x-flows:
   - summary: Weighment Services
     description: >-
@@ -3082,7 +2988,7 @@ x-flows:
           Search intent sent by the buyer app for Weighment service based on
           context.city
         reference: if any
-        example: &ref_15
+        example: &ref_13
           summary: ''
           description: ''
           value:
@@ -3118,7 +3024,7 @@ x-flows:
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: &ref_16
+        example: &ref_14
           summary: ''
           description: ''
           value:
@@ -3389,7 +3295,7 @@ x-flows:
           Buyer selects the required Weighment service + suitable fulfillment
           type
         reference: if any
-        example: &ref_17
+        example: &ref_15
           summary: ''
           description: ''
           value:
@@ -3446,7 +3352,7 @@ x-flows:
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: &ref_18
+        example: &ref_16
           summary: ''
           description: ''
           value:
@@ -3548,7 +3454,7 @@ x-flows:
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: &ref_19
+        example: &ref_17
           summary: ''
           description: ''
           value:
@@ -3617,7 +3523,7 @@ x-flows:
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: &ref_20
+        example: &ref_18
           summary: ''
           description: ''
           value:
@@ -3761,7 +3667,7 @@ x-flows:
         api: confirm
         description: Buyer app gets the payment from user and confirms the order
         reference: if any
-        example: &ref_21
+        example: &ref_19
           summary: ''
           description: ''
           value:
@@ -3918,7 +3824,7 @@ x-flows:
         api: on_confirm
         description: Seller accepts the order
         reference: if any
-        example: &ref_22
+        example: &ref_20
           summary: ''
           description: ''
           value:
@@ -4078,7 +3984,7 @@ x-flows:
         api: status
         description: Seller provides accepts the order
         reference: if any
-        example: &ref_23
+        example: &ref_21
           summary: ''
           description: ''
           value:
@@ -4105,7 +4011,7 @@ x-flows:
         api: on_status (At Location)
         description: Seller sends back the update of order
         reference: if any
-        example: &ref_24
+        example: &ref_22
           summary: ''
           description: ''
           value:
@@ -4271,7 +4177,7 @@ x-flows:
         api: on_status (Completed)
         description: Seller sends back an update with fulfillment and order status updated
         reference: if any
-        example: &ref_25
+        example: &ref_23
           summary: ''
           description: ''
           value:
@@ -4528,59 +4434,59 @@ x-flows:
           Search intent sent by the buyer app for Weighment service based on
           context.city
         reference: if any
-        example: *ref_15
+        example: *ref_13
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_16
+        example: *ref_14
       - summary: Buyer selects the required Weighment service
         api: select
         description: >-
           Buyer selects the required Weighment service + suitable fulfillment
           type
         reference: if any
-        example: *ref_17
+        example: *ref_15
       - summary: Seller confirms the schedule and returns the quote for service
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: *ref_18
+        example: *ref_16
       - summary: Buyer initialises the order for service
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_19
+        example: *ref_17
       - summary: Seller provides the final quotation for the service
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_20
+        example: *ref_18
       - summary: Buyer confirms the order
         api: confirm
         description: Buyer app gets the payment from user and confirms the order
         reference: if any
-        example: *ref_21
+        example: *ref_19
       - summary: Seller accepts the order
         api: on_confirm
         description: Seller accepts the order
         reference: if any
-        example: *ref_22
+        example: *ref_20
       - summary: Buyer requests for the status
         api: status
         description: Seller provides accepts the order
         reference: if any
-        example: *ref_23
+        example: *ref_21
       - summary: Seller sends back the update of order
         api: on_status (At Location)
         description: Seller sends back the update of order
         reference: if any
-        example: *ref_24
+        example: *ref_22
       - summary: Seller sends back the when the order is completed
         api: on_status (Completed)
         description: Seller sends back an update with fulfillment and order status updated
         reference: if any
-        example: *ref_25
+        example: *ref_23
       - summary: Buyer requests for cancellation
         api: cancel
         description: Buyer requests for cancellation of order with cancellation reason
@@ -4851,49 +4757,49 @@ x-flows:
           Search intent sent by the buyer app for Weighment service based on
           context.city
         reference: if any
-        example: *ref_15
+        example: *ref_13
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_16
+        example: *ref_14
       - summary: Buyer selects the required Weighment service
         api: select
         description: >-
           Buyer selects the required Weighment service + suitable fulfillment
           type
         reference: if any
-        example: *ref_17
+        example: *ref_15
       - summary: Seller confirms the schedule and returns the quote for service
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: *ref_18
+        example: *ref_16
       - summary: Buyer initialises the order for service
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_19
+        example: *ref_17
       - summary: Seller provides the final quotation for the service
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_20
+        example: *ref_18
       - summary: Buyer confirms the order
         api: confirm
         description: Buyer app gets the payment from user and confirms the order
         reference: if any
-        example: *ref_21
+        example: *ref_19
       - summary: Seller accepts the order
         api: on_confirm
         description: Seller accepts the order
         reference: if any
-        example: *ref_22
+        example: *ref_20
       - summary: Seller sends back the update of order
         api: on_status (At Location)
         description: Seller sends back the update of order
         reference: if any
-        example: *ref_24
+        example: *ref_22
       - summary: Seller sends update for terms violation
         api: on_status (Insufficient Documents)
         description: >-
@@ -5066,7 +4972,7 @@ x-flows:
         api: on_update
         description: Seller reschedules the service if applicable
         reference: if any
-        example: &ref_26
+        example: &ref_24
           summary: ''
           description: ''
           value:
@@ -5299,44 +5205,44 @@ x-flows:
           Search intent sent by the buyer app for Weighment service based on
           context.city
         reference: if any
-        example: *ref_15
+        example: *ref_13
       - summary: Returns the catalog specific to the search intent
         api: on_search
         description: Returns the catalog specific to the search intent
         reference: if any
-        example: *ref_16
+        example: *ref_14
       - summary: Buyer selects the required Weighment service
         api: select
         description: >-
           Buyer selects the required Weighment service + suitable fulfillment
           type
         reference: if any
-        example: *ref_17
+        example: *ref_15
       - summary: Seller confirms the schedule and returns the quote for service
         api: on_select
         description: Seller confirms the schedule and returns the quote for service
         reference: if any
-        example: *ref_18
+        example: *ref_16
       - summary: Buyer initialises the order for service
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_19
+        example: *ref_17
       - summary: Seller provides the final quotation for the service
         api: on_init
         description: Seller provides the final quotation
         reference: if any
-        example: *ref_20
+        example: *ref_18
       - summary: Buyer confirms the order
         api: confirm
         description: Buyer app gets the payment from user and confirms the order
         reference: if any
-        example: *ref_21
+        example: *ref_19
       - summary: Seller accepts the order
         api: on_confirm
         description: Seller accepts the order
         reference: if any
-        example: *ref_22
+        example: *ref_20
       - summary: Buyer requests for reschedule
         api: update
         description: Buyer requests for reschedule by specifying updated time and day
@@ -5398,7 +5304,7 @@ x-flows:
         api: on_update
         description: Seller accepts reschedule request and updates fulfillment status
         reference: if any
-        example: *ref_26
+        example: *ref_24
 x-examples:
   Services - Weighment Services:
     summary: Weighment Services

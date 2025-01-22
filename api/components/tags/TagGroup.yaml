@@ -5,6 +5,11 @@ intent:
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./Tag.yaml#/BAP_TERMS"
+    - code: BUYER_DETAILS
+      description: Details of the buyer
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./Tag.yaml#/BAP_DETAILS"
 catalog:
   providers:
     tags:
@@ -26,7 +31,7 @@ catalog:
           list:
             $ref: "./Tag.yaml#/RESCHEDULE_TERMS"
         - code: RESCHEDULE_TERMS
-          description: Intake to be taken before the test
+          description: Reschedule terms
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./Tag.yaml#/RESCHEDULE_TERMS"
@@ -42,6 +47,7 @@ catalog:
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./Tag.yaml#/META"
+order:
   quote:
     breakup:
       tags: &ref2

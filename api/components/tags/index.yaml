@@ -14,14 +14,6 @@ on_select:
         breakup:
           $ref: "./TagGroup.yaml#/order/quote/breakup"
 
-init:
-  message:
-    order:
-      items:
-        $ref: "./TagGroup.yaml#/order/items"
-      fulfillments:
-        $ref: "./TagGroup.yaml#/order/fulfillments"
-
 on_init:
   message: &ref1
     order:
