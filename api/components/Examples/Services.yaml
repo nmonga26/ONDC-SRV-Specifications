@@ -1,7 +1,7 @@
-Services - Astrology Services:
-  summary: Astrology Services
+Services - Weighment Services:
+  summary: Weighment Services
   description: >-
-    This elaborates the model implementations for booking Astrology services over the network.
+    This elaborates the model implementations for booking Weighment services over the network.
     The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
   example_set:
-    $ref: "./Astro_services_yaml/index.yaml"
+    $ref: "./Weighment_services_yaml/index.yaml"

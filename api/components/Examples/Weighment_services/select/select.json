@@ -1,0 +1,84 @@
+{
+  "context": {
+    "domain": "ONDC:SRV19",
+    "location": {
+      "city": {
+        "code": "std:080"
+      },
+      "country": {
+        "code": "IND"
+      }
+    },
+    "action": "select",
+    "version": "2.0.0",
+    "bap_id": "buyerapp.com",
+    "bap_uri": "https://buyerapp.com/services",
+    "bpp_id": "sellerapp.com",
+    "bpp_uri": "https://sellerapp.com/services",
+    "transaction_id": "T1",
+    "message_id": "M2",
+    "timestamp": "2023-01-08T22:00:30.000Z",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "P1",
+        "locations": [
+          {
+            "id": "L1"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "I1",
+          "location_ids": ["L1"],
+          "quantity": {
+            "selected": {
+              "count": 1
+            }
+          }
+        }
+      ],
+      "fulfillments": [
+        {
+          "type": "Buyer-Fulfilled",
+          "stops": [
+            {
+              "type": "end",
+              "time": {
+                "label": "selection",
+                "range": {
+                  "start": "2024-04-04T10:00:00.000Z",
+                  "end": "2024-04-04T11:00:00.000Z"
+                },
+                "days": "4"
+              }
+            }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "SELECTION"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "ITEM_IDS"
+                  },
+                  "value": "I1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "payments": [
+        {
+          "type": "PRE-FULFILLMENT"
+        }
+      ]
+    }
+  }
+}

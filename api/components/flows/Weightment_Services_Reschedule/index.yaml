@@ -1,0 +1,127 @@
+summary: Weighment Services - Rescheduling Slot
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for Weighment services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+details:
+  - description: Sequence Diagram for Booking Weighment Service
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant G as Gateway
+        participant SA1 as SellerApp1
+        participant SA2 as SellerApp2
+        Note Over B,SA1: **SEARCH FLOW**
+        B ->> BA: Search for the Weighment service within the city
+        BA ->> G: **/search** - Search for the Weighment service within the city
+        G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
+        G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
+        SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+        SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+        Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
+        BA ->> B: Shows all service <br>options from sellers
+  - description: Ordering
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp
+        Note Over B,SA: **SELECT FLOW**
+        B ->> BA: Selects one of the <br>providers for service
+        BA ->> SA: **/select** - A test/package is selected with a <br>TTL for receiving response
+        SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote 
+        BA ->> B: Shows response with price details
+  - description: Initializing the order
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp      
+        Note Over B,SA: **INITIALIZATION FLOW**
+        B ->> BA: Proceeds with the Order
+        BA ->> SA: **/init** - Initializes the order and <br>sends billing details, user details
+        SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
+        BA ->> B: Confirms initialization
+  - description: Order Confirmation
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp
+        Note Over B,SA: **CONFIRMATION FLOW**
+        B ->> BA: Confirms the Order
+        BA ->> SA: **/confirm** - Confirms the order by paying to create final digital contract
+        SA ->> BA: **/on_confirm** - Accepts the order 
+        BA ->> B: Confirms order
+  - description: Rescheduling slot
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp      
+        Note Over B,SA: **ORDER RESCHEDULING FLOW**
+        B ->> BA: Asks for reschedule
+        BA ->> SA: **/update** - Provides reschedule details<br>like time and day
+        SA ->> BA: **/on_update** - Accepts the reschedule<br>and updates fulfillment
+        BA ->> B: Updates the user
+
+reference: if any
+steps:
+  - summary: Search intent based on city
+    api: search (city-based)
+    description: Search intent sent by the buyer app for Weighment service based on context.city
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/search/search.yaml"
+  - summary: Returns the catalog specific to the search intent
+    api: on_search
+    description: Returns the catalog specific to the search intent
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/on_search/on_search.yaml"
+  - summary: Buyer selects the required Weighment service
+    api: select
+    description: Buyer selects the required Weighment service + suitable fulfillment type
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/select/select.yaml"
+  - summary: Seller confirms the schedule and returns the quote for service
+    api: on_select
+    description: Seller confirms the schedule and returns the quote for service
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/on_select/on_select.yaml"
+  - summary: Buyer initialises the order for service
+    api: init
+    description: Buyer initialises the order and provides billing details
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/init/init.yaml"
+  - summary: Seller provides the final quotation for the service
+    api: on_init
+    description: Seller provides the final quotation
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/on_init/on_init.yaml"
+  - summary: Buyer confirms the order
+    api: confirm
+    description: Buyer app gets the payment from user and confirms the order
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/confirm/confirm.yaml"
+  - summary: Seller accepts the order
+    api: on_confirm
+    description: Seller accepts the order
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/on_confirm/on_confirm.yaml"
+  - summary: Buyer requests for reschedule
+    api: update
+    description: Buyer requests for reschedule by specifying updated time and day
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/update/update.yaml"
+  - summary: Seller accepts the reschedule
+    api: on_update
+    description: Seller accepts reschedule request and updates fulfillment status
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/on_update/on_update.yaml"

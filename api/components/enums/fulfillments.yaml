@@ -3,33 +3,21 @@ fulfillments:
     - code: Buyer-Fulfilled
       description: When the fulfillment is performed by the buyer by coming to the seller appointed location
       reference: <PR/Issue/Discussion Links md format text>
-    - code: Seller-Fulfilled
-      description: When the fulfillment is performed by the seller by coming to the buyer
-      reference: <PR/Issue/Discussion Links md format text>
   state:
     descriptor:
       code:
         - code: PENDING
           description: Used when the order is still in pending state
           reference: <PR/Issue/Discussion Links md format text>
-        - code: IN_TRANSIT
-          description: Used when an agent has been dispatched for pickup
-          reference: <PR/Issue/Discussion Links md format text>
         - code: AT_LOCATION
-          description: Used when the agent is at the buyer location
+          description: Used when the buyer is at the service location
           reference: <PR/Issue/Discussion Links md format text>
-        - code: COLLECTED_BY_AGENT
-          description: Used when the sample is collected by the agent
+        - code: INSUFFICIENT_DOCS
+          description: Used when the documents are not sufficient
           reference: <PR/Issue/Discussion Links md format text>
-        - code: RECEIVED_AT_LAB
-          description: Used when the sample has been received at the lab
+        - code: TERMS_VIOLATED
+          description: Used when truck measurements are not appropriate
           reference: <PR/Issue/Discussion Links md format text>
-        - code: TEST_COMPLETED
-          description: Used when the test has been completed and report is yet to be generated
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: REPORT_GENERATED
-          description: Used when report is generated at the lab side
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: REPORT_SHARED
+        - code: COMPLETED
           description: Used when report is shared with the buyer
           reference: <PR/Issue/Discussion Links md format text>

@@ -1,0 +1,264 @@
+summary: ''
+description: ''
+value:
+  context:
+    domain: ONDC:SRV19
+    location:
+      city:
+        code: std:080
+      country:
+        code: IND
+    action: on_search
+    version: 2.0.0
+    bap_id: buyerapp.com
+    bap_uri: https://buyerapp.com/services
+    bpp_id: sellerapp.com
+    bpp_uri: https://sellerapp.com/services
+    transaction_id: T1
+    message_id: M1
+    timestamp: '2023-01-08T22:00:30.000Z'
+    ttl: PT30S
+  message:
+    catalog:
+      fulfillments:
+        - id: F1
+          type: Buyer-Fulfilled
+      payments:
+        - id: '1'
+          type: PRE-FULFILLMENT
+        - id: '2'
+          type: ON-FULFILLMENT
+      descriptor:
+        name: Weightment Service Limited
+        short_desc: Weighment service facility
+        long_desc: Weighment service facility
+        images:
+          - url: https://abc.com/images/1-shop-img
+      providers:
+        - id: P1
+          descriptor:
+            name: Weightment service provider
+            code: P001
+            short_desc: Short description of the provider
+            long_desc: Long description of the provider
+            images:
+              - url: https://abc.com/images/1-shop-img
+          rating: '4.4'
+          ttl: P1D
+          categories:
+            - id: C1
+              descriptor:
+                name: Pujaris
+                code: PUJARIS
+              tags:
+                - descriptor:
+                    code: selection
+                  list:
+                    - descriptor:
+                        code: seq
+                      value: '1'
+                    - descriptor:
+                        code: mandatory_selection
+                      value: 'true'
+                    - descriptor:
+                        code: min_selection
+                      value: '1'
+                    - descriptor:
+                        code: max_selection
+                      value: '1'
+            - id: C2
+              descriptor:
+                name: Career
+                code: CAREER
+            - id: C3
+              descriptor:
+                name: Marriage
+                code: MARRIAGE
+            - id: C4
+              descriptor:
+                name: Love
+                code: LOVE
+            - id: C5
+              descriptor:
+                name: Energy
+                code: ENERGY
+            - id: C6
+              descriptor:
+                name: Home
+                code: HOME
+            - id: C7
+              descriptor:
+                name: Education
+                code: EDUCATION
+            - id: C8
+              descriptor:
+                name: Job
+                code: JOB
+          locations:
+            - id: L1
+              gps: 12.967555,77.749666
+              address: Jayanagar 4th Block
+              city:
+                code: std:080
+                name: Bengaluru
+              state:
+                code: KA
+              country:
+                code: IND
+          creds:
+            - id: WEIGHMENT-12345678
+              type: Certification
+              desc: Certification No. WEIGHMENT-12345678
+              url: https://abcd.cdn.com/images/certification-img
+          tags:
+            - descriptor:
+                code: serviceability
+              list:
+                - descriptor:
+                    code: location
+                  value: L1
+                - descriptor:
+                    code: category
+                  value: SRV19-1000
+                - descriptor:
+                    code: val
+                  value: >-
+                    {"type": "FeatureCollection", "features": [{"type":
+                    "Feature", "properties": {}, "geometry": {"coordinates":
+                    [[[77.175571, 28.675927], [77.128737, 28.600972],
+                    [77.446934, 28.545325], [77.175571, 28.675927]]], "type":
+                    "Polygon"}}]}
+                - descriptor:
+                    code: unit
+                  value: geojson
+                - descriptor:
+                    code: type
+                  value: 12
+          items:
+            - id: I1
+              descriptor:
+                name: Weighbridge
+                code: WEIGH-001
+                short_desc: Weighbridge Facility
+                long_desc: Weighbridge Facility
+                media:
+                  - mimetype: video/mp4
+                    url: video_url
+              price:
+                currency: INR
+                value: '999.00'
+                maximum_value: '999.00'
+              quantity:
+                unitized:
+                  measure:
+                    unit: unit
+                    value: '1'
+              time:
+                label: validity
+                range:
+                  start: '2024-04-01T00:00:00.000Z'
+                  end: '2024-04-10T00:00:00.000Z'
+                days: 04,05
+                schedule:
+                  frequency: PT1H
+                  holidays:
+                    - '2024-04-09'
+                    - '2024-04-07'
+                  times:
+                    - '2024-04-04T22:00:00.000Z'
+                    - '2024-04-06T22:00:00.000Z'
+                    - '2024-04-08T22:00:00.000Z'
+                    - '2024-04-10T22:00:00.000Z'
+              tags:
+                - descriptor:
+                    code: ATTRIBUTES
+                  list:
+                    - descriptor:
+                        code: WEIGHING_CAPACITY_MIN
+                      value: 0 MT
+                    - descriptor:
+                        code: WEIGHING_CAPACITY_MAX
+                      value: 50 MT
+                    - descriptor:
+                        code: WEIGHT_TYPE
+                      value: UNLOADED
+                    - descriptor:
+                        code: MAX_NUMBER_OF_WHEELS
+                      value: '16'
+                    - descriptor:
+                        code: DIMENSIONS
+                      value: 17ft,6ft,7ft
+                    - descriptor:
+                        code: WEIGHMENT_TYPE
+                      value: AUTOMATIC
+                - descriptor:
+                    code: REQUIRED_DOCUMENTS
+                  list:
+                    - descriptor:
+                        code: DOCUMENTS
+                      value: >-
+                        INVOICE_OF_MATERIAL,COMPANY_PROOF,ID_PROOF,VEHICLE_REGISTRATION
+                - descriptor:
+                    code: RESCHEDULE_TERMS
+                  list:
+                    - descriptor:
+                        code: FULFILLMENT_STATE
+                      value: Pending
+                    - descriptor:
+                        code: RESCHEDULE_ELIGIBLE
+                      value: 'true'
+                    - descriptor:
+                        code: RESCHEDULE_FEE
+                      value: '0.00'
+                    - descriptor:
+                        code: RESCHEDULE_WITHIN
+                      value: PT1D
+                - descriptor:
+                    code: RESCHEDULE_TERMS
+                  list:
+                    - descriptor:
+                        code: FULFILLMENT_STATE
+                      value: In-Transit
+                    - descriptor:
+                        code: RESCHEDULE_ELIGIBLE
+                      value: 'true'
+                    - descriptor:
+                        code: RESCHEDULE_FEE
+                      value: '10.00'
+                    - descriptor:
+                        code: RESCHEDULE_WITHIN
+                      value: PT1D
+              category_ids:
+                - SRV19-1000
+              fulfillment_ids:
+                - F1
+              location_ids:
+                - L1
+              payment_ids:
+                - '2'
+              cancellation_terms:
+                - fulfillment_state:
+                    descriptor:
+                      code: Pending
+                  cancel_by:
+                    duration: P1D
+                  cancellation_fee:
+                    amount:
+                      value: '0'
+                  reason_required: false
+                - fulfillment_state:
+                    descriptor:
+                      code: In-Transit
+                  cancel_by:
+                    duration: P1D
+                  cancellation_fee:
+                    percentage: '5'
+                  reason_required: true
+                - fulfillment_state:
+                    descriptor:
+                      code: At-Location
+                  cancel_by:
+                    duration: P1D
+                  cancellation_fee:
+                    percentage: '25'
+                  reason_required: true
