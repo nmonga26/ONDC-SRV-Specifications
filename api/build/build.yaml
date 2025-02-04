@@ -5424,7 +5424,7 @@ x-flows:
         api: on_cancel (Case 3)
         description: Seller cancels the order and refunds if applicable
         reference: if any
-        example:
+        example: &ref_25
           summary: ''
           description: ''
           value:
@@ -5767,6 +5767,685 @@ x-flows:
         description: Seller accepts reschedule request and updates fulfillment status
         reference: if any
         example: *ref_24
+  - summary: Weighment Services - Seller Cancellation
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to request for Weighment services. The booking
+      majorly happens in four phases of order processing flow, i.e. Discovery of
+      available services and service providers based on serviceability, order,
+      fulfillment and post-fulfillment.
+    details:
+      - description: Sequence Diagram for Booking Weighment Service
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA1 as SellerApp1
+            participant SA2 as SellerApp2
+            Note Over B,SA1: **SEARCH FLOW**
+            B ->> BA: Search for the Weighment service within the city
+            BA ->> G: **/search** - Search for the Weighment service within the city
+            G ->> SA1: **/search** - Services request broadcasted based <br>on city and domain in context
+            G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
+            SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+            SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+            Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
+            BA ->> B: Shows all service <br>options from sellers
+      - description: Ordering
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **SELECT FLOW**
+            B ->> BA: Selects one of the <br>providers for service
+            BA ->> SA: **/select** - A test/package is selected with a <br>TTL for receiving response
+            SA ->> BA: **/on_select** - Responds to the selection with <br>breakup, quote 
+            BA ->> B: Shows response with price details
+      - description: Initializing the order
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp      
+            Note Over B,SA: **INITIALIZATION FLOW**
+            B ->> BA: Proceeds with the Order
+            BA ->> SA: **/init** - Initializes the order and <br>sends billing details, user details
+            SA ->> BA: **/on_init** - Order initialization with <br>fulfillment & settlement information <br>including UPI or NEFT/IMPS/Bank Transfer
+            BA ->> B: Confirms initialization
+      - description: Order Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **CONFIRMATION FLOW**
+            B ->> BA: Confirms the Order
+            BA ->> SA: **/confirm** - Confirms the order by paying to create final digital contract
+            SA ->> BA: **/on_confirm** - Accepts the order 
+            BA ->> B: Confirms order
+      - description: Fulfillment
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp      
+            Note Over B,SA: **ORDER STATUS FLOW**
+            B ->> BA: Checks the order status
+            BA ->> SA: **/status** - Enquire order status <br>or tracking information
+            SA ->> BA: **/on_status** - Latest order and fulfillment status is sent
+            BA ->> B: Updates the latest order <br>and fulfillment information
+      - description: Cancellation
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp      
+            Note Over B,SA: **ORDER CANCELLATION FLOW**
+            SA ->> BA: **/on_cancel** - Cancels the order and gives reason
+            BA ->> B: Updates the user
+    reference: if any
+    steps:
+      - summary: Search intent based on city
+        api: search (city-based)
+        description: >-
+          Search intent sent by the buyer app for Weighment service based on
+          context.city
+        reference: if any
+        example: *ref_13
+      - summary: Returns the catalog specific to the search intent
+        api: on_search
+        description: Returns the catalog specific to the search intent
+        reference: if any
+        example: *ref_14
+      - summary: Buyer selects the required Weighment service
+        api: select
+        description: >-
+          Buyer selects the required Weighment service + suitable fulfillment
+          type
+        reference: if any
+        example: *ref_15
+      - summary: Seller confirms the schedule and returns the quote for service
+        api: on_select
+        description: Seller confirms the schedule and returns the quote for service
+        reference: if any
+        example: *ref_16
+      - summary: Buyer initialises the order for service
+        api: init
+        description: Buyer initialises the order and provides billing details
+        reference: if any
+        example: *ref_17
+      - summary: Seller provides the final quotation for the service
+        api: on_init
+        description: Seller provides the final quotation
+        reference: if any
+        example: *ref_18
+      - summary: Buyer confirms the order
+        api: confirm
+        description: Buyer app gets the payment from user and confirms the order
+        reference: if any
+        example: *ref_19
+      - summary: Seller accepts the order
+        api: on_confirm
+        description: Seller accepts the order
+        reference: if any
+        example: *ref_20
+      - summary: Buyer requests for the status
+        api: status
+        description: Seller provides accepts the order
+        reference: if any
+        example: *ref_21
+      - summary: Seller sends back the update of order
+        api: on_status (At Location)
+        description: Seller sends back the update of order
+        reference: if any
+        example: *ref_22
+      - summary: Seller sends back the when the order is completed
+        api: on_status (Completed)
+        description: Seller sends back an update with fulfillment and order status updated
+        reference: if any
+        example: *ref_23
+      - summary: Seller sends cancellation
+        api: on_cancel
+        description: Seller sends cancellation with reason
+        reference: if any
+        example: *ref_25
+  - summary: Weighment Services - Unsuccessful Measurements/Insufficient Docs
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to request for Weighment services. The booking
+      majorly happens in four phases of order processing flow, i.e. Discovery of
+      available services and service providers based on serviceability, order,
+      fulfillment and post-fulfillment.
+    details:
+      - description: Order Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **CONFIRMATION FLOW**
+            B ->> BA: Confirms the Order
+            BA ->> SA: **/confirm** - Confirms the order by paying to create final digital contract
+            SA ->> BA: **/on_confirm** - Accepts the order 
+            BA ->> B: Confirms order
+      - description: Fulfillment
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp      
+            Note Over B,SA: **ORDER INVALID TERMS FLOW**
+            SA ->> BA: **/on_status** - Updates that buyer has<br>reached the location
+            SA ->> BA: **/on_status** - Updates that order<br> is complete and payment is <br>received
+            BA ->> B: Updates the user
+    reference: if any
+    steps:
+      - summary: Seller accepts the order
+        api: on_confirm
+        description: Seller accepts the order
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV19
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_confirm
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M6
+              timestamp: '2024-04-01T22:00:35.000Z'
+            message:
+              order:
+                id: O1
+                status: Accepted
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - FY1
+                    quantity:
+                      selected:
+                        count: 1
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: FY1
+                    type: Buyer-Fulfilled
+                    state:
+                      descriptor:
+                        code: Pending
+                    stops:
+                      - type: end
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-04-04T10:00:00.000Z'
+                            end: '2024-04-04T11:00:00.000Z'
+                          days: '4'
+                        contact:
+                          phone: '9886098860'
+                        location:
+                          gps: 12.974002,77.613458
+                          area_code: '560001'
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                    customer:
+                      person:
+                        name: Ramu
+                quote:
+                  price:
+                    currency: INR
+                    value: '1099'
+                  breakup:
+                    - title: Weighbridge
+                      price:
+                        currency: INR
+                        value: '999'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '999'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: ITEM
+                    - title: Tax
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: TAX
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '1099'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: BAP_TERMS
+                        list:
+                          - descriptor:
+                              code: FINDER_FEE_TYPE
+                            value: percentage
+                          - descriptor:
+                              code: FINDER_FEE_AMOUNT
+                            value: '3'
+                created_at: '2024-04-01T22:00:38.000Z'
+                updated_at: '2024-04-01T22:00:38.000Z'
+      - summary: Seller sends back the update of order
+        api: on_status (At Location)
+        description: Seller sends back the update of order
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV19
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_status
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M8
+              timestamp: '2024-04-01T22:00:35.000Z'
+            message:
+              order:
+                id: O1
+                status: In-Progress
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - FY1
+                    quantity:
+                      selected:
+                        count: 1
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: FY1
+                    type: Buyer-Fulfilled
+                    state:
+                      descriptor:
+                        code: AT_LOCATION
+                    stops:
+                      - type: end
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-04-04T10:00:00.000Z'
+                            end: '2024-04-04T11:00:00.000Z'
+                          days: '4'
+                        contact:
+                          phone: '9886098860'
+                        location:
+                          gps: 12.974002,77.613458
+                          area_code: '560001'
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                        authorization:
+                          type: OTP
+                          token: '1234'
+                          valid_from: '2024-04-04T22:00:00Z'
+                          valid_to: '2024-04-04T23:00:00Z'
+                          status: valid
+                    customer:
+                      person:
+                        name: Ramu
+                quote:
+                  price:
+                    currency: INR
+                    value: '1099'
+                  breakup:
+                    - title: Weighbridge
+                      price:
+                        currency: INR
+                        value: '999'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '999'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: ITEM
+                    - title: Tax
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: TAX
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '1099'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: BAP_TERMS
+                        list:
+                          - descriptor:
+                              code: FINDER_FEE_TYPE
+                            value: percentage
+                          - descriptor:
+                              code: FINDER_FEE_AMOUNT
+                            value: '3'
+                created_at: '2024-04-01T22:00:38.000Z'
+                updated_at: '2024-04-01T22:00:38.000Z'
+      - summary: Seller sends update for completion
+        api: on_status (Completed)
+        description: >-
+          Seller sends back an update that order is completed and payment is
+          received and attaches timestamp
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV19
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_status
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M8
+              timestamp: '2024-04-01T22:00:35.000Z'
+            message:
+              order:
+                id: O1
+                status: Completed
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - FY1
+                    quantity:
+                      selected:
+                        count: 1
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: FY1
+                    type: Buyer-Fulfilled
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    stops:
+                      - type: end
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-04-04T10:00:00.000Z'
+                            end: '2024-04-04T11:00:00.000Z'
+                          days: '4'
+                        contact:
+                          phone: '9886098860'
+                        location:
+                          gps: 12.974002,77.613458
+                          area_code: '560001'
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                        authorization:
+                          type: OTP
+                          token: '1234'
+                          valid_from: '2024-04-04T22:00:00Z'
+                          valid_to: '2024-04-04T23:00:00Z'
+                          status: valid
+                    customer:
+                      person:
+                        name: Ramu
+                quote:
+                  price:
+                    currency: INR
+                    value: '1099'
+                  breakup:
+                    - title: Weighbridge
+                      price:
+                        currency: INR
+                        value: '999'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '999'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: ITEM
+                    - title: Tax
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: TAX
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '1099'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: FULFILLMENT_DETAILS
+                        list:
+                          - descriptor:
+                              code: COLLECTION_TIMESTAMP
+                            value: '2024-04-01T22:00:38.000Z'
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: BAP_TERMS
+                        list:
+                          - descriptor:
+                              code: FINDER_FEE_TYPE
+                            value: percentage
+                          - descriptor:
+                              code: FINDER_FEE_AMOUNT
+                            value: '3'
+                documents:
+                  - url: https://report_url
+                    descriptor:
+                      name: Report
+                      long_desc: >-
+                        Password protected file can be opened using first 4
+                        letters of order id
+                created_at: '2024-04-01T22:00:38.000Z'
+                updated_at: '2024-04-01T22:00:38.000Z'
 x-examples:
   Services - Weighment Services:
     summary: Weighment Services
