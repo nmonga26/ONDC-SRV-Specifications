@@ -9,14 +9,14 @@
         "code": "IND"
       }
     },
-    "action": "on_update",
+    "action": "on_status",
     "version": "2.0.0",
     "bap_id": "buyerapp.com",
     "bap_uri": "https://buyerapp.com/services",
     "bpp_id": "sellerapp.com",
     "bpp_uri": "https://sellerapp.com/services",
     "transaction_id": "T1",
-    "message_id": "M6",
+    "message_id": "M8",
     "timestamp": "2024-04-01T22:00:35.000Z"
   },
   "message": {
@@ -62,7 +62,7 @@
           "type": "Buyer-Fulfilled",
           "state": {
             "descriptor": {
-              "code": "SLOT_RESCHEDULED"
+              "code": "AT_LOCATION"
             }
           },
           "stops": [
@@ -86,6 +86,13 @@
               "instructions": {
                 "name": "Special Instructions",
                 "short_desc": "Customer Special Instructions"
+              },
+              "authorization": {
+                "type": "OTP",
+                "token": "1234",
+                "valid_from": "2024-04-04T22:00:00Z",
+                "valid_to": "2024-04-04T23:00:00Z",
+                "status": "valid"
               }
             }
           ],
@@ -167,15 +174,15 @@
       "payments": [
         {
           "id": "P1",
-          "collected_by": "BAP",
+          "collected_by": "BPP",
           "params": {
             "amount": "1099",
             "currency": "INR",
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
-          "status": "PAID",
-          "type": "PRE-FULFILLMENT",
+          "status": "NOT-PAID",
+          "type": "ON-FULFILLMENT",
           "tags": [
             {
               "descriptor": {

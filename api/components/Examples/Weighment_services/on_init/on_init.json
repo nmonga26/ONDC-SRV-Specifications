@@ -17,8 +17,7 @@
     "bpp_uri": "https://sellerapp.com/services",
     "transaction_id": "T1",
     "message_id": "M4",
-    "timestamp": "2024-04-01T22:00:35.000Z",
-    "ttl": "P30S"
+    "timestamp": "2024-04-01T22:00:35.000Z"
   },
   "message": {
     "order": {

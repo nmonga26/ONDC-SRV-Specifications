@@ -99,7 +99,7 @@
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "1099"
+          "value": "1199"
         },
         "breakup": [
           {
@@ -160,6 +160,31 @@
                 ]
               }
             ]
+          },
+          {
+            "title": "Reschedule fee",
+            "price": {
+              "currency": "INR",
+              "value": "100"
+            },
+            "item": {
+              "id": "I1"
+            },
+            "tags": [
+              {
+                "descriptor": {
+                  "code": "title"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "type"
+                    },
+                    "value": "MISC"
+                  }
+                ]
+              }
+            ]
           }
         ],
         "ttl": "P1D"
@@ -175,6 +200,82 @@
             "virtual_payment_address": "xxx@xxxx"
           },
           "status": "PAID",
+          "type": "PRE-FULFILLMENT",
+          "tags": [
+            {
+              "descriptor": {
+                "code": "Settlement_Details"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Counterparty"
+                  },
+                  "value": "BPP"
+                },
+                {
+                  "descriptor": {
+                    "code": "Mode"
+                  },
+                  "value": "UPI"
+                },
+                {
+                  "descriptor": {
+                    "code": "Beneficiary_Name"
+                  },
+                  "value": "xxxxx"
+                },
+                {
+                  "descriptor": {
+                    "code": "Bank_Account_No"
+                  },
+                  "value": "xxxxx"
+                },
+                {
+                  "descriptor": {
+                    "code": "Ifsc_Code"
+                  },
+                  "value": "xxxxxxx"
+                },
+                {
+                  "descriptor": {
+                    "code": "UPI_Address"
+                  },
+                  "value": "xxxxxxx"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "BAP_TERMS"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "FINDER_FEE_TYPE"
+                  },
+                  "value": "percentage"
+                },
+                {
+                  "descriptor": {
+                    "code": "FINDER_FEE_AMOUNT"
+                  },
+                  "value": "3"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "P2",
+          "collected_by": "BAP",
+          "params": {
+            "amount": "100",
+            "currency": "INR",
+            "bank_account_number": "xxxxxxxx",
+            "virtual_payment_address": "xxx@xxxx"
+          },
+          "status": "NOT-PAID",
           "type": "PRE-FULFILLMENT",
           "tags": [
             {

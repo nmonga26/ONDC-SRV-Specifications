@@ -17,7 +17,6 @@ value:
     transaction_id: T1
     message_id: M6
     timestamp: '2024-04-01T22:00:35.000Z'
-    ttl: P30S
   message:
     order:
       id: O1

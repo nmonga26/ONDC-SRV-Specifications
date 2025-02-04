@@ -2811,7 +2811,7 @@ x-tags:
                       fulfilment has been changed
                     reference: <PR/Issue/Discussion Links md format text>
               - code: RESCHEDULE_TERMS
-                description: Intake to be taken before the test
+                description: Reschedule terms
                 reference: <PR/Issue/Discussion Links md format text>
                 list: *ref_7
         offers:
@@ -2907,7 +2907,7 @@ x-tags:
                 list:
                   - code: color
                     description: Hex Code for color
-                    reference: <PR/Issue/Discussion Links md format text>
+                    reference: <PR/Issfue/Discussion Links md format text>
   on_update:
     message: *ref_12
 x-flows:
@@ -3044,7 +3044,6 @@ x-flows:
               transaction_id: T1
               message_id: M1
               timestamp: '2023-01-08T22:00:30.000Z'
-              ttl: PT30S
             message:
               catalog:
                 fulfillments:
@@ -3072,55 +3071,6 @@ x-flows:
                         - url: https://abc.com/images/1-shop-img
                     rating: '4.4'
                     ttl: P1D
-                    categories:
-                      - id: C1
-                        descriptor:
-                          name: Pujaris
-                          code: PUJARIS
-                        tags:
-                          - descriptor:
-                              code: selection
-                            list:
-                              - descriptor:
-                                  code: seq
-                                value: '1'
-                              - descriptor:
-                                  code: mandatory_selection
-                                value: 'true'
-                              - descriptor:
-                                  code: min_selection
-                                value: '1'
-                              - descriptor:
-                                  code: max_selection
-                                value: '1'
-                      - id: C2
-                        descriptor:
-                          name: Career
-                          code: CAREER
-                      - id: C3
-                        descriptor:
-                          name: Marriage
-                          code: MARRIAGE
-                      - id: C4
-                        descriptor:
-                          name: Love
-                          code: LOVE
-                      - id: C5
-                        descriptor:
-                          name: Energy
-                          code: ENERGY
-                      - id: C6
-                        descriptor:
-                          name: Home
-                          code: HOME
-                      - id: C7
-                        descriptor:
-                          name: Education
-                          code: EDUCATION
-                      - id: C8
-                        descriptor:
-                          name: Job
-                          code: JOB
                     locations:
                       - id: L1
                         gps: 12.967555,77.749666
@@ -3164,7 +3114,7 @@ x-flows:
                     items:
                       - id: I1
                         descriptor:
-                          name: Weighbridge
+                          name: Weighbridge 0 - 30MT
                           code: WEIGH-001
                           short_desc: Weighbridge Facility
                           long_desc: Weighbridge Facility
@@ -3205,6 +3155,136 @@ x-flows:
                                 value: 0 MT
                               - descriptor:
                                   code: WEIGHING_CAPACITY_MAX
+                                value: 30 MT
+                              - descriptor:
+                                  code: WEIGHT_TYPE
+                                value: UNLOADED
+                              - descriptor:
+                                  code: MAX_NUMBER_OF_WHEELS
+                                value: '12'
+                              - descriptor:
+                                  code: MAX_DIMENSIONS
+                                value: 17,6,7
+                              - descriptor:
+                                  code: DIMENSIONS_UNIT
+                                value: feet
+                              - descriptor:
+                                  code: WEIGHMENT_TYPE
+                                value: AUTOMATIC
+                          - descriptor:
+                              code: REQUIRED_DOCUMENTS
+                            list:
+                              - descriptor:
+                                  code: DOCUMENTS
+                                value: >-
+                                  INVOICE_OF_MATERIAL,COMPANY_PROOF,ID_PROOF,VEHICLE_REGISTRATION
+                          - descriptor:
+                              code: RESCHEDULE_TERMS
+                            list:
+                              - descriptor:
+                                  code: FULFILLMENT_STATE
+                                value: Pending
+                              - descriptor:
+                                  code: RESCHEDULE_ELIGIBLE
+                                value: 'true'
+                              - descriptor:
+                                  code: RESCHEDULE_FEE
+                                value: '0.00'
+                              - descriptor:
+                                  code: RESCHEDULE_WITHIN
+                                value: PT1D
+                          - descriptor:
+                              code: RESCHEDULE_TERMS
+                            list:
+                              - descriptor:
+                                  code: FULFILLMENT_STATE
+                                value: In-Transit
+                              - descriptor:
+                                  code: RESCHEDULE_ELIGIBLE
+                                value: 'true'
+                              - descriptor:
+                                  code: RESCHEDULE_FEE
+                                value: '10.00'
+                              - descriptor:
+                                  code: RESCHEDULE_WITHIN
+                                value: PT1D
+                        category_ids:
+                          - SRV19-1000
+                        fulfillment_ids:
+                          - F1
+                        location_ids:
+                          - L1
+                        payment_ids:
+                          - '2'
+                        cancellation_terms:
+                          - fulfillment_state:
+                              descriptor:
+                                code: Pending
+                            cancel_by:
+                              duration: P1D
+                            cancellation_fee:
+                              amount:
+                                value: '0'
+                            reason_required: false
+                          - fulfillment_state:
+                              descriptor:
+                                code: In-Transit
+                            cancel_by:
+                              duration: P1D
+                            cancellation_fee:
+                              percentage: '5'
+                            reason_required: true
+                          - fulfillment_state:
+                              descriptor:
+                                code: At-Location
+                            cancel_by:
+                              duration: P1D
+                            cancellation_fee:
+                              percentage: '25'
+                            reason_required: true
+                      - id: I1
+                        descriptor:
+                          name: Weighbridge 30 - 50MT
+                          code: WEIGH-001
+                          short_desc: Weighbridge Facility
+                          long_desc: Weighbridge Facility
+                          media:
+                            - mimetype: video/mp4
+                              url: video_url
+                        price:
+                          currency: INR
+                          value: '999.00'
+                          maximum_value: '999.00'
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: unit
+                              value: '1'
+                        time:
+                          label: validity
+                          range:
+                            start: '2024-04-01T00:00:00.000Z'
+                            end: '2024-04-10T00:00:00.000Z'
+                          days: 04,05
+                          schedule:
+                            frequency: PT1H
+                            holidays:
+                              - '2024-04-09'
+                              - '2024-04-07'
+                            times:
+                              - '2024-04-04T22:00:00.000Z'
+                              - '2024-04-06T22:00:00.000Z'
+                              - '2024-04-08T22:00:00.000Z'
+                              - '2024-04-10T22:00:00.000Z'
+                        tags:
+                          - descriptor:
+                              code: ATTRIBUTES
+                            list:
+                              - descriptor:
+                                  code: WEIGHING_CAPACITY_MIN
+                                value: 30 MT
+                              - descriptor:
+                                  code: WEIGHING_CAPACITY_MAX
                                 value: 50 MT
                               - descriptor:
                                   code: WEIGHT_TYPE
@@ -3213,8 +3293,11 @@ x-flows:
                                   code: MAX_NUMBER_OF_WHEELS
                                 value: '16'
                               - descriptor:
-                                  code: DIMENSIONS
-                                value: 17ft,6ft,7ft
+                                  code: MAX_DIMENSIONS
+                                value: 17,6,7
+                              - descriptor:
+                                  code: DIMENSIONS_UNIT
+                                value: feet
                               - descriptor:
                                   code: WEIGHMENT_TYPE
                                 value: AUTOMATIC
@@ -3372,7 +3455,6 @@ x-flows:
               transaction_id: T1
               message_id: M2
               timestamp: '2024-04-01T22:00:31.000Z'
-              ttl: PT30S
             message:
               order:
                 provider:
@@ -3388,13 +3470,6 @@ x-flows:
                     quantity:
                       selected:
                         count: 1
-                    tags:
-                      - descriptor:
-                          code: SELECTION
-                        list:
-                          - descriptor:
-                              code: PUJARIS
-                            value: PU1
                 fulfillments:
                   - id: FY1
                     type: Buyer-Fulfilled
@@ -3543,7 +3618,6 @@ x-flows:
               transaction_id: T1
               message_id: M4
               timestamp: '2024-04-01T22:00:35.000Z'
-              ttl: P30S
             message:
               order:
                 provider:
@@ -3844,7 +3918,6 @@ x-flows:
               transaction_id: T1
               message_id: M6
               timestamp: '2024-04-01T22:00:35.000Z'
-              ttl: P30S
             message:
               order:
                 id: O1
@@ -4031,7 +4104,6 @@ x-flows:
               transaction_id: T1
               message_id: M8
               timestamp: '2024-04-01T22:00:35.000Z'
-              ttl: P30S
             message:
               order:
                 id: O1
@@ -4197,7 +4269,6 @@ x-flows:
               transaction_id: T1
               message_id: M8
               timestamp: '2024-04-01T22:00:35.000Z'
-              ttl: P30S
             message:
               order:
                 id: O1
@@ -4346,7 +4417,7 @@ x-flows:
                         letters of order id
                 created_at: '2024-04-01T22:00:38.000Z'
                 updated_at: '2024-04-01T22:00:38.000Z'
-  - summary: Weighment Services - Cancellation
+  - summary: Weighment Services - Buyer Cancellation
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to request for Weighment services. The booking
@@ -4537,11 +4608,15 @@ x-flows:
               transaction_id: T1
               message_id: M8
               timestamp: '2024-04-01T22:00:35.000Z'
-              ttl: P30S
             message:
               order:
                 id: O1
                 status: Cancelled
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '012'
                 provider:
                   id: P1
                   locations:
@@ -4744,10 +4819,17 @@ x-flows:
             participant BA as BuyerApp
             participant SA as SellerApp      
             Note Over B,SA: **ORDER INVALID TERMS FLOW**
-            BA ->> SA: **/update** - Provides reschedule details<br>like time and day
             SA ->> BA: **/on_status** - Updates that buyer has<br>reached the location
             SA ->> BA: **/on_status** - Updates that documents/measurements<br>were not sufficient <br>for service
-            SA ->> BA: **/on_status** - Reschedules the<br>slot for service
+            alt Seller reschedules
+            SA ->> BA: **/on_update** - Reschedules the<br>slot for service
+            end
+            alt Seller cancels the order and initiates refund if applicable
+            SA ->> BA: **/on_cancel** - Cancels the service
+            end
+            alt Seller reschedules and charges additional fee
+            SA ->> BA: **/on_update** - Reschedules the<br>slot for service and charges fee
+            end
             BA ->> B: Updates the user
     reference: if any
     steps:
@@ -4826,7 +4908,6 @@ x-flows:
               transaction_id: T1
               message_id: M8
               timestamp: '2024-04-01T22:00:35.000Z'
-              ttl: P30S
             message:
               order:
                 id: O1
@@ -4969,7 +5050,7 @@ x-flows:
                 created_at: '2024-04-01T22:00:38.000Z'
                 updated_at: '2024-04-01T22:00:38.000Z'
       - summary: Seller reschedules the service
-        api: on_update
+        api: on_update (Case 1)
         description: Seller reschedules the service if applicable
         reference: if any
         example: &ref_24
@@ -4992,7 +5073,6 @@ x-flows:
               transaction_id: T1
               message_id: M6
               timestamp: '2024-04-01T22:00:35.000Z'
-              ttl: P30S
             message:
               order:
                 id: O1
@@ -5044,6 +5124,388 @@ x-flows:
                         instructions:
                           name: Special Instructions
                           short_desc: Customer Special Instructions
+                    customer:
+                      person:
+                        name: Ramu
+                quote:
+                  price:
+                    currency: INR
+                    value: '1099'
+                  breakup:
+                    - title: Weighbridge
+                      price:
+                        currency: INR
+                        value: '999'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '999'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: ITEM
+                    - title: Tax
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: TAX
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BAP
+                    params:
+                      amount: '1099'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: BAP_TERMS
+                        list:
+                          - descriptor:
+                              code: FINDER_FEE_TYPE
+                            value: percentage
+                          - descriptor:
+                              code: FINDER_FEE_AMOUNT
+                            value: '3'
+                created_at: '2024-04-01T22:00:38.000Z'
+                updated_at: '2024-04-01T22:00:38.000Z'
+      - summary: Seller reschedules the service and charges fees
+        api: on_update (Case 2)
+        description: Seller reschedules the service if applicable
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV19
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M6
+              timestamp: '2024-04-01T22:00:35.000Z'
+            message:
+              order:
+                id: O1
+                status: In-Progress
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - FY1
+                    quantity:
+                      selected:
+                        count: 1
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: FY1
+                    type: Buyer-Fulfilled
+                    state:
+                      descriptor:
+                        code: SLOT_RESCHEDULED
+                    stops:
+                      - type: end
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-04-04T10:00:00.000Z'
+                            end: '2024-04-04T11:00:00.000Z'
+                          days: '4'
+                        contact:
+                          phone: '9886098860'
+                        location:
+                          gps: 12.974002,77.613458
+                          area_code: '560001'
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                    customer:
+                      person:
+                        name: Ramu
+                quote:
+                  price:
+                    currency: INR
+                    value: '1199'
+                  breakup:
+                    - title: Weighbridge
+                      price:
+                        currency: INR
+                        value: '999'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '999'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: ITEM
+                    - title: Tax
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: TAX
+                    - title: Reschedule fee
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: MISC
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BAP
+                    params:
+                      amount: '1099'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: BAP_TERMS
+                        list:
+                          - descriptor:
+                              code: FINDER_FEE_TYPE
+                            value: percentage
+                          - descriptor:
+                              code: FINDER_FEE_AMOUNT
+                            value: '3'
+                  - id: P2
+                    collected_by: BAP
+                    params:
+                      amount: '100'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: BAP_TERMS
+                        list:
+                          - descriptor:
+                              code: FINDER_FEE_TYPE
+                            value: percentage
+                          - descriptor:
+                              code: FINDER_FEE_AMOUNT
+                            value: '3'
+                created_at: '2024-04-01T22:00:38.000Z'
+                updated_at: '2024-04-01T22:00:38.000Z'
+      - summary: Seller cancels the service
+        api: on_cancel (Case 3)
+        description: Seller cancels the order and refunds if applicable
+        reference: if any
+        example:
+          summary: ''
+          description: ''
+          value:
+            context:
+              domain: ONDC:SRV19
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_status
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M8
+              timestamp: '2024-04-01T22:00:35.000Z'
+            message:
+              order:
+                id: O1
+                status: Cancelled
+                cancellation:
+                  cancelled_by: PROVIDER
+                  reason:
+                    descriptor:
+                      code: '002'
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - FY1
+                    quantity:
+                      selected:
+                        count: 1
+                billing:
+                  name: ONDC buyer
+                  address: >-
+                    22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar,
+                    Bengaluru, Karnataka 560001
+                  state:
+                    name: Karnataka
+                  city:
+                    name: Bengaluru
+                  tax_id: XXXXXXXXXXXXXXX
+                  email: nobody@nomail.com
+                  phone: '9886098860'
+                fulfillments:
+                  - id: FY1
+                    type: Buyer-Fulfilled
+                    state:
+                      descriptor:
+                        code: CANCELLED
+                    stops:
+                      - type: end
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-04-04T10:00:00.000Z'
+                            end: '2024-04-04T11:00:00.000Z'
+                          days: '4'
+                        contact:
+                          phone: '9886098860'
+                        location:
+                          gps: 12.974002,77.613458
+                          area_code: '560001'
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                        authorization:
+                          type: OTP
+                          token: '1234'
+                          valid_from: '2024-04-04T22:00:00Z'
+                          valid_to: '2024-04-04T23:00:00Z'
+                          status: valid
                     customer:
                       person:
                         name: Ramu
@@ -5744,7 +6206,6 @@ x-examples:
                 transaction_id: T1
                 message_id: M1
                 timestamp: '2023-01-08T22:00:30.000Z'
-                ttl: PT30S
               message:
                 catalog:
                   fulfillments:
@@ -5772,55 +6233,6 @@ x-examples:
                           - url: https://abc.com/images/1-shop-img
                       rating: '4.4'
                       ttl: P1D
-                      categories:
-                        - id: C1
-                          descriptor:
-                            name: Pujaris
-                            code: PUJARIS
-                          tags:
-                            - descriptor:
-                                code: selection
-                              list:
-                                - descriptor:
-                                    code: seq
-                                  value: '1'
-                                - descriptor:
-                                    code: mandatory_selection
-                                  value: 'true'
-                                - descriptor:
-                                    code: min_selection
-                                  value: '1'
-                                - descriptor:
-                                    code: max_selection
-                                  value: '1'
-                        - id: C2
-                          descriptor:
-                            name: Career
-                            code: CAREER
-                        - id: C3
-                          descriptor:
-                            name: Marriage
-                            code: MARRIAGE
-                        - id: C4
-                          descriptor:
-                            name: Love
-                            code: LOVE
-                        - id: C5
-                          descriptor:
-                            name: Energy
-                            code: ENERGY
-                        - id: C6
-                          descriptor:
-                            name: Home
-                            code: HOME
-                        - id: C7
-                          descriptor:
-                            name: Education
-                            code: EDUCATION
-                        - id: C8
-                          descriptor:
-                            name: Job
-                            code: JOB
                       locations:
                         - id: L1
                           gps: 12.967555,77.749666
@@ -5865,7 +6277,7 @@ x-examples:
                       items:
                         - id: I1
                           descriptor:
-                            name: Weighbridge
+                            name: Weighbridge 0 - 30MT
                             code: WEIGH-001
                             short_desc: Weighbridge Facility
                             long_desc: Weighbridge Facility
@@ -5906,6 +6318,136 @@ x-examples:
                                   value: 0 MT
                                 - descriptor:
                                     code: WEIGHING_CAPACITY_MAX
+                                  value: 30 MT
+                                - descriptor:
+                                    code: WEIGHT_TYPE
+                                  value: UNLOADED
+                                - descriptor:
+                                    code: MAX_NUMBER_OF_WHEELS
+                                  value: '12'
+                                - descriptor:
+                                    code: MAX_DIMENSIONS
+                                  value: 17,6,7
+                                - descriptor:
+                                    code: DIMENSIONS_UNIT
+                                  value: feet
+                                - descriptor:
+                                    code: WEIGHMENT_TYPE
+                                  value: AUTOMATIC
+                            - descriptor:
+                                code: REQUIRED_DOCUMENTS
+                              list:
+                                - descriptor:
+                                    code: DOCUMENTS
+                                  value: >-
+                                    INVOICE_OF_MATERIAL,COMPANY_PROOF,ID_PROOF,VEHICLE_REGISTRATION
+                            - descriptor:
+                                code: RESCHEDULE_TERMS
+                              list:
+                                - descriptor:
+                                    code: FULFILLMENT_STATE
+                                  value: Pending
+                                - descriptor:
+                                    code: RESCHEDULE_ELIGIBLE
+                                  value: 'true'
+                                - descriptor:
+                                    code: RESCHEDULE_FEE
+                                  value: '0.00'
+                                - descriptor:
+                                    code: RESCHEDULE_WITHIN
+                                  value: PT1D
+                            - descriptor:
+                                code: RESCHEDULE_TERMS
+                              list:
+                                - descriptor:
+                                    code: FULFILLMENT_STATE
+                                  value: In-Transit
+                                - descriptor:
+                                    code: RESCHEDULE_ELIGIBLE
+                                  value: 'true'
+                                - descriptor:
+                                    code: RESCHEDULE_FEE
+                                  value: '10.00'
+                                - descriptor:
+                                    code: RESCHEDULE_WITHIN
+                                  value: PT1D
+                          category_ids:
+                            - SRV19-1000
+                          fulfillment_ids:
+                            - F1
+                          location_ids:
+                            - L1
+                          payment_ids:
+                            - '2'
+                          cancellation_terms:
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Pending
+                              cancel_by:
+                                duration: P1D
+                              cancellation_fee:
+                                amount:
+                                  value: '0'
+                              reason_required: false
+                            - fulfillment_state:
+                                descriptor:
+                                  code: In-Transit
+                              cancel_by:
+                                duration: P1D
+                              cancellation_fee:
+                                percentage: '5'
+                              reason_required: true
+                            - fulfillment_state:
+                                descriptor:
+                                  code: At-Location
+                              cancel_by:
+                                duration: P1D
+                              cancellation_fee:
+                                percentage: '25'
+                              reason_required: true
+                        - id: I1
+                          descriptor:
+                            name: Weighbridge 30 - 50MT
+                            code: WEIGH-001
+                            short_desc: Weighbridge Facility
+                            long_desc: Weighbridge Facility
+                            media:
+                              - mimetype: video/mp4
+                                url: video_url
+                          price:
+                            currency: INR
+                            value: '999.00'
+                            maximum_value: '999.00'
+                          quantity:
+                            unitized:
+                              measure:
+                                unit: unit
+                                value: '1'
+                          time:
+                            label: validity
+                            range:
+                              start: '2024-04-01T00:00:00.000Z'
+                              end: '2024-04-10T00:00:00.000Z'
+                            days: 04,05
+                            schedule:
+                              frequency: PT1H
+                              holidays:
+                                - '2024-04-09'
+                                - '2024-04-07'
+                              times:
+                                - '2024-04-04T22:00:00.000Z'
+                                - '2024-04-06T22:00:00.000Z'
+                                - '2024-04-08T22:00:00.000Z'
+                                - '2024-04-10T22:00:00.000Z'
+                          tags:
+                            - descriptor:
+                                code: ATTRIBUTES
+                              list:
+                                - descriptor:
+                                    code: WEIGHING_CAPACITY_MIN
+                                  value: 30 MT
+                                - descriptor:
+                                    code: WEIGHING_CAPACITY_MAX
                                   value: 50 MT
                                 - descriptor:
                                     code: WEIGHT_TYPE
@@ -5914,8 +6456,11 @@ x-examples:
                                     code: MAX_NUMBER_OF_WHEELS
                                   value: '16'
                                 - descriptor:
-                                    code: DIMENSIONS
-                                  value: 17ft,6ft,7ft
+                                    code: MAX_DIMENSIONS
+                                  value: 17,6,7
+                                - descriptor:
+                                    code: DIMENSIONS_UNIT
+                                  value: feet
                                 - descriptor:
                                     code: WEIGHMENT_TYPE
                                   value: AUTOMATIC
@@ -6011,7 +6556,6 @@ x-examples:
                 transaction_id: T1
                 message_id: M2
                 timestamp: '2024-04-01T22:00:31.000Z'
-                ttl: PT30S
               message:
                 order:
                   provider:
@@ -6027,13 +6571,6 @@ x-examples:
                       quantity:
                         selected:
                           count: 1
-                      tags:
-                        - descriptor:
-                            code: SELECTION
-                          list:
-                            - descriptor:
-                                code: PUJARIS
-                              value: PU1
                   fulfillments:
                     - id: FY1
                       type: Buyer-Fulfilled
@@ -6110,7 +6647,6 @@ x-examples:
                 transaction_id: T1
                 message_id: M4
                 timestamp: '2024-04-01T22:00:35.000Z'
-                ttl: P30S
               message:
                 order:
                   provider:
@@ -6251,7 +6787,6 @@ x-examples:
                 transaction_id: T1
                 message_id: M6
                 timestamp: '2024-04-01T22:00:35.000Z'
-                ttl: P30S
               message:
                 order:
                   id: O1
@@ -6408,7 +6943,6 @@ x-examples:
                 transaction_id: T1
                 message_id: M8
                 timestamp: '2024-04-01T22:00:35.000Z'
-                ttl: P30S
               message:
                 order:
                   id: O1
@@ -6569,7 +7103,6 @@ x-examples:
                 transaction_id: T1
                 message_id: M8
                 timestamp: '2024-04-01T22:00:35.000Z'
-                ttl: P30S
               message:
                 order:
                   id: O1
@@ -6730,7 +7263,6 @@ x-examples:
                 transaction_id: T1
                 message_id: M8
                 timestamp: '2024-04-01T22:00:35.000Z'
-                ttl: P30S
               message:
                 order:
                   id: O1
@@ -6900,7 +7432,6 @@ x-examples:
                 transaction_id: T1
                 message_id: M6
                 timestamp: '2024-04-01T22:00:35.000Z'
-                ttl: P30S
               message:
                 order:
                   id: O1
@@ -7057,11 +7588,15 @@ x-examples:
                 transaction_id: T1
                 message_id: M8
                 timestamp: '2024-04-01T22:00:35.000Z'
-                ttl: P30S
               message:
                 order:
                   id: O1
                   status: Cancelled
+                  cancellation:
+                    cancelled_by: CONSUMER
+                    reason:
+                      descriptor:
+                        code: '012'
                   provider:
                     id: P1
                     locations:
@@ -7840,23 +8375,13 @@ x-attributes:
                     usage: '2023-11-16T09:00:00.000Z'
 x-errorcodes:
   code:
-    - Code: '100001'
+    - Code: '110001'
       Reason: Schedule selected by the buyer is not available
       Who can use code?: BPP
       Usage: Used in error object
       Action: /on_select
-    - Code: '100002'
-      Reason: Incorrect OTP provided by buyer
-      Who can use code?: BPP
-      Usage: Used in error object
-      Action: /on_status
-    - Code: '100003'
-      Reason: Schedule is not provided by the buyer
-      Who can use code?: BPP
-      Usage: Used in NACK
-      Action: NACK on /select
-    - Code: '100004'
-      Reason: Reschedule not possible for ad
+    - Code: '110002'
+      Reason: Reschedule not possible for service
       Who can use code?: BPP
       Usage: Used in error object
       Action: /on_update

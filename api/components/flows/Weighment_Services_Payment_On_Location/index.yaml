@@ -1,0 +1,45 @@
+summary: Weighment Services - Unsuccessful Measurements/Insufficient Docs
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for Weighment services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+details:
+  - description: Order Confirmation
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp
+        Note Over B,SA: **CONFIRMATION FLOW**
+        B ->> BA: Confirms the Order
+        BA ->> SA: **/confirm** - Confirms the order by paying to create final digital contract
+        SA ->> BA: **/on_confirm** - Accepts the order 
+        BA ->> B: Confirms order
+  - description: Fulfillment
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp      
+        Note Over B,SA: **ORDER INVALID TERMS FLOW**
+        SA ->> BA: **/on_status** - Updates that buyer has<br>reached the location
+        SA ->> BA: **/on_status** - Updates that order<br> is complete and payment is <br>received
+        BA ->> B: Updates the user
+
+reference: if any
+steps:
+  - summary: Seller accepts the order
+    api: on_confirm
+    description: Seller accepts the order
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/on_confirm/on_confirm_on_fulfillment.yaml"
+  - summary: Seller sends back the update of order
+    api: on_status (At Location)
+    description: Seller sends back the update of order
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/on_status/on_status_location_fulfillment.yaml"
+  - summary: Seller sends update for completion
+    api: on_status (Completed)
+    description: Seller sends back an update that order is completed and payment is received and attaches timestamp
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/on_status/on_status_completed_fulfillment.yaml"

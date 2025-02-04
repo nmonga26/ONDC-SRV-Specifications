@@ -17,11 +17,15 @@ value:
     transaction_id: T1
     message_id: M8
     timestamp: '2024-04-01T22:00:35.000Z'
-    ttl: P30S
   message:
     order:
       id: O1
       status: Cancelled
+      cancellation:
+        cancelled_by: CONSUMER
+        reason:
+          descriptor:
+            code: '012'
       provider:
         id: P1
         locations:

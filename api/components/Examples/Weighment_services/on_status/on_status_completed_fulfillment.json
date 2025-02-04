@@ -9,20 +9,20 @@
         "code": "IND"
       }
     },
-    "action": "on_update",
+    "action": "on_status",
     "version": "2.0.0",
     "bap_id": "buyerapp.com",
     "bap_uri": "https://buyerapp.com/services",
     "bpp_id": "sellerapp.com",
     "bpp_uri": "https://sellerapp.com/services",
     "transaction_id": "T1",
-    "message_id": "M6",
+    "message_id": "M8",
     "timestamp": "2024-04-01T22:00:35.000Z"
   },
   "message": {
     "order": {
       "id": "O1",
-      "status": "In-Progress",
+      "status": "Completed",
       "provider": {
         "id": "P1",
         "locations": [
@@ -62,7 +62,7 @@
           "type": "Buyer-Fulfilled",
           "state": {
             "descriptor": {
-              "code": "SLOT_RESCHEDULED"
+              "code": "COMPLETED"
             }
           },
           "stops": [
@@ -86,6 +86,13 @@
               "instructions": {
                 "name": "Special Instructions",
                 "short_desc": "Customer Special Instructions"
+              },
+              "authorization": {
+                "type": "OTP",
+                "token": "1234",
+                "valid_from": "2024-04-04T22:00:00Z",
+                "valid_to": "2024-04-04T23:00:00Z",
+                "status": "valid"
               }
             }
           ],
@@ -167,7 +174,7 @@
       "payments": [
         {
           "id": "P1",
-          "collected_by": "BAP",
+          "collected_by": "BPP",
           "params": {
             "amount": "1099",
             "currency": "INR",
@@ -175,8 +182,21 @@
             "virtual_payment_address": "xxx@xxxx"
           },
           "status": "PAID",
-          "type": "PRE-FULFILLMENT",
+          "type": "ON-FULFILLMENT",
           "tags": [
+            {
+              "descriptor": {
+                "code": "FULFILLMENT_DETAILS"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "COLLECTION_TIMESTAMP"
+                  },
+                  "value": "2024-04-01T22:00:38.000Z"
+                }
+              ]
+            },
             {
               "descriptor": {
                 "code": "Settlement_Details"
@@ -240,6 +260,15 @@
               ]
             }
           ]
+        }
+      ],
+      "documents": [
+        {
+          "url": "https://report_url",
+          "descriptor": {
+            "name": "Report",
+            "long_desc": "Password protected file can be opened using first 4 letters of order id"
+          }
         }
       ],
       "created_at": "2024-04-01T22:00:38.000Z",

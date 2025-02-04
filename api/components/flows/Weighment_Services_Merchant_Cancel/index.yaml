@@ -1,4 +1,4 @@
-summary: Weighment Services - Unsuccessful Measurements/Insufficient Docs
+summary: Weighment Services - Seller Cancellation
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to request for Weighment services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
 details:
   - description: Sequence Diagram for Booking Weighment Service
@@ -51,24 +51,25 @@ details:
         BA ->> SA: **/confirm** - Confirms the order by paying to create final digital contract
         SA ->> BA: **/on_confirm** - Accepts the order 
         BA ->> B: Confirms order
-  - description: Rescheduling if documents were insufficient
+  - description: Fulfillment
     mermaidGraph: >-
       sequenceDiagram
         participant B as Buyer
         participant BA as BuyerApp
         participant SA as SellerApp      
-        Note Over B,SA: **ORDER INVALID TERMS FLOW**
-        SA ->> BA: **/on_status** - Updates that buyer has<br>reached the location
-        SA ->> BA: **/on_status** - Updates that documents/measurements<br>were not sufficient <br>for service
-        alt Seller reschedules
-        SA ->> BA: **/on_update** - Reschedules the<br>slot for service
-        end
-        alt Seller cancels the order and initiates refund if applicable
-        SA ->> BA: **/on_cancel** - Cancels the service
-        end
-        alt Seller reschedules and charges additional fee
-        SA ->> BA: **/on_update** - Reschedules the<br>slot for service and charges fee
-        end
+        Note Over B,SA: **ORDER STATUS FLOW**
+        B ->> BA: Checks the order status
+        BA ->> SA: **/status** - Enquire order status <br>or tracking information
+        SA ->> BA: **/on_status** - Latest order and fulfillment status is sent
+        BA ->> B: Updates the latest order <br>and fulfillment information
+  - description: Cancellation
+    mermaidGraph: >-
+      sequenceDiagram
+        participant B as Buyer
+        participant BA as BuyerApp
+        participant SA as SellerApp      
+        Note Over B,SA: **ORDER CANCELLATION FLOW**
+        SA ->> BA: **/on_cancel** - Cancels the order and gives reason
         BA ->> B: Updates the user
 
 reference: if any
@@ -121,33 +122,27 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Weighment_services_yaml/on_confirm/on_confirm.yaml"
+  - summary: Buyer requests for the status
+    api: status
+    description: Seller provides accepts the order
+    reference: if any
+    example:
+      $ref: "../../Examples/Weighment_services_yaml/status/status.yaml"
   - summary: Seller sends back the update of order
     api: on_status (At Location)
     description: Seller sends back the update of order
     reference: if any
     example:
       $ref: "../../Examples/Weighment_services_yaml/on_status/on_status_at_location.yaml"
-  - summary: Seller sends update for terms violation
-    api: on_status (Insufficient Documents)
-    description: Seller sends back an update that documents/measurements were not proper
+  - summary: Seller sends back the when the order is completed
+    api: on_status (Completed)
+    description: Seller sends back an update with fulfillment and order status updated
     reference: if any
     example:
-      $ref: "../../Examples/Weighment_services_yaml/on_status/on_status_insufficient_docs.yaml"
-  - summary: Seller reschedules the service
-    api: on_update (Case 1)
-    description: Seller reschedules the service if applicable
-    reference: if any
-    example:
-      $ref: "../../Examples/Weighment_services_yaml/on_update/on_update.yaml"
-  - summary: Seller reschedules the service and charges fees
-    api: on_update (Case 2)
-    description: Seller reschedules the service if applicable
-    reference: if any
-    example:
-      $ref: "../../Examples/Weighment_services_yaml/on_update/on_update_reschedule_fee.yaml"
-  - summary: Seller cancels the service
-    api: on_cancel (Case 3)
-    description: Seller cancels the order and refunds if applicable
+      $ref: "../../Examples/Weighment_services_yaml/on_status/on_status_completed.yaml"
+  - summary: Seller sends cancellation
+    api: on_cancel
+    description: Seller sends cancellation with reason
     reference: if any
     example:
       $ref: "../../Examples/Weighment_services_yaml/on_cancel/on_cancel_merchant.yaml"

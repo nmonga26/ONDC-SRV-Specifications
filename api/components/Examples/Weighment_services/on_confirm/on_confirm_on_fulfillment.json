@@ -9,7 +9,7 @@
         "code": "IND"
       }
     },
-    "action": "on_update",
+    "action": "on_confirm",
     "version": "2.0.0",
     "bap_id": "buyerapp.com",
     "bap_uri": "https://buyerapp.com/services",
@@ -22,7 +22,7 @@
   "message": {
     "order": {
       "id": "O1",
-      "status": "In-Progress",
+      "status": "Accepted",
       "provider": {
         "id": "P1",
         "locations": [
@@ -62,7 +62,7 @@
           "type": "Buyer-Fulfilled",
           "state": {
             "descriptor": {
-              "code": "SLOT_RESCHEDULED"
+              "code": "Pending"
             }
           },
           "stops": [
@@ -167,15 +167,15 @@
       "payments": [
         {
           "id": "P1",
-          "collected_by": "BAP",
+          "collected_by": "BPP",
           "params": {
             "amount": "1099",
             "currency": "INR",
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
-          "status": "PAID",
-          "type": "PRE-FULFILLMENT",
+          "status": "NOT-PAID",
+          "type": "ON-FULFILLMENT",
           "tags": [
             {
               "descriptor": {

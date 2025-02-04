@@ -17,8 +17,7 @@
     "bpp_uri": "https://sellerapp.com/services",
     "transaction_id": "T1",
     "message_id": "M2",
-    "timestamp": "2024-04-01T22:00:31.000Z",
-    "ttl": "PT30S"
+    "timestamp": "2024-04-01T22:00:31.000Z"
   },
   "message": {
     "order": {
@@ -39,22 +38,7 @@
             "selected": {
               "count": 1
             }
-          },
-          "tags": [
-            {
-              "descriptor": {
-                "code": "SELECTION"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "PUJARIS"
-                  },
-                  "value": "PU1"
-                }
-              ]
-            }
-          ]
+          }
         }
       ],
       "fulfillments": [

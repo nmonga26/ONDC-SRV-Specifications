@@ -2,3 +2,5 @@
 - $ref: "./Weightment_Services_Cancellation/index.yaml"
 - $ref: "./Weightment_Services_Insufficient_Docs/index.yaml"
 - $ref: "./Weightment_Services_Reschedule/index.yaml"
+- $ref: "./Weightment_Services_Merchant_Cancel/index.yaml"
+- $ref: "./Weightment_Services_Payment_On_Location/index.yaml"
