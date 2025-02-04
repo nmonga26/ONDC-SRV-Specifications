@@ -3106,19 +3106,19 @@ x-enum:
             title: *ref_2
         payments: *ref_3
         status: &ref_5
-          - code: Created
+          - code: CREATED
             description: The order has been created by the buyer app.
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Accepted
+          - code: ACCEPTED
             description: The order has been accepted by the seller app.
             reference: <PR/Issue/Discussion Links md format text>
-          - code: In-progress
+          - code: IN-PROGRESS
             description: The order is in progress.
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Completed
+          - code: COMPLETED
             description: The service has been completed.
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Cancelled
+          - code: CANCELLED
             description: The order has been cancelled.
             reference: <PR/Issue/Discussion Links md format text>
   on_confirm:
