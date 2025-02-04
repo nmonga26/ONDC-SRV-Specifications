@@ -5911,7 +5911,7 @@ x-flows:
         description: Seller sends cancellation with reason
         reference: if any
         example: *ref_25
-  - summary: Weighment Services - Unsuccessful Measurements/Insufficient Docs
+  - summary: Weighment Services - Payment On Location
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to request for Weighment services. The booking
