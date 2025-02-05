@@ -7,3 +7,4 @@
 - $ref: "./Buyer Cancellation/index.yaml"
 - $ref: "./Merchant Cancellation/index.yaml"
 - $ref: "./Reschedule after confirmation/index.yaml"
+- $ref: "./Home_Cooking_Services_Seller_Collected/index.yaml"
