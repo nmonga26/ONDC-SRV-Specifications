@@ -22,8 +22,10 @@ details:
 
         SRV BAP ->> SRV BPP: **/init** - Buyer initialises the order and provides billing details
         activate SRV BPP
-        SRV BPP ->> SRV BAP: **/on_init** - Seller provides the final quotation and<br/>creates the draft contract
+        SRV BPP ->> SRV BAP: **/on_init** - Seller provides the final quotation and<br/>creates the draft contract and<br/>shares payment gateway URL
         deactivate SRV BPP
+
+        SRV BPP ->> SRV BAP: **/on_status** - Seller shares payment confirmation
 
         SRV BAP ->> SRV BPP: **/confirm** - Buyer makes the payment and creates the order
         activate SRV BPP
@@ -77,7 +79,14 @@ steps:
     description: Seller provides the final quotation and creates the draft contract
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/on_init/on_init_service_customization.yaml"
+      $ref: "../../Examples/Services_home_service_yaml/on_init/on_init_service_customization_seller_collected.yaml"
+  - summary: Seller provides confirmation of payment
+    api: on_status
+    description: Seller provides the unsolicited confirmation of payment received from buyer through the gateway
+    reference: if any
+    example:
+      $ref: "../../Examples/Services_home_service_yaml/on_status/on_status_payment_confirmation_by_seller.yaml"
+  
   - summary: Buyer makes the payment and creates the order
     api: confirm
     description: Buyer makes the payment and creates the order
