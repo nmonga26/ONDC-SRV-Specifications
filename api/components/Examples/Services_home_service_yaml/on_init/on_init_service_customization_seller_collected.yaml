@@ -1,5 +1,5 @@
-summary: Buyer confirm the order for the service and customizations
-description: Buyer makes the payment and creates the order and customizations
+summary: Seller provides the final quotation for the service and customizations
+description: Seller provides the final quotation and creates the draft contract for the service and customizations
 value:
   context:
     domain: ONDC:SRV11
@@ -8,7 +8,7 @@ value:
         code: std:080
       country:
         code: IND
-    action: confirm
+    action: on_init
     version: "2.0.0"
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/services
@@ -16,12 +16,10 @@ value:
     bpp_uri: https://sellerapp.com/services
     transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
     message_id: ea89883a-57ff-44de-87fa-66b07c8d25d9
-    timestamp: "2023-11-08T22:00:38.000Z"
+    timestamp: "2023-11-08T22:00:36.000Z"
     ttl: PT30S
   message:
     order:
-      id: O1
-      status: CREATED
       provider:
         id: P1
         locations:
@@ -60,6 +58,7 @@ value:
           category_ids:
             - C3
             - C21
+            - C31
           fulfillment_ids:
             - F1
           quantity:
@@ -86,7 +85,8 @@ value:
             - F1
           category_ids:
             - C3
-            - C22
+            - C21
+            - C31
           quantity:
             selected:
               count: 1
@@ -166,18 +166,12 @@ value:
                   name: Karnataka
               contact:
                 phone: "9886098860"
-                email: nobody@nomail.com
               time:
                 label: confirmed
                 range:
-                  start: '2024-03-04T10:00:00.000Z'
-                  end: '2024-03-04T18:00:00.000Z'
-              person:
-                name: Ramu
-              instructions:
-                name: ""
-                short_desc: "Specific Instructions - Optional"
-                long_desc: ""
+                  start: "2024-03-04T10:00:00.000Z"
+                  end: "2024-03-04T18:00:00.000Z"
+                days: "4"
       cancellation_terms:
         - fulfillment_state:
             descriptor:
@@ -401,12 +395,11 @@ value:
           collected_by: BPP
           url: https://payment-gateway-url/payment-link
           params:
-            amount: "499.00"
+            amount: "499"
             currency: INR
-            transaction_id: "3937"
             bank_account_number: xxxxxxxx
+            bank_code: xxxxxxxx
             virtual_payment_address: xxx@xxxx
-          status: PAID
           type: PRE-FULFILLMENT
           tags:
             - descriptor:
@@ -431,21 +424,6 @@ value:
                     code: UPI_Address
                   value: xxxxxxx
             - descriptor:
-                code: Settlement_Details
-              list:
-                - descriptor:
-                    code: Window
-                  value: P1D
-                - descriptor:
-                    code: Basis
-                  value: Completed
-                - descriptor:
-                    code: Witholding_Amount
-                  value: "0.00"
-                - descriptor:
-                    code: Phase
-                  value: sale-amount
-            - descriptor:
                 code: Buyer_Finder_Fee
               list:
                 - descriptor:
@@ -463,7 +441,6 @@ value:
             bank_code: xxxxxxxx
             virtual_payment_address: xxx@xxxx
           type: ON-FULFILLMENT
-          status: NOT-PAID
           tags:
             - descriptor:
                 code: Settlement_Counterparty
@@ -510,11 +487,8 @@ value:
                 - descriptor:
                     code: Buyer_Finder_Fee_Amount
                   value: "3"
-      created_at: "2023-02-03T09:30:00.000Z"
-      updated_at: "2023-02-03T09:30:00.000Z"
       xinput:
         form:
           url: https://abc.com/checklist
           mimetype: text/html
-          submission_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
-          status: SUCCESS
+        required: false
