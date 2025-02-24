@@ -26,3 +26,17 @@ tags:
       - code: geojson
         description: If type is 13 - geojson
         reference: <PR/Issue/Discussion Links md format text>
+  quantity_selection:
+    size:
+      - code: Size 1
+        description: If size is 1BHK
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Size 2
+        description: If size is 2BHK
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Size 3
+        description: If size is 3BHK (less than 2000 sqft)
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Size 4
+        description: If size is 3BHK (more than 2000 sqft)
+        reference: <PR/Issue/Discussion Links md format text>

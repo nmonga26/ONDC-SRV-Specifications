@@ -35,10 +35,10 @@ Settlement_Details:
     description: Description of the Tag
     reference: <PR/Issue/Discussion Links md format text>
 Buyer_Finder_Fee:
-  - code: Buyer_Finder_Fee_Type
+  - code: finder_fee_type
     description: If set to “amount” it means Buyer App’s fee is a flat amount in INR. If set to “percent” it means the Buyer App’s fee is set as a percentage of the Total Order Value.
     reference: <PR/Issue/Discussion Links md format text>
-  - code: Buyer_Finder_Fee_Amount
+  - code: finder_fee_amount
     description: The amount of the Buyer App’s fee, to be interpreted in conjunction with the “type” field. If the “type” is set to “Amount”, this value represents the fixed fee in INR. If the “type” is set to “percent”, this value represents the percentage of the Total Order Value.
     reference: <PR/Issue/Discussion Links md format text>
 schedule:
@@ -112,3 +112,12 @@ offers_details:
     description: Discount value applicable
     reference: <PR/Issue/Discussion Links md format text>
 
+quantity_selection:
+  - code: Size 1
+    description: Size of the cleaning area (1 BHK)
+  - code: Size 2
+    description: Size of the cleaning area (2 BHK)
+  - code: Size 3
+    description: Size of the cleaning area (3 BHK but less than 2000 sqft)
+  - code: Size 4
+    description: Size of the cleaning area (3 BHK but more than 2000 sqft)

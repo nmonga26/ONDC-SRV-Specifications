@@ -211,10 +211,10 @@ value:
                 code: Buyer_Finder_Fee
               list:
                 - descriptor:
-                    code: Buyer_Finder_Fee_Type
+                    code: finder_fee_type
                   value: percentage
                 - descriptor:
-                    code: Buyer_Finder_Fee_Amount
+                    code: finder_fee_amount
                   value: "3"
       documents:
         - url: https://invoice_url

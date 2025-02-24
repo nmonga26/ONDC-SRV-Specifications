@@ -3015,6 +3015,20 @@ x-enum:
                 - code: geojson
                   description: If type is 13 - geojson
                   reference: <PR/Issue/Discussion Links md format text>
+            quantity_selection:
+              size:
+                - code: Size 1
+                  description: If size is 1BHK
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Size 2
+                  description: If size is 2BHK
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Size 3
+                  description: If size is 3BHK (less than 2000 sqft)
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Size 4
+                  description: If size is 3BHK (more than 2000 sqft)
+                  reference: <PR/Issue/Discussion Links md format text>
         offers:
           descriptor:
             code:
@@ -3350,13 +3364,13 @@ x-tags:
               reference: <PR/Issue/Discussion Links md format text>
               required: required
               list:
-                - code: Buyer_Finder_Fee_Type
+                - code: finder_fee_type
                   description: >-
                     If set to “amount” it means Buyer App’s fee is a flat amount
                     in INR. If set to “percent” it means the Buyer App’s fee is
                     set as a percentage of the Total Order Value.
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: Buyer_Finder_Fee_Amount
+                - code: finder_fee_amount
                   description: >-
                     The amount of the Buyer App’s fee, to be interpreted in
                     conjunction with the “type” field. If the “type” is set to
@@ -4476,10 +4490,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 xinput:
                   form:
@@ -4718,10 +4732,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
@@ -4985,10 +4999,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
@@ -5247,10 +5261,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
@@ -5485,10 +5499,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
@@ -5724,10 +5738,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
@@ -5952,10 +5966,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
@@ -7992,10 +8006,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -8047,10 +8061,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 xinput:
                   form:
@@ -8511,10 +8525,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -8567,10 +8581,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
@@ -9064,10 +9078,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -9120,10 +9134,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
@@ -9590,10 +9604,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
@@ -9965,10 +9979,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
@@ -10481,10 +10495,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 xinput:
                   form:
@@ -10685,10 +10699,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
@@ -10926,10 +10940,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
@@ -11082,10 +11096,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -11123,10 +11137,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                   - id: P3
                     collected_by: BPP
@@ -11164,10 +11178,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 fulfillments:
                   - id: F1
@@ -11699,10 +11713,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -11741,10 +11755,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                   - id: P3
                     collected_by: BPP
@@ -11782,10 +11796,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 fulfillments:
                   - id: F1
@@ -12848,10 +12862,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 updated_at: '2023-11-08T22:00:57.000Z'
   - summary: Merchant Cancellation Flow
@@ -13202,10 +13216,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 updated_at: '2023-11-08T22:00:57.000Z'
   - summary: Schedule reselection after order confirmation
@@ -13399,10 +13413,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 fulfillments:
                   - id: F1
@@ -13588,10 +13602,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 fulfillments:
                   - id: F1
@@ -14800,10 +14814,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -14855,10 +14869,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 xinput:
                   form:
@@ -15304,10 +15318,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -15359,10 +15373,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 xinput:
                   form:
@@ -15824,10 +15838,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -15880,10 +15894,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
@@ -16377,10 +16391,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -16433,10 +16447,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
@@ -16903,10 +16917,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
+                              code: finder_fee_type
                             value: percentage
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
@@ -17895,10 +17909,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
@@ -18136,10 +18150,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
@@ -18599,10 +18613,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                     - id: P2
                       collected_by: BPP
@@ -18655,10 +18669,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
@@ -18766,10 +18780,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                     - id: P2
                       collected_by: BPP
@@ -18808,10 +18822,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                     - id: P3
                       collected_by: BPP
@@ -18849,10 +18863,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   fulfillments:
                     - id: F1
@@ -21847,10 +21861,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   xinput:
                     form:
@@ -22069,10 +22083,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   xinput:
                     form:
@@ -22511,10 +22525,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                     - id: P2
                       collected_by: BPP
@@ -22566,10 +22580,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   xinput:
                     form:
@@ -22799,10 +22813,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
@@ -23059,10 +23073,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
@@ -23549,10 +23563,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                     - id: P2
                       collected_by: BPP
@@ -23605,10 +23619,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
@@ -23833,10 +23847,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   documents:
                     - url: https://invoice_url
@@ -24057,10 +24071,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   documents:
                     - url: https://invoice_url
@@ -24286,10 +24300,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   documents:
                     - url: https://invoice_url
@@ -24740,10 +24754,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   documents:
                     - url: https://invoice_url
@@ -24970,10 +24984,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   documents:
                     - url: https://invoice_url
@@ -25210,10 +25224,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   documents:
                     - url: https://invoice_url
@@ -25323,10 +25337,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                     - id: P2
                       collected_by: BPP
@@ -25364,10 +25378,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                     - id: P3
                       collected_by: BPP
@@ -25405,10 +25419,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   fulfillments:
                     - id: F1
@@ -26081,10 +26095,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   updated_at: '2023-11-08T22:00:57.000Z'
           - summary: Merchant cancels the order
@@ -26337,10 +26351,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
+                                code: finder_fee_type
                               value: percentage
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: finder_fee_amount
                               value: '3'
                   updated_at: '2023-11-08T22:00:57.000Z'
 x-attributes:
