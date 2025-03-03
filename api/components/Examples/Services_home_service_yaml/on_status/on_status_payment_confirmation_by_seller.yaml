@@ -428,10 +428,10 @@ value:
                 code: Buyer_Finder_Fee
               list:
                 - descriptor:
-                    code: finder_fee_type
+                    code: Buyer_finder_fee_type
                   value: percentage
                 - descriptor:
-                    code: finder_fee_amount
+                    code: Buyer_finder_fee_amount
                   value: "3"
         - id: P2
           collected_by: BPP
@@ -483,10 +483,10 @@ value:
                 code: Buyer_Finder_Fee
               list:
                 - descriptor:
-                    code: finder_fee_type
+                    code: Buyer_finder_fee_type
                   value: percentage
                 - descriptor:
-                    code: finder_fee_amount
+                    code: Buyer_finder_fee_amount
                   value: "3"
       xinput:
         form:

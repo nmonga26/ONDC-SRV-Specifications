@@ -38,6 +38,10 @@ details:
         SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service provider has reached<br/>the buyer location and seller app generates an OTP.
         SRV BPP ->> SRV BAP: **/on_status** -  Buyer shares the OTP with service provider and<br/>Seller app sends order status as Service started.
         SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service is completed
+
+        note over SRV BAP, SRV BPP: Post-Fulfillment (Optional)
+        SRV BAP ->> SRV BPP: **/update** - Buyer updates the order fulfillments.
+        SRV BPP ->> SRV BAP: **/on_update** - Seller accepts and update the fulfillments for the order.
         
 
 reference: if any
@@ -100,4 +104,16 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Services_home_service_yaml/on_status/on_status_Service_Started_customization.yaml"
+  - summary: Buyer updates the fulfillments.
+    api: update
+    description: Buyer update the fulfillments for the order.
+    reference: if any
+    example:
+      $ref: "../../Examples/Services_home_service_yaml/update/update_cook.yaml"
+  - summary: Seller accepts and updates the order fulfillments.
+    api: on_update
+    description: Seller accepts and update the fulfillments for the order.
+    reference: if any
+    example:
+      $ref: "../../Examples/Services_home_service_yaml/on_update/on_update_cook.yaml"
 
