@@ -1,5 +1,5 @@
-summary: Seller accepts the order for service and customizations
-description: Seller app sends an on_confirm call to the buyer app accepting the order
+summary: Buyer Updates the order fulfillments
+description: Buyer updates the order and customizations fulfillments
 value:
   context:
     domain: ONDC:SRV11
@@ -8,25 +8,25 @@ value:
         code: std:080
       country:
         code: IND
-    action: on_confirm
+    action: update
     version: "2.0.0"
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/services
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/services
     transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
-    message_id: ea89883a-57ff-44de-87fa-66b07c8d25d9
-    timestamp: "2023-11-08T22:00:39.000Z"
+    message_id: ea89883a-57ff-44de-87fa-66b07c8d25f2
+    timestamp: "2023-11-08T22:00:38.000Z"
     ttl: PT30S
   message:
     order:
+      update_target: fulfillments
       id: O1
       status: ACCEPTED
       provider:
         id: P1
         locations:
           - id: L1
-        rateable: true
       items:
         - id: I1
           location_ids:
@@ -61,7 +61,6 @@ value:
           category_ids:
             - C3
             - C21
-            - C31
           fulfillment_ids:
             - F1
           quantity:
@@ -130,23 +129,8 @@ value:
                 - descriptor:
                     code: cuisine
                   value: North_Indian
-      billing:
-        name: ONDC buyer
-        address:
-          22, Mahatma Gandhi Rd, Craig Park Layout, Ashok Nagar, Bengaluru,
-          Karnataka 560001
-        state:
-          name: Karnataka
-        city:
-          name: Bengaluru
-        tax_id: XXXXXXXXXXXXXXX
-        email: nobody@nomail.com
-        phone: "9886098860"
       fulfillments:
         - id: F1
-          state:
-            descriptor:
-              code: Pending
           type: Home-Service
           tracking: false
           stops:
@@ -158,24 +142,7 @@ value:
                 additional_desc:
                   url: https://abc.com/instructions
                   content_type: text/html
-            - id: L1
-              type: start
-              location:
-                id: L1
-                descriptor:
-                  name: ABC Store
-                gps: 12.956399,77.636803
-              time:
-                range:
-                  start: "2024-03-04T09:00:00.000Z"
-                  end: "2024-03-04T10:00:00.000Z"
-              contact:
-                phone: "9886098860"
-                email: nobody@nomail.com
-              person:
-                name: Kishan
-            - id: L2
-              type: end
+            - type: end
               location:
                 gps: 12.974002,77.613458
                 address: "My House #, My buildin"
@@ -192,47 +159,14 @@ value:
               time:
                 label: confirmed
                 range:
-                  start: "2024-03-04T10:00:00.000Z"
-                  end: "2024-03-04T18:00:00.000Z"
+                  start: '2024-03-05T10:00:00.000Z'
+                  end: '2024-03-05T18:00:00.000Z'
               person:
-                name: Ramu
+                name: Shyam
               instructions:
-                name: Special Instructions
-                short_desc: Customer Special Instructions
-              authorization:
-                type: OTP
-                token: "1234"
-                valid_from: "2023-11-16T09:30:00.000Z"
-                valid_to: "2023-11-16T09:35:00.000Z"
-                status: valid
-          rateable: true
-
-      cancellation_terms:
-        - fulfillment_state:
-            descriptor:
-              code: Pending
-          cancel_by:
-            duration: P1D
-          cancellation_fee:
-            amount:
-              value: "0"
-          reason_required: false
-        - fulfillment_state:
-            descriptor:
-              code: In-Transit
-          cancel_by:
-            duration: P1D
-          cancellation_fee:
-            percentage: "5"
-          reason_required: true
-        - fulfillment_state:
-            descriptor:
-              code: At-Location
-          cancel_by:
-            duration: P1D
-          cancellation_fee:
-            percentage: "25"
-          reason_required: true
+                name: ""
+                short_desc: "Specific Instructions - Optional"
+                long_desc: ""
       quote:
         price:
           currency: INR
@@ -244,6 +178,9 @@ value:
               value: "00.00"
             item:
               id: I1
+              quantity:
+                selected:
+                  count: 1
               price:
                 currency: INR
                 value: "00.00"
@@ -426,7 +363,7 @@ value:
         - id: P1
           collected_by: BAP
           params:
-            amount: "1518.00"
+            amount: "499.00"
             currency: INR
             transaction_id: "3937"
             bank_account_number: xxxxxxxx
@@ -514,18 +451,18 @@ value:
             - descriptor:
                 code: Settlement_Details
               list:
-                - descriptor:
-                    code: Window
-                  value: P1D
-                - descriptor:
-                    code: Basis
-                  value: Completed
-                - descriptor:
-                    code: Witholding_Amount
-                  value: "0.00"
-                - descriptor:
-                    code: Phase
-                  value: sale-amount
+              - descriptor:
+                  code: Window
+                value: P1D
+              - descriptor:
+                  code: Basis
+                value: Completed
+              - descriptor:
+                  code: Witholding_Amount
+                value: '0.00'
+              - descriptor:
+                  code: Phase
+                value: sale-amount
             - descriptor:
                 code: Buyer_Finder_Fee
               list:
@@ -535,11 +472,3 @@ value:
                 - descriptor:
                     code: Buyer_finder_fee_amount
                   value: "3"
-      created_at: "2023-02-03T09:30:00.000Z"
-      updated_at: "2023-02-03T09:31:30.000Z"
-      xinput:
-        form:
-          url: https://abc.com/checklist
-          mimetype: text/html
-          submission_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
-          status: SUCCESS

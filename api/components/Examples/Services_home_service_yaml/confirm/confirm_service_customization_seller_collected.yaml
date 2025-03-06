@@ -449,10 +449,10 @@ value:
                 code: Buyer_Finder_Fee
               list:
                 - descriptor:
-                    code: Buyer_Finder_Fee_Type
-                  value: percentage
+                    code: Buyer_finder_fee_type
+                  value: percent
                 - descriptor:
-                    code: Buyer_Finder_Fee_Amount
+                    code: Buyer_finder_fee_amount
                   value: "3"
         - id: P2
           collected_by: BPP
@@ -505,10 +505,10 @@ value:
                 code: Buyer_Finder_Fee
               list:
                 - descriptor:
-                    code: Buyer_Finder_Fee_Type
-                  value: percentage
+                    code: Buyer_finder_fee_type
+                  value: percent
                 - descriptor:
-                    code: Buyer_Finder_Fee_Amount
+                    code: Buyer_finder_fee_amount
                   value: "3"
       created_at: "2023-02-03T09:30:00.000Z"
       updated_at: "2023-02-03T09:30:00.000Z"

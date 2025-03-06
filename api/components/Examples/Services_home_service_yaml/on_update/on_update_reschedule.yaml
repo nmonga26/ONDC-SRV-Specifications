@@ -84,10 +84,10 @@ value:
                 code: Buyer_Finder_Fee
               list:
                 - descriptor:
-                    code: Buyer_Finder_Fee_Type
-                  value: percentage
+                    code: Buyer_finder_fee_type
+                  value: percent
                 - descriptor:
-                    code: Buyer_Finder_Fee_Amount
+                    code: Buyer_finder_fee_amount
                   value: '3'
       fulfillments:
         - id: F1

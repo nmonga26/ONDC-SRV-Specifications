@@ -308,13 +308,13 @@
               "list": [
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Type"
+                    "code": "Buyer_finder_fee_type"
                   },
                   "value": "percentage"
                 },
                 {
                   "descriptor": {
-                    "code": "Buyer_Finder_Fee_Amount"
+                    "code": "Buyer_finder_fee_amount"
                   },
                   "value": "3"
                 }

@@ -3015,6 +3015,20 @@ x-enum:
                 - code: geojson
                   description: If type is 13 - geojson
                   reference: <PR/Issue/Discussion Links md format text>
+            quantity_selection:
+              size:
+                - code: Size 1
+                  description: If size is 1BHK
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Size 2
+                  description: If size is 2BHK
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Size 3
+                  description: If size is 3BHK (less than 2000 sqft)
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Size 4
+                  description: If size is 3BHK (more than 2000 sqft)
+                  reference: <PR/Issue/Discussion Links md format text>
         offers:
           descriptor:
             code:
@@ -3190,13 +3204,13 @@ x-tags:
             reference: <PR/Issue/Discussion Links md format text>
             required: required
             list:
-              - code: finder_fee_type
+              - code: Buyer_finder_fee_type
                 description: >-
                   If set to “amount” it means Buyer App’s fee is a flat amount
                   in INR. If set to “percent” it means the Buyer App’s fee is
                   set as a percentage of the Total Order Value.
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: finder_fee_amount
+              - code: Buyer_finder_fee_amount
                 description: >-
                   The amount of the Buyer App’s fee, to be interpreted in
                   conjunction with the “type” field. If the “type” is set to
@@ -3350,13 +3364,13 @@ x-tags:
               reference: <PR/Issue/Discussion Links md format text>
               required: required
               list:
-                - code: Buyer_Finder_Fee_Type
+                - code: Buyer_finder_fee_type
                   description: >-
                     If set to “amount” it means Buyer App’s fee is a flat amount
                     in INR. If set to “percent” it means the Buyer App’s fee is
                     set as a percentage of the Total Order Value.
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: Buyer_Finder_Fee_Amount
+                - code: Buyer_finder_fee_amount
                   description: >-
                     The amount of the Buyer App’s fee, to be interpreted in
                     conjunction with the “type” field. If the “type” is set to
@@ -3482,10 +3496,10 @@ x-flows:
                       code: BAP_Terms
                     list:
                       - descriptor:
-                          code: finder_fee_type
+                          code: Buyer_finder_fee_type
                         value: percent
                       - descriptor:
-                          code: finder_fee_amount
+                          code: Buyer_finder_fee_amount
                         value: '0'
       - summary: Returns the catalog specific to the search intent + available schedule
         api: on_search
@@ -4476,10 +4490,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 xinput:
                   form:
@@ -4718,10 +4732,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
@@ -4985,10 +4999,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
@@ -5247,10 +5261,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
@@ -5485,10 +5499,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
@@ -5724,10 +5738,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
@@ -5952,10 +5966,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
@@ -6306,6 +6320,10 @@ x-flows:
             SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service provider has reached<br/>the buyer location and seller app generates an OTP.
             SRV BPP ->> SRV BAP: **/on_status** -  Buyer shares the OTP with service provider and<br/>Seller app sends order status as Service started.
             SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service is completed
+
+            note over SRV BAP, SRV BPP: Post-Fulfillment (Optional)
+            SRV BAP ->> SRV BPP: **/update** - Buyer updates the order fulfillments.
+            SRV BPP ->> SRV BAP: **/on_update** - Seller accepts and update the fulfillments for the order.
             
     reference: if any
     steps:
@@ -6361,10 +6379,10 @@ x-flows:
                       code: BAP_Terms
                     list:
                       - descriptor:
-                          code: finder_fee_type
+                          code: Buyer_finder_fee_type
                         value: percent
                       - descriptor:
-                          code: finder_fee_amount
+                          code: Buyer_finder_fee_amount
                         value: '0'
       - summary: >-
           Returns the catalog specific to the search intent + customization
@@ -7992,10 +8010,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -8047,10 +8065,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 xinput:
                   form:
@@ -8511,10 +8529,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -8567,10 +8585,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
@@ -9064,10 +9082,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -9120,10 +9138,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
@@ -9590,16 +9608,974 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
                     label: INVOICE
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T10:00:00.201Z'
+      - summary: Buyer updates the fulfillments.
+        api: update
+        description: Buyer update the fulfillments for the order.
+        reference: if any
+        example: &ref_35
+          summary: Buyer Updates the order fulfillments
+          description: Buyer updates the order and customizations fulfillments
+          value:
+            context:
+              domain: ONDC:SRV11
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
+              message_id: ea89883a-57ff-44de-87fa-66b07c8d25f2
+              timestamp: '2023-11-08T22:00:38.000Z'
+              ttl: PT30S
+            message:
+              order:
+                update_target: fulfillments
+                id: O1
+                status: ACCEPTED
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 1
+                  - id: IC1
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 3
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                  - id: IC2
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C3
+                      - C21
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 1
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                          - descriptor:
+                              code: dish_type
+                            value: breakfast
+                          - descriptor:
+                              code: cuisine
+                            value: North_Indian
+                  - id: IC3
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                    category_ids:
+                      - C3
+                      - C22
+                    quantity:
+                      selected:
+                        count: 1
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                          - descriptor:
+                              code: dish_type
+                            value: Appetizers
+                          - descriptor:
+                              code: cuisine
+                            value: North_Indian
+                  - id: IC4
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                    category_ids:
+                      - C3
+                      - C23
+                    quantity:
+                      selected:
+                        count: 1
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                          - descriptor:
+                              code: dish_type
+                            value: Main Course
+                          - descriptor:
+                              code: cuisine
+                            value: North_Indian
+                fulfillments:
+                  - id: F1
+                    type: Home-Service
+                    tracking: false
+                    stops:
+                      - type: start
+                        instructions:
+                          name: Instuctions by provider
+                          short_desc: Instuctions by provider
+                          long_desc: Instuctions by provider
+                          additional_desc:
+                            url: https://abc.com/instructions
+                            content_type: text/html
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-03-05T10:00:00.000Z'
+                            end: '2024-03-05T18:00:00.000Z'
+                        person:
+                          name: Shyam
+                        instructions:
+                          name: ''
+                          short_desc: Specific Instructions - Optional
+                          long_desc: ''
+                quote:
+                  price:
+                    currency: INR
+                    value: '1021.00'
+                  breakup:
+                    - title: Cook - On Demand
+                      price:
+                        currency: INR
+                        value: '00.00'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '00.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: People
+                      price:
+                        currency: INR
+                        value: '299.00'
+                      item:
+                        id: IC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: Sandwich
+                      price:
+                        currency: INR
+                        value: '199.00'
+                      item:
+                        id: IC2
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: Dahi Ke Kebab
+                      price:
+                        currency: INR
+                        value: '199.00'
+                      item:
+                        id: IC3
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: Dal Makhni
+                      price:
+                        currency: INR
+                        value: '199.00'
+                      item:
+                        id: IC4
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC2
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC3
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC4
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: convenience_fee
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BAP
+                    params:
+                      amount: '499.00'
+                      currency: INR
+                      transaction_id: '3937'
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Counterparty
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Window
+                            value: P1D
+                          - descriptor:
+                              code: Basis
+                            value: Completed
+                          - descriptor:
+                              code: Witholding_Amount
+                            value: '0.00'
+                          - descriptor:
+                              code: Phase
+                            value: sale-amount
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_finder_fee_type
+                            value: percent
+                          - descriptor:
+                              code: Buyer_finder_fee_amount
+                            value: '3'
+                  - id: P2
+                    collected_by: BPP
+                    params:
+                      amount: '522'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      bank_code: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: ON-FULFILLMENT
+                    status: NOT-PAID
+                    tags:
+                      - descriptor:
+                          code: Settlement_Counterparty
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Window
+                            value: P1D
+                          - descriptor:
+                              code: Basis
+                            value: Completed
+                          - descriptor:
+                              code: Witholding_Amount
+                            value: '0.00'
+                          - descriptor:
+                              code: Phase
+                            value: sale-amount
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_finder_fee_type
+                            value: percent
+                          - descriptor:
+                              code: Buyer_finder_fee_amount
+                            value: '3'
+      - summary: Seller accepts and updates the order fulfillments.
+        api: on_update
+        description: Seller accepts and update the fulfillments for the order.
+        reference: if any
+        example: &ref_36
+          summary: Seller app sends the updated fulfillments
+          description: Seller app updates the order and customizations fulfillments
+          value:
+            context:
+              domain: ONDC:SRV11
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
+              message_id: ea89883a-57ff-44de-87fa-66b07c8d25f3
+              timestamp: '2023-11-08T22:00:58.000Z'
+              ttl: PT30S
+            message:
+              order:
+                update_target: fulfillments
+                id: O1
+                status: ACCEPTED
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 1
+                  - id: IC1
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 3
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                  - id: IC2
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C3
+                      - C21
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 1
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                          - descriptor:
+                              code: dish_type
+                            value: breakfast
+                          - descriptor:
+                              code: cuisine
+                            value: North_Indian
+                  - id: IC3
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                    category_ids:
+                      - C3
+                      - C22
+                    quantity:
+                      selected:
+                        count: 1
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                          - descriptor:
+                              code: dish_type
+                            value: Appetizers
+                          - descriptor:
+                              code: cuisine
+                            value: North_Indian
+                  - id: IC4
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                    category_ids:
+                      - C3
+                      - C23
+                    quantity:
+                      selected:
+                        count: 1
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                          - descriptor:
+                              code: dish_type
+                            value: Main Course
+                          - descriptor:
+                              code: cuisine
+                            value: North_Indian
+                fulfillments:
+                  - id: F1
+                    type: Home-Service
+                    tracking: false
+                    stops:
+                      - type: start
+                        instructions:
+                          name: Instuctions by provider
+                          short_desc: Instuctions by provider
+                          long_desc: Instuctions by provider
+                          additional_desc:
+                            url: https://abc.com/instructions
+                            content_type: text/html
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2024-03-05T10:00:00.000Z'
+                            end: '2024-03-05T18:00:00.000Z'
+                        person:
+                          name: Shyam
+                        instructions:
+                          name: ''
+                          short_desc: Specific Instructions - Optional
+                          long_desc: ''
+                quote:
+                  price:
+                    currency: INR
+                    value: '1021.00'
+                  breakup:
+                    - title: Cook - On Demand
+                      price:
+                        currency: INR
+                        value: '00.00'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '00.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: People
+                      price:
+                        currency: INR
+                        value: '299.00'
+                      item:
+                        id: IC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: Sandwich
+                      price:
+                        currency: INR
+                        value: '199.00'
+                      item:
+                        id: IC2
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: Dahi Ke Kebab
+                      price:
+                        currency: INR
+                        value: '199.00'
+                      item:
+                        id: IC3
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: Dal Makhni
+                      price:
+                        currency: INR
+                        value: '199.00'
+                      item:
+                        id: IC4
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC2
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC3
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC4
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: convenience_fee
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BAP
+                    params:
+                      amount: '499.00'
+                      currency: INR
+                      transaction_id: '3937'
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Counterparty
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Window
+                            value: P1D
+                          - descriptor:
+                              code: Basis
+                            value: Completed
+                          - descriptor:
+                              code: Witholding_Amount
+                            value: '0.00'
+                          - descriptor:
+                              code: Phase
+                            value: sale-amount
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_finder_fee_type
+                            value: percent
+                          - descriptor:
+                              code: Buyer_finder_fee_amount
+                            value: '3'
+                  - id: P2
+                    collected_by: BPP
+                    params:
+                      amount: '522'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      bank_code: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: ON-FULFILLMENT
+                    status: NOT-PAID
+                    tags:
+                      - descriptor:
+                          code: Settlement_Counterparty
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Window
+                            value: P1D
+                          - descriptor:
+                              code: Basis
+                            value: Completed
+                          - descriptor:
+                              code: Witholding_Amount
+                            value: '0.00'
+                          - descriptor:
+                              code: Phase
+                            value: sale-amount
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_finder_fee_type
+                            value: percent
+                          - descriptor:
+                              code: Buyer_finder_fee_amount
+                            value: '3'
   - summary: Home Services - OTP Expired/ Regenerate
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -9965,10 +10941,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
@@ -10481,10 +11457,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 xinput:
                   form:
@@ -10685,10 +11661,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
@@ -10926,10 +11902,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
@@ -11082,10 +12058,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -11123,10 +12099,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                   - id: P3
                     collected_by: BPP
@@ -11164,10 +12140,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 fulfillments:
                   - id: F1
@@ -11699,10 +12675,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -11741,10 +12717,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                   - id: P3
                     collected_by: BPP
@@ -11782,10 +12758,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 fulfillments:
                   - id: F1
@@ -12848,10 +13824,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 updated_at: '2023-11-08T22:00:57.000Z'
   - summary: Merchant Cancellation Flow
@@ -13202,10 +14178,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 updated_at: '2023-11-08T22:00:57.000Z'
   - summary: Schedule reselection after order confirmation
@@ -13399,10 +14375,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 fulfillments:
                   - id: F1
@@ -13588,10 +14564,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 fulfillments:
                   - id: F1
@@ -13767,6 +14743,9 @@ x-flows:
             SRV BPP ->> SRV BAP: **/on_status** -  Buyer shares the OTP with service provider and<br/>Seller app sends order status as Service started.
             SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service is completed
             
+            note over SRV BAP, SRV BPP: Post-Fulfillment (Optional)
+            SRV BAP ->> SRV BPP: **/update** - Buyer updates the order fulfillments.
+            SRV BPP ->> SRV BAP: **/on_update** - Seller accepts and update the fulfillments for the order.
     reference: if any
     steps:
       - summary: Search based on the service required
@@ -13813,10 +14792,10 @@ x-flows:
                       code: BAP_Terms
                     list:
                       - descriptor:
-                          code: finder_fee_type
+                          code: Buyer_finder_fee_type
                         value: percent
                       - descriptor:
-                          code: finder_fee_amount
+                          code: Buyer_finder_fee_amount
                         value: '3'
       - summary: >-
           Returns the catalog specific to the search intent + customization
@@ -14800,10 +15779,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -14855,10 +15834,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 xinput:
                   form:
@@ -15304,10 +16283,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -15359,10 +16338,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 xinput:
                   form:
@@ -15824,10 +16803,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -15880,10 +16859,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:30:00.000Z'
@@ -16377,10 +17356,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                   - id: P2
                     collected_by: BPP
@@ -16433,10 +17412,10 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T09:31:30.000Z'
@@ -16903,16 +17882,26 @@ x-flows:
                           code: Buyer_Finder_Fee
                         list:
                           - descriptor:
-                              code: Buyer_Finder_Fee_Type
-                            value: percentage
+                              code: Buyer_finder_fee_type
+                            value: percent
                           - descriptor:
-                              code: Buyer_Finder_Fee_Amount
+                              code: Buyer_finder_fee_amount
                             value: '3'
                 documents:
                   - url: https://invoice_url
                     label: INVOICE
                 created_at: '2023-02-03T09:30:00.000Z'
                 updated_at: '2023-02-03T10:00:00.201Z'
+      - summary: Buyer updates the fulfillments.
+        api: update
+        description: Buyer update the fulfillments for the order.
+        reference: if any
+        example: *ref_35
+      - summary: Seller accepts and updates the order fulfillments.
+        api: on_update
+        description: Seller accepts and update the fulfillments for the order.
+        reference: if any
+        example: *ref_36
 x-examples:
   Services - Home Services:
     summary: Booking Home Services
@@ -16962,10 +17951,10 @@ x-examples:
                         code: BAP_Terms
                       list:
                         - descriptor:
-                            code: finder_fee_type
+                            code: Buyer_finder_fee_type
                           value: percent
                         - descriptor:
-                            code: finder_fee_amount
+                            code: Buyer_finder_fee_amount
                           value: '3'
           - summary: Search based on the buyer location
             description: Search intent sent by the buyer based on the buyer's location
@@ -17002,10 +17991,10 @@ x-examples:
                         code: BAP_Terms
                       list:
                         - descriptor:
-                            code: finder_fee_type
+                            code: Buyer_finder_fee_type
                           value: percent
                         - descriptor:
-                            code: finder_fee_amount
+                            code: Buyer_finder_fee_amount
                           value: '3'
           - summary: Search based on the service required
             description: >-
@@ -17047,10 +18036,10 @@ x-examples:
                         code: BAP_Terms
                       list:
                         - descriptor:
-                            code: finder_fee_type
+                            code: Buyer_finder_fee_type
                           value: percent
                         - descriptor:
-                            code: finder_fee_amount
+                            code: Buyer_finder_fee_amount
                           value: '0'
           - summary: Search based on the desired schedule
             description: Search intent sent by the buyer based on the desired schedule
@@ -17095,10 +18084,10 @@ x-examples:
                         code: BAP_Terms
                       list:
                         - descriptor:
-                            code: finder_fee_type
+                            code: Buyer_finder_fee_type
                           value: percent
                         - descriptor:
-                            code: finder_fee_amount
+                            code: Buyer_finder_fee_amount
                           value: '0'
       select:
         examples:
@@ -17895,10 +18884,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
@@ -18136,10 +19125,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
@@ -18599,10 +19588,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                     - id: P2
                       collected_by: BPP
@@ -18655,10 +19644,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:30:00.000Z'
@@ -18766,10 +19755,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                     - id: P2
                       collected_by: BPP
@@ -18808,10 +19797,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                     - id: P3
                       collected_by: BPP
@@ -18849,10 +19838,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   fulfillments:
                     - id: F1
@@ -21847,10 +22836,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   xinput:
                     form:
@@ -22069,10 +23058,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   xinput:
                     form:
@@ -22511,10 +23500,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                     - id: P2
                       collected_by: BPP
@@ -22566,10 +23555,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   xinput:
                     form:
@@ -22799,10 +23788,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
@@ -23059,10 +24048,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
@@ -23549,10 +24538,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                     - id: P2
                       collected_by: BPP
@@ -23605,10 +24594,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   created_at: '2023-02-03T09:30:00.000Z'
                   updated_at: '2023-02-03T09:31:30.000Z'
@@ -23833,10 +24822,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   documents:
                     - url: https://invoice_url
@@ -24057,10 +25046,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   documents:
                     - url: https://invoice_url
@@ -24286,10 +25275,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   documents:
                     - url: https://invoice_url
@@ -24740,10 +25729,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   documents:
                     - url: https://invoice_url
@@ -24970,10 +25959,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   documents:
                     - url: https://invoice_url
@@ -25210,10 +26199,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   documents:
                     - url: https://invoice_url
@@ -25323,10 +26312,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                     - id: P2
                       collected_by: BPP
@@ -25364,10 +26353,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                     - id: P3
                       collected_by: BPP
@@ -25405,10 +26394,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   fulfillments:
                     - id: F1
@@ -26081,10 +27070,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   updated_at: '2023-11-08T22:00:57.000Z'
           - summary: Merchant cancels the order
@@ -26337,10 +27326,10 @@ x-examples:
                             code: Buyer_Finder_Fee
                           list:
                             - descriptor:
-                                code: Buyer_Finder_Fee_Type
-                              value: percentage
+                                code: Buyer_finder_fee_type
+                              value: percent
                             - descriptor:
-                                code: Buyer_Finder_Fee_Amount
+                                code: Buyer_finder_fee_amount
                               value: '3'
                   updated_at: '2023-11-08T22:00:57.000Z'
 x-attributes:
