@@ -449,7 +449,7 @@ value:
               list:
                 - descriptor:
                     code: Buyer_finder_fee_type
-                  value: percentage
+                  value: percent
                 - descriptor:
                     code: Buyer_finder_fee_amount
                   value: "3"
@@ -505,7 +505,7 @@ value:
               list:
                 - descriptor:
                     code: Buyer_finder_fee_type
-                  value: percentage
+                  value: percent
                 - descriptor:
                     code: Buyer_finder_fee_amount
                   value: "3"

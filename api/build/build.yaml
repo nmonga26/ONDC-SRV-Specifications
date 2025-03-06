@@ -4491,7 +4491,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -4733,7 +4733,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -5000,7 +5000,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -5262,7 +5262,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -5500,7 +5500,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -5739,7 +5739,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -5967,7 +5967,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -8011,7 +8011,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -8066,7 +8066,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -8530,7 +8530,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -8586,7 +8586,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -9083,7 +9083,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -9139,7 +9139,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -9609,7 +9609,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -10037,7 +10037,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -10093,7 +10093,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -10516,7 +10516,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -10572,7 +10572,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -10942,7 +10942,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -11458,7 +11458,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -11662,7 +11662,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -11903,7 +11903,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -12059,7 +12059,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -12100,7 +12100,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -12141,7 +12141,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -12676,7 +12676,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -12718,7 +12718,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -12759,7 +12759,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -13825,7 +13825,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -14179,7 +14179,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -14376,7 +14376,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -14565,7 +14565,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -15780,7 +15780,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -15835,7 +15835,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -16284,7 +16284,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -16339,7 +16339,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -16804,7 +16804,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -16860,7 +16860,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -17357,7 +17357,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -17413,7 +17413,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -17883,7 +17883,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: Buyer_finder_fee_type
-                            value: percentage
+                            value: percent
                           - descriptor:
                               code: Buyer_finder_fee_amount
                             value: '3'
@@ -18885,7 +18885,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -19126,7 +19126,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -19589,7 +19589,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -19645,7 +19645,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -19756,7 +19756,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -19798,7 +19798,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -19839,7 +19839,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -22837,7 +22837,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -23059,7 +23059,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -23501,7 +23501,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -23556,7 +23556,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -23789,7 +23789,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -24049,7 +24049,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -24539,7 +24539,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -24595,7 +24595,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -24823,7 +24823,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -25047,7 +25047,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -25276,7 +25276,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -25730,7 +25730,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -25960,7 +25960,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -26200,7 +26200,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -26313,7 +26313,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -26354,7 +26354,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -26395,7 +26395,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -27071,7 +27071,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
@@ -27327,7 +27327,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: Buyer_finder_fee_type
-                              value: percentage
+                              value: percent
                             - descriptor:
                                 code: Buyer_finder_fee_amount
                               value: '3'
