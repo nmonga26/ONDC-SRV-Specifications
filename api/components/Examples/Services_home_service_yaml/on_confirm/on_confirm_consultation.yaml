@@ -28,6 +28,13 @@ value:
           - id: L1
         rateable: true
       items:
+        - id: PI1
+          parent_item_id: ''
+          fulfillment_ids:
+            - F1
+          quantity:
+            selected:
+              count: 1
         - id: I1
           parent_item_id: PI1
           fulfillment_ids:
