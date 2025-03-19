@@ -4240,6 +4240,13 @@ x-flows:
                             start: '2023-11-16T09:30:00.000Z'
                             end: '2023-11-16T10:30:00.000Z'
                           days: '4'
+                    tags:
+                      - descriptor:
+                          code: SELECTION
+                        list:
+                          - descriptor:
+                              code: ITEM_IDS
+                            value: PI1
                 payments:
                   - type: PRE-FULFILLMENT
       - summary: Seller confirms the schedule and returns the quote
@@ -7215,6 +7222,13 @@ x-flows:
                             start: '2024-03-04T10:00:00.000Z'
                             end: '2024-03-04T18:00:00.000Z'
                           days: '4'
+                    tags:
+                      - descriptor:
+                          code: SELECTION
+                        list:
+                          - descriptor:
+                              code: ITEM_IDS
+                            value: PI1
                 payments:
                   - type: PRE-FULFILLMENT
       - summary: Seller confirms the schedule and returns the quote
@@ -11264,6 +11278,13 @@ x-flows:
                             start: '2023-11-16T09:30:00.000Z'
                             end: '2023-11-16T10:30:00.000Z'
                           days: '4'
+                    tags:
+                      - descriptor:
+                          code: SELECTION
+                        list:
+                          - descriptor:
+                              code: ITEM_IDS
+                            value: PI1
                 payments:
                   - type: PRE-FULFILLMENT
       - summary: Seller confirms the schedule and returns the quote
@@ -18398,6 +18419,13 @@ x-examples:
                               start: '2023-11-16T09:30:00.000Z'
                               end: '2023-11-16T10:30:00.000Z'
                             days: '4'
+                      tags:
+                        - descriptor:
+                            code: SELECTION
+                          list:
+                            - descriptor:
+                                code: ITEM_IDS
+                              value: PI1
                   payments:
                     - type: PRE-FULFILLMENT
           - summary: Buyer adds the consulation service to cart + reschedules
@@ -18456,6 +18484,13 @@ x-examples:
                               start: '2023-11-17T09:30:00.000Z'
                               end: '2023-11-17T10:30:00.000Z'
                             days: '4'
+                      tags:
+                        - descriptor:
+                            code: SELECTION
+                          list:
+                            - descriptor:
+                                code: ITEM_IDS
+                              value: PI1
                   payments:
                     - type: PRE-FULFILLMENT
           - summary: Buyer adds the service to cart
@@ -18507,6 +18542,13 @@ x-examples:
                               start: '2023-11-16T09:30:00.000Z'
                               end: '2023-11-16T10:30:00.000Z'
                             days: '4'
+                      tags:
+                        - descriptor:
+                            code: SELECTION
+                          list:
+                            - descriptor:
+                                code: ITEM_IDS
+                              value: PI1
                   payments:
                     - type: PRE-FULFILLMENT
           - summary: Buyer adds the service and customizations to cart
@@ -18642,6 +18684,13 @@ x-examples:
                               start: '2024-03-04T10:00:00.000Z'
                               end: '2024-03-04T18:00:00.000Z'
                             days: '4'
+                      tags:
+                        - descriptor:
+                            code: SELECTION
+                          list:
+                            - descriptor:
+                                code: ITEM_IDS
+                              value: PI1
                   payments:
                     - type: PRE-FULFILLMENT
       init:

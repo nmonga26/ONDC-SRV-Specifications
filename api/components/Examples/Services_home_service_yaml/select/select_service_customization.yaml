@@ -129,5 +129,12 @@ value:
                   start: '2024-03-04T10:00:00.000Z'
                   end: '2024-03-04T18:00:00.000Z'
                 days: "4"
+          tags:
+            - descriptor:
+                code: SELECTION
+              list:
+              - descriptor:
+                  code: ITEM_IDS
+                value: PI1
       payments:
         - type: PRE-FULFILLMENT
