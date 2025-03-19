@@ -27,9 +27,9 @@ async function buildErrorCodes() {
                 Type, Message, Description]) => (
                 {
                     Code,
-                    Type,
-                    Message,
-                    Description
+                    "Who can use code?": Type,
+                    "Reason": Message,
+                    "Usage": Description
                 }
             ));
         }
