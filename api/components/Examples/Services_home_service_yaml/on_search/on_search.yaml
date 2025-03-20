@@ -124,13 +124,11 @@ value:
             offered_value: '0.00'
             maximum_value: '0.00'
           category_ids:
-          - SRV11-xxxx
+          - SRV11-1001
           fulfillment_ids:
           - '1'
           location_ids:
           - L1
-          payment_ids:
-          - '1'
           cancellation_terms:
           - fulfillment_state:
               descriptor:
@@ -216,13 +214,11 @@ value:
                 unit: seats
                 value: '2'
           category_ids:
-          - SRV11-xxxx
+          - SRV11-1011
           fulfillment_ids:
           - '1'
           location_ids:
           - L1
-          payment_ids:
-          - '1'
           cancellation_terms:
           - fulfillment_state:
               descriptor:
@@ -294,13 +290,11 @@ value:
             offered_value: '99.00'
             maximum_value: '149.00'
           category_ids:
-          - SRV11-xxxx
+          - SRV11-1001
           fulfillment_ids:
           - '1'
           location_ids:
           - L1
-          payment_ids:
-          - '1'
           cancellation_terms:
           - fulfillment_state:
               descriptor:
@@ -386,13 +380,11 @@ value:
                 unit: seats
                 value: '2'
           category_ids:
-          - SRV11-xxxx
+          - SRV11-1014
           fulfillment_ids:
           - '1'
           location_ids:
           - L1
-          payment_ids:
-          - '1'
           cancellation_terms:
           - fulfillment_state:
               descriptor:
@@ -478,13 +470,11 @@ value:
                 unit: seats
                 value: '3'
           category_ids:
-          - SRV11-xxxx
+          - SRV11-1010
           fulfillment_ids:
           - '1'
           location_ids:
           - L1
-          payment_ids:
-          - '1'
           cancellation_terms:
           - fulfillment_state:
               descriptor:
@@ -570,13 +560,11 @@ value:
                 unit: seats
                 value: '6'
           category_ids:
-          - SRV11-xxxx
+          - SRV11-1011
           fulfillment_ids:
           - '1'
           location_ids:
           - L1
-          payment_ids:
-          - '1'
           cancellation_terms:
           - fulfillment_state:
               descriptor:
