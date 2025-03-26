@@ -29823,7 +29823,7 @@ x-attributes:
                     reference: if any
                 person.name:
                   description: name of the customer or service provider
-                  required: required for 'start' stop
+                  required: required
                   usage: Ramu
                   reference: if any
                 time:
