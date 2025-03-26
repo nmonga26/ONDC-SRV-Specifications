@@ -323,71 +323,71 @@ codes:
     Who can use code?: BPP
     Reason: Fulfillment cannot be updated
     Usage: Fulfillment has reached terminal state, cannot be updated
-  - Code: 70001
+  - Code: 90004
     Who can use code?: BPP
     Reason: Offer return failure
     Usage: Sellers could not return offers to the BAP
-  - Code: 71001
+  - Code: 90005
     Who can use code?: BAP
     Reason: Offer acceptance failure
     Usage: BAPlication could not submit user selected offer to the seller
-  - Code: 71002
+  - Code: 90006
     Who can use code?: BAP
     Reason: Inventory mismatch
     Usage: >-
       BAPlication detected a mismatch in available inventory for the requested
       service.
-  - Code: 70002
+  - Code: 90007
     Who can use code?: BAP
     Reason: Selection failure
     Usage: The selected service is no longer available or invalid.
-  - Code: 71003
+  - Code: 90008
     Who can use code?: BPP
     Reason: Invalid location
     Usage: The location details provided in the search request are not supported.
-  - Code: 70003
+  - Code: 90009
     Who can use code?: BAP
     Reason: Invalid GPS coordinates
     Usage: The seller returned an offer with invalid GPS coordinates
-  - Code: 70004
+  - Code: 90010
     Who can use code?: BAP
     Reason: Invalid service schedule
     Usage: The service schedule provided by the seller is invalid.
-  - Code: 70005
+  - Code: 90011
     Who can use code?: BAP
     Reason: Price mismatch
     Usage: The confirmed offer price does not match the selected offer price
-  - Code: 70006
+  - Code: 90012
     Who can use code?: BAP
     Reason: Offer confirmation timeout
     Usage: The BPP could not confirm the selected offer within the expected time.
-  - Code: 71004
+  - Code: 90013
     Who can use code?: BPP
     Reason: No providers
     Usage: No providers found in given location
-  - Code: 71005
+  - Code: 90014
     Who can use code?: BPP
     Reason: Cancellation
     Usage: Buyer cancelling order after its marked as completed
-  - Code: 71006
+  - Code: 90015
     Who can use code?: BPP
     Reason: Invalid location
     Usage: We don't provide this service in this location.
-  - Code: 71007
+  - Code: 90016
     Who can use code?: BPP
     Reason: Payment Failure
     Usage: Payment Failure
-  - Code: 71008
+  - Code: 90017
     Who can use code?: BPP
     Reason: Validation
     Usage: >-
       With particular number of burners users can select particular number of
       dishes.
-  - Code: 71009
+  - Code: 90018
     Who can use code?: BPP
     Reason: Validation
     Usage: Service should be atleast of pre-described minimum amount
-  - Code: 71010
+  - Code: 90019
     Who can use code?: BPP
     Reason: Price validation from Surge
     Usage: When surge is applied price not getting refreshed
