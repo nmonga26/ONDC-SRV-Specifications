@@ -203,9 +203,9 @@ message:
             required: optional
             usage: "abc@xyz.com"
             reference: if any
-        person.name:
-          description: name of the customer or service provider
-          required: required
+        person:
+          description: Details of the customer or service provider
+          required: optional for 'end' stop
           usage: "Ramu"
           reference: if any
         time:

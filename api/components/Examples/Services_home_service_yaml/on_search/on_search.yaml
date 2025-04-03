@@ -106,10 +106,176 @@ value:
               code: unit
             value: geojson
         items:
+        - id: PI1
+          parent_item_id: ''
+          descriptor:
+            name: Home Painting - Home consultation
+            code: UPC code
+            short_desc: Painting and Waterproofing
+            long_desc: Painting and Waterproofing
+            images:
+            - url: https://abc.com/images/207.png
+            media:
+            - mimetype: video/mp4
+              url: https://video_url.mp4
+          price:
+            currency: INR
+            value: '0.00'
+            offered_value: '0.00'
+            maximum_value: '0.00'
+          category_ids:
+          - SRV11-1001
+          fulfillment_ids:
+          - '1'
+          location_ids:
+          - L1
+          cancellation_terms:
+          - fulfillment_state:
+              descriptor:
+                code: Pending
+            reason_required: true
+            cancel_by:
+              duration: P1D
+            cancellation_fee:
+              amount:
+                value: '0'
+          - fulfillment_state:
+              descriptor:
+                code: In-Transit
+            reason_required: true
+            cancel_by:
+              duration: P0D
+            cancellation_fee:
+              percentage: '5'
+          tags:
+          - descriptor:
+              code: reschedule_terms
+            list:
+            - descriptor:
+                code: fulfillment_state
+              value: Pending
+            - descriptor:
+                code: reschedule_eligible
+              value: 'true'
+            - descriptor:
+                code: reschedule_fee
+              value: '0.00'
+            - descriptor:
+                code: reschedule_within
+              value: PT1D
+          time:
+            label: validity
+            range:
+              start: '2022-11-10T00:00:00.000Z'
+              end: '2022-11-20T00:00:00.000Z'
+            days: '4,5'
+            schedule:
+              frequency: PT1H
+              holidays:
+              - '2023-11-13T00:00:00.000Z'
+              - '2023-11-15T00:00:00.000Z'
+              times:
+              - '2023-11-16T09:30:00.000Z'
+              - '2023-11-16T19:30:00.000Z'
+              - '2023-11-14T19:30:00.000Z'
+              - '2023-11-17T19:30:00.000Z'
+              - '2023-11-17T09:30:00.000Z'
+          matched: true
+          recommended: true
+        - id: PI2
+          parent_item_id: ''
+          descriptor:
+            name: Home Cleaning
+            code: UPC code
+            short_desc: Home Cleaning
+            long_desc: Home Cleaning
+            images:
+            - url: https://abc.com/images/207.png
+            media:
+            - mimetype: video/mp4
+              url: https://video_url.mp4
+          creator:
+            descriptor:
+              name: ABC
+              contact:
+                name: Raj Kumar
+                address:
+                  full: Sector-1, Noida,Uttar Pradesh-201301
+                phone: '18001801018'
+                email: consumer.services@abc.com
+          price:
+            currency: INR
+            value: '499.00'
+            offered_value: '499.00'
+            maximum_value: '499.00'
+          quantity:
+            unitized:
+              measure:
+                unit: seats
+                value: '2'
+          category_ids:
+          - SRV11-1011
+          fulfillment_ids:
+          - '1'
+          location_ids:
+          - L1
+          cancellation_terms:
+          - fulfillment_state:
+              descriptor:
+                code: Pending
+            reason_required: true
+            cancel_by:
+              duration: P1D
+            cancellation_fee:
+              amount:
+                value: '0'
+          - fulfillment_state:
+              descriptor:
+                code: In-Transit
+            reason_required: true
+            cancel_by:
+              duration: P1D
+            cancellation_fee:
+              percentage: '5'
+          tags:
+          - descriptor:
+              code: reschedule_terms
+            list:
+            - descriptor:
+                code: fulfillment_state
+              value: Pending
+            - descriptor:
+                code: reschedule_eligible
+              value: 'true'
+            - descriptor:
+                code: reschedule_fee
+              value: '0.00'
+            - descriptor:
+                code: reschedule_within
+              value: PT1D
+          time:
+            label: validity
+            range:
+              start: '2022-12-24T00:00:00.000Z'
+              end: '2022-12-31T00:00:00.000Z'
+            days: '4,5'
+            schedule:
+              frequency: PT1H
+              holidays:
+              - '2023-12-13T00:00:00.000Z'
+              - '2023-12-15T00:00:00.000Z'
+              times:
+              - '2023-11-16T09:30:00.000Z'
+              - '2023-11-16T19:30:00.000Z'
+              - '2023-11-14T19:30:00.000Z'
+              - '2023-11-17T19:30:00.000Z'
+              - '2023-11-17T09:30:00.000Z'
+          matched: true
+          recommended: true
         - id: I1
           parent_item_id: PI1
           descriptor:
-            name: Home Painting - Home consultation
+            name: Home Spray Painting - Home consultation
             code: UPC code
             short_desc: Painting and Waterproofing
             long_desc: Painting and Waterproofing
@@ -124,13 +290,11 @@ value:
             offered_value: '99.00'
             maximum_value: '149.00'
           category_ids:
-          - SRV11-xxxx
+          - SRV11-1001
           fulfillment_ids:
           - '1'
           location_ids:
           - L1
-          payment_ids:
-          - '1'
           cancellation_terms:
           - fulfillment_state:
               descriptor:
@@ -216,13 +380,11 @@ value:
                 unit: seats
                 value: '2'
           category_ids:
-          - SRV11-xxxx
+          - SRV11-1014
           fulfillment_ids:
           - '1'
           location_ids:
           - L1
-          payment_ids:
-          - '1'
           cancellation_terms:
           - fulfillment_state:
               descriptor:
@@ -279,10 +441,10 @@ value:
         - id: I3
           parent_item_id: PI2
           descriptor:
-            name: Sofa Cleaning
+            name: Bathroom Cleaning
             code: UPC code
-            short_desc: Sofa Cleaning
-            long_desc: Sofa Cleaning
+            short_desc: Bathroom Cleaning
+            long_desc: Bathroom Cleaning
             images:
             - url: https://abc.com/images/207.png
             media:
@@ -308,13 +470,11 @@ value:
                 unit: seats
                 value: '3'
           category_ids:
-          - SRV11-xxxx
+          - SRV11-1010
           fulfillment_ids:
           - '1'
           location_ids:
           - L1
-          payment_ids:
-          - '1'
           cancellation_terms:
           - fulfillment_state:
               descriptor:
@@ -371,10 +531,10 @@ value:
         - id: I4
           parent_item_id: PI2
           descriptor:
-            name: Sofa Cleaning
+            name: Floor Cleaning
             code: UPC code
-            short_desc: Sofa Cleaning
-            long_desc: Sofa Cleaning
+            short_desc: Floor Cleaning
+            long_desc: Floor Cleaning
             images:
             - url: https://abc.com/images/207.png
             media:
@@ -400,13 +560,11 @@ value:
                 unit: seats
                 value: '6'
           category_ids:
-          - SRV11-xxxx
+          - SRV11-1011
           fulfillment_ids:
           - '1'
           location_ids:
           - L1
-          payment_ids:
-          - '1'
           cancellation_terms:
           - fulfillment_state:
               descriptor:

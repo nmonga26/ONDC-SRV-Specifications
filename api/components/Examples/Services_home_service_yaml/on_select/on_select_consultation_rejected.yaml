@@ -27,6 +27,31 @@ value:
       items:
         - fulfillment_ids:
             - F1
+          id: PI1
+          parent_item_id: ''
+          location_ids:
+            - L1
+          quantity:
+            selected:
+              count: 1
+          time:
+            label: validity
+            range:
+              start: '2022-17-10T00:00:00.000Z'
+              end: '2022-11-20T00:00:00.000Z'
+            schedule:
+              frequency: PT1H
+              holidays:
+                - '2023-11-13'
+                - '2023-11-15'
+              times:
+                - '2023-11-16T09:30:00.000Z'
+                - '2023-11-16T19:30:00.000Z'
+                - '2023-11-14T19:30:00.000Z'
+                - '2023-11-17T19:30:00.000Z'
+                - '2023-11-17T09:30:00.000Z'
+        - fulfillment_ids:
+            - F1
           id: I1
           parent_item_id: PI1
           location_ids:

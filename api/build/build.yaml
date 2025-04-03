@@ -3620,10 +3620,176 @@ x-flows:
                               code: unit
                             value: geojson
                     items:
+                      - id: PI1
+                        parent_item_id: ''
+                        descriptor:
+                          name: Home Painting - Home consultation
+                          code: UPC code
+                          short_desc: Painting and Waterproofing
+                          long_desc: Painting and Waterproofing
+                          images:
+                            - url: https://abc.com/images/207.png
+                          media:
+                            - mimetype: video/mp4
+                              url: https://video_url.mp4
+                        price:
+                          currency: INR
+                          value: '0.00'
+                          offered_value: '0.00'
+                          maximum_value: '0.00'
+                        category_ids:
+                          - SRV11-1001
+                        fulfillment_ids:
+                          - '1'
+                        location_ids:
+                          - L1
+                        cancellation_terms:
+                          - fulfillment_state:
+                              descriptor:
+                                code: Pending
+                            reason_required: true
+                            cancel_by:
+                              duration: P1D
+                            cancellation_fee:
+                              amount:
+                                value: '0'
+                          - fulfillment_state:
+                              descriptor:
+                                code: In-Transit
+                            reason_required: true
+                            cancel_by:
+                              duration: P0D
+                            cancellation_fee:
+                              percentage: '5'
+                        tags:
+                          - descriptor:
+                              code: reschedule_terms
+                            list:
+                              - descriptor:
+                                  code: fulfillment_state
+                                value: Pending
+                              - descriptor:
+                                  code: reschedule_eligible
+                                value: 'true'
+                              - descriptor:
+                                  code: reschedule_fee
+                                value: '0.00'
+                              - descriptor:
+                                  code: reschedule_within
+                                value: PT1D
+                        time:
+                          label: validity
+                          range:
+                            start: '2022-11-10T00:00:00.000Z'
+                            end: '2022-11-20T00:00:00.000Z'
+                          days: 4,5
+                          schedule:
+                            frequency: PT1H
+                            holidays:
+                              - '2023-11-13T00:00:00.000Z'
+                              - '2023-11-15T00:00:00.000Z'
+                            times:
+                              - '2023-11-16T09:30:00.000Z'
+                              - '2023-11-16T19:30:00.000Z'
+                              - '2023-11-14T19:30:00.000Z'
+                              - '2023-11-17T19:30:00.000Z'
+                              - '2023-11-17T09:30:00.000Z'
+                        matched: true
+                        recommended: true
+                      - id: PI2
+                        parent_item_id: ''
+                        descriptor:
+                          name: Home Cleaning
+                          code: UPC code
+                          short_desc: Home Cleaning
+                          long_desc: Home Cleaning
+                          images:
+                            - url: https://abc.com/images/207.png
+                          media:
+                            - mimetype: video/mp4
+                              url: https://video_url.mp4
+                        creator:
+                          descriptor:
+                            name: ABC
+                            contact:
+                              name: Raj Kumar
+                              address:
+                                full: Sector-1, Noida,Uttar Pradesh-201301
+                              phone: '18001801018'
+                              email: consumer.services@abc.com
+                        price:
+                          currency: INR
+                          value: '499.00'
+                          offered_value: '499.00'
+                          maximum_value: '499.00'
+                        quantity:
+                          unitized:
+                            measure:
+                              unit: seats
+                              value: '2'
+                        category_ids:
+                          - SRV11-1011
+                        fulfillment_ids:
+                          - '1'
+                        location_ids:
+                          - L1
+                        cancellation_terms:
+                          - fulfillment_state:
+                              descriptor:
+                                code: Pending
+                            reason_required: true
+                            cancel_by:
+                              duration: P1D
+                            cancellation_fee:
+                              amount:
+                                value: '0'
+                          - fulfillment_state:
+                              descriptor:
+                                code: In-Transit
+                            reason_required: true
+                            cancel_by:
+                              duration: P1D
+                            cancellation_fee:
+                              percentage: '5'
+                        tags:
+                          - descriptor:
+                              code: reschedule_terms
+                            list:
+                              - descriptor:
+                                  code: fulfillment_state
+                                value: Pending
+                              - descriptor:
+                                  code: reschedule_eligible
+                                value: 'true'
+                              - descriptor:
+                                  code: reschedule_fee
+                                value: '0.00'
+                              - descriptor:
+                                  code: reschedule_within
+                                value: PT1D
+                        time:
+                          label: validity
+                          range:
+                            start: '2022-12-24T00:00:00.000Z'
+                            end: '2022-12-31T00:00:00.000Z'
+                          days: 4,5
+                          schedule:
+                            frequency: PT1H
+                            holidays:
+                              - '2023-12-13T00:00:00.000Z'
+                              - '2023-12-15T00:00:00.000Z'
+                            times:
+                              - '2023-11-16T09:30:00.000Z'
+                              - '2023-11-16T19:30:00.000Z'
+                              - '2023-11-14T19:30:00.000Z'
+                              - '2023-11-17T19:30:00.000Z'
+                              - '2023-11-17T09:30:00.000Z'
+                        matched: true
+                        recommended: true
                       - id: I1
                         parent_item_id: PI1
                         descriptor:
-                          name: Home Painting - Home consultation
+                          name: Home Spray Painting - Home consultation
                           code: UPC code
                           short_desc: Painting and Waterproofing
                           long_desc: Painting and Waterproofing
@@ -3638,13 +3804,11 @@ x-flows:
                           offered_value: '99.00'
                           maximum_value: '149.00'
                         category_ids:
-                          - SRV11-xxxx
+                          - SRV11-1001
                         fulfillment_ids:
                           - '1'
                         location_ids:
                           - L1
-                        payment_ids:
-                          - '1'
                         cancellation_terms:
                           - fulfillment_state:
                               descriptor:
@@ -3730,13 +3894,11 @@ x-flows:
                               unit: seats
                               value: '2'
                         category_ids:
-                          - SRV11-xxxx
+                          - SRV11-1014
                         fulfillment_ids:
                           - '1'
                         location_ids:
                           - L1
-                        payment_ids:
-                          - '1'
                         cancellation_terms:
                           - fulfillment_state:
                               descriptor:
@@ -3793,10 +3955,10 @@ x-flows:
                       - id: I3
                         parent_item_id: PI2
                         descriptor:
-                          name: Sofa Cleaning
+                          name: Bathroom Cleaning
                           code: UPC code
-                          short_desc: Sofa Cleaning
-                          long_desc: Sofa Cleaning
+                          short_desc: Bathroom Cleaning
+                          long_desc: Bathroom Cleaning
                           images:
                             - url: https://abc.com/images/207.png
                           media:
@@ -3822,13 +3984,11 @@ x-flows:
                               unit: seats
                               value: '3'
                         category_ids:
-                          - SRV11-xxxx
+                          - SRV11-1010
                         fulfillment_ids:
                           - '1'
                         location_ids:
                           - L1
-                        payment_ids:
-                          - '1'
                         cancellation_terms:
                           - fulfillment_state:
                               descriptor:
@@ -3885,10 +4045,10 @@ x-flows:
                       - id: I4
                         parent_item_id: PI2
                         descriptor:
-                          name: Sofa Cleaning
+                          name: Floor Cleaning
                           code: UPC code
-                          short_desc: Sofa Cleaning
-                          long_desc: Sofa Cleaning
+                          short_desc: Floor Cleaning
+                          long_desc: Floor Cleaning
                           images:
                             - url: https://abc.com/images/207.png
                           media:
@@ -3914,13 +4074,11 @@ x-flows:
                               unit: seats
                               value: '6'
                         category_ids:
-                          - SRV11-xxxx
+                          - SRV11-1011
                         fulfillment_ids:
                           - '1'
                         location_ids:
                           - L1
-                        payment_ids:
-                          - '1'
                         cancellation_terms:
                           - fulfillment_state:
                               descriptor:
@@ -4070,6 +4228,13 @@ x-flows:
                             start: '2023-11-16T09:30:00.000Z'
                             end: '2023-11-16T10:30:00.000Z'
                           days: '4'
+                    tags:
+                      - descriptor:
+                          code: SELECTION
+                        list:
+                          - descriptor:
+                              code: ITEM_IDS
+                            value: PI1
                 payments:
                   - type: PRE-FULFILLMENT
       - summary: Seller confirms the schedule and returns the quote
@@ -7045,6 +7210,13 @@ x-flows:
                             start: '2024-03-04T10:00:00.000Z'
                             end: '2024-03-04T18:00:00.000Z'
                           days: '4'
+                    tags:
+                      - descriptor:
+                          code: SELECTION
+                        list:
+                          - descriptor:
+                              code: ITEM_IDS
+                            value: PI1
                 payments:
                   - type: PRE-FULFILLMENT
       - summary: Seller confirms the schedule and returns the quote
@@ -11073,6 +11245,10 @@ x-flows:
                     selected:
                       count: 1
                 items:
+                  - id: PI1
+                    parent_item_id: ''
+                    location_ids:
+                      - L1
                   - id: I1
                     parent_item_id: PI1
                     location_ids:
@@ -11090,6 +11266,13 @@ x-flows:
                             start: '2023-11-16T09:30:00.000Z'
                             end: '2023-11-16T10:30:00.000Z'
                           days: '4'
+                    tags:
+                      - descriptor:
+                          code: SELECTION
+                        list:
+                          - descriptor:
+                              code: ITEM_IDS
+                            value: PI1
                 payments:
                   - type: PRE-FULFILLMENT
       - summary: Seller confirms the schedule and returns the quote
@@ -11124,6 +11307,15 @@ x-flows:
                   locations:
                     - id: L1
                 items:
+                  - fulfillment_ids:
+                      - F1
+                    id: PI1
+                    parent_item_id: ''
+                    location_ids:
+                      - L1
+                    quantity:
+                      selected:
+                        count: 1
                   - fulfillment_ids:
                       - F1
                     id: I1
@@ -11223,6 +11415,13 @@ x-flows:
                   locations:
                     - id: L1
                 items:
+                  - id: PI1
+                    parent_item_id: ''
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 1
                   - id: I1
                     parent_item_id: PI1
                     fulfillment_ids:
@@ -11301,6 +11500,13 @@ x-flows:
                   locations:
                     - id: L1
                 items:
+                  - id: PI1
+                    parent_item_id: ''
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 1
                   - id: I1
                     parent_item_id: PI1
                     fulfillment_ids:
@@ -11500,6 +11706,13 @@ x-flows:
                   locations:
                     - id: L1
                 items:
+                  - id: PI1
+                    parent_item_id: ''
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 1
                   - id: I1
                     parent_item_id: PI1
                     fulfillment_ids:
@@ -11713,6 +11926,13 @@ x-flows:
                     - id: L1
                   rateable: true
                 items:
+                  - id: PI1
+                    parent_item_id: ''
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 1
                   - id: I1
                     parent_item_id: PI1
                     fulfillment_ids:
@@ -11991,11 +12211,14 @@ x-flows:
                 provider:
                   id: P1
                 items:
-                  - id: I1
-                    parent_item_id: PI1
+                  - id: PI1
+                    parent_item_id: ''
                     fulfillment_ids:
                       - F1
-                  - id: PI1
+                    quantity:
+                      selected:
+                        count: 1
+                  - id: I1
                     parent_item_id: PI1
                     quantity:
                       selected:
@@ -12607,11 +12830,14 @@ x-flows:
                 provider:
                   id: P1
                 items:
-                  - id: I1
-                    parent_item_id: PI1
+                  - id: PI1
+                    parent_item_id: ''
                     fulfillment_ids:
                       - F1
-                  - id: PI1
+                    quantity:
+                      selected:
+                        count: 1
+                  - id: I1
                     parent_item_id: PI1
                     quantity:
                       selected:
@@ -13317,6 +13543,31 @@ x-flows:
                   locations:
                     - id: L1
                 items:
+                  - fulfillment_ids:
+                      - F1
+                    id: PI1
+                    parent_item_id: ''
+                    location_ids:
+                      - L1
+                    quantity:
+                      selected:
+                        count: 1
+                    time:
+                      label: validity
+                      range:
+                        start: '2022-17-10T00:00:00.000Z'
+                        end: '2022-11-20T00:00:00.000Z'
+                      schedule:
+                        frequency: PT1H
+                        holidays:
+                          - '2023-11-13'
+                          - '2023-11-15'
+                        times:
+                          - '2023-11-16T09:30:00.000Z'
+                          - '2023-11-16T19:30:00.000Z'
+                          - '2023-11-14T19:30:00.000Z'
+                          - '2023-11-17T19:30:00.000Z'
+                          - '2023-11-17T09:30:00.000Z'
                   - fulfillment_ids:
                       - F1
                     id: I1
@@ -14317,6 +14568,12 @@ x-flows:
                   locations:
                     - id: L1
                 items:
+                  - id: PI1
+                    parent_item_id: ''
+                    fulfillment_ids:
+                      - F1
+                    location_ids:
+                      - L1
                   - id: I1
                     parent_item_id: PI1
                     fulfillment_ids:
@@ -14507,6 +14764,12 @@ x-flows:
                   locations:
                     - id: L1
                 items:
+                  - id: PI1
+                    parent_item_id: ''
+                    fulfillment_ids:
+                      - F1
+                    location_ids:
+                      - L1
                   - id: I1
                     parent_item_id: PI1
                     fulfillment_ids:
@@ -18123,6 +18386,10 @@ x-examples:
                       selected:
                         count: 1
                   items:
+                    - id: PI1
+                      parent_item_id: ''
+                      location_ids:
+                        - L1
                     - id: I1
                       parent_item_id: PI1
                       location_ids:
@@ -18140,6 +18407,13 @@ x-examples:
                               start: '2023-11-16T09:30:00.000Z'
                               end: '2023-11-16T10:30:00.000Z'
                             days: '4'
+                      tags:
+                        - descriptor:
+                            code: SELECTION
+                          list:
+                            - descriptor:
+                                code: ITEM_IDS
+                              value: PI1
                   payments:
                     - type: PRE-FULFILLMENT
           - summary: Buyer adds the consulation service to cart + reschedules
@@ -18171,6 +18445,13 @@ x-examples:
                     locations:
                       - id: L1
                   items:
+                    - id: PI1
+                      parent_item_id: ''
+                      location_ids:
+                        - L1
+                      quantity:
+                        selected:
+                          count: 1
                     - id: I1
                       parent_item_id: PI1
                       location_ids:
@@ -18191,6 +18472,13 @@ x-examples:
                               start: '2023-11-17T09:30:00.000Z'
                               end: '2023-11-17T10:30:00.000Z'
                             days: '4'
+                      tags:
+                        - descriptor:
+                            code: SELECTION
+                          list:
+                            - descriptor:
+                                code: ITEM_IDS
+                              value: PI1
                   payments:
                     - type: PRE-FULFILLMENT
           - summary: Buyer adds the service to cart
@@ -18242,6 +18530,13 @@ x-examples:
                               start: '2023-11-16T09:30:00.000Z'
                               end: '2023-11-16T10:30:00.000Z'
                             days: '4'
+                      tags:
+                        - descriptor:
+                            code: SELECTION
+                          list:
+                            - descriptor:
+                                code: ITEM_IDS
+                              value: PI1
                   payments:
                     - type: PRE-FULFILLMENT
           - summary: Buyer adds the service and customizations to cart
@@ -18377,6 +18672,13 @@ x-examples:
                               start: '2024-03-04T10:00:00.000Z'
                               end: '2024-03-04T18:00:00.000Z'
                             days: '4'
+                      tags:
+                        - descriptor:
+                            code: SELECTION
+                          list:
+                            - descriptor:
+                                code: ITEM_IDS
+                              value: PI1
                   payments:
                     - type: PRE-FULFILLMENT
       init:
@@ -18408,6 +18710,13 @@ x-examples:
                     locations:
                       - id: L1
                   items:
+                    - id: PI1
+                      parent_item_id: ''
+                      fulfillment_ids:
+                        - F1
+                      quantity:
+                        selected:
+                          count: 1
                     - id: I1
                       parent_item_id: PI1
                       fulfillment_ids:
@@ -18723,6 +19032,13 @@ x-examples:
                     locations:
                       - id: L1
                   items:
+                    - id: PI1
+                      parent_item_id: ''
+                      fulfillment_ids:
+                        - F1
+                      quantity:
+                        selected:
+                          count: 1
                     - id: I1
                       parent_item_id: PI1
                       fulfillment_ids:
@@ -19687,11 +20003,14 @@ x-examples:
                   provider:
                     id: P1
                   items:
-                    - id: I1
-                      parent_item_id: PI1
+                    - id: PI1
+                      parent_item_id: ''
                       fulfillment_ids:
                         - F1
-                    - id: PI1
+                      quantity:
+                        selected:
+                          count: 1
+                    - id: I1
                       parent_item_id: PI1
                       quantity:
                         selected:
@@ -20420,10 +20739,176 @@ x-examples:
                                 code: unit
                               value: geojson
                       items:
+                        - id: PI1
+                          parent_item_id: ''
+                          descriptor:
+                            name: Home Painting - Home consultation
+                            code: UPC code
+                            short_desc: Painting and Waterproofing
+                            long_desc: Painting and Waterproofing
+                            images:
+                              - url: https://abc.com/images/207.png
+                            media:
+                              - mimetype: video/mp4
+                                url: https://video_url.mp4
+                          price:
+                            currency: INR
+                            value: '0.00'
+                            offered_value: '0.00'
+                            maximum_value: '0.00'
+                          category_ids:
+                            - SRV11-1001
+                          fulfillment_ids:
+                            - '1'
+                          location_ids:
+                            - L1
+                          cancellation_terms:
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Pending
+                              reason_required: true
+                              cancel_by:
+                                duration: P1D
+                              cancellation_fee:
+                                amount:
+                                  value: '0'
+                            - fulfillment_state:
+                                descriptor:
+                                  code: In-Transit
+                              reason_required: true
+                              cancel_by:
+                                duration: P0D
+                              cancellation_fee:
+                                percentage: '5'
+                          tags:
+                            - descriptor:
+                                code: reschedule_terms
+                              list:
+                                - descriptor:
+                                    code: fulfillment_state
+                                  value: Pending
+                                - descriptor:
+                                    code: reschedule_eligible
+                                  value: 'true'
+                                - descriptor:
+                                    code: reschedule_fee
+                                  value: '0.00'
+                                - descriptor:
+                                    code: reschedule_within
+                                  value: PT1D
+                          time:
+                            label: validity
+                            range:
+                              start: '2022-11-10T00:00:00.000Z'
+                              end: '2022-11-20T00:00:00.000Z'
+                            days: 4,5
+                            schedule:
+                              frequency: PT1H
+                              holidays:
+                                - '2023-11-13T00:00:00.000Z'
+                                - '2023-11-15T00:00:00.000Z'
+                              times:
+                                - '2023-11-16T09:30:00.000Z'
+                                - '2023-11-16T19:30:00.000Z'
+                                - '2023-11-14T19:30:00.000Z'
+                                - '2023-11-17T19:30:00.000Z'
+                                - '2023-11-17T09:30:00.000Z'
+                          matched: true
+                          recommended: true
+                        - id: PI2
+                          parent_item_id: ''
+                          descriptor:
+                            name: Home Cleaning
+                            code: UPC code
+                            short_desc: Home Cleaning
+                            long_desc: Home Cleaning
+                            images:
+                              - url: https://abc.com/images/207.png
+                            media:
+                              - mimetype: video/mp4
+                                url: https://video_url.mp4
+                          creator:
+                            descriptor:
+                              name: ABC
+                              contact:
+                                name: Raj Kumar
+                                address:
+                                  full: Sector-1, Noida,Uttar Pradesh-201301
+                                phone: '18001801018'
+                                email: consumer.services@abc.com
+                          price:
+                            currency: INR
+                            value: '499.00'
+                            offered_value: '499.00'
+                            maximum_value: '499.00'
+                          quantity:
+                            unitized:
+                              measure:
+                                unit: seats
+                                value: '2'
+                          category_ids:
+                            - SRV11-1011
+                          fulfillment_ids:
+                            - '1'
+                          location_ids:
+                            - L1
+                          cancellation_terms:
+                            - fulfillment_state:
+                                descriptor:
+                                  code: Pending
+                              reason_required: true
+                              cancel_by:
+                                duration: P1D
+                              cancellation_fee:
+                                amount:
+                                  value: '0'
+                            - fulfillment_state:
+                                descriptor:
+                                  code: In-Transit
+                              reason_required: true
+                              cancel_by:
+                                duration: P1D
+                              cancellation_fee:
+                                percentage: '5'
+                          tags:
+                            - descriptor:
+                                code: reschedule_terms
+                              list:
+                                - descriptor:
+                                    code: fulfillment_state
+                                  value: Pending
+                                - descriptor:
+                                    code: reschedule_eligible
+                                  value: 'true'
+                                - descriptor:
+                                    code: reschedule_fee
+                                  value: '0.00'
+                                - descriptor:
+                                    code: reschedule_within
+                                  value: PT1D
+                          time:
+                            label: validity
+                            range:
+                              start: '2022-12-24T00:00:00.000Z'
+                              end: '2022-12-31T00:00:00.000Z'
+                            days: 4,5
+                            schedule:
+                              frequency: PT1H
+                              holidays:
+                                - '2023-12-13T00:00:00.000Z'
+                                - '2023-12-15T00:00:00.000Z'
+                              times:
+                                - '2023-11-16T09:30:00.000Z'
+                                - '2023-11-16T19:30:00.000Z'
+                                - '2023-11-14T19:30:00.000Z'
+                                - '2023-11-17T19:30:00.000Z'
+                                - '2023-11-17T09:30:00.000Z'
+                          matched: true
+                          recommended: true
                         - id: I1
                           parent_item_id: PI1
                           descriptor:
-                            name: Home Painting - Home consultation
+                            name: Home Spray Painting - Home consultation
                             code: UPC code
                             short_desc: Painting and Waterproofing
                             long_desc: Painting and Waterproofing
@@ -20438,13 +20923,11 @@ x-examples:
                             offered_value: '99.00'
                             maximum_value: '149.00'
                           category_ids:
-                            - SRV11-xxxx
+                            - SRV11-1001
                           fulfillment_ids:
                             - '1'
                           location_ids:
                             - L1
-                          payment_ids:
-                            - '1'
                           cancellation_terms:
                             - fulfillment_state:
                                 descriptor:
@@ -20530,13 +21013,11 @@ x-examples:
                                 unit: seats
                                 value: '2'
                           category_ids:
-                            - SRV11-xxxx
+                            - SRV11-1014
                           fulfillment_ids:
                             - '1'
                           location_ids:
                             - L1
-                          payment_ids:
-                            - '1'
                           cancellation_terms:
                             - fulfillment_state:
                                 descriptor:
@@ -20593,10 +21074,10 @@ x-examples:
                         - id: I3
                           parent_item_id: PI2
                           descriptor:
-                            name: Sofa Cleaning
+                            name: Bathroom Cleaning
                             code: UPC code
-                            short_desc: Sofa Cleaning
-                            long_desc: Sofa Cleaning
+                            short_desc: Bathroom Cleaning
+                            long_desc: Bathroom Cleaning
                             images:
                               - url: https://abc.com/images/207.png
                             media:
@@ -20622,13 +21103,11 @@ x-examples:
                                 unit: seats
                                 value: '3'
                           category_ids:
-                            - SRV11-xxxx
+                            - SRV11-1010
                           fulfillment_ids:
                             - '1'
                           location_ids:
                             - L1
-                          payment_ids:
-                            - '1'
                           cancellation_terms:
                             - fulfillment_state:
                                 descriptor:
@@ -20685,10 +21164,10 @@ x-examples:
                         - id: I4
                           parent_item_id: PI2
                           descriptor:
-                            name: Sofa Cleaning
+                            name: Floor Cleaning
                             code: UPC code
-                            short_desc: Sofa Cleaning
-                            long_desc: Sofa Cleaning
+                            short_desc: Floor Cleaning
+                            long_desc: Floor Cleaning
                             images:
                               - url: https://abc.com/images/207.png
                             media:
@@ -20714,13 +21193,11 @@ x-examples:
                                 unit: seats
                                 value: '6'
                           category_ids:
-                            - SRV11-xxxx
+                            - SRV11-1011
                           fulfillment_ids:
                             - '1'
                           location_ids:
                             - L1
-                          payment_ids:
-                            - '1'
                           cancellation_terms:
                             - fulfillment_state:
                                 descriptor:
@@ -21508,7 +21985,7 @@ x-examples:
                             currency: INR
                             minimum_value: '2500.00'
                           category_ids:
-                            - SRV11-xxxx
+                            - SRV11-1011
                           fulfillment_ids:
                             - '1'
                           location_ids:
@@ -21855,6 +22332,15 @@ x-examples:
                   items:
                     - fulfillment_ids:
                         - F1
+                      id: PI1
+                      parent_item_id: ''
+                      location_ids:
+                        - L1
+                      quantity:
+                        selected:
+                          count: 1
+                    - fulfillment_ids:
+                        - F1
                       id: I1
                       parent_item_id: PI1
                       location_ids:
@@ -21951,6 +22437,31 @@ x-examples:
                     locations:
                       - id: L1
                   items:
+                    - fulfillment_ids:
+                        - F1
+                      id: PI1
+                      parent_item_id: ''
+                      location_ids:
+                        - L1
+                      quantity:
+                        selected:
+                          count: 1
+                      time:
+                        label: validity
+                        range:
+                          start: '2022-17-10T00:00:00.000Z'
+                          end: '2022-11-20T00:00:00.000Z'
+                        schedule:
+                          frequency: PT1H
+                          holidays:
+                            - '2023-11-13'
+                            - '2023-11-15'
+                          times:
+                            - '2023-11-16T09:30:00.000Z'
+                            - '2023-11-16T19:30:00.000Z'
+                            - '2023-11-14T19:30:00.000Z'
+                            - '2023-11-17T19:30:00.000Z'
+                            - '2023-11-17T09:30:00.000Z'
                     - fulfillment_ids:
                         - F1
                       id: I1
@@ -22680,6 +23191,13 @@ x-examples:
                     locations:
                       - id: L1
                   items:
+                    - id: PI1
+                      parent_item_id: ''
+                      fulfillment_ids:
+                        - F1
+                      quantity:
+                        selected:
+                          count: 1
                     - id: I1
                       parent_item_id: PI1
                       fulfillment_ids:
@@ -23599,6 +24117,13 @@ x-examples:
                       - id: L1
                     rateable: true
                   items:
+                    - id: PI1
+                      parent_item_id: ''
+                      fulfillment_ids:
+                        - F1
+                      quantity:
+                        selected:
+                          count: 1
                     - id: I1
                       parent_item_id: PI1
                       fulfillment_ids:
@@ -26245,11 +26770,14 @@ x-examples:
                   provider:
                     id: P1
                   items:
-                    - id: I1
-                      parent_item_id: PI1
+                    - id: PI1
+                      parent_item_id: ''
                       fulfillment_ids:
                         - F1
-                    - id: PI1
+                      quantity:
+                        selected:
+                          count: 1
+                    - id: I1
                       parent_item_id: PI1
                       quantity:
                         selected:
@@ -29293,9 +29821,9 @@ x-attributes:
                     required: optional
                     usage: abc@xyz.com
                     reference: if any
-                person.name:
-                  description: name of the customer or service provider
-                  required: required
+                person:
+                  description: Details of the customer or service provider
+                  required: optional for 'end' stop
                   usage: Ramu
                   reference: if any
                 time:
@@ -30013,349 +30541,398 @@ x-attributes:
                 usage: INVOICE
                 reference: if any
 x-errorcodes:
-  - Cancellation: []
-  - ErrorCodes:
-      - Code: 90001
-        Type: Seller App
-        Message: Schedule selected by the buyer is not available
-        Description: Used in error object in /on_select
-      - Code: 90002
-        Type: Seller App
-        Message: Incorrect OTP provided by buyer
-        Description: Used in error object in /on_status
-      - Code: 90003
-        Type: Seller App
-        Message: Schedule is not provided by the buyer
-        Description: Used in NACK on /select
-      - Code: 10000
-        Type: Gateway
-        Message: Bad or Invalid request error
-        Description: Generic bad or invalid request error
-      - Code: 10001
-        Type: Gateway
-        Message: Invalid Signature
-        Description: Cannot verify signature for request
-      - Code: 10002
-        Type: Gateway
-        Message: Invalid City Code
-        Description: Valid city code needs to be passed for search
-      - Code: 20000
-        Type: Buyer App
-        Message: Invalid catalog
-        Description: Catalog refresh is invalid
-      - Code: 20001
-        Type: Buyer App
-        Message: Invalid Signature
-        Description: Cannot verify signature for response
-      - Code: 20002
-        Type: Buyer App
-        Message: Stale Request
-        Description: Cannot process stale request
-      - Code: 20005
-        Type: Buyer App
-        Message: Item not found
-        Description: Item not found
-      - Code: 20006
-        Type: Buyer App
-        Message: Invalid response
-        Description: Invalid response does not meet API contract specifications
-      - Code: 20007
-        Type: Buyer App
-        Message: Invalid order state
-        Description: Order/fulfillment state is stale or not valid
-      - Code: 20008
-        Type: Buyer App
-        Message: Response out of sequence
-        Description: Callback received prior to ACK for request or out of sequence
-      - Code: 20009
-        Type: Buyer App
-        Message: Timeout
-        Description: Callback received late, session timed out
-      - Code: 21001
-        Type: Buyer App
-        Message: Feature not supported
-        Description: Feature not supported
-      - Code: 21002
-        Type: Buyer App
-        Message: Increase in item quantity
-        Description: Increase in item quantity
-      - Code: 21003
-        Type: Buyer App
-        Message: Change in item quote
-        Description: Change in item quote without change in quantity
-      - Code: 22501
-        Type: Buyer App
-        Message: Part Fill Unacceptable
-        Description: >-
-          Buyer doesn't accept part fill for the order, wants to cancel the
-          order
-      - Code: 22502
-        Type: Buyer App
-        Message: Cancellation unacceptable
-        Description: Invalid cancellation reason
-      - Code: 22503
-        Type: Buyer App
-        Message: Cancellation unacceptable
-        Description: >-
-          Updated quote does not match original order value and cancellation
-          terms
-      - Code: 22504
-        Type: Buyer App
-        Message: Invalid Fulfillment TAT
-        Description: Fulfillment TAT is different from what was quoted earlier
-      - Code: 22505
-        Type: Buyer App
-        Message: Invalid Cancellation Terms
-        Description: Cancellation terms are different from what was quoted earlier
-      - Code: 22506
-        Type: Buyer App
-        Message: Invalid Terms of Reference
-        Description: Terms of Reference are different from what was quoted earlier
-      - Code: 22507
-        Type: Buyer App
-        Message: Invalid Quote
-        Description: Quote is invalid as it does not meet the API contract specifications
-      - Code: 22508
-        Type: Buyer App
-        Message: Invalid Part Cancel Request
-        Description: Part cancel request is invalid
-      - Code: 23001
-        Type: Buyer App
-        Message: Internal Error
-        Description: Cannot process response due to internal error, please retry
-      - Code: 23002
-        Type: Buyer App
-        Message: Order validation failure
-        Description: Order validation failure
-      - Code: 25001
-        Type: Buyer App
-        Message: Order Confirm Failure
-        Description: Buyer App cannot confirm order as no response from Seller App
-      - Code: 27501
-        Type: Buyer App
-        Message: Terms and Conditions unacceptable
-        Description: Seller App terms and conditions not acceptable to Buyer App
-      - Code: 27502
-        Type: Buyer App
-        Message: Order terminated
-        Description: >-
-          Order terminated as Seller App did not accept terms and conditions
-          proposed by Buyer App
-      - Code: 30000
-        Type: Seller App
-        Message: Invalid request
-        Description: Invalid request does not meet API contract specifications
-      - Code: 30001
-        Type: Seller App
-        Message: Provider not found
-        Description: >-
-          When Seller App is unable to find the provider id sent by the Buyer
-          App
-      - Code: 30002
-        Type: Seller App
-        Message: Provider location not found
-        Description: >-
-          When Seller App is unable to find the provider location id sent by the
-          Buyer App
-      - Code: 30003
-        Type: Seller App
-        Message: Provider category not found
-        Description: >-
-          When Seller App is unable to find the provider category id sent by the
-          Buyer App
-      - Code: 30004
-        Type: Seller App
-        Message: Item not found
-        Description: Unable to find details for item, may have been deleted
-      - Code: 30005
-        Type: Seller App
-        Message: Invalid return request
-        Description: Return reason is invalid
-      - Code: 30006
-        Type: Seller App
-        Message: Offer code invalid
-        Description: Offer code is not valid anymore
-      - Code: 30007
-        Type: Seller App
-        Message: Offer fulfillment error
-        Description: Offer cannot be fulfilled at this time
-      - Code: 30008
-        Type: Seller App
-        Message: Location Serviceability error
-        Description: Pickup location not serviceable by Logistics Provider
-      - Code: 30009
-        Type: Seller App
-        Message: Location Serviceability error
-        Description: Dropoff location not serviceable by Logistics Provider
-      - Code: 30010
-        Type: Seller App
-        Message: Location Serviceability error
-        Description: Delivery distance exceeds the maximum serviceability distance
-      - Code: 30011
-        Type: Seller App
-        Message: Order Serviceability error
-        Description: Delivery Partners not available
-      - Code: 30012
-        Type: Seller App
-        Message: Invalid cancellation reason
-        Description: Cancellation reason is invalid
-      - Code: 30013
-        Type: Seller App
-        Message: Invalid Fulfillment TAT
-        Description: Fulfillment TAT is different from what was quoted earlier
-      - Code: 30014
-        Type: Seller App
-        Message: Cancellation unacceptable
-        Description: Cancellation request is rejected as fulfillment TAT is not breached
-      - Code: 30015
-        Type: Seller App
-        Message: Invalid rating value
-        Description: >-
-          When the Seller App receives an invalid value as the rating value in
-          value
-      - Code: 30016
-        Type: Seller App
-        Message: Invalid Signature
-        Description: Cannot verify signature for request
-      - Code: 30017
-        Type: Seller App
-        Message: Merchant unavailable
-        Description: Merchant is currently not taking orders
-      - Code: 30018
-        Type: Seller App
-        Message: Invalid Order
-        Description: Order not found
-      - Code: 30019
-        Type: Seller App
-        Message: Order Confirm Error
-        Description: Seller App is unable to confirm the order
-      - Code: 30020
-        Type: Seller App
-        Message: Order Confirm Failure
-        Description: Seller App cannot confirm order as no response from Buyer App
-      - Code: 30021
-        Type: Seller App
-        Message: Merchant Inactive
-        Description: Merchant is inactive
-      - Code: 30022
-        Type: Seller App
-        Message: Stale Request
-        Description: Cannot process stale request
-      - Code: 30023
-        Type: Seller App
-        Message: Minimum order value error
-        Description: Cart value is less than minimum order value
-      - Code: 31001
-        Type: Seller App
-        Message: Internal Error
-        Description: Cannot process request due to internal error, please retry
-      - Code: 31002
-        Type: Seller App
-        Message: Order validation failure
-        Description: Order validation failure
-      - Code: 31003
-        Type: Seller App
-        Message: Order processing in progress
-        Description: Order processing in progress
-      - Code: 31004
-        Type: Seller App
-        Message: Payment Failed
-        Description: Payment fails
-      - Code: 40000
-        Type: Seller App
-        Message: Business Error
-        Description: Generic business error
-      - Code: 40001
-        Type: Seller App
-        Message: Feature not supported
-        Description: Feature not supported
-      - Code: 40002
-        Type: Seller App
-        Message: Item quantity unavailable
-        Description: >-
-          When the Seller App is unable to fulfill the required quantity for
-          items in the order
-      - Code: 40003
-        Type: Seller App
-        Message: Quote unavailable
-        Description: Quote no longer available
-      - Code: 40004
-        Type: Seller App
-        Message: Payment type not supported
-        Description: Payment type not supported
-      - Code: 40005
-        Type: Seller App
-        Message: Tracking not enabled
-        Description: Tracking not enabled for any fulfillment in the order
-      - Code: 40006
-        Type: Seller App
-        Message: Fulfilment agent unavailable
-        Description: When an agent for fulfilment is not available
-      - Code: 40007
-        Type: Seller App
-        Message: Change in item quantity
-        Description: Change in item quantity
-      - Code: 40008
-        Type: Seller App
-        Message: Change in quote
-        Description: Change in quote
-      - Code: 40009
-        Type: Seller App
-        Message: Maximum order qty exceeded
-        Description: Maximum order qty exceeded
-      - Code: 40010
-        Type: Seller App
-        Message: Expired authorization
-        Description: Authorization code has expired
-      - Code: 40011
-        Type: Seller App
-        Message: Invalid authorization
-        Description: Authorization code is invalid
-      - Code: 41001
-        Type: Seller App
-        Message: Finder fee not acceptable
-        Description: Buyer finder fee is not acceptable
-      - Code: 50000
-        Type: Seller App
-        Message: Policy Error
-        Description: Generic Policy Error
-      - Code: 50001
-        Type: Seller App
-        Message: Cancellation not possible
-        Description: >-
-          When the Seller App is unable to cancel the order due to it's
-          cancellation policy
-      - Code: 50002
-        Type: Seller App
-        Message: Updation not possible
-        Description: >-
-          When the Seller App is unable to update the order due to it's updation
-          policy
-      - Code: 50003
-        Type: Seller App
-        Message: Unsupported rating category
-        Description: When the Seller App receives an entity to rate which is not supported
-      - Code: 50004
-        Type: Seller App
-        Message: Support unavailable
-        Description: >-
-          When the Seller App receives an object if for which it does not
-          provide support
-      - Code: 50005
-        Type: Seller App
-        Message: Terms and Conditions unacceptable
-        Description: Buyer App terms and conditions not acceptable to Seller App
-      - Code: 50006
-        Type: Seller App
-        Message: Order terminated
-        Description: >-
-          Order terminated as Buyer App did not accept terms proposed by Seller
-          App
-      - Code: 50007
-        Type: Seller App
-        Message: Fulfillment not found
-        Description: Fulfillment not found
-      - Code: 50008
-        Type: Seller App
-        Message: Fulfillment cannot be updated
-        Description: Fulfillment has reached terminal state, cannot be updated
+  codes:
+    - Code: 90001
+      Who can use code?: BPP
+      Reason: Schedule selected by the buyer is not available
+      Usage: Used in error object in /on_select
+    - Code: 90002
+      Who can use code?: BPP
+      Reason: Incorrect OTP provided by buyer
+      Usage: Used in error object in /on_status
+    - Code: 90003
+      Who can use code?: BPP
+      Reason: Schedule is not provided by the buyer
+      Usage: Used in NACK on /select
+    - Code: 10000
+      Who can use code?: Gateway
+      Reason: Bad or Invalid request error
+      Usage: Generic bad or invalid request error
+    - Code: 10001
+      Who can use code?: Gateway
+      Reason: Invalid Signature
+      Usage: Cannot verify signature for request
+    - Code: 10002
+      Who can use code?: Gateway
+      Reason: Invalid City Code
+      Usage: Valid city code needs to be passed for search
+    - Code: 20000
+      Who can use code?: BAP
+      Reason: Invalid catalog
+      Usage: Catalog refresh is invalid
+    - Code: 20001
+      Who can use code?: BAP
+      Reason: Invalid Signature
+      Usage: Cannot verify signature for response
+    - Code: 20002
+      Who can use code?: BAP
+      Reason: Stale Request
+      Usage: Cannot process stale request
+    - Code: 20005
+      Who can use code?: BAP
+      Reason: Item not found
+      Usage: Item not found
+    - Code: 20006
+      Who can use code?: BAP
+      Reason: Invalid response
+      Usage: Invalid response does not meet API contract specifications
+    - Code: 20007
+      Who can use code?: BAP
+      Reason: Invalid order state
+      Usage: Order/fulfillment state is stale or not valid
+    - Code: 20008
+      Who can use code?: BAP
+      Reason: Response out of sequence
+      Usage: Callback received prior to ACK for request or out of sequence
+    - Code: 20009
+      Who can use code?: BAP
+      Reason: Timeout
+      Usage: Callback received late, session timed out
+    - Code: 21001
+      Who can use code?: BAP
+      Reason: Feature not supported
+      Usage: Feature not supported
+    - Code: 21002
+      Who can use code?: BAP
+      Reason: Increase in item quantity
+      Usage: Increase in item quantity
+    - Code: 21003
+      Who can use code?: BAP
+      Reason: Change in item quote
+      Usage: Change in item quote without change in quantity
+    - Code: 22501
+      Who can use code?: BAP
+      Reason: Part Fill Unacceptable
+      Usage: Buyer doesn't accept part fill for the order, wants to cancel the order
+    - Code: 22502
+      Who can use code?: BAP
+      Reason: Cancellation unacceptable
+      Usage: Invalid cancellation reason
+    - Code: 22503
+      Who can use code?: BAP
+      Reason: Cancellation unacceptable
+      Usage: Updated quote does not match original order value and cancellation terms
+    - Code: 22504
+      Who can use code?: BAP
+      Reason: Invalid Fulfillment TAT
+      Usage: Fulfillment TAT is different from what was quoted earlier
+    - Code: 22505
+      Who can use code?: BAP
+      Reason: Invalid Cancellation Terms
+      Usage: Cancellation terms are different from what was quoted earlier
+    - Code: 22506
+      Who can use code?: BAP
+      Reason: Invalid Terms of Reference
+      Usage: Terms of Reference are different from what was quoted earlier
+    - Code: 22507
+      Who can use code?: BAP
+      Reason: Invalid Quote
+      Usage: Quote is invalid as it does not meet the API contract specifications
+    - Code: 22508
+      Who can use code?: BAP
+      Reason: Invalid Part Cancel Request
+      Usage: Part cancel request is invalid
+    - Code: 23001
+      Who can use code?: BAP
+      Reason: Internal Error
+      Usage: Cannot process response due to internal error, please retry
+    - Code: 23002
+      Who can use code?: BAP
+      Reason: Order validation failure
+      Usage: Order validation failure
+    - Code: 25001
+      Who can use code?: BAP
+      Reason: Order Confirm Failure
+      Usage: BAP cannot confirm order as no response from BPP
+    - Code: 27501
+      Who can use code?: BAP
+      Reason: Terms and Conditions unacceptable
+      Usage: BPP terms and conditions not acceptable to BAP
+    - Code: 27502
+      Who can use code?: BAP
+      Reason: Order terminated
+      Usage: >-
+        Order terminated as BPP did not accept terms and conditions proposed by
+        BAP
+    - Code: 30000
+      Who can use code?: BPP
+      Reason: Invalid request
+      Usage: Invalid request does not meet API contract specifications
+    - Code: 30001
+      Who can use code?: BPP
+      Reason: Provider not found
+      Usage: When BPP is unable to find the provider id sent by the BAP
+    - Code: 30002
+      Who can use code?: BPP
+      Reason: Provider location not found
+      Usage: When BPP is unable to find the provider location id sent by the BAP
+    - Code: 30003
+      Who can use code?: BPP
+      Reason: Provider category not found
+      Usage: When BPP is unable to find the provider category id sent by the BAP
+    - Code: 30004
+      Who can use code?: BPP
+      Reason: Item not found
+      Usage: Unable to find details for item, may have been deleted
+    - Code: 30005
+      Who can use code?: BPP
+      Reason: Invalid return request
+      Usage: Return reason is invalid
+    - Code: 30006
+      Who can use code?: BPP
+      Reason: Offer code invalid
+      Usage: Offer code is not valid anymore
+    - Code: 30007
+      Who can use code?: BPP
+      Reason: Offer fulfillment error
+      Usage: Offer cannot be fulfilled at this time
+    - Code: 30008
+      Who can use code?: BPP
+      Reason: Location Serviceability error
+      Usage: Pickup location not serviceable by Logistics Provider
+    - Code: 30009
+      Who can use code?: BPP
+      Reason: Location Serviceability error
+      Usage: Dropoff location not serviceable by Logistics Provider
+    - Code: 30010
+      Who can use code?: BPP
+      Reason: Location Serviceability error
+      Usage: Delivery distance exceeds the maximum serviceability distance
+    - Code: 30011
+      Who can use code?: BPP
+      Reason: Order Serviceability error
+      Usage: Delivery Partners not available
+    - Code: 30012
+      Who can use code?: BPP
+      Reason: Invalid cancellation reason
+      Usage: Cancellation reason is invalid
+    - Code: 30013
+      Who can use code?: BPP
+      Reason: Invalid Fulfillment TAT
+      Usage: Fulfillment TAT is different from what was quoted earlier
+    - Code: 30014
+      Who can use code?: BPP
+      Reason: Cancellation unacceptable
+      Usage: Cancellation request is rejected as fulfillment TAT is not breached
+    - Code: 30015
+      Who can use code?: BPP
+      Reason: Invalid rating value
+      Usage: When the BPP receives an invalid value as the rating value in value
+    - Code: 30016
+      Who can use code?: BPP
+      Reason: Invalid Signature
+      Usage: Cannot verify signature for request
+    - Code: 30017
+      Who can use code?: BPP
+      Reason: Merchant unavailable
+      Usage: Merchant is currently not taking orders
+    - Code: 30018
+      Who can use code?: BPP
+      Reason: Invalid Order
+      Usage: Order not found
+    - Code: 30019
+      Who can use code?: BPP
+      Reason: Order Confirm Error
+      Usage: BPP is unable to confirm the order
+    - Code: 30020
+      Who can use code?: BPP
+      Reason: Order Confirm Failure
+      Usage: BPP cannot confirm order as no response from BAP
+    - Code: 30021
+      Who can use code?: BPP
+      Reason: Merchant Inactive
+      Usage: Merchant is inactive
+    - Code: 30022
+      Who can use code?: BPP
+      Reason: Stale Request
+      Usage: Cannot process stale request
+    - Code: 30023
+      Who can use code?: BPP
+      Reason: Minimum order value error
+      Usage: Cart value is less than minimum order value
+    - Code: 31001
+      Who can use code?: BPP
+      Reason: Internal Error
+      Usage: Cannot process request due to internal error, please retry
+    - Code: 31002
+      Who can use code?: BPP
+      Reason: Order validation failure
+      Usage: Order validation failure
+    - Code: 31003
+      Who can use code?: BPP
+      Reason: Order processing in progress
+      Usage: Order processing in progress
+    - Code: 31004
+      Who can use code?: BPP
+      Reason: Payment Failed
+      Usage: Payment fails
+    - Code: 40000
+      Who can use code?: BPP
+      Reason: Business Error
+      Usage: Generic business error
+    - Code: 40001
+      Who can use code?: BPP
+      Reason: Feature not supported
+      Usage: Feature not supported
+    - Code: 40002
+      Who can use code?: BPP
+      Reason: Item quantity unavailable
+      Usage: >-
+        When the BPP is unable to fulfill the required quantity for items in the
+        order
+    - Code: 40003
+      Who can use code?: BPP
+      Reason: Quote unavailable
+      Usage: Quote no longer available
+    - Code: 40004
+      Who can use code?: BPP
+      Reason: Payment type not supported
+      Usage: Payment type not supported
+    - Code: 40005
+      Who can use code?: BPP
+      Reason: Tracking not enabled
+      Usage: Tracking not enabled for any fulfillment in the order
+    - Code: 40006
+      Who can use code?: BPP
+      Reason: Fulfilment agent unavailable
+      Usage: When an agent for fulfilment is not available
+    - Code: 40007
+      Who can use code?: BPP
+      Reason: Change in item quantity
+      Usage: Change in item quantity
+    - Code: 40008
+      Who can use code?: BPP
+      Reason: Change in quote
+      Usage: Change in quote
+    - Code: 40009
+      Who can use code?: BPP
+      Reason: Maximum order qty exceeded
+      Usage: Maximum order qty exceeded
+    - Code: 40010
+      Who can use code?: BPP
+      Reason: Expired authorization
+      Usage: Authorization code has expired
+    - Code: 40011
+      Who can use code?: BPP
+      Reason: Invalid authorization
+      Usage: Authorization code is invalid
+    - Code: 41001
+      Who can use code?: BPP
+      Reason: Finder fee not acceptable
+      Usage: Buyer finder fee is not acceptable
+    - Code: 50000
+      Who can use code?: BPP
+      Reason: Policy Error
+      Usage: Generic Policy Error
+    - Code: 50001
+      Who can use code?: BPP
+      Reason: Cancellation not possible
+      Usage: >-
+        When the BPP is unable to cancel the order due to it's cancellation
+        policy
+    - Code: 50002
+      Who can use code?: BPP
+      Reason: Updation not possible
+      Usage: When the BPP is unable to update the order due to it's updation policy
+    - Code: 50003
+      Who can use code?: BPP
+      Reason: Unsupported rating category
+      Usage: When the BPP receives an entity to rate which is not supported
+    - Code: 50004
+      Who can use code?: BPP
+      Reason: Support unavailable
+      Usage: When the BPP receives an object if for which it does not provide support
+    - Code: 50005
+      Who can use code?: BPP
+      Reason: Terms and Conditions unacceptable
+      Usage: BAP terms and conditions not acceptable to BPP
+    - Code: 50006
+      Who can use code?: BPP
+      Reason: Order terminated
+      Usage: Order terminated as BAP did not accept terms proposed by BPP
+    - Code: 50007
+      Who can use code?: BPP
+      Reason: Fulfillment not found
+      Usage: Fulfillment not found
+    - Code: 50008
+      Who can use code?: BPP
+      Reason: Fulfillment cannot be updated
+      Usage: Fulfillment has reached terminal state, cannot be updated
+    - Code: 90004
+      Who can use code?: BPP
+      Reason: Offer return failure
+      Usage: Sellers could not return offers to the BAP
+    - Code: 90005
+      Who can use code?: BAP
+      Reason: Offer acceptance failure
+      Usage: BAPlication could not submit user selected offer to the seller
+    - Code: 90006
+      Who can use code?: BAP
+      Reason: Inventory mismatch
+      Usage: >-
+        BAPlication detected a mismatch in available inventory for the requested
+        service.
+    - Code: 90007
+      Who can use code?: BAP
+      Reason: Selection failure
+      Usage: The selected service is no longer available or invalid.
+    - Code: 90008
+      Who can use code?: BPP
+      Reason: Invalid location
+      Usage: The location details provided in the search request are not supported.
+    - Code: 90009
+      Who can use code?: BAP
+      Reason: Invalid GPS coordinates
+      Usage: The seller returned an offer with invalid GPS coordinates
+    - Code: 90010
+      Who can use code?: BAP
+      Reason: Invalid service schedule
+      Usage: The service schedule provided by the seller is invalid.
+    - Code: 90011
+      Who can use code?: BAP
+      Reason: Price mismatch
+      Usage: The confirmed offer price does not match the selected offer price
+    - Code: 90012
+      Who can use code?: BAP
+      Reason: Offer confirmation timeout
+      Usage: The BPP could not confirm the selected offer within the expected time.
+    - Code: 90013
+      Who can use code?: BPP
+      Reason: No providers
+      Usage: No providers found in given location
+    - Code: 90014
+      Who can use code?: BPP
+      Reason: Cancellation
+      Usage: Buyer cancelling order after its marked as completed
+    - Code: 90015
+      Who can use code?: BPP
+      Reason: Invalid location
+      Usage: We don't provide this service in this location.
+    - Code: 90016
+      Who can use code?: BPP
+      Reason: Payment Failure
+      Usage: Payment Failure
+    - Code: 90017
+      Who can use code?: BPP
+      Reason: Validation
+      Usage: >-
+        With particular number of burners users can select particular number of
+        dishes.
+    - Code: 90018
+      Who can use code?: BPP
+      Reason: Validation
+      Usage: Service should be atleast of pre-described minimum amount
+    - Code: 90019
+      Who can use code?: BPP
+      Reason: Price validation from Surge
+      Usage: When surge is applied price not getting refreshed

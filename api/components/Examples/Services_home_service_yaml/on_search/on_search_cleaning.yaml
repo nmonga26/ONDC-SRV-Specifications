@@ -178,7 +178,7 @@ value:
                 currency: INR
                 minimum_value: "2500.00"
               category_ids:
-                - SRV11-xxxx
+                - SRV11-1011
               fulfillment_ids:
                 - "1"
               location_ids:

@@ -25,6 +25,13 @@ value:
         locations:
           - id: L1
       items:
+        - id: PI1
+          parent_item_id: ''
+          location_ids:
+            - L1
+          quantity:
+            selected:
+              count: 1
         - id: I1
           parent_item_id: PI1
           location_ids:
@@ -45,5 +52,13 @@ value:
                   start: '2023-11-17T09:30:00.000Z'
                   end: '2023-11-17T10:30:00.000Z'
                 days: "4"
+          tags:
+          - descriptor:
+              code: SELECTION
+            list:
+            - descriptor:
+                code: ITEM_IDS
+              value: PI1
+
       payments:
         - type: PRE-FULFILLMENT

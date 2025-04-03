@@ -1,2 +1,393 @@
-- $ref: "./Cancellation/Cancellation.yaml"
-- $ref: "./ErrorCodes/ErrorCodes.yaml"
+codes:
+  - Code: 90001
+    Who can use code?: BPP
+    Reason: Schedule selected by the buyer is not available
+    Usage: Used in error object in /on_select
+  - Code: 90002
+    Who can use code?: BPP
+    Reason: Incorrect OTP provided by buyer
+    Usage: Used in error object in /on_status
+  - Code: 90003
+    Who can use code?: BPP
+    Reason: Schedule is not provided by the buyer
+    Usage: Used in NACK on /select
+  - Code: 10000
+    Who can use code?: Gateway
+    Reason: Bad or Invalid request error
+    Usage: Generic bad or invalid request error
+  - Code: 10001
+    Who can use code?: Gateway
+    Reason: Invalid Signature
+    Usage: Cannot verify signature for request
+  - Code: 10002
+    Who can use code?: Gateway
+    Reason: Invalid City Code
+    Usage: Valid city code needs to be passed for search
+  - Code: 20000
+    Who can use code?: BAP
+    Reason: Invalid catalog
+    Usage: Catalog refresh is invalid
+  - Code: 20001
+    Who can use code?: BAP
+    Reason: Invalid Signature
+    Usage: Cannot verify signature for response
+  - Code: 20002
+    Who can use code?: BAP
+    Reason: Stale Request
+    Usage: Cannot process stale request
+  - Code: 20005
+    Who can use code?: BAP
+    Reason: Item not found
+    Usage: Item not found
+  - Code: 20006
+    Who can use code?: BAP
+    Reason: Invalid response
+    Usage: Invalid response does not meet API contract specifications
+  - Code: 20007
+    Who can use code?: BAP
+    Reason: Invalid order state
+    Usage: Order/fulfillment state is stale or not valid
+  - Code: 20008
+    Who can use code?: BAP
+    Reason: Response out of sequence
+    Usage: Callback received prior to ACK for request or out of sequence
+  - Code: 20009
+    Who can use code?: BAP
+    Reason: Timeout
+    Usage: Callback received late, session timed out
+  - Code: 21001
+    Who can use code?: BAP
+    Reason: Feature not supported
+    Usage: Feature not supported
+  - Code: 21002
+    Who can use code?: BAP
+    Reason: Increase in item quantity
+    Usage: Increase in item quantity
+  - Code: 21003
+    Who can use code?: BAP
+    Reason: Change in item quote
+    Usage: Change in item quote without change in quantity
+  - Code: 22501
+    Who can use code?: BAP
+    Reason: Part Fill Unacceptable
+    Usage: Buyer doesn't accept part fill for the order, wants to cancel the order
+  - Code: 22502
+    Who can use code?: BAP
+    Reason: Cancellation unacceptable
+    Usage: Invalid cancellation reason
+  - Code: 22503
+    Who can use code?: BAP
+    Reason: Cancellation unacceptable
+    Usage: Updated quote does not match original order value and cancellation terms
+  - Code: 22504
+    Who can use code?: BAP
+    Reason: Invalid Fulfillment TAT
+    Usage: Fulfillment TAT is different from what was quoted earlier
+  - Code: 22505
+    Who can use code?: BAP
+    Reason: Invalid Cancellation Terms
+    Usage: Cancellation terms are different from what was quoted earlier
+  - Code: 22506
+    Who can use code?: BAP
+    Reason: Invalid Terms of Reference
+    Usage: Terms of Reference are different from what was quoted earlier
+  - Code: 22507
+    Who can use code?: BAP
+    Reason: Invalid Quote
+    Usage: Quote is invalid as it does not meet the API contract specifications
+  - Code: 22508
+    Who can use code?: BAP
+    Reason: Invalid Part Cancel Request
+    Usage: Part cancel request is invalid
+  - Code: 23001
+    Who can use code?: BAP
+    Reason: Internal Error
+    Usage: Cannot process response due to internal error, please retry
+  - Code: 23002
+    Who can use code?: BAP
+    Reason: Order validation failure
+    Usage: Order validation failure
+  - Code: 25001
+    Who can use code?: BAP
+    Reason: Order Confirm Failure
+    Usage: BAP cannot confirm order as no response from BPP
+  - Code: 27501
+    Who can use code?: BAP
+    Reason: Terms and Conditions unacceptable
+    Usage: BPP terms and conditions not acceptable to BAP
+  - Code: 27502
+    Who can use code?: BAP
+    Reason: Order terminated
+    Usage: >-
+      Order terminated as BPP did not accept terms and conditions proposed by
+      BAP
+  - Code: 30000
+    Who can use code?: BPP
+    Reason: Invalid request
+    Usage: Invalid request does not meet API contract specifications
+  - Code: 30001
+    Who can use code?: BPP
+    Reason: Provider not found
+    Usage: When BPP is unable to find the provider id sent by the BAP
+  - Code: 30002
+    Who can use code?: BPP
+    Reason: Provider location not found
+    Usage: When BPP is unable to find the provider location id sent by the BAP
+  - Code: 30003
+    Who can use code?: BPP
+    Reason: Provider category not found
+    Usage: When BPP is unable to find the provider category id sent by the BAP
+  - Code: 30004
+    Who can use code?: BPP
+    Reason: Item not found
+    Usage: Unable to find details for item, may have been deleted
+  - Code: 30005
+    Who can use code?: BPP
+    Reason: Invalid return request
+    Usage: Return reason is invalid
+  - Code: 30006
+    Who can use code?: BPP
+    Reason: Offer code invalid
+    Usage: Offer code is not valid anymore
+  - Code: 30007
+    Who can use code?: BPP
+    Reason: Offer fulfillment error
+    Usage: Offer cannot be fulfilled at this time
+  - Code: 30008
+    Who can use code?: BPP
+    Reason: Location Serviceability error
+    Usage: Pickup location not serviceable by Logistics Provider
+  - Code: 30009
+    Who can use code?: BPP
+    Reason: Location Serviceability error
+    Usage: Dropoff location not serviceable by Logistics Provider
+  - Code: 30010
+    Who can use code?: BPP
+    Reason: Location Serviceability error
+    Usage: Delivery distance exceeds the maximum serviceability distance
+  - Code: 30011
+    Who can use code?: BPP
+    Reason: Order Serviceability error
+    Usage: Delivery Partners not available
+  - Code: 30012
+    Who can use code?: BPP
+    Reason: Invalid cancellation reason
+    Usage: Cancellation reason is invalid
+  - Code: 30013
+    Who can use code?: BPP
+    Reason: Invalid Fulfillment TAT
+    Usage: Fulfillment TAT is different from what was quoted earlier
+  - Code: 30014
+    Who can use code?: BPP
+    Reason: Cancellation unacceptable
+    Usage: Cancellation request is rejected as fulfillment TAT is not breached
+  - Code: 30015
+    Who can use code?: BPP
+    Reason: Invalid rating value
+    Usage: When the BPP receives an invalid value as the rating value in value
+  - Code: 30016
+    Who can use code?: BPP
+    Reason: Invalid Signature
+    Usage: Cannot verify signature for request
+  - Code: 30017
+    Who can use code?: BPP
+    Reason: Merchant unavailable
+    Usage: Merchant is currently not taking orders
+  - Code: 30018
+    Who can use code?: BPP
+    Reason: Invalid Order
+    Usage: Order not found
+  - Code: 30019
+    Who can use code?: BPP
+    Reason: Order Confirm Error
+    Usage: BPP is unable to confirm the order
+  - Code: 30020
+    Who can use code?: BPP
+    Reason: Order Confirm Failure
+    Usage: BPP cannot confirm order as no response from BAP
+  - Code: 30021
+    Who can use code?: BPP
+    Reason: Merchant Inactive
+    Usage: Merchant is inactive
+  - Code: 30022
+    Who can use code?: BPP
+    Reason: Stale Request
+    Usage: Cannot process stale request
+  - Code: 30023
+    Who can use code?: BPP
+    Reason: Minimum order value error
+    Usage: Cart value is less than minimum order value
+  - Code: 31001
+    Who can use code?: BPP
+    Reason: Internal Error
+    Usage: Cannot process request due to internal error, please retry
+  - Code: 31002
+    Who can use code?: BPP
+    Reason: Order validation failure
+    Usage: Order validation failure
+  - Code: 31003
+    Who can use code?: BPP
+    Reason: Order processing in progress
+    Usage: Order processing in progress
+  - Code: 31004
+    Who can use code?: BPP
+    Reason: Payment Failed
+    Usage: Payment fails
+  - Code: 40000
+    Who can use code?: BPP
+    Reason: Business Error
+    Usage: Generic business error
+  - Code: 40001
+    Who can use code?: BPP
+    Reason: Feature not supported
+    Usage: Feature not supported
+  - Code: 40002
+    Who can use code?: BPP
+    Reason: Item quantity unavailable
+    Usage: >-
+      When the BPP is unable to fulfill the required quantity for items in the
+      order
+  - Code: 40003
+    Who can use code?: BPP
+    Reason: Quote unavailable
+    Usage: Quote no longer available
+  - Code: 40004
+    Who can use code?: BPP
+    Reason: Payment type not supported
+    Usage: Payment type not supported
+  - Code: 40005
+    Who can use code?: BPP
+    Reason: Tracking not enabled
+    Usage: Tracking not enabled for any fulfillment in the order
+  - Code: 40006
+    Who can use code?: BPP
+    Reason: Fulfilment agent unavailable
+    Usage: When an agent for fulfilment is not available
+  - Code: 40007
+    Who can use code?: BPP
+    Reason: Change in item quantity
+    Usage: Change in item quantity
+  - Code: 40008
+    Who can use code?: BPP
+    Reason: Change in quote
+    Usage: Change in quote
+  - Code: 40009
+    Who can use code?: BPP
+    Reason: Maximum order qty exceeded
+    Usage: Maximum order qty exceeded
+  - Code: 40010
+    Who can use code?: BPP
+    Reason: Expired authorization
+    Usage: Authorization code has expired
+  - Code: 40011
+    Who can use code?: BPP
+    Reason: Invalid authorization
+    Usage: Authorization code is invalid
+  - Code: 41001
+    Who can use code?: BPP
+    Reason: Finder fee not acceptable
+    Usage: Buyer finder fee is not acceptable
+  - Code: 50000
+    Who can use code?: BPP
+    Reason: Policy Error
+    Usage: Generic Policy Error
+  - Code: 50001
+    Who can use code?: BPP
+    Reason: Cancellation not possible
+    Usage: When the BPP is unable to cancel the order due to it's cancellation policy
+  - Code: 50002
+    Who can use code?: BPP
+    Reason: Updation not possible
+    Usage: When the BPP is unable to update the order due to it's updation policy
+  - Code: 50003
+    Who can use code?: BPP
+    Reason: Unsupported rating category
+    Usage: When the BPP receives an entity to rate which is not supported
+  - Code: 50004
+    Who can use code?: BPP
+    Reason: Support unavailable
+    Usage: When the BPP receives an object if for which it does not provide support
+  - Code: 50005
+    Who can use code?: BPP
+    Reason: Terms and Conditions unacceptable
+    Usage: BAP terms and conditions not acceptable to BPP
+  - Code: 50006
+    Who can use code?: BPP
+    Reason: Order terminated
+    Usage: Order terminated as BAP did not accept terms proposed by BPP
+  - Code: 50007
+    Who can use code?: BPP
+    Reason: Fulfillment not found
+    Usage: Fulfillment not found
+  - Code: 50008
+    Who can use code?: BPP
+    Reason: Fulfillment cannot be updated
+    Usage: Fulfillment has reached terminal state, cannot be updated
+  - Code: 90004
+    Who can use code?: BPP
+    Reason: Offer return failure
+    Usage: Sellers could not return offers to the BAP
+  - Code: 90005
+    Who can use code?: BAP
+    Reason: Offer acceptance failure
+    Usage: BAPlication could not submit user selected offer to the seller
+  - Code: 90006
+    Who can use code?: BAP
+    Reason: Inventory mismatch
+    Usage: >-
+      BAPlication detected a mismatch in available inventory for the requested
+      service.
+  - Code: 90007
+    Who can use code?: BAP
+    Reason: Selection failure
+    Usage: The selected service is no longer available or invalid.
+  - Code: 90008
+    Who can use code?: BPP
+    Reason: Invalid location
+    Usage: The location details provided in the search request are not supported.
+  - Code: 90009
+    Who can use code?: BAP
+    Reason: Invalid GPS coordinates
+    Usage: The seller returned an offer with invalid GPS coordinates
+  - Code: 90010
+    Who can use code?: BAP
+    Reason: Invalid service schedule
+    Usage: The service schedule provided by the seller is invalid.
+  - Code: 90011
+    Who can use code?: BAP
+    Reason: Price mismatch
+    Usage: The confirmed offer price does not match the selected offer price
+  - Code: 90012
+    Who can use code?: BAP
+    Reason: Offer confirmation timeout
+    Usage: The BPP could not confirm the selected offer within the expected time.
+  - Code: 90013
+    Who can use code?: BPP
+    Reason: No providers
+    Usage: No providers found in given location
+  - Code: 90014
+    Who can use code?: BPP
+    Reason: Cancellation
+    Usage: Buyer cancelling order after its marked as completed
+  - Code: 90015
+    Who can use code?: BPP
+    Reason: Invalid location
+    Usage: We don't provide this service in this location.
+  - Code: 90016
+    Who can use code?: BPP
+    Reason: Payment Failure
+    Usage: Payment Failure
+  - Code: 90017
+    Who can use code?: BPP
+    Reason: Validation
+    Usage: >-
+      With particular number of burners users can select particular number of
+      dishes.
+  - Code: 90018
+    Who can use code?: BPP
+    Reason: Validation
+    Usage: Service should be atleast of pre-described minimum amount
+  - Code: 90019
+    Who can use code?: BPP
+    Reason: Price validation from Surge
+    Usage: When surge is applied price not getting refreshed
