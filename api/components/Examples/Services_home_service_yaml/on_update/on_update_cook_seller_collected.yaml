@@ -20,7 +20,6 @@ value:
     ttl: PT30S
   message:
     order:
-      update_target: fulfillments
       id: O1
       status: ACCEPTED
       provider:
@@ -160,8 +159,8 @@ value:
                 label: selected
                 days: "1"
                 range:
-                  start: '2024-03-06T10:00:00.000Z'
-                  end: '2024-03-06T18:00:00.000Z'
+                  start: "2024-03-06T10:00:00.000Z"
+                  end: "2024-03-06T18:00:00.000Z"
               person:
                 name: Ramu
               instructions:
@@ -453,18 +452,18 @@ value:
             - descriptor:
                 code: Settlement_Details
               list:
-              - descriptor:
-                  code: Window
-                value: P1D
-              - descriptor:
-                  code: Basis
-                value: Completed
-              - descriptor:
-                  code: Witholding_Amount
-                value: '0.00'
-              - descriptor:
-                  code: Phase
-                value: sale-amount
+                - descriptor:
+                    code: Window
+                  value: P1D
+                - descriptor:
+                    code: Basis
+                  value: Completed
+                - descriptor:
+                    code: Witholding_Amount
+                  value: "0.00"
+                - descriptor:
+                    code: Phase
+                  value: sale-amount
             - descriptor:
                 code: Buyer_Finder_Fee
               list:

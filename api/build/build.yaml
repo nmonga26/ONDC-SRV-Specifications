@@ -9817,7 +9817,8 @@ x-flows:
               ttl: PT30S
             message:
               order:
-                update_target: fulfillments
+                update_target:
+                  - message.order.fulfillments
                 id: O1
                 status: ACCEPTED
                 provider:
@@ -12823,7 +12824,8 @@ x-flows:
               timestamp: '2023-11-17T10:20:00.000Z'
               ttl: PT30S
             message:
-              update_target: payments
+              update_target:
+                - message.order.payments
               order:
                 id: O1
                 status: ACCEPTED
@@ -14559,7 +14561,8 @@ x-flows:
               timestamp: '2023-11-17T10:20:00.000Z'
               ttl: PT30S
             message:
-              update_target: fulfillments
+              update_target:
+                - message.order.fulfillments
               order:
                 id: O1
                 status: ACCEPTED
@@ -19996,7 +19999,8 @@ x-examples:
                 timestamp: '2023-11-17T10:20:00.000Z'
                 ttl: PT30S
               message:
-                update_target: payments
+                update_target:
+                  - message.order.payments
                 order:
                   id: O1
                   status: ACCEPTED
