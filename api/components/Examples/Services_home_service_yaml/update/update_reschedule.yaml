@@ -9,17 +9,18 @@ value:
       country:
         code: IND
     action: update
-    version: '2.0.0'
+    version: "2.0.0"
     bap_id: buyerapp.com
     bap_uri: https://buyerapp.com/services
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/services
     transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
     message_id: ea89883a-57ff-44de-87fa-66b07c8d25d9
-    timestamp: '2023-11-17T10:20:00.000Z'
+    timestamp: "2023-11-17T10:20:00.000Z"
     ttl: PT30S
   message:
-    update_target: fulfillments
+    update_target:
+      - message.order.fulfillments
     order:
       id: O1
       status: ACCEPTED
@@ -29,7 +30,7 @@ value:
           - id: L1
       items:
         - id: PI1
-          parent_item_id: ''
+          parent_item_id: ""
           fulfillment_ids:
             - F1
           location_ids:
@@ -44,9 +45,9 @@ value:
         - id: P1
           collected_by: BAP
           params:
-            amount: '99'
+            amount: "99"
             currency: INR
-            transaction_id: '3937'
+            transaction_id: "3937"
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
           status: PAID
@@ -76,18 +77,18 @@ value:
             - descriptor:
                 code: Settlement_Details
               list:
-              - descriptor:
-                  code: Window
-                value: P1D
-              - descriptor:
-                  code: Basis
-                value: Completed
-              - descriptor:
-                  code: Witholding_Amount
-                value: '0.00'
-              - descriptor:
-                  code: Phase
-                value: sale-amount
+                - descriptor:
+                    code: Window
+                  value: P1D
+                - descriptor:
+                    code: Basis
+                  value: Completed
+                - descriptor:
+                    code: Witholding_Amount
+                  value: "0.00"
+                - descriptor:
+                    code: Phase
+                  value: sale-amount
             - descriptor:
                 code: Buyer_Finder_Fee
               list:
@@ -96,7 +97,7 @@ value:
                   value: percent
                 - descriptor:
                     code: Buyer_finder_fee_amount
-                  value: '3'
+                  value: "3"
       fulfillments:
         - id: F1
           state:
@@ -113,33 +114,33 @@ value:
                 gps: 12.956399,77.636803
               time:
                 range:
-                  start: '2023-11-16T09:30:00.000Z'
-                  end: '2023-11-16T10:30:00.000Z'
+                  start: "2023-11-16T09:30:00.000Z"
+                  end: "2023-11-16T10:30:00.000Z"
               contact:
-                phone: '9886098860'
+                phone: "9886098860"
                 email: nobody@nomail.com
               person:
                 name: Kishan
             - type: end
               location:
                 gps: 12.974002,77.613458
-                address: 'My House #, My buildin'
+                address: "My House #, My buildin"
                 city:
                   name: Bengaluru
                 country:
                   code: IND
-                area_code: '560001'
+                area_code: "560001"
                 state:
                   name: Karnataka
               contact:
-                phone: '9886098860'
+                phone: "9886098860"
                 email: nobody@nomail.com
               time:
                 label: selected
                 range:
-                  start: '2023-11-20T09:30:00.000Z'
-                  end: '2023-11-20T10:30:00.000Z'
-                days: '4'
+                  start: "2023-11-20T09:30:00.000Z"
+                  end: "2023-11-20T10:30:00.000Z"
+                days: "4"
               person:
                 name: Ramu
               instructions:
@@ -147,25 +148,25 @@ value:
                 short_desc: Customer Special Instructions
               authorization:
                 type: OTP
-                token: '1234'
-                valid_from: '2023-11-16T09:30:00.000Z'
-                valid_to: '2023-11-16T09:35:00.000Z'
+                token: "1234"
+                valid_from: "2023-11-16T09:30:00.000Z"
+                valid_to: "2023-11-16T09:35:00.000Z"
                 status: valid
           rateable: true
       quote:
         price:
           currency: INR
-          value: '99'
+          value: "99"
         breakup:
           - title: consultation
             price:
               currency: INR
-              value: '99'
+              value: "99"
             item:
               id: I1
               price:
                 currency: INR
-                value: '99'
+                value: "99"
             tags:
               - descriptor:
                   code: title
@@ -176,12 +177,12 @@ value:
           - title: tax
             price:
               currency: INR
-              value: '0'
+              value: "0"
             item:
               id: I1
               price:
                 currency: INR
-                value: '99'
+                value: "99"
             tags:
               - descriptor:
                   code: title
