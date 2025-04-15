@@ -79,7 +79,7 @@ message:
         reference: if any
         usage: nobody@nomail.com
       name:
-        required: required
+        required: optional
         description: Describes a person name as any individual
         reference: if any
         usage: ONDC buyer

@@ -143,10 +143,10 @@ message:
       stops:
         parent: true
         type:
-            description: The type of stop - start or end point
-            required: required
-            usage: "end"
-            reference: if any
+          description: The type of stop - start or end point
+          required: required
+          usage: "end"
+          reference: if any
         location:
           gps:
             description: service location gps coordinates where service needs to be provided, should be atleast 6 digit decimal precision, should be same as in search request
@@ -159,30 +159,30 @@ message:
             usage: "My House #, My buildin"
             reference: if any
           city:
-           name:
-            description: name of the city where service is being availed
-            required: required
-            usage: "Bengaluru"
-            reference: if any
+            name:
+              description: name of the city where service is being availed
+              required: required
+              usage: "Bengaluru"
+              reference: if any
           country:
-           name:
-            description: name of the country where service is being availed
-            required: required
-            usage: "IND"
-            reference: if any
+            name:
+              description: name of the country where service is being availed
+              required: required
+              usage: "IND"
+              reference: if any
           area_code:
             description: area code where service is being availed
             required: required
             usage: "560001"
             reference: if any
           state:
-           name:
-            description: name of the state where service is being availed
-            required: required
-            usage: "Karnataka"
-            reference: if any
+            name:
+              description: name of the state where service is being availed
+              required: required
+              usage: "Karnataka"
+              reference: if any
         contact:
-         phone:
+          phone:
             description: phone number of the customer
             required: required
             usage: "9886098860"
@@ -199,16 +199,16 @@ message:
               required: required
               usage: "2023-11-16T09:30:00Z"
               reference: if any
-            end:  
+            end:
               description: The timeframe during which the service provider will depart from its starting point and the range within which it will arrive at the customer's location.
               required: required
               usage: "2023-11-16T10:30:00Z"
               reference: if any
           timestamp:
-              description: actual timestamp when the service provider started from start point and reached the customer location
-              required: required
-              usage: "2023-11-16T10:30:00Z"
-              reference: if any
+            description: actual timestamp when the service provider started from start point and reached the customer location
+            required: required
+            usage: "2023-11-16T10:30:00Z"
+            reference: if any
         authorization:
           description: Describes an authorization mechanism used to start or end the fulfillment of an order. For example, in the mobility sector, the driver may require a one-time password to initiate the ride. In the healthcare sector, a patient may need to provide a password to open a video conference link during a teleconsultation.
           required: required before starting the service
@@ -277,23 +277,23 @@ message:
         tags:
           title:
             type:
-                description: type of charge - enums (item, customization, discount, tax, misc)
-                required: required
-                usage: "item"
-                reference: if any
+              description: type of charge - enums (item, customization, discount, tax, misc)
+              required: required
+              usage: "item"
+              reference: if any
       ttl:
-          description: time duration for which this quote is valid
-          required: required
-          usage: "P2D"
-          reference: if any
+        description: time duration for which this quote is valid
+        required: required
+        usage: "P2D"
+        reference: if any
     payments:
       parent: true
-      id: 
+      id:
         description: payment id
         required: required
         usage: "P1"
         reference: if any
-      type: 
+      type:
         description: selected payment mode by which buyer would like to pay, enum - 'PRE-FULFILLMENT',"ON-FULFILLMENT","POST-FULFILLMENT"
         required: required
         usage: "PRE-FULFILLMENT"
@@ -352,7 +352,7 @@ message:
         required: required once the order is complete
         usage: "https://invoice_url"
         reference: if any
-      url: 
+      url:
         description: url of the invoice
         required: required
         usage: "https://invoice_url"
@@ -362,6 +362,3 @@ message:
         required: required
         usage: "INVOICE"
         reference: if any
-
-
-
