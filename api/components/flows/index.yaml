@@ -3,6 +3,7 @@
 - $ref: "./Home_Cooking_Services/index.yaml"
 - $ref: "./Services-Re-OTP/index.yaml"
 - $ref: "./Consultation_Service/index.yaml"
+- $ref: "./Consultation_Service_Expired/index.yaml"
 - $ref: "./Consultation_Service_Schedule_Reselection/index.yaml"
 - $ref: "./Buyer Cancellation/index.yaml"
 - $ref: "./Merchant Cancellation/index.yaml"

@@ -38,7 +38,6 @@ details:
         SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service provider has reached<br/>the buyer location and seller app generates an OTP.
         SRV BPP ->> SRV BAP: **/on_status** -  Buyer shares the OTP with service provider and<br/>Seller app sends order status as Service started.
         SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service is completed
-        
 
 reference: if any
 steps:
@@ -78,6 +77,12 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Services_home_service_yaml/on_init/on_init_service.yaml"
+  - summary: Seller provides the final quotation and creates the draft contract
+    api: form
+    description: Buyer renders the form as given by seller and gets it filled by user
+    reference: if any
+    example:
+      $ref: "../../Examples/Services_home_service_yaml/form/checklist.html"
   - summary: Buyer makes the payment and creates the order
     api: confirm
     description: Buyer makes the payment and creates the order

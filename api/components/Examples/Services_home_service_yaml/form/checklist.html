@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <form action="/submit" method="post">
+      <label>Allergic to anything?</label><br />
+      <input type="radio" id="allergy_yes" name="allergic" value="yes" />
+      <label for="allergy_yes">Yes</label>
+      <input type="radio" id="allergy_no" name="allergic" value="no" />
+      <label for="allergy_no">No</label><br /><br />
+
+      <label for="allergy_details">If yes, specify:</label><br />
+      <input
+        type="text"
+        id="allergy_details"
+        name="allergy_details"
+      /><br /><br />
+
+      <label>Spicy?</label><br />
+      <input type="radio" id="spicy_yes" name="spicy" value="yes" />
+      <label for="spicy_yes">Yes</label>
+      <input type="radio" id="spicy_no" name="spicy" value="no" />
+      <label for="spicy_no">No</label><br /><br />
+
+      <!-- Party-related -->
+      <label>Is this for a party?</label><br />
+      <input type="radio" id="party_yes" name="party" value="yes" />
+      <label for="party_yes">Yes</label>
+      <input type="radio" id="party_no" name="party" value="no" />
+      <label for="party_no">No</label><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

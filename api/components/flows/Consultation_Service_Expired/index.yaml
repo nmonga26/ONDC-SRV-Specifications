@@ -1,0 +1,35 @@
+summary: Quotation for Service Expired
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer is unable to respond in time for the quotation provided after inspection.
+details:
+  - description: Sequence for the Flow
+    mermaidGraph: >-
+      sequenceDiagram
+        title Booking Home Services
+        participant SRV BAP
+        participant SRV BPP
+
+        note over SRV BAP, SRV BPP: Quotation Expiration
+        SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service is completed
+        SRV BPP ->> SRV BAP: **/on_update** -  Seller app sends a quotation of<br/>the home service for which consultation<br/>was taken e.g home painting
+        SRV BPP ->> SRV BAP: **/on_status** -  TTL expires and seller expires the quotation
+
+reference: if any
+steps:
+  - summary: Seller app sends order status update when service is completed
+    api: on_status
+    description: Seller app sends order status update when service is completed
+    reference: if any
+    example:
+      $ref: "../../Examples/Services_home_service_yaml/on_status/on_status_Completed.yaml"
+  - summary: Seller app sends a quotation of the home service for which consultation was taken e.g home painting
+    api: on_update
+    description: Seller app sends a quotation of the home service for which consultation was taken e.g home painting
+    reference: if any
+    example:
+      $ref: "../../Examples/Services_home_service_yaml/on_update/on_update_requote.yaml"
+  - summary: Seller sends an on_status because the TTL expires
+    api: on_status
+    description: Seller sends an on_status because the TTL expires for the requote
+    reference: if any
+    example:
+      $ref: "../../Examples/Services_home_service_yaml/on_status/on_status_requote_expired.yaml"

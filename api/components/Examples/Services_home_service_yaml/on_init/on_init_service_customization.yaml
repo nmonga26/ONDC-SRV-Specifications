@@ -465,18 +465,18 @@ value:
             - descriptor:
                 code: Settlement_Details
               list:
-              - descriptor:
-                  code: Window
-                value: P1D
-              - descriptor:
-                  code: Basis
-                value: Completed
-              - descriptor:
-                  code: Witholding_Amount
-                value: '0.00'
-              - descriptor:
-                  code: Phase
-                value: sale-amount
+                - descriptor:
+                    code: Window
+                  value: P1D
+                - descriptor:
+                    code: Basis
+                  value: Completed
+                - descriptor:
+                    code: Witholding_Amount
+                  value: "0.00"
+                - descriptor:
+                    code: Phase
+                  value: sale-amount
             - descriptor:
                 code: Buyer_Finder_Fee
               list:
@@ -488,6 +488,7 @@ value:
                   value: "3"
       xinput:
         form:
-          url: https://abc.com/checklist
+          id: form_1
+          url: https://form.sellerapp.com/checklist
           mimetype: text/html
         required: false

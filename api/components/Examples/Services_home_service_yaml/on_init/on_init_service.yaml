@@ -111,51 +111,51 @@ value:
                 currency: INR
                 value: "474"
             tags:
-            - descriptor:
-                code: title
-              list:
               - descriptor:
-                  code: type
-                value: item
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: item
           - title: tax
             price:
               currency: INR
-              value: '25'
+              value: "25"
             item:
               id: I1
             tags:
-            - descriptor:
-                code: title
-              list:
               - descriptor:
-                  code: type
-                value: tax
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: tax
           - title: discount
             price:
               currency: INR
-              value: '0'
+              value: "0"
             item:
               id: I1
             tags:
-            - descriptor:
-                code: title
-              list:
               - descriptor:
-                  code: type
-                value: discount
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: discount
           - title: convenience_fee
             price:
               currency: INR
-              value: '0'
+              value: "0"
             item:
               id: I1
             tags:
-            - descriptor:
-                code: title
-              list:
               - descriptor:
-                  code: type
-                value: misc
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: misc
         ttl: P1D
       payments:
         - id: P1
@@ -192,18 +192,18 @@ value:
             - descriptor:
                 code: Settlement_Details
               list:
-              - descriptor:
-                  code: Window
-                value: P1D
-              - descriptor:
-                  code: Basis
-                value: Completed
-              - descriptor:
-                  code: Witholding_Amount
-                value: '0.00'
-              - descriptor:
-                  code: Phase
-                value: sale-amount
+                - descriptor:
+                    code: Window
+                  value: P1D
+                - descriptor:
+                    code: Basis
+                  value: Completed
+                - descriptor:
+                    code: Witholding_Amount
+                  value: "0.00"
+                - descriptor:
+                    code: Phase
+                  value: sale-amount
             - descriptor:
                 code: Buyer_Finder_Fee
               list:
@@ -215,6 +215,7 @@ value:
                   value: "3"
       xinput:
         form:
-          url: https://abc.com/checklist
+          id: form_1
+          url: https://form.sellerapp.com/checklist
           mimetype: text/html
         required: false

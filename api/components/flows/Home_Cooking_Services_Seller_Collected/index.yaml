@@ -89,7 +89,7 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Services_home_service_yaml/on_status/on_status_payment_confirmation_by_seller.yaml"
-  
+
   - summary: Buyer makes the payment and creates the order
     api: confirm
     description: Buyer makes the payment and creates the order
@@ -117,11 +117,10 @@ steps:
     description: Buyer update the fulfillments for the order.
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/update/update_cook.yaml"
+      $ref: "../../Examples/Services_home_service_yaml/update/update_cook_seller_collected.yaml"
   - summary: Seller accepts and updates the order fulfillments.
     api: on_update
     description: Seller accepts and update the fulfillments for the order.
     reference: if any
     example:
-      $ref: "../../Examples/Services_home_service_yaml/on_update/on_update_cook.yaml"
-
+      $ref: "../../Examples/Services_home_service_yaml/on_update/on_update_cook_seller_collected.yaml"

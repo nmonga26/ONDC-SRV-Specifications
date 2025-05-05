@@ -84,7 +84,7 @@ message:
         reference: if any
         usage: ONDC buyer
       tax_id:
-        required: required
+        required: optional
         description: Describes tax id
         reference: if any
         usage: 22AAAAA0000A1Z5
