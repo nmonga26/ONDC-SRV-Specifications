@@ -3446,7 +3446,6 @@ x-flows:
             SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service provider has reached<br/>the buyer location and seller app generates an OTP.
             SRV BPP ->> SRV BAP: **/on_status** -  Buyer shares the OTP with service provider and<br/>Seller app sends order status as Service started.
             SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service is completed
-            
     reference: if any
     steps:
       - summary: Search based on the service required
@@ -4662,9 +4661,49 @@ x-flows:
                             value: '3'
                 xinput:
                   form:
-                    url: https://abc.com/checklist
+                    id: form_1
+                    url: https://form.sellerapp.com/checklist
                     mimetype: text/html
                   required: false
+      - summary: Seller provides the final quotation and creates the draft contract
+        api: form
+        description: Buyer renders the form as given by seller and gets it filled by user
+        reference: if any
+        example: |
+          <!DOCTYPE html>
+          <html lang="en">
+            <body>
+              <form action="/submit" method="post">
+                <label>Allergic to anything?</label><br />
+                <input type="radio" id="allergy_yes" name="allergic" value="yes" />
+                <label for="allergy_yes">Yes</label>
+                <input type="radio" id="allergy_no" name="allergic" value="no" />
+                <label for="allergy_no">No</label><br /><br />
+
+                <label for="allergy_details">If yes, specify:</label><br />
+                <input
+                  type="text"
+                  id="allergy_details"
+                  name="allergy_details"
+                /><br /><br />
+
+                <label>Spicy?</label><br />
+                <input type="radio" id="spicy_yes" name="spicy" value="yes" />
+                <label for="spicy_yes">Yes</label>
+                <input type="radio" id="spicy_no" name="spicy" value="no" />
+                <label for="spicy_no">No</label><br /><br />
+
+                <!-- Party-related -->
+                <label>Is this for a party?</label><br />
+                <input type="radio" id="party_yes" name="party" value="yes" />
+                <label for="party_yes">Yes</label>
+                <input type="radio" id="party_no" name="party" value="no" />
+                <label for="party_no">No</label><br /><br />
+
+                <input type="submit" value="Submit" />
+              </form>
+            </body>
+          </html>
       - summary: Buyer makes the payment and creates the order
         api: confirm
         description: Buyer makes the payment and creates the order
@@ -4906,7 +4945,7 @@ x-flows:
                 updated_at: '2023-02-03T09:30:00.000Z'
                 xinput:
                   form:
-                    url: https://abc.com/checklist
+                    url: https://form.sellerapp.com/checklist
                     mimetype: text/html
                     submission_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
                     status: SUCCESS
@@ -6849,7 +6888,8 @@ x-flows:
                             reason_required: true
                         xinput:
                           form:
-                            url: https://abc.com/form
+                            id: form_1
+                            url: https://form.sellerapp.com/form
                             mimetype: text/html
                           required: true
                         tags:
@@ -8244,7 +8284,8 @@ x-flows:
                             value: '3'
                 xinput:
                   form:
-                    url: https://abc.com/checklist
+                    id: form_1
+                    url: https://form.sellerapp.com/checklist
                     mimetype: text/html
                   required: false
       - summary: Buyer makes the payment and creates the order
@@ -9794,7 +9835,7 @@ x-flows:
         api: update
         description: Buyer update the fulfillments for the order.
         reference: if any
-        example: &ref_35
+        example:
           summary: Buyer Updates the order fulfillments
           description: Buyer updates the order and customizations fulfillments
           value:
@@ -10274,7 +10315,7 @@ x-flows:
         api: on_update
         description: Seller accepts and update the fulfillments for the order.
         reference: if any
-        example: &ref_36
+        example:
           summary: Seller app sends the updated fulfillments
           description: Seller app updates the order and customizations fulfillments
           value:
@@ -10297,7 +10338,6 @@ x-flows:
               ttl: PT30S
             message:
               order:
-                update_target: fulfillments
                 id: O1
                 status: ACCEPTED
                 provider:
@@ -11213,7 +11253,7 @@ x-flows:
           Buyer adds the service to cart + selects the schedule for the home
           service
         reference: if any
-        example: &ref_25
+        example: &ref_26
           summary: Buyer adds the consulation service to cart
           description: >-
             Buyer adds the service to cart + selects the schedule for the
@@ -11280,7 +11320,7 @@ x-flows:
         api: on_select
         description: Seller confirms the schedule and returns the quote
         reference: if any
-        example: &ref_26
+        example: &ref_27
           summary: Seller confirms the schedule and returns the quote for consultation
           description: Seller confirms the schedule and returns the quote for consultation
           value:
@@ -11388,7 +11428,7 @@ x-flows:
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: &ref_27
+        example: &ref_28
           summary: Buyer initialises the order for consultation
           description: Buyer initialises the order and provides billing details
           value:
@@ -11471,7 +11511,7 @@ x-flows:
         api: on_init
         description: Seller provides the final quotation and creates the draft contract
         reference: if any
-        example: &ref_28
+        example: &ref_29
           summary: Seller provides the final quotation for the consultation
           description: >-
             Seller provides the final quotation and creates the draft contract
@@ -11671,13 +11711,14 @@ x-flows:
                             value: '3'
                 xinput:
                   form:
-                    url: https://abc.com/checklist
+                    id: form_1
+                    url: https://form.sellerapp.com/checklist
                     mimetype: text/html
                   required: false
       - summary: Buyer makes the payment and creates the order
         api: confirm
         description: Buyer makes the payment and creates the order
-        example: &ref_29
+        example: &ref_30
           summary: Buyer confirm the order for consultation
           description: Buyer makes the payment and creates the order
           value:
@@ -11894,7 +11935,7 @@ x-flows:
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: &ref_30
+        example: &ref_31
           summary: Seller accepts the order for consultation
           description: >-
             Seller app sends an on_confirm call to the buyer app accepting the
@@ -12180,7 +12221,7 @@ x-flows:
           Seller app sends a quotation of the home service for which
           consultation was taken e.g home painting
         reference: if any
-        example: &ref_31
+        example: &ref_25
           summary: >-
             Seller app sends a quotation of the home service for which
             consultation was taken e.g home painting
@@ -13427,6 +13468,664 @@ x-flows:
                                 code: type
                               value: misc
                   ttl: P5D
+  - summary: Quotation for Service Expired
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer is unable to respond in time for the quotation provided
+      after inspection.
+    details:
+      - description: Sequence for the Flow
+        mermaidGraph: |-
+          sequenceDiagram
+            title Booking Home Services
+            participant SRV BAP
+            participant SRV BPP
+
+            note over SRV BAP, SRV BPP: Quotation Expiration
+            SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service is completed
+            SRV BPP ->> SRV BAP: **/on_update** -  Seller app sends a quotation of<br/>the home service for which consultation<br/>was taken e.g home painting
+            SRV BPP ->> SRV BAP: **/on_status** -  TTL expires and seller expires the quotation
+    reference: if any
+    steps:
+      - summary: Seller app sends order status update when service is completed
+        api: on_status
+        description: Seller app sends order status update when service is completed
+        reference: if any
+        example: *ref_24
+      - summary: >-
+          Seller app sends a quotation of the home service for which
+          consultation was taken e.g home painting
+        api: on_update
+        description: >-
+          Seller app sends a quotation of the home service for which
+          consultation was taken e.g home painting
+        reference: if any
+        example: *ref_25
+      - summary: Seller sends an on_status because the TTL expires
+        api: on_status
+        description: Seller sends an on_status because the TTL expires for the requote
+        reference: if any
+        example:
+          summary: >-
+            Seller app sends a quotation of the home service for which
+            consultation was taken e.g home painting
+          description: >-
+            Seller app sends a quotation of the home service for which
+            consultation was taken e.g home painting
+          value:
+            context:
+              domain: ONDC:SRV11
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_status
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
+              message_id: ea89883a-57ff-44de-87fa-66b07c8d4456
+              timestamp: '2023-11-21T10:21:00.000Z'
+              ttl: PT5D
+            message:
+              order:
+                id: C1
+                status: CANCELLED
+                provider:
+                  id: P1
+                items:
+                  - id: PI1
+                    parent_item_id: ''
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 1
+                  - id: I1
+                    parent_item_id: PI1
+                    quantity:
+                      selected:
+                        count: 6
+                        measure:
+                          unit: rooms
+                    fulfillment_ids:
+                      - F2
+                    payment_ids:
+                      - P2
+                      - P3
+                payments:
+                  - id: P1
+                    collected_by: BAP
+                    params:
+                      amount: '99'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Counterparty
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Window
+                            value: P1D
+                          - descriptor:
+                              code: Basis
+                            value: Completed
+                          - descriptor:
+                              code: Witholding_Amount
+                            value: '0.00'
+                          - descriptor:
+                              code: Phase
+                            value: sale-amount
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_finder_fee_type
+                            value: percent
+                          - descriptor:
+                              code: Buyer_finder_fee_amount
+                            value: '3'
+                  - id: P2
+                    collected_by: BPP
+                    params:
+                      amount: '5231'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      bank_code: xxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_finder_fee_type
+                            value: percent
+                          - descriptor:
+                              code: Buyer_finder_fee_amount
+                            value: '3'
+                  - id: P3
+                    collected_by: BPP
+                    params:
+                      amount: '4188'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      bank_code: xxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_finder_fee_type
+                            value: percent
+                          - descriptor:
+                              code: Buyer_finder_fee_amount
+                            value: '3'
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Completed
+                    type: Home-Service
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: ABC Store
+                          gps: 12.956399,77.636803
+                        time:
+                          range:
+                            start: '2023-11-16T09:30:00.000Z'
+                            end: '2023-11-16T10:30:00.000Z'
+                          timestamp: '2023-11-16T09:00:00.000Z'
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        person:
+                          name: Kishan
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        time:
+                          label: confirmed
+                          range:
+                            start: '2023-11-16T09:30:00.000Z'
+                            end: '2023-11-16T10:30:00.000Z'
+                          timestamp: '2023-11-16T09:00:00.000Z'
+                        person:
+                          name: Ramu
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                        authorization:
+                          type: OTP
+                          token: '1234'
+                          valid_from: '2023-11-16T09:30:00.000Z'
+                          valid_to: '2023-11-16T09:35:00.000Z'
+                          status: valid
+                    rateable: true
+                  - id: F2
+                    state:
+                      descriptor:
+                        code: Quote-Expired
+                    type: Home-Service
+                    tracking: false
+                    stops:
+                      - type: start
+                        location:
+                          id: L1
+                          descriptor:
+                            name: ABC Store
+                          gps: 12.956399,77.636803
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        person:
+                          name: Kishan
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        person:
+                          name: Ramu
+                        instructions:
+                          name: Special Instructions
+                          short_desc: Customer Special Instructions
+                    rateable: true
+                quote:
+                  price:
+                    currency: INR
+                    value: '9419'
+                  breakup:
+                    - title: Balcony
+                      price:
+                        currency: INR
+                        value: '922'
+                      item:
+                        id: B1
+                        descriptor:
+                          code: xxxx
+                          short_desc: Balcony
+                          long_desc: Tractor Uno Double Coat Without Primer
+                        quantity:
+                          selected:
+                            count: 1
+                            measure:
+                              type: constant
+                              unit: wall
+                          unitized:
+                            count: '100.00'
+                            measure:
+                              type: variable
+                              unit: square-foot
+                        price:
+                          currency: INR
+                          value: '922'
+                        tags:
+                          - descriptor:
+                              code: attributes
+                            list:
+                              - descriptor:
+                                  code: colour
+                                value: '#ECE5D8'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: Master Bedroom
+                      price:
+                        currency: INR
+                        value: '2784'
+                      item:
+                        id: MB1
+                        descriptor:
+                          code: xxxx
+                          short_desc: Master Bedroom
+                          long_desc: Tractor Uno Double Coat Without Primer
+                        quantity:
+                          selected:
+                            count: 4
+                            measure:
+                              type: constant
+                              unit: wall
+                          unitized:
+                            count: '301.75'
+                            measure:
+                              type: variable
+                              unit: square-foot
+                        price:
+                          currency: INR
+                          value: '2784'
+                        tags:
+                          - descriptor:
+                              code: attributes
+                            list:
+                              - descriptor:
+                                  code: colour
+                                value: '#ECE5D8'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: Kitchen
+                      price:
+                        currency: INR
+                        value: '286'
+                      item:
+                        id: K1
+                        descriptor:
+                          code: xxxx
+                          short_desc: Kitchen
+                          long_desc: Tractor Uno Double Coat Without Primer
+                        quantity:
+                          selected:
+                            count: 2
+                            measure:
+                              type: constant
+                              unit: wall
+                          unitized:
+                            count: '31.00'
+                            measure:
+                              type: variable
+                              unit: square-foot
+                        price:
+                          currency: INR
+                          value: '286'
+                        tags:
+                          - descriptor:
+                              code: attributes
+                            list:
+                              - descriptor:
+                                  code: colour
+                                value: '#ECE5D8'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: Living Room
+                      price:
+                        currency: INR
+                        value: '4392'
+                      item:
+                        id: L1
+                        descriptor:
+                          code: xxxx
+                          short_desc: Living Room
+                          long_desc: Tractor Uno Double Coat Without Primer
+                        quantity:
+                          selected:
+                            count: 4
+                            measure:
+                              type: constant
+                              unit: wall
+                          unitized:
+                            count: '476.00'
+                            measure:
+                              type: variable
+                              unit: square-foot
+                        price:
+                          currency: INR
+                          value: '4392'
+                        tags:
+                          - descriptor:
+                              code: attributes
+                            list:
+                              - descriptor:
+                                  code: colour
+                                value: '#ECE5D8'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: Bedroom 3
+                      price:
+                        currency: INR
+                        value: '2466'
+                      item:
+                        id: B31
+                        descriptor:
+                          code: xxxx
+                          short_desc: Bedroom 3
+                          long_desc: Tractor Uno Double Coat Without Primer
+                        quantity:
+                          selected:
+                            count: 4
+                            measure:
+                              type: constant
+                              unit: wall
+                          unitized:
+                            count: '267.25'
+                            measure:
+                              type: variable
+                              unit: square-foot
+                        price:
+                          currency: INR
+                          value: '2466'
+                        tags:
+                          - descriptor:
+                              code: attributes
+                            list:
+                              - descriptor:
+                                  code: colour
+                                value: '#ECE5D8'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: Bedroom 2
+                      price:
+                        currency: INR
+                        value: '2244'
+                      item:
+                        id: B21
+                        descriptor:
+                          code: xxxx
+                          short_desc: Bedroom 2
+                          long_desc: Tractor Uno Double Coat Without Primer
+                        quantity:
+                          selected:
+                            count: 4
+                            measure:
+                              type: constant
+                              unit: wall
+                          unitized:
+                            count: '243.25'
+                            measure:
+                              type: variable
+                              unit: square-foot
+                        price:
+                          currency: INR
+                          value: '2244'
+                        tags:
+                          - descriptor:
+                              code: attributes
+                            list:
+                              - descriptor:
+                                  code: colour
+                                value: '#ECE5D8'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: MB1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: B1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: K1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: L1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: B31
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: B21
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: L1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: convenience_fee
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: L1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
+                  ttl: P5D
   - summary: Consultation Services - Schedule-Reselection
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
@@ -13504,7 +14203,7 @@ x-flows:
           Buyer adds the service to cart + selects the schedule for the home
           service
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: >-
           Seller rejects the schedule with the error code and returns the
           updated schedule
@@ -13660,33 +14359,33 @@ x-flows:
         api: select
         description: Buyer selects the updated schedule for the home service
         reference: if any
-        example: *ref_25
+        example: *ref_26
       - summary: Seller confirms the schedule and returns the quote
         api: on_select
         description: Seller confirms the schedule and returns the quote
         reference: if any
-        example: *ref_26
+        example: *ref_27
       - summary: Buyer initialises the order and provides billing details
         api: init
         description: Buyer initialises the order and provides billing details
         reference: if any
-        example: *ref_27
+        example: *ref_28
       - summary: Seller provides the final quotation and creates the draft contract
         api: on_init
         description: Seller provides the final quotation and creates the draft contract
         reference: if any
-        example: *ref_28
+        example: *ref_29
       - summary: Buyer makes the payment and creates the order
         api: confirm
         description: Buyer makes the payment and creates the order
-        example: *ref_29
+        example: *ref_30
       - summary: Seller accepts the order
         api: on_confirm
         description: >-
           Seller app sends an on_confirm call to the buyer app accepting the
           order
         reference: if any
-        example: *ref_30
+        example: *ref_31
       - summary: Buyer requests for the status of the order
         api: status
         description: Buyer requests for the status of the order
@@ -13731,7 +14430,7 @@ x-flows:
           Seller app sends a quotation of the home service for which
           consultation was taken e.g home painting
         reference: if any
-        example: *ref_31
+        example: *ref_25
       - summary: Buyer accepts the quotation and makes the partial payment
         api: update
         description: Buyer accepts the quotation and makes the partial payment
@@ -16107,7 +16806,8 @@ x-flows:
                             value: '3'
                 xinput:
                   form:
-                    url: https://abc.com/checklist
+                    id: form_1
+                    url: https://form.sellerapp.com/checklist
                     mimetype: text/html
                   required: false
       - summary: Seller provides confirmation of payment
@@ -18162,12 +18862,964 @@ x-flows:
         api: update
         description: Buyer update the fulfillments for the order.
         reference: if any
-        example: *ref_35
+        example:
+          summary: Buyer updates the order fulfillments in seller collected flow
+          description: Buyer makes the updates and sends the updated order
+          value:
+            context:
+              domain: ONDC:SRV11
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
+              message_id: ea89883a-57ff-44de-87fa-66b07c8d25f1
+              timestamp: '2023-11-08T22:00:38.000Z'
+              ttl: PT30S
+            message:
+              order:
+                update_target:
+                  - message.order.fulfillments
+                id: O1
+                status: ACCEPTED
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 1
+                  - id: IC1
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 3
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                  - id: IC2
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C3
+                      - C21
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 1
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                          - descriptor:
+                              code: dish_type
+                            value: breakfast
+                          - descriptor:
+                              code: cuisine
+                            value: North_Indian
+                  - id: IC3
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                    category_ids:
+                      - C3
+                      - C22
+                    quantity:
+                      selected:
+                        count: 1
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                          - descriptor:
+                              code: dish_type
+                            value: Appetizers
+                          - descriptor:
+                              code: cuisine
+                            value: North_Indian
+                  - id: IC4
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                    category_ids:
+                      - C3
+                      - C23
+                    quantity:
+                      selected:
+                        count: 1
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                          - descriptor:
+                              code: dish_type
+                            value: Main Course
+                          - descriptor:
+                              code: cuisine
+                            value: North_Indian
+                fulfillments:
+                  - id: F1
+                    type: Home-Service
+                    tracking: false
+                    stops:
+                      - type: start
+                        instructions:
+                          name: Instuctions by provider
+                          short_desc: Instuctions by provider
+                          long_desc: Instuctions by provider
+                          additional_desc:
+                            url: https://abc.com/instructions
+                            content_type: text/html
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        time:
+                          label: selected
+                          days: '1'
+                          range:
+                            start: '2024-03-06T10:00:00.000Z'
+                            end: '2024-03-06T18:00:00.000Z'
+                        person:
+                          name: Ramu
+                        instructions:
+                          name: ''
+                          short_desc: Specific Instructions - Optional
+                          long_desc: ''
+                quote:
+                  price:
+                    currency: INR
+                    value: '1021.00'
+                  breakup:
+                    - title: Cook - On Demand
+                      price:
+                        currency: INR
+                        value: '00.00'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '00.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: People
+                      price:
+                        currency: INR
+                        value: '299.00'
+                      item:
+                        id: IC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: Sandwich
+                      price:
+                        currency: INR
+                        value: '199.00'
+                      item:
+                        id: IC2
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: Dahi Ke Kebab
+                      price:
+                        currency: INR
+                        value: '199.00'
+                      item:
+                        id: IC3
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: Dal Makhni
+                      price:
+                        currency: INR
+                        value: '199.00'
+                      item:
+                        id: IC4
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC2
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC3
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC4
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: convenience_fee
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    url: https://payment-gateway-url/payment-link
+                    params:
+                      amount: '499.00'
+                      currency: INR
+                      transaction_id: '3937'
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Counterparty
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Window
+                            value: P1D
+                          - descriptor:
+                              code: Basis
+                            value: Completed
+                          - descriptor:
+                              code: Witholding_Amount
+                            value: '0.00'
+                          - descriptor:
+                              code: Phase
+                            value: sale-amount
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_finder_fee_type
+                            value: percent
+                          - descriptor:
+                              code: Buyer_finder_fee_amount
+                            value: '3'
+                  - id: P2
+                    collected_by: BPP
+                    params:
+                      amount: '522'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      bank_code: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: ON-FULFILLMENT
+                    status: NOT-PAID
+                    tags:
+                      - descriptor:
+                          code: Settlement_Counterparty
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Window
+                            value: P1D
+                          - descriptor:
+                              code: Basis
+                            value: Completed
+                          - descriptor:
+                              code: Witholding_Amount
+                            value: '0.00'
+                          - descriptor:
+                              code: Phase
+                            value: sale-amount
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_finder_fee_type
+                            value: percent
+                          - descriptor:
+                              code: Buyer_finder_fee_amount
+                            value: '3'
       - summary: Seller accepts and updates the order fulfillments.
         api: on_update
         description: Seller accepts and update the fulfillments for the order.
         reference: if any
-        example: *ref_36
+        example:
+          summary: Seller updates the order fulfillments in seller collected flow
+          description: Seller makes the updates and sends the updated order
+          value:
+            context:
+              domain: ONDC:SRV11
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
+              message_id: ea89883a-57ff-44de-87fa-66b07c8d25f5
+              timestamp: '2023-11-08T22:01:38.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: ACCEPTED
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 1
+                  - id: IC1
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 3
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                  - id: IC2
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C3
+                      - C21
+                    fulfillment_ids:
+                      - F1
+                    quantity:
+                      selected:
+                        count: 1
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                          - descriptor:
+                              code: dish_type
+                            value: breakfast
+                          - descriptor:
+                              code: cuisine
+                            value: North_Indian
+                  - id: IC3
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                    category_ids:
+                      - C3
+                      - C22
+                    quantity:
+                      selected:
+                        count: 1
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                          - descriptor:
+                              code: dish_type
+                            value: Appetizers
+                          - descriptor:
+                              code: cuisine
+                            value: North_Indian
+                  - id: IC4
+                    parent_item_id: I1
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                    category_ids:
+                      - C3
+                      - C23
+                    quantity:
+                      selected:
+                        count: 1
+                    tags:
+                      - descriptor:
+                          code: attribute
+                        list:
+                          - descriptor:
+                              code: type
+                            value: customization
+                          - descriptor:
+                              code: dish_type
+                            value: Main Course
+                          - descriptor:
+                              code: cuisine
+                            value: North_Indian
+                fulfillments:
+                  - id: F1
+                    type: Home-Service
+                    tracking: false
+                    stops:
+                      - type: start
+                        instructions:
+                          name: Instuctions by provider
+                          short_desc: Instuctions by provider
+                          long_desc: Instuctions by provider
+                          additional_desc:
+                            url: https://abc.com/instructions
+                            content_type: text/html
+                      - type: end
+                        location:
+                          gps: 12.974002,77.613458
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          country:
+                            code: IND
+                          area_code: '560001'
+                          state:
+                            name: Karnataka
+                        contact:
+                          phone: '9886098860'
+                          email: nobody@nomail.com
+                        time:
+                          label: selected
+                          days: '1'
+                          range:
+                            start: '2024-03-06T10:00:00.000Z'
+                            end: '2024-03-06T18:00:00.000Z'
+                        person:
+                          name: Ramu
+                        instructions:
+                          name: ''
+                          short_desc: Specific Instructions - Optional
+                          long_desc: ''
+                quote:
+                  price:
+                    currency: INR
+                    value: '1021.00'
+                  breakup:
+                    - title: Cook - On Demand
+                      price:
+                        currency: INR
+                        value: '00.00'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '00.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: People
+                      price:
+                        currency: INR
+                        value: '299.00'
+                      item:
+                        id: IC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: Sandwich
+                      price:
+                        currency: INR
+                        value: '199.00'
+                      item:
+                        id: IC2
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: Dahi Ke Kebab
+                      price:
+                        currency: INR
+                        value: '199.00'
+                      item:
+                        id: IC3
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: Dal Makhni
+                      price:
+                        currency: INR
+                        value: '199.00'
+                      item:
+                        id: IC4
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '199.00'
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: customization
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC2
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC3
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '25'
+                      item:
+                        id: IC4
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: convenience_fee
+                      price:
+                        currency: INR
+                        value: '0'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
+                  ttl: P1D
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    url: https://payment-gateway-url/payment-link
+                    params:
+                      amount: '499.00'
+                      currency: INR
+                      transaction_id: '3937'
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Counterparty
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Window
+                            value: P1D
+                          - descriptor:
+                              code: Basis
+                            value: Completed
+                          - descriptor:
+                              code: Witholding_Amount
+                            value: '0.00'
+                          - descriptor:
+                              code: Phase
+                            value: sale-amount
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_finder_fee_type
+                            value: percent
+                          - descriptor:
+                              code: Buyer_finder_fee_amount
+                            value: '3'
+                  - id: P2
+                    collected_by: BPP
+                    params:
+                      amount: '522'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      bank_code: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: ON-FULFILLMENT
+                    status: NOT-PAID
+                    tags:
+                      - descriptor:
+                          code: Settlement_Counterparty
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Window
+                            value: P1D
+                          - descriptor:
+                              code: Basis
+                            value: Completed
+                          - descriptor:
+                              code: Witholding_Amount
+                            value: '0.00'
+                          - descriptor:
+                              code: Phase
+                            value: sale-amount
+                      - descriptor:
+                          code: Buyer_Finder_Fee
+                        list:
+                          - descriptor:
+                              code: Buyer_finder_fee_type
+                            value: percent
+                          - descriptor:
+                              code: Buyer_finder_fee_amount
+                            value: '3'
 x-examples:
   Services - Home Services:
     summary: Booking Home Services
@@ -19453,7 +21105,7 @@ x-examples:
                   updated_at: '2023-02-03T09:30:00.000Z'
                   xinput:
                     form:
-                      url: https://abc.com/checklist
+                      url: https://form.sellerapp.com/checklist
                       mimetype: text/html
                       submission_id: 65fe13c2-d306-4ef1-8c25-fa126c134b67
                       status: SUCCESS
@@ -21585,7 +23237,8 @@ x-examples:
                               reason_required: true
                           xinput:
                             form:
-                              url: https://abc.com/form
+                              id: form_1
+                              url: https://form.sellerapp.com/form
                               mimetype: text/html
                             required: true
                           tags:
@@ -23365,7 +25018,8 @@ x-examples:
                               value: '3'
                   xinput:
                     form:
-                      url: https://abc.com/checklist
+                      id: form_1
+                      url: https://form.sellerapp.com/checklist
                       mimetype: text/html
                     required: false
           - summary: Seller provides the final quotation for the service
@@ -23587,7 +25241,8 @@ x-examples:
                               value: '3'
                   xinput:
                     form:
-                      url: https://abc.com/checklist
+                      id: form_1
+                      url: https://form.sellerapp.com/checklist
                       mimetype: text/html
                     required: false
           - summary: >-
@@ -24084,7 +25739,8 @@ x-examples:
                               value: '3'
                   xinput:
                     form:
-                      url: https://abc.com/checklist
+                      id: form_1
+                      url: https://form.sellerapp.com/checklist
                       mimetype: text/html
                     required: false
       on_confirm:
@@ -28798,12 +30454,12 @@ x-attributes:
                 reference: if any
                 usage: nobody@nomail.com
               name:
-                required: required
+                required: optional
                 description: Describes a person name as any individual
                 reference: if any
                 usage: ONDC buyer
               tax_id:
-                required: required
+                required: optional
                 description: Describes tax id
                 reference: if any
                 usage: 22AAAAA0000A1Z5
@@ -28995,12 +30651,12 @@ x-attributes:
                 reference: if any
                 usage: nobody@nomail.com
               name:
-                required: required
+                required: optional
                 description: Describes a person name as any individual
                 reference: if any
                 usage: ONDC buyer
               tax_id:
-                required: required
+                required: optional
                 description: Describes tax id
                 reference: if any
                 usage: 22AAAAA0000A1Z5
@@ -29336,12 +30992,12 @@ x-attributes:
                 reference: if any
                 usage: nobody@nomail.com
               name:
-                required: required
+                required: optional
                 description: Describes a person name as any individual
                 reference: if any
                 usage: ONDC buyer
               tax_id:
-                required: required
+                required: optional
                 description: Describes tax id
                 reference: if any
                 usage: 22AAAAA0000A1Z5
@@ -29699,12 +31355,12 @@ x-attributes:
                 reference: if any
                 usage: nobody@nomail.com
               name:
-                required: required
+                required: optional
                 description: Describes a person name as any individual
                 reference: if any
                 usage: ONDC buyer
               tax_id:
-                required: required
+                required: optional
                 description: Describes tax id
                 reference: if any
                 usage: 22AAAAA0000A1Z5
@@ -30235,7 +31891,7 @@ x-attributes:
                 reference: if any
                 usage: ONDC buyer
               tax_id:
-                required: required
+                required: optional
                 description: Describes tax id
                 reference: if any
                 usage: 22AAAAA0000A1Z5
