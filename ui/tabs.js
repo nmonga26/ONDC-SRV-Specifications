@@ -2,7 +2,6 @@
 
 function onFirstLoad(build_spec, features) {
   let data = build_spec;
-
   try {
     initSchema(data["x-enum"]);
   } catch (error) {
@@ -40,6 +39,12 @@ function onFirstLoad(build_spec, features) {
   }
   try {
     loadErrors(data["x-errorcodes"]);
+  } catch (error) {
+    console.trace(error);
+  }
+
+  try {
+    renderDropdownCases(data["x-testcasesui"]);
   } catch (error) {
     console.trace(error);
   }
