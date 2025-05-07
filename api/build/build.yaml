@@ -9840,6 +9840,7 @@ x-flows:
             G ->> SA2: **/search** - Services request broadcasted based <br>on city and domain in context
             SA1 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
             SA2 ->> BA: **/on_search** - Services catalog returned <br>with pricing, seller statutory details, pricing
+            Note left of BA: BuyerApp caches the catalog in it's database. <br>All results shown to the buyer user <br>are shown from the DB instead of <br>real-time from the network.
             Note Over BA,SA1: Buyer now has the option to choose the <br>services from either Seller 1 or Seller 2 or both
             BA ->> B: Shows all service <br>options from sellers
       - description: Ordering
@@ -23991,3 +23992,6 @@ x-errorcodes:
       Who can use code?: BPP
       Usage: Used in error object
       Action: /on_select
+x-testcasesui:
+  filenames:
+    - log-verification.md
