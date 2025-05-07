@@ -1,4 +1,4 @@
-## Log submission Scenarios for Invoice based Loan & Igm
+## Log submission Scenarios for Health Care Services
 
 #### Instructions
 
