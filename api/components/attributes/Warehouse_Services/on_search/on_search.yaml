@@ -60,7 +60,7 @@ message:
           name:
             description: name of the service provided by the service provider
             required: required
-            usage: "LFT Test"
+            usage: "Warehouse Service"
             reference: if any
           price:
             value:

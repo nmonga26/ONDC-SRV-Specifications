@@ -44,9 +44,9 @@ message:
         reference: if any
       breakup:
         title:
-          description: title of the service charges enum - LFT Test, tax, discount, convenience fee
+          description: title of the service charges enum - Warehouse service, tax, discount, convenience fee
           required: required
-          usage: "LFT Test"
+          usage: "Warehouse service"
           reference: if any
         price:
           description: price of the quote breakup type
