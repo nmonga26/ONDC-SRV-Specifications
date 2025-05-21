@@ -87,17 +87,11 @@ BAP_DETAILS:
     description: Type of buyer - FARMER, TRADER or FPO
     reference: <PR/Issue/Discussion Links md format text>
 SELECTION:
-  - code: SEQ
-    description: Sequence of the category
+  - code: QC_REPORT
+    description: Quality check report link
     reference: <PR/Issue/Discussion Links md format text>
-  - code: MANDATORY_SELECTION
-    description: Whether it is a mandatory selection
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: MIN_SELECTION
-    description: Number of minimum selections allowed for this category
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: MAX_SELECTION
-    description: Number of maximum selections allowed for this category
+  - code: WAREHOUSE_STORAGE_TYPE
+    description: Storage type of warehouse - normal or cold
     reference: <PR/Issue/Discussion Links md format text>
 SERVICE_INFORMATION:
   - code: PICKUP_TAT
@@ -137,6 +131,9 @@ SETTLEMENT_DETAILS:
     reference: <PR/Issue/Discussion Links md format text>
   - code: UPI_ADDRESS
     description: UPI address where the settlement needs to be done
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SETTLEMENT_WINDOW
+    description: Window within which the settlement must be done in ISO format - eg. PT1D
     reference: <PR/Issue/Discussion Links md format text>
 REPORT_REQUIREMENT:
   - code: REPORT_DEADLINE
@@ -205,3 +202,55 @@ PI1:
     description: Age of the patient
   - code: MOBILE_NUMBER
     description: Mobile number of the patient
+DOCKING_POINTS:
+  - code: NUMBER_AVAILABLE
+    description: Number of available docking points
+  - code: HEIGHT_OF_DOCKING_POINT
+    description: Height of docking points
+  - code: HEIGHT_OF_DOCKING_POINT_UNIT
+    description: Units for height given
+TOTAL_CAPACITY:
+  - code: BUILT_UP_AREA
+    description: Total area that the warehouse is built in
+  - code: CARPET_AREA
+    description: Carpet area that the warehouse is built in
+  - code: UNIT
+    description: Units describing each value
+  - code: VOLUME
+    description: Volume of the warehouse
+  - code: VOLUME_UNIT
+    description: Units describing volume
+AVAILABLE_CAPACITY:
+  - code: FREE_AREA
+    description: Free area of the warehouse
+  - code: UNIT
+    description: Units describing each value
+  - code: VOLUME
+    description: Volume of the warehouse
+  - code: VOLUME_UNIT
+    description: Units describing volume
+PARKING_SPACE:
+  - code: LARGEST_TRUCK_MAX_WHEELS
+    description: Max wheel truck supported
+  - code: LARGEST_TRUCK_SIZE_LWH
+    description: Largest Length, Width and Height of truck supported
+  - code: NUMBER_AVAILABLE
+    description: Number of parking spaces available
+SECURITY_MEASURES:
+  - code: CCTV
+    description: Number of CCTVs installed
+  - code: SECURITY_GUARDS
+    description: Number of security guards at all times in warehouse
+GENERAL_ATTRIBUTES:
+  - code: WAREHOUSE_STORAGE_TYPE
+    description: Storage type of warehouse - normal or cold
+  - code: ADDRESS
+    description: Address of the warehouse
+  - code: GPS
+    description: GPS long and latitude of the warehouse lcoation
+SEARCH_CRITERIA:
+  - code: COLLECT_SUCCESS
+    description: Whether the payment was done successfully - N or Y
+PAYMENT_STATUS:
+  - code: COLLECT_ERROR
+    description: The error captured

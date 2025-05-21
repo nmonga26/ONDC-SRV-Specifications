@@ -1,0 +1,284 @@
+summary: ''
+description: ''
+value:
+  context:
+    domain: ONDC:SRV19
+    location:
+      city:
+        code: std:080
+      country:
+        code: IND
+    action: on_search
+    version: 2.0.0
+    bap_id: buyerapp.com
+    bap_uri: https://buyerapp.com/ondc
+    bpp_id: sellerapp.com
+    bpp_uri: https://sellerapp.com/ondc
+    transaction_id: T2
+    message_id: M2
+    timestamp: '2024-04-01T22:00:30.000Z'
+  message:
+    catalog:
+      fulfillments:
+        - id: '1'
+          type: Buyer-Fulfilled
+      payments:
+        - id: '1'
+          type: PRE-FULFILLMENT
+        - id: '2'
+          type: ON-FULFILLMENT
+      descriptor:
+        name: Warehousing Service
+        short_desc: Agriculture Warehousing Services
+        long_desc: Agriculture Warehousing Services
+        images:
+          - url: https://abc.com/images/1-warehouse-img
+      providers:
+        - id: P1
+          descriptor:
+            name: Warehousing Services Provider
+            code: P001
+            short_desc: Warehousing Services Provider
+            long_desc: Warehousing Services Provider
+            images:
+              - url: https://abc.com/images/1-shop-img
+          ttl: PT1D
+          locations:
+            - id: L1
+              gps: 12.967555,77.749666
+              address: Jayanagar 4th Block
+              city:
+                code: std:080
+                name: Bengaluru
+              state:
+                code: KA
+              country:
+                code: IND
+              area_code: '560076'
+          creds:
+            - id: MDI-12345678
+              type: Mandi License
+              desc: Mandi License Certification
+              url: https://abcd.cdn.com/images/base-1-img
+            - id: WDRA-12345678
+              type: WDRA
+              desc: WDRA Certified
+              url: https://abcd.cdn.com/images/base-2-img
+          categories:
+            - id: C1
+              descriptor:
+                name: Time and Space
+                code: TIME_AND_SPACE
+            - id: C2
+              descriptor:
+                name: Lock and Key
+                code: LOCK_AND_KEY
+          items:
+            - id: I1
+              descriptor:
+                name: Large Warehouse
+                short_desc: A large warehouse for storage
+                long_desc: A large warehouse for storage
+                images:
+                  - url: https://abc.com/images/207.png
+                media:
+                  - mimetype: video/mp4
+                    url: video_url
+              price:
+                currency: INR
+                value: '1500.00'
+              quantity:
+                available:
+                  measure:
+                    unit: hours
+                unitized:
+                  count: 50
+                  measure:
+                    value: 100
+                    unit: t
+              category_ids:
+                - C1
+                - C2
+              fulfillment_ids:
+                - '1'
+              location_ids:
+                - L1
+              payment_ids:
+                - '1'
+              add_ons:
+                - id: ADDON01
+                  descriptor:
+                    name: Packaging
+                    short_desc: Packaging Service
+                    long_desc: Packaging Service (price given per unit)
+                    images:
+                      - url: https://abc.com/images/208.png
+                  price:
+                    currency: INR
+                    minimum_value: '150.0'
+                - id: ADDON02
+                  descriptor:
+                    name: Labelling
+                    short_desc: Labelling Service
+                    long_desc: Labelling Service (price given per unit)
+                    images:
+                      - url: https://abc.com/images/209.png
+                  price:
+                    currency: INR
+                    minimum_value: '150.0'
+                - id: ADDON03
+                  descriptor:
+                    name: Sorting & Grading
+                    short_desc: Sorting & Grading Service
+                    long_desc: Sorting & Grading Service
+                    images:
+                      - url: https://abc.com/images/210.png
+                  price:
+                    currency: INR
+                    minimum_value: '1800.0'
+                - id: ADDON01
+                  descriptor:
+                    name: Loading & Unloading
+                    short_desc: Loading & Unloading Service
+                    long_desc: Loading & Unloading Service
+                    images:
+                      - url: https://abc.com/images/211.png
+                  price:
+                    currency: INR
+                    minimum_value: '150.0'
+              cancellation_terms:
+                - fulfillment_state:
+                    descriptor:
+                      code: PENDING
+                  cancellation_fee:
+                    percentage: '0.00'
+                - fulfillment_state:
+                    descriptor:
+                      code: IN_TRANSIT
+                  cancellation_fee:
+                    percentage: '10.00'
+              tags:
+                - descriptor:
+                    code: RESCHEDULE_TERMS
+                  list:
+                    - descriptor:
+                        code: FULFILLMENT_STATE
+                      value: Pending
+                    - descriptor:
+                        code: RESCHEDULE_ELIGIBLE
+                      value: 'true'
+                    - descriptor:
+                        code: RESCHEDULE_FEE
+                      value: '0.00'
+                    - descriptor:
+                        code: RESCHEDULE_WITHIN
+                      value: PT1D
+                - descriptor:
+                    code: DOCKING_POINTS
+                  list:
+                    - descriptor:
+                        code: NUMBER_AVAILABLE
+                      value: '5'
+                    - descriptor:
+                        code: HEIGHT_OF_DOCKING_POINT
+                      value: '10'
+                    - descriptor:
+                        code: HEIGHT_OF_DOCKING_POINT_UNIT
+                      value: ft
+                - descriptor:
+                    code: TOTAL_CAPACITY
+                  list:
+                    - descriptor:
+                        code: BUILT_UP_AREA
+                      value: '100'
+                    - descriptor:
+                        code: CARPET_AREA
+                      value: '86'
+                    - descriptor:
+                        code: UNIT
+                      value: m2
+                    - descriptor:
+                        code: VOLUME
+                      value: '100'
+                    - descriptor:
+                        code: VOLUME_UNIT
+                      value: m3
+                - descriptor:
+                    code: AVAILABLE_CAPACITY
+                  list:
+                    - descriptor:
+                        code: FREE_AREA
+                      value: '100'
+                    - descriptor:
+                        code: UNIT
+                      value: m2
+                    - descriptor:
+                        code: VOLUME
+                      value: '100'
+                    - descriptor:
+                        code: VOLUME_UNIT
+                      value: m3
+                - descriptor:
+                    code: PARKING_SPACE
+                  list:
+                    - descriptor:
+                        code: LARGEST_TRUCK_MAX_WHEELS
+                      value: '12'
+                    - descriptor:
+                        code: LARGEST_TRUCK_SIZE_LWH
+                      value: 17,6,7
+                    - descriptor:
+                        code: NUMBER_AVAILABLE
+                      value: '10'
+                - descriptor:
+                    code: SECURITY_MEASURES
+                  list:
+                    - descriptor:
+                        code: CCTV
+                      value: '5'
+                    - descriptor:
+                        code: SECURITY_GUARDS
+                      value: '10'
+                - descriptor:
+                    code: GENERAL_ATTRIBUTES
+                  list:
+                    - descriptor:
+                        code: WAREHOUSE_STORAGE_TYPE
+                      value: NORMAL
+                    - descriptor:
+                        code: ADDRESS
+                      value: Jayanagar 4th Block, Sector 14, Bangalore
+                    - descriptor:
+                        code: GPS
+                      value: 12.967555,77.749666
+                    - descriptor:
+                        code: GST
+                      value: 07ABCDE1234F2Z5
+                - descriptor:
+                    code: PARTIAL_MATCH
+                  list:
+                    - descriptor:
+                        code: TYPE
+                      value: PART_SPACE
+              time:
+                label: validity
+                range:
+                  start: '2024-04-01T00:00:00.000Z'
+                  end: '2024-04-31T24:00:00.000Z'
+                days: 04,05
+                schedule:
+                  frequency: PT12H
+                  holidays:
+                    - '2024-04-09'
+                    - '2024-04-07'
+                  times:
+                    - '2024-04-04T22:00:00.000Z'
+                    - '2024-04-06T22:00:00.000Z'
+                    - '2024-04-08T22:00:00.000Z'
+                    - '2024-04-10T22:00:00.000Z'
+              matched: false
+              recommended: true
+          fulfillments:
+            - contact:
+                phone: '9886098860'
+                email: abc@xyz.com

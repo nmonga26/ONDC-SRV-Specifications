@@ -5,11 +5,11 @@ intent:
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./Tag.yaml#/BAP_TERMS"
-    - code: BUYER_DETAILS
-      description: Details of the buyer
+    - code: SEARCH_CRITERIA
+      description: Search criteria that buyer wants to specify
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./Tag.yaml#/BAP_DETAILS"
+        $ref: "./Tag.yaml#/SEARCH_CRITERIA"
 catalog:
   providers:
     tags:
@@ -20,66 +20,49 @@ catalog:
           $ref: "./Tag.yaml#/serviceability"
     items:
       tags:
-        - code: ADDITIONAL_TEST_INFORMATION
-          description: Additional Test Information
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            $ref: "./Tag.yaml#/ADDITIONAL_TEST_INFORMATION"
         - code: RESCHEDULE_TERMS
           description: Reschedule terms for the item
           reference: <PR/Issue/Discussion Links md format text>
           list:
             $ref: "./Tag.yaml#/RESCHEDULE_TERMS"
-        - code: ATTRIBUTE
-          description: Attribute of a particular item
+        - code: DOCKING_POINTS
+          description: Docking points information of warehouse
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/ATTRIBUTE"
-        - code: TEST_CRITERIA
-          description: Criteria for the test
+            $ref: "./Tag.yaml#/DOCKING_POINTS"
+        - code: TOTAL_CAPACITY
+          description: Total Capacity information of warehouse
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/TEST_CRITERIA"
-        - code: TEST_PARAMETERS
-          description: Test parameters which will be tested in the test
+            $ref: "./Tag.yaml#/TOTAL_CAPACITY"
+        - code: AVAILABLE_CAPACITY
+          description: Available space information of warehouse
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/TEST_PARAMETERS"
-        - code: PRE_TEST_PREPARATION
-          description: Pre test preparations to be done before test
+            $ref: "./Tag.yaml#/AVAILABLE_CAPACITY"
+        - code: PARKING_SPACE
+          description: Parking space information of warehouse
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/PRE_TEST_PREPARATION"
-        - code: FASTING
-          description: Fasting information before test
+            $ref: "./Tag.yaml#/PARKING_SPACE"
+        - code: SECURITY_MEASURES
+          description: Security measures information of warehouse
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/FASTING"
-        - code: PRE_INTAKE
-          description: Intake to be taken before the test
+            $ref: "./Tag.yaml#/SECURITY_MEASURES"
+        - code: GENERAL_ATTRIBUTES
+          description: General attributes information of warehouse
           reference: <PR/Issue/Discussion Links md format text>
           list:
-            $ref: "./Tag.yaml#/PRE_INTAKE"
-  offers:
-    tags:
-      - code: BENEFIT
-        description: Benefit related to the offer code
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          $ref: "./Tag.yaml#/BENEFIT"
-      - code: META
-        description: Meta description related to offer code
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          $ref: "./Tag.yaml#/META"
+            $ref: "./Tag.yaml#/GENERAL_ATTRIBUTES"
 order:
   items:
     tags:
-      - code: REPORT_REQUIREMENT
-        description: Attribute of a particular item
+      - code: SELECTION
+        description: Attribute for selection of a particular item
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          $ref: "./Tag.yaml#/REPORT_REQUIREMENT"
+          $ref: "./Tag.yaml#/SELECTION"
 
   fulfillments:
     stops:
@@ -123,6 +106,11 @@ order:
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./Tag.yaml#/Settlement_Details"
+      - code: PAYMENT_STATUS
+        description: Status of payment - Only required if payment has failed
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./Tag.yaml#/PAYMENT_STATUS"
       - code: Buyer_Finder_Fee
         description: Define Finder's Fee for Buyer
         reference: <PR/Issue/Discussion Links md format text>

@@ -1,7 +1,7 @@
 breakup:
   title:
-    - code: Sofa Cleaning
-      description: Sofa Cleaning
+    - code: Warehouse Service
+      description: Warehouse Service
       reference: <PR/Issue/Discussion Links md format text>
     - code: item
       description: item/service level
@@ -17,13 +17,4 @@ breakup:
       reference: <PR/Issue/Discussion Links md format text>
     - code: misc
       description: Any miscellanous fees
-      reference: <PR/Issue/Discussion Links md format text>
-    - code: Soil Testing
-      description: Soil Testing
-      reference: <PR/Issue/Discussion Links md format text>
-    - code: Water Testing
-      description: Water Testing
-      reference: <PR/Issue/Discussion Links md format text>
-    - code: Chemical Testing
-      description: Chemical Testing
       reference: <PR/Issue/Discussion Links md format text>

@@ -29,8 +29,8 @@ const traverse = (source) => {
   }
 };
 
-let folderName = "Health_care_services";
-const traversedPaths = traverse("./Examples/Health_care_services");
+let folderName = "Warehouse_services";
+const traversedPaths = traverse("./Examples/Warehouse_services");
 
 traversedPaths.forEach((path, i) => {
   path.forEach((jsonPath, j) => {

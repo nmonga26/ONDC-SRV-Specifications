@@ -1,0 +1,109 @@
+summary: ''
+description: ''
+value:
+  context:
+    domain: ONDC:SRV19
+    location:
+      city:
+        code: std:080
+      country:
+        code: IND
+    action: on_select
+    version: 2.0.0
+    bap_id: buyerapp.com
+    bap_uri: https://buyerapp.com/services
+    bpp_id: sellerapp.com
+    bpp_uri: https://sellerapp.com/services
+    transaction_id: T2
+    message_id: M3
+    timestamp: '2024-04-01T22:00:31.000Z'
+  message:
+    order:
+      provider:
+        id: P1
+      items:
+        - id: PI1
+          category_ids:
+            - C1
+          fulfillment_ids:
+            - '1'
+          quantity:
+            selected:
+              count: 10
+              measure:
+                unit: hours
+            unitized:
+              count: 100
+              measure:
+                value: 100
+                unit: t
+          tags:
+            - descriptor:
+                code: SELECTION
+              list:
+                - descriptor:
+                    code: QC_REPORT
+                  value: https://example.com/report.pdf
+                - descriptor:
+                    code: WAREHOUSE_STORAGE_TYPE
+                  value: NORMAL
+      fulfillments:
+        - id: FY1
+          type: Buyer-Fulfilled
+          stops:
+            - type: end
+              time:
+                label: confirmed
+                range:
+                  start: '2024-04-04T10:00:00.000Z'
+                  end: '2024-04-04T20:00:00.000Z'
+      quote:
+        price:
+          currency: INR
+          value: '17700'
+        breakup:
+          - title: Large Warehouse
+            price:
+              currency: INR
+              value: '15000'
+            item:
+              id: PI1
+              quantity:
+                selected:
+                  count: 10
+                  measure:
+                    unit: hours
+                unitized:
+                  count: 100
+                  measure:
+                    value: 100
+                    unit: t
+              price:
+                currency: INR
+                value: '1500'
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: item
+          - title: tax
+            price:
+              currency: INR
+              value: '2700'
+            item:
+              id: I1
+            tags:
+              - descriptor:
+                  code: title
+                list:
+                  - descriptor:
+                      code: type
+                    value: tax
+        ttl: P1D
+      payments:
+        - type: PRE-FULFILLMENT
+          collected_by: BAP
+        - type: ON-FULFILLMENT
+          collected_by: BAP

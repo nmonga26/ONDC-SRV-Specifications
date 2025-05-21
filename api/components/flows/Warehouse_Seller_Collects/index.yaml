@@ -1,0 +1,75 @@
+summary: Warehouse Services - Payment Collected by BPP
+description: The following is an illustrative flow to perform a transaction of a nature where a seller collects the payment instead of buyer. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+details:
+  - description: Sequence Diagram for Warehouse Service
+    mermaidGraph: >-
+      sequenceDiagram
+        title Payment Collected By BPP
+        participant SRV BAP
+        participant SRV BPP
+
+        note over SRV BAP, SRV BPP: Order Placement
+        SRV BAP ->> SRV BPP: **/select** - Buyer adds the service to cart and <br/>selects the schedule
+        activate SRV BPP
+        SRV BPP ->> SRV BAP: **/on_select** - Seller confirms the schedule and returns the quote
+        deactivate SRV BPP
+
+        SRV BAP ->> SRV BPP: **/init** - Buyer initialises the order and provides billing details
+        activate SRV BPP
+        SRV BPP ->> SRV BAP: **/on_init** - Seller provides the final quotation and<br/>creates the draft contract
+        deactivate SRV BPP
+        
+        note over SRV BAP, SRV BPP: Payment Status Update
+        SRV BAP ->> SRV BPP: **/status** - Buyer can request for status of payment
+        activate SRV BPP
+        SRV BPP ->> SRV BAP: **/on_status** - Seller has to mandatorily provide the status of payment<br/>with transaction ID
+        deactivate SRV BPP
+
+        SRV BAP ->> SRV BPP: **/confirm** - Buyer creates the order and sends confirmation
+        activate SRV BPP
+        SRV BPP ->> SRV BAP: **/on_confirm** - Seller accepts the order
+        deactivate SRV BPP
+
+reference: if any
+steps:
+  - summary: Buyer selects the service
+    api: select
+    description: Buyer selects the service with QC report
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/select/select.yaml"
+  - summary: Seller confirms the schedule and returns the quote
+    api: on_select
+    description: Seller confirms the schedule and returns the quote
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_select/on_select.yaml"
+  - summary: Buyer initialises the order and provides billing details
+    api: init
+    description: Buyer initialises the order and provides billing details
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/init/init.yaml"
+  - summary: Seller provides the final quotation and creates the draft contract
+    api: on_init
+    description: Seller provides the final quotation and creates the draft contract
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_init/on_init_collected_by_bpp.yaml"
+  - summary: Buyer requests for payment status
+    api: status
+    description: Buyer asks for payment status with transaction ID
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/status/status_payment.yaml"
+  - summary: Seller provides the final quotation and creates the draft contract
+    api: on_status
+    description: Seller gives confirmation of payment success
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_status/on_status_payment_success.yaml"
+  - summary: Buyer makes the payment and creates the order
+    api: confirm
+    description: Buyer makes the payment and creates the order
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/confirm/confirm_collected_by_bpp.yaml"

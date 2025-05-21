@@ -1,0 +1,62 @@
+summary: ''
+description: ''
+value:
+  context:
+    domain: ONDC:SRV19
+    location:
+      city:
+        code: std:080
+      country:
+        code: IND
+    action: select
+    version: 2.0.0
+    bap_id: buyerapp.com
+    bap_uri: https://buyerapp.com/ondc
+    bpp_id: sellerapp.com
+    bpp_uri: https://sellerapp.com/ondc
+    transaction_id: T2
+    message_id: M3
+    timestamp: '2024-04-01T22:00:30.000Z'
+    ttl: PT5S
+  message:
+    order:
+      provider:
+        id: P1
+      items:
+        - id: PI1
+          category_ids:
+            - C1
+          fulfillment_ids:
+            - '1'
+          price:
+            currency: INR
+            value: '1500.00'
+          quantity:
+            selected:
+              measure:
+                unit: hours
+            unitized:
+              count: 100
+              measure:
+                value: 100
+                unit: t
+          tags:
+            - descriptor:
+                code: SELECTION
+              list:
+                - descriptor:
+                    code: QC_REPORT
+                  value: https://example.com/report.pdf
+                - descriptor:
+                    code: WAREHOUSE_STORAGE_TYPE
+                  value: NORMAL
+      fulfillments:
+        - type: Buyer-Fulfilled
+          stops:
+            - type: end
+              time:
+                label: selected
+                range:
+                  start: '2024-04-04T10:00:00.000Z'
+                  end: '2024-04-04T20:00:00.000Z'
+                days: '4'

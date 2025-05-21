@@ -1,0 +1,30 @@
+summary: Warehouse Services - Partial Fulfillment
+description: The following is an illustrative flow to perform a transaction of a nature where a seller can only fulfill a certain part of the order.
+details:
+  - description: Sequence Diagram for Warehouse Service
+    mermaidGraph: >-
+      sequenceDiagram
+        title Partial Fulfillment
+        participant SRV BAP
+        participant SRV BPP
+
+        note over SRV BAP, SRV BPP: Service Discovery
+        SRV BAP ->> SRV BPP: **/search** - Search sent directly to P2P for a specific criteria<br/> based on commodity, quantity, and time range
+        activate SRV BPP
+        SRV BPP ->> SRV BAP: **/on_search** - Seller Returns the catalog with items <br/>both matching and not matching the criteria
+        deactivate SRV BPP
+
+reference: if any
+steps:
+  - summary: Search to Seller based on filter criteria
+    api: search (P2P)
+    description: Search intent sent by the buyer based on multiple search criteria
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/search/search_p2p.yaml"
+  - summary: Returns a catalog based on search criteria
+    api: on_search (P2P)
+    description: Returns a catalog with details on partial fulfillment
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_search/on_search_partial.yaml"

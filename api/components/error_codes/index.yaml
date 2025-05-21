@@ -4,18 +4,13 @@ code:
     Who can use code?: BPP
     Usage: Used in error object
     Action: /on_select
-  - Code: "90002"
-    Reason: Incorrect OTP provided by buyer
-    Who can use code?: BPP
-    Usage: Used in error object
-    Action: /on_status
   - Code: "90003"
     Reason: Schedule is not provided by the buyer
     Who can use code?: BPP
     Usage: Used in NACK
     Action: NACK on /select
-  - Code: "90004"
-    Reason: Report deadline cannot be matched
+  - Code: "99004"
+    Reason: Space not available in warehouse
     Who can use code?: BPP
     Usage: Used in error object
     Action: /on_select

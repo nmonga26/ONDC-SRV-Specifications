@@ -1,0 +1,39 @@
+summary: Warehouse Services - Cancellation
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to cancel an order.
+details:
+  - description: Sequence Diagram for Warehouse Service
+    mermaidGraph: >-
+      sequenceDiagram
+        title Cancelling Warehouse Order
+        participant SRV BAP
+        participant SRV BPP
+
+
+        SRV BAP ->> SRV BPP: **/confirm** - Buyer makes the payment and creates the order
+        activate SRV BPP
+        SRV BPP ->> SRV BAP: **/on_confirm** - Seller accepts the order
+        deactivate SRV BPP
+
+        note over SRV BAP, SRV BPP: Order Cancellation
+        SRV BAP ->> SRV BPP: **/cancel** - Buyer requests cancellation
+        SRV BPP ->> SRV BAP: **/on_cancel** -  Seller app sends cancellation confirmation
+
+reference: if any
+steps:
+  - summary: Seller accepts the order
+    api: on_confirm
+    description: Seller app sends an on_confirm call to the buyer app accepting the order
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_confirm/on_confirm.yaml"
+  - summary: Buyer requests cancellation
+    api: cancel
+    description: Buyer requests cancellation of the order with reason ID
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/cancel/cancel.yaml"
+  - summary: Seller app sends confirmation of the cancelllation
+    api: on_cancel
+    description: Seller app sends confirmation of cancellation
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_cancel/on_cancel.yaml"

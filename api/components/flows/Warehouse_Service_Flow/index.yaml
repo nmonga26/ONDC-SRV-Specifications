@@ -1,0 +1,127 @@
+summary: Warehouse Services - Full Order Flow
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order warehouse services. The booking majorly happens in four phases of order processing flow, i.e. Discovery of available services and service providers based on serviceability, order, fulfillment and post-fulfillment.
+details:
+  - description: Sequence Diagram for Warehouse Service
+    mermaidGraph: >-
+      sequenceDiagram
+        title Booking Warehouse Services
+        participant SRV BAP
+        participant SRV BPP
+
+        note over SRV BAP, SRV BPP: Service Discovery
+        SRV BAP ->> SRV BPP: **/search** - Search intent sent by the buyer based on<br/>the service required with city code
+        activate SRV BPP
+        SRV BPP ->> SRV BAP: **/on_search** - Seller Returns the catalog specific to<br/> the search intent in that city
+        deactivate SRV BPP
+
+        SRV BAP ->> SRV BPP: **/search** - Search sent directly to P2P for a specific criteria<br/> based on commodity, quantity, and time range
+        activate SRV BPP
+        SRV BPP ->> SRV BAP: **/on_search** - Seller Returns the catalog specific to<br/> the search intent criteria
+        deactivate SRV BPP
+
+        note over SRV BAP, SRV BPP: Order Placement
+        SRV BAP ->> SRV BPP: **/select** - Buyer adds the service to cart and <br/>selects the schedule
+        activate SRV BPP
+        SRV BPP ->> SRV BAP: **/on_select** - Seller confirms the schedule and returns the quote
+        deactivate SRV BPP
+
+        SRV BAP ->> SRV BPP: **/init** - Buyer initialises the order and provides billing details
+        activate SRV BPP
+        SRV BPP ->> SRV BAP: **/on_init** - Seller provides the final quotation and<br/>creates the draft contract
+        deactivate SRV BPP
+
+        SRV BAP ->> SRV BPP: **/confirm** - Buyer makes the payment and creates the order
+        activate SRV BPP
+        SRV BPP ->> SRV BAP: **/on_confirm** - Seller accepts the order
+        deactivate SRV BPP
+
+        note over SRV BAP, SRV BPP: Order Fulfillment
+        SRV BAP ->> SRV BPP: **/status** - Buyer requests for a status
+        SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service provider is on the way
+        SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service provider has reached<br/>the buyer location
+        SRV BPP ->> SRV BAP: **/on_status** -  Seller app sends order status update when<br/>service is completed
+
+reference: if any
+steps:
+  - summary: Search based on the city
+    api: search
+    description: Search intent sent by the buyer based on city
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/search/search.yaml"
+  - summary: Returns a static catalog based on the city
+    api: on_search
+    description: Returns a static catalog based on the search intent
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_search/on_search.yaml"
+  - summary: Search to Seller based on filter criteria
+    api: search (P2P)
+    description: Search intent sent by the buyer based on multiple search criteria
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/search/search_p2p.yaml"
+  - summary: Returns a catalog based on search criteria
+    api: on_search (P2P)
+    description: Returns a catalog based on the search intent
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_search/on_search_p2p.yaml"
+  - summary: Buyer selects the service
+    api: select
+    description: Buyer selects the service with QC report
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/select/select.yaml"
+  - summary: Seller confirms the schedule and returns the quote
+    api: on_select
+    description: Seller confirms the schedule and returns the quote
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_select/on_select.yaml"
+  - summary: Buyer initialises the order and provides billing details
+    api: init
+    description: Buyer initialises the order and provides billing details
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/init/init.yaml"
+  - summary: Seller provides the final quotation and creates the draft contract
+    api: on_init
+    description: Seller provides the final quotation and creates the draft contract
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_init/on_init.yaml"
+  - summary: Buyer makes the payment and creates the order
+    api: confirm
+    description: Buyer makes the payment and creates the order
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/confirm/confirm.yaml"
+  - summary: Seller accepts the order
+    api: on_confirm
+    description: Seller app sends an on_confirm call to the buyer app accepting the order
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_confirm/on_confirm.yaml"
+  - summary: Buyer requests for the status of the order
+    api: status
+    description: Buyer requests for the status of the order
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/status/status.yaml"
+  - summary: Seller app sends order status update when service provider is on the way
+    api: on_status
+    description: Seller app sends order status update when service provider is on the way
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_status/on_status.yaml"
+  - summary: Seller app sends order status update when service provider has reached the buyer location and seller app generates an OTP.
+    api: on_status
+    description: Seller app sends order status update when service provider has reached the buyer location and seller app generates an OTP.
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_status/on_status_at_location.yaml"
+  - summary: Buyer shares the OTP with service provider and Seller app sends order status as Service started.
+    api: on_status
+    description: Buyer shares the OTP with service provider and Seller app sends order status as Service started.
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_status/on_status_completed.yaml"

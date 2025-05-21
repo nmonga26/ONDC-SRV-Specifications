@@ -1,3 +1,3 @@
-Healthcare Services:
+Warehouse Services:
   attribute_set:
-    $ref: "./Healthcare_Services/index.yaml"
+    $ref: "./Warehouse_Services/index.yaml"

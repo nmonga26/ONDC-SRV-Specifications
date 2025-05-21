@@ -1,0 +1,48 @@
+summary: Warehouse Services - No Available Space
+description: The following is an illustrative flow to perform a transaction of a nature where a seller responds that space is not available.
+details:
+  - description: Sequence Diagram for Warehouse Service
+    mermaidGraph: >-
+      sequenceDiagram
+        title No Available Space
+        participant SRV BAP
+        participant SRV BPP
+
+        note over SRV BAP, SRV BPP: Service Discovery
+        SRV BAP ->> SRV BPP: **/search** - Search sent directly to P2P for a specific criteria<br/> based on commodity, quantity, and time range
+        activate SRV BPP
+        SRV BPP ->> SRV BAP: **/on_search** - Seller Returns the catalog specific to<br/> the search intent criteria
+        deactivate SRV BPP
+
+        note over SRV BAP, SRV BPP: Order Placement
+        SRV BAP ->> SRV BPP: **/select** - Buyer adds the service to cart and <br/>selects the schedule
+        activate SRV BPP
+        SRV BPP ->> SRV BAP: **/on_select** - Seller responds that space is not available
+        deactivate SRV BPP
+
+reference: if any
+steps:
+  - summary: Search to Seller based on filter criteria
+    api: search (P2P)
+    description: Search intent sent by the buyer based on multiple search criteria
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/search/search_p2p.yaml"
+  - summary: Returns a catalog based on search criteria
+    api: on_search (P2P)
+    description: Returns a catalog based on the search intent
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_search/on_search_p2p.yaml"
+  - summary: Buyer selects the service
+    api: select
+    description: Buyer selects the service with QC report
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/select/select.yaml"
+  - summary: Seller responds back with error
+    api: on_select
+    description: Seller responds back with error that there is no available space
+    reference: if any
+    example:
+      $ref: "../../Examples/Warehouse_services_yaml/on_select/on_select_no_space.yaml"

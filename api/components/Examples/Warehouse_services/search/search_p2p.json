@@ -1,0 +1,71 @@
+{
+  "context": {
+    "domain": "ONDC:SRV19",
+    "location": {
+      "city": {
+        "code": "std:080"
+      },
+      "country": {
+        "code": "IND"
+      }
+    },
+    "action": "search",
+    "version": "2.0.0",
+    "bap_id": "buyerapp.com",
+    "bap_uri": "https://buyerapp.com/ondc",
+    "transaction_id": "T2",
+    "message_id": "M2",
+    "bpp_id": "sellerapp.com",
+    "bpp_uri": "https://sellerapp.com/ondc",
+    "timestamp": "2024-04-01T22:00:00.000Z",
+    "ttl": "PT5S"
+  },
+  "message": {
+    "intent": {
+      "items": [
+        {
+          "descriptor": {
+            "code": "TOMATO"
+          },
+          "quantity": {
+            "minimum": {
+              "count": 100,
+              "measure": {
+                "value": 100,
+                "unit": "t"
+              }
+            }
+          }
+        }
+      ],
+      "fulfillment": {
+        "stops": [
+          {
+            "time": {
+              "label": "search",
+              "range": {
+                "start": "2024-04-01T00:00:00.000Z",
+                "end": "2024-04-31T24:00:00.000Z"
+              }
+            }
+          }
+        ]
+      },
+      "tags": [
+        {
+          "descriptor": {
+            "code": "SEARCH_CRITERIA"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "code": "WAREHOUSE_STORAGE_TYPE"
+              },
+              "value": "NORMAL"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
