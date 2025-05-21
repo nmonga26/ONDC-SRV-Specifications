@@ -9812,7 +9812,7 @@ x-attributes:
               category:
                 description: Category of the search
                 required: optional
-                usage: SRV13-1000
+                usage: SRV19-1000
                 reference: if any
             fulfillment:
               parent: true
@@ -9945,7 +9945,7 @@ x-attributes:
                     category id of the service provided by the service provider
                     which was sent in /search call
                   required: required
-                  usage: SRV13-1000
+                  usage: SRV19-1000
                   reference: if any
                 fulfillment_ids:
                   description: >-
