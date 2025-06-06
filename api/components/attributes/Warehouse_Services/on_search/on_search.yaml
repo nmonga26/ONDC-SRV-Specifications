@@ -62,17 +62,47 @@ message:
             required: required
             usage: "Warehouse Service"
             reference: if any
-          price:
-            value:
-              description: price of the service
-              required: required
-              usage: "149"
+        price:
+          minimum_value:
+            description: minimum price of the service - required, if value not given
+            required: optional
+            usage: "1490"
+            reference: if any
+          value:
+            description: price of the service
+            required: required (on_search p2p)
+            usage: "1490"
+            reference: if any
+          currency:
+            description: currency of the price value
+            required: required
+            usage: "INR"
+            reference: if any
+        quantity:
+          available:
+            measure:
+              unit:
+                description: unit of measure for the quantity of the service provided by the service provider
+                required: required
+                usage: "hours"
+                reference: if any
+          unitized:
+            count:
+              description: count of the item available
+              required: required (on_search p2p)
+              usage: 100
               reference: if any
-            currency:
-              description: currency of the price value
-              required: required
-              usage: "INR"
-              reference: if any
+            measure:
+              value:
+                description: the numerical value within each single unit
+                required: required (on_search p2p)
+                usage: 100
+                reference: if any
+              unit:
+                description: unit of measure for a single unit of item
+                required: required (on_search p2p)
+                usage: "t"
+                reference: if any
         category_ids:
           description: category id of the service provided by the service provider which was sent in /search call
           required: required

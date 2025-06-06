@@ -1,9 +1,9 @@
 context:
   parent: true
   domain:
-    description: domain code, enums - ONDC:SRV13 ( Services - Healthcare Services )
+    description: domain code, enums - ONDC:SRV19 ( Services - Warehouse Services )
     required: mandatory
-    usage: "ONDC:SRV13"
+    usage: "ONDC:SRV19"
     reference: if any
   city:
     code:
