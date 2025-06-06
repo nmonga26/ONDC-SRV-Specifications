@@ -249,8 +249,10 @@ GENERAL_ATTRIBUTES:
   - code: GPS
     description: GPS long and latitude of the warehouse lcoation
 SEARCH_CRITERIA:
+  - code: WAREHOUSE_STORAGE_TYPE
+    description: Storage type of warehouse - normal or cold
+PAYMENT_STATUS:
   - code: COLLECT_SUCCESS
     description: Whether the payment was done successfully - N or Y
-PAYMENT_STATUS:
   - code: COLLECT_ERROR
     description: The error captured

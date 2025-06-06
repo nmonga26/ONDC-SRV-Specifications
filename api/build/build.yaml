@@ -2755,8 +2755,8 @@ x-tags:
             description: Search criteria that buyer wants to specify
             reference: <PR/Issue/Discussion Links md format text>
             list:
-              - code: COLLECT_SUCCESS
-                description: Whether the payment was done successfully - N or Y
+              - code: WAREHOUSE_STORAGE_TYPE
+                description: Storage type of warehouse - normal or cold
   on_search:
     message:
       catalog:
@@ -2995,6 +2995,8 @@ x-tags:
               description: Status of payment - Only required if payment has failed
               reference: <PR/Issue/Discussion Links md format text>
               list:
+                - code: COLLECT_SUCCESS
+                  description: Whether the payment was done successfully - N or Y
                 - code: COLLECT_ERROR
                   description: The error captured
             - code: Buyer_Finder_Fee
@@ -9927,7 +9929,7 @@ x-attributes:
                   name:
                     description: name of the service provided by the service provider
                     required: required
-                    usage: LFT Test
+                    usage: Warehouse Service
                     reference: if any
                   price:
                     value:
@@ -10053,20 +10055,18 @@ x-attributes:
               quantity:
                 selected:
                   count:
-                    description: >-
-                      number of items selected e.g. number of sofas to be
-                      cleaned
+                    description: number of items selected e.g. number of hours
                     required: required
                     usage: '1'
                     reference: if any
                 measure:
                   unit:
-                    description: name of the unit e.g. sofa seats to be cleaned
+                    description: name of the unit
                     required: required
-                    usage: tests
+                    usage: t
                     reference: if any
                   value:
-                    description: value of the unit e.g. number of sofa seats to be cleaned
+                    description: value of the unit
                     required: required
                     usage: '2'
                     reference: if any
@@ -10146,10 +10146,10 @@ x-attributes:
               breakup:
                 title:
                   description: >-
-                    title of the service charges enum - LFT Test, tax, discount,
-                    convenience fee
+                    title of the service charges enum - Warehouse service, tax,
+                    discount, convenience fee
                   required: required
-                  usage: LFT Test
+                  usage: Warehouse service
                   reference: if any
                 price:
                   description: price of the quote breakup type
@@ -10209,7 +10209,7 @@ x-attributes:
                     title of the service charges enum - LFT Test, tax, discount,
                     convenience_fee
                   required: required
-                  usage: LFT Test
+                  usage: Warehouse Service
                   reference: if any
             payments:
               parent: true
