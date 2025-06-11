@@ -2578,7 +2578,7 @@ x-enum:
   search:
     context:
       domain: &ref_0
-        - code: ONDC:SRV19
+        - code: ONDC:SRV15
           description: Warehouse Services
           reference: <PR/Issue/Discussion Links md format text>
     message:
@@ -3090,7 +3090,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -3126,7 +3126,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -3406,7 +3406,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -3456,7 +3456,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -3739,7 +3739,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -3806,7 +3806,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -3920,7 +3920,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -4049,7 +4049,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -4266,7 +4266,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -4492,7 +4492,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -4717,7 +4717,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -4748,7 +4748,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -4979,7 +4979,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -5210,7 +5210,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -5466,7 +5466,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -5494,7 +5494,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -5765,7 +5765,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -5845,7 +5845,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -6064,7 +6064,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -6091,7 +6091,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -6312,7 +6312,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -6600,7 +6600,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -6865,7 +6865,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -7181,7 +7181,7 @@ x-flows:
           description: ''
           value:
             context:
-              domain: ONDC:SRV19
+              domain: ONDC:SRV15
               location:
                 city:
                   code: std:080
@@ -7477,7 +7477,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -7508,7 +7508,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -7555,7 +7555,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -7619,7 +7619,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -7745,7 +7745,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -7966,7 +7966,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -7990,7 +7990,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -8265,7 +8265,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -8545,7 +8545,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -8656,7 +8656,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -8871,7 +8871,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -9094,7 +9094,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -9316,7 +9316,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -9538,7 +9538,7 @@ x-examples:
             description: ''
             value:
               context:
-                domain: ONDC:SRV19
+                domain: ONDC:SRV15
                 location:
                   city:
                     code: std:080
@@ -9764,9 +9764,9 @@ x-attributes:
         context:
           parent: true
           domain:
-            description: domain code, enums - ONDC:SRV19 ( Services - Warehouse Services )
+            description: domain code, enums - ONDC:SRV15 ( Services - Warehouse Services )
             required: mandatory
-            usage: ONDC:SRV19
+            usage: ONDC:SRV15
             reference: if any
           city:
             code:
@@ -9814,7 +9814,7 @@ x-attributes:
               category:
                 description: Category of the search
                 required: optional
-                usage: SRV19-1000
+                usage: SRV15-1000
                 reference: if any
             fulfillment:
               parent: true
@@ -9981,7 +9981,7 @@ x-attributes:
                     category id of the service provided by the service provider
                     which was sent in /search call
                   required: required
-                  usage: SRV19-1000
+                  usage: SRV15-1000
                   reference: if any
                 fulfillment_ids:
                   description: >-

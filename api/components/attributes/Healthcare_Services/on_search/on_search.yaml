@@ -76,7 +76,7 @@ message:
         category_ids:
           description: category id of the service provided by the service provider which was sent in /search call
           required: required
-          usage: "SRV19-1000"
+          usage: "SRV15-1000"
           reference: if any
         fulfillment_ids:
           description: fulfillment id of the service provided by the service provider

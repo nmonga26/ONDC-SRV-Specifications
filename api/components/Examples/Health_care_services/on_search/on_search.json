@@ -110,7 +110,7 @@
                   "descriptor": {
                     "code": "category"
                   },
-                  "value": "SRV19-*"
+                  "value": "SRV15-*"
                 },
                 {
                   "descriptor": {
@@ -332,7 +332,7 @@
                 "offered_value": "1549.00",
                 "maximum_value": "1549.00"
               },
-              "category_ids": ["SRV19-xxxx", "C2"],
+              "category_ids": ["SRV15-xxxx", "C2"],
               "fulfillment_ids": ["1"],
               "location_ids": ["L1"],
               "payment_ids": ["1"],
