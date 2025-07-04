@@ -22,6 +22,8 @@ value:
     order:
       id: O1
       status: ACCEPTED
+      update_target:
+        - message.order.fulfillments
       provider:
         id: P1
         locations:
